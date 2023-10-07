@@ -1,0 +1,569 @@
+- File: webext/chrome/settings_private.idl
+  Enum:
+    Name: ControlledBy
+    Values:
+      - DEVICE_POLICY
+      - USER_POLICY
+      - OWNER
+      - PRIMARY_USER
+      - EXTENSION
+      - PARENT
+      - CHILD_RESTRICTION
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - settingsPrivate
+- File: webext/chrome/settings_private.idl
+  Enum:
+    Name: Enforcement
+    Values:
+      - ENFORCED
+      - RECOMMENDED
+      - PARENT_SUPERVISED
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - settingsPrivate
+- File: webext/chrome/settings_private.idl
+  Callback:
+    Name: GetAllPrefsCallback
+    Args:
+      - Name: prefs
+        Type:
+          Name: sequence
+          Params:
+            - Name: PrefObject
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - settingsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - settingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - settingsPrivate
+- File: webext/chrome/settings_private.idl
+  Callback:
+    Name: GetDefaultZoomCallback
+    Args:
+      - Name: zoom
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - settingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - settingsPrivate
+- File: webext/chrome/settings_private.idl
+  Callback:
+    Name: GetPrefCallback
+    Args:
+      - Name: pref
+        Type:
+          Name: PrefObject
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - settingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - settingsPrivate
+- File: webext/chrome/settings_private.idl
+  Callback:
+    Name: OnPrefSetCallback
+    Args:
+      - Name: success
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - settingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - settingsPrivate
+- File: webext/chrome/settings_private.idl
+  Dict:
+    Name: PrefObject
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - settingsPrivate
+    Fields:
+      - Name: key
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - settingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+      - Name: type
+        Type:
+          Name: PrefType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - settingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+      - Name: value
+        Type:
+          Name: any
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - settingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+      - Name: controlledBy
+        Type:
+          Name: ControlledBy
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - settingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+      - Name: controlledByName
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - settingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+      - Name: enforcement
+        Type:
+          Name: Enforcement
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - settingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+      - Name: recommendedValue
+        Type:
+          Name: any
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - settingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+      - Name: userSelectableValues
+        Type:
+          Name: sequence
+          Params:
+            - Name: any
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - settingsPrivate
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - settingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+      - Name: userControlDisabled
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - settingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+      - Name: extensionId
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - settingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+      - Name: extensionCanBeDisabled
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - settingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+- File: webext/chrome/settings_private.idl
+  Enum:
+    Name: PrefType
+    Values:
+      - BOOLEAN
+      - NUMBER
+      - STRING
+      - URL
+      - LIST
+      - DICTIONARY
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - settingsPrivate
+- File: webext/chrome/settings_private.idl
+  Callback:
+    Name: SetDefaultZoomCallback
+    Args:
+      - Name: success
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - settingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - settingsPrivate
+- File: webext/chrome/settings_private.idl
+  WebextFunc:
+    Name: getAllPrefs
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: PrefObject
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - settingsPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - settingsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - settingsPrivate
+- File: webext/chrome/settings_private.idl
+  WebextFunc:
+    Name: getDefaultZoom
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: double
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - settingsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - settingsPrivate
+- File: webext/chrome/settings_private.idl
+  WebextFunc:
+    Name: getPref
+    Modifier: static
+    Args:
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - settingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: PrefObject
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - settingsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - settingsPrivate
+- File: webext/chrome/settings_private.idl
+  WebextEvent:
+    Name: onPrefsChanged
+    Modifier: static
+    Args:
+      - Name: prefs
+        Type:
+          Name: sequence
+          Params:
+            - Name: PrefObject
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - settingsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - settingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - settingsPrivate
+- File: webext/chrome/settings_private.idl
+  WebextFunc:
+    Name: setDefaultZoom
+    Modifier: static
+    Args:
+      - Name: zoom
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - settingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - settingsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - settingsPrivate
+- File: webext/chrome/settings_private.idl
+  WebextFunc:
+    Name: setPref
+    Modifier: static
+    Args:
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - settingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+      - Name: value
+        Type:
+          Name: any
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - settingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+      - Name: pageId
+        Optional: true
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - settingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - settingsPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - settingsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - settingsPrivate

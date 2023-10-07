@@ -1,0 +1,240 @@
+- File: webext/chrome/accessibility_features.json
+  WebextProp:
+    Name: animationPolicy
+    Type:
+      Name: ChromeSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - types
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityFeatures
+- File: webext/chrome/accessibility_features.json
+  WebextProp:
+    Name: autoclick
+    Type:
+      Name: ChromeSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - types
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityFeatures
+- File: webext/chrome/accessibility_features.json
+  WebextProp:
+    Name: caretHighlight
+    Type:
+      Name: ChromeSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - types
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityFeatures
+- File: webext/chrome/accessibility_features.json
+  WebextProp:
+    Name: cursorColor
+    Type:
+      Name: ChromeSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - types
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityFeatures
+- File: webext/chrome/accessibility_features.json
+  WebextProp:
+    Name: cursorHighlight
+    Type:
+      Name: ChromeSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - types
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityFeatures
+- File: webext/chrome/accessibility_features.json
+  WebextProp:
+    Name: dictation
+    Type:
+      Name: ChromeSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - types
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityFeatures
+- File: webext/chrome/accessibility_features.json
+  WebextProp:
+    Name: dockedMagnifier
+    Type:
+      Name: ChromeSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - types
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityFeatures
+- File: webext/chrome/accessibility_features.json
+  WebextProp:
+    Name: focusHighlight
+    Type:
+      Name: ChromeSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - types
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityFeatures
+- File: webext/chrome/accessibility_features.json
+  WebextProp:
+    Name: highContrast
+    Type:
+      Name: ChromeSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - types
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityFeatures
+- File: webext/chrome/accessibility_features.json
+  WebextProp:
+    Name: largeCursor
+    Type:
+      Name: ChromeSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - types
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityFeatures
+- File: webext/chrome/accessibility_features.json
+  WebextProp:
+    Name: screenMagnifier
+    Type:
+      Name: ChromeSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - types
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityFeatures
+- File: webext/chrome/accessibility_features.json
+  WebextProp:
+    Name: selectToSpeak
+    Type:
+      Name: ChromeSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - types
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityFeatures
+- File: webext/chrome/accessibility_features.json
+  WebextProp:
+    Name: spokenFeedback
+    Type:
+      Name: ChromeSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - types
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityFeatures
+- File: webext/chrome/accessibility_features.json
+  WebextProp:
+    Name: stickyKeys
+    Type:
+      Name: ChromeSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - types
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityFeatures
+- File: webext/chrome/accessibility_features.json
+  WebextProp:
+    Name: switchAccess
+    Type:
+      Name: ChromeSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - types
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityFeatures
+- File: webext/chrome/accessibility_features.json
+  WebextProp:
+    Name: virtualKeyboard
+    Type:
+      Name: ChromeSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - types
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityFeatures

@@ -1,4 +1,4 @@
-- File: presentation-api.idl
+- File: webref/presentation-api.idl
   Interface:
     Name: PresentationConnectionCloseEvent
     Inherits: Event
@@ -39,7 +39,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: presentation-api.idl
+- File: webref/presentation-api.idl
   Dict:
     Name: PresentationConnectionCloseEventInit
     Inherits: EventInit
@@ -64,14 +64,14 @@
         Default: "false"
         Type:
           Name: boolean
-- File: presentation-api.idl
+- File: webref/presentation-api.idl
   Enum:
     Name: PresentationConnectionCloseReason
     Values:
       - error
       - closed
       - wentaway
-- File: presentation-api.idl
+- File: webref/presentation-api.idl
   Interface:
     Name: PresentationConnectionList
     Inherits: EventTarget
@@ -100,7 +100,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: presentation-api.idl
+- File: webref/presentation-api.idl
   Enum:
     Name: PresentationConnectionState
     Values:
@@ -108,7 +108,7 @@
       - connected
       - closed
       - terminated
-- File: presentation-api.idl
+- File: webref/presentation-api.idl
   Interface:
     Name: PresentationReceiver
     ExtAttrs:
@@ -128,7 +128,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: presentation-api.idl
+- File: webref/presentation-api.idl
   Interface:
     Name: PresentationRequest
     Inherits: EventTarget
@@ -202,14 +202,14 @@
           - Name: Exposed
             Values:
               - Window
-- File: clipboard-apis.idl
+- File: webref/clipboard-apis.idl
   Enum:
     Name: PresentationStyle
     Values:
       - unspecified
       - inline
       - attachment
-- File: compute-pressure.idl
+- File: webref/compute-pressure.idl
   Interface:
     Name: PressureObserver
     ExtAttrs:
@@ -305,7 +305,7 @@
               - SharedWorker
               - Window
           - Name: SecureContext
-- File: compute-pressure.idl
+- File: webref/compute-pressure.idl
   Dict:
     Name: PressureObserverOptions
     Fields:
@@ -313,7 +313,7 @@
         Default: "1.0"
         Type:
           Name: double
-- File: compute-pressure.idl
+- File: webref/compute-pressure.idl
   Interface:
     Name: PressureRecord
     ExtAttrs:
@@ -369,13 +369,13 @@
               - SharedWorker
               - Window
           - Name: SecureContext
-- File: compute-pressure.idl
+- File: webref/compute-pressure.idl
   Enum:
     Name: PressureSource
     Values:
       - thermals
       - cpu
-- File: compute-pressure.idl
+- File: webref/compute-pressure.idl
   Enum:
     Name: PressureState
     Values:
@@ -383,7 +383,7 @@
       - fair
       - serious
       - critical
-- File: compute-pressure.idl
+- File: webref/compute-pressure.idl
   Callback:
     Name: PressureUpdateCallback
     Args:
@@ -397,7 +397,7 @@
           Name: PressureObserver
     Returns:
       - Name: undefined
-- File: turtledove.idl
+- File: webref/turtledove.idl
   Dict:
     Name: PreviousWin
     Fields:
@@ -409,7 +409,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: private-network-access.idl
+- File: webref/private-network-access.idl
   Dict:
     Name: PrivateNetworkAccessPermissionDescriptor
     Inherits: PermissionDescriptor
@@ -421,7 +421,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: trust-token-api.idl
+- File: webref/trust-token-api.idl
   Dict:
     Name: PrivateToken
     Fields:
@@ -442,7 +442,7 @@
           Name: sequence
           Params:
             - Name: USVString
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: ProcessingInstruction
     Inherits: CharacterData
@@ -464,7 +464,7 @@
         Type:
           Name: CSSStyleSheet
           Nullable: true
-- File: js-self-profiling.idl
+- File: webref/js-self-profiling.idl
   Interface:
     Name: Profiler
     Inherits: EventTarget
@@ -508,7 +508,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: js-self-profiling.idl
+- File: webref/js-self-profiling.idl
   Dict:
     Name: ProfilerFrame
     Fields:
@@ -525,7 +525,7 @@
       - Name: column
         Type:
           Name: unsigned long long
-- File: js-self-profiling.idl
+- File: webref/js-self-profiling.idl
   Dict:
     Name: ProfilerInitOptions
     Fields:
@@ -537,12 +537,12 @@
         Required: true
         Type:
           Name: unsigned long
-- File: js-self-profiling.idl
+- File: webref/js-self-profiling.idl
   Typedef:
     Name: ProfilerResource
     Type:
       Name: DOMString
-- File: js-self-profiling.idl
+- File: webref/js-self-profiling.idl
   Dict:
     Name: ProfilerSample
     Fields:
@@ -553,7 +553,7 @@
       - Name: stackId
         Type:
           Name: unsigned long long
-- File: js-self-profiling.idl
+- File: webref/js-self-profiling.idl
   Dict:
     Name: ProfilerStack
     Fields:
@@ -564,7 +564,7 @@
         Required: true
         Type:
           Name: unsigned long long
-- File: js-self-profiling.idl
+- File: webref/js-self-profiling.idl
   Dict:
     Name: ProfilerTrace
     Fields:
@@ -592,7 +592,7 @@
           Name: sequence
           Params:
             - Name: ProfilerSample
-- File: xhr.idl
+- File: webref/xhr.idl
   Interface:
     Name: ProgressEvent
     Inherits: Event
@@ -644,7 +644,7 @@
             Values:
               - Window
               - Worker
-- File: xhr.idl
+- File: webref/xhr.idl
   Dict:
     Name: ProgressEventInit
     Inherits: EventInit
@@ -673,7 +673,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: PromiseRejectionEvent
     Inherits: Event
@@ -704,7 +704,7 @@
               Name: PromiseRejectionEventInit
         ExtAttrs:
           - Name: Exposed
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: PromiseRejectionEventInit
     Inherits: EventInit
@@ -730,14 +730,14 @@
         Default: "false"
         Type:
           Name: boolean
-- File: manifest-incubations.idl
+- File: webref/manifest-incubations.idl
   Dict:
     Name: PromptResponseObject
     Fields:
       - Name: userChoice
         Type:
           Name: AppBannerPromptOutcome
-- File: css-properties-values-api.idl
+- File: webref/css-properties-values-api.idl
   Dict:
     Name: PropertyDefinition
     Fields:
@@ -756,7 +756,7 @@
       - Name: initialValue
         Type:
           Name: DOMString
-- File: proximity.idl
+- File: webref/proximity.idl
   Dict:
     Name: ProximityReadingValues
     Fields:
@@ -775,7 +775,7 @@
         Type:
           Name: boolean
           Nullable: true
-- File: proximity.idl
+- File: webref/proximity.idl
   Interface:
     Name: ProximitySensor
     Inherits: Sensor
@@ -827,7 +827,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Interface:
     Name: PublicKeyCredential
     Inherits: Credential
@@ -924,7 +924,7 @@
           - Name: Promise
             Params:
               - Name: boolean
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: PublicKeyCredentialCreationOptions
     Fields:
@@ -977,7 +977,7 @@
       - Name: extensions
         Type:
           Name: AuthenticationExtensionsClientInputs
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: PublicKeyCredentialCreationOptionsJSON
     Fields:
@@ -1030,7 +1030,7 @@
       - Name: extensions
         Type:
           Name: AuthenticationExtensionsClientInputsJSON
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: PublicKeyCredentialDescriptor
     Fields:
@@ -1047,7 +1047,7 @@
           Name: sequence
           Params:
             - Name: DOMString
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: PublicKeyCredentialDescriptorJSON
     Fields:
@@ -1064,7 +1064,7 @@
           Name: sequence
           Params:
             - Name: DOMString
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: PublicKeyCredentialEntity
     Fields:
@@ -1072,21 +1072,21 @@
         Required: true
         Type:
           Name: DOMString
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Enum:
     Name: PublicKeyCredentialHints
     Values:
       - security-key
       - client-device
       - hybrid
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Typedef:
     Name: PublicKeyCredentialJSON
     Type:
       Union:
         - Name: RegistrationResponseJSON
         - Name: AuthenticationResponseJSON
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: PublicKeyCredentialParameters
     Fields:
@@ -1098,7 +1098,7 @@
         Required: true
         Type:
           Name: COSEAlgorithmIdentifier
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: PublicKeyCredentialRequestOptions
     Fields:
@@ -1141,7 +1141,7 @@
       - Name: extensions
         Type:
           Name: AuthenticationExtensionsClientInputs
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: PublicKeyCredentialRequestOptionsJSON
     Fields:
@@ -1184,7 +1184,7 @@
       - Name: extensions
         Type:
           Name: AuthenticationExtensionsClientInputsJSON
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: PublicKeyCredentialRpEntity
     Inherits: PublicKeyCredentialEntity
@@ -1196,12 +1196,12 @@
         Required: true
         Type:
           Name: DOMString
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Enum:
     Name: PublicKeyCredentialType
     Values:
       - public-key
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: PublicKeyCredentialUserEntity
     Inherits: PublicKeyCredentialEntity
@@ -1218,7 +1218,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: PublicKeyCredentialUserEntityJSON
     Fields:
@@ -1234,7 +1234,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: digital-goods.idl
+- File: webref/digital-goods.idl
   Dict:
     Name: PurchaseDetails
     Fields:
@@ -1246,7 +1246,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: push-api.idl
+- File: webref/push-api.idl
   Enum:
     Name: PushEncryptionKeyName
     Values:

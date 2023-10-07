@@ -5,17 +5,9 @@ package web
 
 import (
 	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 type MIDIOptions struct {
 	// Sysex is "MIDIOptions.sysex"
@@ -51,17 +43,22 @@ func (p MIDIOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MIDIOptions) UpdateFrom(ref js.Ref) {
+func (p *MIDIOptions) UpdateFrom(ref js.Ref) {
 	bindings.MIDIOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MIDIOptions) Update(ref js.Ref) {
+func (p *MIDIOptions) Update(ref js.Ref) {
 	bindings.MIDIOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MIDIOptions) FreeMembers(recursive bool) {
 }
 
 type HIDUnitSystem uint32
@@ -310,17 +307,28 @@ func (p HIDReportItem) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p HIDReportItem) UpdateFrom(ref js.Ref) {
+func (p *HIDReportItem) UpdateFrom(ref js.Ref) {
 	bindings.HIDReportItemJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p HIDReportItem) Update(ref js.Ref) {
+func (p *HIDReportItem) Update(ref js.Ref) {
 	bindings.HIDReportItemJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *HIDReportItem) FreeMembers(recursive bool) {
+	js.Free(
+		p.Usages.Ref(),
+		p.Strings.Ref(),
+	)
+	p.Usages = p.Usages.FromRef(js.Undefined)
+	p.Strings = p.Strings.FromRef(js.Undefined)
 }
 
 type HIDReportInfo struct {
@@ -354,17 +362,26 @@ func (p HIDReportInfo) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p HIDReportInfo) UpdateFrom(ref js.Ref) {
+func (p *HIDReportInfo) UpdateFrom(ref js.Ref) {
 	bindings.HIDReportInfoJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p HIDReportInfo) Update(ref js.Ref) {
+func (p *HIDReportInfo) Update(ref js.Ref) {
 	bindings.HIDReportInfoJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *HIDReportInfo) FreeMembers(recursive bool) {
+	js.Free(
+		p.Items.Ref(),
+	)
+	p.Items = p.Items.FromRef(js.Undefined)
 }
 
 type HIDCollectionInfo struct {
@@ -424,17 +441,32 @@ func (p HIDCollectionInfo) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p HIDCollectionInfo) UpdateFrom(ref js.Ref) {
+func (p *HIDCollectionInfo) UpdateFrom(ref js.Ref) {
 	bindings.HIDCollectionInfoJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p HIDCollectionInfo) Update(ref js.Ref) {
+func (p *HIDCollectionInfo) Update(ref js.Ref) {
 	bindings.HIDCollectionInfoJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *HIDCollectionInfo) FreeMembers(recursive bool) {
+	js.Free(
+		p.Children.Ref(),
+		p.InputReports.Ref(),
+		p.OutputReports.Ref(),
+		p.FeatureReports.Ref(),
+	)
+	p.Children = p.Children.FromRef(js.Undefined)
+	p.InputReports = p.InputReports.FromRef(js.Undefined)
+	p.OutputReports = p.OutputReports.FromRef(js.Undefined)
+	p.FeatureReports = p.FeatureReports.FromRef(js.Undefined)
 }
 
 type HIDDevice struct {
@@ -442,7 +474,7 @@ type HIDDevice struct {
 }
 
 func (this HIDDevice) Once() HIDDevice {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -456,7 +488,7 @@ func (this HIDDevice) FromRef(ref js.Ref) HIDDevice {
 }
 
 func (this HIDDevice) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Opened returns the value of property "HIDDevice.opened".
@@ -464,7 +496,7 @@ func (this HIDDevice) Free() {
 // It returns ok=false if there is no such property.
 func (this HIDDevice) Opened() (ret bool, ok bool) {
 	ok = js.True == bindings.GetHIDDeviceOpened(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -474,7 +506,7 @@ func (this HIDDevice) Opened() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HIDDevice) VendorId() (ret uint16, ok bool) {
 	ok = js.True == bindings.GetHIDDeviceVendorId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -484,7 +516,7 @@ func (this HIDDevice) VendorId() (ret uint16, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HIDDevice) ProductId() (ret uint16, ok bool) {
 	ok = js.True == bindings.GetHIDDeviceProductId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -494,7 +526,7 @@ func (this HIDDevice) ProductId() (ret uint16, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HIDDevice) ProductName() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHIDDeviceProductName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -504,31 +536,30 @@ func (this HIDDevice) ProductName() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HIDDevice) Collections() (ret js.FrozenArray[HIDCollectionInfo], ok bool) {
 	ok = js.True == bindings.GetHIDDeviceCollections(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasOpen returns true if the method "HIDDevice.open" exists.
-func (this HIDDevice) HasOpen() bool {
-	return js.True == bindings.HasHIDDeviceOpen(
-		this.Ref(),
+// HasFuncOpen returns true if the method "HIDDevice.open" exists.
+func (this HIDDevice) HasFuncOpen() bool {
+	return js.True == bindings.HasFuncHIDDeviceOpen(
+		this.ref,
 	)
 }
 
-// OpenFunc returns the method "HIDDevice.open".
-func (this HIDDevice) OpenFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.HIDDeviceOpenFunc(
-			this.Ref(),
-		),
+// FuncOpen returns the method "HIDDevice.open".
+func (this HIDDevice) FuncOpen() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncHIDDeviceOpen(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Open calls the method "HIDDevice.open".
 func (this HIDDevice) Open() (ret js.Promise[js.Void]) {
 	bindings.CallHIDDeviceOpen(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -539,32 +570,31 @@ func (this HIDDevice) Open() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this HIDDevice) TryOpen() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHIDDeviceOpen(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasClose returns true if the method "HIDDevice.close" exists.
-func (this HIDDevice) HasClose() bool {
-	return js.True == bindings.HasHIDDeviceClose(
-		this.Ref(),
+// HasFuncClose returns true if the method "HIDDevice.close" exists.
+func (this HIDDevice) HasFuncClose() bool {
+	return js.True == bindings.HasFuncHIDDeviceClose(
+		this.ref,
 	)
 }
 
-// CloseFunc returns the method "HIDDevice.close".
-func (this HIDDevice) CloseFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.HIDDeviceCloseFunc(
-			this.Ref(),
-		),
+// FuncClose returns the method "HIDDevice.close".
+func (this HIDDevice) FuncClose() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncHIDDeviceClose(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Close calls the method "HIDDevice.close".
 func (this HIDDevice) Close() (ret js.Promise[js.Void]) {
 	bindings.CallHIDDeviceClose(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -575,32 +605,31 @@ func (this HIDDevice) Close() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this HIDDevice) TryClose() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHIDDeviceClose(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasForget returns true if the method "HIDDevice.forget" exists.
-func (this HIDDevice) HasForget() bool {
-	return js.True == bindings.HasHIDDeviceForget(
-		this.Ref(),
+// HasFuncForget returns true if the method "HIDDevice.forget" exists.
+func (this HIDDevice) HasFuncForget() bool {
+	return js.True == bindings.HasFuncHIDDeviceForget(
+		this.ref,
 	)
 }
 
-// ForgetFunc returns the method "HIDDevice.forget".
-func (this HIDDevice) ForgetFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.HIDDeviceForgetFunc(
-			this.Ref(),
-		),
+// FuncForget returns the method "HIDDevice.forget".
+func (this HIDDevice) FuncForget() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncHIDDeviceForget(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Forget calls the method "HIDDevice.forget".
 func (this HIDDevice) Forget() (ret js.Promise[js.Void]) {
 	bindings.CallHIDDeviceForget(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -611,32 +640,31 @@ func (this HIDDevice) Forget() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this HIDDevice) TryForget() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHIDDeviceForget(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSendReport returns true if the method "HIDDevice.sendReport" exists.
-func (this HIDDevice) HasSendReport() bool {
-	return js.True == bindings.HasHIDDeviceSendReport(
-		this.Ref(),
+// HasFuncSendReport returns true if the method "HIDDevice.sendReport" exists.
+func (this HIDDevice) HasFuncSendReport() bool {
+	return js.True == bindings.HasFuncHIDDeviceSendReport(
+		this.ref,
 	)
 }
 
-// SendReportFunc returns the method "HIDDevice.sendReport".
-func (this HIDDevice) SendReportFunc() (fn js.Func[func(reportId uint8, data BufferSource) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.HIDDeviceSendReportFunc(
-			this.Ref(),
-		),
+// FuncSendReport returns the method "HIDDevice.sendReport".
+func (this HIDDevice) FuncSendReport() (fn js.Func[func(reportId uint8, data BufferSource) js.Promise[js.Void]]) {
+	bindings.FuncHIDDeviceSendReport(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SendReport calls the method "HIDDevice.sendReport".
 func (this HIDDevice) SendReport(reportId uint8, data BufferSource) (ret js.Promise[js.Void]) {
 	bindings.CallHIDDeviceSendReport(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(reportId),
 		data.Ref(),
 	)
@@ -649,7 +677,7 @@ func (this HIDDevice) SendReport(reportId uint8, data BufferSource) (ret js.Prom
 // the catch clause.
 func (this HIDDevice) TrySendReport(reportId uint8, data BufferSource) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHIDDeviceSendReport(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(reportId),
 		data.Ref(),
 	)
@@ -657,26 +685,25 @@ func (this HIDDevice) TrySendReport(reportId uint8, data BufferSource) (ret js.P
 	return
 }
 
-// HasSendFeatureReport returns true if the method "HIDDevice.sendFeatureReport" exists.
-func (this HIDDevice) HasSendFeatureReport() bool {
-	return js.True == bindings.HasHIDDeviceSendFeatureReport(
-		this.Ref(),
+// HasFuncSendFeatureReport returns true if the method "HIDDevice.sendFeatureReport" exists.
+func (this HIDDevice) HasFuncSendFeatureReport() bool {
+	return js.True == bindings.HasFuncHIDDeviceSendFeatureReport(
+		this.ref,
 	)
 }
 
-// SendFeatureReportFunc returns the method "HIDDevice.sendFeatureReport".
-func (this HIDDevice) SendFeatureReportFunc() (fn js.Func[func(reportId uint8, data BufferSource) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.HIDDeviceSendFeatureReportFunc(
-			this.Ref(),
-		),
+// FuncSendFeatureReport returns the method "HIDDevice.sendFeatureReport".
+func (this HIDDevice) FuncSendFeatureReport() (fn js.Func[func(reportId uint8, data BufferSource) js.Promise[js.Void]]) {
+	bindings.FuncHIDDeviceSendFeatureReport(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SendFeatureReport calls the method "HIDDevice.sendFeatureReport".
 func (this HIDDevice) SendFeatureReport(reportId uint8, data BufferSource) (ret js.Promise[js.Void]) {
 	bindings.CallHIDDeviceSendFeatureReport(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(reportId),
 		data.Ref(),
 	)
@@ -689,7 +716,7 @@ func (this HIDDevice) SendFeatureReport(reportId uint8, data BufferSource) (ret 
 // the catch clause.
 func (this HIDDevice) TrySendFeatureReport(reportId uint8, data BufferSource) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHIDDeviceSendFeatureReport(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(reportId),
 		data.Ref(),
 	)
@@ -697,26 +724,25 @@ func (this HIDDevice) TrySendFeatureReport(reportId uint8, data BufferSource) (r
 	return
 }
 
-// HasReceiveFeatureReport returns true if the method "HIDDevice.receiveFeatureReport" exists.
-func (this HIDDevice) HasReceiveFeatureReport() bool {
-	return js.True == bindings.HasHIDDeviceReceiveFeatureReport(
-		this.Ref(),
+// HasFuncReceiveFeatureReport returns true if the method "HIDDevice.receiveFeatureReport" exists.
+func (this HIDDevice) HasFuncReceiveFeatureReport() bool {
+	return js.True == bindings.HasFuncHIDDeviceReceiveFeatureReport(
+		this.ref,
 	)
 }
 
-// ReceiveFeatureReportFunc returns the method "HIDDevice.receiveFeatureReport".
-func (this HIDDevice) ReceiveFeatureReportFunc() (fn js.Func[func(reportId uint8) js.Promise[js.DataView]]) {
-	return fn.FromRef(
-		bindings.HIDDeviceReceiveFeatureReportFunc(
-			this.Ref(),
-		),
+// FuncReceiveFeatureReport returns the method "HIDDevice.receiveFeatureReport".
+func (this HIDDevice) FuncReceiveFeatureReport() (fn js.Func[func(reportId uint8) js.Promise[js.DataView]]) {
+	bindings.FuncHIDDeviceReceiveFeatureReport(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReceiveFeatureReport calls the method "HIDDevice.receiveFeatureReport".
 func (this HIDDevice) ReceiveFeatureReport(reportId uint8) (ret js.Promise[js.DataView]) {
 	bindings.CallHIDDeviceReceiveFeatureReport(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(reportId),
 	)
 
@@ -728,7 +754,7 @@ func (this HIDDevice) ReceiveFeatureReport(reportId uint8) (ret js.Promise[js.Da
 // the catch clause.
 func (this HIDDevice) TryReceiveFeatureReport(reportId uint8) (ret js.Promise[js.DataView], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHIDDeviceReceiveFeatureReport(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(reportId),
 	)
 
@@ -783,17 +809,22 @@ func (p HIDDeviceFilter) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p HIDDeviceFilter) UpdateFrom(ref js.Ref) {
+func (p *HIDDeviceFilter) UpdateFrom(ref js.Ref) {
 	bindings.HIDDeviceFilterJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p HIDDeviceFilter) Update(ref js.Ref) {
+func (p *HIDDeviceFilter) Update(ref js.Ref) {
 	bindings.HIDDeviceFilterJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *HIDDeviceFilter) FreeMembers(recursive bool) {
 }
 
 type HIDDeviceRequestOptions struct {
@@ -823,17 +854,28 @@ func (p HIDDeviceRequestOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p HIDDeviceRequestOptions) UpdateFrom(ref js.Ref) {
+func (p *HIDDeviceRequestOptions) UpdateFrom(ref js.Ref) {
 	bindings.HIDDeviceRequestOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p HIDDeviceRequestOptions) Update(ref js.Ref) {
+func (p *HIDDeviceRequestOptions) Update(ref js.Ref) {
 	bindings.HIDDeviceRequestOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *HIDDeviceRequestOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Filters.Ref(),
+		p.ExclusionFilters.Ref(),
+	)
+	p.Filters = p.Filters.FromRef(js.Undefined)
+	p.ExclusionFilters = p.ExclusionFilters.FromRef(js.Undefined)
 }
 
 type HID struct {
@@ -841,7 +883,7 @@ type HID struct {
 }
 
 func (this HID) Once() HID {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -855,29 +897,28 @@ func (this HID) FromRef(ref js.Ref) HID {
 }
 
 func (this HID) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasGetDevices returns true if the method "HID.getDevices" exists.
-func (this HID) HasGetDevices() bool {
-	return js.True == bindings.HasHIDGetDevices(
-		this.Ref(),
+// HasFuncGetDevices returns true if the method "HID.getDevices" exists.
+func (this HID) HasFuncGetDevices() bool {
+	return js.True == bindings.HasFuncHIDGetDevices(
+		this.ref,
 	)
 }
 
-// GetDevicesFunc returns the method "HID.getDevices".
-func (this HID) GetDevicesFunc() (fn js.Func[func() js.Promise[js.Array[HIDDevice]]]) {
-	return fn.FromRef(
-		bindings.HIDGetDevicesFunc(
-			this.Ref(),
-		),
+// FuncGetDevices returns the method "HID.getDevices".
+func (this HID) FuncGetDevices() (fn js.Func[func() js.Promise[js.Array[HIDDevice]]]) {
+	bindings.FuncHIDGetDevices(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetDevices calls the method "HID.getDevices".
 func (this HID) GetDevices() (ret js.Promise[js.Array[HIDDevice]]) {
 	bindings.CallHIDGetDevices(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -888,32 +929,31 @@ func (this HID) GetDevices() (ret js.Promise[js.Array[HIDDevice]]) {
 // the catch clause.
 func (this HID) TryGetDevices() (ret js.Promise[js.Array[HIDDevice]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHIDGetDevices(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasRequestDevice returns true if the method "HID.requestDevice" exists.
-func (this HID) HasRequestDevice() bool {
-	return js.True == bindings.HasHIDRequestDevice(
-		this.Ref(),
+// HasFuncRequestDevice returns true if the method "HID.requestDevice" exists.
+func (this HID) HasFuncRequestDevice() bool {
+	return js.True == bindings.HasFuncHIDRequestDevice(
+		this.ref,
 	)
 }
 
-// RequestDeviceFunc returns the method "HID.requestDevice".
-func (this HID) RequestDeviceFunc() (fn js.Func[func(options HIDDeviceRequestOptions) js.Promise[js.Array[HIDDevice]]]) {
-	return fn.FromRef(
-		bindings.HIDRequestDeviceFunc(
-			this.Ref(),
-		),
+// FuncRequestDevice returns the method "HID.requestDevice".
+func (this HID) FuncRequestDevice() (fn js.Func[func(options HIDDeviceRequestOptions) js.Promise[js.Array[HIDDevice]]]) {
+	bindings.FuncHIDRequestDevice(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RequestDevice calls the method "HID.requestDevice".
 func (this HID) RequestDevice(options HIDDeviceRequestOptions) (ret js.Promise[js.Array[HIDDevice]]) {
 	bindings.CallHIDRequestDevice(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -925,7 +965,7 @@ func (this HID) RequestDevice(options HIDDeviceRequestOptions) (ret js.Promise[j
 // the catch clause.
 func (this HID) TryRequestDevice(options HIDDeviceRequestOptions) (ret js.Promise[js.Array[HIDDevice]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHIDRequestDevice(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
@@ -937,7 +977,7 @@ type WindowControlsOverlay struct {
 }
 
 func (this WindowControlsOverlay) Once() WindowControlsOverlay {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -951,7 +991,7 @@ func (this WindowControlsOverlay) FromRef(ref js.Ref) WindowControlsOverlay {
 }
 
 func (this WindowControlsOverlay) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Visible returns the value of property "WindowControlsOverlay.visible".
@@ -959,31 +999,30 @@ func (this WindowControlsOverlay) Free() {
 // It returns ok=false if there is no such property.
 func (this WindowControlsOverlay) Visible() (ret bool, ok bool) {
 	ok = js.True == bindings.GetWindowControlsOverlayVisible(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGetTitlebarAreaRect returns true if the method "WindowControlsOverlay.getTitlebarAreaRect" exists.
-func (this WindowControlsOverlay) HasGetTitlebarAreaRect() bool {
-	return js.True == bindings.HasWindowControlsOverlayGetTitlebarAreaRect(
-		this.Ref(),
+// HasFuncGetTitlebarAreaRect returns true if the method "WindowControlsOverlay.getTitlebarAreaRect" exists.
+func (this WindowControlsOverlay) HasFuncGetTitlebarAreaRect() bool {
+	return js.True == bindings.HasFuncWindowControlsOverlayGetTitlebarAreaRect(
+		this.ref,
 	)
 }
 
-// GetTitlebarAreaRectFunc returns the method "WindowControlsOverlay.getTitlebarAreaRect".
-func (this WindowControlsOverlay) GetTitlebarAreaRectFunc() (fn js.Func[func() DOMRect]) {
-	return fn.FromRef(
-		bindings.WindowControlsOverlayGetTitlebarAreaRectFunc(
-			this.Ref(),
-		),
+// FuncGetTitlebarAreaRect returns the method "WindowControlsOverlay.getTitlebarAreaRect".
+func (this WindowControlsOverlay) FuncGetTitlebarAreaRect() (fn js.Func[func() DOMRect]) {
+	bindings.FuncWindowControlsOverlayGetTitlebarAreaRect(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetTitlebarAreaRect calls the method "WindowControlsOverlay.getTitlebarAreaRect".
 func (this WindowControlsOverlay) GetTitlebarAreaRect() (ret DOMRect) {
 	bindings.CallWindowControlsOverlayGetTitlebarAreaRect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -994,7 +1033,7 @@ func (this WindowControlsOverlay) GetTitlebarAreaRect() (ret DOMRect) {
 // the catch clause.
 func (this WindowControlsOverlay) TryGetTitlebarAreaRect() (ret DOMRect, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWindowControlsOverlayGetTitlebarAreaRect(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1005,7 +1044,7 @@ type Credential struct {
 }
 
 func (this Credential) Once() Credential {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1019,7 +1058,7 @@ func (this Credential) FromRef(ref js.Ref) Credential {
 }
 
 func (this Credential) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Id returns the value of property "Credential.id".
@@ -1027,7 +1066,7 @@ func (this Credential) Free() {
 // It returns ok=false if there is no such property.
 func (this Credential) Id() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetCredentialId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1037,42 +1076,41 @@ func (this Credential) Id() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Credential) Type() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetCredentialType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasIsConditionalMediationAvailable returns true if the staticmethod "Credential.isConditionalMediationAvailable" exists.
-func (this Credential) HasIsConditionalMediationAvailable() bool {
-	return js.True == bindings.HasCredentialIsConditionalMediationAvailable(
-		this.Ref(),
+// HasFuncIsConditionalMediationAvailable returns true if the static method "Credential.isConditionalMediationAvailable" exists.
+func (this Credential) HasFuncIsConditionalMediationAvailable() bool {
+	return js.True == bindings.HasFuncCredentialIsConditionalMediationAvailable(
+		this.ref,
 	)
 }
 
-// IsConditionalMediationAvailableFunc returns the staticmethod "Credential.isConditionalMediationAvailable".
-func (this Credential) IsConditionalMediationAvailableFunc() (fn js.Func[func() js.Promise[js.Boolean]]) {
-	return fn.FromRef(
-		bindings.CredentialIsConditionalMediationAvailableFunc(
-			this.Ref(),
-		),
+// FuncIsConditionalMediationAvailable returns the static method "Credential.isConditionalMediationAvailable".
+func (this Credential) FuncIsConditionalMediationAvailable() (fn js.Func[func() js.Promise[js.Boolean]]) {
+	bindings.FuncCredentialIsConditionalMediationAvailable(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// IsConditionalMediationAvailable calls the staticmethod "Credential.isConditionalMediationAvailable".
+// IsConditionalMediationAvailable calls the static method "Credential.isConditionalMediationAvailable".
 func (this Credential) IsConditionalMediationAvailable() (ret js.Promise[js.Boolean]) {
 	bindings.CallCredentialIsConditionalMediationAvailable(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
 }
 
-// TryIsConditionalMediationAvailable calls the staticmethod "Credential.isConditionalMediationAvailable"
+// TryIsConditionalMediationAvailable calls the static method "Credential.isConditionalMediationAvailable"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Credential) TryIsConditionalMediationAvailable() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCredentialIsConditionalMediationAvailable(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1152,17 +1190,26 @@ func (p OTPCredentialRequestOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p OTPCredentialRequestOptions) UpdateFrom(ref js.Ref) {
+func (p *OTPCredentialRequestOptions) UpdateFrom(ref js.Ref) {
 	bindings.OTPCredentialRequestOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p OTPCredentialRequestOptions) Update(ref js.Ref) {
+func (p *OTPCredentialRequestOptions) Update(ref js.Ref) {
 	bindings.OTPCredentialRequestOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *OTPCredentialRequestOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Transport.Ref(),
+	)
+	p.Transport = p.Transport.FromRef(js.Undefined)
 }
 
 type PublicKeyCredentialDescriptor struct {
@@ -1196,17 +1243,30 @@ func (p PublicKeyCredentialDescriptor) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PublicKeyCredentialDescriptor) UpdateFrom(ref js.Ref) {
+func (p *PublicKeyCredentialDescriptor) UpdateFrom(ref js.Ref) {
 	bindings.PublicKeyCredentialDescriptorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PublicKeyCredentialDescriptor) Update(ref js.Ref) {
+func (p *PublicKeyCredentialDescriptor) Update(ref js.Ref) {
 	bindings.PublicKeyCredentialDescriptorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PublicKeyCredentialDescriptor) FreeMembers(recursive bool) {
+	js.Free(
+		p.Type.Ref(),
+		p.Id.Ref(),
+		p.Transports.Ref(),
+	)
+	p.Type = p.Type.FromRef(js.Undefined)
+	p.Id = p.Id.FromRef(js.Undefined)
+	p.Transports = p.Transports.FromRef(js.Undefined)
 }
 
 type PublicKeyCredentialRequestOptions struct {
@@ -1270,17 +1330,41 @@ func (p PublicKeyCredentialRequestOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PublicKeyCredentialRequestOptions) UpdateFrom(ref js.Ref) {
+func (p *PublicKeyCredentialRequestOptions) UpdateFrom(ref js.Ref) {
 	bindings.PublicKeyCredentialRequestOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PublicKeyCredentialRequestOptions) Update(ref js.Ref) {
+func (p *PublicKeyCredentialRequestOptions) Update(ref js.Ref) {
 	bindings.PublicKeyCredentialRequestOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PublicKeyCredentialRequestOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Challenge.Ref(),
+		p.RpId.Ref(),
+		p.AllowCredentials.Ref(),
+		p.UserVerification.Ref(),
+		p.Hints.Ref(),
+		p.Attestation.Ref(),
+		p.AttestationFormats.Ref(),
+	)
+	p.Challenge = p.Challenge.FromRef(js.Undefined)
+	p.RpId = p.RpId.FromRef(js.Undefined)
+	p.AllowCredentials = p.AllowCredentials.FromRef(js.Undefined)
+	p.UserVerification = p.UserVerification.FromRef(js.Undefined)
+	p.Hints = p.Hints.FromRef(js.Undefined)
+	p.Attestation = p.Attestation.FromRef(js.Undefined)
+	p.AttestationFormats = p.AttestationFormats.FromRef(js.Undefined)
+	if recursive {
+		p.Extensions.FreeMembers(true)
+	}
 }
 
 type IdentityProviderConfig struct {
@@ -1318,17 +1402,32 @@ func (p IdentityProviderConfig) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p IdentityProviderConfig) UpdateFrom(ref js.Ref) {
+func (p *IdentityProviderConfig) UpdateFrom(ref js.Ref) {
 	bindings.IdentityProviderConfigJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p IdentityProviderConfig) Update(ref js.Ref) {
+func (p *IdentityProviderConfig) Update(ref js.Ref) {
 	bindings.IdentityProviderConfigJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *IdentityProviderConfig) FreeMembers(recursive bool) {
+	js.Free(
+		p.ConfigURL.Ref(),
+		p.ClientId.Ref(),
+		p.Nonce.Ref(),
+		p.LoginHint.Ref(),
+	)
+	p.ConfigURL = p.ConfigURL.FromRef(js.Undefined)
+	p.ClientId = p.ClientId.FromRef(js.Undefined)
+	p.Nonce = p.Nonce.FromRef(js.Undefined)
+	p.LoginHint = p.LoginHint.FromRef(js.Undefined)
 }
 
 type IdentityCredentialRequestOptionsContext uint32
@@ -1388,17 +1487,26 @@ func (p IdentityCredentialRequestOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p IdentityCredentialRequestOptions) UpdateFrom(ref js.Ref) {
+func (p *IdentityCredentialRequestOptions) UpdateFrom(ref js.Ref) {
 	bindings.IdentityCredentialRequestOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p IdentityCredentialRequestOptions) Update(ref js.Ref) {
+func (p *IdentityCredentialRequestOptions) Update(ref js.Ref) {
 	bindings.IdentityCredentialRequestOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *IdentityCredentialRequestOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Providers.Ref(),
+	)
+	p.Providers = p.Providers.FromRef(js.Undefined)
 }
 
 type FederatedCredentialRequestOptions struct {
@@ -1428,17 +1536,28 @@ func (p FederatedCredentialRequestOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p FederatedCredentialRequestOptions) UpdateFrom(ref js.Ref) {
+func (p *FederatedCredentialRequestOptions) UpdateFrom(ref js.Ref) {
 	bindings.FederatedCredentialRequestOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p FederatedCredentialRequestOptions) Update(ref js.Ref) {
+func (p *FederatedCredentialRequestOptions) Update(ref js.Ref) {
 	bindings.FederatedCredentialRequestOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *FederatedCredentialRequestOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Providers.Ref(),
+		p.Protocols.Ref(),
+	)
+	p.Providers = p.Providers.FromRef(js.Undefined)
+	p.Protocols = p.Protocols.FromRef(js.Undefined)
 }
 
 type CredentialRequestOptions struct {
@@ -1500,17 +1619,32 @@ func (p CredentialRequestOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p CredentialRequestOptions) UpdateFrom(ref js.Ref) {
+func (p *CredentialRequestOptions) UpdateFrom(ref js.Ref) {
 	bindings.CredentialRequestOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p CredentialRequestOptions) Update(ref js.Ref) {
+func (p *CredentialRequestOptions) Update(ref js.Ref) {
 	bindings.CredentialRequestOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *CredentialRequestOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Signal.Ref(),
+	)
+	p.Signal = p.Signal.FromRef(js.Undefined)
+	if recursive {
+		p.Otp.FreeMembers(true)
+		p.PublicKey.FreeMembers(true)
+		p.Identity.FreeMembers(true)
+		p.Federated.FreeMembers(true)
+	}
 }
 
 type PublicKeyCredentialRpEntity struct {
@@ -1540,17 +1674,28 @@ func (p PublicKeyCredentialRpEntity) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PublicKeyCredentialRpEntity) UpdateFrom(ref js.Ref) {
+func (p *PublicKeyCredentialRpEntity) UpdateFrom(ref js.Ref) {
 	bindings.PublicKeyCredentialRpEntityJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PublicKeyCredentialRpEntity) Update(ref js.Ref) {
+func (p *PublicKeyCredentialRpEntity) Update(ref js.Ref) {
 	bindings.PublicKeyCredentialRpEntityJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PublicKeyCredentialRpEntity) FreeMembers(recursive bool) {
+	js.Free(
+		p.Id.Ref(),
+		p.Name.Ref(),
+	)
+	p.Id = p.Id.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type PublicKeyCredentialUserEntity struct {
@@ -1584,17 +1729,30 @@ func (p PublicKeyCredentialUserEntity) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PublicKeyCredentialUserEntity) UpdateFrom(ref js.Ref) {
+func (p *PublicKeyCredentialUserEntity) UpdateFrom(ref js.Ref) {
 	bindings.PublicKeyCredentialUserEntityJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PublicKeyCredentialUserEntity) Update(ref js.Ref) {
+func (p *PublicKeyCredentialUserEntity) Update(ref js.Ref) {
 	bindings.PublicKeyCredentialUserEntityJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PublicKeyCredentialUserEntity) FreeMembers(recursive bool) {
+	js.Free(
+		p.Id.Ref(),
+		p.DisplayName.Ref(),
+		p.Name.Ref(),
+	)
+	p.Id = p.Id.FromRef(js.Undefined)
+	p.DisplayName = p.DisplayName.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type PublicKeyCredentialParameters struct {
@@ -1624,17 +1782,26 @@ func (p PublicKeyCredentialParameters) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PublicKeyCredentialParameters) UpdateFrom(ref js.Ref) {
+func (p *PublicKeyCredentialParameters) UpdateFrom(ref js.Ref) {
 	bindings.PublicKeyCredentialParametersJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PublicKeyCredentialParameters) Update(ref js.Ref) {
+func (p *PublicKeyCredentialParameters) Update(ref js.Ref) {
 	bindings.PublicKeyCredentialParametersJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PublicKeyCredentialParameters) FreeMembers(recursive bool) {
+	js.Free(
+		p.Type.Ref(),
+	)
+	p.Type = p.Type.FromRef(js.Undefined)
 }
 
 type PublicKeyCredentialCreationOptions struct {
@@ -1712,17 +1879,42 @@ func (p PublicKeyCredentialCreationOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PublicKeyCredentialCreationOptions) UpdateFrom(ref js.Ref) {
+func (p *PublicKeyCredentialCreationOptions) UpdateFrom(ref js.Ref) {
 	bindings.PublicKeyCredentialCreationOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PublicKeyCredentialCreationOptions) Update(ref js.Ref) {
+func (p *PublicKeyCredentialCreationOptions) Update(ref js.Ref) {
 	bindings.PublicKeyCredentialCreationOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PublicKeyCredentialCreationOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Challenge.Ref(),
+		p.PubKeyCredParams.Ref(),
+		p.ExcludeCredentials.Ref(),
+		p.Hints.Ref(),
+		p.Attestation.Ref(),
+		p.AttestationFormats.Ref(),
+	)
+	p.Challenge = p.Challenge.FromRef(js.Undefined)
+	p.PubKeyCredParams = p.PubKeyCredParams.FromRef(js.Undefined)
+	p.ExcludeCredentials = p.ExcludeCredentials.FromRef(js.Undefined)
+	p.Hints = p.Hints.FromRef(js.Undefined)
+	p.Attestation = p.Attestation.FromRef(js.Undefined)
+	p.AttestationFormats = p.AttestationFormats.FromRef(js.Undefined)
+	if recursive {
+		p.Rp.FreeMembers(true)
+		p.User.FreeMembers(true)
+		p.AuthenticatorSelection.FreeMembers(true)
+		p.Extensions.FreeMembers(true)
+	}
 }
 
 type PasswordCredentialData struct {
@@ -1764,17 +1956,34 @@ func (p PasswordCredentialData) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PasswordCredentialData) UpdateFrom(ref js.Ref) {
+func (p *PasswordCredentialData) UpdateFrom(ref js.Ref) {
 	bindings.PasswordCredentialDataJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PasswordCredentialData) Update(ref js.Ref) {
+func (p *PasswordCredentialData) Update(ref js.Ref) {
 	bindings.PasswordCredentialDataJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PasswordCredentialData) FreeMembers(recursive bool) {
+	js.Free(
+		p.Name.Ref(),
+		p.IconURL.Ref(),
+		p.Origin.Ref(),
+		p.Password.Ref(),
+		p.Id.Ref(),
+	)
+	p.Name = p.Name.FromRef(js.Undefined)
+	p.IconURL = p.IconURL.FromRef(js.Undefined)
+	p.Origin = p.Origin.FromRef(js.Undefined)
+	p.Password = p.Password.FromRef(js.Undefined)
+	p.Id = p.Id.FromRef(js.Undefined)
 }
 
 type OneOf_PasswordCredentialData_HTMLFormElement struct {
@@ -1850,17 +2059,36 @@ func (p FederatedCredentialInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p FederatedCredentialInit) UpdateFrom(ref js.Ref) {
+func (p *FederatedCredentialInit) UpdateFrom(ref js.Ref) {
 	bindings.FederatedCredentialInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p FederatedCredentialInit) Update(ref js.Ref) {
+func (p *FederatedCredentialInit) Update(ref js.Ref) {
 	bindings.FederatedCredentialInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *FederatedCredentialInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Name.Ref(),
+		p.IconURL.Ref(),
+		p.Origin.Ref(),
+		p.Provider.Ref(),
+		p.Protocol.Ref(),
+		p.Id.Ref(),
+	)
+	p.Name = p.Name.FromRef(js.Undefined)
+	p.IconURL = p.IconURL.FromRef(js.Undefined)
+	p.Origin = p.Origin.FromRef(js.Undefined)
+	p.Provider = p.Provider.FromRef(js.Undefined)
+	p.Protocol = p.Protocol.FromRef(js.Undefined)
+	p.Id = p.Id.FromRef(js.Undefined)
 }
 
 type CredentialCreationOptions struct {
@@ -1902,17 +2130,32 @@ func (p CredentialCreationOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p CredentialCreationOptions) UpdateFrom(ref js.Ref) {
+func (p *CredentialCreationOptions) UpdateFrom(ref js.Ref) {
 	bindings.CredentialCreationOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p CredentialCreationOptions) Update(ref js.Ref) {
+func (p *CredentialCreationOptions) Update(ref js.Ref) {
 	bindings.CredentialCreationOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *CredentialCreationOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Signal.Ref(),
+		p.Password.Ref(),
+	)
+	p.Signal = p.Signal.FromRef(js.Undefined)
+	p.Password = p.Password.FromRef(js.Undefined)
+	if recursive {
+		p.PublicKey.FreeMembers(true)
+		p.Federated.FreeMembers(true)
+	}
 }
 
 type CredentialsContainer struct {
@@ -1920,7 +2163,7 @@ type CredentialsContainer struct {
 }
 
 func (this CredentialsContainer) Once() CredentialsContainer {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1934,29 +2177,28 @@ func (this CredentialsContainer) FromRef(ref js.Ref) CredentialsContainer {
 }
 
 func (this CredentialsContainer) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasGet returns true if the method "CredentialsContainer.get" exists.
-func (this CredentialsContainer) HasGet() bool {
-	return js.True == bindings.HasCredentialsContainerGet(
-		this.Ref(),
+// HasFuncGet returns true if the method "CredentialsContainer.get" exists.
+func (this CredentialsContainer) HasFuncGet() bool {
+	return js.True == bindings.HasFuncCredentialsContainerGet(
+		this.ref,
 	)
 }
 
-// GetFunc returns the method "CredentialsContainer.get".
-func (this CredentialsContainer) GetFunc() (fn js.Func[func(options CredentialRequestOptions) js.Promise[Credential]]) {
-	return fn.FromRef(
-		bindings.CredentialsContainerGetFunc(
-			this.Ref(),
-		),
+// FuncGet returns the method "CredentialsContainer.get".
+func (this CredentialsContainer) FuncGet() (fn js.Func[func(options CredentialRequestOptions) js.Promise[Credential]]) {
+	bindings.FuncCredentialsContainerGet(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Get calls the method "CredentialsContainer.get".
 func (this CredentialsContainer) Get(options CredentialRequestOptions) (ret js.Promise[Credential]) {
 	bindings.CallCredentialsContainerGet(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -1968,33 +2210,32 @@ func (this CredentialsContainer) Get(options CredentialRequestOptions) (ret js.P
 // the catch clause.
 func (this CredentialsContainer) TryGet(options CredentialRequestOptions) (ret js.Promise[Credential], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCredentialsContainerGet(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasGet1 returns true if the method "CredentialsContainer.get" exists.
-func (this CredentialsContainer) HasGet1() bool {
-	return js.True == bindings.HasCredentialsContainerGet1(
-		this.Ref(),
+// HasFuncGet1 returns true if the method "CredentialsContainer.get" exists.
+func (this CredentialsContainer) HasFuncGet1() bool {
+	return js.True == bindings.HasFuncCredentialsContainerGet1(
+		this.ref,
 	)
 }
 
-// Get1Func returns the method "CredentialsContainer.get".
-func (this CredentialsContainer) Get1Func() (fn js.Func[func() js.Promise[Credential]]) {
-	return fn.FromRef(
-		bindings.CredentialsContainerGet1Func(
-			this.Ref(),
-		),
+// FuncGet1 returns the method "CredentialsContainer.get".
+func (this CredentialsContainer) FuncGet1() (fn js.Func[func() js.Promise[Credential]]) {
+	bindings.FuncCredentialsContainerGet1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Get1 calls the method "CredentialsContainer.get".
 func (this CredentialsContainer) Get1() (ret js.Promise[Credential]) {
 	bindings.CallCredentialsContainerGet1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2005,32 +2246,31 @@ func (this CredentialsContainer) Get1() (ret js.Promise[Credential]) {
 // the catch clause.
 func (this CredentialsContainer) TryGet1() (ret js.Promise[Credential], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCredentialsContainerGet1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasStore returns true if the method "CredentialsContainer.store" exists.
-func (this CredentialsContainer) HasStore() bool {
-	return js.True == bindings.HasCredentialsContainerStore(
-		this.Ref(),
+// HasFuncStore returns true if the method "CredentialsContainer.store" exists.
+func (this CredentialsContainer) HasFuncStore() bool {
+	return js.True == bindings.HasFuncCredentialsContainerStore(
+		this.ref,
 	)
 }
 
-// StoreFunc returns the method "CredentialsContainer.store".
-func (this CredentialsContainer) StoreFunc() (fn js.Func[func(credential Credential) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.CredentialsContainerStoreFunc(
-			this.Ref(),
-		),
+// FuncStore returns the method "CredentialsContainer.store".
+func (this CredentialsContainer) FuncStore() (fn js.Func[func(credential Credential) js.Promise[js.Void]]) {
+	bindings.FuncCredentialsContainerStore(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Store calls the method "CredentialsContainer.store".
 func (this CredentialsContainer) Store(credential Credential) (ret js.Promise[js.Void]) {
 	bindings.CallCredentialsContainerStore(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		credential.Ref(),
 	)
 
@@ -2042,33 +2282,32 @@ func (this CredentialsContainer) Store(credential Credential) (ret js.Promise[js
 // the catch clause.
 func (this CredentialsContainer) TryStore(credential Credential) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCredentialsContainerStore(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		credential.Ref(),
 	)
 
 	return
 }
 
-// HasCreate returns true if the method "CredentialsContainer.create" exists.
-func (this CredentialsContainer) HasCreate() bool {
-	return js.True == bindings.HasCredentialsContainerCreate(
-		this.Ref(),
+// HasFuncCreate returns true if the method "CredentialsContainer.create" exists.
+func (this CredentialsContainer) HasFuncCreate() bool {
+	return js.True == bindings.HasFuncCredentialsContainerCreate(
+		this.ref,
 	)
 }
 
-// CreateFunc returns the method "CredentialsContainer.create".
-func (this CredentialsContainer) CreateFunc() (fn js.Func[func(options CredentialCreationOptions) js.Promise[Credential]]) {
-	return fn.FromRef(
-		bindings.CredentialsContainerCreateFunc(
-			this.Ref(),
-		),
+// FuncCreate returns the method "CredentialsContainer.create".
+func (this CredentialsContainer) FuncCreate() (fn js.Func[func(options CredentialCreationOptions) js.Promise[Credential]]) {
+	bindings.FuncCredentialsContainerCreate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Create calls the method "CredentialsContainer.create".
 func (this CredentialsContainer) Create(options CredentialCreationOptions) (ret js.Promise[Credential]) {
 	bindings.CallCredentialsContainerCreate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -2080,33 +2319,32 @@ func (this CredentialsContainer) Create(options CredentialCreationOptions) (ret 
 // the catch clause.
 func (this CredentialsContainer) TryCreate(options CredentialCreationOptions) (ret js.Promise[Credential], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCredentialsContainerCreate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasCreate1 returns true if the method "CredentialsContainer.create" exists.
-func (this CredentialsContainer) HasCreate1() bool {
-	return js.True == bindings.HasCredentialsContainerCreate1(
-		this.Ref(),
+// HasFuncCreate1 returns true if the method "CredentialsContainer.create" exists.
+func (this CredentialsContainer) HasFuncCreate1() bool {
+	return js.True == bindings.HasFuncCredentialsContainerCreate1(
+		this.ref,
 	)
 }
 
-// Create1Func returns the method "CredentialsContainer.create".
-func (this CredentialsContainer) Create1Func() (fn js.Func[func() js.Promise[Credential]]) {
-	return fn.FromRef(
-		bindings.CredentialsContainerCreate1Func(
-			this.Ref(),
-		),
+// FuncCreate1 returns the method "CredentialsContainer.create".
+func (this CredentialsContainer) FuncCreate1() (fn js.Func[func() js.Promise[Credential]]) {
+	bindings.FuncCredentialsContainerCreate1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Create1 calls the method "CredentialsContainer.create".
 func (this CredentialsContainer) Create1() (ret js.Promise[Credential]) {
 	bindings.CallCredentialsContainerCreate1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2117,32 +2355,31 @@ func (this CredentialsContainer) Create1() (ret js.Promise[Credential]) {
 // the catch clause.
 func (this CredentialsContainer) TryCreate1() (ret js.Promise[Credential], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCredentialsContainerCreate1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasPreventSilentAccess returns true if the method "CredentialsContainer.preventSilentAccess" exists.
-func (this CredentialsContainer) HasPreventSilentAccess() bool {
-	return js.True == bindings.HasCredentialsContainerPreventSilentAccess(
-		this.Ref(),
+// HasFuncPreventSilentAccess returns true if the method "CredentialsContainer.preventSilentAccess" exists.
+func (this CredentialsContainer) HasFuncPreventSilentAccess() bool {
+	return js.True == bindings.HasFuncCredentialsContainerPreventSilentAccess(
+		this.ref,
 	)
 }
 
-// PreventSilentAccessFunc returns the method "CredentialsContainer.preventSilentAccess".
-func (this CredentialsContainer) PreventSilentAccessFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.CredentialsContainerPreventSilentAccessFunc(
-			this.Ref(),
-		),
+// FuncPreventSilentAccess returns the method "CredentialsContainer.preventSilentAccess".
+func (this CredentialsContainer) FuncPreventSilentAccess() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncCredentialsContainerPreventSilentAccess(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PreventSilentAccess calls the method "CredentialsContainer.preventSilentAccess".
 func (this CredentialsContainer) PreventSilentAccess() (ret js.Promise[js.Void]) {
 	bindings.CallCredentialsContainerPreventSilentAccess(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2153,7 +2390,7 @@ func (this CredentialsContainer) PreventSilentAccess() (ret js.Promise[js.Void])
 // the catch clause.
 func (this CredentialsContainer) TryPreventSilentAccess() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCredentialsContainerPreventSilentAccess(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -2204,7 +2441,7 @@ func (cb *PositionCallback[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 1+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
 
 	if ctx.Return(cb.Fn(
@@ -2224,7 +2461,7 @@ type GeolocationCoordinates struct {
 }
 
 func (this GeolocationCoordinates) Once() GeolocationCoordinates {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2238,7 +2475,7 @@ func (this GeolocationCoordinates) FromRef(ref js.Ref) GeolocationCoordinates {
 }
 
 func (this GeolocationCoordinates) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Accuracy returns the value of property "GeolocationCoordinates.accuracy".
@@ -2246,7 +2483,7 @@ func (this GeolocationCoordinates) Free() {
 // It returns ok=false if there is no such property.
 func (this GeolocationCoordinates) Accuracy() (ret float64, ok bool) {
 	ok = js.True == bindings.GetGeolocationCoordinatesAccuracy(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2256,7 +2493,7 @@ func (this GeolocationCoordinates) Accuracy() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GeolocationCoordinates) Latitude() (ret float64, ok bool) {
 	ok = js.True == bindings.GetGeolocationCoordinatesLatitude(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2266,7 +2503,7 @@ func (this GeolocationCoordinates) Latitude() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GeolocationCoordinates) Longitude() (ret float64, ok bool) {
 	ok = js.True == bindings.GetGeolocationCoordinatesLongitude(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2276,7 +2513,7 @@ func (this GeolocationCoordinates) Longitude() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GeolocationCoordinates) Altitude() (ret float64, ok bool) {
 	ok = js.True == bindings.GetGeolocationCoordinatesAltitude(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2286,7 +2523,7 @@ func (this GeolocationCoordinates) Altitude() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GeolocationCoordinates) AltitudeAccuracy() (ret float64, ok bool) {
 	ok = js.True == bindings.GetGeolocationCoordinatesAltitudeAccuracy(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2296,7 +2533,7 @@ func (this GeolocationCoordinates) AltitudeAccuracy() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GeolocationCoordinates) Heading() (ret float64, ok bool) {
 	ok = js.True == bindings.GetGeolocationCoordinatesHeading(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2306,7 +2543,7 @@ func (this GeolocationCoordinates) Heading() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GeolocationCoordinates) Speed() (ret float64, ok bool) {
 	ok = js.True == bindings.GetGeolocationCoordinatesSpeed(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2318,7 +2555,7 @@ type GeolocationPosition struct {
 }
 
 func (this GeolocationPosition) Once() GeolocationPosition {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2332,7 +2569,7 @@ func (this GeolocationPosition) FromRef(ref js.Ref) GeolocationPosition {
 }
 
 func (this GeolocationPosition) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Coords returns the value of property "GeolocationPosition.coords".
@@ -2340,7 +2577,7 @@ func (this GeolocationPosition) Free() {
 // It returns ok=false if there is no such property.
 func (this GeolocationPosition) Coords() (ret GeolocationCoordinates, ok bool) {
 	ok = js.True == bindings.GetGeolocationPositionCoords(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2350,7 +2587,7 @@ func (this GeolocationPosition) Coords() (ret GeolocationCoordinates, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GeolocationPosition) Timestamp() (ret EpochTimeStamp, ok bool) {
 	ok = js.True == bindings.GetGeolocationPositionTimestamp(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2400,7 +2637,7 @@ func (cb *PositionErrorCallback[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 1+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
 
 	if ctx.Return(cb.Fn(
@@ -2426,7 +2663,7 @@ type GeolocationPositionError struct {
 }
 
 func (this GeolocationPositionError) Once() GeolocationPositionError {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2440,7 +2677,7 @@ func (this GeolocationPositionError) FromRef(ref js.Ref) GeolocationPositionErro
 }
 
 func (this GeolocationPositionError) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Code returns the value of property "GeolocationPositionError.code".
@@ -2448,7 +2685,7 @@ func (this GeolocationPositionError) Free() {
 // It returns ok=false if there is no such property.
 func (this GeolocationPositionError) Code() (ret uint16, ok bool) {
 	ok = js.True == bindings.GetGeolocationPositionErrorCode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2458,7 +2695,7 @@ func (this GeolocationPositionError) Code() (ret uint16, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GeolocationPositionError) Message() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGeolocationPositionErrorMessage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2504,17 +2741,22 @@ func (p PositionOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PositionOptions) UpdateFrom(ref js.Ref) {
+func (p *PositionOptions) UpdateFrom(ref js.Ref) {
 	bindings.PositionOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PositionOptions) Update(ref js.Ref) {
+func (p *PositionOptions) Update(ref js.Ref) {
 	bindings.PositionOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PositionOptions) FreeMembers(recursive bool) {
 }
 
 type Geolocation struct {
@@ -2522,7 +2764,7 @@ type Geolocation struct {
 }
 
 func (this Geolocation) Once() Geolocation {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2536,29 +2778,28 @@ func (this Geolocation) FromRef(ref js.Ref) Geolocation {
 }
 
 func (this Geolocation) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasGetCurrentPosition returns true if the method "Geolocation.getCurrentPosition" exists.
-func (this Geolocation) HasGetCurrentPosition() bool {
-	return js.True == bindings.HasGeolocationGetCurrentPosition(
-		this.Ref(),
+// HasFuncGetCurrentPosition returns true if the method "Geolocation.getCurrentPosition" exists.
+func (this Geolocation) HasFuncGetCurrentPosition() bool {
+	return js.True == bindings.HasFuncGeolocationGetCurrentPosition(
+		this.ref,
 	)
 }
 
-// GetCurrentPositionFunc returns the method "Geolocation.getCurrentPosition".
-func (this Geolocation) GetCurrentPositionFunc() (fn js.Func[func(successCallback js.Func[func(position GeolocationPosition)], errorCallback js.Func[func(positionError GeolocationPositionError)], options PositionOptions)]) {
-	return fn.FromRef(
-		bindings.GeolocationGetCurrentPositionFunc(
-			this.Ref(),
-		),
+// FuncGetCurrentPosition returns the method "Geolocation.getCurrentPosition".
+func (this Geolocation) FuncGetCurrentPosition() (fn js.Func[func(successCallback js.Func[func(position GeolocationPosition)], errorCallback js.Func[func(positionError GeolocationPositionError)], options PositionOptions)]) {
+	bindings.FuncGeolocationGetCurrentPosition(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetCurrentPosition calls the method "Geolocation.getCurrentPosition".
 func (this Geolocation) GetCurrentPosition(successCallback js.Func[func(position GeolocationPosition)], errorCallback js.Func[func(positionError GeolocationPositionError)], options PositionOptions) (ret js.Void) {
 	bindings.CallGeolocationGetCurrentPosition(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		successCallback.Ref(),
 		errorCallback.Ref(),
 		js.Pointer(&options),
@@ -2572,7 +2813,7 @@ func (this Geolocation) GetCurrentPosition(successCallback js.Func[func(position
 // the catch clause.
 func (this Geolocation) TryGetCurrentPosition(successCallback js.Func[func(position GeolocationPosition)], errorCallback js.Func[func(positionError GeolocationPositionError)], options PositionOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGeolocationGetCurrentPosition(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		successCallback.Ref(),
 		errorCallback.Ref(),
 		js.Pointer(&options),
@@ -2581,26 +2822,25 @@ func (this Geolocation) TryGetCurrentPosition(successCallback js.Func[func(posit
 	return
 }
 
-// HasGetCurrentPosition1 returns true if the method "Geolocation.getCurrentPosition" exists.
-func (this Geolocation) HasGetCurrentPosition1() bool {
-	return js.True == bindings.HasGeolocationGetCurrentPosition1(
-		this.Ref(),
+// HasFuncGetCurrentPosition1 returns true if the method "Geolocation.getCurrentPosition" exists.
+func (this Geolocation) HasFuncGetCurrentPosition1() bool {
+	return js.True == bindings.HasFuncGeolocationGetCurrentPosition1(
+		this.ref,
 	)
 }
 
-// GetCurrentPosition1Func returns the method "Geolocation.getCurrentPosition".
-func (this Geolocation) GetCurrentPosition1Func() (fn js.Func[func(successCallback js.Func[func(position GeolocationPosition)], errorCallback js.Func[func(positionError GeolocationPositionError)])]) {
-	return fn.FromRef(
-		bindings.GeolocationGetCurrentPosition1Func(
-			this.Ref(),
-		),
+// FuncGetCurrentPosition1 returns the method "Geolocation.getCurrentPosition".
+func (this Geolocation) FuncGetCurrentPosition1() (fn js.Func[func(successCallback js.Func[func(position GeolocationPosition)], errorCallback js.Func[func(positionError GeolocationPositionError)])]) {
+	bindings.FuncGeolocationGetCurrentPosition1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetCurrentPosition1 calls the method "Geolocation.getCurrentPosition".
 func (this Geolocation) GetCurrentPosition1(successCallback js.Func[func(position GeolocationPosition)], errorCallback js.Func[func(positionError GeolocationPositionError)]) (ret js.Void) {
 	bindings.CallGeolocationGetCurrentPosition1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		successCallback.Ref(),
 		errorCallback.Ref(),
 	)
@@ -2613,7 +2853,7 @@ func (this Geolocation) GetCurrentPosition1(successCallback js.Func[func(positio
 // the catch clause.
 func (this Geolocation) TryGetCurrentPosition1(successCallback js.Func[func(position GeolocationPosition)], errorCallback js.Func[func(positionError GeolocationPositionError)]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGeolocationGetCurrentPosition1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		successCallback.Ref(),
 		errorCallback.Ref(),
 	)
@@ -2621,26 +2861,25 @@ func (this Geolocation) TryGetCurrentPosition1(successCallback js.Func[func(posi
 	return
 }
 
-// HasGetCurrentPosition2 returns true if the method "Geolocation.getCurrentPosition" exists.
-func (this Geolocation) HasGetCurrentPosition2() bool {
-	return js.True == bindings.HasGeolocationGetCurrentPosition2(
-		this.Ref(),
+// HasFuncGetCurrentPosition2 returns true if the method "Geolocation.getCurrentPosition" exists.
+func (this Geolocation) HasFuncGetCurrentPosition2() bool {
+	return js.True == bindings.HasFuncGeolocationGetCurrentPosition2(
+		this.ref,
 	)
 }
 
-// GetCurrentPosition2Func returns the method "Geolocation.getCurrentPosition".
-func (this Geolocation) GetCurrentPosition2Func() (fn js.Func[func(successCallback js.Func[func(position GeolocationPosition)])]) {
-	return fn.FromRef(
-		bindings.GeolocationGetCurrentPosition2Func(
-			this.Ref(),
-		),
+// FuncGetCurrentPosition2 returns the method "Geolocation.getCurrentPosition".
+func (this Geolocation) FuncGetCurrentPosition2() (fn js.Func[func(successCallback js.Func[func(position GeolocationPosition)])]) {
+	bindings.FuncGeolocationGetCurrentPosition2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetCurrentPosition2 calls the method "Geolocation.getCurrentPosition".
 func (this Geolocation) GetCurrentPosition2(successCallback js.Func[func(position GeolocationPosition)]) (ret js.Void) {
 	bindings.CallGeolocationGetCurrentPosition2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		successCallback.Ref(),
 	)
 
@@ -2652,33 +2891,32 @@ func (this Geolocation) GetCurrentPosition2(successCallback js.Func[func(positio
 // the catch clause.
 func (this Geolocation) TryGetCurrentPosition2(successCallback js.Func[func(position GeolocationPosition)]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGeolocationGetCurrentPosition2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		successCallback.Ref(),
 	)
 
 	return
 }
 
-// HasWatchPosition returns true if the method "Geolocation.watchPosition" exists.
-func (this Geolocation) HasWatchPosition() bool {
-	return js.True == bindings.HasGeolocationWatchPosition(
-		this.Ref(),
+// HasFuncWatchPosition returns true if the method "Geolocation.watchPosition" exists.
+func (this Geolocation) HasFuncWatchPosition() bool {
+	return js.True == bindings.HasFuncGeolocationWatchPosition(
+		this.ref,
 	)
 }
 
-// WatchPositionFunc returns the method "Geolocation.watchPosition".
-func (this Geolocation) WatchPositionFunc() (fn js.Func[func(successCallback js.Func[func(position GeolocationPosition)], errorCallback js.Func[func(positionError GeolocationPositionError)], options PositionOptions) int32]) {
-	return fn.FromRef(
-		bindings.GeolocationWatchPositionFunc(
-			this.Ref(),
-		),
+// FuncWatchPosition returns the method "Geolocation.watchPosition".
+func (this Geolocation) FuncWatchPosition() (fn js.Func[func(successCallback js.Func[func(position GeolocationPosition)], errorCallback js.Func[func(positionError GeolocationPositionError)], options PositionOptions) int32]) {
+	bindings.FuncGeolocationWatchPosition(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // WatchPosition calls the method "Geolocation.watchPosition".
 func (this Geolocation) WatchPosition(successCallback js.Func[func(position GeolocationPosition)], errorCallback js.Func[func(positionError GeolocationPositionError)], options PositionOptions) (ret int32) {
 	bindings.CallGeolocationWatchPosition(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		successCallback.Ref(),
 		errorCallback.Ref(),
 		js.Pointer(&options),
@@ -2692,7 +2930,7 @@ func (this Geolocation) WatchPosition(successCallback js.Func[func(position Geol
 // the catch clause.
 func (this Geolocation) TryWatchPosition(successCallback js.Func[func(position GeolocationPosition)], errorCallback js.Func[func(positionError GeolocationPositionError)], options PositionOptions) (ret int32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGeolocationWatchPosition(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		successCallback.Ref(),
 		errorCallback.Ref(),
 		js.Pointer(&options),
@@ -2701,26 +2939,25 @@ func (this Geolocation) TryWatchPosition(successCallback js.Func[func(position G
 	return
 }
 
-// HasWatchPosition1 returns true if the method "Geolocation.watchPosition" exists.
-func (this Geolocation) HasWatchPosition1() bool {
-	return js.True == bindings.HasGeolocationWatchPosition1(
-		this.Ref(),
+// HasFuncWatchPosition1 returns true if the method "Geolocation.watchPosition" exists.
+func (this Geolocation) HasFuncWatchPosition1() bool {
+	return js.True == bindings.HasFuncGeolocationWatchPosition1(
+		this.ref,
 	)
 }
 
-// WatchPosition1Func returns the method "Geolocation.watchPosition".
-func (this Geolocation) WatchPosition1Func() (fn js.Func[func(successCallback js.Func[func(position GeolocationPosition)], errorCallback js.Func[func(positionError GeolocationPositionError)]) int32]) {
-	return fn.FromRef(
-		bindings.GeolocationWatchPosition1Func(
-			this.Ref(),
-		),
+// FuncWatchPosition1 returns the method "Geolocation.watchPosition".
+func (this Geolocation) FuncWatchPosition1() (fn js.Func[func(successCallback js.Func[func(position GeolocationPosition)], errorCallback js.Func[func(positionError GeolocationPositionError)]) int32]) {
+	bindings.FuncGeolocationWatchPosition1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // WatchPosition1 calls the method "Geolocation.watchPosition".
 func (this Geolocation) WatchPosition1(successCallback js.Func[func(position GeolocationPosition)], errorCallback js.Func[func(positionError GeolocationPositionError)]) (ret int32) {
 	bindings.CallGeolocationWatchPosition1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		successCallback.Ref(),
 		errorCallback.Ref(),
 	)
@@ -2733,7 +2970,7 @@ func (this Geolocation) WatchPosition1(successCallback js.Func[func(position Geo
 // the catch clause.
 func (this Geolocation) TryWatchPosition1(successCallback js.Func[func(position GeolocationPosition)], errorCallback js.Func[func(positionError GeolocationPositionError)]) (ret int32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGeolocationWatchPosition1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		successCallback.Ref(),
 		errorCallback.Ref(),
 	)
@@ -2741,26 +2978,25 @@ func (this Geolocation) TryWatchPosition1(successCallback js.Func[func(position 
 	return
 }
 
-// HasWatchPosition2 returns true if the method "Geolocation.watchPosition" exists.
-func (this Geolocation) HasWatchPosition2() bool {
-	return js.True == bindings.HasGeolocationWatchPosition2(
-		this.Ref(),
+// HasFuncWatchPosition2 returns true if the method "Geolocation.watchPosition" exists.
+func (this Geolocation) HasFuncWatchPosition2() bool {
+	return js.True == bindings.HasFuncGeolocationWatchPosition2(
+		this.ref,
 	)
 }
 
-// WatchPosition2Func returns the method "Geolocation.watchPosition".
-func (this Geolocation) WatchPosition2Func() (fn js.Func[func(successCallback js.Func[func(position GeolocationPosition)]) int32]) {
-	return fn.FromRef(
-		bindings.GeolocationWatchPosition2Func(
-			this.Ref(),
-		),
+// FuncWatchPosition2 returns the method "Geolocation.watchPosition".
+func (this Geolocation) FuncWatchPosition2() (fn js.Func[func(successCallback js.Func[func(position GeolocationPosition)]) int32]) {
+	bindings.FuncGeolocationWatchPosition2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // WatchPosition2 calls the method "Geolocation.watchPosition".
 func (this Geolocation) WatchPosition2(successCallback js.Func[func(position GeolocationPosition)]) (ret int32) {
 	bindings.CallGeolocationWatchPosition2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		successCallback.Ref(),
 	)
 
@@ -2772,33 +3008,32 @@ func (this Geolocation) WatchPosition2(successCallback js.Func[func(position Geo
 // the catch clause.
 func (this Geolocation) TryWatchPosition2(successCallback js.Func[func(position GeolocationPosition)]) (ret int32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGeolocationWatchPosition2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		successCallback.Ref(),
 	)
 
 	return
 }
 
-// HasClearWatch returns true if the method "Geolocation.clearWatch" exists.
-func (this Geolocation) HasClearWatch() bool {
-	return js.True == bindings.HasGeolocationClearWatch(
-		this.Ref(),
+// HasFuncClearWatch returns true if the method "Geolocation.clearWatch" exists.
+func (this Geolocation) HasFuncClearWatch() bool {
+	return js.True == bindings.HasFuncGeolocationClearWatch(
+		this.ref,
 	)
 }
 
-// ClearWatchFunc returns the method "Geolocation.clearWatch".
-func (this Geolocation) ClearWatchFunc() (fn js.Func[func(watchId int32)]) {
-	return fn.FromRef(
-		bindings.GeolocationClearWatchFunc(
-			this.Ref(),
-		),
+// FuncClearWatch returns the method "Geolocation.clearWatch".
+func (this Geolocation) FuncClearWatch() (fn js.Func[func(watchId int32)]) {
+	bindings.FuncGeolocationClearWatch(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ClearWatch calls the method "Geolocation.clearWatch".
 func (this Geolocation) ClearWatch(watchId int32) (ret js.Void) {
 	bindings.CallGeolocationClearWatch(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		int32(watchId),
 	)
 
@@ -2810,7 +3045,7 @@ func (this Geolocation) ClearWatch(watchId int32) (ret js.Void) {
 // the catch clause.
 func (this Geolocation) TryClearWatch(watchId int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGeolocationClearWatch(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		int32(watchId),
 	)
 
@@ -2862,7 +3097,7 @@ type USBInTransferResult struct {
 }
 
 func (this USBInTransferResult) Once() USBInTransferResult {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2876,7 +3111,7 @@ func (this USBInTransferResult) FromRef(ref js.Ref) USBInTransferResult {
 }
 
 func (this USBInTransferResult) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Data returns the value of property "USBInTransferResult.data".
@@ -2884,7 +3119,7 @@ func (this USBInTransferResult) Free() {
 // It returns ok=false if there is no such property.
 func (this USBInTransferResult) Data() (ret js.DataView, ok bool) {
 	ok = js.True == bindings.GetUSBInTransferResultData(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2894,7 +3129,7 @@ func (this USBInTransferResult) Data() (ret js.DataView, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBInTransferResult) Status() (ret USBTransferStatus, ok bool) {
 	ok = js.True == bindings.GetUSBInTransferResultStatus(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }

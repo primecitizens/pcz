@@ -1,0 +1,412 @@
+- File: webext/chrome/braille_display_private.idl
+  Dict:
+    Name: DisplayState
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - brailleDisplayPrivate
+    Fields:
+      - Name: available
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - brailleDisplayPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+      - Name: textRowCount
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - brailleDisplayPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+      - Name: textColumnCount
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - brailleDisplayPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+      - Name: cellSize
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - brailleDisplayPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+- File: webext/chrome/braille_display_private.idl
+  Callback:
+    Name: DisplayStateCallback
+    Args:
+      - Name: result
+        Type:
+          Name: DisplayState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - brailleDisplayPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - brailleDisplayPrivate
+- File: webext/chrome/braille_display_private.idl
+  Enum:
+    Name: KeyCommand
+    Values:
+      - line_up
+      - line_down
+      - pan_left
+      - pan_right
+      - top
+      - bottom
+      - routing
+      - secondary_routing
+      - dots
+      - chord
+      - standard_key
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - brailleDisplayPrivate
+- File: webext/chrome/braille_display_private.idl
+  Dict:
+    Name: KeyEvent
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - brailleDisplayPrivate
+    Fields:
+      - Name: command
+        Type:
+          Name: KeyCommand
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - brailleDisplayPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+      - Name: displayPosition
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - brailleDisplayPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+      - Name: brailleDots
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - brailleDisplayPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+      - Name: standardKeyCode
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - brailleDisplayPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+      - Name: standardKeyChar
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - brailleDisplayPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+      - Name: spaceKey
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - brailleDisplayPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+      - Name: altKey
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - brailleDisplayPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+      - Name: shiftKey
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - brailleDisplayPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+      - Name: ctrlKey
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - brailleDisplayPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+- File: webext/chrome/braille_display_private.idl
+  WebextFunc:
+    Name: getDisplayState
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DisplayState
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - brailleDisplayPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - brailleDisplayPrivate
+- File: webext/chrome/braille_display_private.idl
+  WebextEvent:
+    Name: onDisplayStateChanged
+    Modifier: static
+    Args:
+      - Name: state
+        Type:
+          Name: DisplayState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - brailleDisplayPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - brailleDisplayPrivate
+- File: webext/chrome/braille_display_private.idl
+  WebextEvent:
+    Name: onKeyEvent
+    Modifier: static
+    Args:
+      - Name: event
+        Type:
+          Name: KeyEvent
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - brailleDisplayPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - brailleDisplayPrivate
+- File: webext/chrome/braille_display_private.idl
+  WebextFunc:
+    Name: updateBluetoothBrailleDisplayAddress
+    Modifier: static
+    Args:
+      - Name: address
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - brailleDisplayPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - brailleDisplayPrivate
+- File: webext/chrome/braille_display_private.idl
+  WebextFunc:
+    Name: writeDots
+    Modifier: static
+    Args:
+      - Name: cells
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - brailleDisplayPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+      - Name: columns
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - brailleDisplayPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+      - Name: rows
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - brailleDisplayPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - brailleDisplayPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - brailleDisplayPrivate

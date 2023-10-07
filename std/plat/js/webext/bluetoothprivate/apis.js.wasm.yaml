@@ -1,0 +1,805 @@
+- File: webext/bluetooth_private.idl
+  Callback:
+    Name: ConnectCallback
+    Args:
+      - Name: result
+        Type:
+          Name: ConnectResultType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothPrivate
+- File: webext/bluetooth_private.idl
+  Enum:
+    Name: ConnectResultType
+    Values:
+      - alreadyConnected
+      - authCanceled
+      - authFailed
+      - authRejected
+      - authTimeout
+      - failed
+      - inProgress
+      - success
+      - unknownError
+      - unsupportedDevice
+      - notReady
+      - alreadyExists
+      - notConnected
+      - doesNotExist
+      - invalidArgs
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothPrivate
+- File: webext/bluetooth_private.idl
+  Dict:
+    Name: DiscoveryFilter
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothPrivate
+    Fields:
+      - Name: transport
+        Type:
+          Name: TransportType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+      - Name: uuids
+        Type:
+          Union:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - bluetoothPrivate
+            - Name: sequence
+              Params:
+                - Name: DOMString
+                  ExtAttrs:
+                    - Name: Namespace
+                      Values:
+                        - chrome
+                        - bluetoothPrivate
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - bluetoothPrivate
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+      - Name: rssi
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+      - Name: pathloss
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+- File: webext/bluetooth_private.idl
+  Dict:
+    Name: NewAdapterState
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothPrivate
+    Fields:
+      - Name: name
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+      - Name: powered
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+      - Name: discoverable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+- File: webext/bluetooth_private.idl
+  Dict:
+    Name: PairingEvent
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothPrivate
+    Fields:
+      - Name: pairing
+        Type:
+          Name: PairingEventType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+      - Name: device
+        Type:
+          Name: Device
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: pincode
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+      - Name: passkey
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+      - Name: enteredKey
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+- File: webext/bluetooth_private.idl
+  Enum:
+    Name: PairingEventType
+    Values:
+      - requestPincode
+      - displayPincode
+      - requestPasskey
+      - displayPasskey
+      - keysEntered
+      - confirmPasskey
+      - requestAuthorization
+      - complete
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothPrivate
+- File: webext/bluetooth_private.idl
+  Enum:
+    Name: PairingResponse
+    Values:
+      - confirm
+      - reject
+      - cancel
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothPrivate
+- File: webext/bluetooth_private.idl
+  Dict:
+    Name: SetPairingResponseOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothPrivate
+    Fields:
+      - Name: device
+        Type:
+          Name: Device
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: response
+        Type:
+          Name: PairingResponse
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+      - Name: pincode
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+      - Name: passkey
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+- File: webext/bluetooth_private.idl
+  Enum:
+    Name: TransportType
+    Values:
+      - le
+      - bredr
+      - dual
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothPrivate
+- File: webext/bluetooth_private.idl
+  Callback:
+    Name: VoidCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothPrivate
+- File: webext/bluetooth_private.idl
+  WebextFunc:
+    Name: connect
+    Modifier: static
+    Args:
+      - Name: deviceAddress
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ConnectResultType
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bluetoothPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothPrivate
+- File: webext/bluetooth_private.idl
+  WebextFunc:
+    Name: disconnectAll
+    Modifier: static
+    Args:
+      - Name: deviceAddress
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothPrivate
+- File: webext/bluetooth_private.idl
+  WebextFunc:
+    Name: forgetDevice
+    Modifier: static
+    Args:
+      - Name: deviceAddress
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothPrivate
+- File: webext/bluetooth_private.idl
+  WebextEvent:
+    Name: onDeviceAddressChanged
+    Modifier: static
+    Args:
+      - Name: device
+        Type:
+          Name: Device
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: oldAddress
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothPrivate
+- File: webext/bluetooth_private.idl
+  WebextEvent:
+    Name: onPairing
+    Modifier: static
+    Args:
+      - Name: pairingEvent
+        Type:
+          Name: PairingEvent
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothPrivate
+- File: webext/bluetooth_private.idl
+  WebextFunc:
+    Name: pair
+    Modifier: static
+    Args:
+      - Name: deviceAddress
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothPrivate
+- File: webext/bluetooth_private.idl
+  WebextFunc:
+    Name: recordDeviceSelection
+    Modifier: static
+    Args:
+      - Name: selectionDurationMs
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+      - Name: wasPaired
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+      - Name: transport
+        Type:
+          Name: Transport
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothPrivate
+- File: webext/bluetooth_private.idl
+  WebextFunc:
+    Name: recordPairing
+    Modifier: static
+    Args:
+      - Name: transport
+        Type:
+          Name: Transport
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: pairingDurationMs
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+      - Name: result
+        Optional: true
+        Type:
+          Name: ConnectResultType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothPrivate
+- File: webext/bluetooth_private.idl
+  WebextFunc:
+    Name: recordReconnection
+    Modifier: static
+    Args:
+      - Name: result
+        Optional: true
+        Type:
+          Name: ConnectResultType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothPrivate
+- File: webext/bluetooth_private.idl
+  WebextFunc:
+    Name: setAdapterState
+    Modifier: static
+    Args:
+      - Name: adapterState
+        Type:
+          Name: NewAdapterState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothPrivate
+- File: webext/bluetooth_private.idl
+  WebextFunc:
+    Name: setDiscoveryFilter
+    Modifier: static
+    Args:
+      - Name: discoveryFilter
+        Type:
+          Name: DiscoveryFilter
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothPrivate
+- File: webext/bluetooth_private.idl
+  WebextFunc:
+    Name: setPairingResponse
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: SetPairingResponseOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothPrivate

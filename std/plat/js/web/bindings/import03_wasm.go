@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web get_Baseline_Name
 //go:noescape
@@ -165,11 +163,11 @@ func GetSelectionDirection(
 
 //go:wasmimport plat/js/web has_Selection_GetRangeAt
 //go:noescape
-func HasSelectionGetRangeAt(this js.Ref) js.Ref
+func HasFuncSelectionGetRangeAt(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Selection_GetRangeAt
 //go:noescape
-func SelectionGetRangeAtFunc(this js.Ref) js.Ref
+func FuncSelectionGetRangeAt(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Selection_GetRangeAt
 //go:noescape
@@ -185,11 +183,11 @@ func TrySelectionGetRangeAt(
 
 //go:wasmimport plat/js/web has_Selection_AddRange
 //go:noescape
-func HasSelectionAddRange(this js.Ref) js.Ref
+func HasFuncSelectionAddRange(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Selection_AddRange
 //go:noescape
-func SelectionAddRangeFunc(this js.Ref) js.Ref
+func FuncSelectionAddRange(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Selection_AddRange
 //go:noescape
@@ -205,11 +203,11 @@ func TrySelectionAddRange(
 
 //go:wasmimport plat/js/web has_Selection_RemoveRange
 //go:noescape
-func HasSelectionRemoveRange(this js.Ref) js.Ref
+func HasFuncSelectionRemoveRange(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Selection_RemoveRange
 //go:noescape
-func SelectionRemoveRangeFunc(this js.Ref) js.Ref
+func FuncSelectionRemoveRange(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Selection_RemoveRange
 //go:noescape
@@ -225,11 +223,11 @@ func TrySelectionRemoveRange(
 
 //go:wasmimport plat/js/web has_Selection_RemoveAllRanges
 //go:noescape
-func HasSelectionRemoveAllRanges(this js.Ref) js.Ref
+func HasFuncSelectionRemoveAllRanges(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Selection_RemoveAllRanges
 //go:noescape
-func SelectionRemoveAllRangesFunc(this js.Ref) js.Ref
+func FuncSelectionRemoveAllRanges(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Selection_RemoveAllRanges
 //go:noescape
@@ -243,11 +241,11 @@ func TrySelectionRemoveAllRanges(
 
 //go:wasmimport plat/js/web has_Selection_Empty
 //go:noescape
-func HasSelectionEmpty(this js.Ref) js.Ref
+func HasFuncSelectionEmpty(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Selection_Empty
 //go:noescape
-func SelectionEmptyFunc(this js.Ref) js.Ref
+func FuncSelectionEmpty(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Selection_Empty
 //go:noescape
@@ -261,11 +259,11 @@ func TrySelectionEmpty(
 
 //go:wasmimport plat/js/web has_Selection_GetComposedRanges
 //go:noescape
-func HasSelectionGetComposedRanges(this js.Ref) js.Ref
+func HasFuncSelectionGetComposedRanges(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Selection_GetComposedRanges
 //go:noescape
-func SelectionGetComposedRangesFunc(this js.Ref) js.Ref
+func FuncSelectionGetComposedRanges(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Selection_GetComposedRanges
 //go:noescape
@@ -283,11 +281,11 @@ func TrySelectionGetComposedRanges(
 
 //go:wasmimport plat/js/web has_Selection_Collapse
 //go:noescape
-func HasSelectionCollapse(this js.Ref) js.Ref
+func HasFuncSelectionCollapse(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Selection_Collapse
 //go:noescape
-func SelectionCollapseFunc(this js.Ref) js.Ref
+func FuncSelectionCollapse(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Selection_Collapse
 //go:noescape
@@ -305,11 +303,11 @@ func TrySelectionCollapse(
 
 //go:wasmimport plat/js/web has_Selection_Collapse1
 //go:noescape
-func HasSelectionCollapse1(this js.Ref) js.Ref
+func HasFuncSelectionCollapse1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Selection_Collapse1
 //go:noescape
-func SelectionCollapse1Func(this js.Ref) js.Ref
+func FuncSelectionCollapse1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Selection_Collapse1
 //go:noescape
@@ -325,11 +323,11 @@ func TrySelectionCollapse1(
 
 //go:wasmimport plat/js/web has_Selection_SetPosition
 //go:noescape
-func HasSelectionSetPosition(this js.Ref) js.Ref
+func HasFuncSelectionSetPosition(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Selection_SetPosition
 //go:noescape
-func SelectionSetPositionFunc(this js.Ref) js.Ref
+func FuncSelectionSetPosition(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Selection_SetPosition
 //go:noescape
@@ -347,11 +345,11 @@ func TrySelectionSetPosition(
 
 //go:wasmimport plat/js/web has_Selection_SetPosition1
 //go:noescape
-func HasSelectionSetPosition1(this js.Ref) js.Ref
+func HasFuncSelectionSetPosition1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Selection_SetPosition1
 //go:noescape
-func SelectionSetPosition1Func(this js.Ref) js.Ref
+func FuncSelectionSetPosition1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Selection_SetPosition1
 //go:noescape
@@ -367,11 +365,11 @@ func TrySelectionSetPosition1(
 
 //go:wasmimport plat/js/web has_Selection_CollapseToStart
 //go:noescape
-func HasSelectionCollapseToStart(this js.Ref) js.Ref
+func HasFuncSelectionCollapseToStart(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Selection_CollapseToStart
 //go:noescape
-func SelectionCollapseToStartFunc(this js.Ref) js.Ref
+func FuncSelectionCollapseToStart(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Selection_CollapseToStart
 //go:noescape
@@ -385,11 +383,11 @@ func TrySelectionCollapseToStart(
 
 //go:wasmimport plat/js/web has_Selection_CollapseToEnd
 //go:noescape
-func HasSelectionCollapseToEnd(this js.Ref) js.Ref
+func HasFuncSelectionCollapseToEnd(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Selection_CollapseToEnd
 //go:noescape
-func SelectionCollapseToEndFunc(this js.Ref) js.Ref
+func FuncSelectionCollapseToEnd(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Selection_CollapseToEnd
 //go:noescape
@@ -403,11 +401,11 @@ func TrySelectionCollapseToEnd(
 
 //go:wasmimport plat/js/web has_Selection_Extend
 //go:noescape
-func HasSelectionExtend(this js.Ref) js.Ref
+func HasFuncSelectionExtend(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Selection_Extend
 //go:noescape
-func SelectionExtendFunc(this js.Ref) js.Ref
+func FuncSelectionExtend(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Selection_Extend
 //go:noescape
@@ -425,11 +423,11 @@ func TrySelectionExtend(
 
 //go:wasmimport plat/js/web has_Selection_Extend1
 //go:noescape
-func HasSelectionExtend1(this js.Ref) js.Ref
+func HasFuncSelectionExtend1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Selection_Extend1
 //go:noescape
-func SelectionExtend1Func(this js.Ref) js.Ref
+func FuncSelectionExtend1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Selection_Extend1
 //go:noescape
@@ -445,11 +443,11 @@ func TrySelectionExtend1(
 
 //go:wasmimport plat/js/web has_Selection_SetBaseAndExtent
 //go:noescape
-func HasSelectionSetBaseAndExtent(this js.Ref) js.Ref
+func HasFuncSelectionSetBaseAndExtent(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Selection_SetBaseAndExtent
 //go:noescape
-func SelectionSetBaseAndExtentFunc(this js.Ref) js.Ref
+func FuncSelectionSetBaseAndExtent(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Selection_SetBaseAndExtent
 //go:noescape
@@ -471,11 +469,11 @@ func TrySelectionSetBaseAndExtent(
 
 //go:wasmimport plat/js/web has_Selection_SelectAllChildren
 //go:noescape
-func HasSelectionSelectAllChildren(this js.Ref) js.Ref
+func HasFuncSelectionSelectAllChildren(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Selection_SelectAllChildren
 //go:noescape
-func SelectionSelectAllChildrenFunc(this js.Ref) js.Ref
+func FuncSelectionSelectAllChildren(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Selection_SelectAllChildren
 //go:noescape
@@ -491,11 +489,11 @@ func TrySelectionSelectAllChildren(
 
 //go:wasmimport plat/js/web has_Selection_Modify
 //go:noescape
-func HasSelectionModify(this js.Ref) js.Ref
+func HasFuncSelectionModify(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Selection_Modify
 //go:noescape
-func SelectionModifyFunc(this js.Ref) js.Ref
+func FuncSelectionModify(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Selection_Modify
 //go:noescape
@@ -515,11 +513,11 @@ func TrySelectionModify(
 
 //go:wasmimport plat/js/web has_Selection_Modify1
 //go:noescape
-func HasSelectionModify1(this js.Ref) js.Ref
+func HasFuncSelectionModify1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Selection_Modify1
 //go:noescape
-func SelectionModify1Func(this js.Ref) js.Ref
+func FuncSelectionModify1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Selection_Modify1
 //go:noescape
@@ -537,11 +535,11 @@ func TrySelectionModify1(
 
 //go:wasmimport plat/js/web has_Selection_Modify2
 //go:noescape
-func HasSelectionModify2(this js.Ref) js.Ref
+func HasFuncSelectionModify2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Selection_Modify2
 //go:noescape
-func SelectionModify2Func(this js.Ref) js.Ref
+func FuncSelectionModify2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Selection_Modify2
 //go:noescape
@@ -557,11 +555,11 @@ func TrySelectionModify2(
 
 //go:wasmimport plat/js/web has_Selection_Modify3
 //go:noescape
-func HasSelectionModify3(this js.Ref) js.Ref
+func HasFuncSelectionModify3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Selection_Modify3
 //go:noescape
-func SelectionModify3Func(this js.Ref) js.Ref
+func FuncSelectionModify3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Selection_Modify3
 //go:noescape
@@ -575,11 +573,11 @@ func TrySelectionModify3(
 
 //go:wasmimport plat/js/web has_Selection_DeleteFromDocument
 //go:noescape
-func HasSelectionDeleteFromDocument(this js.Ref) js.Ref
+func HasFuncSelectionDeleteFromDocument(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Selection_DeleteFromDocument
 //go:noescape
-func SelectionDeleteFromDocumentFunc(this js.Ref) js.Ref
+func FuncSelectionDeleteFromDocument(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Selection_DeleteFromDocument
 //go:noescape
@@ -593,11 +591,11 @@ func TrySelectionDeleteFromDocument(
 
 //go:wasmimport plat/js/web has_Selection_ContainsNode
 //go:noescape
-func HasSelectionContainsNode(this js.Ref) js.Ref
+func HasFuncSelectionContainsNode(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Selection_ContainsNode
 //go:noescape
-func SelectionContainsNodeFunc(this js.Ref) js.Ref
+func FuncSelectionContainsNode(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Selection_ContainsNode
 //go:noescape
@@ -615,11 +613,11 @@ func TrySelectionContainsNode(
 
 //go:wasmimport plat/js/web has_Selection_ContainsNode1
 //go:noescape
-func HasSelectionContainsNode1(this js.Ref) js.Ref
+func HasFuncSelectionContainsNode1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Selection_ContainsNode1
 //go:noescape
-func SelectionContainsNode1Func(this js.Ref) js.Ref
+func FuncSelectionContainsNode1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Selection_ContainsNode1
 //go:noescape
@@ -635,11 +633,11 @@ func TrySelectionContainsNode1(
 
 //go:wasmimport plat/js/web has_Selection_ToString
 //go:noescape
-func HasSelectionToString(this js.Ref) js.Ref
+func HasFuncSelectionToString(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Selection_ToString
 //go:noescape
-func SelectionToStringFunc(this js.Ref) js.Ref
+func FuncSelectionToString(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Selection_ToString
 //go:noescape
@@ -663,11 +661,11 @@ func GetCaretPositionOffset(
 
 //go:wasmimport plat/js/web has_CaretPosition_GetClientRect
 //go:noescape
-func HasCaretPositionGetClientRect(this js.Ref) js.Ref
+func HasFuncCaretPositionGetClientRect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CaretPosition_GetClientRect
 //go:noescape
-func CaretPositionGetClientRectFunc(this js.Ref) js.Ref
+func FuncCaretPositionGetClientRect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CaretPosition_GetClientRect
 //go:noescape
@@ -716,11 +714,11 @@ func GetXPathResultSnapshotLength(
 
 //go:wasmimport plat/js/web has_XPathResult_IterateNext
 //go:noescape
-func HasXPathResultIterateNext(this js.Ref) js.Ref
+func HasFuncXPathResultIterateNext(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XPathResult_IterateNext
 //go:noescape
-func XPathResultIterateNextFunc(this js.Ref) js.Ref
+func FuncXPathResultIterateNext(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XPathResult_IterateNext
 //go:noescape
@@ -734,11 +732,11 @@ func TryXPathResultIterateNext(
 
 //go:wasmimport plat/js/web has_XPathResult_SnapshotItem
 //go:noescape
-func HasXPathResultSnapshotItem(this js.Ref) js.Ref
+func HasFuncXPathResultSnapshotItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XPathResult_SnapshotItem
 //go:noescape
-func XPathResultSnapshotItemFunc(this js.Ref) js.Ref
+func FuncXPathResultSnapshotItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XPathResult_SnapshotItem
 //go:noescape
@@ -754,11 +752,11 @@ func TryXPathResultSnapshotItem(
 
 //go:wasmimport plat/js/web has_XPathExpression_Evaluate
 //go:noescape
-func HasXPathExpressionEvaluate(this js.Ref) js.Ref
+func HasFuncXPathExpressionEvaluate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XPathExpression_Evaluate
 //go:noescape
-func XPathExpressionEvaluateFunc(this js.Ref) js.Ref
+func FuncXPathExpressionEvaluate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XPathExpression_Evaluate
 //go:noescape
@@ -778,11 +776,11 @@ func TryXPathExpressionEvaluate(
 
 //go:wasmimport plat/js/web has_XPathExpression_Evaluate1
 //go:noescape
-func HasXPathExpressionEvaluate1(this js.Ref) js.Ref
+func HasFuncXPathExpressionEvaluate1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XPathExpression_Evaluate1
 //go:noescape
-func XPathExpressionEvaluate1Func(this js.Ref) js.Ref
+func FuncXPathExpressionEvaluate1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XPathExpression_Evaluate1
 //go:noescape
@@ -800,11 +798,11 @@ func TryXPathExpressionEvaluate1(
 
 //go:wasmimport plat/js/web has_XPathExpression_Evaluate2
 //go:noescape
-func HasXPathExpressionEvaluate2(this js.Ref) js.Ref
+func HasFuncXPathExpressionEvaluate2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XPathExpression_Evaluate2
 //go:noescape
-func XPathExpressionEvaluate2Func(this js.Ref) js.Ref
+func FuncXPathExpressionEvaluate2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XPathExpression_Evaluate2
 //go:noescape
@@ -835,11 +833,11 @@ func GetDocumentTypeSystemId(
 
 //go:wasmimport plat/js/web has_DocumentType_Before
 //go:noescape
-func HasDocumentTypeBefore(this js.Ref) js.Ref
+func HasFuncDocumentTypeBefore(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DocumentType_Before
 //go:noescape
-func DocumentTypeBeforeFunc(this js.Ref) js.Ref
+func FuncDocumentTypeBefore(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DocumentType_Before
 //go:noescape
@@ -857,11 +855,11 @@ func TryDocumentTypeBefore(
 
 //go:wasmimport plat/js/web has_DocumentType_After
 //go:noescape
-func HasDocumentTypeAfter(this js.Ref) js.Ref
+func HasFuncDocumentTypeAfter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DocumentType_After
 //go:noescape
-func DocumentTypeAfterFunc(this js.Ref) js.Ref
+func FuncDocumentTypeAfter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DocumentType_After
 //go:noescape
@@ -879,11 +877,11 @@ func TryDocumentTypeAfter(
 
 //go:wasmimport plat/js/web has_DocumentType_ReplaceWith
 //go:noescape
-func HasDocumentTypeReplaceWith(this js.Ref) js.Ref
+func HasFuncDocumentTypeReplaceWith(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DocumentType_ReplaceWith
 //go:noescape
-func DocumentTypeReplaceWithFunc(this js.Ref) js.Ref
+func FuncDocumentTypeReplaceWith(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DocumentType_ReplaceWith
 //go:noescape
@@ -901,11 +899,11 @@ func TryDocumentTypeReplaceWith(
 
 //go:wasmimport plat/js/web has_DocumentType_Remove
 //go:noescape
-func HasDocumentTypeRemove(this js.Ref) js.Ref
+func HasFuncDocumentTypeRemove(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DocumentType_Remove
 //go:noescape
-func DocumentTypeRemoveFunc(this js.Ref) js.Ref
+func FuncDocumentTypeRemove(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DocumentType_Remove
 //go:noescape
@@ -919,11 +917,11 @@ func TryDocumentTypeRemove(
 
 //go:wasmimport plat/js/web has_DOMImplementation_CreateDocumentType
 //go:noescape
-func HasDOMImplementationCreateDocumentType(this js.Ref) js.Ref
+func HasFuncDOMImplementationCreateDocumentType(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMImplementation_CreateDocumentType
 //go:noescape
-func DOMImplementationCreateDocumentTypeFunc(this js.Ref) js.Ref
+func FuncDOMImplementationCreateDocumentType(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMImplementation_CreateDocumentType
 //go:noescape
@@ -943,11 +941,11 @@ func TryDOMImplementationCreateDocumentType(
 
 //go:wasmimport plat/js/web has_DOMImplementation_CreateDocument
 //go:noescape
-func HasDOMImplementationCreateDocument(this js.Ref) js.Ref
+func HasFuncDOMImplementationCreateDocument(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMImplementation_CreateDocument
 //go:noescape
-func DOMImplementationCreateDocumentFunc(this js.Ref) js.Ref
+func FuncDOMImplementationCreateDocument(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMImplementation_CreateDocument
 //go:noescape
@@ -967,11 +965,11 @@ func TryDOMImplementationCreateDocument(
 
 //go:wasmimport plat/js/web has_DOMImplementation_CreateDocument1
 //go:noescape
-func HasDOMImplementationCreateDocument1(this js.Ref) js.Ref
+func HasFuncDOMImplementationCreateDocument1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMImplementation_CreateDocument1
 //go:noescape
-func DOMImplementationCreateDocument1Func(this js.Ref) js.Ref
+func FuncDOMImplementationCreateDocument1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMImplementation_CreateDocument1
 //go:noescape
@@ -989,11 +987,11 @@ func TryDOMImplementationCreateDocument1(
 
 //go:wasmimport plat/js/web has_DOMImplementation_CreateHTMLDocument
 //go:noescape
-func HasDOMImplementationCreateHTMLDocument(this js.Ref) js.Ref
+func HasFuncDOMImplementationCreateHTMLDocument(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMImplementation_CreateHTMLDocument
 //go:noescape
-func DOMImplementationCreateHTMLDocumentFunc(this js.Ref) js.Ref
+func FuncDOMImplementationCreateHTMLDocument(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMImplementation_CreateHTMLDocument
 //go:noescape
@@ -1009,11 +1007,11 @@ func TryDOMImplementationCreateHTMLDocument(
 
 //go:wasmimport plat/js/web has_DOMImplementation_CreateHTMLDocument1
 //go:noescape
-func HasDOMImplementationCreateHTMLDocument1(this js.Ref) js.Ref
+func HasFuncDOMImplementationCreateHTMLDocument1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMImplementation_CreateHTMLDocument1
 //go:noescape
-func DOMImplementationCreateHTMLDocument1Func(this js.Ref) js.Ref
+func FuncDOMImplementationCreateHTMLDocument1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMImplementation_CreateHTMLDocument1
 //go:noescape
@@ -1027,11 +1025,11 @@ func TryDOMImplementationCreateHTMLDocument1(
 
 //go:wasmimport plat/js/web has_DOMImplementation_HasFeature
 //go:noescape
-func HasDOMImplementationHasFeature(this js.Ref) js.Ref
+func HasFuncDOMImplementationHasFeature(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMImplementation_HasFeature
 //go:noescape
-func DOMImplementationHasFeatureFunc(this js.Ref) js.Ref
+func FuncDOMImplementationHasFeature(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMImplementation_HasFeature
 //go:noescape
@@ -1045,11 +1043,11 @@ func TryDOMImplementationHasFeature(
 
 //go:wasmimport plat/js/web has_PermissionsPolicy_AllowsFeature
 //go:noescape
-func HasPermissionsPolicyAllowsFeature(this js.Ref) js.Ref
+func HasFuncPermissionsPolicyAllowsFeature(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PermissionsPolicy_AllowsFeature
 //go:noescape
-func PermissionsPolicyAllowsFeatureFunc(this js.Ref) js.Ref
+func FuncPermissionsPolicyAllowsFeature(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PermissionsPolicy_AllowsFeature
 //go:noescape
@@ -1067,11 +1065,11 @@ func TryPermissionsPolicyAllowsFeature(
 
 //go:wasmimport plat/js/web has_PermissionsPolicy_AllowsFeature1
 //go:noescape
-func HasPermissionsPolicyAllowsFeature1(this js.Ref) js.Ref
+func HasFuncPermissionsPolicyAllowsFeature1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PermissionsPolicy_AllowsFeature1
 //go:noescape
-func PermissionsPolicyAllowsFeature1Func(this js.Ref) js.Ref
+func FuncPermissionsPolicyAllowsFeature1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PermissionsPolicy_AllowsFeature1
 //go:noescape
@@ -1087,11 +1085,11 @@ func TryPermissionsPolicyAllowsFeature1(
 
 //go:wasmimport plat/js/web has_PermissionsPolicy_Features
 //go:noescape
-func HasPermissionsPolicyFeatures(this js.Ref) js.Ref
+func HasFuncPermissionsPolicyFeatures(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PermissionsPolicy_Features
 //go:noescape
-func PermissionsPolicyFeaturesFunc(this js.Ref) js.Ref
+func FuncPermissionsPolicyFeatures(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PermissionsPolicy_Features
 //go:noescape
@@ -1105,11 +1103,11 @@ func TryPermissionsPolicyFeatures(
 
 //go:wasmimport plat/js/web has_PermissionsPolicy_AllowedFeatures
 //go:noescape
-func HasPermissionsPolicyAllowedFeatures(this js.Ref) js.Ref
+func HasFuncPermissionsPolicyAllowedFeatures(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PermissionsPolicy_AllowedFeatures
 //go:noescape
-func PermissionsPolicyAllowedFeaturesFunc(this js.Ref) js.Ref
+func FuncPermissionsPolicyAllowedFeatures(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PermissionsPolicy_AllowedFeatures
 //go:noescape
@@ -1123,11 +1121,11 @@ func TryPermissionsPolicyAllowedFeatures(
 
 //go:wasmimport plat/js/web has_PermissionsPolicy_GetAllowlistForFeature
 //go:noescape
-func HasPermissionsPolicyGetAllowlistForFeature(this js.Ref) js.Ref
+func HasFuncPermissionsPolicyGetAllowlistForFeature(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PermissionsPolicy_GetAllowlistForFeature
 //go:noescape
-func PermissionsPolicyGetAllowlistForFeatureFunc(this js.Ref) js.Ref
+func FuncPermissionsPolicyGetAllowlistForFeature(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PermissionsPolicy_GetAllowlistForFeature
 //go:noescape
@@ -1223,11 +1221,11 @@ func SetCSSStyleDeclarationCssFloat(
 
 //go:wasmimport plat/js/web has_CSSStyleDeclaration_Item
 //go:noescape
-func HasCSSStyleDeclarationItem(this js.Ref) js.Ref
+func HasFuncCSSStyleDeclarationItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSStyleDeclaration_Item
 //go:noescape
-func CSSStyleDeclarationItemFunc(this js.Ref) js.Ref
+func FuncCSSStyleDeclarationItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSStyleDeclaration_Item
 //go:noescape
@@ -1243,11 +1241,11 @@ func TryCSSStyleDeclarationItem(
 
 //go:wasmimport plat/js/web has_CSSStyleDeclaration_GetPropertyValue
 //go:noescape
-func HasCSSStyleDeclarationGetPropertyValue(this js.Ref) js.Ref
+func HasFuncCSSStyleDeclarationGetPropertyValue(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSStyleDeclaration_GetPropertyValue
 //go:noescape
-func CSSStyleDeclarationGetPropertyValueFunc(this js.Ref) js.Ref
+func FuncCSSStyleDeclarationGetPropertyValue(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSStyleDeclaration_GetPropertyValue
 //go:noescape
@@ -1263,11 +1261,11 @@ func TryCSSStyleDeclarationGetPropertyValue(
 
 //go:wasmimport plat/js/web has_CSSStyleDeclaration_GetPropertyPriority
 //go:noescape
-func HasCSSStyleDeclarationGetPropertyPriority(this js.Ref) js.Ref
+func HasFuncCSSStyleDeclarationGetPropertyPriority(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSStyleDeclaration_GetPropertyPriority
 //go:noescape
-func CSSStyleDeclarationGetPropertyPriorityFunc(this js.Ref) js.Ref
+func FuncCSSStyleDeclarationGetPropertyPriority(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSStyleDeclaration_GetPropertyPriority
 //go:noescape
@@ -1283,11 +1281,11 @@ func TryCSSStyleDeclarationGetPropertyPriority(
 
 //go:wasmimport plat/js/web has_CSSStyleDeclaration_SetProperty
 //go:noescape
-func HasCSSStyleDeclarationSetProperty(this js.Ref) js.Ref
+func HasFuncCSSStyleDeclarationSetProperty(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSStyleDeclaration_SetProperty
 //go:noescape
-func CSSStyleDeclarationSetPropertyFunc(this js.Ref) js.Ref
+func FuncCSSStyleDeclarationSetProperty(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSStyleDeclaration_SetProperty
 //go:noescape
@@ -1307,11 +1305,11 @@ func TryCSSStyleDeclarationSetProperty(
 
 //go:wasmimport plat/js/web has_CSSStyleDeclaration_SetProperty1
 //go:noescape
-func HasCSSStyleDeclarationSetProperty1(this js.Ref) js.Ref
+func HasFuncCSSStyleDeclarationSetProperty1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSStyleDeclaration_SetProperty1
 //go:noescape
-func CSSStyleDeclarationSetProperty1Func(this js.Ref) js.Ref
+func FuncCSSStyleDeclarationSetProperty1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSStyleDeclaration_SetProperty1
 //go:noescape
@@ -1329,11 +1327,11 @@ func TryCSSStyleDeclarationSetProperty1(
 
 //go:wasmimport plat/js/web has_CSSStyleDeclaration_RemoveProperty
 //go:noescape
-func HasCSSStyleDeclarationRemoveProperty(this js.Ref) js.Ref
+func HasFuncCSSStyleDeclarationRemoveProperty(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSStyleDeclaration_RemoveProperty
 //go:noescape
-func CSSStyleDeclarationRemovePropertyFunc(this js.Ref) js.Ref
+func FuncCSSStyleDeclarationRemoveProperty(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSStyleDeclaration_RemoveProperty
 //go:noescape
@@ -1349,11 +1347,11 @@ func TryCSSStyleDeclarationRemoveProperty(
 
 //go:wasmimport plat/js/web has_StylePropertyMap_Set
 //go:noescape
-func HasStylePropertyMapSet(this js.Ref) js.Ref
+func HasFuncStylePropertyMapSet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_StylePropertyMap_Set
 //go:noescape
-func StylePropertyMapSetFunc(this js.Ref) js.Ref
+func FuncStylePropertyMapSet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_StylePropertyMap_Set
 //go:noescape
@@ -1373,11 +1371,11 @@ func TryStylePropertyMapSet(
 
 //go:wasmimport plat/js/web has_StylePropertyMap_Append
 //go:noescape
-func HasStylePropertyMapAppend(this js.Ref) js.Ref
+func HasFuncStylePropertyMapAppend(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_StylePropertyMap_Append
 //go:noescape
-func StylePropertyMapAppendFunc(this js.Ref) js.Ref
+func FuncStylePropertyMapAppend(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_StylePropertyMap_Append
 //go:noescape
@@ -1397,11 +1395,11 @@ func TryStylePropertyMapAppend(
 
 //go:wasmimport plat/js/web has_StylePropertyMap_Delete
 //go:noescape
-func HasStylePropertyMapDelete(this js.Ref) js.Ref
+func HasFuncStylePropertyMapDelete(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_StylePropertyMap_Delete
 //go:noescape
-func StylePropertyMapDeleteFunc(this js.Ref) js.Ref
+func FuncStylePropertyMapDelete(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_StylePropertyMap_Delete
 //go:noescape
@@ -1417,11 +1415,11 @@ func TryStylePropertyMapDelete(
 
 //go:wasmimport plat/js/web has_StylePropertyMap_Clear
 //go:noescape
-func HasStylePropertyMapClear(this js.Ref) js.Ref
+func HasFuncStylePropertyMapClear(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_StylePropertyMap_Clear
 //go:noescape
-func StylePropertyMapClearFunc(this js.Ref) js.Ref
+func FuncStylePropertyMapClear(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_StylePropertyMap_Clear
 //go:noescape
@@ -1476,11 +1474,11 @@ func SetSVGLengthValueAsString(
 
 //go:wasmimport plat/js/web has_SVGLength_NewValueSpecifiedUnits
 //go:noescape
-func HasSVGLengthNewValueSpecifiedUnits(this js.Ref) js.Ref
+func HasFuncSVGLengthNewValueSpecifiedUnits(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGLength_NewValueSpecifiedUnits
 //go:noescape
-func SVGLengthNewValueSpecifiedUnitsFunc(this js.Ref) js.Ref
+func FuncSVGLengthNewValueSpecifiedUnits(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGLength_NewValueSpecifiedUnits
 //go:noescape
@@ -1498,11 +1496,11 @@ func TrySVGLengthNewValueSpecifiedUnits(
 
 //go:wasmimport plat/js/web has_SVGLength_ConvertToSpecifiedUnits
 //go:noescape
-func HasSVGLengthConvertToSpecifiedUnits(this js.Ref) js.Ref
+func HasFuncSVGLengthConvertToSpecifiedUnits(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGLength_ConvertToSpecifiedUnits
 //go:noescape
-func SVGLengthConvertToSpecifiedUnitsFunc(this js.Ref) js.Ref
+func FuncSVGLengthConvertToSpecifiedUnits(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGLength_ConvertToSpecifiedUnits
 //go:noescape
@@ -1563,11 +1561,11 @@ func GetSVGUseElementHref(
 
 //go:wasmimport plat/js/web has_DOMStringMap_Get
 //go:noescape
-func HasDOMStringMapGet(this js.Ref) js.Ref
+func HasFuncDOMStringMapGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMStringMap_Get
 //go:noescape
-func DOMStringMapGetFunc(this js.Ref) js.Ref
+func FuncDOMStringMapGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMStringMap_Get
 //go:noescape
@@ -1583,11 +1581,11 @@ func TryDOMStringMapGet(
 
 //go:wasmimport plat/js/web has_DOMStringMap_Set
 //go:noescape
-func HasDOMStringMapSet(this js.Ref) js.Ref
+func HasFuncDOMStringMapSet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMStringMap_Set
 //go:noescape
-func DOMStringMapSetFunc(this js.Ref) js.Ref
+func FuncDOMStringMapSet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMStringMap_Set
 //go:noescape
@@ -1605,11 +1603,11 @@ func TryDOMStringMapSet(
 
 //go:wasmimport plat/js/web has_DOMStringMap_Delete
 //go:noescape
-func HasDOMStringMapDelete(this js.Ref) js.Ref
+func HasFuncDOMStringMapDelete(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMStringMap_Delete
 //go:noescape
-func DOMStringMapDeleteFunc(this js.Ref) js.Ref
+func FuncDOMStringMapDelete(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMStringMap_Delete
 //go:noescape
@@ -1701,11 +1699,11 @@ func SetSVGElementTabIndex(
 
 //go:wasmimport plat/js/web has_SVGElement_Focus
 //go:noescape
-func HasSVGElementFocus(this js.Ref) js.Ref
+func HasFuncSVGElementFocus(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGElement_Focus
 //go:noescape
-func SVGElementFocusFunc(this js.Ref) js.Ref
+func FuncSVGElementFocus(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGElement_Focus
 //go:noescape
@@ -1721,11 +1719,11 @@ func TrySVGElementFocus(
 
 //go:wasmimport plat/js/web has_SVGElement_Focus1
 //go:noescape
-func HasSVGElementFocus1(this js.Ref) js.Ref
+func HasFuncSVGElementFocus1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGElement_Focus1
 //go:noescape
-func SVGElementFocus1Func(this js.Ref) js.Ref
+func FuncSVGElementFocus1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGElement_Focus1
 //go:noescape
@@ -1739,11 +1737,11 @@ func TrySVGElementFocus1(
 
 //go:wasmimport plat/js/web has_SVGElement_Blur
 //go:noescape
-func HasSVGElementBlur(this js.Ref) js.Ref
+func HasFuncSVGElementBlur(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGElement_Blur
 //go:noescape
-func SVGElementBlurFunc(this js.Ref) js.Ref
+func FuncSVGElementBlur(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGElement_Blur
 //go:noescape
@@ -1810,11 +1808,11 @@ func SetSVGAngleValueAsString(
 
 //go:wasmimport plat/js/web has_SVGAngle_NewValueSpecifiedUnits
 //go:noescape
-func HasSVGAngleNewValueSpecifiedUnits(this js.Ref) js.Ref
+func HasFuncSVGAngleNewValueSpecifiedUnits(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGAngle_NewValueSpecifiedUnits
 //go:noescape
-func SVGAngleNewValueSpecifiedUnitsFunc(this js.Ref) js.Ref
+func FuncSVGAngleNewValueSpecifiedUnits(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGAngle_NewValueSpecifiedUnits
 //go:noescape
@@ -1832,11 +1830,11 @@ func TrySVGAngleNewValueSpecifiedUnits(
 
 //go:wasmimport plat/js/web has_SVGAngle_ConvertToSpecifiedUnits
 //go:noescape
-func HasSVGAngleConvertToSpecifiedUnits(this js.Ref) js.Ref
+func HasFuncSVGAngleConvertToSpecifiedUnits(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGAngle_ConvertToSpecifiedUnits
 //go:noescape
-func SVGAngleConvertToSpecifiedUnitsFunc(this js.Ref) js.Ref
+func FuncSVGAngleConvertToSpecifiedUnits(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGAngle_ConvertToSpecifiedUnits
 //go:noescape
@@ -2135,11 +2133,11 @@ func SetDOMMatrixM44(
 
 //go:wasmimport plat/js/web has_DOMMatrix_FromMatrix
 //go:noescape
-func HasDOMMatrixFromMatrix(this js.Ref) js.Ref
+func HasFuncDOMMatrixFromMatrix(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_FromMatrix
 //go:noescape
-func DOMMatrixFromMatrixFunc(this js.Ref) js.Ref
+func FuncDOMMatrixFromMatrix(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_FromMatrix
 //go:noescape
@@ -2155,11 +2153,11 @@ func TryDOMMatrixFromMatrix(
 
 //go:wasmimport plat/js/web has_DOMMatrix_FromMatrix1
 //go:noescape
-func HasDOMMatrixFromMatrix1(this js.Ref) js.Ref
+func HasFuncDOMMatrixFromMatrix1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_FromMatrix1
 //go:noescape
-func DOMMatrixFromMatrix1Func(this js.Ref) js.Ref
+func FuncDOMMatrixFromMatrix1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_FromMatrix1
 //go:noescape
@@ -2173,11 +2171,11 @@ func TryDOMMatrixFromMatrix1(
 
 //go:wasmimport plat/js/web has_DOMMatrix_FromFloat32Array
 //go:noescape
-func HasDOMMatrixFromFloat32Array(this js.Ref) js.Ref
+func HasFuncDOMMatrixFromFloat32Array(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_FromFloat32Array
 //go:noescape
-func DOMMatrixFromFloat32ArrayFunc(this js.Ref) js.Ref
+func FuncDOMMatrixFromFloat32Array(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_FromFloat32Array
 //go:noescape
@@ -2193,11 +2191,11 @@ func TryDOMMatrixFromFloat32Array(
 
 //go:wasmimport plat/js/web has_DOMMatrix_FromFloat64Array
 //go:noescape
-func HasDOMMatrixFromFloat64Array(this js.Ref) js.Ref
+func HasFuncDOMMatrixFromFloat64Array(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_FromFloat64Array
 //go:noescape
-func DOMMatrixFromFloat64ArrayFunc(this js.Ref) js.Ref
+func FuncDOMMatrixFromFloat64Array(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_FromFloat64Array
 //go:noescape
@@ -2213,11 +2211,11 @@ func TryDOMMatrixFromFloat64Array(
 
 //go:wasmimport plat/js/web has_DOMMatrix_MultiplySelf
 //go:noescape
-func HasDOMMatrixMultiplySelf(this js.Ref) js.Ref
+func HasFuncDOMMatrixMultiplySelf(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_MultiplySelf
 //go:noescape
-func DOMMatrixMultiplySelfFunc(this js.Ref) js.Ref
+func FuncDOMMatrixMultiplySelf(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_MultiplySelf
 //go:noescape
@@ -2233,11 +2231,11 @@ func TryDOMMatrixMultiplySelf(
 
 //go:wasmimport plat/js/web has_DOMMatrix_MultiplySelf1
 //go:noescape
-func HasDOMMatrixMultiplySelf1(this js.Ref) js.Ref
+func HasFuncDOMMatrixMultiplySelf1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_MultiplySelf1
 //go:noescape
-func DOMMatrixMultiplySelf1Func(this js.Ref) js.Ref
+func FuncDOMMatrixMultiplySelf1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_MultiplySelf1
 //go:noescape
@@ -2251,11 +2249,11 @@ func TryDOMMatrixMultiplySelf1(
 
 //go:wasmimport plat/js/web has_DOMMatrix_PreMultiplySelf
 //go:noescape
-func HasDOMMatrixPreMultiplySelf(this js.Ref) js.Ref
+func HasFuncDOMMatrixPreMultiplySelf(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_PreMultiplySelf
 //go:noescape
-func DOMMatrixPreMultiplySelfFunc(this js.Ref) js.Ref
+func FuncDOMMatrixPreMultiplySelf(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_PreMultiplySelf
 //go:noescape
@@ -2271,11 +2269,11 @@ func TryDOMMatrixPreMultiplySelf(
 
 //go:wasmimport plat/js/web has_DOMMatrix_PreMultiplySelf1
 //go:noescape
-func HasDOMMatrixPreMultiplySelf1(this js.Ref) js.Ref
+func HasFuncDOMMatrixPreMultiplySelf1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_PreMultiplySelf1
 //go:noescape
-func DOMMatrixPreMultiplySelf1Func(this js.Ref) js.Ref
+func FuncDOMMatrixPreMultiplySelf1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_PreMultiplySelf1
 //go:noescape
@@ -2289,11 +2287,11 @@ func TryDOMMatrixPreMultiplySelf1(
 
 //go:wasmimport plat/js/web has_DOMMatrix_TranslateSelf
 //go:noescape
-func HasDOMMatrixTranslateSelf(this js.Ref) js.Ref
+func HasFuncDOMMatrixTranslateSelf(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_TranslateSelf
 //go:noescape
-func DOMMatrixTranslateSelfFunc(this js.Ref) js.Ref
+func FuncDOMMatrixTranslateSelf(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_TranslateSelf
 //go:noescape
@@ -2313,11 +2311,11 @@ func TryDOMMatrixTranslateSelf(
 
 //go:wasmimport plat/js/web has_DOMMatrix_TranslateSelf1
 //go:noescape
-func HasDOMMatrixTranslateSelf1(this js.Ref) js.Ref
+func HasFuncDOMMatrixTranslateSelf1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_TranslateSelf1
 //go:noescape
-func DOMMatrixTranslateSelf1Func(this js.Ref) js.Ref
+func FuncDOMMatrixTranslateSelf1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_TranslateSelf1
 //go:noescape
@@ -2335,11 +2333,11 @@ func TryDOMMatrixTranslateSelf1(
 
 //go:wasmimport plat/js/web has_DOMMatrix_TranslateSelf2
 //go:noescape
-func HasDOMMatrixTranslateSelf2(this js.Ref) js.Ref
+func HasFuncDOMMatrixTranslateSelf2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_TranslateSelf2
 //go:noescape
-func DOMMatrixTranslateSelf2Func(this js.Ref) js.Ref
+func FuncDOMMatrixTranslateSelf2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_TranslateSelf2
 //go:noescape
@@ -2355,11 +2353,11 @@ func TryDOMMatrixTranslateSelf2(
 
 //go:wasmimport plat/js/web has_DOMMatrix_TranslateSelf3
 //go:noescape
-func HasDOMMatrixTranslateSelf3(this js.Ref) js.Ref
+func HasFuncDOMMatrixTranslateSelf3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_TranslateSelf3
 //go:noescape
-func DOMMatrixTranslateSelf3Func(this js.Ref) js.Ref
+func FuncDOMMatrixTranslateSelf3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_TranslateSelf3
 //go:noescape
@@ -2373,11 +2371,11 @@ func TryDOMMatrixTranslateSelf3(
 
 //go:wasmimport plat/js/web has_DOMMatrix_ScaleSelf
 //go:noescape
-func HasDOMMatrixScaleSelf(this js.Ref) js.Ref
+func HasFuncDOMMatrixScaleSelf(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_ScaleSelf
 //go:noescape
-func DOMMatrixScaleSelfFunc(this js.Ref) js.Ref
+func FuncDOMMatrixScaleSelf(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_ScaleSelf
 //go:noescape
@@ -2403,11 +2401,11 @@ func TryDOMMatrixScaleSelf(
 
 //go:wasmimport plat/js/web has_DOMMatrix_ScaleSelf1
 //go:noescape
-func HasDOMMatrixScaleSelf1(this js.Ref) js.Ref
+func HasFuncDOMMatrixScaleSelf1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_ScaleSelf1
 //go:noescape
-func DOMMatrixScaleSelf1Func(this js.Ref) js.Ref
+func FuncDOMMatrixScaleSelf1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_ScaleSelf1
 //go:noescape
@@ -2431,11 +2429,11 @@ func TryDOMMatrixScaleSelf1(
 
 //go:wasmimport plat/js/web has_DOMMatrix_ScaleSelf2
 //go:noescape
-func HasDOMMatrixScaleSelf2(this js.Ref) js.Ref
+func HasFuncDOMMatrixScaleSelf2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_ScaleSelf2
 //go:noescape
-func DOMMatrixScaleSelf2Func(this js.Ref) js.Ref
+func FuncDOMMatrixScaleSelf2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_ScaleSelf2
 //go:noescape
@@ -2457,11 +2455,11 @@ func TryDOMMatrixScaleSelf2(
 
 //go:wasmimport plat/js/web has_DOMMatrix_ScaleSelf3
 //go:noescape
-func HasDOMMatrixScaleSelf3(this js.Ref) js.Ref
+func HasFuncDOMMatrixScaleSelf3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_ScaleSelf3
 //go:noescape
-func DOMMatrixScaleSelf3Func(this js.Ref) js.Ref
+func FuncDOMMatrixScaleSelf3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_ScaleSelf3
 //go:noescape
@@ -2481,11 +2479,11 @@ func TryDOMMatrixScaleSelf3(
 
 //go:wasmimport plat/js/web has_DOMMatrix_ScaleSelf4
 //go:noescape
-func HasDOMMatrixScaleSelf4(this js.Ref) js.Ref
+func HasFuncDOMMatrixScaleSelf4(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_ScaleSelf4
 //go:noescape
-func DOMMatrixScaleSelf4Func(this js.Ref) js.Ref
+func FuncDOMMatrixScaleSelf4(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_ScaleSelf4
 //go:noescape
@@ -2503,11 +2501,11 @@ func TryDOMMatrixScaleSelf4(
 
 //go:wasmimport plat/js/web has_DOMMatrix_ScaleSelf5
 //go:noescape
-func HasDOMMatrixScaleSelf5(this js.Ref) js.Ref
+func HasFuncDOMMatrixScaleSelf5(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_ScaleSelf5
 //go:noescape
-func DOMMatrixScaleSelf5Func(this js.Ref) js.Ref
+func FuncDOMMatrixScaleSelf5(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_ScaleSelf5
 //go:noescape
@@ -2523,11 +2521,11 @@ func TryDOMMatrixScaleSelf5(
 
 //go:wasmimport plat/js/web has_DOMMatrix_ScaleSelf6
 //go:noescape
-func HasDOMMatrixScaleSelf6(this js.Ref) js.Ref
+func HasFuncDOMMatrixScaleSelf6(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_ScaleSelf6
 //go:noescape
-func DOMMatrixScaleSelf6Func(this js.Ref) js.Ref
+func FuncDOMMatrixScaleSelf6(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_ScaleSelf6
 //go:noescape
@@ -2541,11 +2539,11 @@ func TryDOMMatrixScaleSelf6(
 
 //go:wasmimport plat/js/web has_DOMMatrix_Scale3dSelf
 //go:noescape
-func HasDOMMatrixScale3dSelf(this js.Ref) js.Ref
+func HasFuncDOMMatrixScale3dSelf(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_Scale3dSelf
 //go:noescape
-func DOMMatrixScale3dSelfFunc(this js.Ref) js.Ref
+func FuncDOMMatrixScale3dSelf(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_Scale3dSelf
 //go:noescape
@@ -2567,11 +2565,11 @@ func TryDOMMatrixScale3dSelf(
 
 //go:wasmimport plat/js/web has_DOMMatrix_Scale3dSelf1
 //go:noescape
-func HasDOMMatrixScale3dSelf1(this js.Ref) js.Ref
+func HasFuncDOMMatrixScale3dSelf1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_Scale3dSelf1
 //go:noescape
-func DOMMatrixScale3dSelf1Func(this js.Ref) js.Ref
+func FuncDOMMatrixScale3dSelf1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_Scale3dSelf1
 //go:noescape
@@ -2591,11 +2589,11 @@ func TryDOMMatrixScale3dSelf1(
 
 //go:wasmimport plat/js/web has_DOMMatrix_Scale3dSelf2
 //go:noescape
-func HasDOMMatrixScale3dSelf2(this js.Ref) js.Ref
+func HasFuncDOMMatrixScale3dSelf2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_Scale3dSelf2
 //go:noescape
-func DOMMatrixScale3dSelf2Func(this js.Ref) js.Ref
+func FuncDOMMatrixScale3dSelf2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_Scale3dSelf2
 //go:noescape
@@ -2613,11 +2611,11 @@ func TryDOMMatrixScale3dSelf2(
 
 //go:wasmimport plat/js/web has_DOMMatrix_Scale3dSelf3
 //go:noescape
-func HasDOMMatrixScale3dSelf3(this js.Ref) js.Ref
+func HasFuncDOMMatrixScale3dSelf3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_Scale3dSelf3
 //go:noescape
-func DOMMatrixScale3dSelf3Func(this js.Ref) js.Ref
+func FuncDOMMatrixScale3dSelf3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_Scale3dSelf3
 //go:noescape
@@ -2633,11 +2631,11 @@ func TryDOMMatrixScale3dSelf3(
 
 //go:wasmimport plat/js/web has_DOMMatrix_Scale3dSelf4
 //go:noescape
-func HasDOMMatrixScale3dSelf4(this js.Ref) js.Ref
+func HasFuncDOMMatrixScale3dSelf4(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_Scale3dSelf4
 //go:noescape
-func DOMMatrixScale3dSelf4Func(this js.Ref) js.Ref
+func FuncDOMMatrixScale3dSelf4(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_Scale3dSelf4
 //go:noescape
@@ -2651,11 +2649,11 @@ func TryDOMMatrixScale3dSelf4(
 
 //go:wasmimport plat/js/web has_DOMMatrix_RotateSelf
 //go:noescape
-func HasDOMMatrixRotateSelf(this js.Ref) js.Ref
+func HasFuncDOMMatrixRotateSelf(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_RotateSelf
 //go:noescape
-func DOMMatrixRotateSelfFunc(this js.Ref) js.Ref
+func FuncDOMMatrixRotateSelf(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_RotateSelf
 //go:noescape
@@ -2675,11 +2673,11 @@ func TryDOMMatrixRotateSelf(
 
 //go:wasmimport plat/js/web has_DOMMatrix_RotateSelf1
 //go:noescape
-func HasDOMMatrixRotateSelf1(this js.Ref) js.Ref
+func HasFuncDOMMatrixRotateSelf1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_RotateSelf1
 //go:noescape
-func DOMMatrixRotateSelf1Func(this js.Ref) js.Ref
+func FuncDOMMatrixRotateSelf1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_RotateSelf1
 //go:noescape
@@ -2697,11 +2695,11 @@ func TryDOMMatrixRotateSelf1(
 
 //go:wasmimport plat/js/web has_DOMMatrix_RotateSelf2
 //go:noescape
-func HasDOMMatrixRotateSelf2(this js.Ref) js.Ref
+func HasFuncDOMMatrixRotateSelf2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_RotateSelf2
 //go:noescape
-func DOMMatrixRotateSelf2Func(this js.Ref) js.Ref
+func FuncDOMMatrixRotateSelf2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_RotateSelf2
 //go:noescape
@@ -2717,11 +2715,11 @@ func TryDOMMatrixRotateSelf2(
 
 //go:wasmimport plat/js/web has_DOMMatrix_RotateSelf3
 //go:noescape
-func HasDOMMatrixRotateSelf3(this js.Ref) js.Ref
+func HasFuncDOMMatrixRotateSelf3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_RotateSelf3
 //go:noescape
-func DOMMatrixRotateSelf3Func(this js.Ref) js.Ref
+func FuncDOMMatrixRotateSelf3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_RotateSelf3
 //go:noescape
@@ -2735,11 +2733,11 @@ func TryDOMMatrixRotateSelf3(
 
 //go:wasmimport plat/js/web has_DOMMatrix_RotateFromVectorSelf
 //go:noescape
-func HasDOMMatrixRotateFromVectorSelf(this js.Ref) js.Ref
+func HasFuncDOMMatrixRotateFromVectorSelf(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_RotateFromVectorSelf
 //go:noescape
-func DOMMatrixRotateFromVectorSelfFunc(this js.Ref) js.Ref
+func FuncDOMMatrixRotateFromVectorSelf(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_RotateFromVectorSelf
 //go:noescape
@@ -2757,11 +2755,11 @@ func TryDOMMatrixRotateFromVectorSelf(
 
 //go:wasmimport plat/js/web has_DOMMatrix_RotateFromVectorSelf1
 //go:noescape
-func HasDOMMatrixRotateFromVectorSelf1(this js.Ref) js.Ref
+func HasFuncDOMMatrixRotateFromVectorSelf1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_RotateFromVectorSelf1
 //go:noescape
-func DOMMatrixRotateFromVectorSelf1Func(this js.Ref) js.Ref
+func FuncDOMMatrixRotateFromVectorSelf1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_RotateFromVectorSelf1
 //go:noescape
@@ -2777,11 +2775,11 @@ func TryDOMMatrixRotateFromVectorSelf1(
 
 //go:wasmimport plat/js/web has_DOMMatrix_RotateFromVectorSelf2
 //go:noescape
-func HasDOMMatrixRotateFromVectorSelf2(this js.Ref) js.Ref
+func HasFuncDOMMatrixRotateFromVectorSelf2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_RotateFromVectorSelf2
 //go:noescape
-func DOMMatrixRotateFromVectorSelf2Func(this js.Ref) js.Ref
+func FuncDOMMatrixRotateFromVectorSelf2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_RotateFromVectorSelf2
 //go:noescape
@@ -2795,11 +2793,11 @@ func TryDOMMatrixRotateFromVectorSelf2(
 
 //go:wasmimport plat/js/web has_DOMMatrix_RotateAxisAngleSelf
 //go:noescape
-func HasDOMMatrixRotateAxisAngleSelf(this js.Ref) js.Ref
+func HasFuncDOMMatrixRotateAxisAngleSelf(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_RotateAxisAngleSelf
 //go:noescape
-func DOMMatrixRotateAxisAngleSelfFunc(this js.Ref) js.Ref
+func FuncDOMMatrixRotateAxisAngleSelf(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_RotateAxisAngleSelf
 //go:noescape
@@ -2821,11 +2819,11 @@ func TryDOMMatrixRotateAxisAngleSelf(
 
 //go:wasmimport plat/js/web has_DOMMatrix_RotateAxisAngleSelf1
 //go:noescape
-func HasDOMMatrixRotateAxisAngleSelf1(this js.Ref) js.Ref
+func HasFuncDOMMatrixRotateAxisAngleSelf1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_RotateAxisAngleSelf1
 //go:noescape
-func DOMMatrixRotateAxisAngleSelf1Func(this js.Ref) js.Ref
+func FuncDOMMatrixRotateAxisAngleSelf1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_RotateAxisAngleSelf1
 //go:noescape
@@ -2845,11 +2843,11 @@ func TryDOMMatrixRotateAxisAngleSelf1(
 
 //go:wasmimport plat/js/web has_DOMMatrix_RotateAxisAngleSelf2
 //go:noescape
-func HasDOMMatrixRotateAxisAngleSelf2(this js.Ref) js.Ref
+func HasFuncDOMMatrixRotateAxisAngleSelf2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_RotateAxisAngleSelf2
 //go:noescape
-func DOMMatrixRotateAxisAngleSelf2Func(this js.Ref) js.Ref
+func FuncDOMMatrixRotateAxisAngleSelf2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_RotateAxisAngleSelf2
 //go:noescape
@@ -2867,11 +2865,11 @@ func TryDOMMatrixRotateAxisAngleSelf2(
 
 //go:wasmimport plat/js/web has_DOMMatrix_RotateAxisAngleSelf3
 //go:noescape
-func HasDOMMatrixRotateAxisAngleSelf3(this js.Ref) js.Ref
+func HasFuncDOMMatrixRotateAxisAngleSelf3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_RotateAxisAngleSelf3
 //go:noescape
-func DOMMatrixRotateAxisAngleSelf3Func(this js.Ref) js.Ref
+func FuncDOMMatrixRotateAxisAngleSelf3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_RotateAxisAngleSelf3
 //go:noescape
@@ -2887,11 +2885,11 @@ func TryDOMMatrixRotateAxisAngleSelf3(
 
 //go:wasmimport plat/js/web has_DOMMatrix_RotateAxisAngleSelf4
 //go:noescape
-func HasDOMMatrixRotateAxisAngleSelf4(this js.Ref) js.Ref
+func HasFuncDOMMatrixRotateAxisAngleSelf4(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_RotateAxisAngleSelf4
 //go:noescape
-func DOMMatrixRotateAxisAngleSelf4Func(this js.Ref) js.Ref
+func FuncDOMMatrixRotateAxisAngleSelf4(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_RotateAxisAngleSelf4
 //go:noescape
@@ -2905,11 +2903,11 @@ func TryDOMMatrixRotateAxisAngleSelf4(
 
 //go:wasmimport plat/js/web has_DOMMatrix_SkewXSelf
 //go:noescape
-func HasDOMMatrixSkewXSelf(this js.Ref) js.Ref
+func HasFuncDOMMatrixSkewXSelf(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_SkewXSelf
 //go:noescape
-func DOMMatrixSkewXSelfFunc(this js.Ref) js.Ref
+func FuncDOMMatrixSkewXSelf(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_SkewXSelf
 //go:noescape
@@ -2925,11 +2923,11 @@ func TryDOMMatrixSkewXSelf(
 
 //go:wasmimport plat/js/web has_DOMMatrix_SkewXSelf1
 //go:noescape
-func HasDOMMatrixSkewXSelf1(this js.Ref) js.Ref
+func HasFuncDOMMatrixSkewXSelf1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_SkewXSelf1
 //go:noescape
-func DOMMatrixSkewXSelf1Func(this js.Ref) js.Ref
+func FuncDOMMatrixSkewXSelf1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_SkewXSelf1
 //go:noescape
@@ -2943,11 +2941,11 @@ func TryDOMMatrixSkewXSelf1(
 
 //go:wasmimport plat/js/web has_DOMMatrix_SkewYSelf
 //go:noescape
-func HasDOMMatrixSkewYSelf(this js.Ref) js.Ref
+func HasFuncDOMMatrixSkewYSelf(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_SkewYSelf
 //go:noescape
-func DOMMatrixSkewYSelfFunc(this js.Ref) js.Ref
+func FuncDOMMatrixSkewYSelf(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_SkewYSelf
 //go:noescape
@@ -2963,11 +2961,11 @@ func TryDOMMatrixSkewYSelf(
 
 //go:wasmimport plat/js/web has_DOMMatrix_SkewYSelf1
 //go:noescape
-func HasDOMMatrixSkewYSelf1(this js.Ref) js.Ref
+func HasFuncDOMMatrixSkewYSelf1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_SkewYSelf1
 //go:noescape
-func DOMMatrixSkewYSelf1Func(this js.Ref) js.Ref
+func FuncDOMMatrixSkewYSelf1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_SkewYSelf1
 //go:noescape
@@ -2981,11 +2979,11 @@ func TryDOMMatrixSkewYSelf1(
 
 //go:wasmimport plat/js/web has_DOMMatrix_InvertSelf
 //go:noescape
-func HasDOMMatrixInvertSelf(this js.Ref) js.Ref
+func HasFuncDOMMatrixInvertSelf(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_InvertSelf
 //go:noescape
-func DOMMatrixInvertSelfFunc(this js.Ref) js.Ref
+func FuncDOMMatrixInvertSelf(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_InvertSelf
 //go:noescape
@@ -2999,11 +2997,11 @@ func TryDOMMatrixInvertSelf(
 
 //go:wasmimport plat/js/web has_DOMMatrix_SetMatrixValue
 //go:noescape
-func HasDOMMatrixSetMatrixValue(this js.Ref) js.Ref
+func HasFuncDOMMatrixSetMatrixValue(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrix_SetMatrixValue
 //go:noescape
-func DOMMatrixSetMatrixValueFunc(this js.Ref) js.Ref
+func FuncDOMMatrixSetMatrixValue(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrix_SetMatrixValue
 //go:noescape
@@ -3044,11 +3042,11 @@ func GetSVGTransformAngle(
 
 //go:wasmimport plat/js/web has_SVGTransform_SetMatrix
 //go:noescape
-func HasSVGTransformSetMatrix(this js.Ref) js.Ref
+func HasFuncSVGTransformSetMatrix(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTransform_SetMatrix
 //go:noescape
-func SVGTransformSetMatrixFunc(this js.Ref) js.Ref
+func FuncSVGTransformSetMatrix(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTransform_SetMatrix
 //go:noescape
@@ -3064,11 +3062,11 @@ func TrySVGTransformSetMatrix(
 
 //go:wasmimport plat/js/web has_SVGTransform_SetMatrix1
 //go:noescape
-func HasSVGTransformSetMatrix1(this js.Ref) js.Ref
+func HasFuncSVGTransformSetMatrix1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTransform_SetMatrix1
 //go:noescape
-func SVGTransformSetMatrix1Func(this js.Ref) js.Ref
+func FuncSVGTransformSetMatrix1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTransform_SetMatrix1
 //go:noescape
@@ -3082,11 +3080,11 @@ func TrySVGTransformSetMatrix1(
 
 //go:wasmimport plat/js/web has_SVGTransform_SetTranslate
 //go:noescape
-func HasSVGTransformSetTranslate(this js.Ref) js.Ref
+func HasFuncSVGTransformSetTranslate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTransform_SetTranslate
 //go:noescape
-func SVGTransformSetTranslateFunc(this js.Ref) js.Ref
+func FuncSVGTransformSetTranslate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTransform_SetTranslate
 //go:noescape
@@ -3104,11 +3102,11 @@ func TrySVGTransformSetTranslate(
 
 //go:wasmimport plat/js/web has_SVGTransform_SetScale
 //go:noescape
-func HasSVGTransformSetScale(this js.Ref) js.Ref
+func HasFuncSVGTransformSetScale(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTransform_SetScale
 //go:noescape
-func SVGTransformSetScaleFunc(this js.Ref) js.Ref
+func FuncSVGTransformSetScale(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTransform_SetScale
 //go:noescape
@@ -3126,11 +3124,11 @@ func TrySVGTransformSetScale(
 
 //go:wasmimport plat/js/web has_SVGTransform_SetRotate
 //go:noescape
-func HasSVGTransformSetRotate(this js.Ref) js.Ref
+func HasFuncSVGTransformSetRotate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTransform_SetRotate
 //go:noescape
-func SVGTransformSetRotateFunc(this js.Ref) js.Ref
+func FuncSVGTransformSetRotate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTransform_SetRotate
 //go:noescape
@@ -3150,11 +3148,11 @@ func TrySVGTransformSetRotate(
 
 //go:wasmimport plat/js/web has_SVGTransform_SetSkewX
 //go:noescape
-func HasSVGTransformSetSkewX(this js.Ref) js.Ref
+func HasFuncSVGTransformSetSkewX(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTransform_SetSkewX
 //go:noescape
-func SVGTransformSetSkewXFunc(this js.Ref) js.Ref
+func FuncSVGTransformSetSkewX(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTransform_SetSkewX
 //go:noescape
@@ -3170,11 +3168,11 @@ func TrySVGTransformSetSkewX(
 
 //go:wasmimport plat/js/web has_SVGTransform_SetSkewY
 //go:noescape
-func HasSVGTransformSetSkewY(this js.Ref) js.Ref
+func HasFuncSVGTransformSetSkewY(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTransform_SetSkewY
 //go:noescape
-func SVGTransformSetSkewYFunc(this js.Ref) js.Ref
+func FuncSVGTransformSetSkewY(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTransform_SetSkewY
 //go:noescape
@@ -3240,11 +3238,11 @@ func GetDOMPointReadOnlyW(
 
 //go:wasmimport plat/js/web has_DOMPointReadOnly_FromPoint
 //go:noescape
-func HasDOMPointReadOnlyFromPoint(this js.Ref) js.Ref
+func HasFuncDOMPointReadOnlyFromPoint(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMPointReadOnly_FromPoint
 //go:noescape
-func DOMPointReadOnlyFromPointFunc(this js.Ref) js.Ref
+func FuncDOMPointReadOnlyFromPoint(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMPointReadOnly_FromPoint
 //go:noescape
@@ -3260,11 +3258,11 @@ func TryDOMPointReadOnlyFromPoint(
 
 //go:wasmimport plat/js/web has_DOMPointReadOnly_FromPoint1
 //go:noescape
-func HasDOMPointReadOnlyFromPoint1(this js.Ref) js.Ref
+func HasFuncDOMPointReadOnlyFromPoint1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMPointReadOnly_FromPoint1
 //go:noescape
-func DOMPointReadOnlyFromPoint1Func(this js.Ref) js.Ref
+func FuncDOMPointReadOnlyFromPoint1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMPointReadOnly_FromPoint1
 //go:noescape
@@ -3278,11 +3276,11 @@ func TryDOMPointReadOnlyFromPoint1(
 
 //go:wasmimport plat/js/web has_DOMPointReadOnly_MatrixTransform
 //go:noescape
-func HasDOMPointReadOnlyMatrixTransform(this js.Ref) js.Ref
+func HasFuncDOMPointReadOnlyMatrixTransform(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMPointReadOnly_MatrixTransform
 //go:noescape
-func DOMPointReadOnlyMatrixTransformFunc(this js.Ref) js.Ref
+func FuncDOMPointReadOnlyMatrixTransform(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMPointReadOnly_MatrixTransform
 //go:noescape
@@ -3298,11 +3296,11 @@ func TryDOMPointReadOnlyMatrixTransform(
 
 //go:wasmimport plat/js/web has_DOMPointReadOnly_MatrixTransform1
 //go:noescape
-func HasDOMPointReadOnlyMatrixTransform1(this js.Ref) js.Ref
+func HasFuncDOMPointReadOnlyMatrixTransform1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMPointReadOnly_MatrixTransform1
 //go:noescape
-func DOMPointReadOnlyMatrixTransform1Func(this js.Ref) js.Ref
+func FuncDOMPointReadOnlyMatrixTransform1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMPointReadOnly_MatrixTransform1
 //go:noescape
@@ -3316,11 +3314,11 @@ func TryDOMPointReadOnlyMatrixTransform1(
 
 //go:wasmimport plat/js/web has_DOMPointReadOnly_ToJSON
 //go:noescape
-func HasDOMPointReadOnlyToJSON(this js.Ref) js.Ref
+func HasFuncDOMPointReadOnlyToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMPointReadOnly_ToJSON
 //go:noescape
-func DOMPointReadOnlyToJSONFunc(this js.Ref) js.Ref
+func FuncDOMPointReadOnlyToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMPointReadOnly_ToJSON
 //go:noescape
@@ -3425,11 +3423,11 @@ func GetSVGSVGElementPreserveAspectRatio(
 
 //go:wasmimport plat/js/web has_SVGSVGElement_GetIntersectionList
 //go:noescape
-func HasSVGSVGElementGetIntersectionList(this js.Ref) js.Ref
+func HasFuncSVGSVGElementGetIntersectionList(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGSVGElement_GetIntersectionList
 //go:noescape
-func SVGSVGElementGetIntersectionListFunc(this js.Ref) js.Ref
+func FuncSVGSVGElementGetIntersectionList(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGSVGElement_GetIntersectionList
 //go:noescape
@@ -3447,11 +3445,11 @@ func TrySVGSVGElementGetIntersectionList(
 
 //go:wasmimport plat/js/web has_SVGSVGElement_GetEnclosureList
 //go:noescape
-func HasSVGSVGElementGetEnclosureList(this js.Ref) js.Ref
+func HasFuncSVGSVGElementGetEnclosureList(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGSVGElement_GetEnclosureList
 //go:noescape
-func SVGSVGElementGetEnclosureListFunc(this js.Ref) js.Ref
+func FuncSVGSVGElementGetEnclosureList(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGSVGElement_GetEnclosureList
 //go:noescape
@@ -3469,11 +3467,11 @@ func TrySVGSVGElementGetEnclosureList(
 
 //go:wasmimport plat/js/web has_SVGSVGElement_CheckIntersection
 //go:noescape
-func HasSVGSVGElementCheckIntersection(this js.Ref) js.Ref
+func HasFuncSVGSVGElementCheckIntersection(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGSVGElement_CheckIntersection
 //go:noescape
-func SVGSVGElementCheckIntersectionFunc(this js.Ref) js.Ref
+func FuncSVGSVGElementCheckIntersection(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGSVGElement_CheckIntersection
 //go:noescape
@@ -3491,11 +3489,11 @@ func TrySVGSVGElementCheckIntersection(
 
 //go:wasmimport plat/js/web has_SVGSVGElement_CheckEnclosure
 //go:noescape
-func HasSVGSVGElementCheckEnclosure(this js.Ref) js.Ref
+func HasFuncSVGSVGElementCheckEnclosure(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGSVGElement_CheckEnclosure
 //go:noescape
-func SVGSVGElementCheckEnclosureFunc(this js.Ref) js.Ref
+func FuncSVGSVGElementCheckEnclosure(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGSVGElement_CheckEnclosure
 //go:noescape
@@ -3513,11 +3511,11 @@ func TrySVGSVGElementCheckEnclosure(
 
 //go:wasmimport plat/js/web has_SVGSVGElement_DeselectAll
 //go:noescape
-func HasSVGSVGElementDeselectAll(this js.Ref) js.Ref
+func HasFuncSVGSVGElementDeselectAll(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGSVGElement_DeselectAll
 //go:noescape
-func SVGSVGElementDeselectAllFunc(this js.Ref) js.Ref
+func FuncSVGSVGElementDeselectAll(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGSVGElement_DeselectAll
 //go:noescape
@@ -3531,11 +3529,11 @@ func TrySVGSVGElementDeselectAll(
 
 //go:wasmimport plat/js/web has_SVGSVGElement_CreateSVGNumber
 //go:noescape
-func HasSVGSVGElementCreateSVGNumber(this js.Ref) js.Ref
+func HasFuncSVGSVGElementCreateSVGNumber(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGSVGElement_CreateSVGNumber
 //go:noescape
-func SVGSVGElementCreateSVGNumberFunc(this js.Ref) js.Ref
+func FuncSVGSVGElementCreateSVGNumber(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGSVGElement_CreateSVGNumber
 //go:noescape
@@ -3549,11 +3547,11 @@ func TrySVGSVGElementCreateSVGNumber(
 
 //go:wasmimport plat/js/web has_SVGSVGElement_CreateSVGLength
 //go:noescape
-func HasSVGSVGElementCreateSVGLength(this js.Ref) js.Ref
+func HasFuncSVGSVGElementCreateSVGLength(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGSVGElement_CreateSVGLength
 //go:noescape
-func SVGSVGElementCreateSVGLengthFunc(this js.Ref) js.Ref
+func FuncSVGSVGElementCreateSVGLength(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGSVGElement_CreateSVGLength
 //go:noescape
@@ -3567,11 +3565,11 @@ func TrySVGSVGElementCreateSVGLength(
 
 //go:wasmimport plat/js/web has_SVGSVGElement_CreateSVGAngle
 //go:noescape
-func HasSVGSVGElementCreateSVGAngle(this js.Ref) js.Ref
+func HasFuncSVGSVGElementCreateSVGAngle(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGSVGElement_CreateSVGAngle
 //go:noescape
-func SVGSVGElementCreateSVGAngleFunc(this js.Ref) js.Ref
+func FuncSVGSVGElementCreateSVGAngle(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGSVGElement_CreateSVGAngle
 //go:noescape
@@ -3585,11 +3583,11 @@ func TrySVGSVGElementCreateSVGAngle(
 
 //go:wasmimport plat/js/web has_SVGSVGElement_CreateSVGPoint
 //go:noescape
-func HasSVGSVGElementCreateSVGPoint(this js.Ref) js.Ref
+func HasFuncSVGSVGElementCreateSVGPoint(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGSVGElement_CreateSVGPoint
 //go:noescape
-func SVGSVGElementCreateSVGPointFunc(this js.Ref) js.Ref
+func FuncSVGSVGElementCreateSVGPoint(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGSVGElement_CreateSVGPoint
 //go:noescape
@@ -3603,11 +3601,11 @@ func TrySVGSVGElementCreateSVGPoint(
 
 //go:wasmimport plat/js/web has_SVGSVGElement_CreateSVGMatrix
 //go:noescape
-func HasSVGSVGElementCreateSVGMatrix(this js.Ref) js.Ref
+func HasFuncSVGSVGElementCreateSVGMatrix(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGSVGElement_CreateSVGMatrix
 //go:noescape
-func SVGSVGElementCreateSVGMatrixFunc(this js.Ref) js.Ref
+func FuncSVGSVGElementCreateSVGMatrix(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGSVGElement_CreateSVGMatrix
 //go:noescape
@@ -3621,11 +3619,11 @@ func TrySVGSVGElementCreateSVGMatrix(
 
 //go:wasmimport plat/js/web has_SVGSVGElement_CreateSVGRect
 //go:noescape
-func HasSVGSVGElementCreateSVGRect(this js.Ref) js.Ref
+func HasFuncSVGSVGElementCreateSVGRect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGSVGElement_CreateSVGRect
 //go:noescape
-func SVGSVGElementCreateSVGRectFunc(this js.Ref) js.Ref
+func FuncSVGSVGElementCreateSVGRect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGSVGElement_CreateSVGRect
 //go:noescape
@@ -3639,11 +3637,11 @@ func TrySVGSVGElementCreateSVGRect(
 
 //go:wasmimport plat/js/web has_SVGSVGElement_CreateSVGTransform
 //go:noescape
-func HasSVGSVGElementCreateSVGTransform(this js.Ref) js.Ref
+func HasFuncSVGSVGElementCreateSVGTransform(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGSVGElement_CreateSVGTransform
 //go:noescape
-func SVGSVGElementCreateSVGTransformFunc(this js.Ref) js.Ref
+func FuncSVGSVGElementCreateSVGTransform(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGSVGElement_CreateSVGTransform
 //go:noescape
@@ -3657,11 +3655,11 @@ func TrySVGSVGElementCreateSVGTransform(
 
 //go:wasmimport plat/js/web has_SVGSVGElement_CreateSVGTransformFromMatrix
 //go:noescape
-func HasSVGSVGElementCreateSVGTransformFromMatrix(this js.Ref) js.Ref
+func HasFuncSVGSVGElementCreateSVGTransformFromMatrix(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGSVGElement_CreateSVGTransformFromMatrix
 //go:noescape
-func SVGSVGElementCreateSVGTransformFromMatrixFunc(this js.Ref) js.Ref
+func FuncSVGSVGElementCreateSVGTransformFromMatrix(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGSVGElement_CreateSVGTransformFromMatrix
 //go:noescape
@@ -3677,11 +3675,11 @@ func TrySVGSVGElementCreateSVGTransformFromMatrix(
 
 //go:wasmimport plat/js/web has_SVGSVGElement_CreateSVGTransformFromMatrix1
 //go:noescape
-func HasSVGSVGElementCreateSVGTransformFromMatrix1(this js.Ref) js.Ref
+func HasFuncSVGSVGElementCreateSVGTransformFromMatrix1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGSVGElement_CreateSVGTransformFromMatrix1
 //go:noescape
-func SVGSVGElementCreateSVGTransformFromMatrix1Func(this js.Ref) js.Ref
+func FuncSVGSVGElementCreateSVGTransformFromMatrix1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGSVGElement_CreateSVGTransformFromMatrix1
 //go:noescape
@@ -3695,11 +3693,11 @@ func TrySVGSVGElementCreateSVGTransformFromMatrix1(
 
 //go:wasmimport plat/js/web has_SVGSVGElement_GetElementById
 //go:noescape
-func HasSVGSVGElementGetElementById(this js.Ref) js.Ref
+func HasFuncSVGSVGElementGetElementById(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGSVGElement_GetElementById
 //go:noescape
-func SVGSVGElementGetElementByIdFunc(this js.Ref) js.Ref
+func FuncSVGSVGElementGetElementById(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGSVGElement_GetElementById
 //go:noescape
@@ -3715,11 +3713,11 @@ func TrySVGSVGElementGetElementById(
 
 //go:wasmimport plat/js/web has_SVGSVGElement_SuspendRedraw
 //go:noescape
-func HasSVGSVGElementSuspendRedraw(this js.Ref) js.Ref
+func HasFuncSVGSVGElementSuspendRedraw(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGSVGElement_SuspendRedraw
 //go:noescape
-func SVGSVGElementSuspendRedrawFunc(this js.Ref) js.Ref
+func FuncSVGSVGElementSuspendRedraw(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGSVGElement_SuspendRedraw
 //go:noescape
@@ -3735,11 +3733,11 @@ func TrySVGSVGElementSuspendRedraw(
 
 //go:wasmimport plat/js/web has_SVGSVGElement_UnsuspendRedraw
 //go:noescape
-func HasSVGSVGElementUnsuspendRedraw(this js.Ref) js.Ref
+func HasFuncSVGSVGElementUnsuspendRedraw(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGSVGElement_UnsuspendRedraw
 //go:noescape
-func SVGSVGElementUnsuspendRedrawFunc(this js.Ref) js.Ref
+func FuncSVGSVGElementUnsuspendRedraw(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGSVGElement_UnsuspendRedraw
 //go:noescape
@@ -3755,11 +3753,11 @@ func TrySVGSVGElementUnsuspendRedraw(
 
 //go:wasmimport plat/js/web has_SVGSVGElement_UnsuspendRedrawAll
 //go:noescape
-func HasSVGSVGElementUnsuspendRedrawAll(this js.Ref) js.Ref
+func HasFuncSVGSVGElementUnsuspendRedrawAll(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGSVGElement_UnsuspendRedrawAll
 //go:noescape
-func SVGSVGElementUnsuspendRedrawAllFunc(this js.Ref) js.Ref
+func FuncSVGSVGElementUnsuspendRedrawAll(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGSVGElement_UnsuspendRedrawAll
 //go:noescape
@@ -3773,11 +3771,11 @@ func TrySVGSVGElementUnsuspendRedrawAll(
 
 //go:wasmimport plat/js/web has_SVGSVGElement_ForceRedraw
 //go:noescape
-func HasSVGSVGElementForceRedraw(this js.Ref) js.Ref
+func HasFuncSVGSVGElementForceRedraw(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGSVGElement_ForceRedraw
 //go:noescape
-func SVGSVGElementForceRedrawFunc(this js.Ref) js.Ref
+func FuncSVGSVGElementForceRedraw(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGSVGElement_ForceRedraw
 //go:noescape
@@ -3791,11 +3789,11 @@ func TrySVGSVGElementForceRedraw(
 
 //go:wasmimport plat/js/web has_SVGSVGElement_PauseAnimations
 //go:noescape
-func HasSVGSVGElementPauseAnimations(this js.Ref) js.Ref
+func HasFuncSVGSVGElementPauseAnimations(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGSVGElement_PauseAnimations
 //go:noescape
-func SVGSVGElementPauseAnimationsFunc(this js.Ref) js.Ref
+func FuncSVGSVGElementPauseAnimations(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGSVGElement_PauseAnimations
 //go:noescape
@@ -3809,11 +3807,11 @@ func TrySVGSVGElementPauseAnimations(
 
 //go:wasmimport plat/js/web has_SVGSVGElement_UnpauseAnimations
 //go:noescape
-func HasSVGSVGElementUnpauseAnimations(this js.Ref) js.Ref
+func HasFuncSVGSVGElementUnpauseAnimations(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGSVGElement_UnpauseAnimations
 //go:noescape
-func SVGSVGElementUnpauseAnimationsFunc(this js.Ref) js.Ref
+func FuncSVGSVGElementUnpauseAnimations(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGSVGElement_UnpauseAnimations
 //go:noescape
@@ -3827,11 +3825,11 @@ func TrySVGSVGElementUnpauseAnimations(
 
 //go:wasmimport plat/js/web has_SVGSVGElement_AnimationsPaused
 //go:noescape
-func HasSVGSVGElementAnimationsPaused(this js.Ref) js.Ref
+func HasFuncSVGSVGElementAnimationsPaused(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGSVGElement_AnimationsPaused
 //go:noescape
-func SVGSVGElementAnimationsPausedFunc(this js.Ref) js.Ref
+func FuncSVGSVGElementAnimationsPaused(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGSVGElement_AnimationsPaused
 //go:noescape
@@ -3845,11 +3843,11 @@ func TrySVGSVGElementAnimationsPaused(
 
 //go:wasmimport plat/js/web has_SVGSVGElement_GetCurrentTime
 //go:noescape
-func HasSVGSVGElementGetCurrentTime(this js.Ref) js.Ref
+func HasFuncSVGSVGElementGetCurrentTime(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGSVGElement_GetCurrentTime
 //go:noescape
-func SVGSVGElementGetCurrentTimeFunc(this js.Ref) js.Ref
+func FuncSVGSVGElementGetCurrentTime(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGSVGElement_GetCurrentTime
 //go:noescape
@@ -3863,11 +3861,11 @@ func TrySVGSVGElementGetCurrentTime(
 
 //go:wasmimport plat/js/web has_SVGSVGElement_SetCurrentTime
 //go:noescape
-func HasSVGSVGElementSetCurrentTime(this js.Ref) js.Ref
+func HasFuncSVGSVGElementSetCurrentTime(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGSVGElement_SetCurrentTime
 //go:noescape
-func SVGSVGElementSetCurrentTimeFunc(this js.Ref) js.Ref
+func FuncSVGSVGElementSetCurrentTime(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGSVGElement_SetCurrentTime
 //go:noescape

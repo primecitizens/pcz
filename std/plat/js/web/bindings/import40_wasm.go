@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web new_Instance_Instance
 //go:noescape
@@ -36,11 +34,11 @@ func GetInstanceExports(
 
 //go:wasmimport plat/js/web has_InterestGroupBiddingScriptRunnerGlobalScope_SetBid
 //go:noescape
-func HasInterestGroupBiddingScriptRunnerGlobalScopeSetBid(this js.Ref) js.Ref
+func HasFuncInterestGroupBiddingScriptRunnerGlobalScopeSetBid(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_InterestGroupBiddingScriptRunnerGlobalScope_SetBid
 //go:noescape
-func InterestGroupBiddingScriptRunnerGlobalScopeSetBidFunc(this js.Ref) js.Ref
+func FuncInterestGroupBiddingScriptRunnerGlobalScopeSetBid(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_InterestGroupBiddingScriptRunnerGlobalScope_SetBid
 //go:noescape
@@ -56,11 +54,11 @@ func TryInterestGroupBiddingScriptRunnerGlobalScopeSetBid(
 
 //go:wasmimport plat/js/web has_InterestGroupBiddingScriptRunnerGlobalScope_SetBid1
 //go:noescape
-func HasInterestGroupBiddingScriptRunnerGlobalScopeSetBid1(this js.Ref) js.Ref
+func HasFuncInterestGroupBiddingScriptRunnerGlobalScopeSetBid1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_InterestGroupBiddingScriptRunnerGlobalScope_SetBid1
 //go:noescape
-func InterestGroupBiddingScriptRunnerGlobalScopeSetBid1Func(this js.Ref) js.Ref
+func FuncInterestGroupBiddingScriptRunnerGlobalScopeSetBid1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_InterestGroupBiddingScriptRunnerGlobalScope_SetBid1
 //go:noescape
@@ -74,11 +72,11 @@ func TryInterestGroupBiddingScriptRunnerGlobalScopeSetBid1(
 
 //go:wasmimport plat/js/web has_InterestGroupBiddingScriptRunnerGlobalScope_SetPriority
 //go:noescape
-func HasInterestGroupBiddingScriptRunnerGlobalScopeSetPriority(this js.Ref) js.Ref
+func HasFuncInterestGroupBiddingScriptRunnerGlobalScopeSetPriority(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_InterestGroupBiddingScriptRunnerGlobalScope_SetPriority
 //go:noescape
-func InterestGroupBiddingScriptRunnerGlobalScopeSetPriorityFunc(this js.Ref) js.Ref
+func FuncInterestGroupBiddingScriptRunnerGlobalScopeSetPriority(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_InterestGroupBiddingScriptRunnerGlobalScope_SetPriority
 //go:noescape
@@ -94,11 +92,11 @@ func TryInterestGroupBiddingScriptRunnerGlobalScopeSetPriority(
 
 //go:wasmimport plat/js/web has_InterestGroupBiddingScriptRunnerGlobalScope_SetPrioritySignalsOverride
 //go:noescape
-func HasInterestGroupBiddingScriptRunnerGlobalScopeSetPrioritySignalsOverride(this js.Ref) js.Ref
+func HasFuncInterestGroupBiddingScriptRunnerGlobalScopeSetPrioritySignalsOverride(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_InterestGroupBiddingScriptRunnerGlobalScope_SetPrioritySignalsOverride
 //go:noescape
-func InterestGroupBiddingScriptRunnerGlobalScopeSetPrioritySignalsOverrideFunc(this js.Ref) js.Ref
+func FuncInterestGroupBiddingScriptRunnerGlobalScopeSetPrioritySignalsOverride(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_InterestGroupBiddingScriptRunnerGlobalScope_SetPrioritySignalsOverride
 //go:noescape
@@ -116,11 +114,11 @@ func TryInterestGroupBiddingScriptRunnerGlobalScopeSetPrioritySignalsOverride(
 
 //go:wasmimport plat/js/web has_InterestGroupBiddingScriptRunnerGlobalScope_SetPrioritySignalsOverride1
 //go:noescape
-func HasInterestGroupBiddingScriptRunnerGlobalScopeSetPrioritySignalsOverride1(this js.Ref) js.Ref
+func HasFuncInterestGroupBiddingScriptRunnerGlobalScopeSetPrioritySignalsOverride1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_InterestGroupBiddingScriptRunnerGlobalScope_SetPrioritySignalsOverride1
 //go:noescape
-func InterestGroupBiddingScriptRunnerGlobalScopeSetPrioritySignalsOverride1Func(this js.Ref) js.Ref
+func FuncInterestGroupBiddingScriptRunnerGlobalScopeSetPrioritySignalsOverride1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_InterestGroupBiddingScriptRunnerGlobalScope_SetPrioritySignalsOverride1
 //go:noescape
@@ -136,11 +134,11 @@ func TryInterestGroupBiddingScriptRunnerGlobalScopeSetPrioritySignalsOverride1(
 
 //go:wasmimport plat/js/web has_InterestGroupReportingScriptRunnerGlobalScope_SendReportTo
 //go:noescape
-func HasInterestGroupReportingScriptRunnerGlobalScopeSendReportTo(this js.Ref) js.Ref
+func HasFuncInterestGroupReportingScriptRunnerGlobalScopeSendReportTo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_InterestGroupReportingScriptRunnerGlobalScope_SendReportTo
 //go:noescape
-func InterestGroupReportingScriptRunnerGlobalScopeSendReportToFunc(this js.Ref) js.Ref
+func FuncInterestGroupReportingScriptRunnerGlobalScopeSendReportTo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_InterestGroupReportingScriptRunnerGlobalScope_SendReportTo
 //go:noescape
@@ -156,11 +154,11 @@ func TryInterestGroupReportingScriptRunnerGlobalScopeSendReportTo(
 
 //go:wasmimport plat/js/web has_InterestGroupReportingScriptRunnerGlobalScope_RegisterAdBeacon
 //go:noescape
-func HasInterestGroupReportingScriptRunnerGlobalScopeRegisterAdBeacon(this js.Ref) js.Ref
+func HasFuncInterestGroupReportingScriptRunnerGlobalScopeRegisterAdBeacon(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_InterestGroupReportingScriptRunnerGlobalScope_RegisterAdBeacon
 //go:noescape
-func InterestGroupReportingScriptRunnerGlobalScopeRegisterAdBeaconFunc(this js.Ref) js.Ref
+func FuncInterestGroupReportingScriptRunnerGlobalScopeRegisterAdBeacon(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_InterestGroupReportingScriptRunnerGlobalScope_RegisterAdBeacon
 //go:noescape
@@ -262,11 +260,11 @@ func GetIntersectionObserverThresholds(
 
 //go:wasmimport plat/js/web has_IntersectionObserver_Observe
 //go:noescape
-func HasIntersectionObserverObserve(this js.Ref) js.Ref
+func HasFuncIntersectionObserverObserve(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IntersectionObserver_Observe
 //go:noescape
-func IntersectionObserverObserveFunc(this js.Ref) js.Ref
+func FuncIntersectionObserverObserve(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IntersectionObserver_Observe
 //go:noescape
@@ -282,11 +280,11 @@ func TryIntersectionObserverObserve(
 
 //go:wasmimport plat/js/web has_IntersectionObserver_Unobserve
 //go:noescape
-func HasIntersectionObserverUnobserve(this js.Ref) js.Ref
+func HasFuncIntersectionObserverUnobserve(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IntersectionObserver_Unobserve
 //go:noescape
-func IntersectionObserverUnobserveFunc(this js.Ref) js.Ref
+func FuncIntersectionObserverUnobserve(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IntersectionObserver_Unobserve
 //go:noescape
@@ -302,11 +300,11 @@ func TryIntersectionObserverUnobserve(
 
 //go:wasmimport plat/js/web has_IntersectionObserver_Disconnect
 //go:noescape
-func HasIntersectionObserverDisconnect(this js.Ref) js.Ref
+func HasFuncIntersectionObserverDisconnect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IntersectionObserver_Disconnect
 //go:noescape
-func IntersectionObserverDisconnectFunc(this js.Ref) js.Ref
+func FuncIntersectionObserverDisconnect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IntersectionObserver_Disconnect
 //go:noescape
@@ -320,11 +318,11 @@ func TryIntersectionObserverDisconnect(
 
 //go:wasmimport plat/js/web has_IntersectionObserver_TakeRecords
 //go:noescape
-func HasIntersectionObserverTakeRecords(this js.Ref) js.Ref
+func HasFuncIntersectionObserverTakeRecords(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IntersectionObserver_TakeRecords
 //go:noescape
-func IntersectionObserverTakeRecordsFunc(this js.Ref) js.Ref
+func FuncIntersectionObserverTakeRecords(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IntersectionObserver_TakeRecords
 //go:noescape
@@ -363,11 +361,11 @@ func GetInterventionReportBodyColumnNumber(
 
 //go:wasmimport plat/js/web has_InterventionReportBody_ToJSON
 //go:noescape
-func HasInterventionReportBodyToJSON(this js.Ref) js.Ref
+func HasFuncInterventionReportBodyToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_InterventionReportBody_ToJSON
 //go:noescape
-func InterventionReportBodyToJSONFunc(this js.Ref) js.Ref
+func FuncInterventionReportBodyToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_InterventionReportBody_ToJSON
 //go:noescape
@@ -505,11 +503,11 @@ func GetRdfTripleObject(
 
 //go:wasmimport plat/js/web has_RdfGraph_Add
 //go:noescape
-func HasRdfGraphAdd(this js.Ref) js.Ref
+func HasFuncRdfGraphAdd(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RdfGraph_Add
 //go:noescape
-func RdfGraphAddFunc(this js.Ref) js.Ref
+func FuncRdfGraphAdd(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RdfGraph_Add
 //go:noescape
@@ -530,11 +528,11 @@ func GetRdfDatasetDefaultGraph(
 
 //go:wasmimport plat/js/web has_RdfDataset_Add
 //go:noescape
-func HasRdfDatasetAdd(this js.Ref) js.Ref
+func HasFuncRdfDatasetAdd(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RdfDataset_Add
 //go:noescape
-func RdfDatasetAddFunc(this js.Ref) js.Ref
+func FuncRdfDatasetAdd(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RdfDataset_Add
 //go:noescape
@@ -552,11 +550,11 @@ func TryRdfDatasetAdd(
 
 //go:wasmimport plat/js/web has_JsonLdProcessor_Compact
 //go:noescape
-func HasJsonLdProcessorCompact(this js.Ref) js.Ref
+func HasFuncJsonLdProcessorCompact(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_JsonLdProcessor_Compact
 //go:noescape
-func JsonLdProcessorCompactFunc(this js.Ref) js.Ref
+func FuncJsonLdProcessorCompact(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_JsonLdProcessor_Compact
 //go:noescape
@@ -576,11 +574,11 @@ func TryJsonLdProcessorCompact(
 
 //go:wasmimport plat/js/web has_JsonLdProcessor_Compact1
 //go:noescape
-func HasJsonLdProcessorCompact1(this js.Ref) js.Ref
+func HasFuncJsonLdProcessorCompact1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_JsonLdProcessor_Compact1
 //go:noescape
-func JsonLdProcessorCompact1Func(this js.Ref) js.Ref
+func FuncJsonLdProcessorCompact1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_JsonLdProcessor_Compact1
 //go:noescape
@@ -598,11 +596,11 @@ func TryJsonLdProcessorCompact1(
 
 //go:wasmimport plat/js/web has_JsonLdProcessor_Compact2
 //go:noescape
-func HasJsonLdProcessorCompact2(this js.Ref) js.Ref
+func HasFuncJsonLdProcessorCompact2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_JsonLdProcessor_Compact2
 //go:noescape
-func JsonLdProcessorCompact2Func(this js.Ref) js.Ref
+func FuncJsonLdProcessorCompact2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_JsonLdProcessor_Compact2
 //go:noescape
@@ -618,11 +616,11 @@ func TryJsonLdProcessorCompact2(
 
 //go:wasmimport plat/js/web has_JsonLdProcessor_Expand
 //go:noescape
-func HasJsonLdProcessorExpand(this js.Ref) js.Ref
+func HasFuncJsonLdProcessorExpand(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_JsonLdProcessor_Expand
 //go:noescape
-func JsonLdProcessorExpandFunc(this js.Ref) js.Ref
+func FuncJsonLdProcessorExpand(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_JsonLdProcessor_Expand
 //go:noescape
@@ -640,11 +638,11 @@ func TryJsonLdProcessorExpand(
 
 //go:wasmimport plat/js/web has_JsonLdProcessor_Expand1
 //go:noescape
-func HasJsonLdProcessorExpand1(this js.Ref) js.Ref
+func HasFuncJsonLdProcessorExpand1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_JsonLdProcessor_Expand1
 //go:noescape
-func JsonLdProcessorExpand1Func(this js.Ref) js.Ref
+func FuncJsonLdProcessorExpand1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_JsonLdProcessor_Expand1
 //go:noescape
@@ -660,11 +658,11 @@ func TryJsonLdProcessorExpand1(
 
 //go:wasmimport plat/js/web has_JsonLdProcessor_Flatten
 //go:noescape
-func HasJsonLdProcessorFlatten(this js.Ref) js.Ref
+func HasFuncJsonLdProcessorFlatten(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_JsonLdProcessor_Flatten
 //go:noescape
-func JsonLdProcessorFlattenFunc(this js.Ref) js.Ref
+func FuncJsonLdProcessorFlatten(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_JsonLdProcessor_Flatten
 //go:noescape
@@ -684,11 +682,11 @@ func TryJsonLdProcessorFlatten(
 
 //go:wasmimport plat/js/web has_JsonLdProcessor_Flatten1
 //go:noescape
-func HasJsonLdProcessorFlatten1(this js.Ref) js.Ref
+func HasFuncJsonLdProcessorFlatten1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_JsonLdProcessor_Flatten1
 //go:noescape
-func JsonLdProcessorFlatten1Func(this js.Ref) js.Ref
+func FuncJsonLdProcessorFlatten1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_JsonLdProcessor_Flatten1
 //go:noescape
@@ -706,11 +704,11 @@ func TryJsonLdProcessorFlatten1(
 
 //go:wasmimport plat/js/web has_JsonLdProcessor_Flatten2
 //go:noescape
-func HasJsonLdProcessorFlatten2(this js.Ref) js.Ref
+func HasFuncJsonLdProcessorFlatten2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_JsonLdProcessor_Flatten2
 //go:noescape
-func JsonLdProcessorFlatten2Func(this js.Ref) js.Ref
+func FuncJsonLdProcessorFlatten2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_JsonLdProcessor_Flatten2
 //go:noescape
@@ -726,11 +724,11 @@ func TryJsonLdProcessorFlatten2(
 
 //go:wasmimport plat/js/web has_JsonLdProcessor_FromRdf
 //go:noescape
-func HasJsonLdProcessorFromRdf(this js.Ref) js.Ref
+func HasFuncJsonLdProcessorFromRdf(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_JsonLdProcessor_FromRdf
 //go:noescape
-func JsonLdProcessorFromRdfFunc(this js.Ref) js.Ref
+func FuncJsonLdProcessorFromRdf(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_JsonLdProcessor_FromRdf
 //go:noescape
@@ -748,11 +746,11 @@ func TryJsonLdProcessorFromRdf(
 
 //go:wasmimport plat/js/web has_JsonLdProcessor_FromRdf1
 //go:noescape
-func HasJsonLdProcessorFromRdf1(this js.Ref) js.Ref
+func HasFuncJsonLdProcessorFromRdf1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_JsonLdProcessor_FromRdf1
 //go:noescape
-func JsonLdProcessorFromRdf1Func(this js.Ref) js.Ref
+func FuncJsonLdProcessorFromRdf1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_JsonLdProcessor_FromRdf1
 //go:noescape
@@ -768,11 +766,11 @@ func TryJsonLdProcessorFromRdf1(
 
 //go:wasmimport plat/js/web has_JsonLdProcessor_ToRdf
 //go:noescape
-func HasJsonLdProcessorToRdf(this js.Ref) js.Ref
+func HasFuncJsonLdProcessorToRdf(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_JsonLdProcessor_ToRdf
 //go:noescape
-func JsonLdProcessorToRdfFunc(this js.Ref) js.Ref
+func FuncJsonLdProcessorToRdf(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_JsonLdProcessor_ToRdf
 //go:noescape
@@ -790,11 +788,11 @@ func TryJsonLdProcessorToRdf(
 
 //go:wasmimport plat/js/web has_JsonLdProcessor_ToRdf1
 //go:noescape
-func HasJsonLdProcessorToRdf1(this js.Ref) js.Ref
+func HasFuncJsonLdProcessorToRdf1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_JsonLdProcessor_ToRdf1
 //go:noescape
-func JsonLdProcessorToRdf1Func(this js.Ref) js.Ref
+func FuncJsonLdProcessorToRdf1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_JsonLdProcessor_ToRdf1
 //go:noescape
@@ -810,11 +808,11 @@ func TryJsonLdProcessorToRdf1(
 
 //go:wasmimport plat/js/web has_JsonLdProcessor_Frame
 //go:noescape
-func HasJsonLdProcessorFrame(this js.Ref) js.Ref
+func HasFuncJsonLdProcessorFrame(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_JsonLdProcessor_Frame
 //go:noescape
-func JsonLdProcessorFrameFunc(this js.Ref) js.Ref
+func FuncJsonLdProcessorFrame(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_JsonLdProcessor_Frame
 //go:noescape
@@ -834,11 +832,11 @@ func TryJsonLdProcessorFrame(
 
 //go:wasmimport plat/js/web has_JsonLdProcessor_Frame1
 //go:noescape
-func HasJsonLdProcessorFrame1(this js.Ref) js.Ref
+func HasFuncJsonLdProcessorFrame1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_JsonLdProcessor_Frame1
 //go:noescape
-func JsonLdProcessorFrame1Func(this js.Ref) js.Ref
+func FuncJsonLdProcessorFrame1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_JsonLdProcessor_Frame1
 //go:noescape
@@ -932,11 +930,11 @@ func GetKeyboardEventKeyCode(
 
 //go:wasmimport plat/js/web has_KeyboardEvent_GetModifierState
 //go:noescape
-func HasKeyboardEventGetModifierState(this js.Ref) js.Ref
+func HasFuncKeyboardEventGetModifierState(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_KeyboardEvent_GetModifierState
 //go:noescape
-func KeyboardEventGetModifierStateFunc(this js.Ref) js.Ref
+func FuncKeyboardEventGetModifierState(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_KeyboardEvent_GetModifierState
 //go:noescape
@@ -952,11 +950,11 @@ func TryKeyboardEventGetModifierState(
 
 //go:wasmimport plat/js/web has_KeyboardEvent_InitKeyboardEvent
 //go:noescape
-func HasKeyboardEventInitKeyboardEvent(this js.Ref) js.Ref
+func HasFuncKeyboardEventInitKeyboardEvent(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_KeyboardEvent_InitKeyboardEvent
 //go:noescape
-func KeyboardEventInitKeyboardEventFunc(this js.Ref) js.Ref
+func FuncKeyboardEventInitKeyboardEvent(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_KeyboardEvent_InitKeyboardEvent
 //go:noescape
@@ -990,11 +988,11 @@ func TryKeyboardEventInitKeyboardEvent(
 
 //go:wasmimport plat/js/web has_KeyboardEvent_InitKeyboardEvent1
 //go:noescape
-func HasKeyboardEventInitKeyboardEvent1(this js.Ref) js.Ref
+func HasFuncKeyboardEventInitKeyboardEvent1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_KeyboardEvent_InitKeyboardEvent1
 //go:noescape
-func KeyboardEventInitKeyboardEvent1Func(this js.Ref) js.Ref
+func FuncKeyboardEventInitKeyboardEvent1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_KeyboardEvent_InitKeyboardEvent1
 //go:noescape
@@ -1026,11 +1024,11 @@ func TryKeyboardEventInitKeyboardEvent1(
 
 //go:wasmimport plat/js/web has_KeyboardEvent_InitKeyboardEvent2
 //go:noescape
-func HasKeyboardEventInitKeyboardEvent2(this js.Ref) js.Ref
+func HasFuncKeyboardEventInitKeyboardEvent2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_KeyboardEvent_InitKeyboardEvent2
 //go:noescape
-func KeyboardEventInitKeyboardEvent2Func(this js.Ref) js.Ref
+func FuncKeyboardEventInitKeyboardEvent2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_KeyboardEvent_InitKeyboardEvent2
 //go:noescape
@@ -1060,11 +1058,11 @@ func TryKeyboardEventInitKeyboardEvent2(
 
 //go:wasmimport plat/js/web has_KeyboardEvent_InitKeyboardEvent3
 //go:noescape
-func HasKeyboardEventInitKeyboardEvent3(this js.Ref) js.Ref
+func HasFuncKeyboardEventInitKeyboardEvent3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_KeyboardEvent_InitKeyboardEvent3
 //go:noescape
-func KeyboardEventInitKeyboardEvent3Func(this js.Ref) js.Ref
+func FuncKeyboardEventInitKeyboardEvent3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_KeyboardEvent_InitKeyboardEvent3
 //go:noescape
@@ -1092,11 +1090,11 @@ func TryKeyboardEventInitKeyboardEvent3(
 
 //go:wasmimport plat/js/web has_KeyboardEvent_InitKeyboardEvent4
 //go:noescape
-func HasKeyboardEventInitKeyboardEvent4(this js.Ref) js.Ref
+func HasFuncKeyboardEventInitKeyboardEvent4(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_KeyboardEvent_InitKeyboardEvent4
 //go:noescape
-func KeyboardEventInitKeyboardEvent4Func(this js.Ref) js.Ref
+func FuncKeyboardEventInitKeyboardEvent4(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_KeyboardEvent_InitKeyboardEvent4
 //go:noescape
@@ -1122,11 +1120,11 @@ func TryKeyboardEventInitKeyboardEvent4(
 
 //go:wasmimport plat/js/web has_KeyboardEvent_InitKeyboardEvent5
 //go:noescape
-func HasKeyboardEventInitKeyboardEvent5(this js.Ref) js.Ref
+func HasFuncKeyboardEventInitKeyboardEvent5(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_KeyboardEvent_InitKeyboardEvent5
 //go:noescape
-func KeyboardEventInitKeyboardEvent5Func(this js.Ref) js.Ref
+func FuncKeyboardEventInitKeyboardEvent5(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_KeyboardEvent_InitKeyboardEvent5
 //go:noescape
@@ -1150,11 +1148,11 @@ func TryKeyboardEventInitKeyboardEvent5(
 
 //go:wasmimport plat/js/web has_KeyboardEvent_InitKeyboardEvent6
 //go:noescape
-func HasKeyboardEventInitKeyboardEvent6(this js.Ref) js.Ref
+func HasFuncKeyboardEventInitKeyboardEvent6(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_KeyboardEvent_InitKeyboardEvent6
 //go:noescape
-func KeyboardEventInitKeyboardEvent6Func(this js.Ref) js.Ref
+func FuncKeyboardEventInitKeyboardEvent6(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_KeyboardEvent_InitKeyboardEvent6
 //go:noescape
@@ -1176,11 +1174,11 @@ func TryKeyboardEventInitKeyboardEvent6(
 
 //go:wasmimport plat/js/web has_KeyboardEvent_InitKeyboardEvent7
 //go:noescape
-func HasKeyboardEventInitKeyboardEvent7(this js.Ref) js.Ref
+func HasFuncKeyboardEventInitKeyboardEvent7(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_KeyboardEvent_InitKeyboardEvent7
 //go:noescape
-func KeyboardEventInitKeyboardEvent7Func(this js.Ref) js.Ref
+func FuncKeyboardEventInitKeyboardEvent7(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_KeyboardEvent_InitKeyboardEvent7
 //go:noescape
@@ -1200,11 +1198,11 @@ func TryKeyboardEventInitKeyboardEvent7(
 
 //go:wasmimport plat/js/web has_KeyboardEvent_InitKeyboardEvent8
 //go:noescape
-func HasKeyboardEventInitKeyboardEvent8(this js.Ref) js.Ref
+func HasFuncKeyboardEventInitKeyboardEvent8(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_KeyboardEvent_InitKeyboardEvent8
 //go:noescape
-func KeyboardEventInitKeyboardEvent8Func(this js.Ref) js.Ref
+func FuncKeyboardEventInitKeyboardEvent8(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_KeyboardEvent_InitKeyboardEvent8
 //go:noescape
@@ -1222,11 +1220,11 @@ func TryKeyboardEventInitKeyboardEvent8(
 
 //go:wasmimport plat/js/web has_KeyboardEvent_InitKeyboardEvent9
 //go:noescape
-func HasKeyboardEventInitKeyboardEvent9(this js.Ref) js.Ref
+func HasFuncKeyboardEventInitKeyboardEvent9(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_KeyboardEvent_InitKeyboardEvent9
 //go:noescape
-func KeyboardEventInitKeyboardEvent9Func(this js.Ref) js.Ref
+func FuncKeyboardEventInitKeyboardEvent9(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_KeyboardEvent_InitKeyboardEvent9
 //go:noescape
@@ -1318,11 +1316,11 @@ func SetKeyframeEffectIterationComposite(
 
 //go:wasmimport plat/js/web has_KeyframeEffect_GetKeyframes
 //go:noescape
-func HasKeyframeEffectGetKeyframes(this js.Ref) js.Ref
+func HasFuncKeyframeEffectGetKeyframes(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_KeyframeEffect_GetKeyframes
 //go:noescape
-func KeyframeEffectGetKeyframesFunc(this js.Ref) js.Ref
+func FuncKeyframeEffectGetKeyframes(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_KeyframeEffect_GetKeyframes
 //go:noescape
@@ -1336,11 +1334,11 @@ func TryKeyframeEffectGetKeyframes(
 
 //go:wasmimport plat/js/web has_KeyframeEffect_SetKeyframes
 //go:noescape
-func HasKeyframeEffectSetKeyframes(this js.Ref) js.Ref
+func HasFuncKeyframeEffectSetKeyframes(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_KeyframeEffect_SetKeyframes
 //go:noescape
-func KeyframeEffectSetKeyframesFunc(this js.Ref) js.Ref
+func FuncKeyframeEffectSetKeyframes(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_KeyframeEffect_SetKeyframes
 //go:noescape

@@ -5,24 +5,17 @@ package web
 
 import (
 	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/mark"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 type MediaStreamTrack struct {
 	EventTarget
 }
 
 func (this MediaStreamTrack) Once() MediaStreamTrack {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -36,7 +29,7 @@ func (this MediaStreamTrack) FromRef(ref js.Ref) MediaStreamTrack {
 }
 
 func (this MediaStreamTrack) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Kind returns the value of property "MediaStreamTrack.kind".
@@ -44,7 +37,7 @@ func (this MediaStreamTrack) Free() {
 // It returns ok=false if there is no such property.
 func (this MediaStreamTrack) Kind() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetMediaStreamTrackKind(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -54,7 +47,7 @@ func (this MediaStreamTrack) Kind() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this MediaStreamTrack) Id() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetMediaStreamTrackId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -64,7 +57,7 @@ func (this MediaStreamTrack) Id() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this MediaStreamTrack) Label() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetMediaStreamTrackLabel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -74,7 +67,7 @@ func (this MediaStreamTrack) Label() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this MediaStreamTrack) Enabled() (ret bool, ok bool) {
 	ok = js.True == bindings.GetMediaStreamTrackEnabled(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -84,7 +77,7 @@ func (this MediaStreamTrack) Enabled() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this MediaStreamTrack) SetEnabled(val bool) bool {
 	return js.True == bindings.SetMediaStreamTrackEnabled(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -94,7 +87,7 @@ func (this MediaStreamTrack) SetEnabled(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this MediaStreamTrack) Muted() (ret bool, ok bool) {
 	ok = js.True == bindings.GetMediaStreamTrackMuted(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -104,7 +97,7 @@ func (this MediaStreamTrack) Muted() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this MediaStreamTrack) ReadyState() (ret MediaStreamTrackState, ok bool) {
 	ok = js.True == bindings.GetMediaStreamTrackReadyState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -114,7 +107,7 @@ func (this MediaStreamTrack) ReadyState() (ret MediaStreamTrackState, ok bool) {
 // It returns ok=false if there is no such property.
 func (this MediaStreamTrack) ContentHint() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetMediaStreamTrackContentHint(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -124,7 +117,7 @@ func (this MediaStreamTrack) ContentHint() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this MediaStreamTrack) SetContentHint(val js.String) bool {
 	return js.True == bindings.SetMediaStreamTrackContentHint(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -134,31 +127,30 @@ func (this MediaStreamTrack) SetContentHint(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this MediaStreamTrack) Isolated() (ret bool, ok bool) {
 	ok = js.True == bindings.GetMediaStreamTrackIsolated(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasClone returns true if the method "MediaStreamTrack.clone" exists.
-func (this MediaStreamTrack) HasClone() bool {
-	return js.True == bindings.HasMediaStreamTrackClone(
-		this.Ref(),
+// HasFuncClone returns true if the method "MediaStreamTrack.clone" exists.
+func (this MediaStreamTrack) HasFuncClone() bool {
+	return js.True == bindings.HasFuncMediaStreamTrackClone(
+		this.ref,
 	)
 }
 
-// CloneFunc returns the method "MediaStreamTrack.clone".
-func (this MediaStreamTrack) CloneFunc() (fn js.Func[func() MediaStreamTrack]) {
-	return fn.FromRef(
-		bindings.MediaStreamTrackCloneFunc(
-			this.Ref(),
-		),
+// FuncClone returns the method "MediaStreamTrack.clone".
+func (this MediaStreamTrack) FuncClone() (fn js.Func[func() MediaStreamTrack]) {
+	bindings.FuncMediaStreamTrackClone(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Clone calls the method "MediaStreamTrack.clone".
 func (this MediaStreamTrack) Clone() (ret MediaStreamTrack) {
 	bindings.CallMediaStreamTrackClone(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -169,32 +161,31 @@ func (this MediaStreamTrack) Clone() (ret MediaStreamTrack) {
 // the catch clause.
 func (this MediaStreamTrack) TryClone() (ret MediaStreamTrack, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamTrackClone(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasStop returns true if the method "MediaStreamTrack.stop" exists.
-func (this MediaStreamTrack) HasStop() bool {
-	return js.True == bindings.HasMediaStreamTrackStop(
-		this.Ref(),
+// HasFuncStop returns true if the method "MediaStreamTrack.stop" exists.
+func (this MediaStreamTrack) HasFuncStop() bool {
+	return js.True == bindings.HasFuncMediaStreamTrackStop(
+		this.ref,
 	)
 }
 
-// StopFunc returns the method "MediaStreamTrack.stop".
-func (this MediaStreamTrack) StopFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.MediaStreamTrackStopFunc(
-			this.Ref(),
-		),
+// FuncStop returns the method "MediaStreamTrack.stop".
+func (this MediaStreamTrack) FuncStop() (fn js.Func[func()]) {
+	bindings.FuncMediaStreamTrackStop(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Stop calls the method "MediaStreamTrack.stop".
 func (this MediaStreamTrack) Stop() (ret js.Void) {
 	bindings.CallMediaStreamTrackStop(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -205,32 +196,31 @@ func (this MediaStreamTrack) Stop() (ret js.Void) {
 // the catch clause.
 func (this MediaStreamTrack) TryStop() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamTrackStop(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetCapabilities returns true if the method "MediaStreamTrack.getCapabilities" exists.
-func (this MediaStreamTrack) HasGetCapabilities() bool {
-	return js.True == bindings.HasMediaStreamTrackGetCapabilities(
-		this.Ref(),
+// HasFuncGetCapabilities returns true if the method "MediaStreamTrack.getCapabilities" exists.
+func (this MediaStreamTrack) HasFuncGetCapabilities() bool {
+	return js.True == bindings.HasFuncMediaStreamTrackGetCapabilities(
+		this.ref,
 	)
 }
 
-// GetCapabilitiesFunc returns the method "MediaStreamTrack.getCapabilities".
-func (this MediaStreamTrack) GetCapabilitiesFunc() (fn js.Func[func() MediaTrackCapabilities]) {
-	return fn.FromRef(
-		bindings.MediaStreamTrackGetCapabilitiesFunc(
-			this.Ref(),
-		),
+// FuncGetCapabilities returns the method "MediaStreamTrack.getCapabilities".
+func (this MediaStreamTrack) FuncGetCapabilities() (fn js.Func[func() MediaTrackCapabilities]) {
+	bindings.FuncMediaStreamTrackGetCapabilities(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetCapabilities calls the method "MediaStreamTrack.getCapabilities".
 func (this MediaStreamTrack) GetCapabilities() (ret MediaTrackCapabilities) {
 	bindings.CallMediaStreamTrackGetCapabilities(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -241,32 +231,31 @@ func (this MediaStreamTrack) GetCapabilities() (ret MediaTrackCapabilities) {
 // the catch clause.
 func (this MediaStreamTrack) TryGetCapabilities() (ret MediaTrackCapabilities, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamTrackGetCapabilities(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetConstraints returns true if the method "MediaStreamTrack.getConstraints" exists.
-func (this MediaStreamTrack) HasGetConstraints() bool {
-	return js.True == bindings.HasMediaStreamTrackGetConstraints(
-		this.Ref(),
+// HasFuncGetConstraints returns true if the method "MediaStreamTrack.getConstraints" exists.
+func (this MediaStreamTrack) HasFuncGetConstraints() bool {
+	return js.True == bindings.HasFuncMediaStreamTrackGetConstraints(
+		this.ref,
 	)
 }
 
-// GetConstraintsFunc returns the method "MediaStreamTrack.getConstraints".
-func (this MediaStreamTrack) GetConstraintsFunc() (fn js.Func[func() MediaTrackConstraints]) {
-	return fn.FromRef(
-		bindings.MediaStreamTrackGetConstraintsFunc(
-			this.Ref(),
-		),
+// FuncGetConstraints returns the method "MediaStreamTrack.getConstraints".
+func (this MediaStreamTrack) FuncGetConstraints() (fn js.Func[func() MediaTrackConstraints]) {
+	bindings.FuncMediaStreamTrackGetConstraints(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetConstraints calls the method "MediaStreamTrack.getConstraints".
 func (this MediaStreamTrack) GetConstraints() (ret MediaTrackConstraints) {
 	bindings.CallMediaStreamTrackGetConstraints(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -277,32 +266,31 @@ func (this MediaStreamTrack) GetConstraints() (ret MediaTrackConstraints) {
 // the catch clause.
 func (this MediaStreamTrack) TryGetConstraints() (ret MediaTrackConstraints, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamTrackGetConstraints(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetSettings returns true if the method "MediaStreamTrack.getSettings" exists.
-func (this MediaStreamTrack) HasGetSettings() bool {
-	return js.True == bindings.HasMediaStreamTrackGetSettings(
-		this.Ref(),
+// HasFuncGetSettings returns true if the method "MediaStreamTrack.getSettings" exists.
+func (this MediaStreamTrack) HasFuncGetSettings() bool {
+	return js.True == bindings.HasFuncMediaStreamTrackGetSettings(
+		this.ref,
 	)
 }
 
-// GetSettingsFunc returns the method "MediaStreamTrack.getSettings".
-func (this MediaStreamTrack) GetSettingsFunc() (fn js.Func[func() MediaTrackSettings]) {
-	return fn.FromRef(
-		bindings.MediaStreamTrackGetSettingsFunc(
-			this.Ref(),
-		),
+// FuncGetSettings returns the method "MediaStreamTrack.getSettings".
+func (this MediaStreamTrack) FuncGetSettings() (fn js.Func[func() MediaTrackSettings]) {
+	bindings.FuncMediaStreamTrackGetSettings(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetSettings calls the method "MediaStreamTrack.getSettings".
 func (this MediaStreamTrack) GetSettings() (ret MediaTrackSettings) {
 	bindings.CallMediaStreamTrackGetSettings(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -313,32 +301,31 @@ func (this MediaStreamTrack) GetSettings() (ret MediaTrackSettings) {
 // the catch clause.
 func (this MediaStreamTrack) TryGetSettings() (ret MediaTrackSettings, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamTrackGetSettings(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasApplyConstraints returns true if the method "MediaStreamTrack.applyConstraints" exists.
-func (this MediaStreamTrack) HasApplyConstraints() bool {
-	return js.True == bindings.HasMediaStreamTrackApplyConstraints(
-		this.Ref(),
+// HasFuncApplyConstraints returns true if the method "MediaStreamTrack.applyConstraints" exists.
+func (this MediaStreamTrack) HasFuncApplyConstraints() bool {
+	return js.True == bindings.HasFuncMediaStreamTrackApplyConstraints(
+		this.ref,
 	)
 }
 
-// ApplyConstraintsFunc returns the method "MediaStreamTrack.applyConstraints".
-func (this MediaStreamTrack) ApplyConstraintsFunc() (fn js.Func[func(constraints MediaTrackConstraints) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.MediaStreamTrackApplyConstraintsFunc(
-			this.Ref(),
-		),
+// FuncApplyConstraints returns the method "MediaStreamTrack.applyConstraints".
+func (this MediaStreamTrack) FuncApplyConstraints() (fn js.Func[func(constraints MediaTrackConstraints) js.Promise[js.Void]]) {
+	bindings.FuncMediaStreamTrackApplyConstraints(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ApplyConstraints calls the method "MediaStreamTrack.applyConstraints".
 func (this MediaStreamTrack) ApplyConstraints(constraints MediaTrackConstraints) (ret js.Promise[js.Void]) {
 	bindings.CallMediaStreamTrackApplyConstraints(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&constraints),
 	)
 
@@ -350,33 +337,32 @@ func (this MediaStreamTrack) ApplyConstraints(constraints MediaTrackConstraints)
 // the catch clause.
 func (this MediaStreamTrack) TryApplyConstraints(constraints MediaTrackConstraints) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamTrackApplyConstraints(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&constraints),
 	)
 
 	return
 }
 
-// HasApplyConstraints1 returns true if the method "MediaStreamTrack.applyConstraints" exists.
-func (this MediaStreamTrack) HasApplyConstraints1() bool {
-	return js.True == bindings.HasMediaStreamTrackApplyConstraints1(
-		this.Ref(),
+// HasFuncApplyConstraints1 returns true if the method "MediaStreamTrack.applyConstraints" exists.
+func (this MediaStreamTrack) HasFuncApplyConstraints1() bool {
+	return js.True == bindings.HasFuncMediaStreamTrackApplyConstraints1(
+		this.ref,
 	)
 }
 
-// ApplyConstraints1Func returns the method "MediaStreamTrack.applyConstraints".
-func (this MediaStreamTrack) ApplyConstraints1Func() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.MediaStreamTrackApplyConstraints1Func(
-			this.Ref(),
-		),
+// FuncApplyConstraints1 returns the method "MediaStreamTrack.applyConstraints".
+func (this MediaStreamTrack) FuncApplyConstraints1() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncMediaStreamTrackApplyConstraints1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ApplyConstraints1 calls the method "MediaStreamTrack.applyConstraints".
 func (this MediaStreamTrack) ApplyConstraints1() (ret js.Promise[js.Void]) {
 	bindings.CallMediaStreamTrackApplyConstraints1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -387,32 +373,31 @@ func (this MediaStreamTrack) ApplyConstraints1() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this MediaStreamTrack) TryApplyConstraints1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamTrackApplyConstraints1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetSupportedCaptureActions returns true if the method "MediaStreamTrack.getSupportedCaptureActions" exists.
-func (this MediaStreamTrack) HasGetSupportedCaptureActions() bool {
-	return js.True == bindings.HasMediaStreamTrackGetSupportedCaptureActions(
-		this.Ref(),
+// HasFuncGetSupportedCaptureActions returns true if the method "MediaStreamTrack.getSupportedCaptureActions" exists.
+func (this MediaStreamTrack) HasFuncGetSupportedCaptureActions() bool {
+	return js.True == bindings.HasFuncMediaStreamTrackGetSupportedCaptureActions(
+		this.ref,
 	)
 }
 
-// GetSupportedCaptureActionsFunc returns the method "MediaStreamTrack.getSupportedCaptureActions".
-func (this MediaStreamTrack) GetSupportedCaptureActionsFunc() (fn js.Func[func() js.Array[js.String]]) {
-	return fn.FromRef(
-		bindings.MediaStreamTrackGetSupportedCaptureActionsFunc(
-			this.Ref(),
-		),
+// FuncGetSupportedCaptureActions returns the method "MediaStreamTrack.getSupportedCaptureActions".
+func (this MediaStreamTrack) FuncGetSupportedCaptureActions() (fn js.Func[func() js.Array[js.String]]) {
+	bindings.FuncMediaStreamTrackGetSupportedCaptureActions(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetSupportedCaptureActions calls the method "MediaStreamTrack.getSupportedCaptureActions".
 func (this MediaStreamTrack) GetSupportedCaptureActions() (ret js.Array[js.String]) {
 	bindings.CallMediaStreamTrackGetSupportedCaptureActions(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -423,32 +408,31 @@ func (this MediaStreamTrack) GetSupportedCaptureActions() (ret js.Array[js.Strin
 // the catch clause.
 func (this MediaStreamTrack) TryGetSupportedCaptureActions() (ret js.Array[js.String], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamTrackGetSupportedCaptureActions(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSendCaptureAction returns true if the method "MediaStreamTrack.sendCaptureAction" exists.
-func (this MediaStreamTrack) HasSendCaptureAction() bool {
-	return js.True == bindings.HasMediaStreamTrackSendCaptureAction(
-		this.Ref(),
+// HasFuncSendCaptureAction returns true if the method "MediaStreamTrack.sendCaptureAction" exists.
+func (this MediaStreamTrack) HasFuncSendCaptureAction() bool {
+	return js.True == bindings.HasFuncMediaStreamTrackSendCaptureAction(
+		this.ref,
 	)
 }
 
-// SendCaptureActionFunc returns the method "MediaStreamTrack.sendCaptureAction".
-func (this MediaStreamTrack) SendCaptureActionFunc() (fn js.Func[func(action CaptureAction) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.MediaStreamTrackSendCaptureActionFunc(
-			this.Ref(),
-		),
+// FuncSendCaptureAction returns the method "MediaStreamTrack.sendCaptureAction".
+func (this MediaStreamTrack) FuncSendCaptureAction() (fn js.Func[func(action CaptureAction) js.Promise[js.Void]]) {
+	bindings.FuncMediaStreamTrackSendCaptureAction(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SendCaptureAction calls the method "MediaStreamTrack.sendCaptureAction".
 func (this MediaStreamTrack) SendCaptureAction(action CaptureAction) (ret js.Promise[js.Void]) {
 	bindings.CallMediaStreamTrackSendCaptureAction(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(action),
 	)
 
@@ -460,33 +444,32 @@ func (this MediaStreamTrack) SendCaptureAction(action CaptureAction) (ret js.Pro
 // the catch clause.
 func (this MediaStreamTrack) TrySendCaptureAction(action CaptureAction) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamTrackSendCaptureAction(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(action),
 	)
 
 	return
 }
 
-// HasGetCaptureHandle returns true if the method "MediaStreamTrack.getCaptureHandle" exists.
-func (this MediaStreamTrack) HasGetCaptureHandle() bool {
-	return js.True == bindings.HasMediaStreamTrackGetCaptureHandle(
-		this.Ref(),
+// HasFuncGetCaptureHandle returns true if the method "MediaStreamTrack.getCaptureHandle" exists.
+func (this MediaStreamTrack) HasFuncGetCaptureHandle() bool {
+	return js.True == bindings.HasFuncMediaStreamTrackGetCaptureHandle(
+		this.ref,
 	)
 }
 
-// GetCaptureHandleFunc returns the method "MediaStreamTrack.getCaptureHandle".
-func (this MediaStreamTrack) GetCaptureHandleFunc() (fn js.Func[func() CaptureHandle]) {
-	return fn.FromRef(
-		bindings.MediaStreamTrackGetCaptureHandleFunc(
-			this.Ref(),
-		),
+// FuncGetCaptureHandle returns the method "MediaStreamTrack.getCaptureHandle".
+func (this MediaStreamTrack) FuncGetCaptureHandle() (fn js.Func[func() CaptureHandle]) {
+	bindings.FuncMediaStreamTrackGetCaptureHandle(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetCaptureHandle calls the method "MediaStreamTrack.getCaptureHandle".
 func (this MediaStreamTrack) GetCaptureHandle() (ret CaptureHandle) {
 	bindings.CallMediaStreamTrackGetCaptureHandle(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -497,7 +480,7 @@ func (this MediaStreamTrack) GetCaptureHandle() (ret CaptureHandle) {
 // the catch clause.
 func (this MediaStreamTrack) TryGetCaptureHandle() (ret CaptureHandle, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamTrackGetCaptureHandle(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -520,7 +503,7 @@ type MediaStream struct {
 }
 
 func (this MediaStream) Once() MediaStream {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -534,7 +517,7 @@ func (this MediaStream) FromRef(ref js.Ref) MediaStream {
 }
 
 func (this MediaStream) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Id returns the value of property "MediaStream.id".
@@ -542,7 +525,7 @@ func (this MediaStream) Free() {
 // It returns ok=false if there is no such property.
 func (this MediaStream) Id() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetMediaStreamId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -552,31 +535,30 @@ func (this MediaStream) Id() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this MediaStream) Active() (ret bool, ok bool) {
 	ok = js.True == bindings.GetMediaStreamActive(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGetAudioTracks returns true if the method "MediaStream.getAudioTracks" exists.
-func (this MediaStream) HasGetAudioTracks() bool {
-	return js.True == bindings.HasMediaStreamGetAudioTracks(
-		this.Ref(),
+// HasFuncGetAudioTracks returns true if the method "MediaStream.getAudioTracks" exists.
+func (this MediaStream) HasFuncGetAudioTracks() bool {
+	return js.True == bindings.HasFuncMediaStreamGetAudioTracks(
+		this.ref,
 	)
 }
 
-// GetAudioTracksFunc returns the method "MediaStream.getAudioTracks".
-func (this MediaStream) GetAudioTracksFunc() (fn js.Func[func() js.Array[MediaStreamTrack]]) {
-	return fn.FromRef(
-		bindings.MediaStreamGetAudioTracksFunc(
-			this.Ref(),
-		),
+// FuncGetAudioTracks returns the method "MediaStream.getAudioTracks".
+func (this MediaStream) FuncGetAudioTracks() (fn js.Func[func() js.Array[MediaStreamTrack]]) {
+	bindings.FuncMediaStreamGetAudioTracks(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAudioTracks calls the method "MediaStream.getAudioTracks".
 func (this MediaStream) GetAudioTracks() (ret js.Array[MediaStreamTrack]) {
 	bindings.CallMediaStreamGetAudioTracks(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -587,32 +569,31 @@ func (this MediaStream) GetAudioTracks() (ret js.Array[MediaStreamTrack]) {
 // the catch clause.
 func (this MediaStream) TryGetAudioTracks() (ret js.Array[MediaStreamTrack], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamGetAudioTracks(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetVideoTracks returns true if the method "MediaStream.getVideoTracks" exists.
-func (this MediaStream) HasGetVideoTracks() bool {
-	return js.True == bindings.HasMediaStreamGetVideoTracks(
-		this.Ref(),
+// HasFuncGetVideoTracks returns true if the method "MediaStream.getVideoTracks" exists.
+func (this MediaStream) HasFuncGetVideoTracks() bool {
+	return js.True == bindings.HasFuncMediaStreamGetVideoTracks(
+		this.ref,
 	)
 }
 
-// GetVideoTracksFunc returns the method "MediaStream.getVideoTracks".
-func (this MediaStream) GetVideoTracksFunc() (fn js.Func[func() js.Array[MediaStreamTrack]]) {
-	return fn.FromRef(
-		bindings.MediaStreamGetVideoTracksFunc(
-			this.Ref(),
-		),
+// FuncGetVideoTracks returns the method "MediaStream.getVideoTracks".
+func (this MediaStream) FuncGetVideoTracks() (fn js.Func[func() js.Array[MediaStreamTrack]]) {
+	bindings.FuncMediaStreamGetVideoTracks(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetVideoTracks calls the method "MediaStream.getVideoTracks".
 func (this MediaStream) GetVideoTracks() (ret js.Array[MediaStreamTrack]) {
 	bindings.CallMediaStreamGetVideoTracks(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -623,32 +604,31 @@ func (this MediaStream) GetVideoTracks() (ret js.Array[MediaStreamTrack]) {
 // the catch clause.
 func (this MediaStream) TryGetVideoTracks() (ret js.Array[MediaStreamTrack], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamGetVideoTracks(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetTracks returns true if the method "MediaStream.getTracks" exists.
-func (this MediaStream) HasGetTracks() bool {
-	return js.True == bindings.HasMediaStreamGetTracks(
-		this.Ref(),
+// HasFuncGetTracks returns true if the method "MediaStream.getTracks" exists.
+func (this MediaStream) HasFuncGetTracks() bool {
+	return js.True == bindings.HasFuncMediaStreamGetTracks(
+		this.ref,
 	)
 }
 
-// GetTracksFunc returns the method "MediaStream.getTracks".
-func (this MediaStream) GetTracksFunc() (fn js.Func[func() js.Array[MediaStreamTrack]]) {
-	return fn.FromRef(
-		bindings.MediaStreamGetTracksFunc(
-			this.Ref(),
-		),
+// FuncGetTracks returns the method "MediaStream.getTracks".
+func (this MediaStream) FuncGetTracks() (fn js.Func[func() js.Array[MediaStreamTrack]]) {
+	bindings.FuncMediaStreamGetTracks(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetTracks calls the method "MediaStream.getTracks".
 func (this MediaStream) GetTracks() (ret js.Array[MediaStreamTrack]) {
 	bindings.CallMediaStreamGetTracks(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -659,32 +639,31 @@ func (this MediaStream) GetTracks() (ret js.Array[MediaStreamTrack]) {
 // the catch clause.
 func (this MediaStream) TryGetTracks() (ret js.Array[MediaStreamTrack], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamGetTracks(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetTrackById returns true if the method "MediaStream.getTrackById" exists.
-func (this MediaStream) HasGetTrackById() bool {
-	return js.True == bindings.HasMediaStreamGetTrackById(
-		this.Ref(),
+// HasFuncGetTrackById returns true if the method "MediaStream.getTrackById" exists.
+func (this MediaStream) HasFuncGetTrackById() bool {
+	return js.True == bindings.HasFuncMediaStreamGetTrackById(
+		this.ref,
 	)
 }
 
-// GetTrackByIdFunc returns the method "MediaStream.getTrackById".
-func (this MediaStream) GetTrackByIdFunc() (fn js.Func[func(trackId js.String) MediaStreamTrack]) {
-	return fn.FromRef(
-		bindings.MediaStreamGetTrackByIdFunc(
-			this.Ref(),
-		),
+// FuncGetTrackById returns the method "MediaStream.getTrackById".
+func (this MediaStream) FuncGetTrackById() (fn js.Func[func(trackId js.String) MediaStreamTrack]) {
+	bindings.FuncMediaStreamGetTrackById(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetTrackById calls the method "MediaStream.getTrackById".
 func (this MediaStream) GetTrackById(trackId js.String) (ret MediaStreamTrack) {
 	bindings.CallMediaStreamGetTrackById(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		trackId.Ref(),
 	)
 
@@ -696,33 +675,32 @@ func (this MediaStream) GetTrackById(trackId js.String) (ret MediaStreamTrack) {
 // the catch clause.
 func (this MediaStream) TryGetTrackById(trackId js.String) (ret MediaStreamTrack, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamGetTrackById(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		trackId.Ref(),
 	)
 
 	return
 }
 
-// HasAddTrack returns true if the method "MediaStream.addTrack" exists.
-func (this MediaStream) HasAddTrack() bool {
-	return js.True == bindings.HasMediaStreamAddTrack(
-		this.Ref(),
+// HasFuncAddTrack returns true if the method "MediaStream.addTrack" exists.
+func (this MediaStream) HasFuncAddTrack() bool {
+	return js.True == bindings.HasFuncMediaStreamAddTrack(
+		this.ref,
 	)
 }
 
-// AddTrackFunc returns the method "MediaStream.addTrack".
-func (this MediaStream) AddTrackFunc() (fn js.Func[func(track MediaStreamTrack)]) {
-	return fn.FromRef(
-		bindings.MediaStreamAddTrackFunc(
-			this.Ref(),
-		),
+// FuncAddTrack returns the method "MediaStream.addTrack".
+func (this MediaStream) FuncAddTrack() (fn js.Func[func(track MediaStreamTrack)]) {
+	bindings.FuncMediaStreamAddTrack(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AddTrack calls the method "MediaStream.addTrack".
 func (this MediaStream) AddTrack(track MediaStreamTrack) (ret js.Void) {
 	bindings.CallMediaStreamAddTrack(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		track.Ref(),
 	)
 
@@ -734,33 +712,32 @@ func (this MediaStream) AddTrack(track MediaStreamTrack) (ret js.Void) {
 // the catch clause.
 func (this MediaStream) TryAddTrack(track MediaStreamTrack) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamAddTrack(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		track.Ref(),
 	)
 
 	return
 }
 
-// HasRemoveTrack returns true if the method "MediaStream.removeTrack" exists.
-func (this MediaStream) HasRemoveTrack() bool {
-	return js.True == bindings.HasMediaStreamRemoveTrack(
-		this.Ref(),
+// HasFuncRemoveTrack returns true if the method "MediaStream.removeTrack" exists.
+func (this MediaStream) HasFuncRemoveTrack() bool {
+	return js.True == bindings.HasFuncMediaStreamRemoveTrack(
+		this.ref,
 	)
 }
 
-// RemoveTrackFunc returns the method "MediaStream.removeTrack".
-func (this MediaStream) RemoveTrackFunc() (fn js.Func[func(track MediaStreamTrack)]) {
-	return fn.FromRef(
-		bindings.MediaStreamRemoveTrackFunc(
-			this.Ref(),
-		),
+// FuncRemoveTrack returns the method "MediaStream.removeTrack".
+func (this MediaStream) FuncRemoveTrack() (fn js.Func[func(track MediaStreamTrack)]) {
+	bindings.FuncMediaStreamRemoveTrack(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RemoveTrack calls the method "MediaStream.removeTrack".
 func (this MediaStream) RemoveTrack(track MediaStreamTrack) (ret js.Void) {
 	bindings.CallMediaStreamRemoveTrack(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		track.Ref(),
 	)
 
@@ -772,33 +749,32 @@ func (this MediaStream) RemoveTrack(track MediaStreamTrack) (ret js.Void) {
 // the catch clause.
 func (this MediaStream) TryRemoveTrack(track MediaStreamTrack) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamRemoveTrack(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		track.Ref(),
 	)
 
 	return
 }
 
-// HasClone returns true if the method "MediaStream.clone" exists.
-func (this MediaStream) HasClone() bool {
-	return js.True == bindings.HasMediaStreamClone(
-		this.Ref(),
+// HasFuncClone returns true if the method "MediaStream.clone" exists.
+func (this MediaStream) HasFuncClone() bool {
+	return js.True == bindings.HasFuncMediaStreamClone(
+		this.ref,
 	)
 }
 
-// CloneFunc returns the method "MediaStream.clone".
-func (this MediaStream) CloneFunc() (fn js.Func[func() MediaStream]) {
-	return fn.FromRef(
-		bindings.MediaStreamCloneFunc(
-			this.Ref(),
-		),
+// FuncClone returns the method "MediaStream.clone".
+func (this MediaStream) FuncClone() (fn js.Func[func() MediaStream]) {
+	bindings.FuncMediaStreamClone(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Clone calls the method "MediaStream.clone".
 func (this MediaStream) Clone() (ret MediaStream) {
 	bindings.CallMediaStreamClone(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -809,7 +785,7 @@ func (this MediaStream) Clone() (ret MediaStream) {
 // the catch clause.
 func (this MediaStream) TryClone() (ret MediaStream, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamClone(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -827,7 +803,7 @@ type MediaError struct {
 }
 
 func (this MediaError) Once() MediaError {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -841,7 +817,7 @@ func (this MediaError) FromRef(ref js.Ref) MediaError {
 }
 
 func (this MediaError) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Code returns the value of property "MediaError.code".
@@ -849,7 +825,7 @@ func (this MediaError) Free() {
 // It returns ok=false if there is no such property.
 func (this MediaError) Code() (ret uint16, ok bool) {
 	ok = js.True == bindings.GetMediaErrorCode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -859,7 +835,7 @@ func (this MediaError) Code() (ret uint16, ok bool) {
 // It returns ok=false if there is no such property.
 func (this MediaError) Message() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetMediaErrorMessage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -893,7 +869,7 @@ type MediaSourceHandle struct {
 }
 
 func (this MediaSourceHandle) Once() MediaSourceHandle {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -907,7 +883,7 @@ func (this MediaSourceHandle) FromRef(ref js.Ref) MediaSourceHandle {
 }
 
 func (this MediaSourceHandle) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type SourceBufferList struct {
@@ -915,7 +891,7 @@ type SourceBufferList struct {
 }
 
 func (this SourceBufferList) Once() SourceBufferList {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -929,7 +905,7 @@ func (this SourceBufferList) FromRef(ref js.Ref) SourceBufferList {
 }
 
 func (this SourceBufferList) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Length returns the value of property "SourceBufferList.length".
@@ -937,31 +913,30 @@ func (this SourceBufferList) Free() {
 // It returns ok=false if there is no such property.
 func (this SourceBufferList) Length() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetSourceBufferListLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGet returns true if the method "SourceBufferList." exists.
-func (this SourceBufferList) HasGet() bool {
-	return js.True == bindings.HasSourceBufferListGet(
-		this.Ref(),
+// HasFuncGet returns true if the method "SourceBufferList." exists.
+func (this SourceBufferList) HasFuncGet() bool {
+	return js.True == bindings.HasFuncSourceBufferListGet(
+		this.ref,
 	)
 }
 
-// GetFunc returns the method "SourceBufferList.".
-func (this SourceBufferList) GetFunc() (fn js.Func[func(index uint32) SourceBuffer]) {
-	return fn.FromRef(
-		bindings.SourceBufferListGetFunc(
-			this.Ref(),
-		),
+// FuncGet returns the method "SourceBufferList.".
+func (this SourceBufferList) FuncGet() (fn js.Func[func(index uint32) SourceBuffer]) {
+	bindings.FuncSourceBufferListGet(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Get calls the method "SourceBufferList.".
 func (this SourceBufferList) Get(index uint32) (ret SourceBuffer) {
 	bindings.CallSourceBufferListGet(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 	)
 
@@ -973,7 +948,7 @@ func (this SourceBufferList) Get(index uint32) (ret SourceBuffer) {
 // the catch clause.
 func (this SourceBufferList) TryGet(index uint32) (ret SourceBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySourceBufferListGet(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 	)
 
@@ -1012,7 +987,7 @@ type MediaSource struct {
 }
 
 func (this MediaSource) Once() MediaSource {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1026,7 +1001,7 @@ func (this MediaSource) FromRef(ref js.Ref) MediaSource {
 }
 
 func (this MediaSource) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Handle returns the value of property "MediaSource.handle".
@@ -1034,7 +1009,7 @@ func (this MediaSource) Free() {
 // It returns ok=false if there is no such property.
 func (this MediaSource) Handle() (ret MediaSourceHandle, ok bool) {
 	ok = js.True == bindings.GetMediaSourceHandle(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1044,7 +1019,7 @@ func (this MediaSource) Handle() (ret MediaSourceHandle, ok bool) {
 // It returns ok=false if there is no such property.
 func (this MediaSource) SourceBuffers() (ret SourceBufferList, ok bool) {
 	ok = js.True == bindings.GetMediaSourceSourceBuffers(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1054,7 +1029,7 @@ func (this MediaSource) SourceBuffers() (ret SourceBufferList, ok bool) {
 // It returns ok=false if there is no such property.
 func (this MediaSource) ActiveSourceBuffers() (ret SourceBufferList, ok bool) {
 	ok = js.True == bindings.GetMediaSourceActiveSourceBuffers(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1064,7 +1039,7 @@ func (this MediaSource) ActiveSourceBuffers() (ret SourceBufferList, ok bool) {
 // It returns ok=false if there is no such property.
 func (this MediaSource) ReadyState() (ret ReadyState, ok bool) {
 	ok = js.True == bindings.GetMediaSourceReadyState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1074,7 +1049,7 @@ func (this MediaSource) ReadyState() (ret ReadyState, ok bool) {
 // It returns ok=false if there is no such property.
 func (this MediaSource) Duration() (ret float64, ok bool) {
 	ok = js.True == bindings.GetMediaSourceDuration(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1084,7 +1059,7 @@ func (this MediaSource) Duration() (ret float64, ok bool) {
 // It returns false if the property cannot be set.
 func (this MediaSource) SetDuration(val float64) bool {
 	return js.True == bindings.SetMediaSourceDuration(
-		this.Ref(),
+		this.ref,
 		float64(val),
 	)
 }
@@ -1094,31 +1069,30 @@ func (this MediaSource) SetDuration(val float64) bool {
 // It returns ok=false if there is no such property.
 func (this MediaSource) CanConstructInDedicatedWorker() (ret bool, ok bool) {
 	ok = js.True == bindings.GetMediaSourceCanConstructInDedicatedWorker(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasAddSourceBuffer returns true if the method "MediaSource.addSourceBuffer" exists.
-func (this MediaSource) HasAddSourceBuffer() bool {
-	return js.True == bindings.HasMediaSourceAddSourceBuffer(
-		this.Ref(),
+// HasFuncAddSourceBuffer returns true if the method "MediaSource.addSourceBuffer" exists.
+func (this MediaSource) HasFuncAddSourceBuffer() bool {
+	return js.True == bindings.HasFuncMediaSourceAddSourceBuffer(
+		this.ref,
 	)
 }
 
-// AddSourceBufferFunc returns the method "MediaSource.addSourceBuffer".
-func (this MediaSource) AddSourceBufferFunc() (fn js.Func[func(typ js.String) SourceBuffer]) {
-	return fn.FromRef(
-		bindings.MediaSourceAddSourceBufferFunc(
-			this.Ref(),
-		),
+// FuncAddSourceBuffer returns the method "MediaSource.addSourceBuffer".
+func (this MediaSource) FuncAddSourceBuffer() (fn js.Func[func(typ js.String) SourceBuffer]) {
+	bindings.FuncMediaSourceAddSourceBuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AddSourceBuffer calls the method "MediaSource.addSourceBuffer".
 func (this MediaSource) AddSourceBuffer(typ js.String) (ret SourceBuffer) {
 	bindings.CallMediaSourceAddSourceBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		typ.Ref(),
 	)
 
@@ -1130,33 +1104,32 @@ func (this MediaSource) AddSourceBuffer(typ js.String) (ret SourceBuffer) {
 // the catch clause.
 func (this MediaSource) TryAddSourceBuffer(typ js.String) (ret SourceBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaSourceAddSourceBuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		typ.Ref(),
 	)
 
 	return
 }
 
-// HasRemoveSourceBuffer returns true if the method "MediaSource.removeSourceBuffer" exists.
-func (this MediaSource) HasRemoveSourceBuffer() bool {
-	return js.True == bindings.HasMediaSourceRemoveSourceBuffer(
-		this.Ref(),
+// HasFuncRemoveSourceBuffer returns true if the method "MediaSource.removeSourceBuffer" exists.
+func (this MediaSource) HasFuncRemoveSourceBuffer() bool {
+	return js.True == bindings.HasFuncMediaSourceRemoveSourceBuffer(
+		this.ref,
 	)
 }
 
-// RemoveSourceBufferFunc returns the method "MediaSource.removeSourceBuffer".
-func (this MediaSource) RemoveSourceBufferFunc() (fn js.Func[func(sourceBuffer SourceBuffer)]) {
-	return fn.FromRef(
-		bindings.MediaSourceRemoveSourceBufferFunc(
-			this.Ref(),
-		),
+// FuncRemoveSourceBuffer returns the method "MediaSource.removeSourceBuffer".
+func (this MediaSource) FuncRemoveSourceBuffer() (fn js.Func[func(sourceBuffer SourceBuffer)]) {
+	bindings.FuncMediaSourceRemoveSourceBuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RemoveSourceBuffer calls the method "MediaSource.removeSourceBuffer".
 func (this MediaSource) RemoveSourceBuffer(sourceBuffer SourceBuffer) (ret js.Void) {
 	bindings.CallMediaSourceRemoveSourceBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		sourceBuffer.Ref(),
 	)
 
@@ -1168,33 +1141,32 @@ func (this MediaSource) RemoveSourceBuffer(sourceBuffer SourceBuffer) (ret js.Vo
 // the catch clause.
 func (this MediaSource) TryRemoveSourceBuffer(sourceBuffer SourceBuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaSourceRemoveSourceBuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		sourceBuffer.Ref(),
 	)
 
 	return
 }
 
-// HasEndOfStream returns true if the method "MediaSource.endOfStream" exists.
-func (this MediaSource) HasEndOfStream() bool {
-	return js.True == bindings.HasMediaSourceEndOfStream(
-		this.Ref(),
+// HasFuncEndOfStream returns true if the method "MediaSource.endOfStream" exists.
+func (this MediaSource) HasFuncEndOfStream() bool {
+	return js.True == bindings.HasFuncMediaSourceEndOfStream(
+		this.ref,
 	)
 }
 
-// EndOfStreamFunc returns the method "MediaSource.endOfStream".
-func (this MediaSource) EndOfStreamFunc() (fn js.Func[func(err EndOfStreamError)]) {
-	return fn.FromRef(
-		bindings.MediaSourceEndOfStreamFunc(
-			this.Ref(),
-		),
+// FuncEndOfStream returns the method "MediaSource.endOfStream".
+func (this MediaSource) FuncEndOfStream() (fn js.Func[func(err EndOfStreamError)]) {
+	bindings.FuncMediaSourceEndOfStream(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // EndOfStream calls the method "MediaSource.endOfStream".
 func (this MediaSource) EndOfStream(err EndOfStreamError) (ret js.Void) {
 	bindings.CallMediaSourceEndOfStream(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(err),
 	)
 
@@ -1206,33 +1178,32 @@ func (this MediaSource) EndOfStream(err EndOfStreamError) (ret js.Void) {
 // the catch clause.
 func (this MediaSource) TryEndOfStream(err EndOfStreamError) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaSourceEndOfStream(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(err),
 	)
 
 	return
 }
 
-// HasEndOfStream1 returns true if the method "MediaSource.endOfStream" exists.
-func (this MediaSource) HasEndOfStream1() bool {
-	return js.True == bindings.HasMediaSourceEndOfStream1(
-		this.Ref(),
+// HasFuncEndOfStream1 returns true if the method "MediaSource.endOfStream" exists.
+func (this MediaSource) HasFuncEndOfStream1() bool {
+	return js.True == bindings.HasFuncMediaSourceEndOfStream1(
+		this.ref,
 	)
 }
 
-// EndOfStream1Func returns the method "MediaSource.endOfStream".
-func (this MediaSource) EndOfStream1Func() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.MediaSourceEndOfStream1Func(
-			this.Ref(),
-		),
+// FuncEndOfStream1 returns the method "MediaSource.endOfStream".
+func (this MediaSource) FuncEndOfStream1() (fn js.Func[func()]) {
+	bindings.FuncMediaSourceEndOfStream1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // EndOfStream1 calls the method "MediaSource.endOfStream".
 func (this MediaSource) EndOfStream1() (ret js.Void) {
 	bindings.CallMediaSourceEndOfStream1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1243,32 +1214,31 @@ func (this MediaSource) EndOfStream1() (ret js.Void) {
 // the catch clause.
 func (this MediaSource) TryEndOfStream1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaSourceEndOfStream1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSetLiveSeekableRange returns true if the method "MediaSource.setLiveSeekableRange" exists.
-func (this MediaSource) HasSetLiveSeekableRange() bool {
-	return js.True == bindings.HasMediaSourceSetLiveSeekableRange(
-		this.Ref(),
+// HasFuncSetLiveSeekableRange returns true if the method "MediaSource.setLiveSeekableRange" exists.
+func (this MediaSource) HasFuncSetLiveSeekableRange() bool {
+	return js.True == bindings.HasFuncMediaSourceSetLiveSeekableRange(
+		this.ref,
 	)
 }
 
-// SetLiveSeekableRangeFunc returns the method "MediaSource.setLiveSeekableRange".
-func (this MediaSource) SetLiveSeekableRangeFunc() (fn js.Func[func(start float64, end float64)]) {
-	return fn.FromRef(
-		bindings.MediaSourceSetLiveSeekableRangeFunc(
-			this.Ref(),
-		),
+// FuncSetLiveSeekableRange returns the method "MediaSource.setLiveSeekableRange".
+func (this MediaSource) FuncSetLiveSeekableRange() (fn js.Func[func(start float64, end float64)]) {
+	bindings.FuncMediaSourceSetLiveSeekableRange(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetLiveSeekableRange calls the method "MediaSource.setLiveSeekableRange".
 func (this MediaSource) SetLiveSeekableRange(start float64, end float64) (ret js.Void) {
 	bindings.CallMediaSourceSetLiveSeekableRange(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(start),
 		float64(end),
 	)
@@ -1281,7 +1251,7 @@ func (this MediaSource) SetLiveSeekableRange(start float64, end float64) (ret js
 // the catch clause.
 func (this MediaSource) TrySetLiveSeekableRange(start float64, end float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaSourceSetLiveSeekableRange(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(start),
 		float64(end),
 	)
@@ -1289,26 +1259,25 @@ func (this MediaSource) TrySetLiveSeekableRange(start float64, end float64) (ret
 	return
 }
 
-// HasClearLiveSeekableRange returns true if the method "MediaSource.clearLiveSeekableRange" exists.
-func (this MediaSource) HasClearLiveSeekableRange() bool {
-	return js.True == bindings.HasMediaSourceClearLiveSeekableRange(
-		this.Ref(),
+// HasFuncClearLiveSeekableRange returns true if the method "MediaSource.clearLiveSeekableRange" exists.
+func (this MediaSource) HasFuncClearLiveSeekableRange() bool {
+	return js.True == bindings.HasFuncMediaSourceClearLiveSeekableRange(
+		this.ref,
 	)
 }
 
-// ClearLiveSeekableRangeFunc returns the method "MediaSource.clearLiveSeekableRange".
-func (this MediaSource) ClearLiveSeekableRangeFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.MediaSourceClearLiveSeekableRangeFunc(
-			this.Ref(),
-		),
+// FuncClearLiveSeekableRange returns the method "MediaSource.clearLiveSeekableRange".
+func (this MediaSource) FuncClearLiveSeekableRange() (fn js.Func[func()]) {
+	bindings.FuncMediaSourceClearLiveSeekableRange(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ClearLiveSeekableRange calls the method "MediaSource.clearLiveSeekableRange".
 func (this MediaSource) ClearLiveSeekableRange() (ret js.Void) {
 	bindings.CallMediaSourceClearLiveSeekableRange(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1319,44 +1288,43 @@ func (this MediaSource) ClearLiveSeekableRange() (ret js.Void) {
 // the catch clause.
 func (this MediaSource) TryClearLiveSeekableRange() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaSourceClearLiveSeekableRange(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasIsTypeSupported returns true if the staticmethod "MediaSource.isTypeSupported" exists.
-func (this MediaSource) HasIsTypeSupported() bool {
-	return js.True == bindings.HasMediaSourceIsTypeSupported(
-		this.Ref(),
+// HasFuncIsTypeSupported returns true if the static method "MediaSource.isTypeSupported" exists.
+func (this MediaSource) HasFuncIsTypeSupported() bool {
+	return js.True == bindings.HasFuncMediaSourceIsTypeSupported(
+		this.ref,
 	)
 }
 
-// IsTypeSupportedFunc returns the staticmethod "MediaSource.isTypeSupported".
-func (this MediaSource) IsTypeSupportedFunc() (fn js.Func[func(typ js.String) bool]) {
-	return fn.FromRef(
-		bindings.MediaSourceIsTypeSupportedFunc(
-			this.Ref(),
-		),
+// FuncIsTypeSupported returns the static method "MediaSource.isTypeSupported".
+func (this MediaSource) FuncIsTypeSupported() (fn js.Func[func(typ js.String) bool]) {
+	bindings.FuncMediaSourceIsTypeSupported(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// IsTypeSupported calls the staticmethod "MediaSource.isTypeSupported".
+// IsTypeSupported calls the static method "MediaSource.isTypeSupported".
 func (this MediaSource) IsTypeSupported(typ js.String) (ret bool) {
 	bindings.CallMediaSourceIsTypeSupported(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		typ.Ref(),
 	)
 
 	return
 }
 
-// TryIsTypeSupported calls the staticmethod "MediaSource.isTypeSupported"
+// TryIsTypeSupported calls the static method "MediaSource.isTypeSupported"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaSource) TryIsTypeSupported(typ js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaSourceIsTypeSupported(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		typ.Ref(),
 	)
 
@@ -1440,7 +1408,7 @@ func (cb *RemotePlaybackAvailabilityCallback[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 1+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
 
 	if ctx.Return(cb.Fn(
@@ -1487,7 +1455,7 @@ type RemotePlayback struct {
 }
 
 func (this RemotePlayback) Once() RemotePlayback {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1501,7 +1469,7 @@ func (this RemotePlayback) FromRef(ref js.Ref) RemotePlayback {
 }
 
 func (this RemotePlayback) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // State returns the value of property "RemotePlayback.state".
@@ -1509,31 +1477,30 @@ func (this RemotePlayback) Free() {
 // It returns ok=false if there is no such property.
 func (this RemotePlayback) State() (ret RemotePlaybackState, ok bool) {
 	ok = js.True == bindings.GetRemotePlaybackState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasWatchAvailability returns true if the method "RemotePlayback.watchAvailability" exists.
-func (this RemotePlayback) HasWatchAvailability() bool {
-	return js.True == bindings.HasRemotePlaybackWatchAvailability(
-		this.Ref(),
+// HasFuncWatchAvailability returns true if the method "RemotePlayback.watchAvailability" exists.
+func (this RemotePlayback) HasFuncWatchAvailability() bool {
+	return js.True == bindings.HasFuncRemotePlaybackWatchAvailability(
+		this.ref,
 	)
 }
 
-// WatchAvailabilityFunc returns the method "RemotePlayback.watchAvailability".
-func (this RemotePlayback) WatchAvailabilityFunc() (fn js.Func[func(callback js.Func[func(available bool)]) js.Promise[js.Number[int32]]]) {
-	return fn.FromRef(
-		bindings.RemotePlaybackWatchAvailabilityFunc(
-			this.Ref(),
-		),
+// FuncWatchAvailability returns the method "RemotePlayback.watchAvailability".
+func (this RemotePlayback) FuncWatchAvailability() (fn js.Func[func(callback js.Func[func(available bool)]) js.Promise[js.Number[int32]]]) {
+	bindings.FuncRemotePlaybackWatchAvailability(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // WatchAvailability calls the method "RemotePlayback.watchAvailability".
 func (this RemotePlayback) WatchAvailability(callback js.Func[func(available bool)]) (ret js.Promise[js.Number[int32]]) {
 	bindings.CallRemotePlaybackWatchAvailability(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		callback.Ref(),
 	)
 
@@ -1545,33 +1512,32 @@ func (this RemotePlayback) WatchAvailability(callback js.Func[func(available boo
 // the catch clause.
 func (this RemotePlayback) TryWatchAvailability(callback js.Func[func(available bool)]) (ret js.Promise[js.Number[int32]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRemotePlaybackWatchAvailability(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		callback.Ref(),
 	)
 
 	return
 }
 
-// HasCancelWatchAvailability returns true if the method "RemotePlayback.cancelWatchAvailability" exists.
-func (this RemotePlayback) HasCancelWatchAvailability() bool {
-	return js.True == bindings.HasRemotePlaybackCancelWatchAvailability(
-		this.Ref(),
+// HasFuncCancelWatchAvailability returns true if the method "RemotePlayback.cancelWatchAvailability" exists.
+func (this RemotePlayback) HasFuncCancelWatchAvailability() bool {
+	return js.True == bindings.HasFuncRemotePlaybackCancelWatchAvailability(
+		this.ref,
 	)
 }
 
-// CancelWatchAvailabilityFunc returns the method "RemotePlayback.cancelWatchAvailability".
-func (this RemotePlayback) CancelWatchAvailabilityFunc() (fn js.Func[func(id int32) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.RemotePlaybackCancelWatchAvailabilityFunc(
-			this.Ref(),
-		),
+// FuncCancelWatchAvailability returns the method "RemotePlayback.cancelWatchAvailability".
+func (this RemotePlayback) FuncCancelWatchAvailability() (fn js.Func[func(id int32) js.Promise[js.Void]]) {
+	bindings.FuncRemotePlaybackCancelWatchAvailability(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CancelWatchAvailability calls the method "RemotePlayback.cancelWatchAvailability".
 func (this RemotePlayback) CancelWatchAvailability(id int32) (ret js.Promise[js.Void]) {
 	bindings.CallRemotePlaybackCancelWatchAvailability(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		int32(id),
 	)
 
@@ -1583,33 +1549,32 @@ func (this RemotePlayback) CancelWatchAvailability(id int32) (ret js.Promise[js.
 // the catch clause.
 func (this RemotePlayback) TryCancelWatchAvailability(id int32) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRemotePlaybackCancelWatchAvailability(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		int32(id),
 	)
 
 	return
 }
 
-// HasCancelWatchAvailability1 returns true if the method "RemotePlayback.cancelWatchAvailability" exists.
-func (this RemotePlayback) HasCancelWatchAvailability1() bool {
-	return js.True == bindings.HasRemotePlaybackCancelWatchAvailability1(
-		this.Ref(),
+// HasFuncCancelWatchAvailability1 returns true if the method "RemotePlayback.cancelWatchAvailability" exists.
+func (this RemotePlayback) HasFuncCancelWatchAvailability1() bool {
+	return js.True == bindings.HasFuncRemotePlaybackCancelWatchAvailability1(
+		this.ref,
 	)
 }
 
-// CancelWatchAvailability1Func returns the method "RemotePlayback.cancelWatchAvailability".
-func (this RemotePlayback) CancelWatchAvailability1Func() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.RemotePlaybackCancelWatchAvailability1Func(
-			this.Ref(),
-		),
+// FuncCancelWatchAvailability1 returns the method "RemotePlayback.cancelWatchAvailability".
+func (this RemotePlayback) FuncCancelWatchAvailability1() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncRemotePlaybackCancelWatchAvailability1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CancelWatchAvailability1 calls the method "RemotePlayback.cancelWatchAvailability".
 func (this RemotePlayback) CancelWatchAvailability1() (ret js.Promise[js.Void]) {
 	bindings.CallRemotePlaybackCancelWatchAvailability1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1620,32 +1585,31 @@ func (this RemotePlayback) CancelWatchAvailability1() (ret js.Promise[js.Void]) 
 // the catch clause.
 func (this RemotePlayback) TryCancelWatchAvailability1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRemotePlaybackCancelWatchAvailability1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasPrompt returns true if the method "RemotePlayback.prompt" exists.
-func (this RemotePlayback) HasPrompt() bool {
-	return js.True == bindings.HasRemotePlaybackPrompt(
-		this.Ref(),
+// HasFuncPrompt returns true if the method "RemotePlayback.prompt" exists.
+func (this RemotePlayback) HasFuncPrompt() bool {
+	return js.True == bindings.HasFuncRemotePlaybackPrompt(
+		this.ref,
 	)
 }
 
-// PromptFunc returns the method "RemotePlayback.prompt".
-func (this RemotePlayback) PromptFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.RemotePlaybackPromptFunc(
-			this.Ref(),
-		),
+// FuncPrompt returns the method "RemotePlayback.prompt".
+func (this RemotePlayback) FuncPrompt() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncRemotePlaybackPrompt(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Prompt calls the method "RemotePlayback.prompt".
 func (this RemotePlayback) Prompt() (ret js.Promise[js.Void]) {
 	bindings.CallRemotePlaybackPrompt(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1656,7 +1620,7 @@ func (this RemotePlayback) Prompt() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this RemotePlayback) TryPrompt() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRemotePlaybackPrompt(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1667,7 +1631,7 @@ type HTMLMediaElement struct {
 }
 
 func (this HTMLMediaElement) Once() HTMLMediaElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1681,7 +1645,7 @@ func (this HTMLMediaElement) FromRef(ref js.Ref) HTMLMediaElement {
 }
 
 func (this HTMLMediaElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Error returns the value of property "HTMLMediaElement.error".
@@ -1689,7 +1653,7 @@ func (this HTMLMediaElement) Free() {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) Error() (ret MediaError, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementError(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1699,7 +1663,7 @@ func (this HTMLMediaElement) Error() (ret MediaError, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) Src() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementSrc(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1709,7 +1673,7 @@ func (this HTMLMediaElement) Src() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLMediaElement) SetSrc(val js.String) bool {
 	return js.True == bindings.SetHTMLMediaElementSrc(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1719,7 +1683,7 @@ func (this HTMLMediaElement) SetSrc(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) SrcObject() (ret MediaProvider, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementSrcObject(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1729,7 +1693,7 @@ func (this HTMLMediaElement) SrcObject() (ret MediaProvider, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLMediaElement) SetSrcObject(val MediaProvider) bool {
 	return js.True == bindings.SetHTMLMediaElementSrcObject(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1739,7 +1703,7 @@ func (this HTMLMediaElement) SetSrcObject(val MediaProvider) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) CurrentSrc() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementCurrentSrc(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1749,7 +1713,7 @@ func (this HTMLMediaElement) CurrentSrc() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) CrossOrigin() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementCrossOrigin(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1759,7 +1723,7 @@ func (this HTMLMediaElement) CrossOrigin() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLMediaElement) SetCrossOrigin(val js.String) bool {
 	return js.True == bindings.SetHTMLMediaElementCrossOrigin(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1769,7 +1733,7 @@ func (this HTMLMediaElement) SetCrossOrigin(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) NetworkState() (ret uint16, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementNetworkState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1779,7 +1743,7 @@ func (this HTMLMediaElement) NetworkState() (ret uint16, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) Preload() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementPreload(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1789,7 +1753,7 @@ func (this HTMLMediaElement) Preload() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLMediaElement) SetPreload(val js.String) bool {
 	return js.True == bindings.SetHTMLMediaElementPreload(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1799,7 +1763,7 @@ func (this HTMLMediaElement) SetPreload(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) Buffered() (ret TimeRanges, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementBuffered(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1809,7 +1773,7 @@ func (this HTMLMediaElement) Buffered() (ret TimeRanges, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) ReadyState() (ret uint16, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementReadyState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1819,7 +1783,7 @@ func (this HTMLMediaElement) ReadyState() (ret uint16, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) Seeking() (ret bool, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementSeeking(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1829,7 +1793,7 @@ func (this HTMLMediaElement) Seeking() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) CurrentTime() (ret float64, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementCurrentTime(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1839,7 +1803,7 @@ func (this HTMLMediaElement) CurrentTime() (ret float64, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLMediaElement) SetCurrentTime(val float64) bool {
 	return js.True == bindings.SetHTMLMediaElementCurrentTime(
-		this.Ref(),
+		this.ref,
 		float64(val),
 	)
 }
@@ -1849,7 +1813,7 @@ func (this HTMLMediaElement) SetCurrentTime(val float64) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) Duration() (ret float64, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementDuration(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1859,7 +1823,7 @@ func (this HTMLMediaElement) Duration() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) Paused() (ret bool, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementPaused(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1869,7 +1833,7 @@ func (this HTMLMediaElement) Paused() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) DefaultPlaybackRate() (ret float64, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementDefaultPlaybackRate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1879,7 +1843,7 @@ func (this HTMLMediaElement) DefaultPlaybackRate() (ret float64, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLMediaElement) SetDefaultPlaybackRate(val float64) bool {
 	return js.True == bindings.SetHTMLMediaElementDefaultPlaybackRate(
-		this.Ref(),
+		this.ref,
 		float64(val),
 	)
 }
@@ -1889,7 +1853,7 @@ func (this HTMLMediaElement) SetDefaultPlaybackRate(val float64) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) PlaybackRate() (ret float64, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementPlaybackRate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1899,7 +1863,7 @@ func (this HTMLMediaElement) PlaybackRate() (ret float64, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLMediaElement) SetPlaybackRate(val float64) bool {
 	return js.True == bindings.SetHTMLMediaElementPlaybackRate(
-		this.Ref(),
+		this.ref,
 		float64(val),
 	)
 }
@@ -1909,7 +1873,7 @@ func (this HTMLMediaElement) SetPlaybackRate(val float64) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) PreservesPitch() (ret bool, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementPreservesPitch(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1919,7 +1883,7 @@ func (this HTMLMediaElement) PreservesPitch() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLMediaElement) SetPreservesPitch(val bool) bool {
 	return js.True == bindings.SetHTMLMediaElementPreservesPitch(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -1929,7 +1893,7 @@ func (this HTMLMediaElement) SetPreservesPitch(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) Played() (ret TimeRanges, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementPlayed(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1939,7 +1903,7 @@ func (this HTMLMediaElement) Played() (ret TimeRanges, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) Seekable() (ret TimeRanges, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementSeekable(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1949,7 +1913,7 @@ func (this HTMLMediaElement) Seekable() (ret TimeRanges, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) Ended() (ret bool, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementEnded(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1959,7 +1923,7 @@ func (this HTMLMediaElement) Ended() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) Autoplay() (ret bool, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementAutoplay(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1969,7 +1933,7 @@ func (this HTMLMediaElement) Autoplay() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLMediaElement) SetAutoplay(val bool) bool {
 	return js.True == bindings.SetHTMLMediaElementAutoplay(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -1979,7 +1943,7 @@ func (this HTMLMediaElement) SetAutoplay(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) Loop() (ret bool, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementLoop(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1989,7 +1953,7 @@ func (this HTMLMediaElement) Loop() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLMediaElement) SetLoop(val bool) bool {
 	return js.True == bindings.SetHTMLMediaElementLoop(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -1999,7 +1963,7 @@ func (this HTMLMediaElement) SetLoop(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) Controls() (ret bool, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementControls(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2009,7 +1973,7 @@ func (this HTMLMediaElement) Controls() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLMediaElement) SetControls(val bool) bool {
 	return js.True == bindings.SetHTMLMediaElementControls(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -2019,7 +1983,7 @@ func (this HTMLMediaElement) SetControls(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) Volume() (ret float64, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementVolume(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2029,7 +1993,7 @@ func (this HTMLMediaElement) Volume() (ret float64, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLMediaElement) SetVolume(val float64) bool {
 	return js.True == bindings.SetHTMLMediaElementVolume(
-		this.Ref(),
+		this.ref,
 		float64(val),
 	)
 }
@@ -2039,7 +2003,7 @@ func (this HTMLMediaElement) SetVolume(val float64) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) Muted() (ret bool, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementMuted(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2049,7 +2013,7 @@ func (this HTMLMediaElement) Muted() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLMediaElement) SetMuted(val bool) bool {
 	return js.True == bindings.SetHTMLMediaElementMuted(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -2059,7 +2023,7 @@ func (this HTMLMediaElement) SetMuted(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) DefaultMuted() (ret bool, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementDefaultMuted(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2069,7 +2033,7 @@ func (this HTMLMediaElement) DefaultMuted() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLMediaElement) SetDefaultMuted(val bool) bool {
 	return js.True == bindings.SetHTMLMediaElementDefaultMuted(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -2079,7 +2043,7 @@ func (this HTMLMediaElement) SetDefaultMuted(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) AudioTracks() (ret AudioTrackList, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementAudioTracks(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2089,7 +2053,7 @@ func (this HTMLMediaElement) AudioTracks() (ret AudioTrackList, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) VideoTracks() (ret VideoTrackList, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementVideoTracks(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2099,7 +2063,7 @@ func (this HTMLMediaElement) VideoTracks() (ret VideoTrackList, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) TextTracks() (ret TextTrackList, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementTextTracks(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2109,7 +2073,7 @@ func (this HTMLMediaElement) TextTracks() (ret TextTrackList, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) MediaKeys() (ret MediaKeys, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementMediaKeys(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2119,7 +2083,7 @@ func (this HTMLMediaElement) MediaKeys() (ret MediaKeys, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) Remote() (ret RemotePlayback, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementRemote(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2129,7 +2093,7 @@ func (this HTMLMediaElement) Remote() (ret RemotePlayback, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) DisableRemotePlayback() (ret bool, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementDisableRemotePlayback(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2139,7 +2103,7 @@ func (this HTMLMediaElement) DisableRemotePlayback() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLMediaElement) SetDisableRemotePlayback(val bool) bool {
 	return js.True == bindings.SetHTMLMediaElementDisableRemotePlayback(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -2149,31 +2113,30 @@ func (this HTMLMediaElement) SetDisableRemotePlayback(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLMediaElement) SinkId() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLMediaElementSinkId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasLoad returns true if the method "HTMLMediaElement.load" exists.
-func (this HTMLMediaElement) HasLoad() bool {
-	return js.True == bindings.HasHTMLMediaElementLoad(
-		this.Ref(),
+// HasFuncLoad returns true if the method "HTMLMediaElement.load" exists.
+func (this HTMLMediaElement) HasFuncLoad() bool {
+	return js.True == bindings.HasFuncHTMLMediaElementLoad(
+		this.ref,
 	)
 }
 
-// LoadFunc returns the method "HTMLMediaElement.load".
-func (this HTMLMediaElement) LoadFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.HTMLMediaElementLoadFunc(
-			this.Ref(),
-		),
+// FuncLoad returns the method "HTMLMediaElement.load".
+func (this HTMLMediaElement) FuncLoad() (fn js.Func[func()]) {
+	bindings.FuncHTMLMediaElementLoad(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Load calls the method "HTMLMediaElement.load".
 func (this HTMLMediaElement) Load() (ret js.Void) {
 	bindings.CallHTMLMediaElementLoad(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2184,32 +2147,31 @@ func (this HTMLMediaElement) Load() (ret js.Void) {
 // the catch clause.
 func (this HTMLMediaElement) TryLoad() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMediaElementLoad(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCanPlayType returns true if the method "HTMLMediaElement.canPlayType" exists.
-func (this HTMLMediaElement) HasCanPlayType() bool {
-	return js.True == bindings.HasHTMLMediaElementCanPlayType(
-		this.Ref(),
+// HasFuncCanPlayType returns true if the method "HTMLMediaElement.canPlayType" exists.
+func (this HTMLMediaElement) HasFuncCanPlayType() bool {
+	return js.True == bindings.HasFuncHTMLMediaElementCanPlayType(
+		this.ref,
 	)
 }
 
-// CanPlayTypeFunc returns the method "HTMLMediaElement.canPlayType".
-func (this HTMLMediaElement) CanPlayTypeFunc() (fn js.Func[func(typ js.String) CanPlayTypeResult]) {
-	return fn.FromRef(
-		bindings.HTMLMediaElementCanPlayTypeFunc(
-			this.Ref(),
-		),
+// FuncCanPlayType returns the method "HTMLMediaElement.canPlayType".
+func (this HTMLMediaElement) FuncCanPlayType() (fn js.Func[func(typ js.String) CanPlayTypeResult]) {
+	bindings.FuncHTMLMediaElementCanPlayType(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CanPlayType calls the method "HTMLMediaElement.canPlayType".
 func (this HTMLMediaElement) CanPlayType(typ js.String) (ret CanPlayTypeResult) {
 	bindings.CallHTMLMediaElementCanPlayType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		typ.Ref(),
 	)
 
@@ -2221,33 +2183,32 @@ func (this HTMLMediaElement) CanPlayType(typ js.String) (ret CanPlayTypeResult) 
 // the catch clause.
 func (this HTMLMediaElement) TryCanPlayType(typ js.String) (ret CanPlayTypeResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMediaElementCanPlayType(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		typ.Ref(),
 	)
 
 	return
 }
 
-// HasFastSeek returns true if the method "HTMLMediaElement.fastSeek" exists.
-func (this HTMLMediaElement) HasFastSeek() bool {
-	return js.True == bindings.HasHTMLMediaElementFastSeek(
-		this.Ref(),
+// HasFuncFastSeek returns true if the method "HTMLMediaElement.fastSeek" exists.
+func (this HTMLMediaElement) HasFuncFastSeek() bool {
+	return js.True == bindings.HasFuncHTMLMediaElementFastSeek(
+		this.ref,
 	)
 }
 
-// FastSeekFunc returns the method "HTMLMediaElement.fastSeek".
-func (this HTMLMediaElement) FastSeekFunc() (fn js.Func[func(time float64)]) {
-	return fn.FromRef(
-		bindings.HTMLMediaElementFastSeekFunc(
-			this.Ref(),
-		),
+// FuncFastSeek returns the method "HTMLMediaElement.fastSeek".
+func (this HTMLMediaElement) FuncFastSeek() (fn js.Func[func(time float64)]) {
+	bindings.FuncHTMLMediaElementFastSeek(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // FastSeek calls the method "HTMLMediaElement.fastSeek".
 func (this HTMLMediaElement) FastSeek(time float64) (ret js.Void) {
 	bindings.CallHTMLMediaElementFastSeek(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(time),
 	)
 
@@ -2259,33 +2220,32 @@ func (this HTMLMediaElement) FastSeek(time float64) (ret js.Void) {
 // the catch clause.
 func (this HTMLMediaElement) TryFastSeek(time float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMediaElementFastSeek(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(time),
 	)
 
 	return
 }
 
-// HasGetStartDate returns true if the method "HTMLMediaElement.getStartDate" exists.
-func (this HTMLMediaElement) HasGetStartDate() bool {
-	return js.True == bindings.HasHTMLMediaElementGetStartDate(
-		this.Ref(),
+// HasFuncGetStartDate returns true if the method "HTMLMediaElement.getStartDate" exists.
+func (this HTMLMediaElement) HasFuncGetStartDate() bool {
+	return js.True == bindings.HasFuncHTMLMediaElementGetStartDate(
+		this.ref,
 	)
 }
 
-// GetStartDateFunc returns the method "HTMLMediaElement.getStartDate".
-func (this HTMLMediaElement) GetStartDateFunc() (fn js.Func[func() js.Object]) {
-	return fn.FromRef(
-		bindings.HTMLMediaElementGetStartDateFunc(
-			this.Ref(),
-		),
+// FuncGetStartDate returns the method "HTMLMediaElement.getStartDate".
+func (this HTMLMediaElement) FuncGetStartDate() (fn js.Func[func() js.Object]) {
+	bindings.FuncHTMLMediaElementGetStartDate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetStartDate calls the method "HTMLMediaElement.getStartDate".
 func (this HTMLMediaElement) GetStartDate() (ret js.Object) {
 	bindings.CallHTMLMediaElementGetStartDate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2296,32 +2256,31 @@ func (this HTMLMediaElement) GetStartDate() (ret js.Object) {
 // the catch clause.
 func (this HTMLMediaElement) TryGetStartDate() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMediaElementGetStartDate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasPlay returns true if the method "HTMLMediaElement.play" exists.
-func (this HTMLMediaElement) HasPlay() bool {
-	return js.True == bindings.HasHTMLMediaElementPlay(
-		this.Ref(),
+// HasFuncPlay returns true if the method "HTMLMediaElement.play" exists.
+func (this HTMLMediaElement) HasFuncPlay() bool {
+	return js.True == bindings.HasFuncHTMLMediaElementPlay(
+		this.ref,
 	)
 }
 
-// PlayFunc returns the method "HTMLMediaElement.play".
-func (this HTMLMediaElement) PlayFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.HTMLMediaElementPlayFunc(
-			this.Ref(),
-		),
+// FuncPlay returns the method "HTMLMediaElement.play".
+func (this HTMLMediaElement) FuncPlay() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncHTMLMediaElementPlay(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Play calls the method "HTMLMediaElement.play".
 func (this HTMLMediaElement) Play() (ret js.Promise[js.Void]) {
 	bindings.CallHTMLMediaElementPlay(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2332,32 +2291,31 @@ func (this HTMLMediaElement) Play() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this HTMLMediaElement) TryPlay() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMediaElementPlay(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasPause returns true if the method "HTMLMediaElement.pause" exists.
-func (this HTMLMediaElement) HasPause() bool {
-	return js.True == bindings.HasHTMLMediaElementPause(
-		this.Ref(),
+// HasFuncPause returns true if the method "HTMLMediaElement.pause" exists.
+func (this HTMLMediaElement) HasFuncPause() bool {
+	return js.True == bindings.HasFuncHTMLMediaElementPause(
+		this.ref,
 	)
 }
 
-// PauseFunc returns the method "HTMLMediaElement.pause".
-func (this HTMLMediaElement) PauseFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.HTMLMediaElementPauseFunc(
-			this.Ref(),
-		),
+// FuncPause returns the method "HTMLMediaElement.pause".
+func (this HTMLMediaElement) FuncPause() (fn js.Func[func()]) {
+	bindings.FuncHTMLMediaElementPause(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Pause calls the method "HTMLMediaElement.pause".
 func (this HTMLMediaElement) Pause() (ret js.Void) {
 	bindings.CallHTMLMediaElementPause(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2368,32 +2326,31 @@ func (this HTMLMediaElement) Pause() (ret js.Void) {
 // the catch clause.
 func (this HTMLMediaElement) TryPause() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMediaElementPause(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasAddTextTrack returns true if the method "HTMLMediaElement.addTextTrack" exists.
-func (this HTMLMediaElement) HasAddTextTrack() bool {
-	return js.True == bindings.HasHTMLMediaElementAddTextTrack(
-		this.Ref(),
+// HasFuncAddTextTrack returns true if the method "HTMLMediaElement.addTextTrack" exists.
+func (this HTMLMediaElement) HasFuncAddTextTrack() bool {
+	return js.True == bindings.HasFuncHTMLMediaElementAddTextTrack(
+		this.ref,
 	)
 }
 
-// AddTextTrackFunc returns the method "HTMLMediaElement.addTextTrack".
-func (this HTMLMediaElement) AddTextTrackFunc() (fn js.Func[func(kind TextTrackKind, label js.String, language js.String) TextTrack]) {
-	return fn.FromRef(
-		bindings.HTMLMediaElementAddTextTrackFunc(
-			this.Ref(),
-		),
+// FuncAddTextTrack returns the method "HTMLMediaElement.addTextTrack".
+func (this HTMLMediaElement) FuncAddTextTrack() (fn js.Func[func(kind TextTrackKind, label js.String, language js.String) TextTrack]) {
+	bindings.FuncHTMLMediaElementAddTextTrack(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AddTextTrack calls the method "HTMLMediaElement.addTextTrack".
 func (this HTMLMediaElement) AddTextTrack(kind TextTrackKind, label js.String, language js.String) (ret TextTrack) {
 	bindings.CallHTMLMediaElementAddTextTrack(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(kind),
 		label.Ref(),
 		language.Ref(),
@@ -2407,7 +2364,7 @@ func (this HTMLMediaElement) AddTextTrack(kind TextTrackKind, label js.String, l
 // the catch clause.
 func (this HTMLMediaElement) TryAddTextTrack(kind TextTrackKind, label js.String, language js.String) (ret TextTrack, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMediaElementAddTextTrack(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(kind),
 		label.Ref(),
 		language.Ref(),
@@ -2416,26 +2373,25 @@ func (this HTMLMediaElement) TryAddTextTrack(kind TextTrackKind, label js.String
 	return
 }
 
-// HasAddTextTrack1 returns true if the method "HTMLMediaElement.addTextTrack" exists.
-func (this HTMLMediaElement) HasAddTextTrack1() bool {
-	return js.True == bindings.HasHTMLMediaElementAddTextTrack1(
-		this.Ref(),
+// HasFuncAddTextTrack1 returns true if the method "HTMLMediaElement.addTextTrack" exists.
+func (this HTMLMediaElement) HasFuncAddTextTrack1() bool {
+	return js.True == bindings.HasFuncHTMLMediaElementAddTextTrack1(
+		this.ref,
 	)
 }
 
-// AddTextTrack1Func returns the method "HTMLMediaElement.addTextTrack".
-func (this HTMLMediaElement) AddTextTrack1Func() (fn js.Func[func(kind TextTrackKind, label js.String) TextTrack]) {
-	return fn.FromRef(
-		bindings.HTMLMediaElementAddTextTrack1Func(
-			this.Ref(),
-		),
+// FuncAddTextTrack1 returns the method "HTMLMediaElement.addTextTrack".
+func (this HTMLMediaElement) FuncAddTextTrack1() (fn js.Func[func(kind TextTrackKind, label js.String) TextTrack]) {
+	bindings.FuncHTMLMediaElementAddTextTrack1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AddTextTrack1 calls the method "HTMLMediaElement.addTextTrack".
 func (this HTMLMediaElement) AddTextTrack1(kind TextTrackKind, label js.String) (ret TextTrack) {
 	bindings.CallHTMLMediaElementAddTextTrack1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(kind),
 		label.Ref(),
 	)
@@ -2448,7 +2404,7 @@ func (this HTMLMediaElement) AddTextTrack1(kind TextTrackKind, label js.String) 
 // the catch clause.
 func (this HTMLMediaElement) TryAddTextTrack1(kind TextTrackKind, label js.String) (ret TextTrack, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMediaElementAddTextTrack1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(kind),
 		label.Ref(),
 	)
@@ -2456,26 +2412,25 @@ func (this HTMLMediaElement) TryAddTextTrack1(kind TextTrackKind, label js.Strin
 	return
 }
 
-// HasAddTextTrack2 returns true if the method "HTMLMediaElement.addTextTrack" exists.
-func (this HTMLMediaElement) HasAddTextTrack2() bool {
-	return js.True == bindings.HasHTMLMediaElementAddTextTrack2(
-		this.Ref(),
+// HasFuncAddTextTrack2 returns true if the method "HTMLMediaElement.addTextTrack" exists.
+func (this HTMLMediaElement) HasFuncAddTextTrack2() bool {
+	return js.True == bindings.HasFuncHTMLMediaElementAddTextTrack2(
+		this.ref,
 	)
 }
 
-// AddTextTrack2Func returns the method "HTMLMediaElement.addTextTrack".
-func (this HTMLMediaElement) AddTextTrack2Func() (fn js.Func[func(kind TextTrackKind) TextTrack]) {
-	return fn.FromRef(
-		bindings.HTMLMediaElementAddTextTrack2Func(
-			this.Ref(),
-		),
+// FuncAddTextTrack2 returns the method "HTMLMediaElement.addTextTrack".
+func (this HTMLMediaElement) FuncAddTextTrack2() (fn js.Func[func(kind TextTrackKind) TextTrack]) {
+	bindings.FuncHTMLMediaElementAddTextTrack2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AddTextTrack2 calls the method "HTMLMediaElement.addTextTrack".
 func (this HTMLMediaElement) AddTextTrack2(kind TextTrackKind) (ret TextTrack) {
 	bindings.CallHTMLMediaElementAddTextTrack2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(kind),
 	)
 
@@ -2487,33 +2442,32 @@ func (this HTMLMediaElement) AddTextTrack2(kind TextTrackKind) (ret TextTrack) {
 // the catch clause.
 func (this HTMLMediaElement) TryAddTextTrack2(kind TextTrackKind) (ret TextTrack, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMediaElementAddTextTrack2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(kind),
 	)
 
 	return
 }
 
-// HasSetMediaKeys returns true if the method "HTMLMediaElement.setMediaKeys" exists.
-func (this HTMLMediaElement) HasSetMediaKeys() bool {
-	return js.True == bindings.HasHTMLMediaElementSetMediaKeys(
-		this.Ref(),
+// HasFuncSetMediaKeys returns true if the method "HTMLMediaElement.setMediaKeys" exists.
+func (this HTMLMediaElement) HasFuncSetMediaKeys() bool {
+	return js.True == bindings.HasFuncHTMLMediaElementSetMediaKeys(
+		this.ref,
 	)
 }
 
-// SetMediaKeysFunc returns the method "HTMLMediaElement.setMediaKeys".
-func (this HTMLMediaElement) SetMediaKeysFunc() (fn js.Func[func(mediaKeys MediaKeys) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.HTMLMediaElementSetMediaKeysFunc(
-			this.Ref(),
-		),
+// FuncSetMediaKeys returns the method "HTMLMediaElement.setMediaKeys".
+func (this HTMLMediaElement) FuncSetMediaKeys() (fn js.Func[func(mediaKeys MediaKeys) js.Promise[js.Void]]) {
+	bindings.FuncHTMLMediaElementSetMediaKeys(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetMediaKeys calls the method "HTMLMediaElement.setMediaKeys".
 func (this HTMLMediaElement) SetMediaKeys(mediaKeys MediaKeys) (ret js.Promise[js.Void]) {
 	bindings.CallHTMLMediaElementSetMediaKeys(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		mediaKeys.Ref(),
 	)
 
@@ -2525,33 +2479,32 @@ func (this HTMLMediaElement) SetMediaKeys(mediaKeys MediaKeys) (ret js.Promise[j
 // the catch clause.
 func (this HTMLMediaElement) TrySetMediaKeys(mediaKeys MediaKeys) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMediaElementSetMediaKeys(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		mediaKeys.Ref(),
 	)
 
 	return
 }
 
-// HasCaptureStream returns true if the method "HTMLMediaElement.captureStream" exists.
-func (this HTMLMediaElement) HasCaptureStream() bool {
-	return js.True == bindings.HasHTMLMediaElementCaptureStream(
-		this.Ref(),
+// HasFuncCaptureStream returns true if the method "HTMLMediaElement.captureStream" exists.
+func (this HTMLMediaElement) HasFuncCaptureStream() bool {
+	return js.True == bindings.HasFuncHTMLMediaElementCaptureStream(
+		this.ref,
 	)
 }
 
-// CaptureStreamFunc returns the method "HTMLMediaElement.captureStream".
-func (this HTMLMediaElement) CaptureStreamFunc() (fn js.Func[func() MediaStream]) {
-	return fn.FromRef(
-		bindings.HTMLMediaElementCaptureStreamFunc(
-			this.Ref(),
-		),
+// FuncCaptureStream returns the method "HTMLMediaElement.captureStream".
+func (this HTMLMediaElement) FuncCaptureStream() (fn js.Func[func() MediaStream]) {
+	bindings.FuncHTMLMediaElementCaptureStream(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CaptureStream calls the method "HTMLMediaElement.captureStream".
 func (this HTMLMediaElement) CaptureStream() (ret MediaStream) {
 	bindings.CallHTMLMediaElementCaptureStream(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2562,32 +2515,31 @@ func (this HTMLMediaElement) CaptureStream() (ret MediaStream) {
 // the catch clause.
 func (this HTMLMediaElement) TryCaptureStream() (ret MediaStream, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMediaElementCaptureStream(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSetSinkId returns true if the method "HTMLMediaElement.setSinkId" exists.
-func (this HTMLMediaElement) HasSetSinkId() bool {
-	return js.True == bindings.HasHTMLMediaElementSetSinkId(
-		this.Ref(),
+// HasFuncSetSinkId returns true if the method "HTMLMediaElement.setSinkId" exists.
+func (this HTMLMediaElement) HasFuncSetSinkId() bool {
+	return js.True == bindings.HasFuncHTMLMediaElementSetSinkId(
+		this.ref,
 	)
 }
 
-// SetSinkIdFunc returns the method "HTMLMediaElement.setSinkId".
-func (this HTMLMediaElement) SetSinkIdFunc() (fn js.Func[func(sinkId js.String) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.HTMLMediaElementSetSinkIdFunc(
-			this.Ref(),
-		),
+// FuncSetSinkId returns the method "HTMLMediaElement.setSinkId".
+func (this HTMLMediaElement) FuncSetSinkId() (fn js.Func[func(sinkId js.String) js.Promise[js.Void]]) {
+	bindings.FuncHTMLMediaElementSetSinkId(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetSinkId calls the method "HTMLMediaElement.setSinkId".
 func (this HTMLMediaElement) SetSinkId(sinkId js.String) (ret js.Promise[js.Void]) {
 	bindings.CallHTMLMediaElementSetSinkId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		sinkId.Ref(),
 	)
 
@@ -2599,7 +2551,7 @@ func (this HTMLMediaElement) SetSinkId(sinkId js.String) (ret js.Promise[js.Void
 // the catch clause.
 func (this HTMLMediaElement) TrySetSinkId(sinkId js.String) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMediaElementSetSinkId(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		sinkId.Ref(),
 	)
 
@@ -2629,17 +2581,26 @@ func (p MediaElementAudioSourceOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MediaElementAudioSourceOptions) UpdateFrom(ref js.Ref) {
+func (p *MediaElementAudioSourceOptions) UpdateFrom(ref js.Ref) {
 	bindings.MediaElementAudioSourceOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MediaElementAudioSourceOptions) Update(ref js.Ref) {
+func (p *MediaElementAudioSourceOptions) Update(ref js.Ref) {
 	bindings.MediaElementAudioSourceOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MediaElementAudioSourceOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.MediaElement.Ref(),
+	)
+	p.MediaElement = p.MediaElement.FromRef(js.Undefined)
 }
 
 func NewMediaElementAudioSourceNode(context AudioContext, options MediaElementAudioSourceOptions) (ret MediaElementAudioSourceNode) {
@@ -2654,7 +2615,7 @@ type MediaElementAudioSourceNode struct {
 }
 
 func (this MediaElementAudioSourceNode) Once() MediaElementAudioSourceNode {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2668,7 +2629,7 @@ func (this MediaElementAudioSourceNode) FromRef(ref js.Ref) MediaElementAudioSou
 }
 
 func (this MediaElementAudioSourceNode) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // MediaElement returns the value of property "MediaElementAudioSourceNode.mediaElement".
@@ -2676,7 +2637,7 @@ func (this MediaElementAudioSourceNode) Free() {
 // It returns ok=false if there is no such property.
 func (this MediaElementAudioSourceNode) MediaElement() (ret HTMLMediaElement, ok bool) {
 	ok = js.True == bindings.GetMediaElementAudioSourceNodeMediaElement(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2704,17 +2665,26 @@ func (p MediaStreamAudioSourceOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MediaStreamAudioSourceOptions) UpdateFrom(ref js.Ref) {
+func (p *MediaStreamAudioSourceOptions) UpdateFrom(ref js.Ref) {
 	bindings.MediaStreamAudioSourceOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MediaStreamAudioSourceOptions) Update(ref js.Ref) {
+func (p *MediaStreamAudioSourceOptions) Update(ref js.Ref) {
 	bindings.MediaStreamAudioSourceOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MediaStreamAudioSourceOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.MediaStream.Ref(),
+	)
+	p.MediaStream = p.MediaStream.FromRef(js.Undefined)
 }
 
 func NewMediaStreamAudioSourceNode(context AudioContext, options MediaStreamAudioSourceOptions) (ret MediaStreamAudioSourceNode) {
@@ -2729,7 +2699,7 @@ type MediaStreamAudioSourceNode struct {
 }
 
 func (this MediaStreamAudioSourceNode) Once() MediaStreamAudioSourceNode {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2743,7 +2713,7 @@ func (this MediaStreamAudioSourceNode) FromRef(ref js.Ref) MediaStreamAudioSourc
 }
 
 func (this MediaStreamAudioSourceNode) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // MediaStream returns the value of property "MediaStreamAudioSourceNode.mediaStream".
@@ -2751,7 +2721,7 @@ func (this MediaStreamAudioSourceNode) Free() {
 // It returns ok=false if there is no such property.
 func (this MediaStreamAudioSourceNode) MediaStream() (ret MediaStream, ok bool) {
 	ok = js.True == bindings.GetMediaStreamAudioSourceNodeMediaStream(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2779,17 +2749,26 @@ func (p MediaStreamTrackAudioSourceOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MediaStreamTrackAudioSourceOptions) UpdateFrom(ref js.Ref) {
+func (p *MediaStreamTrackAudioSourceOptions) UpdateFrom(ref js.Ref) {
 	bindings.MediaStreamTrackAudioSourceOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MediaStreamTrackAudioSourceOptions) Update(ref js.Ref) {
+func (p *MediaStreamTrackAudioSourceOptions) Update(ref js.Ref) {
 	bindings.MediaStreamTrackAudioSourceOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MediaStreamTrackAudioSourceOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.MediaStreamTrack.Ref(),
+	)
+	p.MediaStreamTrack = p.MediaStreamTrack.FromRef(js.Undefined)
 }
 
 func NewMediaStreamTrackAudioSourceNode(context AudioContext, options MediaStreamTrackAudioSourceOptions) (ret MediaStreamTrackAudioSourceNode) {
@@ -2804,7 +2783,7 @@ type MediaStreamTrackAudioSourceNode struct {
 }
 
 func (this MediaStreamTrackAudioSourceNode) Once() MediaStreamTrackAudioSourceNode {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2818,7 +2797,7 @@ func (this MediaStreamTrackAudioSourceNode) FromRef(ref js.Ref) MediaStreamTrack
 }
 
 func (this MediaStreamTrackAudioSourceNode) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type AudioNodeOptions struct {
@@ -2856,17 +2835,22 @@ func (p AudioNodeOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AudioNodeOptions) UpdateFrom(ref js.Ref) {
+func (p *AudioNodeOptions) UpdateFrom(ref js.Ref) {
 	bindings.AudioNodeOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AudioNodeOptions) Update(ref js.Ref) {
+func (p *AudioNodeOptions) Update(ref js.Ref) {
 	bindings.AudioNodeOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AudioNodeOptions) FreeMembers(recursive bool) {
 }
 
 func NewMediaStreamAudioDestinationNode(context AudioContext, options AudioNodeOptions) (ret MediaStreamAudioDestinationNode) {
@@ -2887,7 +2871,7 @@ type MediaStreamAudioDestinationNode struct {
 }
 
 func (this MediaStreamAudioDestinationNode) Once() MediaStreamAudioDestinationNode {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2901,7 +2885,7 @@ func (this MediaStreamAudioDestinationNode) FromRef(ref js.Ref) MediaStreamAudio
 }
 
 func (this MediaStreamAudioDestinationNode) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Stream returns the value of property "MediaStreamAudioDestinationNode.stream".
@@ -2909,7 +2893,7 @@ func (this MediaStreamAudioDestinationNode) Free() {
 // It returns ok=false if there is no such property.
 func (this MediaStreamAudioDestinationNode) Stream() (ret MediaStream, ok bool) {
 	ok = js.True == bindings.GetMediaStreamAudioDestinationNodeStream(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2919,7 +2903,7 @@ type AudioSinkInfo struct {
 }
 
 func (this AudioSinkInfo) Once() AudioSinkInfo {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2933,7 +2917,7 @@ func (this AudioSinkInfo) FromRef(ref js.Ref) AudioSinkInfo {
 }
 
 func (this AudioSinkInfo) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Type returns the value of property "AudioSinkInfo.type".
@@ -2941,7 +2925,7 @@ func (this AudioSinkInfo) Free() {
 // It returns ok=false if there is no such property.
 func (this AudioSinkInfo) Type() (ret AudioSinkType, ok bool) {
 	ok = js.True == bindings.GetAudioSinkInfoType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2999,17 +2983,22 @@ func (p AudioRenderCapacityOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AudioRenderCapacityOptions) UpdateFrom(ref js.Ref) {
+func (p *AudioRenderCapacityOptions) UpdateFrom(ref js.Ref) {
 	bindings.AudioRenderCapacityOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AudioRenderCapacityOptions) Update(ref js.Ref) {
+func (p *AudioRenderCapacityOptions) Update(ref js.Ref) {
 	bindings.AudioRenderCapacityOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AudioRenderCapacityOptions) FreeMembers(recursive bool) {
 }
 
 type AudioRenderCapacity struct {
@@ -3017,7 +3006,7 @@ type AudioRenderCapacity struct {
 }
 
 func (this AudioRenderCapacity) Once() AudioRenderCapacity {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3031,29 +3020,28 @@ func (this AudioRenderCapacity) FromRef(ref js.Ref) AudioRenderCapacity {
 }
 
 func (this AudioRenderCapacity) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasStart returns true if the method "AudioRenderCapacity.start" exists.
-func (this AudioRenderCapacity) HasStart() bool {
-	return js.True == bindings.HasAudioRenderCapacityStart(
-		this.Ref(),
+// HasFuncStart returns true if the method "AudioRenderCapacity.start" exists.
+func (this AudioRenderCapacity) HasFuncStart() bool {
+	return js.True == bindings.HasFuncAudioRenderCapacityStart(
+		this.ref,
 	)
 }
 
-// StartFunc returns the method "AudioRenderCapacity.start".
-func (this AudioRenderCapacity) StartFunc() (fn js.Func[func(options AudioRenderCapacityOptions)]) {
-	return fn.FromRef(
-		bindings.AudioRenderCapacityStartFunc(
-			this.Ref(),
-		),
+// FuncStart returns the method "AudioRenderCapacity.start".
+func (this AudioRenderCapacity) FuncStart() (fn js.Func[func(options AudioRenderCapacityOptions)]) {
+	bindings.FuncAudioRenderCapacityStart(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Start calls the method "AudioRenderCapacity.start".
 func (this AudioRenderCapacity) Start(options AudioRenderCapacityOptions) (ret js.Void) {
 	bindings.CallAudioRenderCapacityStart(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -3065,33 +3053,32 @@ func (this AudioRenderCapacity) Start(options AudioRenderCapacityOptions) (ret j
 // the catch clause.
 func (this AudioRenderCapacity) TryStart(options AudioRenderCapacityOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioRenderCapacityStart(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasStart1 returns true if the method "AudioRenderCapacity.start" exists.
-func (this AudioRenderCapacity) HasStart1() bool {
-	return js.True == bindings.HasAudioRenderCapacityStart1(
-		this.Ref(),
+// HasFuncStart1 returns true if the method "AudioRenderCapacity.start" exists.
+func (this AudioRenderCapacity) HasFuncStart1() bool {
+	return js.True == bindings.HasFuncAudioRenderCapacityStart1(
+		this.ref,
 	)
 }
 
-// Start1Func returns the method "AudioRenderCapacity.start".
-func (this AudioRenderCapacity) Start1Func() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.AudioRenderCapacityStart1Func(
-			this.Ref(),
-		),
+// FuncStart1 returns the method "AudioRenderCapacity.start".
+func (this AudioRenderCapacity) FuncStart1() (fn js.Func[func()]) {
+	bindings.FuncAudioRenderCapacityStart1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Start1 calls the method "AudioRenderCapacity.start".
 func (this AudioRenderCapacity) Start1() (ret js.Void) {
 	bindings.CallAudioRenderCapacityStart1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3102,32 +3089,31 @@ func (this AudioRenderCapacity) Start1() (ret js.Void) {
 // the catch clause.
 func (this AudioRenderCapacity) TryStart1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioRenderCapacityStart1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasStop returns true if the method "AudioRenderCapacity.stop" exists.
-func (this AudioRenderCapacity) HasStop() bool {
-	return js.True == bindings.HasAudioRenderCapacityStop(
-		this.Ref(),
+// HasFuncStop returns true if the method "AudioRenderCapacity.stop" exists.
+func (this AudioRenderCapacity) HasFuncStop() bool {
+	return js.True == bindings.HasFuncAudioRenderCapacityStop(
+		this.ref,
 	)
 }
 
-// StopFunc returns the method "AudioRenderCapacity.stop".
-func (this AudioRenderCapacity) StopFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.AudioRenderCapacityStopFunc(
-			this.Ref(),
-		),
+// FuncStop returns the method "AudioRenderCapacity.stop".
+func (this AudioRenderCapacity) FuncStop() (fn js.Func[func()]) {
+	bindings.FuncAudioRenderCapacityStop(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Stop calls the method "AudioRenderCapacity.stop".
 func (this AudioRenderCapacity) Stop() (ret js.Void) {
 	bindings.CallAudioRenderCapacityStop(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3138,7 +3124,7 @@ func (this AudioRenderCapacity) Stop() (ret js.Void) {
 // the catch clause.
 func (this AudioRenderCapacity) TryStop() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioRenderCapacityStop(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -3160,7 +3146,7 @@ type AudioContext struct {
 }
 
 func (this AudioContext) Once() AudioContext {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3174,7 +3160,7 @@ func (this AudioContext) FromRef(ref js.Ref) AudioContext {
 }
 
 func (this AudioContext) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // BaseLatency returns the value of property "AudioContext.baseLatency".
@@ -3182,7 +3168,7 @@ func (this AudioContext) Free() {
 // It returns ok=false if there is no such property.
 func (this AudioContext) BaseLatency() (ret float64, ok bool) {
 	ok = js.True == bindings.GetAudioContextBaseLatency(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3192,7 +3178,7 @@ func (this AudioContext) BaseLatency() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this AudioContext) OutputLatency() (ret float64, ok bool) {
 	ok = js.True == bindings.GetAudioContextOutputLatency(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3202,7 +3188,7 @@ func (this AudioContext) OutputLatency() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this AudioContext) SinkId() (ret OneOf_String_AudioSinkInfo, ok bool) {
 	ok = js.True == bindings.GetAudioContextSinkId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3212,31 +3198,30 @@ func (this AudioContext) SinkId() (ret OneOf_String_AudioSinkInfo, ok bool) {
 // It returns ok=false if there is no such property.
 func (this AudioContext) RenderCapacity() (ret AudioRenderCapacity, ok bool) {
 	ok = js.True == bindings.GetAudioContextRenderCapacity(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGetOutputTimestamp returns true if the method "AudioContext.getOutputTimestamp" exists.
-func (this AudioContext) HasGetOutputTimestamp() bool {
-	return js.True == bindings.HasAudioContextGetOutputTimestamp(
-		this.Ref(),
+// HasFuncGetOutputTimestamp returns true if the method "AudioContext.getOutputTimestamp" exists.
+func (this AudioContext) HasFuncGetOutputTimestamp() bool {
+	return js.True == bindings.HasFuncAudioContextGetOutputTimestamp(
+		this.ref,
 	)
 }
 
-// GetOutputTimestampFunc returns the method "AudioContext.getOutputTimestamp".
-func (this AudioContext) GetOutputTimestampFunc() (fn js.Func[func() AudioTimestamp]) {
-	return fn.FromRef(
-		bindings.AudioContextGetOutputTimestampFunc(
-			this.Ref(),
-		),
+// FuncGetOutputTimestamp returns the method "AudioContext.getOutputTimestamp".
+func (this AudioContext) FuncGetOutputTimestamp() (fn js.Func[func() AudioTimestamp]) {
+	bindings.FuncAudioContextGetOutputTimestamp(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetOutputTimestamp calls the method "AudioContext.getOutputTimestamp".
 func (this AudioContext) GetOutputTimestamp() (ret AudioTimestamp) {
 	bindings.CallAudioContextGetOutputTimestamp(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3247,32 +3232,31 @@ func (this AudioContext) GetOutputTimestamp() (ret AudioTimestamp) {
 // the catch clause.
 func (this AudioContext) TryGetOutputTimestamp() (ret AudioTimestamp, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioContextGetOutputTimestamp(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasResume returns true if the method "AudioContext.resume" exists.
-func (this AudioContext) HasResume() bool {
-	return js.True == bindings.HasAudioContextResume(
-		this.Ref(),
+// HasFuncResume returns true if the method "AudioContext.resume" exists.
+func (this AudioContext) HasFuncResume() bool {
+	return js.True == bindings.HasFuncAudioContextResume(
+		this.ref,
 	)
 }
 
-// ResumeFunc returns the method "AudioContext.resume".
-func (this AudioContext) ResumeFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.AudioContextResumeFunc(
-			this.Ref(),
-		),
+// FuncResume returns the method "AudioContext.resume".
+func (this AudioContext) FuncResume() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncAudioContextResume(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Resume calls the method "AudioContext.resume".
 func (this AudioContext) Resume() (ret js.Promise[js.Void]) {
 	bindings.CallAudioContextResume(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3283,32 +3267,31 @@ func (this AudioContext) Resume() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this AudioContext) TryResume() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioContextResume(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSuspend returns true if the method "AudioContext.suspend" exists.
-func (this AudioContext) HasSuspend() bool {
-	return js.True == bindings.HasAudioContextSuspend(
-		this.Ref(),
+// HasFuncSuspend returns true if the method "AudioContext.suspend" exists.
+func (this AudioContext) HasFuncSuspend() bool {
+	return js.True == bindings.HasFuncAudioContextSuspend(
+		this.ref,
 	)
 }
 
-// SuspendFunc returns the method "AudioContext.suspend".
-func (this AudioContext) SuspendFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.AudioContextSuspendFunc(
-			this.Ref(),
-		),
+// FuncSuspend returns the method "AudioContext.suspend".
+func (this AudioContext) FuncSuspend() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncAudioContextSuspend(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Suspend calls the method "AudioContext.suspend".
 func (this AudioContext) Suspend() (ret js.Promise[js.Void]) {
 	bindings.CallAudioContextSuspend(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3319,32 +3302,31 @@ func (this AudioContext) Suspend() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this AudioContext) TrySuspend() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioContextSuspend(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasClose returns true if the method "AudioContext.close" exists.
-func (this AudioContext) HasClose() bool {
-	return js.True == bindings.HasAudioContextClose(
-		this.Ref(),
+// HasFuncClose returns true if the method "AudioContext.close" exists.
+func (this AudioContext) HasFuncClose() bool {
+	return js.True == bindings.HasFuncAudioContextClose(
+		this.ref,
 	)
 }
 
-// CloseFunc returns the method "AudioContext.close".
-func (this AudioContext) CloseFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.AudioContextCloseFunc(
-			this.Ref(),
-		),
+// FuncClose returns the method "AudioContext.close".
+func (this AudioContext) FuncClose() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncAudioContextClose(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Close calls the method "AudioContext.close".
 func (this AudioContext) Close() (ret js.Promise[js.Void]) {
 	bindings.CallAudioContextClose(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3355,32 +3337,31 @@ func (this AudioContext) Close() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this AudioContext) TryClose() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioContextClose(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSetSinkId returns true if the method "AudioContext.setSinkId" exists.
-func (this AudioContext) HasSetSinkId() bool {
-	return js.True == bindings.HasAudioContextSetSinkId(
-		this.Ref(),
+// HasFuncSetSinkId returns true if the method "AudioContext.setSinkId" exists.
+func (this AudioContext) HasFuncSetSinkId() bool {
+	return js.True == bindings.HasFuncAudioContextSetSinkId(
+		this.ref,
 	)
 }
 
-// SetSinkIdFunc returns the method "AudioContext.setSinkId".
-func (this AudioContext) SetSinkIdFunc() (fn js.Func[func(sinkId OneOf_String_AudioSinkOptions) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.AudioContextSetSinkIdFunc(
-			this.Ref(),
-		),
+// FuncSetSinkId returns the method "AudioContext.setSinkId".
+func (this AudioContext) FuncSetSinkId() (fn js.Func[func(sinkId OneOf_String_AudioSinkOptions) js.Promise[js.Void]]) {
+	bindings.FuncAudioContextSetSinkId(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetSinkId calls the method "AudioContext.setSinkId".
 func (this AudioContext) SetSinkId(sinkId OneOf_String_AudioSinkOptions) (ret js.Promise[js.Void]) {
 	bindings.CallAudioContextSetSinkId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		sinkId.Ref(),
 	)
 
@@ -3392,33 +3373,32 @@ func (this AudioContext) SetSinkId(sinkId OneOf_String_AudioSinkOptions) (ret js
 // the catch clause.
 func (this AudioContext) TrySetSinkId(sinkId OneOf_String_AudioSinkOptions) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioContextSetSinkId(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		sinkId.Ref(),
 	)
 
 	return
 }
 
-// HasCreateMediaElementSource returns true if the method "AudioContext.createMediaElementSource" exists.
-func (this AudioContext) HasCreateMediaElementSource() bool {
-	return js.True == bindings.HasAudioContextCreateMediaElementSource(
-		this.Ref(),
+// HasFuncCreateMediaElementSource returns true if the method "AudioContext.createMediaElementSource" exists.
+func (this AudioContext) HasFuncCreateMediaElementSource() bool {
+	return js.True == bindings.HasFuncAudioContextCreateMediaElementSource(
+		this.ref,
 	)
 }
 
-// CreateMediaElementSourceFunc returns the method "AudioContext.createMediaElementSource".
-func (this AudioContext) CreateMediaElementSourceFunc() (fn js.Func[func(mediaElement HTMLMediaElement) MediaElementAudioSourceNode]) {
-	return fn.FromRef(
-		bindings.AudioContextCreateMediaElementSourceFunc(
-			this.Ref(),
-		),
+// FuncCreateMediaElementSource returns the method "AudioContext.createMediaElementSource".
+func (this AudioContext) FuncCreateMediaElementSource() (fn js.Func[func(mediaElement HTMLMediaElement) MediaElementAudioSourceNode]) {
+	bindings.FuncAudioContextCreateMediaElementSource(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateMediaElementSource calls the method "AudioContext.createMediaElementSource".
 func (this AudioContext) CreateMediaElementSource(mediaElement HTMLMediaElement) (ret MediaElementAudioSourceNode) {
 	bindings.CallAudioContextCreateMediaElementSource(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		mediaElement.Ref(),
 	)
 
@@ -3430,33 +3410,32 @@ func (this AudioContext) CreateMediaElementSource(mediaElement HTMLMediaElement)
 // the catch clause.
 func (this AudioContext) TryCreateMediaElementSource(mediaElement HTMLMediaElement) (ret MediaElementAudioSourceNode, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioContextCreateMediaElementSource(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		mediaElement.Ref(),
 	)
 
 	return
 }
 
-// HasCreateMediaStreamSource returns true if the method "AudioContext.createMediaStreamSource" exists.
-func (this AudioContext) HasCreateMediaStreamSource() bool {
-	return js.True == bindings.HasAudioContextCreateMediaStreamSource(
-		this.Ref(),
+// HasFuncCreateMediaStreamSource returns true if the method "AudioContext.createMediaStreamSource" exists.
+func (this AudioContext) HasFuncCreateMediaStreamSource() bool {
+	return js.True == bindings.HasFuncAudioContextCreateMediaStreamSource(
+		this.ref,
 	)
 }
 
-// CreateMediaStreamSourceFunc returns the method "AudioContext.createMediaStreamSource".
-func (this AudioContext) CreateMediaStreamSourceFunc() (fn js.Func[func(mediaStream MediaStream) MediaStreamAudioSourceNode]) {
-	return fn.FromRef(
-		bindings.AudioContextCreateMediaStreamSourceFunc(
-			this.Ref(),
-		),
+// FuncCreateMediaStreamSource returns the method "AudioContext.createMediaStreamSource".
+func (this AudioContext) FuncCreateMediaStreamSource() (fn js.Func[func(mediaStream MediaStream) MediaStreamAudioSourceNode]) {
+	bindings.FuncAudioContextCreateMediaStreamSource(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateMediaStreamSource calls the method "AudioContext.createMediaStreamSource".
 func (this AudioContext) CreateMediaStreamSource(mediaStream MediaStream) (ret MediaStreamAudioSourceNode) {
 	bindings.CallAudioContextCreateMediaStreamSource(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		mediaStream.Ref(),
 	)
 
@@ -3468,33 +3447,32 @@ func (this AudioContext) CreateMediaStreamSource(mediaStream MediaStream) (ret M
 // the catch clause.
 func (this AudioContext) TryCreateMediaStreamSource(mediaStream MediaStream) (ret MediaStreamAudioSourceNode, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioContextCreateMediaStreamSource(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		mediaStream.Ref(),
 	)
 
 	return
 }
 
-// HasCreateMediaStreamTrackSource returns true if the method "AudioContext.createMediaStreamTrackSource" exists.
-func (this AudioContext) HasCreateMediaStreamTrackSource() bool {
-	return js.True == bindings.HasAudioContextCreateMediaStreamTrackSource(
-		this.Ref(),
+// HasFuncCreateMediaStreamTrackSource returns true if the method "AudioContext.createMediaStreamTrackSource" exists.
+func (this AudioContext) HasFuncCreateMediaStreamTrackSource() bool {
+	return js.True == bindings.HasFuncAudioContextCreateMediaStreamTrackSource(
+		this.ref,
 	)
 }
 
-// CreateMediaStreamTrackSourceFunc returns the method "AudioContext.createMediaStreamTrackSource".
-func (this AudioContext) CreateMediaStreamTrackSourceFunc() (fn js.Func[func(mediaStreamTrack MediaStreamTrack) MediaStreamTrackAudioSourceNode]) {
-	return fn.FromRef(
-		bindings.AudioContextCreateMediaStreamTrackSourceFunc(
-			this.Ref(),
-		),
+// FuncCreateMediaStreamTrackSource returns the method "AudioContext.createMediaStreamTrackSource".
+func (this AudioContext) FuncCreateMediaStreamTrackSource() (fn js.Func[func(mediaStreamTrack MediaStreamTrack) MediaStreamTrackAudioSourceNode]) {
+	bindings.FuncAudioContextCreateMediaStreamTrackSource(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateMediaStreamTrackSource calls the method "AudioContext.createMediaStreamTrackSource".
 func (this AudioContext) CreateMediaStreamTrackSource(mediaStreamTrack MediaStreamTrack) (ret MediaStreamTrackAudioSourceNode) {
 	bindings.CallAudioContextCreateMediaStreamTrackSource(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		mediaStreamTrack.Ref(),
 	)
 
@@ -3506,33 +3484,32 @@ func (this AudioContext) CreateMediaStreamTrackSource(mediaStreamTrack MediaStre
 // the catch clause.
 func (this AudioContext) TryCreateMediaStreamTrackSource(mediaStreamTrack MediaStreamTrack) (ret MediaStreamTrackAudioSourceNode, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioContextCreateMediaStreamTrackSource(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		mediaStreamTrack.Ref(),
 	)
 
 	return
 }
 
-// HasCreateMediaStreamDestination returns true if the method "AudioContext.createMediaStreamDestination" exists.
-func (this AudioContext) HasCreateMediaStreamDestination() bool {
-	return js.True == bindings.HasAudioContextCreateMediaStreamDestination(
-		this.Ref(),
+// HasFuncCreateMediaStreamDestination returns true if the method "AudioContext.createMediaStreamDestination" exists.
+func (this AudioContext) HasFuncCreateMediaStreamDestination() bool {
+	return js.True == bindings.HasFuncAudioContextCreateMediaStreamDestination(
+		this.ref,
 	)
 }
 
-// CreateMediaStreamDestinationFunc returns the method "AudioContext.createMediaStreamDestination".
-func (this AudioContext) CreateMediaStreamDestinationFunc() (fn js.Func[func() MediaStreamAudioDestinationNode]) {
-	return fn.FromRef(
-		bindings.AudioContextCreateMediaStreamDestinationFunc(
-			this.Ref(),
-		),
+// FuncCreateMediaStreamDestination returns the method "AudioContext.createMediaStreamDestination".
+func (this AudioContext) FuncCreateMediaStreamDestination() (fn js.Func[func() MediaStreamAudioDestinationNode]) {
+	bindings.FuncAudioContextCreateMediaStreamDestination(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateMediaStreamDestination calls the method "AudioContext.createMediaStreamDestination".
 func (this AudioContext) CreateMediaStreamDestination() (ret MediaStreamAudioDestinationNode) {
 	bindings.CallAudioContextCreateMediaStreamDestination(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3543,7 +3520,7 @@ func (this AudioContext) CreateMediaStreamDestination() (ret MediaStreamAudioDes
 // the catch clause.
 func (this AudioContext) TryCreateMediaStreamDestination() (ret MediaStreamAudioDestinationNode, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioContextCreateMediaStreamDestination(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -3638,17 +3615,28 @@ func (p AudioDataInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AudioDataInit) UpdateFrom(ref js.Ref) {
+func (p *AudioDataInit) UpdateFrom(ref js.Ref) {
 	bindings.AudioDataInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AudioDataInit) Update(ref js.Ref) {
+func (p *AudioDataInit) Update(ref js.Ref) {
 	bindings.AudioDataInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AudioDataInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Data.Ref(),
+		p.Transfer.Ref(),
+	)
+	p.Data = p.Data.FromRef(js.Undefined)
+	p.Transfer = p.Transfer.FromRef(js.Undefined)
 }
 
 type AudioDataCopyToOptions struct {
@@ -3693,17 +3681,22 @@ func (p AudioDataCopyToOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AudioDataCopyToOptions) UpdateFrom(ref js.Ref) {
+func (p *AudioDataCopyToOptions) UpdateFrom(ref js.Ref) {
 	bindings.AudioDataCopyToOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AudioDataCopyToOptions) Update(ref js.Ref) {
+func (p *AudioDataCopyToOptions) Update(ref js.Ref) {
 	bindings.AudioDataCopyToOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AudioDataCopyToOptions) FreeMembers(recursive bool) {
 }
 
 func NewAudioData(init AudioDataInit) (ret AudioData) {
@@ -3717,7 +3710,7 @@ type AudioData struct {
 }
 
 func (this AudioData) Once() AudioData {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3731,7 +3724,7 @@ func (this AudioData) FromRef(ref js.Ref) AudioData {
 }
 
 func (this AudioData) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Format returns the value of property "AudioData.format".
@@ -3739,7 +3732,7 @@ func (this AudioData) Free() {
 // It returns ok=false if there is no such property.
 func (this AudioData) Format() (ret AudioSampleFormat, ok bool) {
 	ok = js.True == bindings.GetAudioDataFormat(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3749,7 +3742,7 @@ func (this AudioData) Format() (ret AudioSampleFormat, ok bool) {
 // It returns ok=false if there is no such property.
 func (this AudioData) SampleRate() (ret float32, ok bool) {
 	ok = js.True == bindings.GetAudioDataSampleRate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3759,7 +3752,7 @@ func (this AudioData) SampleRate() (ret float32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this AudioData) NumberOfFrames() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetAudioDataNumberOfFrames(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3769,7 +3762,7 @@ func (this AudioData) NumberOfFrames() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this AudioData) NumberOfChannels() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetAudioDataNumberOfChannels(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3779,7 +3772,7 @@ func (this AudioData) NumberOfChannels() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this AudioData) Duration() (ret uint64, ok bool) {
 	ok = js.True == bindings.GetAudioDataDuration(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3789,31 +3782,30 @@ func (this AudioData) Duration() (ret uint64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this AudioData) Timestamp() (ret int64, ok bool) {
 	ok = js.True == bindings.GetAudioDataTimestamp(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasAllocationSize returns true if the method "AudioData.allocationSize" exists.
-func (this AudioData) HasAllocationSize() bool {
-	return js.True == bindings.HasAudioDataAllocationSize(
-		this.Ref(),
+// HasFuncAllocationSize returns true if the method "AudioData.allocationSize" exists.
+func (this AudioData) HasFuncAllocationSize() bool {
+	return js.True == bindings.HasFuncAudioDataAllocationSize(
+		this.ref,
 	)
 }
 
-// AllocationSizeFunc returns the method "AudioData.allocationSize".
-func (this AudioData) AllocationSizeFunc() (fn js.Func[func(options AudioDataCopyToOptions) uint32]) {
-	return fn.FromRef(
-		bindings.AudioDataAllocationSizeFunc(
-			this.Ref(),
-		),
+// FuncAllocationSize returns the method "AudioData.allocationSize".
+func (this AudioData) FuncAllocationSize() (fn js.Func[func(options AudioDataCopyToOptions) uint32]) {
+	bindings.FuncAudioDataAllocationSize(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AllocationSize calls the method "AudioData.allocationSize".
 func (this AudioData) AllocationSize(options AudioDataCopyToOptions) (ret uint32) {
 	bindings.CallAudioDataAllocationSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -3825,33 +3817,32 @@ func (this AudioData) AllocationSize(options AudioDataCopyToOptions) (ret uint32
 // the catch clause.
 func (this AudioData) TryAllocationSize(options AudioDataCopyToOptions) (ret uint32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioDataAllocationSize(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasCopyTo returns true if the method "AudioData.copyTo" exists.
-func (this AudioData) HasCopyTo() bool {
-	return js.True == bindings.HasAudioDataCopyTo(
-		this.Ref(),
+// HasFuncCopyTo returns true if the method "AudioData.copyTo" exists.
+func (this AudioData) HasFuncCopyTo() bool {
+	return js.True == bindings.HasFuncAudioDataCopyTo(
+		this.ref,
 	)
 }
 
-// CopyToFunc returns the method "AudioData.copyTo".
-func (this AudioData) CopyToFunc() (fn js.Func[func(destination AllowSharedBufferSource, options AudioDataCopyToOptions)]) {
-	return fn.FromRef(
-		bindings.AudioDataCopyToFunc(
-			this.Ref(),
-		),
+// FuncCopyTo returns the method "AudioData.copyTo".
+func (this AudioData) FuncCopyTo() (fn js.Func[func(destination AllowSharedBufferSource, options AudioDataCopyToOptions)]) {
+	bindings.FuncAudioDataCopyTo(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CopyTo calls the method "AudioData.copyTo".
 func (this AudioData) CopyTo(destination AllowSharedBufferSource, options AudioDataCopyToOptions) (ret js.Void) {
 	bindings.CallAudioDataCopyTo(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		destination.Ref(),
 		js.Pointer(&options),
 	)
@@ -3864,7 +3855,7 @@ func (this AudioData) CopyTo(destination AllowSharedBufferSource, options AudioD
 // the catch clause.
 func (this AudioData) TryCopyTo(destination AllowSharedBufferSource, options AudioDataCopyToOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioDataCopyTo(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		destination.Ref(),
 		js.Pointer(&options),
 	)
@@ -3872,26 +3863,25 @@ func (this AudioData) TryCopyTo(destination AllowSharedBufferSource, options Aud
 	return
 }
 
-// HasClone returns true if the method "AudioData.clone" exists.
-func (this AudioData) HasClone() bool {
-	return js.True == bindings.HasAudioDataClone(
-		this.Ref(),
+// HasFuncClone returns true if the method "AudioData.clone" exists.
+func (this AudioData) HasFuncClone() bool {
+	return js.True == bindings.HasFuncAudioDataClone(
+		this.ref,
 	)
 }
 
-// CloneFunc returns the method "AudioData.clone".
-func (this AudioData) CloneFunc() (fn js.Func[func() AudioData]) {
-	return fn.FromRef(
-		bindings.AudioDataCloneFunc(
-			this.Ref(),
-		),
+// FuncClone returns the method "AudioData.clone".
+func (this AudioData) FuncClone() (fn js.Func[func() AudioData]) {
+	bindings.FuncAudioDataClone(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Clone calls the method "AudioData.clone".
 func (this AudioData) Clone() (ret AudioData) {
 	bindings.CallAudioDataClone(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3902,32 +3892,31 @@ func (this AudioData) Clone() (ret AudioData) {
 // the catch clause.
 func (this AudioData) TryClone() (ret AudioData, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioDataClone(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasClose returns true if the method "AudioData.close" exists.
-func (this AudioData) HasClose() bool {
-	return js.True == bindings.HasAudioDataClose(
-		this.Ref(),
+// HasFuncClose returns true if the method "AudioData.close" exists.
+func (this AudioData) HasFuncClose() bool {
+	return js.True == bindings.HasFuncAudioDataClose(
+		this.ref,
 	)
 }
 
-// CloseFunc returns the method "AudioData.close".
-func (this AudioData) CloseFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.AudioDataCloseFunc(
-			this.Ref(),
-		),
+// FuncClose returns the method "AudioData.close".
+func (this AudioData) FuncClose() (fn js.Func[func()]) {
+	bindings.FuncAudioDataClose(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Close calls the method "AudioData.close".
 func (this AudioData) Close() (ret js.Void) {
 	bindings.CallAudioDataClose(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3938,7 +3927,7 @@ func (this AudioData) Close() (ret js.Void) {
 // the catch clause.
 func (this AudioData) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioDataClose(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -3989,7 +3978,7 @@ func (cb *AudioDataOutputCallback[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 1+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
 
 	if ctx.Return(cb.Fn(
@@ -4049,7 +4038,7 @@ func (cb *WebCodecsErrorCallback[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 1+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
 
 	if ctx.Return(cb.Fn(
@@ -4091,17 +4080,28 @@ func (p AudioDecoderInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AudioDecoderInit) UpdateFrom(ref js.Ref) {
+func (p *AudioDecoderInit) UpdateFrom(ref js.Ref) {
 	bindings.AudioDecoderInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AudioDecoderInit) Update(ref js.Ref) {
+func (p *AudioDecoderInit) Update(ref js.Ref) {
 	bindings.AudioDecoderInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AudioDecoderInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Output.Ref(),
+		p.Error.Ref(),
+	)
+	p.Output = p.Output.FromRef(js.Undefined)
+	p.Error = p.Error.FromRef(js.Undefined)
 }
 
 type AudioDecoderConfig struct {
@@ -4139,17 +4139,28 @@ func (p AudioDecoderConfig) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AudioDecoderConfig) UpdateFrom(ref js.Ref) {
+func (p *AudioDecoderConfig) UpdateFrom(ref js.Ref) {
 	bindings.AudioDecoderConfigJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AudioDecoderConfig) Update(ref js.Ref) {
+func (p *AudioDecoderConfig) Update(ref js.Ref) {
 	bindings.AudioDecoderConfigJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AudioDecoderConfig) FreeMembers(recursive bool) {
+	js.Free(
+		p.Codec.Ref(),
+		p.Description.Ref(),
+	)
+	p.Codec = p.Codec.FromRef(js.Undefined)
+	p.Description = p.Description.FromRef(js.Undefined)
 }
 
 type EncodedAudioChunkType uint32
@@ -4215,17 +4226,26 @@ func (p EncodedAudioChunkInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p EncodedAudioChunkInit) UpdateFrom(ref js.Ref) {
+func (p *EncodedAudioChunkInit) UpdateFrom(ref js.Ref) {
 	bindings.EncodedAudioChunkInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p EncodedAudioChunkInit) Update(ref js.Ref) {
+func (p *EncodedAudioChunkInit) Update(ref js.Ref) {
 	bindings.EncodedAudioChunkInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *EncodedAudioChunkInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Data.Ref(),
+	)
+	p.Data = p.Data.FromRef(js.Undefined)
 }
 
 func NewEncodedAudioChunk(init EncodedAudioChunkInit) (ret EncodedAudioChunk) {
@@ -4239,7 +4259,7 @@ type EncodedAudioChunk struct {
 }
 
 func (this EncodedAudioChunk) Once() EncodedAudioChunk {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -4253,7 +4273,7 @@ func (this EncodedAudioChunk) FromRef(ref js.Ref) EncodedAudioChunk {
 }
 
 func (this EncodedAudioChunk) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Type returns the value of property "EncodedAudioChunk.type".
@@ -4261,7 +4281,7 @@ func (this EncodedAudioChunk) Free() {
 // It returns ok=false if there is no such property.
 func (this EncodedAudioChunk) Type() (ret EncodedAudioChunkType, ok bool) {
 	ok = js.True == bindings.GetEncodedAudioChunkType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4271,7 +4291,7 @@ func (this EncodedAudioChunk) Type() (ret EncodedAudioChunkType, ok bool) {
 // It returns ok=false if there is no such property.
 func (this EncodedAudioChunk) Timestamp() (ret int64, ok bool) {
 	ok = js.True == bindings.GetEncodedAudioChunkTimestamp(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4281,7 +4301,7 @@ func (this EncodedAudioChunk) Timestamp() (ret int64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this EncodedAudioChunk) Duration() (ret uint64, ok bool) {
 	ok = js.True == bindings.GetEncodedAudioChunkDuration(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4291,31 +4311,30 @@ func (this EncodedAudioChunk) Duration() (ret uint64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this EncodedAudioChunk) ByteLength() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetEncodedAudioChunkByteLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasCopyTo returns true if the method "EncodedAudioChunk.copyTo" exists.
-func (this EncodedAudioChunk) HasCopyTo() bool {
-	return js.True == bindings.HasEncodedAudioChunkCopyTo(
-		this.Ref(),
+// HasFuncCopyTo returns true if the method "EncodedAudioChunk.copyTo" exists.
+func (this EncodedAudioChunk) HasFuncCopyTo() bool {
+	return js.True == bindings.HasFuncEncodedAudioChunkCopyTo(
+		this.ref,
 	)
 }
 
-// CopyToFunc returns the method "EncodedAudioChunk.copyTo".
-func (this EncodedAudioChunk) CopyToFunc() (fn js.Func[func(destination AllowSharedBufferSource)]) {
-	return fn.FromRef(
-		bindings.EncodedAudioChunkCopyToFunc(
-			this.Ref(),
-		),
+// FuncCopyTo returns the method "EncodedAudioChunk.copyTo".
+func (this EncodedAudioChunk) FuncCopyTo() (fn js.Func[func(destination AllowSharedBufferSource)]) {
+	bindings.FuncEncodedAudioChunkCopyTo(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CopyTo calls the method "EncodedAudioChunk.copyTo".
 func (this EncodedAudioChunk) CopyTo(destination AllowSharedBufferSource) (ret js.Void) {
 	bindings.CallEncodedAudioChunkCopyTo(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		destination.Ref(),
 	)
 
@@ -4327,7 +4346,7 @@ func (this EncodedAudioChunk) CopyTo(destination AllowSharedBufferSource) (ret j
 // the catch clause.
 func (this EncodedAudioChunk) TryCopyTo(destination AllowSharedBufferSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEncodedAudioChunkCopyTo(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		destination.Ref(),
 	)
 
@@ -4367,17 +4386,25 @@ func (p AudioDecoderSupport) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AudioDecoderSupport) UpdateFrom(ref js.Ref) {
+func (p *AudioDecoderSupport) UpdateFrom(ref js.Ref) {
 	bindings.AudioDecoderSupportJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AudioDecoderSupport) Update(ref js.Ref) {
+func (p *AudioDecoderSupport) Update(ref js.Ref) {
 	bindings.AudioDecoderSupportJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AudioDecoderSupport) FreeMembers(recursive bool) {
+	if recursive {
+		p.Config.FreeMembers(true)
+	}
 }
 
 type CodecState uint32
@@ -4418,7 +4445,7 @@ type AudioDecoder struct {
 }
 
 func (this AudioDecoder) Once() AudioDecoder {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -4432,7 +4459,7 @@ func (this AudioDecoder) FromRef(ref js.Ref) AudioDecoder {
 }
 
 func (this AudioDecoder) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // State returns the value of property "AudioDecoder.state".
@@ -4440,7 +4467,7 @@ func (this AudioDecoder) Free() {
 // It returns ok=false if there is no such property.
 func (this AudioDecoder) State() (ret CodecState, ok bool) {
 	ok = js.True == bindings.GetAudioDecoderState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4450,31 +4477,30 @@ func (this AudioDecoder) State() (ret CodecState, ok bool) {
 // It returns ok=false if there is no such property.
 func (this AudioDecoder) DecodeQueueSize() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetAudioDecoderDecodeQueueSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasConfigure returns true if the method "AudioDecoder.configure" exists.
-func (this AudioDecoder) HasConfigure() bool {
-	return js.True == bindings.HasAudioDecoderConfigure(
-		this.Ref(),
+// HasFuncConfigure returns true if the method "AudioDecoder.configure" exists.
+func (this AudioDecoder) HasFuncConfigure() bool {
+	return js.True == bindings.HasFuncAudioDecoderConfigure(
+		this.ref,
 	)
 }
 
-// ConfigureFunc returns the method "AudioDecoder.configure".
-func (this AudioDecoder) ConfigureFunc() (fn js.Func[func(config AudioDecoderConfig)]) {
-	return fn.FromRef(
-		bindings.AudioDecoderConfigureFunc(
-			this.Ref(),
-		),
+// FuncConfigure returns the method "AudioDecoder.configure".
+func (this AudioDecoder) FuncConfigure() (fn js.Func[func(config AudioDecoderConfig)]) {
+	bindings.FuncAudioDecoderConfigure(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Configure calls the method "AudioDecoder.configure".
 func (this AudioDecoder) Configure(config AudioDecoderConfig) (ret js.Void) {
 	bindings.CallAudioDecoderConfigure(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&config),
 	)
 
@@ -4486,33 +4512,32 @@ func (this AudioDecoder) Configure(config AudioDecoderConfig) (ret js.Void) {
 // the catch clause.
 func (this AudioDecoder) TryConfigure(config AudioDecoderConfig) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioDecoderConfigure(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&config),
 	)
 
 	return
 }
 
-// HasDecode returns true if the method "AudioDecoder.decode" exists.
-func (this AudioDecoder) HasDecode() bool {
-	return js.True == bindings.HasAudioDecoderDecode(
-		this.Ref(),
+// HasFuncDecode returns true if the method "AudioDecoder.decode" exists.
+func (this AudioDecoder) HasFuncDecode() bool {
+	return js.True == bindings.HasFuncAudioDecoderDecode(
+		this.ref,
 	)
 }
 
-// DecodeFunc returns the method "AudioDecoder.decode".
-func (this AudioDecoder) DecodeFunc() (fn js.Func[func(chunk EncodedAudioChunk)]) {
-	return fn.FromRef(
-		bindings.AudioDecoderDecodeFunc(
-			this.Ref(),
-		),
+// FuncDecode returns the method "AudioDecoder.decode".
+func (this AudioDecoder) FuncDecode() (fn js.Func[func(chunk EncodedAudioChunk)]) {
+	bindings.FuncAudioDecoderDecode(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Decode calls the method "AudioDecoder.decode".
 func (this AudioDecoder) Decode(chunk EncodedAudioChunk) (ret js.Void) {
 	bindings.CallAudioDecoderDecode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		chunk.Ref(),
 	)
 
@@ -4524,33 +4549,32 @@ func (this AudioDecoder) Decode(chunk EncodedAudioChunk) (ret js.Void) {
 // the catch clause.
 func (this AudioDecoder) TryDecode(chunk EncodedAudioChunk) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioDecoderDecode(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		chunk.Ref(),
 	)
 
 	return
 }
 
-// HasFlush returns true if the method "AudioDecoder.flush" exists.
-func (this AudioDecoder) HasFlush() bool {
-	return js.True == bindings.HasAudioDecoderFlush(
-		this.Ref(),
+// HasFuncFlush returns true if the method "AudioDecoder.flush" exists.
+func (this AudioDecoder) HasFuncFlush() bool {
+	return js.True == bindings.HasFuncAudioDecoderFlush(
+		this.ref,
 	)
 }
 
-// FlushFunc returns the method "AudioDecoder.flush".
-func (this AudioDecoder) FlushFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.AudioDecoderFlushFunc(
-			this.Ref(),
-		),
+// FuncFlush returns the method "AudioDecoder.flush".
+func (this AudioDecoder) FuncFlush() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncAudioDecoderFlush(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Flush calls the method "AudioDecoder.flush".
 func (this AudioDecoder) Flush() (ret js.Promise[js.Void]) {
 	bindings.CallAudioDecoderFlush(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -4561,32 +4585,31 @@ func (this AudioDecoder) Flush() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this AudioDecoder) TryFlush() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioDecoderFlush(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasReset returns true if the method "AudioDecoder.reset" exists.
-func (this AudioDecoder) HasReset() bool {
-	return js.True == bindings.HasAudioDecoderReset(
-		this.Ref(),
+// HasFuncReset returns true if the method "AudioDecoder.reset" exists.
+func (this AudioDecoder) HasFuncReset() bool {
+	return js.True == bindings.HasFuncAudioDecoderReset(
+		this.ref,
 	)
 }
 
-// ResetFunc returns the method "AudioDecoder.reset".
-func (this AudioDecoder) ResetFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.AudioDecoderResetFunc(
-			this.Ref(),
-		),
+// FuncReset returns the method "AudioDecoder.reset".
+func (this AudioDecoder) FuncReset() (fn js.Func[func()]) {
+	bindings.FuncAudioDecoderReset(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Reset calls the method "AudioDecoder.reset".
 func (this AudioDecoder) Reset() (ret js.Void) {
 	bindings.CallAudioDecoderReset(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -4597,32 +4620,31 @@ func (this AudioDecoder) Reset() (ret js.Void) {
 // the catch clause.
 func (this AudioDecoder) TryReset() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioDecoderReset(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasClose returns true if the method "AudioDecoder.close" exists.
-func (this AudioDecoder) HasClose() bool {
-	return js.True == bindings.HasAudioDecoderClose(
-		this.Ref(),
+// HasFuncClose returns true if the method "AudioDecoder.close" exists.
+func (this AudioDecoder) HasFuncClose() bool {
+	return js.True == bindings.HasFuncAudioDecoderClose(
+		this.ref,
 	)
 }
 
-// CloseFunc returns the method "AudioDecoder.close".
-func (this AudioDecoder) CloseFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.AudioDecoderCloseFunc(
-			this.Ref(),
-		),
+// FuncClose returns the method "AudioDecoder.close".
+func (this AudioDecoder) FuncClose() (fn js.Func[func()]) {
+	bindings.FuncAudioDecoderClose(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Close calls the method "AudioDecoder.close".
 func (this AudioDecoder) Close() (ret js.Void) {
 	bindings.CallAudioDecoderClose(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -4633,54 +4655,53 @@ func (this AudioDecoder) Close() (ret js.Void) {
 // the catch clause.
 func (this AudioDecoder) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioDecoderClose(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasIsConfigSupported returns true if the staticmethod "AudioDecoder.isConfigSupported" exists.
-func (this AudioDecoder) HasIsConfigSupported() bool {
-	return js.True == bindings.HasAudioDecoderIsConfigSupported(
-		this.Ref(),
+// HasFuncIsConfigSupported returns true if the static method "AudioDecoder.isConfigSupported" exists.
+func (this AudioDecoder) HasFuncIsConfigSupported() bool {
+	return js.True == bindings.HasFuncAudioDecoderIsConfigSupported(
+		this.ref,
 	)
 }
 
-// IsConfigSupportedFunc returns the staticmethod "AudioDecoder.isConfigSupported".
-func (this AudioDecoder) IsConfigSupportedFunc() (fn js.Func[func(config AudioDecoderConfig) js.Promise[AudioDecoderSupport]]) {
-	return fn.FromRef(
-		bindings.AudioDecoderIsConfigSupportedFunc(
-			this.Ref(),
-		),
+// FuncIsConfigSupported returns the static method "AudioDecoder.isConfigSupported".
+func (this AudioDecoder) FuncIsConfigSupported() (fn js.Func[func(config AudioDecoderConfig) js.Promise[AudioDecoderSupport]]) {
+	bindings.FuncAudioDecoderIsConfigSupported(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// IsConfigSupported calls the staticmethod "AudioDecoder.isConfigSupported".
+// IsConfigSupported calls the static method "AudioDecoder.isConfigSupported".
 func (this AudioDecoder) IsConfigSupported(config AudioDecoderConfig) (ret js.Promise[AudioDecoderSupport]) {
 	bindings.CallAudioDecoderIsConfigSupported(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&config),
 	)
 
 	return
 }
 
-// TryIsConfigSupported calls the staticmethod "AudioDecoder.isConfigSupported"
+// TryIsConfigSupported calls the static method "AudioDecoder.isConfigSupported"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioDecoder) TryIsConfigSupported(config AudioDecoderConfig) (ret js.Promise[AudioDecoderSupport], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioDecoderIsConfigSupported(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&config),
 	)
 
 	return
 }
 
-type EncodedAudioChunkOutputCallbackFunc func(this js.Ref, output EncodedAudioChunk, metadata EncodedAudioChunkMetadata) js.Ref
+type EncodedAudioChunkOutputCallbackFunc func(this js.Ref, output EncodedAudioChunk, metadata *EncodedAudioChunkMetadata) js.Ref
 
-func (fn EncodedAudioChunkOutputCallbackFunc) Register() js.Func[func(output EncodedAudioChunk, metadata EncodedAudioChunkMetadata)] {
-	return js.RegisterCallback[func(output EncodedAudioChunk, metadata EncodedAudioChunkMetadata)](
+func (fn EncodedAudioChunkOutputCallbackFunc) Register() js.Func[func(output EncodedAudioChunk, metadata *EncodedAudioChunkMetadata)] {
+	return js.RegisterCallback[func(output EncodedAudioChunk, metadata *EncodedAudioChunkMetadata)](
 		fn, abi.FuncPCABIInternal(fn),
 	)
 }
@@ -4693,12 +4714,15 @@ func (fn EncodedAudioChunkOutputCallbackFunc) DispatchCallback(
 		targetPC != uintptr(abi.FuncPCABIInternal(fn)) {
 		js.ThrowInvalidCallbackInvocation()
 	}
+	var arg1 EncodedAudioChunkMetadata
+	arg1.UpdateFrom(args[1+1])
+	defer arg1.FreeMembers(true)
 
 	if ctx.Return(fn(
 		args[0],
 
 		EncodedAudioChunk{}.FromRef(args[0+1]),
-		EncodedAudioChunkMetadata{}.FromRef(args[1+1]),
+		mark.NoEscape(&arg1),
 	)) {
 		return
 	}
@@ -4707,12 +4731,12 @@ func (fn EncodedAudioChunkOutputCallbackFunc) DispatchCallback(
 }
 
 type EncodedAudioChunkOutputCallback[T any] struct {
-	Fn  func(arg T, this js.Ref, output EncodedAudioChunk, metadata EncodedAudioChunkMetadata) js.Ref
+	Fn  func(arg T, this js.Ref, output EncodedAudioChunk, metadata *EncodedAudioChunkMetadata) js.Ref
 	Arg T
 }
 
-func (cb *EncodedAudioChunkOutputCallback[T]) Register() js.Func[func(output EncodedAudioChunk, metadata EncodedAudioChunkMetadata)] {
-	return js.RegisterCallback[func(output EncodedAudioChunk, metadata EncodedAudioChunkMetadata)](
+func (cb *EncodedAudioChunkOutputCallback[T]) Register() js.Func[func(output EncodedAudioChunk, metadata *EncodedAudioChunkMetadata)] {
+	return js.RegisterCallback[func(output EncodedAudioChunk, metadata *EncodedAudioChunkMetadata)](
 		cb, abi.FuncPCABIInternal(cb.Fn),
 	)
 }
@@ -4723,15 +4747,18 @@ func (cb *EncodedAudioChunkOutputCallback[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 2+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
+	var arg1 EncodedAudioChunkMetadata
+	arg1.UpdateFrom(args[1+1])
+	defer arg1.FreeMembers(true)
 
 	if ctx.Return(cb.Fn(
 		cb.Arg,
 		args[0],
 
 		EncodedAudioChunk{}.FromRef(args[0+1]),
-		EncodedAudioChunkMetadata{}.FromRef(args[1+1]),
+		mark.NoEscape(&arg1),
 	)) {
 		return
 	}
@@ -4764,15 +4791,23 @@ func (p EncodedAudioChunkMetadata) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p EncodedAudioChunkMetadata) UpdateFrom(ref js.Ref) {
+func (p *EncodedAudioChunkMetadata) UpdateFrom(ref js.Ref) {
 	bindings.EncodedAudioChunkMetadataJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p EncodedAudioChunkMetadata) Update(ref js.Ref) {
+func (p *EncodedAudioChunkMetadata) Update(ref js.Ref) {
 	bindings.EncodedAudioChunkMetadataJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *EncodedAudioChunkMetadata) FreeMembers(recursive bool) {
+	if recursive {
+		p.DecoderConfig.FreeMembers(true)
+	}
 }

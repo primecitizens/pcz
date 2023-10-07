@@ -1,0 +1,939 @@
+- File: webext/chrome/notifications.idl
+  Callback:
+    Name: ClearCallback
+    Args:
+      - Name: wasCleared
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - notifications
+- File: webext/chrome/notifications.idl
+  Callback:
+    Name: CreateCallback
+    Args:
+      - Name: notificationId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - notifications
+- File: webext/chrome/notifications.idl
+  Callback:
+    Name: GetAllCallback
+    Args:
+      - Name: notifications
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - notifications
+- File: webext/chrome/notifications.idl
+  Dict:
+    Name: NotificationBitmap
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - notifications
+      - Name: nodoc
+    Fields:
+      - Name: width
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: height
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+- File: webext/chrome/notifications.idl
+  Dict:
+    Name: NotificationButton
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - notifications
+    Fields:
+      - Name: title
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: iconUrl
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: deprecated
+            Values:
+              - Button icons not visible for Mac OS X users.
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: iconBitmap
+        Type:
+          Name: NotificationBitmap
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: nodoc
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+- File: webext/chrome/notifications.idl
+  Dict:
+    Name: NotificationItem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - notifications
+    Fields:
+      - Name: title
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: message
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+- File: webext/chrome/notifications.idl
+  Dict:
+    Name: NotificationOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - notifications
+    Fields:
+      - Name: type
+        Type:
+          Name: TemplateType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: iconUrl
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: iconBitmap
+        Type:
+          Name: NotificationBitmap
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: nodoc
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: appIconMaskUrl
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: deprecated
+            Values:
+              - The app icon mask is not visible for Mac OS X users.
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: appIconMaskBitmap
+        Type:
+          Name: NotificationBitmap
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: nodoc
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: title
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: message
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: contextMessage
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: priority
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: eventTime
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: buttons
+        Type:
+          Name: sequence
+          Params:
+            - Name: NotificationButton
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - notifications
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: expandedMessage
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: nodoc
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: imageUrl
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: deprecated
+            Values:
+              - The image is not visible for Mac OS X users.
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: imageBitmap
+        Type:
+          Name: NotificationBitmap
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: nodoc
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: items
+        Type:
+          Name: sequence
+          Params:
+            - Name: NotificationItem
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - notifications
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: progress
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: isClickable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: deprecated
+            Values:
+              - This UI hint is ignored as of Chrome 67
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: requireInteraction
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: silent
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+- File: webext/chrome/notifications.idl
+  Enum:
+    Name: PermissionLevel
+    Values:
+      - granted
+      - denied
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - notifications
+- File: webext/chrome/notifications.idl
+  Callback:
+    Name: PermissionLevelCallback
+    Args:
+      - Name: level
+        Type:
+          Name: PermissionLevel
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - notifications
+- File: webext/chrome/notifications.idl
+  Enum:
+    Name: TemplateType
+    Values:
+      - basic
+      - image
+      - list
+      - progress
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - notifications
+- File: webext/chrome/notifications.idl
+  Callback:
+    Name: UpdateCallback
+    Args:
+      - Name: wasUpdated
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - notifications
+- File: webext/chrome/notifications.idl
+  WebextFunc:
+    Name: clear
+    Modifier: static
+    Args:
+      - Name: notificationId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - notifications
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - notifications
+- File: webext/chrome/notifications.idl
+  WebextFunc:
+    Name: create
+    Modifier: static
+    Args:
+      - Name: notificationId
+        Optional: true
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: options
+        Type:
+          Name: NotificationOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - notifications
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - notifications
+- File: webext/chrome/notifications.idl
+  WebextFunc:
+    Name: getAll
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: object
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - notifications
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - notifications
+- File: webext/chrome/notifications.idl
+  WebextFunc:
+    Name: getPermissionLevel
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: PermissionLevel
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - notifications
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - notifications
+- File: webext/chrome/notifications.idl
+  WebextEvent:
+    Name: onButtonClicked
+    Modifier: static
+    Args:
+      - Name: notificationId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: buttonIndex
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - notifications
+- File: webext/chrome/notifications.idl
+  WebextEvent:
+    Name: onClicked
+    Modifier: static
+    Args:
+      - Name: notificationId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - notifications
+- File: webext/chrome/notifications.idl
+  WebextEvent:
+    Name: onClosed
+    Modifier: static
+    Args:
+      - Name: notificationId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: byUser
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - notifications
+- File: webext/chrome/notifications.idl
+  WebextEvent:
+    Name: onPermissionLevelChanged
+    Modifier: static
+    Args:
+      - Name: level
+        Type:
+          Name: PermissionLevel
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - notifications
+- File: webext/chrome/notifications.idl
+  WebextEvent:
+    Name: onShowSettings
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+    ExtAttrs:
+      - Name: deprecated
+        Values:
+          - Custom notification settings button is no longer supported.
+      - Name: Namespace
+        Values:
+          - chrome
+          - notifications
+- File: webext/chrome/notifications.idl
+  WebextFunc:
+    Name: update
+    Modifier: static
+    Args:
+      - Name: notificationId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+      - Name: options
+        Type:
+          Name: NotificationOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - notifications
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - notifications
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - notifications
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - notifications

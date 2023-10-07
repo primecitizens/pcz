@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web store_ScrollOptions
 //go:noescape
@@ -169,11 +167,11 @@ func GetSensorTimestamp(
 
 //go:wasmimport plat/js/web has_Sensor_Start
 //go:noescape
-func HasSensorStart(this js.Ref) js.Ref
+func HasFuncSensorStart(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Sensor_Start
 //go:noescape
-func SensorStartFunc(this js.Ref) js.Ref
+func FuncSensorStart(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Sensor_Start
 //go:noescape
@@ -187,11 +185,11 @@ func TrySensorStart(
 
 //go:wasmimport plat/js/web has_Sensor_Stop
 //go:noescape
-func HasSensorStop(this js.Ref) js.Ref
+func HasFuncSensorStop(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Sensor_Stop
 //go:noescape
-func SensorStopFunc(this js.Ref) js.Ref
+func FuncSensorStop(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Sensor_Stop
 //go:noescape
@@ -237,11 +235,11 @@ func NewSequenceEffectBySequenceEffect1(
 
 //go:wasmimport plat/js/web has_SequenceEffect_Clone
 //go:noescape
-func HasSequenceEffectClone(this js.Ref) js.Ref
+func HasFuncSequenceEffectClone(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SequenceEffect_Clone
 //go:noescape
-func SequenceEffectCloneFunc(this js.Ref) js.Ref
+func FuncSequenceEffectClone(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SequenceEffect_Clone
 //go:noescape
@@ -275,11 +273,11 @@ func GetServiceWorkerGlobalScopeCookieStore(
 
 //go:wasmimport plat/js/web has_ServiceWorkerGlobalScope_SkipWaiting
 //go:noescape
-func HasServiceWorkerGlobalScopeSkipWaiting(this js.Ref) js.Ref
+func HasFuncServiceWorkerGlobalScopeSkipWaiting(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ServiceWorkerGlobalScope_SkipWaiting
 //go:noescape
-func ServiceWorkerGlobalScopeSkipWaitingFunc(this js.Ref) js.Ref
+func FuncServiceWorkerGlobalScopeSkipWaiting(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ServiceWorkerGlobalScope_SkipWaiting
 //go:noescape
@@ -314,11 +312,11 @@ func SharedStorageSetMethodOptionsJSLoad(
 
 //go:wasmimport plat/js/web has_SharedStorage_Set
 //go:noescape
-func HasSharedStorageSet(this js.Ref) js.Ref
+func HasFuncSharedStorageSet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SharedStorage_Set
 //go:noescape
-func SharedStorageSetFunc(this js.Ref) js.Ref
+func FuncSharedStorageSet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SharedStorage_Set
 //go:noescape
@@ -338,11 +336,11 @@ func TrySharedStorageSet(
 
 //go:wasmimport plat/js/web has_SharedStorage_Set1
 //go:noescape
-func HasSharedStorageSet1(this js.Ref) js.Ref
+func HasFuncSharedStorageSet1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SharedStorage_Set1
 //go:noescape
-func SharedStorageSet1Func(this js.Ref) js.Ref
+func FuncSharedStorageSet1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SharedStorage_Set1
 //go:noescape
@@ -360,11 +358,11 @@ func TrySharedStorageSet1(
 
 //go:wasmimport plat/js/web has_SharedStorage_Append
 //go:noescape
-func HasSharedStorageAppend(this js.Ref) js.Ref
+func HasFuncSharedStorageAppend(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SharedStorage_Append
 //go:noescape
-func SharedStorageAppendFunc(this js.Ref) js.Ref
+func FuncSharedStorageAppend(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SharedStorage_Append
 //go:noescape
@@ -382,11 +380,11 @@ func TrySharedStorageAppend(
 
 //go:wasmimport plat/js/web has_SharedStorage_Delete
 //go:noescape
-func HasSharedStorageDelete(this js.Ref) js.Ref
+func HasFuncSharedStorageDelete(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SharedStorage_Delete
 //go:noescape
-func SharedStorageDeleteFunc(this js.Ref) js.Ref
+func FuncSharedStorageDelete(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SharedStorage_Delete
 //go:noescape
@@ -402,11 +400,11 @@ func TrySharedStorageDelete(
 
 //go:wasmimport plat/js/web has_SharedStorage_Clear
 //go:noescape
-func HasSharedStorageClear(this js.Ref) js.Ref
+func HasFuncSharedStorageClear(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SharedStorage_Clear
 //go:noescape
-func SharedStorageClearFunc(this js.Ref) js.Ref
+func FuncSharedStorageClear(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SharedStorage_Clear
 //go:noescape
@@ -420,11 +418,11 @@ func TrySharedStorageClear(
 
 //go:wasmimport plat/js/web has_SharedStorageRunOperation_Run
 //go:noescape
-func HasSharedStorageRunOperationRun(this js.Ref) js.Ref
+func HasFuncSharedStorageRunOperationRun(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SharedStorageRunOperation_Run
 //go:noescape
-func SharedStorageRunOperationRunFunc(this js.Ref) js.Ref
+func FuncSharedStorageRunOperationRun(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SharedStorageRunOperation_Run
 //go:noescape
@@ -440,11 +438,11 @@ func TrySharedStorageRunOperationRun(
 
 //go:wasmimport plat/js/web has_SharedStorageSelectURLOperation_Run
 //go:noescape
-func HasSharedStorageSelectURLOperationRun(this js.Ref) js.Ref
+func HasFuncSharedStorageSelectURLOperationRun(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SharedStorageSelectURLOperation_Run
 //go:noescape
-func SharedStorageSelectURLOperationRunFunc(this js.Ref) js.Ref
+func FuncSharedStorageSelectURLOperationRun(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SharedStorageSelectURLOperation_Run
 //go:noescape
@@ -462,11 +460,11 @@ func TrySharedStorageSelectURLOperationRun(
 
 //go:wasmimport plat/js/web has_WorkletSharedStorage_Get
 //go:noescape
-func HasWorkletSharedStorageGet(this js.Ref) js.Ref
+func HasFuncWorkletSharedStorageGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkletSharedStorage_Get
 //go:noescape
-func WorkletSharedStorageGetFunc(this js.Ref) js.Ref
+func FuncWorkletSharedStorageGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkletSharedStorage_Get
 //go:noescape
@@ -482,11 +480,11 @@ func TryWorkletSharedStorageGet(
 
 //go:wasmimport plat/js/web has_WorkletSharedStorage_Length
 //go:noescape
-func HasWorkletSharedStorageLength(this js.Ref) js.Ref
+func HasFuncWorkletSharedStorageLength(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkletSharedStorage_Length
 //go:noescape
-func WorkletSharedStorageLengthFunc(this js.Ref) js.Ref
+func FuncWorkletSharedStorageLength(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkletSharedStorage_Length
 //go:noescape
@@ -500,11 +498,11 @@ func TryWorkletSharedStorageLength(
 
 //go:wasmimport plat/js/web has_WorkletSharedStorage_RemainingBudget
 //go:noescape
-func HasWorkletSharedStorageRemainingBudget(this js.Ref) js.Ref
+func HasFuncWorkletSharedStorageRemainingBudget(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkletSharedStorage_RemainingBudget
 //go:noescape
-func WorkletSharedStorageRemainingBudgetFunc(this js.Ref) js.Ref
+func FuncWorkletSharedStorageRemainingBudget(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkletSharedStorage_RemainingBudget
 //go:noescape
@@ -523,11 +521,11 @@ func GetSharedStorageWorkletGlobalScopeSharedStorage(
 
 //go:wasmimport plat/js/web has_SharedStorageWorkletGlobalScope_Register
 //go:noescape
-func HasSharedStorageWorkletGlobalScopeRegister(this js.Ref) js.Ref
+func HasFuncSharedStorageWorkletGlobalScopeRegister(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SharedStorageWorkletGlobalScope_Register
 //go:noescape
-func SharedStorageWorkletGlobalScopeRegisterFunc(this js.Ref) js.Ref
+func FuncSharedStorageWorkletGlobalScopeRegister(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SharedStorageWorkletGlobalScope_Register
 //go:noescape
@@ -566,11 +564,11 @@ func GetSharedWorkerGlobalScopeName(
 
 //go:wasmimport plat/js/web has_SharedWorkerGlobalScope_Close
 //go:noescape
-func HasSharedWorkerGlobalScopeClose(this js.Ref) js.Ref
+func HasFuncSharedWorkerGlobalScopeClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SharedWorkerGlobalScope_Close
 //go:noescape
-func SharedWorkerGlobalScopeCloseFunc(this js.Ref) js.Ref
+func FuncSharedWorkerGlobalScopeClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SharedWorkerGlobalScope_Close
 //go:noescape
@@ -613,11 +611,11 @@ func GetSpeechGrammarListLength(
 
 //go:wasmimport plat/js/web has_SpeechGrammarList_Item
 //go:noescape
-func HasSpeechGrammarListItem(this js.Ref) js.Ref
+func HasFuncSpeechGrammarListItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SpeechGrammarList_Item
 //go:noescape
-func SpeechGrammarListItemFunc(this js.Ref) js.Ref
+func FuncSpeechGrammarListItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SpeechGrammarList_Item
 //go:noescape
@@ -633,11 +631,11 @@ func TrySpeechGrammarListItem(
 
 //go:wasmimport plat/js/web has_SpeechGrammarList_AddFromURI
 //go:noescape
-func HasSpeechGrammarListAddFromURI(this js.Ref) js.Ref
+func HasFuncSpeechGrammarListAddFromURI(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SpeechGrammarList_AddFromURI
 //go:noescape
-func SpeechGrammarListAddFromURIFunc(this js.Ref) js.Ref
+func FuncSpeechGrammarListAddFromURI(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SpeechGrammarList_AddFromURI
 //go:noescape
@@ -655,11 +653,11 @@ func TrySpeechGrammarListAddFromURI(
 
 //go:wasmimport plat/js/web has_SpeechGrammarList_AddFromURI1
 //go:noescape
-func HasSpeechGrammarListAddFromURI1(this js.Ref) js.Ref
+func HasFuncSpeechGrammarListAddFromURI1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SpeechGrammarList_AddFromURI1
 //go:noescape
-func SpeechGrammarListAddFromURI1Func(this js.Ref) js.Ref
+func FuncSpeechGrammarListAddFromURI1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SpeechGrammarList_AddFromURI1
 //go:noescape
@@ -675,11 +673,11 @@ func TrySpeechGrammarListAddFromURI1(
 
 //go:wasmimport plat/js/web has_SpeechGrammarList_AddFromString
 //go:noescape
-func HasSpeechGrammarListAddFromString(this js.Ref) js.Ref
+func HasFuncSpeechGrammarListAddFromString(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SpeechGrammarList_AddFromString
 //go:noescape
-func SpeechGrammarListAddFromStringFunc(this js.Ref) js.Ref
+func FuncSpeechGrammarListAddFromString(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SpeechGrammarList_AddFromString
 //go:noescape
@@ -697,11 +695,11 @@ func TrySpeechGrammarListAddFromString(
 
 //go:wasmimport plat/js/web has_SpeechGrammarList_AddFromString1
 //go:noescape
-func HasSpeechGrammarListAddFromString1(this js.Ref) js.Ref
+func HasFuncSpeechGrammarListAddFromString1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SpeechGrammarList_AddFromString1
 //go:noescape
-func SpeechGrammarListAddFromString1Func(this js.Ref) js.Ref
+func FuncSpeechGrammarListAddFromString1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SpeechGrammarList_AddFromString1
 //go:noescape
@@ -777,11 +775,11 @@ func SetSpeechRecognitionMaxAlternatives(
 
 //go:wasmimport plat/js/web has_SpeechRecognition_Start
 //go:noescape
-func HasSpeechRecognitionStart(this js.Ref) js.Ref
+func HasFuncSpeechRecognitionStart(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SpeechRecognition_Start
 //go:noescape
-func SpeechRecognitionStartFunc(this js.Ref) js.Ref
+func FuncSpeechRecognitionStart(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SpeechRecognition_Start
 //go:noescape
@@ -795,11 +793,11 @@ func TrySpeechRecognitionStart(
 
 //go:wasmimport plat/js/web has_SpeechRecognition_Stop
 //go:noescape
-func HasSpeechRecognitionStop(this js.Ref) js.Ref
+func HasFuncSpeechRecognitionStop(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SpeechRecognition_Stop
 //go:noescape
-func SpeechRecognitionStopFunc(this js.Ref) js.Ref
+func FuncSpeechRecognitionStop(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SpeechRecognition_Stop
 //go:noescape
@@ -813,11 +811,11 @@ func TrySpeechRecognitionStop(
 
 //go:wasmimport plat/js/web has_SpeechRecognition_Abort
 //go:noescape
-func HasSpeechRecognitionAbort(this js.Ref) js.Ref
+func HasFuncSpeechRecognitionAbort(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SpeechRecognition_Abort
 //go:noescape
-func SpeechRecognitionAbortFunc(this js.Ref) js.Ref
+func FuncSpeechRecognitionAbort(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SpeechRecognition_Abort
 //go:noescape
@@ -881,11 +879,11 @@ func GetSpeechRecognitionResultIsFinal(
 
 //go:wasmimport plat/js/web has_SpeechRecognitionResult_Item
 //go:noescape
-func HasSpeechRecognitionResultItem(this js.Ref) js.Ref
+func HasFuncSpeechRecognitionResultItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SpeechRecognitionResult_Item
 //go:noescape
-func SpeechRecognitionResultItemFunc(this js.Ref) js.Ref
+func FuncSpeechRecognitionResultItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SpeechRecognitionResult_Item
 //go:noescape
@@ -906,11 +904,11 @@ func GetSpeechRecognitionResultListLength(
 
 //go:wasmimport plat/js/web has_SpeechRecognitionResultList_Item
 //go:noescape
-func HasSpeechRecognitionResultListItem(this js.Ref) js.Ref
+func HasFuncSpeechRecognitionResultListItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SpeechRecognitionResultList_Item
 //go:noescape
-func SpeechRecognitionResultListItemFunc(this js.Ref) js.Ref
+func FuncSpeechRecognitionResultListItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SpeechRecognitionResultList_Item
 //go:noescape
@@ -1064,11 +1062,11 @@ func GetStorageEventStorageArea(
 
 //go:wasmimport plat/js/web has_StorageEvent_InitStorageEvent
 //go:noescape
-func HasStorageEventInitStorageEvent(this js.Ref) js.Ref
+func HasFuncStorageEventInitStorageEvent(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_StorageEvent_InitStorageEvent
 //go:noescape
-func StorageEventInitStorageEventFunc(this js.Ref) js.Ref
+func FuncStorageEventInitStorageEvent(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_StorageEvent_InitStorageEvent
 //go:noescape
@@ -1098,11 +1096,11 @@ func TryStorageEventInitStorageEvent(
 
 //go:wasmimport plat/js/web has_StorageEvent_InitStorageEvent1
 //go:noescape
-func HasStorageEventInitStorageEvent1(this js.Ref) js.Ref
+func HasFuncStorageEventInitStorageEvent1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_StorageEvent_InitStorageEvent1
 //go:noescape
-func StorageEventInitStorageEvent1Func(this js.Ref) js.Ref
+func FuncStorageEventInitStorageEvent1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_StorageEvent_InitStorageEvent1
 //go:noescape
@@ -1130,11 +1128,11 @@ func TryStorageEventInitStorageEvent1(
 
 //go:wasmimport plat/js/web has_StorageEvent_InitStorageEvent2
 //go:noescape
-func HasStorageEventInitStorageEvent2(this js.Ref) js.Ref
+func HasFuncStorageEventInitStorageEvent2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_StorageEvent_InitStorageEvent2
 //go:noescape
-func StorageEventInitStorageEvent2Func(this js.Ref) js.Ref
+func FuncStorageEventInitStorageEvent2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_StorageEvent_InitStorageEvent2
 //go:noescape
@@ -1160,11 +1158,11 @@ func TryStorageEventInitStorageEvent2(
 
 //go:wasmimport plat/js/web has_StorageEvent_InitStorageEvent3
 //go:noescape
-func HasStorageEventInitStorageEvent3(this js.Ref) js.Ref
+func HasFuncStorageEventInitStorageEvent3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_StorageEvent_InitStorageEvent3
 //go:noescape
-func StorageEventInitStorageEvent3Func(this js.Ref) js.Ref
+func FuncStorageEventInitStorageEvent3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_StorageEvent_InitStorageEvent3
 //go:noescape
@@ -1188,11 +1186,11 @@ func TryStorageEventInitStorageEvent3(
 
 //go:wasmimport plat/js/web has_StorageEvent_InitStorageEvent4
 //go:noescape
-func HasStorageEventInitStorageEvent4(this js.Ref) js.Ref
+func HasFuncStorageEventInitStorageEvent4(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_StorageEvent_InitStorageEvent4
 //go:noescape
-func StorageEventInitStorageEvent4Func(this js.Ref) js.Ref
+func FuncStorageEventInitStorageEvent4(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_StorageEvent_InitStorageEvent4
 //go:noescape
@@ -1214,11 +1212,11 @@ func TryStorageEventInitStorageEvent4(
 
 //go:wasmimport plat/js/web has_StorageEvent_InitStorageEvent5
 //go:noescape
-func HasStorageEventInitStorageEvent5(this js.Ref) js.Ref
+func HasFuncStorageEventInitStorageEvent5(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_StorageEvent_InitStorageEvent5
 //go:noescape
-func StorageEventInitStorageEvent5Func(this js.Ref) js.Ref
+func FuncStorageEventInitStorageEvent5(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_StorageEvent_InitStorageEvent5
 //go:noescape
@@ -1238,11 +1236,11 @@ func TryStorageEventInitStorageEvent5(
 
 //go:wasmimport plat/js/web has_StorageEvent_InitStorageEvent6
 //go:noescape
-func HasStorageEventInitStorageEvent6(this js.Ref) js.Ref
+func HasFuncStorageEventInitStorageEvent6(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_StorageEvent_InitStorageEvent6
 //go:noescape
-func StorageEventInitStorageEvent6Func(this js.Ref) js.Ref
+func FuncStorageEventInitStorageEvent6(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_StorageEvent_InitStorageEvent6
 //go:noescape
@@ -1260,11 +1258,11 @@ func TryStorageEventInitStorageEvent6(
 
 //go:wasmimport plat/js/web has_StorageEvent_InitStorageEvent7
 //go:noescape
-func HasStorageEventInitStorageEvent7(this js.Ref) js.Ref
+func HasFuncStorageEventInitStorageEvent7(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_StorageEvent_InitStorageEvent7
 //go:noescape
-func StorageEventInitStorageEvent7Func(this js.Ref) js.Ref
+func FuncStorageEventInitStorageEvent7(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_StorageEvent_InitStorageEvent7
 //go:noescape

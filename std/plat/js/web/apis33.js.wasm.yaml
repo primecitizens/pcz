@@ -1,4 +1,4 @@
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCRtpCodec
     Fields:
@@ -16,7 +16,7 @@
       - Name: sdpFmtpLine
         Type:
           Name: DOMString
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCRtpCodecCapability
     Inherits: RTCRtpCodec
@@ -35,7 +35,7 @@
       - Name: sdpFmtpLine
         Type:
           Name: DOMString
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCRtpCodecParameters
     Inherits: RTCRtpCodec
@@ -58,14 +58,14 @@
       - Name: sdpFmtpLine
         Type:
           Name: DOMString
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCRtpCodingParameters
     Fields:
       - Name: rid
         Type:
           Name: DOMString
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCRtpContributingSource
     Fields:
@@ -84,7 +84,7 @@
         Required: true
         Type:
           Name: unsigned long
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCRtpEncodingParameters
     Inherits: RTCRtpCodingParameters
@@ -115,7 +115,7 @@
       - Name: scalabilityMode
         Type:
           Name: DOMString
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCRtpHeaderExtensionCapability
     Fields:
@@ -123,7 +123,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCRtpHeaderExtensionParameters
     Fields:
@@ -139,7 +139,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCRtpParameters
     Fields:
@@ -159,7 +159,7 @@
           Name: sequence
           Params:
             - Name: RTCRtpCodecParameters
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCRtpReceiveParameters
     Inherits: RTCRtpParameters
@@ -180,7 +180,7 @@
           Name: sequence
           Params:
             - Name: RTCRtpCodecParameters
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Interface:
     Name: RTCRtpReceiver
     ExtAttrs:
@@ -257,7 +257,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webrtc-encoded-transform.idl
+- File: webref/webrtc-encoded-transform.idl
   Interface:
     Name: RTCRtpScriptTransform
     ExtAttrs:
@@ -283,7 +283,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webrtc-encoded-transform.idl
+- File: webref/webrtc-encoded-transform.idl
   Interface:
     Name: RTCRtpScriptTransformer
     ExtAttrs:
@@ -339,7 +339,7 @@
           - Name: Exposed
             Values:
               - DedicatedWorker
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCRtpSendParameters
     Inherits: RTCRtpParameters
@@ -373,7 +373,7 @@
       - Name: degradationPreference
         Type:
           Name: RTCDegradationPreference
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Interface:
     Name: RTCRtpSender
     ExtAttrs:
@@ -494,7 +494,7 @@
           - Name: Promise
             Params:
               - Name: undefined
-- File: webrtc-stats.idl
+- File: webref/webrtc-stats.idl
   Dict:
     Name: RTCRtpStreamStats
     Inherits: RTCStats
@@ -525,7 +525,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCRtpSynchronizationSource
     Inherits: RTCRtpContributingSource
@@ -545,7 +545,7 @@
         Required: true
         Type:
           Name: unsigned long
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Interface:
     Name: RTCRtpTransceiver
     ExtAttrs:
@@ -617,7 +617,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Enum:
     Name: RTCRtpTransceiverDirection
     Values:
@@ -626,7 +626,7 @@
       - recvonly
       - inactive
       - stopped
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCRtpTransceiverInit
     Fields:
@@ -646,14 +646,14 @@
           Name: sequence
           Params:
             - Name: RTCRtpEncodingParameters
-- File: webrtc-encoded-transform.idl
+- File: webref/webrtc-encoded-transform.idl
   Typedef:
     Name: RTCRtpTransform
     Type:
       Union:
         - Name: SFrameTransform
         - Name: RTCRtpScriptTransform
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Interface:
     Name: RTCSctpTransport
     Inherits: EventTarget
@@ -702,14 +702,14 @@
           - Name: Exposed
             Values:
               - Window
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Enum:
     Name: RTCSctpTransportState
     Values:
       - connecting
       - connected
       - closed
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Enum:
     Name: RTCSdpType
     Values:
@@ -717,7 +717,7 @@
       - pranswer
       - answer
       - rollback
-- File: webrtc-stats.idl
+- File: webref/webrtc-stats.idl
   Dict:
     Name: RTCSentRtpStreamStats
     Inherits: RTCRtpStreamStats
@@ -754,7 +754,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Interface:
     Name: RTCSessionDescription
     ExtAttrs:
@@ -796,7 +796,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Callback:
     Name: RTCSessionDescriptionCallback
     Args:
@@ -805,7 +805,7 @@
           Name: RTCSessionDescriptionInit
     Returns:
       - Name: undefined
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCSessionDescriptionInit
     Fields:
@@ -817,10 +817,10 @@
         Default: '""'
         Type:
           Name: DOMString
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCSetParameterOptions
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Enum:
     Name: RTCSignalingState
     Values:
@@ -830,7 +830,7 @@
       - have-local-pranswer
       - have-remote-pranswer
       - closed
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCStats
     Fields:
@@ -846,7 +846,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: webrtc-stats.idl
+- File: webref/webrtc-stats.idl
   Enum:
     Name: RTCStatsIceCandidatePairState
     Values:
@@ -855,7 +855,7 @@
       - in-progress
       - failed
       - succeeded
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Interface:
     Name: RTCStatsReport
     ExtAttrs:
@@ -867,7 +867,7 @@
         - Name: DOMString
         - Name: object
       Readonly: true
-- File: webrtc-stats.idl
+- File: webref/webrtc-stats.idl
   Enum:
     Name: RTCStatsType
     Values:
@@ -885,7 +885,7 @@
       - local-candidate
       - remote-candidate
       - certificate
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Interface:
     Name: RTCTrackEvent
     Inherits: Event
@@ -941,7 +941,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCTrackEventInit
     Inherits: EventInit
@@ -976,7 +976,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webrtc-encoded-transform.idl
+- File: webref/webrtc-encoded-transform.idl
   Interface:
     Name: RTCTransformEvent
     Inherits: Event
@@ -1006,7 +1006,7 @@
               Name: EventInit
         ExtAttrs:
           - Name: Exposed
-- File: webrtc-stats.idl
+- File: webref/webrtc-stats.idl
   Dict:
     Name: RTCTransportStats
     Inherits: RTCStats
@@ -1072,7 +1072,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: webrtc-stats.idl
+- File: webref/webrtc-stats.idl
   Dict:
     Name: RTCVideoSourceStats
     Inherits: RTCMediaSourceStats
@@ -1109,7 +1109,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: RadioNodeList
     Inherits: NodeList
@@ -1128,7 +1128,7 @@
     Iterable:
       TypeParams:
         - Name: Node
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: Range
     Inherits: AbstractRange
@@ -1411,7 +1411,7 @@
         ExtAttrs:
           - Name: CEReactions
           - Name: NewObject
-- File: json-ld-api.idl
+- File: webref/json-ld-api.idl
   Interface:
     Name: RdfDataset
     ExtAttrs:
@@ -1447,7 +1447,7 @@
         - Name: USVString
           Nullable: true
         - Name: RdfGraph
-- File: json-ld-api.idl
+- File: webref/json-ld-api.idl
   Interface:
     Name: RdfGraph
     ExtAttrs:
@@ -1469,7 +1469,7 @@
     Iterable:
       TypeParams:
         - Name: RdfTriple
-- File: json-ld-api.idl
+- File: webref/json-ld-api.idl
   Interface:
     Name: RdfLiteral
     ExtAttrs:
@@ -1502,7 +1502,7 @@
           - Name: Exposed
             Values:
               - JsonLd
-- File: json-ld-api.idl
+- File: webref/json-ld-api.idl
   Interface:
     Name: RdfTriple
     ExtAttrs:
@@ -1536,7 +1536,7 @@
           - Name: Exposed
             Values:
               - JsonLd
-- File: geolocation-sensor.idl
+- File: webref/geolocation-sensor.idl
   Dict:
     Name: ReadOptions
     Inherits: GeolocationSensorOptions
@@ -1548,7 +1548,7 @@
       - Name: frequency
         Type:
           Name: double
-- File: streams.idl
+- File: webref/streams.idl
   Interface:
     Name: ReadableByteStreamController
     ExtAttrs:
@@ -1593,7 +1593,7 @@
           - Name: undefined
         ExtAttrs:
           - Name: Exposed
-- File: streams.idl
+- File: webref/streams.idl
   Interface:
     Name: ReadableStream
     ExtAttrs:
@@ -1708,7 +1708,7 @@
           Default: '{}'
           Type:
             Name: ReadableStreamIteratorOptions
-- File: streams.idl
+- File: webref/streams.idl
   Interface:
     Name: ReadableStreamBYOBReader
     ExtAttrs:
@@ -1754,7 +1754,7 @@
               Name: ReadableStream
         ExtAttrs:
           - Name: Exposed
-- File: streams.idl
+- File: webref/streams.idl
   Interface:
     Name: ReadableStreamBYOBRequest
     ExtAttrs:

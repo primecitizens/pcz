@@ -1,0 +1,308 @@
+- File: webext/chrome/proxy.json
+  Enum:
+    Name: Mode
+    Values:
+      - direct
+      - auto_detect
+      - pac_script
+      - fixed_servers
+      - system
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - proxy
+- File: webext/chrome/proxy.json
+  Dict:
+    Name: OnProxyErrorArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - proxy
+    Fields:
+      - Name: details
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - proxy
+      - Name: error
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - proxy
+      - Name: fatal
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - proxy
+- File: webext/chrome/proxy.json
+  Dict:
+    Name: PacScript
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - proxy
+    Fields:
+      - Name: data
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - proxy
+      - Name: mandatory
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - proxy
+      - Name: url
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - proxy
+- File: webext/chrome/proxy.json
+  Dict:
+    Name: ProxyConfig
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - proxy
+    Fields:
+      - Name: mode
+        Required: true
+        Type:
+          Name: Mode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - proxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - proxy
+      - Name: pacScript
+        Type:
+          Name: PacScript
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - proxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - proxy
+      - Name: rules
+        Type:
+          Name: ProxyRules
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - proxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - proxy
+- File: webext/chrome/proxy.json
+  Dict:
+    Name: ProxyRules
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - proxy
+    Fields:
+      - Name: bypassList
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - proxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - proxy
+      - Name: fallbackProxy
+        Type:
+          Name: ProxyServer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - proxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - proxy
+      - Name: proxyForFtp
+        Type:
+          Name: ProxyServer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - proxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - proxy
+      - Name: proxyForHttp
+        Type:
+          Name: ProxyServer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - proxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - proxy
+      - Name: proxyForHttps
+        Type:
+          Name: ProxyServer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - proxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - proxy
+      - Name: singleProxy
+        Type:
+          Name: ProxyServer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - proxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - proxy
+- File: webext/chrome/proxy.json
+  Dict:
+    Name: ProxyServer
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - proxy
+    Fields:
+      - Name: host
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - proxy
+      - Name: port
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - proxy
+      - Name: scheme
+        Type:
+          Name: Scheme
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - proxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - proxy
+- File: webext/chrome/proxy.json
+  Enum:
+    Name: Scheme
+    Values:
+      - http
+      - https
+      - quic
+      - socks4
+      - socks5
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - proxy
+- File: webext/chrome/proxy.json
+  WebextEvent:
+    Name: onProxyError
+    Args:
+      - Name: details
+        Type:
+          Name: OnProxyErrorArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - proxy
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - proxy
+- File: webext/chrome/proxy.json
+  WebextProp:
+    Name: settings
+    Type:
+      Name: ChromeSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - types
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - proxy

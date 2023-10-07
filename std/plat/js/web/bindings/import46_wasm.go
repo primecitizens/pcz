@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web new_PresentationConnectionAvailableEvent_PresentationConnectionAvailableEvent
 //go:noescape
@@ -84,11 +82,11 @@ func GetPressureRecordTime(
 
 //go:wasmimport plat/js/web has_PressureRecord_ToJSON
 //go:noescape
-func HasPressureRecordToJSON(this js.Ref) js.Ref
+func HasFuncPressureRecordToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PressureRecord_ToJSON
 //go:noescape
-func PressureRecordToJSONFunc(this js.Ref) js.Ref
+func FuncPressureRecordToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PressureRecord_ToJSON
 //go:noescape
@@ -128,11 +126,11 @@ func GetPressureObserverSupportedSources(
 
 //go:wasmimport plat/js/web has_PressureObserver_Observe
 //go:noescape
-func HasPressureObserverObserve(this js.Ref) js.Ref
+func HasFuncPressureObserverObserve(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PressureObserver_Observe
 //go:noescape
-func PressureObserverObserveFunc(this js.Ref) js.Ref
+func FuncPressureObserverObserve(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PressureObserver_Observe
 //go:noescape
@@ -148,11 +146,11 @@ func TryPressureObserverObserve(
 
 //go:wasmimport plat/js/web has_PressureObserver_Unobserve
 //go:noescape
-func HasPressureObserverUnobserve(this js.Ref) js.Ref
+func HasFuncPressureObserverUnobserve(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PressureObserver_Unobserve
 //go:noescape
-func PressureObserverUnobserveFunc(this js.Ref) js.Ref
+func FuncPressureObserverUnobserve(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PressureObserver_Unobserve
 //go:noescape
@@ -168,11 +166,11 @@ func TryPressureObserverUnobserve(
 
 //go:wasmimport plat/js/web has_PressureObserver_Disconnect
 //go:noescape
-func HasPressureObserverDisconnect(this js.Ref) js.Ref
+func HasFuncPressureObserverDisconnect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PressureObserver_Disconnect
 //go:noescape
-func PressureObserverDisconnectFunc(this js.Ref) js.Ref
+func FuncPressureObserverDisconnect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PressureObserver_Disconnect
 //go:noescape
@@ -186,11 +184,11 @@ func TryPressureObserverDisconnect(
 
 //go:wasmimport plat/js/web has_PressureObserver_TakeRecords
 //go:noescape
-func HasPressureObserverTakeRecords(this js.Ref) js.Ref
+func HasFuncPressureObserverTakeRecords(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PressureObserver_TakeRecords
 //go:noescape
-func PressureObserverTakeRecordsFunc(this js.Ref) js.Ref
+func FuncPressureObserverTakeRecords(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PressureObserver_TakeRecords
 //go:noescape
@@ -279,11 +277,11 @@ func GetProfilerStopped(
 
 //go:wasmimport plat/js/web has_Profiler_Stop
 //go:noescape
-func HasProfilerStop(this js.Ref) js.Ref
+func HasFuncProfilerStop(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Profiler_Stop
 //go:noescape
-func ProfilerStopFunc(this js.Ref) js.Ref
+func FuncProfilerStop(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Profiler_Stop
 //go:noescape
@@ -458,11 +456,11 @@ func GetPublicKeyCredentialAuthenticatorAttachment(
 
 //go:wasmimport plat/js/web has_PublicKeyCredential_GetClientExtensionResults
 //go:noescape
-func HasPublicKeyCredentialGetClientExtensionResults(this js.Ref) js.Ref
+func HasFuncPublicKeyCredentialGetClientExtensionResults(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PublicKeyCredential_GetClientExtensionResults
 //go:noescape
-func PublicKeyCredentialGetClientExtensionResultsFunc(this js.Ref) js.Ref
+func FuncPublicKeyCredentialGetClientExtensionResults(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PublicKeyCredential_GetClientExtensionResults
 //go:noescape
@@ -476,11 +474,11 @@ func TryPublicKeyCredentialGetClientExtensionResults(
 
 //go:wasmimport plat/js/web has_PublicKeyCredential_IsConditionalMediationAvailable
 //go:noescape
-func HasPublicKeyCredentialIsConditionalMediationAvailable(this js.Ref) js.Ref
+func HasFuncPublicKeyCredentialIsConditionalMediationAvailable(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PublicKeyCredential_IsConditionalMediationAvailable
 //go:noescape
-func PublicKeyCredentialIsConditionalMediationAvailableFunc(this js.Ref) js.Ref
+func FuncPublicKeyCredentialIsConditionalMediationAvailable(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PublicKeyCredential_IsConditionalMediationAvailable
 //go:noescape
@@ -494,11 +492,11 @@ func TryPublicKeyCredentialIsConditionalMediationAvailable(
 
 //go:wasmimport plat/js/web has_PublicKeyCredential_ToJSON
 //go:noescape
-func HasPublicKeyCredentialToJSON(this js.Ref) js.Ref
+func HasFuncPublicKeyCredentialToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PublicKeyCredential_ToJSON
 //go:noescape
-func PublicKeyCredentialToJSONFunc(this js.Ref) js.Ref
+func FuncPublicKeyCredentialToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PublicKeyCredential_ToJSON
 //go:noescape
@@ -512,11 +510,11 @@ func TryPublicKeyCredentialToJSON(
 
 //go:wasmimport plat/js/web has_PublicKeyCredential_ParseRequestOptionsFromJSON
 //go:noescape
-func HasPublicKeyCredentialParseRequestOptionsFromJSON(this js.Ref) js.Ref
+func HasFuncPublicKeyCredentialParseRequestOptionsFromJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PublicKeyCredential_ParseRequestOptionsFromJSON
 //go:noescape
-func PublicKeyCredentialParseRequestOptionsFromJSONFunc(this js.Ref) js.Ref
+func FuncPublicKeyCredentialParseRequestOptionsFromJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PublicKeyCredential_ParseRequestOptionsFromJSON
 //go:noescape
@@ -532,11 +530,11 @@ func TryPublicKeyCredentialParseRequestOptionsFromJSON(
 
 //go:wasmimport plat/js/web has_PublicKeyCredential_IsPasskeyPlatformAuthenticatorAvailable
 //go:noescape
-func HasPublicKeyCredentialIsPasskeyPlatformAuthenticatorAvailable(this js.Ref) js.Ref
+func HasFuncPublicKeyCredentialIsPasskeyPlatformAuthenticatorAvailable(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PublicKeyCredential_IsPasskeyPlatformAuthenticatorAvailable
 //go:noescape
-func PublicKeyCredentialIsPasskeyPlatformAuthenticatorAvailableFunc(this js.Ref) js.Ref
+func FuncPublicKeyCredentialIsPasskeyPlatformAuthenticatorAvailable(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PublicKeyCredential_IsPasskeyPlatformAuthenticatorAvailable
 //go:noescape
@@ -550,11 +548,11 @@ func TryPublicKeyCredentialIsPasskeyPlatformAuthenticatorAvailable(
 
 //go:wasmimport plat/js/web has_PublicKeyCredential_ParseCreationOptionsFromJSON
 //go:noescape
-func HasPublicKeyCredentialParseCreationOptionsFromJSON(this js.Ref) js.Ref
+func HasFuncPublicKeyCredentialParseCreationOptionsFromJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PublicKeyCredential_ParseCreationOptionsFromJSON
 //go:noescape
-func PublicKeyCredentialParseCreationOptionsFromJSONFunc(this js.Ref) js.Ref
+func FuncPublicKeyCredentialParseCreationOptionsFromJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PublicKeyCredential_ParseCreationOptionsFromJSON
 //go:noescape
@@ -570,11 +568,11 @@ func TryPublicKeyCredentialParseCreationOptionsFromJSON(
 
 //go:wasmimport plat/js/web has_PublicKeyCredential_IsUserVerifyingPlatformAuthenticatorAvailable
 //go:noescape
-func HasPublicKeyCredentialIsUserVerifyingPlatformAuthenticatorAvailable(this js.Ref) js.Ref
+func HasFuncPublicKeyCredentialIsUserVerifyingPlatformAuthenticatorAvailable(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PublicKeyCredential_IsUserVerifyingPlatformAuthenticatorAvailable
 //go:noescape
-func PublicKeyCredentialIsUserVerifyingPlatformAuthenticatorAvailableFunc(this js.Ref) js.Ref
+func FuncPublicKeyCredentialIsUserVerifyingPlatformAuthenticatorAvailable(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PublicKeyCredential_IsUserVerifyingPlatformAuthenticatorAvailable
 //go:noescape
@@ -616,11 +614,11 @@ func PushEventInitJSLoad(
 
 //go:wasmimport plat/js/web has_PushMessageData_ArrayBuffer
 //go:noescape
-func HasPushMessageDataArrayBuffer(this js.Ref) js.Ref
+func HasFuncPushMessageDataArrayBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PushMessageData_ArrayBuffer
 //go:noescape
-func PushMessageDataArrayBufferFunc(this js.Ref) js.Ref
+func FuncPushMessageDataArrayBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PushMessageData_ArrayBuffer
 //go:noescape
@@ -634,11 +632,11 @@ func TryPushMessageDataArrayBuffer(
 
 //go:wasmimport plat/js/web has_PushMessageData_Blob
 //go:noescape
-func HasPushMessageDataBlob(this js.Ref) js.Ref
+func HasFuncPushMessageDataBlob(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PushMessageData_Blob
 //go:noescape
-func PushMessageDataBlobFunc(this js.Ref) js.Ref
+func FuncPushMessageDataBlob(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PushMessageData_Blob
 //go:noescape
@@ -652,11 +650,11 @@ func TryPushMessageDataBlob(
 
 //go:wasmimport plat/js/web has_PushMessageData_Json
 //go:noescape
-func HasPushMessageDataJson(this js.Ref) js.Ref
+func HasFuncPushMessageDataJson(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PushMessageData_Json
 //go:noescape
-func PushMessageDataJsonFunc(this js.Ref) js.Ref
+func FuncPushMessageDataJson(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PushMessageData_Json
 //go:noescape
@@ -670,11 +668,11 @@ func TryPushMessageDataJson(
 
 //go:wasmimport plat/js/web has_PushMessageData_Text
 //go:noescape
-func HasPushMessageDataText(this js.Ref) js.Ref
+func HasFuncPushMessageDataText(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PushMessageData_Text
 //go:noescape
-func PushMessageDataTextFunc(this js.Ref) js.Ref
+func FuncPushMessageDataText(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PushMessageData_Text
 //go:noescape

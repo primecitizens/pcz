@@ -1,0 +1,14 @@
+- File: webext/chrome/dom.json
+  WebextFunc:
+    Name: openOrClosedShadowRoot
+    Args:
+      - Name: element
+        Type:
+          Name: any
+    Returns:
+      - Name: any
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - dom

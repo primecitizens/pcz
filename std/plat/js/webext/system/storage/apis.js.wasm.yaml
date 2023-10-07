@@ -1,0 +1,416 @@
+- File: webext/system_storage.idl
+  Callback:
+    Name: EjectDeviceCallback
+    Args:
+      - Name: result
+        Type:
+          Name: EjectDeviceResultCode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - storage
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - storage
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - storage
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - storage
+- File: webext/system_storage.idl
+  Enum:
+    Name: EjectDeviceResultCode
+    Values:
+      - success
+      - in_use
+      - no_such_device
+      - failure
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - storage
+      - Name: inline_doc
+- File: webext/system_storage.idl
+  Callback:
+    Name: GetAvailableCapacityCallback
+    Args:
+      - Name: info
+        Type:
+          Name: StorageAvailableCapacityInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - storage
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - storage
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - storage
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - storage
+- File: webext/system_storage.idl
+  Dict:
+    Name: StorageAvailableCapacityInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - storage
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - storage
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - storage
+      - Name: availableCapacity
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - storage
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - storage
+- File: webext/system_storage.idl
+  Callback:
+    Name: StorageInfoCallback
+    Args:
+      - Name: info
+        Type:
+          Name: sequence
+          Params:
+            - Name: StorageUnitInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - system
+                    - storage
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - storage
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - storage
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - storage
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - storage
+- File: webext/system_storage.idl
+  Dict:
+    Name: StorageUnitInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - storage
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - storage
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - storage
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - storage
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - storage
+      - Name: type
+        Type:
+          Name: StorageUnitType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - storage
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - storage
+      - Name: capacity
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - storage
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - storage
+- File: webext/system_storage.idl
+  Enum:
+    Name: StorageUnitType
+    Values:
+      - fixed
+      - removable
+      - unknown
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - storage
+- File: webext/system_storage.idl
+  WebextFunc:
+    Name: ejectDevice
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - storage
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - storage
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: EjectDeviceResultCode
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - system
+                  - storage
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - storage
+- File: webext/system_storage.idl
+  WebextFunc:
+    Name: getAvailableCapacity
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - storage
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - storage
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: StorageAvailableCapacityInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - system
+                  - storage
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - storage
+- File: webext/system_storage.idl
+  WebextFunc:
+    Name: getInfo
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: StorageUnitInfo
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - system
+                      - storage
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - system
+                  - storage
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - storage
+- File: webext/system_storage.idl
+  WebextEvent:
+    Name: onAttached
+    Modifier: static
+    Args:
+      - Name: info
+        Type:
+          Name: StorageUnitInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - storage
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - storage
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - storage
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - storage
+- File: webext/system_storage.idl
+  WebextEvent:
+    Name: onDetached
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - storage
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - storage
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - storage
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - storage

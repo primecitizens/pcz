@@ -1,0 +1,246 @@
+- File: webext/content_scripts.idl
+  Dict:
+    Name: ContentScript
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentScripts
+    Fields:
+      - Name: matches
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - contentScripts
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contentScripts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentScripts
+      - Name: exclude_matches
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - contentScripts
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contentScripts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentScripts
+      - Name: css
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - contentScripts
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contentScripts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentScripts
+      - Name: js
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - contentScripts
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contentScripts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentScripts
+      - Name: all_frames
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contentScripts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentScripts
+      - Name: match_origin_as_fallback
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contentScripts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentScripts
+      - Name: match_about_blank
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contentScripts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentScripts
+      - Name: include_globs
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - contentScripts
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contentScripts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentScripts
+      - Name: exclude_globs
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - contentScripts
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contentScripts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentScripts
+      - Name: run_at
+        Type:
+          Name: RunAt
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contentScripts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentScripts
+      - Name: world
+        Type:
+          Name: ExecutionWorld
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: nodoc
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionTypes
+- File: webext/content_scripts.idl
+  Dict:
+    Name: ManifestKeys
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentScripts
+    Fields:
+      - Name: content_scripts
+        Type:
+          Name: sequence
+          Params:
+            - Name: ContentScript
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - contentScripts
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contentScripts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentScripts
+- File: webext/content_scripts.idl
+  Enum:
+    Name: RunAt
+    Values:
+      - document_idle
+      - document_start
+      - document_end
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentScripts

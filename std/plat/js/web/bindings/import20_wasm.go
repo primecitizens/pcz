@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web new_CSSColor_CSSColor
 //go:noescape
@@ -89,11 +87,11 @@ func GetCSSColorProfileRuleComponents(
 
 //go:wasmimport plat/js/web has_CSSColorValue_Parse
 //go:noescape
-func HasCSSColorValueParse(this js.Ref) js.Ref
+func HasFuncCSSColorValueParse(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSColorValue_Parse
 //go:noescape
-func CSSColorValueParseFunc(this js.Ref) js.Ref
+func FuncCSSColorValueParse(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSColorValue_Parse
 //go:noescape
@@ -261,11 +259,11 @@ func GetCSSFontFaceRuleStyle(
 
 //go:wasmimport plat/js/web has_CSSFontFeatureValuesMap_Set
 //go:noescape
-func HasCSSFontFeatureValuesMapSet(this js.Ref) js.Ref
+func HasFuncCSSFontFeatureValuesMapSet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSFontFeatureValuesMap_Set
 //go:noescape
-func CSSFontFeatureValuesMapSetFunc(this js.Ref) js.Ref
+func FuncCSSFontFeatureValuesMapSet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSFontFeatureValuesMap_Set
 //go:noescape
@@ -350,11 +348,11 @@ func GetCSSGroupingRuleCssRules(
 
 //go:wasmimport plat/js/web has_CSSGroupingRule_InsertRule
 //go:noescape
-func HasCSSGroupingRuleInsertRule(this js.Ref) js.Ref
+func HasFuncCSSGroupingRuleInsertRule(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSGroupingRule_InsertRule
 //go:noescape
-func CSSGroupingRuleInsertRuleFunc(this js.Ref) js.Ref
+func FuncCSSGroupingRuleInsertRule(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSGroupingRule_InsertRule
 //go:noescape
@@ -372,11 +370,11 @@ func TryCSSGroupingRuleInsertRule(
 
 //go:wasmimport plat/js/web has_CSSGroupingRule_InsertRule1
 //go:noescape
-func HasCSSGroupingRuleInsertRule1(this js.Ref) js.Ref
+func HasFuncCSSGroupingRuleInsertRule1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSGroupingRule_InsertRule1
 //go:noescape
-func CSSGroupingRuleInsertRule1Func(this js.Ref) js.Ref
+func FuncCSSGroupingRuleInsertRule1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSGroupingRule_InsertRule1
 //go:noescape
@@ -392,11 +390,11 @@ func TryCSSGroupingRuleInsertRule1(
 
 //go:wasmimport plat/js/web has_CSSGroupingRule_DeleteRule
 //go:noescape
-func HasCSSGroupingRuleDeleteRule(this js.Ref) js.Ref
+func HasFuncCSSGroupingRuleDeleteRule(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSGroupingRule_DeleteRule
 //go:noescape
-func CSSGroupingRuleDeleteRuleFunc(this js.Ref) js.Ref
+func FuncCSSGroupingRuleDeleteRule(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSGroupingRule_DeleteRule
 //go:noescape
@@ -602,11 +600,11 @@ func GetCSSKeyframesRuleLength(
 
 //go:wasmimport plat/js/web has_CSSKeyframesRule_Get
 //go:noescape
-func HasCSSKeyframesRuleGet(this js.Ref) js.Ref
+func HasFuncCSSKeyframesRuleGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSKeyframesRule_Get
 //go:noescape
-func CSSKeyframesRuleGetFunc(this js.Ref) js.Ref
+func FuncCSSKeyframesRuleGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSKeyframesRule_Get
 //go:noescape
@@ -622,11 +620,11 @@ func TryCSSKeyframesRuleGet(
 
 //go:wasmimport plat/js/web has_CSSKeyframesRule_AppendRule
 //go:noescape
-func HasCSSKeyframesRuleAppendRule(this js.Ref) js.Ref
+func HasFuncCSSKeyframesRuleAppendRule(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSKeyframesRule_AppendRule
 //go:noescape
-func CSSKeyframesRuleAppendRuleFunc(this js.Ref) js.Ref
+func FuncCSSKeyframesRuleAppendRule(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSKeyframesRule_AppendRule
 //go:noescape
@@ -642,11 +640,11 @@ func TryCSSKeyframesRuleAppendRule(
 
 //go:wasmimport plat/js/web has_CSSKeyframesRule_DeleteRule
 //go:noescape
-func HasCSSKeyframesRuleDeleteRule(this js.Ref) js.Ref
+func HasFuncCSSKeyframesRuleDeleteRule(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSKeyframesRule_DeleteRule
 //go:noescape
-func CSSKeyframesRuleDeleteRuleFunc(this js.Ref) js.Ref
+func FuncCSSKeyframesRuleDeleteRule(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSKeyframesRule_DeleteRule
 //go:noescape
@@ -662,11 +660,11 @@ func TryCSSKeyframesRuleDeleteRule(
 
 //go:wasmimport plat/js/web has_CSSKeyframesRule_FindRule
 //go:noescape
-func HasCSSKeyframesRuleFindRule(this js.Ref) js.Ref
+func HasFuncCSSKeyframesRuleFindRule(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSKeyframesRule_FindRule
 //go:noescape
-func CSSKeyframesRuleFindRuleFunc(this js.Ref) js.Ref
+func FuncCSSKeyframesRuleFindRule(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSKeyframesRule_FindRule
 //go:noescape
@@ -1041,11 +1039,11 @@ func GetDOMMatrixReadOnlyIsIdentity(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_FromMatrix
 //go:noescape
-func HasDOMMatrixReadOnlyFromMatrix(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyFromMatrix(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_FromMatrix
 //go:noescape
-func DOMMatrixReadOnlyFromMatrixFunc(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyFromMatrix(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_FromMatrix
 //go:noescape
@@ -1061,11 +1059,11 @@ func TryDOMMatrixReadOnlyFromMatrix(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_FromMatrix1
 //go:noescape
-func HasDOMMatrixReadOnlyFromMatrix1(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyFromMatrix1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_FromMatrix1
 //go:noescape
-func DOMMatrixReadOnlyFromMatrix1Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyFromMatrix1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_FromMatrix1
 //go:noescape
@@ -1079,11 +1077,11 @@ func TryDOMMatrixReadOnlyFromMatrix1(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_FromFloat32Array
 //go:noescape
-func HasDOMMatrixReadOnlyFromFloat32Array(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyFromFloat32Array(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_FromFloat32Array
 //go:noescape
-func DOMMatrixReadOnlyFromFloat32ArrayFunc(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyFromFloat32Array(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_FromFloat32Array
 //go:noescape
@@ -1099,11 +1097,11 @@ func TryDOMMatrixReadOnlyFromFloat32Array(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_FromFloat64Array
 //go:noescape
-func HasDOMMatrixReadOnlyFromFloat64Array(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyFromFloat64Array(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_FromFloat64Array
 //go:noescape
-func DOMMatrixReadOnlyFromFloat64ArrayFunc(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyFromFloat64Array(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_FromFloat64Array
 //go:noescape
@@ -1119,11 +1117,11 @@ func TryDOMMatrixReadOnlyFromFloat64Array(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_Translate
 //go:noescape
-func HasDOMMatrixReadOnlyTranslate(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyTranslate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_Translate
 //go:noescape
-func DOMMatrixReadOnlyTranslateFunc(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyTranslate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_Translate
 //go:noescape
@@ -1143,11 +1141,11 @@ func TryDOMMatrixReadOnlyTranslate(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_Translate1
 //go:noescape
-func HasDOMMatrixReadOnlyTranslate1(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyTranslate1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_Translate1
 //go:noescape
-func DOMMatrixReadOnlyTranslate1Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyTranslate1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_Translate1
 //go:noescape
@@ -1165,11 +1163,11 @@ func TryDOMMatrixReadOnlyTranslate1(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_Translate2
 //go:noescape
-func HasDOMMatrixReadOnlyTranslate2(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyTranslate2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_Translate2
 //go:noescape
-func DOMMatrixReadOnlyTranslate2Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyTranslate2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_Translate2
 //go:noescape
@@ -1185,11 +1183,11 @@ func TryDOMMatrixReadOnlyTranslate2(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_Translate3
 //go:noescape
-func HasDOMMatrixReadOnlyTranslate3(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyTranslate3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_Translate3
 //go:noescape
-func DOMMatrixReadOnlyTranslate3Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyTranslate3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_Translate3
 //go:noescape
@@ -1203,11 +1201,11 @@ func TryDOMMatrixReadOnlyTranslate3(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_Scale
 //go:noescape
-func HasDOMMatrixReadOnlyScale(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyScale(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_Scale
 //go:noescape
-func DOMMatrixReadOnlyScaleFunc(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyScale(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_Scale
 //go:noescape
@@ -1233,11 +1231,11 @@ func TryDOMMatrixReadOnlyScale(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_Scale1
 //go:noescape
-func HasDOMMatrixReadOnlyScale1(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyScale1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_Scale1
 //go:noescape
-func DOMMatrixReadOnlyScale1Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyScale1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_Scale1
 //go:noescape
@@ -1261,11 +1259,11 @@ func TryDOMMatrixReadOnlyScale1(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_Scale2
 //go:noescape
-func HasDOMMatrixReadOnlyScale2(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyScale2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_Scale2
 //go:noescape
-func DOMMatrixReadOnlyScale2Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyScale2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_Scale2
 //go:noescape
@@ -1287,11 +1285,11 @@ func TryDOMMatrixReadOnlyScale2(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_Scale3
 //go:noescape
-func HasDOMMatrixReadOnlyScale3(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyScale3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_Scale3
 //go:noescape
-func DOMMatrixReadOnlyScale3Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyScale3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_Scale3
 //go:noescape
@@ -1311,11 +1309,11 @@ func TryDOMMatrixReadOnlyScale3(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_Scale4
 //go:noescape
-func HasDOMMatrixReadOnlyScale4(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyScale4(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_Scale4
 //go:noescape
-func DOMMatrixReadOnlyScale4Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyScale4(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_Scale4
 //go:noescape
@@ -1333,11 +1331,11 @@ func TryDOMMatrixReadOnlyScale4(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_Scale5
 //go:noescape
-func HasDOMMatrixReadOnlyScale5(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyScale5(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_Scale5
 //go:noescape
-func DOMMatrixReadOnlyScale5Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyScale5(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_Scale5
 //go:noescape
@@ -1353,11 +1351,11 @@ func TryDOMMatrixReadOnlyScale5(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_Scale6
 //go:noescape
-func HasDOMMatrixReadOnlyScale6(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyScale6(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_Scale6
 //go:noescape
-func DOMMatrixReadOnlyScale6Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyScale6(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_Scale6
 //go:noescape
@@ -1371,11 +1369,11 @@ func TryDOMMatrixReadOnlyScale6(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_ScaleNonUniform
 //go:noescape
-func HasDOMMatrixReadOnlyScaleNonUniform(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyScaleNonUniform(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_ScaleNonUniform
 //go:noescape
-func DOMMatrixReadOnlyScaleNonUniformFunc(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyScaleNonUniform(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_ScaleNonUniform
 //go:noescape
@@ -1393,11 +1391,11 @@ func TryDOMMatrixReadOnlyScaleNonUniform(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_ScaleNonUniform1
 //go:noescape
-func HasDOMMatrixReadOnlyScaleNonUniform1(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyScaleNonUniform1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_ScaleNonUniform1
 //go:noescape
-func DOMMatrixReadOnlyScaleNonUniform1Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyScaleNonUniform1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_ScaleNonUniform1
 //go:noescape
@@ -1413,11 +1411,11 @@ func TryDOMMatrixReadOnlyScaleNonUniform1(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_ScaleNonUniform2
 //go:noescape
-func HasDOMMatrixReadOnlyScaleNonUniform2(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyScaleNonUniform2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_ScaleNonUniform2
 //go:noescape
-func DOMMatrixReadOnlyScaleNonUniform2Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyScaleNonUniform2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_ScaleNonUniform2
 //go:noescape
@@ -1431,11 +1429,11 @@ func TryDOMMatrixReadOnlyScaleNonUniform2(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_Scale3d
 //go:noescape
-func HasDOMMatrixReadOnlyScale3d(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyScale3d(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_Scale3d
 //go:noescape
-func DOMMatrixReadOnlyScale3dFunc(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyScale3d(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_Scale3d
 //go:noescape
@@ -1457,11 +1455,11 @@ func TryDOMMatrixReadOnlyScale3d(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_Scale3d1
 //go:noescape
-func HasDOMMatrixReadOnlyScale3d1(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyScale3d1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_Scale3d1
 //go:noescape
-func DOMMatrixReadOnlyScale3d1Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyScale3d1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_Scale3d1
 //go:noescape
@@ -1481,11 +1479,11 @@ func TryDOMMatrixReadOnlyScale3d1(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_Scale3d2
 //go:noescape
-func HasDOMMatrixReadOnlyScale3d2(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyScale3d2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_Scale3d2
 //go:noescape
-func DOMMatrixReadOnlyScale3d2Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyScale3d2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_Scale3d2
 //go:noescape
@@ -1503,11 +1501,11 @@ func TryDOMMatrixReadOnlyScale3d2(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_Scale3d3
 //go:noescape
-func HasDOMMatrixReadOnlyScale3d3(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyScale3d3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_Scale3d3
 //go:noescape
-func DOMMatrixReadOnlyScale3d3Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyScale3d3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_Scale3d3
 //go:noescape
@@ -1523,11 +1521,11 @@ func TryDOMMatrixReadOnlyScale3d3(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_Scale3d4
 //go:noescape
-func HasDOMMatrixReadOnlyScale3d4(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyScale3d4(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_Scale3d4
 //go:noescape
-func DOMMatrixReadOnlyScale3d4Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyScale3d4(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_Scale3d4
 //go:noescape
@@ -1541,11 +1539,11 @@ func TryDOMMatrixReadOnlyScale3d4(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_Rotate
 //go:noescape
-func HasDOMMatrixReadOnlyRotate(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyRotate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_Rotate
 //go:noescape
-func DOMMatrixReadOnlyRotateFunc(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyRotate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_Rotate
 //go:noescape
@@ -1565,11 +1563,11 @@ func TryDOMMatrixReadOnlyRotate(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_Rotate1
 //go:noescape
-func HasDOMMatrixReadOnlyRotate1(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyRotate1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_Rotate1
 //go:noescape
-func DOMMatrixReadOnlyRotate1Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyRotate1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_Rotate1
 //go:noescape
@@ -1587,11 +1585,11 @@ func TryDOMMatrixReadOnlyRotate1(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_Rotate2
 //go:noescape
-func HasDOMMatrixReadOnlyRotate2(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyRotate2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_Rotate2
 //go:noescape
-func DOMMatrixReadOnlyRotate2Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyRotate2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_Rotate2
 //go:noescape
@@ -1607,11 +1605,11 @@ func TryDOMMatrixReadOnlyRotate2(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_Rotate3
 //go:noescape
-func HasDOMMatrixReadOnlyRotate3(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyRotate3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_Rotate3
 //go:noescape
-func DOMMatrixReadOnlyRotate3Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyRotate3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_Rotate3
 //go:noescape
@@ -1625,11 +1623,11 @@ func TryDOMMatrixReadOnlyRotate3(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_RotateFromVector
 //go:noescape
-func HasDOMMatrixReadOnlyRotateFromVector(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyRotateFromVector(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_RotateFromVector
 //go:noescape
-func DOMMatrixReadOnlyRotateFromVectorFunc(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyRotateFromVector(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_RotateFromVector
 //go:noescape
@@ -1647,11 +1645,11 @@ func TryDOMMatrixReadOnlyRotateFromVector(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_RotateFromVector1
 //go:noescape
-func HasDOMMatrixReadOnlyRotateFromVector1(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyRotateFromVector1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_RotateFromVector1
 //go:noescape
-func DOMMatrixReadOnlyRotateFromVector1Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyRotateFromVector1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_RotateFromVector1
 //go:noescape
@@ -1667,11 +1665,11 @@ func TryDOMMatrixReadOnlyRotateFromVector1(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_RotateFromVector2
 //go:noescape
-func HasDOMMatrixReadOnlyRotateFromVector2(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyRotateFromVector2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_RotateFromVector2
 //go:noescape
-func DOMMatrixReadOnlyRotateFromVector2Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyRotateFromVector2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_RotateFromVector2
 //go:noescape
@@ -1685,11 +1683,11 @@ func TryDOMMatrixReadOnlyRotateFromVector2(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_RotateAxisAngle
 //go:noescape
-func HasDOMMatrixReadOnlyRotateAxisAngle(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyRotateAxisAngle(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_RotateAxisAngle
 //go:noescape
-func DOMMatrixReadOnlyRotateAxisAngleFunc(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyRotateAxisAngle(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_RotateAxisAngle
 //go:noescape
@@ -1711,11 +1709,11 @@ func TryDOMMatrixReadOnlyRotateAxisAngle(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_RotateAxisAngle1
 //go:noescape
-func HasDOMMatrixReadOnlyRotateAxisAngle1(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyRotateAxisAngle1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_RotateAxisAngle1
 //go:noescape
-func DOMMatrixReadOnlyRotateAxisAngle1Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyRotateAxisAngle1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_RotateAxisAngle1
 //go:noescape
@@ -1735,11 +1733,11 @@ func TryDOMMatrixReadOnlyRotateAxisAngle1(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_RotateAxisAngle2
 //go:noescape
-func HasDOMMatrixReadOnlyRotateAxisAngle2(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyRotateAxisAngle2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_RotateAxisAngle2
 //go:noescape
-func DOMMatrixReadOnlyRotateAxisAngle2Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyRotateAxisAngle2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_RotateAxisAngle2
 //go:noescape
@@ -1757,11 +1755,11 @@ func TryDOMMatrixReadOnlyRotateAxisAngle2(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_RotateAxisAngle3
 //go:noescape
-func HasDOMMatrixReadOnlyRotateAxisAngle3(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyRotateAxisAngle3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_RotateAxisAngle3
 //go:noescape
-func DOMMatrixReadOnlyRotateAxisAngle3Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyRotateAxisAngle3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_RotateAxisAngle3
 //go:noescape
@@ -1777,11 +1775,11 @@ func TryDOMMatrixReadOnlyRotateAxisAngle3(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_RotateAxisAngle4
 //go:noescape
-func HasDOMMatrixReadOnlyRotateAxisAngle4(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyRotateAxisAngle4(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_RotateAxisAngle4
 //go:noescape
-func DOMMatrixReadOnlyRotateAxisAngle4Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyRotateAxisAngle4(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_RotateAxisAngle4
 //go:noescape
@@ -1795,11 +1793,11 @@ func TryDOMMatrixReadOnlyRotateAxisAngle4(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_SkewX
 //go:noescape
-func HasDOMMatrixReadOnlySkewX(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlySkewX(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_SkewX
 //go:noescape
-func DOMMatrixReadOnlySkewXFunc(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlySkewX(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_SkewX
 //go:noescape
@@ -1815,11 +1813,11 @@ func TryDOMMatrixReadOnlySkewX(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_SkewX1
 //go:noescape
-func HasDOMMatrixReadOnlySkewX1(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlySkewX1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_SkewX1
 //go:noescape
-func DOMMatrixReadOnlySkewX1Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlySkewX1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_SkewX1
 //go:noescape
@@ -1833,11 +1831,11 @@ func TryDOMMatrixReadOnlySkewX1(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_SkewY
 //go:noescape
-func HasDOMMatrixReadOnlySkewY(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlySkewY(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_SkewY
 //go:noescape
-func DOMMatrixReadOnlySkewYFunc(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlySkewY(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_SkewY
 //go:noescape
@@ -1853,11 +1851,11 @@ func TryDOMMatrixReadOnlySkewY(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_SkewY1
 //go:noescape
-func HasDOMMatrixReadOnlySkewY1(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlySkewY1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_SkewY1
 //go:noescape
-func DOMMatrixReadOnlySkewY1Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlySkewY1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_SkewY1
 //go:noescape
@@ -1871,11 +1869,11 @@ func TryDOMMatrixReadOnlySkewY1(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_Multiply
 //go:noescape
-func HasDOMMatrixReadOnlyMultiply(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyMultiply(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_Multiply
 //go:noescape
-func DOMMatrixReadOnlyMultiplyFunc(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyMultiply(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_Multiply
 //go:noescape
@@ -1891,11 +1889,11 @@ func TryDOMMatrixReadOnlyMultiply(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_Multiply1
 //go:noescape
-func HasDOMMatrixReadOnlyMultiply1(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyMultiply1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_Multiply1
 //go:noescape
-func DOMMatrixReadOnlyMultiply1Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyMultiply1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_Multiply1
 //go:noescape
@@ -1909,11 +1907,11 @@ func TryDOMMatrixReadOnlyMultiply1(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_FlipX
 //go:noescape
-func HasDOMMatrixReadOnlyFlipX(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyFlipX(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_FlipX
 //go:noescape
-func DOMMatrixReadOnlyFlipXFunc(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyFlipX(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_FlipX
 //go:noescape
@@ -1927,11 +1925,11 @@ func TryDOMMatrixReadOnlyFlipX(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_FlipY
 //go:noescape
-func HasDOMMatrixReadOnlyFlipY(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyFlipY(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_FlipY
 //go:noescape
-func DOMMatrixReadOnlyFlipYFunc(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyFlipY(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_FlipY
 //go:noescape
@@ -1945,11 +1943,11 @@ func TryDOMMatrixReadOnlyFlipY(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_Inverse
 //go:noescape
-func HasDOMMatrixReadOnlyInverse(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyInverse(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_Inverse
 //go:noescape
-func DOMMatrixReadOnlyInverseFunc(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyInverse(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_Inverse
 //go:noescape
@@ -1963,11 +1961,11 @@ func TryDOMMatrixReadOnlyInverse(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_TransformPoint
 //go:noescape
-func HasDOMMatrixReadOnlyTransformPoint(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyTransformPoint(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_TransformPoint
 //go:noescape
-func DOMMatrixReadOnlyTransformPointFunc(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyTransformPoint(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_TransformPoint
 //go:noescape
@@ -1983,11 +1981,11 @@ func TryDOMMatrixReadOnlyTransformPoint(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_TransformPoint1
 //go:noescape
-func HasDOMMatrixReadOnlyTransformPoint1(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyTransformPoint1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_TransformPoint1
 //go:noescape
-func DOMMatrixReadOnlyTransformPoint1Func(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyTransformPoint1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_TransformPoint1
 //go:noescape
@@ -2001,11 +1999,11 @@ func TryDOMMatrixReadOnlyTransformPoint1(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_ToFloat32Array
 //go:noescape
-func HasDOMMatrixReadOnlyToFloat32Array(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyToFloat32Array(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_ToFloat32Array
 //go:noescape
-func DOMMatrixReadOnlyToFloat32ArrayFunc(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyToFloat32Array(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_ToFloat32Array
 //go:noescape
@@ -2019,11 +2017,11 @@ func TryDOMMatrixReadOnlyToFloat32Array(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_ToFloat64Array
 //go:noescape
-func HasDOMMatrixReadOnlyToFloat64Array(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyToFloat64Array(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_ToFloat64Array
 //go:noescape
-func DOMMatrixReadOnlyToFloat64ArrayFunc(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyToFloat64Array(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_ToFloat64Array
 //go:noescape
@@ -2037,11 +2035,11 @@ func TryDOMMatrixReadOnlyToFloat64Array(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_ToString
 //go:noescape
-func HasDOMMatrixReadOnlyToString(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyToString(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_ToString
 //go:noescape
-func DOMMatrixReadOnlyToStringFunc(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyToString(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_ToString
 //go:noescape
@@ -2055,11 +2053,11 @@ func TryDOMMatrixReadOnlyToString(
 
 //go:wasmimport plat/js/web has_DOMMatrixReadOnly_ToJSON
 //go:noescape
-func HasDOMMatrixReadOnlyToJSON(this js.Ref) js.Ref
+func HasFuncDOMMatrixReadOnlyToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DOMMatrixReadOnly_ToJSON
 //go:noescape
-func DOMMatrixReadOnlyToJSONFunc(this js.Ref) js.Ref
+func FuncDOMMatrixReadOnlyToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DOMMatrixReadOnly_ToJSON
 //go:noescape
@@ -2292,11 +2290,11 @@ func GetCSSParserAtRuleBody(
 
 //go:wasmimport plat/js/web has_CSSParserAtRule_ToString
 //go:noescape
-func HasCSSParserAtRuleToString(this js.Ref) js.Ref
+func HasFuncCSSParserAtRuleToString(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSParserAtRule_ToString
 //go:noescape
-func CSSParserAtRuleToStringFunc(this js.Ref) js.Ref
+func FuncCSSParserAtRuleToString(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSParserAtRule_ToString
 //go:noescape
@@ -2326,11 +2324,11 @@ func GetCSSParserBlockBody(
 
 //go:wasmimport plat/js/web has_CSSParserBlock_ToString
 //go:noescape
-func HasCSSParserBlockToString(this js.Ref) js.Ref
+func HasFuncCSSParserBlockToString(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSParserBlock_ToString
 //go:noescape
-func CSSParserBlockToStringFunc(this js.Ref) js.Ref
+func FuncCSSParserBlockToString(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSParserBlock_ToString
 //go:noescape
@@ -2360,11 +2358,11 @@ func GetCSSParserFunctionArgs(
 
 //go:wasmimport plat/js/web has_CSSParserFunction_ToString
 //go:noescape
-func HasCSSParserFunctionToString(this js.Ref) js.Ref
+func HasFuncCSSParserFunctionToString(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSParserFunction_ToString
 //go:noescape
-func CSSParserFunctionToStringFunc(this js.Ref) js.Ref
+func FuncCSSParserFunctionToString(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSParserFunction_ToString
 //go:noescape
@@ -2399,11 +2397,11 @@ func GetCSSParserQualifiedRuleBody(
 
 //go:wasmimport plat/js/web has_CSSParserQualifiedRule_ToString
 //go:noescape
-func HasCSSParserQualifiedRuleToString(this js.Ref) js.Ref
+func HasFuncCSSParserQualifiedRuleToString(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSParserQualifiedRule_ToString
 //go:noescape
-func CSSParserQualifiedRuleToStringFunc(this js.Ref) js.Ref
+func FuncCSSParserQualifiedRuleToString(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSParserQualifiedRule_ToString
 //go:noescape

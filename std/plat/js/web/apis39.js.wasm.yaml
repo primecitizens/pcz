@@ -1,4 +1,4 @@
-- File: css-nav.idl
+- File: webref/css-nav.idl
   Enum:
     Name: SpatialNavigationDirection
     Values:
@@ -6,7 +6,7 @@
       - down
       - left
       - right
-- File: css-nav.idl
+- File: webref/css-nav.idl
   Dict:
     Name: SpatialNavigationSearchOptions
     Fields:
@@ -20,7 +20,7 @@
         Type:
           Name: Node
           Nullable: true
-- File: speech-api.idl
+- File: webref/speech-api.idl
   Interface:
     Name: SpeechGrammar
     ExtAttrs:
@@ -42,7 +42,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: speech-api.idl
+- File: webref/speech-api.idl
   Interface:
     Name: SpeechGrammarList
     ExtAttrs:
@@ -103,7 +103,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: speech-api.idl
+- File: webref/speech-api.idl
   Interface:
     Name: SpeechRecognition
     Inherits: EventTarget
@@ -246,7 +246,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: speech-api.idl
+- File: webref/speech-api.idl
   Interface:
     Name: SpeechRecognitionAlternative
     ExtAttrs:
@@ -270,7 +270,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: speech-api.idl
+- File: webref/speech-api.idl
   Enum:
     Name: SpeechRecognitionErrorCode
     Values:
@@ -282,7 +282,7 @@
       - service-not-allowed
       - bad-grammar
       - language-not-supported
-- File: speech-api.idl
+- File: webref/speech-api.idl
   Interface:
     Name: SpeechRecognitionErrorEvent
     Inherits: Event
@@ -319,7 +319,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: speech-api.idl
+- File: webref/speech-api.idl
   Dict:
     Name: SpeechRecognitionErrorEventInit
     Inherits: EventInit
@@ -344,7 +344,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: speech-api.idl
+- File: webref/speech-api.idl
   Interface:
     Name: SpeechRecognitionEvent
     Inherits: Event
@@ -381,7 +381,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: speech-api.idl
+- File: webref/speech-api.idl
   Dict:
     Name: SpeechRecognitionEventInit
     Inherits: EventInit
@@ -406,7 +406,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: speech-api.idl
+- File: webref/speech-api.idl
   Interface:
     Name: SpeechRecognitionResult
     ExtAttrs:
@@ -443,7 +443,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: speech-api.idl
+- File: webref/speech-api.idl
   Interface:
     Name: SpeechRecognitionResultList
     ExtAttrs:
@@ -472,7 +472,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: speech-api.idl
+- File: webref/speech-api.idl
   Interface:
     Name: SpeechSynthesis
     Inherits: EventTarget
@@ -554,7 +554,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: speech-api.idl
+- File: webref/speech-api.idl
   Enum:
     Name: SpeechSynthesisErrorCode
     Values:
@@ -570,7 +570,7 @@
       - text-too-long
       - invalid-argument
       - not-allowed
-- File: speech-api.idl
+- File: webref/speech-api.idl
   Interface:
     Name: SpeechSynthesisErrorEvent
     Inherits: SpeechSynthesisEvent
@@ -599,7 +599,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: speech-api.idl
+- File: webref/speech-api.idl
   Dict:
     Name: SpeechSynthesisErrorEventInit
     Inherits: SpeechSynthesisEventInit
@@ -640,7 +640,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: speech-api.idl
+- File: webref/speech-api.idl
   Interface:
     Name: SpeechSynthesisEvent
     Inherits: Event
@@ -701,7 +701,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: speech-api.idl
+- File: webref/speech-api.idl
   Dict:
     Name: SpeechSynthesisEventInit
     Inherits: EventInit
@@ -738,7 +738,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: speech-api.idl
+- File: webref/speech-api.idl
   Interface:
     Name: SpeechSynthesisUtterance
     Inherits: EventTarget
@@ -849,7 +849,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: speech-api.idl
+- File: webref/speech-api.idl
   Interface:
     Name: SpeechSynthesisVoice
     ExtAttrs:
@@ -897,14 +897,14 @@
           - Name: Exposed
             Values:
               - Window
-- File: file-system-access.idl
+- File: webref/file-system-access.idl
   Typedef:
     Name: StartInDirectory
     Type:
       Union:
         - Name: WellKnownDirectory
         - Name: FileSystemHandle
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: StaticRange
     Inherits: AbstractRange
@@ -921,7 +921,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: dom.idl
+- File: webref/dom.idl
   Dict:
     Name: StaticRangeInit
     Fields:
@@ -941,7 +941,7 @@
         Required: true
         Type:
           Name: unsigned long
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: StereoPannerNode
     Inherits: AudioNode
@@ -972,7 +972,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: StereoPannerOptions
     Inherits: AudioNodeOptions
@@ -990,7 +990,7 @@
       - Name: channelInterpretation
         Type:
           Name: ChannelInterpretation
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: Storage
     ExtAttrs:
@@ -1066,7 +1066,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: storage-buckets.idl
+- File: webref/storage-buckets.idl
   Interface:
     Name: StorageBucket
     ExtAttrs:
@@ -1118,7 +1118,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
       - Name: persisted
         Returns:
           - Name: Promise
@@ -1190,13 +1189,13 @@
               - Window
               - Worker
           - Name: SecureContext
-- File: storage-buckets.idl
+- File: webref/storage-buckets.idl
   Enum:
     Name: StorageBucketDurability
     Values:
       - strict
       - relaxed
-- File: storage-buckets.idl
+- File: webref/storage-buckets.idl
   Interface:
     Name: StorageBucketManager
     ExtAttrs:
@@ -1254,7 +1253,7 @@
               - Window
               - Worker
           - Name: SecureContext
-- File: storage-buckets.idl
+- File: webref/storage-buckets.idl
   Dict:
     Name: StorageBucketOptions
     Fields:
@@ -1278,7 +1277,7 @@
         Type:
           Name: DOMHighResTimeStamp
           Nullable: true
-- File: storage.idl
+- File: webref/storage.idl
   Dict:
     Name: StorageEstimate
     Fields:
@@ -1288,7 +1287,7 @@
       - Name: quota
         Type:
           Name: unsigned long long
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: StorageEvent
     Inherits: Event
@@ -1406,7 +1405,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: StorageEventInit
     Inherits: EventInit
@@ -1447,7 +1446,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: storage.idl
+- File: webref/storage.idl
   Interface:
     Name: StorageManager
     ExtAttrs:
@@ -1496,7 +1495,7 @@
               - Name: FileSystemDirectoryHandle
         ExtAttrs:
           - Name: SecureContext
-- File: streams.idl
+- File: webref/streams.idl
   Dict:
     Name: StreamPipeOptions
     Fields:
@@ -1515,7 +1514,7 @@
       - Name: signal
         Type:
           Name: AbortSignal
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: StructuredSerializeOptions
     Fields:
@@ -1525,7 +1524,7 @@
           Name: sequence
           Params:
             - Name: object
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: StylePropertyMap
     Inherits: StylePropertyMapReadOnly
@@ -1592,7 +1591,7 @@
         - Name: sequence
           Params:
             - Name: CSSStyleValue
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: StylePropertyMapReadOnly
     ExtAttrs:
@@ -1667,7 +1666,7 @@
         - Name: sequence
           Params:
             - Name: CSSStyleValue
-- File: cssom.idl
+- File: webref/cssom.idl
   Interface:
     Name: StyleSheet
     ExtAttrs:
@@ -1740,7 +1739,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: cssom.idl
+- File: webref/cssom.idl
   Interface:
     Name: StyleSheetList
     ExtAttrs:
@@ -1770,7 +1769,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: SubmitEvent
     Inherits: Event
@@ -1802,7 +1801,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: SubmitEventInit
     Inherits: EventInit
@@ -1824,7 +1823,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Interface:
     Name: SubtleCrypto
     ExtAttrs:
@@ -2120,20 +2119,20 @@
             Values:
               - Window
               - Worker
-- File: screen-capture.idl
+- File: webref/screen-capture.idl
   Enum:
     Name: SurfaceSwitchingPreferenceEnum
     Values:
       - include
       - exclude
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: SvcOutputMetadata
     Fields:
       - Name: temporalLayerId
         Type:
           Name: unsigned long
-- File: background-sync.idl
+- File: webref/background-sync.idl
   Interface:
     Name: SyncEvent
     Inherits: ExtendableEvent
@@ -2170,7 +2169,7 @@
           - Name: Exposed
             Values:
               - ServiceWorker
-- File: background-sync.idl
+- File: webref/background-sync.idl
   Dict:
     Name: SyncEventInit
     Inherits: ExtendableEventInit
@@ -2195,7 +2194,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: background-sync.idl
+- File: webref/background-sync.idl
   Interface:
     Name: SyncManager
     ExtAttrs:
@@ -2230,7 +2229,7 @@
             Values:
               - Window
               - Worker
-- File: screen-capture.idl
+- File: webref/screen-capture.idl
   Enum:
     Name: SystemAudioPreferenceEnum
     Values:

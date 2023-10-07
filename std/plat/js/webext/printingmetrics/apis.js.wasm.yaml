@@ -1,0 +1,500 @@
+- File: webext/chrome/printing_metrics.idl
+  Enum:
+    Name: ColorMode
+    Values:
+      - BLACK_AND_WHITE
+      - COLOR
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printingMetrics
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/printing_metrics.idl
+  Enum:
+    Name: DuplexMode
+    Values:
+      - ONE_SIDED
+      - TWO_SIDED_LONG_EDGE
+      - TWO_SIDED_SHORT_EDGE
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printingMetrics
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/printing_metrics.idl
+  Callback:
+    Name: GetPrintJobsCallback
+    Args:
+      - Name: jobs
+        Type:
+          Name: sequence
+          Params:
+            - Name: PrintJobInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - printingMetrics
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printingMetrics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printingMetrics
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printingMetrics
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printingMetrics
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/printing_metrics.idl
+  Dict:
+    Name: MediaSize
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printingMetrics
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: width
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printingMetrics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printingMetrics
+      - Name: height
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printingMetrics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printingMetrics
+      - Name: vendorId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printingMetrics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printingMetrics
+- File: webext/chrome/printing_metrics.idl
+  Dict:
+    Name: PrintJobInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printingMetrics
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printingMetrics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printingMetrics
+      - Name: title
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printingMetrics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printingMetrics
+      - Name: source
+        Type:
+          Name: PrintJobSource
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printingMetrics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printingMetrics
+      - Name: sourceId
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printingMetrics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printingMetrics
+      - Name: status
+        Type:
+          Name: PrintJobStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printingMetrics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printingMetrics
+      - Name: creationTime
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printingMetrics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printingMetrics
+      - Name: completionTime
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printingMetrics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printingMetrics
+      - Name: printer
+        Type:
+          Name: Printer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printingMetrics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printingMetrics
+      - Name: settings
+        Type:
+          Name: PrintSettings
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printingMetrics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printingMetrics
+      - Name: numberOfPages
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printingMetrics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printingMetrics
+      - Name: printer_status
+        Type:
+          Name: PrinterStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printing
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+- File: webext/chrome/printing_metrics.idl
+  Enum:
+    Name: PrintJobSource
+    Values:
+      - PRINT_PREVIEW
+      - ANDROID_APP
+      - EXTENSION
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printingMetrics
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/printing_metrics.idl
+  Enum:
+    Name: PrintJobStatus
+    Values:
+      - FAILED
+      - CANCELED
+      - PRINTED
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printingMetrics
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/printing_metrics.idl
+  Dict:
+    Name: PrintSettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printingMetrics
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: color
+        Type:
+          Name: ColorMode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printingMetrics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printingMetrics
+      - Name: duplex
+        Type:
+          Name: DuplexMode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printingMetrics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printingMetrics
+      - Name: mediaSize
+        Type:
+          Name: MediaSize
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printingMetrics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printingMetrics
+      - Name: copies
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printingMetrics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printingMetrics
+- File: webext/chrome/printing_metrics.idl
+  Dict:
+    Name: Printer
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printingMetrics
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printingMetrics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printingMetrics
+      - Name: uri
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printingMetrics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printingMetrics
+      - Name: source
+        Type:
+          Name: PrinterSource
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printingMetrics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printingMetrics
+- File: webext/chrome/printing_metrics.idl
+  Enum:
+    Name: PrinterSource
+    Values:
+      - USER
+      - POLICY
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printingMetrics
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/printing_metrics.idl
+  WebextFunc:
+    Name: getPrintJobs
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: PrintJobInfo
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - printingMetrics
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - printingMetrics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - printingMetrics
+- File: webext/chrome/printing_metrics.idl
+  WebextEvent:
+    Name: onPrintJobFinished
+    Modifier: static
+    Args:
+      - Name: jobInfo
+        Type:
+          Name: PrintJobInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printingMetrics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printingMetrics
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printingMetrics
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printingMetrics

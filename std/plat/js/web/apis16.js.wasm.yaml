@@ -1,9 +1,9 @@
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUStorageTextureAccess
     Values:
       - write-only
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUStorageTextureBindingLayout
     Fields:
@@ -19,13 +19,13 @@
         Default: '"2d"'
         Type:
           Name: GPUTextureViewDimension
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUStoreOp
     Values:
       - store
       - discard
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUSupportedFeatures
     ExtAttrs:
@@ -38,7 +38,7 @@
       TypeParams:
         - Name: DOMString
       Readonly: true
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUSupportedLimits
     ExtAttrs:
@@ -368,7 +368,7 @@
               - Window
               - DedicatedWorker
           - Name: SecureContext
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUTexture
     ExtAttrs:
@@ -486,14 +486,14 @@
               - Window
               - DedicatedWorker
           - Name: SecureContext
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUTextureAspect
     Values:
       - all
       - stencil-only
       - depth-only
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUTextureBindingLayout
     Fields:
@@ -509,7 +509,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUTextureDescriptor
     Inherits: GPUObjectDescriptorBase
@@ -548,14 +548,14 @@
         Default: '""'
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUTextureDimension
     Values:
       - 1d
       - 2d
       - 3d
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUTextureFormat
     Values:
@@ -654,7 +654,7 @@
       - astc-12x10-unorm-srgb
       - astc-12x12-unorm
       - astc-12x12-unorm-srgb
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUTextureSampleType
     Values:
@@ -663,7 +663,7 @@
       - depth
       - sint
       - uint
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Namespace:
     Name: GPUTextureUsage
     ExtAttrs:
@@ -693,12 +693,12 @@
         Value: "0x10"
         Type:
           Name: GPUFlagsConstant
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUTextureUsageFlags
     Type:
       Name: unsigned long
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUTextureView
     ExtAttrs:
@@ -711,7 +711,7 @@
       - Name: label
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUTextureViewDescriptor
     Inherits: GPUObjectDescriptorBase
@@ -744,7 +744,7 @@
         Default: '""'
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUTextureViewDimension
     Values:
@@ -754,7 +754,7 @@
       - cube
       - cube-array
       - 3d
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUUncapturedErrorEvent
     Inherits: Event
@@ -790,7 +790,7 @@
               - Window
               - DedicatedWorker
           - Name: SecureContext
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUUncapturedErrorEventInit
     Inherits: EventInit
@@ -811,7 +811,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUValidationError
     Inherits: GPUError
@@ -832,7 +832,7 @@
               - Window
               - DedicatedWorker
           - Name: SecureContext
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUVertexAttribute
     Fields:
@@ -848,7 +848,7 @@
         Required: true
         Type:
           Name: GPUIndex32
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUVertexBufferLayout
     Fields:
@@ -866,7 +866,7 @@
           Name: sequence
           Params:
             - Name: GPUVertexAttribute
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUVertexFormat
     Values:
@@ -900,7 +900,7 @@
       - sint32x2
       - sint32x3
       - sint32x4
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUVertexState
     Inherits: GPUProgrammableStage
@@ -926,13 +926,13 @@
           Params:
             - Name: USVString
             - Name: GPUPipelineConstantValue
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUVertexStepMode
     Values:
       - vertex
       - instance
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: GainNode
     Inherits: AudioNode
@@ -963,7 +963,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: GainOptions
     Inherits: AudioNodeOptions
@@ -981,7 +981,7 @@
       - Name: channelInterpretation
         Type:
           Name: ChannelInterpretation
-- File: gamepad.idl
+- File: webref/gamepad.idl
   Interface:
     Name: Gamepad
     ExtAttrs:
@@ -1086,7 +1086,7 @@
           Nullable: true
         ExtAttrs:
           - Name: SameObject
-- File: gamepad.idl
+- File: webref/gamepad.idl
   Interface:
     Name: GamepadButton
     ExtAttrs:
@@ -1122,7 +1122,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: gamepad-extensions.idl
+- File: webref/gamepad-extensions.idl
   Dict:
     Name: GamepadEffectParameters
     Fields:
@@ -1142,7 +1142,7 @@
         Default: "0.0"
         Type:
           Name: double
-- File: gamepad.idl
+- File: webref/gamepad.idl
   Interface:
     Name: GamepadEvent
     Inherits: Event
@@ -1175,7 +1175,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: gamepad.idl
+- File: webref/gamepad.idl
   Dict:
     Name: GamepadEventInit
     Inherits: EventInit
@@ -1196,14 +1196,14 @@
         Default: "false"
         Type:
           Name: boolean
-- File: gamepad-extensions.idl
+- File: webref/gamepad-extensions.idl
   Enum:
     Name: GamepadHand
     Values:
       - ""
       - left
       - right
-- File: gamepad-extensions.idl
+- File: webref/gamepad-extensions.idl
   Interface:
     Name: GamepadHapticActuator
     ExtAttrs:
@@ -1274,31 +1274,31 @@
           - Name: Exposed
             Values:
               - Window
-- File: gamepad-extensions.idl
+- File: webref/gamepad-extensions.idl
   Enum:
     Name: GamepadHapticActuatorType
     Values:
       - vibration
       - dual-rumble
-- File: gamepad-extensions.idl
+- File: webref/gamepad-extensions.idl
   Enum:
     Name: GamepadHapticEffectType
     Values:
       - dual-rumble
-- File: gamepad-extensions.idl
+- File: webref/gamepad-extensions.idl
   Enum:
     Name: GamepadHapticsResult
     Values:
       - complete
       - preempted
-- File: gamepad.idl
+- File: webref/gamepad.idl
   Enum:
     Name: GamepadMappingType
     Values:
       - ""
       - standard
       - xr-standard
-- File: gamepad-extensions.idl
+- File: webref/gamepad-extensions.idl
   Interface:
     Name: GamepadPose
     ExtAttrs:
@@ -1376,7 +1376,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: gamepad-extensions.idl
+- File: webref/gamepad-extensions.idl
   Interface:
     Name: GamepadTouch
     ExtAttrs:
@@ -1422,7 +1422,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: webrtc-identity.idl
+- File: webref/webrtc-identity.idl
   Callback:
     Name: GenerateAssertionCallback
     Args:
@@ -1439,7 +1439,7 @@
       - Name: Promise
         Params:
           - Name: RTCIdentityAssertionResult
-- File: turtledove.idl
+- File: webref/turtledove.idl
   Dict:
     Name: GenerateBidInterestGroup
     Fields:
@@ -1499,7 +1499,7 @@
           Name: sequence
           Params:
             - Name: AuctionAd
-- File: turtledove.idl
+- File: webref/turtledove.idl
   Dict:
     Name: GenerateBidOutput
     Fields:
@@ -1535,7 +1535,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: reporting.idl
+- File: webref/reporting.idl
   Dict:
     Name: GenerateTestReportParameters
     Fields:
@@ -1547,7 +1547,7 @@
         Default: '"default"'
         Type:
           Name: DOMString
-- File: geolocation.idl
+- File: webref/geolocation.idl
   Interface:
     Name: Geolocation
     ExtAttrs:
@@ -1610,7 +1610,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: geolocation.idl
+- File: webref/geolocation.idl
   Interface:
     Name: GeolocationCoordinates
     ExtAttrs:
@@ -1686,7 +1686,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: geolocation.idl
+- File: webref/geolocation.idl
   Interface:
     Name: GeolocationPosition
     ExtAttrs:
@@ -1713,7 +1713,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: geolocation.idl
+- File: webref/geolocation.idl
   Interface:
     Name: GeolocationPositionError
     ExtAttrs:
@@ -1750,7 +1750,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: geolocation-sensor.idl
+- File: webref/geolocation-sensor.idl
   Dict:
     Name: GeolocationReadingValues
     Fields:
@@ -1789,7 +1789,7 @@
         Type:
           Name: double
           Nullable: true
-- File: geolocation-sensor.idl
+- File: webref/geolocation-sensor.idl
   Interface:
     Name: GeolocationSensor
     Inherits: Sensor

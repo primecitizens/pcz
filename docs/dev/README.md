@@ -1,5 +1,7 @@
 # Development docs
 
+For anyone interested in contributing code to the `pcz` project.
+
 ## ToC
 
 - General coding rules

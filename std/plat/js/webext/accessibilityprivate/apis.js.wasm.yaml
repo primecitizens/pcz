@@ -1,0 +1,1806 @@
+- File: webext/chrome/accessibility_private.json
+  Enum:
+    Name: AcceleratorAction
+    Values:
+      - focusPreviousPane
+      - focusNextPane
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Enum:
+    Name: AccessibilityFeature
+    Values:
+      - googleTtsLanguagePacks
+      - dictationContextChecking
+      - chromevoxSettingsMigration
+      - gameFaceIntegration
+      - googleTtsHighQualityVoices
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Dict:
+    Name: AlertInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+    Fields:
+      - Name: message
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Enum:
+    Name: AssistiveTechnologyType
+    Values:
+      - chromeVox
+      - selectToSpeak
+      - switchAccess
+      - autoClick
+      - magnifier
+      - dictation
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Enum:
+    Name: DictationBubbleHintType
+    Values:
+      - trySaying
+      - type
+      - delete
+      - selectAll
+      - undo
+      - help
+      - unselect
+      - copy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Enum:
+    Name: DictationBubbleIconType
+    Values:
+      - hidden
+      - standby
+      - macroSuccess
+      - macroFail
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Dict:
+    Name: DictationBubbleProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+    Fields:
+      - Name: hints
+        Type:
+          Name: sequence
+          Params:
+            - Name: DictationBubbleHintType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - accessibilityPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: icon
+        Required: true
+        Type:
+          Name: DictationBubbleIconType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: text
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: visible
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Enum:
+    Name: DlcType
+    Values:
+      - ttsBnBd
+      - ttsCsCz
+      - ttsDaDk
+      - ttsDeDe
+      - ttsElGr
+      - ttsEnAu
+      - ttsEnGb
+      - ttsEnUs
+      - ttsEsEs
+      - ttsEsUs
+      - ttsFiFi
+      - ttsFilPh
+      - ttsFrFr
+      - ttsHiIn
+      - ttsHuHu
+      - ttsIdId
+      - ttsItIt
+      - ttsJaJp
+      - ttsKmKh
+      - ttsKoKr
+      - ttsNbNo
+      - ttsNeNp
+      - ttsNlNl
+      - ttsPlPl
+      - ttsPtBr
+      - ttsSiLk
+      - ttsSkSk
+      - ttsSvSe
+      - ttsThTh
+      - ttsTrTr
+      - ttsUkUa
+      - ttsViVn
+      - ttsYueHk
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Dict:
+    Name: FocusRingInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+    Fields:
+      - Name: backgroundColor
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: color
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: id
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: rects
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: ScreenRect
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - accessibilityPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: secondaryColor
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: stackingOrder
+        Type:
+          Name: FocusRingStackingOrder
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: type
+        Required: true
+        Type:
+          Name: FocusType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Enum:
+    Name: FocusRingStackingOrder
+    Values:
+      - aboveAccessibilityBubbles
+      - belowAccessibilityBubbles
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Enum:
+    Name: FocusType
+    Values:
+      - glow
+      - solid
+      - dashed
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Enum:
+    Name: Gesture
+    Values:
+      - click
+      - swipeLeft1
+      - swipeUp1
+      - swipeRight1
+      - swipeDown1
+      - swipeLeft2
+      - swipeUp2
+      - swipeRight2
+      - swipeDown2
+      - swipeLeft3
+      - swipeUp3
+      - swipeRight3
+      - swipeDown3
+      - swipeLeft4
+      - swipeUp4
+      - swipeRight4
+      - swipeDown4
+      - tap2
+      - tap3
+      - tap4
+      - touchExplore
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextProp:
+    Name: IS_DEFAULT_EVENT_SOURCE_TOUCH
+    Type:
+      Name: long long
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Enum:
+    Name: MagnifierCommand
+    Values:
+      - moveStop
+      - moveUp
+      - moveDown
+      - moveLeft
+      - moveRight
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Dict:
+    Name: PointScanPoint
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+    Fields:
+      - Name: x
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: "y"
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Enum:
+    Name: PointScanState
+    Values:
+      - start
+      - stop
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Dict:
+    Name: PumpkinData
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+    Fields:
+      - Name: de_de_action_config_binarypb
+        Required: true
+        Type:
+          Name: Uint8Array
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: de_de_pumpkin_config_binarypb
+        Required: true
+        Type:
+          Name: Uint8Array
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: en_us_action_config_binarypb
+        Required: true
+        Type:
+          Name: Uint8Array
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: en_us_pumpkin_config_binarypb
+        Required: true
+        Type:
+          Name: Uint8Array
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: es_es_action_config_binarypb
+        Required: true
+        Type:
+          Name: Uint8Array
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: es_es_pumpkin_config_binarypb
+        Required: true
+        Type:
+          Name: Uint8Array
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: fr_fr_action_config_binarypb
+        Required: true
+        Type:
+          Name: Uint8Array
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: fr_fr_pumpkin_config_binarypb
+        Required: true
+        Type:
+          Name: Uint8Array
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: it_it_action_config_binarypb
+        Required: true
+        Type:
+          Name: Uint8Array
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: it_it_pumpkin_config_binarypb
+        Required: true
+        Type:
+          Name: Uint8Array
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: js_pumpkin_tagger_bin_js
+        Required: true
+        Type:
+          Name: Uint8Array
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: tagger_wasm_main_js
+        Required: true
+        Type:
+          Name: Uint8Array
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: tagger_wasm_main_wasm
+        Required: true
+        Type:
+          Name: Uint8Array
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Dict:
+    Name: ScreenPoint
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+    Fields:
+      - Name: x
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: "y"
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Dict:
+    Name: ScreenRect
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+    Fields:
+      - Name: height
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: left
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: top
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: width
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Enum:
+    Name: SelectToSpeakPanelAction
+    Values:
+      - previousParagraph
+      - previousSentence
+      - pause
+      - resume
+      - nextSentence
+      - nextParagraph
+      - exit
+      - changeSpeed
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Enum:
+    Name: SelectToSpeakState
+    Values:
+      - selecting
+      - speaking
+      - inactive
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Enum:
+    Name: SetNativeChromeVoxResponse
+    Values:
+      - success
+      - talkbackNotInstalled
+      - windowNotFound
+      - failure
+      - needDeprecationConfirmation
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Enum:
+    Name: SwitchAccessBubble
+    Values:
+      - backButton
+      - menu
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Enum:
+    Name: SwitchAccessCommand
+    Values:
+      - select
+      - next
+      - previous
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Enum:
+    Name: SwitchAccessMenuAction
+    Values:
+      - copy
+      - cut
+      - decrement
+      - dictation
+      - endTextSelection
+      - increment
+      - itemScan
+      - jumpToBeginningOfText
+      - jumpToEndOfText
+      - keyboard
+      - leftClick
+      - moveBackwardOneCharOfText
+      - moveBackwardOneWordOfText
+      - moveCursor
+      - moveDownOneLineOfText
+      - moveForwardOneCharOfText
+      - moveForwardOneWordOfText
+      - moveUpOneLineOfText
+      - paste
+      - pointScan
+      - rightClick
+      - scrollDown
+      - scrollLeft
+      - scrollRight
+      - scrollUp
+      - select
+      - settings
+      - startTextSelection
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Dict:
+    Name: SyntheticKeyboardEvent
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+    Fields:
+      - Name: keyCode
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: modifiers
+        Type:
+          Name: SyntheticKeyboardModifiers
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: type
+        Required: true
+        Type:
+          Name: SyntheticKeyboardEventType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Enum:
+    Name: SyntheticKeyboardEventType
+    Values:
+      - keyup
+      - keydown
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Dict:
+    Name: SyntheticKeyboardModifiers
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+    Fields:
+      - Name: alt
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: ctrl
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: search
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: shift
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Dict:
+    Name: SyntheticMouseEvent
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+    Fields:
+      - Name: mouseButton
+        Type:
+          Name: SyntheticMouseEventButton
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: touchAccessibility
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: type
+        Required: true
+        Type:
+          Name: SyntheticMouseEventType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: x
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+      - Name: "y"
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Enum:
+    Name: SyntheticMouseEventButton
+    Values:
+      - left
+      - middle
+      - right
+      - back
+      - foward
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Enum:
+    Name: SyntheticMouseEventType
+    Values:
+      - press
+      - release
+      - drag
+      - move
+      - enter
+      - exit
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  Enum:
+    Name: ToastType
+    Values:
+      - dictationNoFocusedTextField
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: darkenScreen
+    Args:
+      - Name: enabled
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: enableMouseEvents
+    Args:
+      - Name: enabled
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: forwardKeyEventsToSwitchAccess
+    Args:
+      - Name: shouldForward
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: getBatteryDescription
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: getDisplayNameForLocale
+    Args:
+      - Name: localeCodeToTranslate
+        Type:
+          Name: DOMString
+      - Name: displayLocaleCode
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: getDlcContents
+    Args:
+      - Name: dlc
+        Type:
+          Name: DlcType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Uint8Array
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: getLocalizedDomKeyStringForKeyCode
+    Args:
+      - Name: keyCode
+        Type:
+          Name: long long
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: handleScrollableBoundsForPointFound
+    Args:
+      - Name: rect
+        Type:
+          Name: ScreenRect
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: installPumpkinForDictation
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: PumpkinData
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - accessibilityPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: isFeatureEnabled
+    Args:
+      - Name: feature
+        Type:
+          Name: AccessibilityFeature
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: isLacrosPrimary
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: magnifierCenterOnPoint
+    Args:
+      - Name: point
+        Type:
+          Name: ScreenPoint
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: moveMagnifierToRect
+    Args:
+      - Name: rect
+        Type:
+          Name: ScreenRect
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextEvent:
+    Name: onAccessibilityGesture
+    Args:
+      - Name: gesture
+        Type:
+          Name: Gesture
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+      - Name: x
+        Type:
+          Name: long long
+      - Name: "y"
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextEvent:
+    Name: onAnnounceForAccessibility
+    Args:
+      - Name: announceText
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextEvent:
+    Name: onCustomSpokenFeedbackToggled
+    Args:
+      - Name: enabled
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextEvent:
+    Name: onIntroduceChromeVox
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextEvent:
+    Name: onMagnifierBoundsChanged
+    Args:
+      - Name: magnifierBounds
+        Type:
+          Name: ScreenRect
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextEvent:
+    Name: onMagnifierCommand
+    Args:
+      - Name: command
+        Type:
+          Name: MagnifierCommand
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextEvent:
+    Name: onPointScanSet
+    Args:
+      - Name: point
+        Type:
+          Name: PointScanPoint
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextEvent:
+    Name: onScrollableBoundsForPointRequested
+    Args:
+      - Name: x
+        Type:
+          Name: double
+      - Name: "y"
+        Type:
+          Name: double
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextEvent:
+    Name: onSelectToSpeakContextMenuClicked
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextEvent:
+    Name: onSelectToSpeakKeysPressedChanged
+    Args:
+      - Name: keyCodes
+        Type:
+          Name: sequence
+          Params:
+            - Name: long long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextEvent:
+    Name: onSelectToSpeakMouseChanged
+    Args:
+      - Name: type
+        Type:
+          Name: SyntheticMouseEventType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+      - Name: x
+        Type:
+          Name: long long
+      - Name: "y"
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextEvent:
+    Name: onSelectToSpeakPanelAction
+    Args:
+      - Name: action
+        Type:
+          Name: SelectToSpeakPanelAction
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+      - Name: value
+        Optional: true
+        Type:
+          Name: double
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextEvent:
+    Name: onSelectToSpeakStateChangeRequested
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextEvent:
+    Name: onShowChromeVoxTutorial
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextEvent:
+    Name: onSwitchAccessCommand
+    Args:
+      - Name: command
+        Type:
+          Name: SwitchAccessCommand
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextEvent:
+    Name: onToggleDictation
+    Args:
+      - Name: activated
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextEvent:
+    Name: onTwoFingerTouchStart
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextEvent:
+    Name: onTwoFingerTouchStop
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: openSettingsSubpage
+    Args:
+      - Name: subpage
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: performAcceleratorAction
+    Args:
+      - Name: acceleratorAction
+        Type:
+          Name: AcceleratorAction
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: sendSyntheticKeyEvent
+    Args:
+      - Name: keyEvent
+        Type:
+          Name: SyntheticKeyboardEvent
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+      - Name: useRewriters
+        Optional: true
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: sendSyntheticMouseEvent
+    Args:
+      - Name: mouseEvent
+        Type:
+          Name: SyntheticMouseEvent
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: setFocusRings
+    Args:
+      - Name: focusRings
+        Type:
+          Name: sequence
+          Params:
+            - Name: FocusRingInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - accessibilityPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+      - Name: atType
+        Type:
+          Name: AssistiveTechnologyType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: setHighlights
+    Args:
+      - Name: rects
+        Type:
+          Name: sequence
+          Params:
+            - Name: ScreenRect
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - accessibilityPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+      - Name: color
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: setKeyboardListener
+    Args:
+      - Name: enabled
+        Type:
+          Name: boolean
+      - Name: capture
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: setNativeAccessibilityEnabled
+    Args:
+      - Name: enabled
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: setNativeChromeVoxArcSupportForCurrentApp
+    Args:
+      - Name: enabled
+        Type:
+          Name: boolean
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: SetNativeChromeVoxResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - accessibilityPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: setPointScanState
+    Args:
+      - Name: state
+        Type:
+          Name: PointScanState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: setSelectToSpeakState
+    Args:
+      - Name: state
+        Type:
+          Name: SelectToSpeakState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: setVirtualKeyboardVisible
+    Args:
+      - Name: isVisible
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: showConfirmationDialog
+    Args:
+      - Name: title
+        Type:
+          Name: DOMString
+      - Name: description
+        Type:
+          Name: DOMString
+      - Name: cancelName
+        Optional: true
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: showToast
+    Args:
+      - Name: type
+        Type:
+          Name: ToastType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: silenceSpokenFeedback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: toggleDictation
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: updateDictationBubble
+    Args:
+      - Name: properties
+        Type:
+          Name: DictationBubbleProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: updateSelectToSpeakPanel
+    Args:
+      - Name: show
+        Type:
+          Name: boolean
+      - Name: anchor
+        Optional: true
+        Type:
+          Name: ScreenRect
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+      - Name: isPaused
+        Optional: true
+        Type:
+          Name: boolean
+      - Name: speed
+        Optional: true
+        Type:
+          Name: double
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate
+- File: webext/chrome/accessibility_private.json
+  WebextFunc:
+    Name: updateSwitchAccessBubble
+    Args:
+      - Name: bubble
+        Type:
+          Name: SwitchAccessBubble
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+      - Name: show
+        Type:
+          Name: boolean
+      - Name: anchor
+        Optional: true
+        Type:
+          Name: ScreenRect
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+      - Name: actions
+        Optional: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: SwitchAccessMenuAction
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - accessibilityPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - accessibilityPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityPrivate

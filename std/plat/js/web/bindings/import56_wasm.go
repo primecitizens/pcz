@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web store_VideoEncoderEncodeOptionsForAv1
 //go:noescape
@@ -75,11 +73,11 @@ func GetVideoEncoderEncodeQueueSize(
 
 //go:wasmimport plat/js/web has_VideoEncoder_Configure
 //go:noescape
-func HasVideoEncoderConfigure(this js.Ref) js.Ref
+func HasFuncVideoEncoderConfigure(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_VideoEncoder_Configure
 //go:noescape
-func VideoEncoderConfigureFunc(this js.Ref) js.Ref
+func FuncVideoEncoderConfigure(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_VideoEncoder_Configure
 //go:noescape
@@ -95,11 +93,11 @@ func TryVideoEncoderConfigure(
 
 //go:wasmimport plat/js/web has_VideoEncoder_Encode
 //go:noescape
-func HasVideoEncoderEncode(this js.Ref) js.Ref
+func HasFuncVideoEncoderEncode(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_VideoEncoder_Encode
 //go:noescape
-func VideoEncoderEncodeFunc(this js.Ref) js.Ref
+func FuncVideoEncoderEncode(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_VideoEncoder_Encode
 //go:noescape
@@ -117,11 +115,11 @@ func TryVideoEncoderEncode(
 
 //go:wasmimport plat/js/web has_VideoEncoder_Encode1
 //go:noescape
-func HasVideoEncoderEncode1(this js.Ref) js.Ref
+func HasFuncVideoEncoderEncode1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_VideoEncoder_Encode1
 //go:noescape
-func VideoEncoderEncode1Func(this js.Ref) js.Ref
+func FuncVideoEncoderEncode1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_VideoEncoder_Encode1
 //go:noescape
@@ -137,11 +135,11 @@ func TryVideoEncoderEncode1(
 
 //go:wasmimport plat/js/web has_VideoEncoder_Flush
 //go:noescape
-func HasVideoEncoderFlush(this js.Ref) js.Ref
+func HasFuncVideoEncoderFlush(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_VideoEncoder_Flush
 //go:noescape
-func VideoEncoderFlushFunc(this js.Ref) js.Ref
+func FuncVideoEncoderFlush(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_VideoEncoder_Flush
 //go:noescape
@@ -155,11 +153,11 @@ func TryVideoEncoderFlush(
 
 //go:wasmimport plat/js/web has_VideoEncoder_Reset
 //go:noescape
-func HasVideoEncoderReset(this js.Ref) js.Ref
+func HasFuncVideoEncoderReset(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_VideoEncoder_Reset
 //go:noescape
-func VideoEncoderResetFunc(this js.Ref) js.Ref
+func FuncVideoEncoderReset(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_VideoEncoder_Reset
 //go:noescape
@@ -173,11 +171,11 @@ func TryVideoEncoderReset(
 
 //go:wasmimport plat/js/web has_VideoEncoder_Close
 //go:noescape
-func HasVideoEncoderClose(this js.Ref) js.Ref
+func HasFuncVideoEncoderClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_VideoEncoder_Close
 //go:noescape
-func VideoEncoderCloseFunc(this js.Ref) js.Ref
+func FuncVideoEncoderClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_VideoEncoder_Close
 //go:noescape
@@ -191,11 +189,11 @@ func TryVideoEncoderClose(
 
 //go:wasmimport plat/js/web has_VideoEncoder_IsConfigSupported
 //go:noescape
-func HasVideoEncoderIsConfigSupported(this js.Ref) js.Ref
+func HasFuncVideoEncoderIsConfigSupported(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_VideoEncoder_IsConfigSupported
 //go:noescape
-func VideoEncoderIsConfigSupportedFunc(this js.Ref) js.Ref
+func FuncVideoEncoderIsConfigSupported(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_VideoEncoder_IsConfigSupported
 //go:noescape
@@ -295,11 +293,11 @@ func GetVisibilityStateEntryDuration(
 
 //go:wasmimport plat/js/web has_WEBGL_compressed_texture_astc_GetSupportedProfiles
 //go:noescape
-func HasWEBGL_compressed_texture_astcGetSupportedProfiles(this js.Ref) js.Ref
+func HasFuncWEBGL_compressed_texture_astcGetSupportedProfiles(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WEBGL_compressed_texture_astc_GetSupportedProfiles
 //go:noescape
-func WEBGL_compressed_texture_astcGetSupportedProfilesFunc(this js.Ref) js.Ref
+func FuncWEBGL_compressed_texture_astcGetSupportedProfiles(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WEBGL_compressed_texture_astc_GetSupportedProfiles
 //go:noescape
@@ -313,11 +311,11 @@ func TryWEBGL_compressed_texture_astcGetSupportedProfiles(
 
 //go:wasmimport plat/js/web has_WEBGL_debug_shaders_GetTranslatedShaderSource
 //go:noescape
-func HasWEBGL_debug_shadersGetTranslatedShaderSource(this js.Ref) js.Ref
+func HasFuncWEBGL_debug_shadersGetTranslatedShaderSource(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WEBGL_debug_shaders_GetTranslatedShaderSource
 //go:noescape
-func WEBGL_debug_shadersGetTranslatedShaderSourceFunc(this js.Ref) js.Ref
+func FuncWEBGL_debug_shadersGetTranslatedShaderSource(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WEBGL_debug_shaders_GetTranslatedShaderSource
 //go:noescape
@@ -333,11 +331,11 @@ func TryWEBGL_debug_shadersGetTranslatedShaderSource(
 
 //go:wasmimport plat/js/web has_WEBGL_draw_buffers_DrawBuffersWEBGL
 //go:noescape
-func HasWEBGL_draw_buffersDrawBuffersWEBGL(this js.Ref) js.Ref
+func HasFuncWEBGL_draw_buffersDrawBuffersWEBGL(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WEBGL_draw_buffers_DrawBuffersWEBGL
 //go:noescape
-func WEBGL_draw_buffersDrawBuffersWEBGLFunc(this js.Ref) js.Ref
+func FuncWEBGL_draw_buffersDrawBuffersWEBGL(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WEBGL_draw_buffers_DrawBuffersWEBGL
 //go:noescape
@@ -353,11 +351,11 @@ func TryWEBGL_draw_buffersDrawBuffersWEBGL(
 
 //go:wasmimport plat/js/web has_WEBGL_draw_instanced_base_vertex_base_instance_DrawArraysInstancedBaseInstanceWEBGL
 //go:noescape
-func HasWEBGL_draw_instanced_base_vertex_base_instanceDrawArraysInstancedBaseInstanceWEBGL(this js.Ref) js.Ref
+func HasFuncWEBGL_draw_instanced_base_vertex_base_instanceDrawArraysInstancedBaseInstanceWEBGL(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WEBGL_draw_instanced_base_vertex_base_instance_DrawArraysInstancedBaseInstanceWEBGL
 //go:noescape
-func WEBGL_draw_instanced_base_vertex_base_instanceDrawArraysInstancedBaseInstanceWEBGLFunc(this js.Ref) js.Ref
+func FuncWEBGL_draw_instanced_base_vertex_base_instanceDrawArraysInstancedBaseInstanceWEBGL(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WEBGL_draw_instanced_base_vertex_base_instance_DrawArraysInstancedBaseInstanceWEBGL
 //go:noescape
@@ -381,11 +379,11 @@ func TryWEBGL_draw_instanced_base_vertex_base_instanceDrawArraysInstancedBaseIns
 
 //go:wasmimport plat/js/web has_WEBGL_draw_instanced_base_vertex_base_instance_DrawElementsInstancedBaseVertexBaseInstanceWEBGL
 //go:noescape
-func HasWEBGL_draw_instanced_base_vertex_base_instanceDrawElementsInstancedBaseVertexBaseInstanceWEBGL(this js.Ref) js.Ref
+func HasFuncWEBGL_draw_instanced_base_vertex_base_instanceDrawElementsInstancedBaseVertexBaseInstanceWEBGL(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WEBGL_draw_instanced_base_vertex_base_instance_DrawElementsInstancedBaseVertexBaseInstanceWEBGL
 //go:noescape
-func WEBGL_draw_instanced_base_vertex_base_instanceDrawElementsInstancedBaseVertexBaseInstanceWEBGLFunc(this js.Ref) js.Ref
+func FuncWEBGL_draw_instanced_base_vertex_base_instanceDrawElementsInstancedBaseVertexBaseInstanceWEBGL(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WEBGL_draw_instanced_base_vertex_base_instance_DrawElementsInstancedBaseVertexBaseInstanceWEBGL
 //go:noescape
@@ -413,11 +411,11 @@ func TryWEBGL_draw_instanced_base_vertex_base_instanceDrawElementsInstancedBaseV
 
 //go:wasmimport plat/js/web has_WEBGL_lose_context_LoseContext
 //go:noescape
-func HasWEBGL_lose_contextLoseContext(this js.Ref) js.Ref
+func HasFuncWEBGL_lose_contextLoseContext(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WEBGL_lose_context_LoseContext
 //go:noescape
-func WEBGL_lose_contextLoseContextFunc(this js.Ref) js.Ref
+func FuncWEBGL_lose_contextLoseContext(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WEBGL_lose_context_LoseContext
 //go:noescape
@@ -431,11 +429,11 @@ func TryWEBGL_lose_contextLoseContext(
 
 //go:wasmimport plat/js/web has_WEBGL_lose_context_RestoreContext
 //go:noescape
-func HasWEBGL_lose_contextRestoreContext(this js.Ref) js.Ref
+func HasFuncWEBGL_lose_contextRestoreContext(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WEBGL_lose_context_RestoreContext
 //go:noescape
-func WEBGL_lose_contextRestoreContextFunc(this js.Ref) js.Ref
+func FuncWEBGL_lose_contextRestoreContext(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WEBGL_lose_context_RestoreContext
 //go:noescape
@@ -449,11 +447,11 @@ func TryWEBGL_lose_contextRestoreContext(
 
 //go:wasmimport plat/js/web has_WEBGL_multi_draw_MultiDrawArraysWEBGL
 //go:noescape
-func HasWEBGL_multi_drawMultiDrawArraysWEBGL(this js.Ref) js.Ref
+func HasFuncWEBGL_multi_drawMultiDrawArraysWEBGL(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WEBGL_multi_draw_MultiDrawArraysWEBGL
 //go:noescape
-func WEBGL_multi_drawMultiDrawArraysWEBGLFunc(this js.Ref) js.Ref
+func FuncWEBGL_multi_drawMultiDrawArraysWEBGL(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WEBGL_multi_draw_MultiDrawArraysWEBGL
 //go:noescape
@@ -479,11 +477,11 @@ func TryWEBGL_multi_drawMultiDrawArraysWEBGL(
 
 //go:wasmimport plat/js/web has_WEBGL_multi_draw_MultiDrawElementsWEBGL
 //go:noescape
-func HasWEBGL_multi_drawMultiDrawElementsWEBGL(this js.Ref) js.Ref
+func HasFuncWEBGL_multi_drawMultiDrawElementsWEBGL(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WEBGL_multi_draw_MultiDrawElementsWEBGL
 //go:noescape
-func WEBGL_multi_drawMultiDrawElementsWEBGLFunc(this js.Ref) js.Ref
+func FuncWEBGL_multi_drawMultiDrawElementsWEBGL(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WEBGL_multi_draw_MultiDrawElementsWEBGL
 //go:noescape
@@ -511,11 +509,11 @@ func TryWEBGL_multi_drawMultiDrawElementsWEBGL(
 
 //go:wasmimport plat/js/web has_WEBGL_multi_draw_MultiDrawArraysInstancedWEBGL
 //go:noescape
-func HasWEBGL_multi_drawMultiDrawArraysInstancedWEBGL(this js.Ref) js.Ref
+func HasFuncWEBGL_multi_drawMultiDrawArraysInstancedWEBGL(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WEBGL_multi_draw_MultiDrawArraysInstancedWEBGL
 //go:noescape
-func WEBGL_multi_drawMultiDrawArraysInstancedWEBGLFunc(this js.Ref) js.Ref
+func FuncWEBGL_multi_drawMultiDrawArraysInstancedWEBGL(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WEBGL_multi_draw_MultiDrawArraysInstancedWEBGL
 //go:noescape
@@ -545,11 +543,11 @@ func TryWEBGL_multi_drawMultiDrawArraysInstancedWEBGL(
 
 //go:wasmimport plat/js/web has_WEBGL_multi_draw_MultiDrawElementsInstancedWEBGL
 //go:noescape
-func HasWEBGL_multi_drawMultiDrawElementsInstancedWEBGL(this js.Ref) js.Ref
+func HasFuncWEBGL_multi_drawMultiDrawElementsInstancedWEBGL(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WEBGL_multi_draw_MultiDrawElementsInstancedWEBGL
 //go:noescape
-func WEBGL_multi_drawMultiDrawElementsInstancedWEBGLFunc(this js.Ref) js.Ref
+func FuncWEBGL_multi_drawMultiDrawElementsInstancedWEBGL(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WEBGL_multi_draw_MultiDrawElementsInstancedWEBGL
 //go:noescape
@@ -581,11 +579,11 @@ func TryWEBGL_multi_drawMultiDrawElementsInstancedWEBGL(
 
 //go:wasmimport plat/js/web has_WEBGL_multi_draw_instanced_base_vertex_base_instance_MultiDrawArraysInstancedBaseInstanceWEBGL
 //go:noescape
-func HasWEBGL_multi_draw_instanced_base_vertex_base_instanceMultiDrawArraysInstancedBaseInstanceWEBGL(this js.Ref) js.Ref
+func HasFuncWEBGL_multi_draw_instanced_base_vertex_base_instanceMultiDrawArraysInstancedBaseInstanceWEBGL(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WEBGL_multi_draw_instanced_base_vertex_base_instance_MultiDrawArraysInstancedBaseInstanceWEBGL
 //go:noescape
-func WEBGL_multi_draw_instanced_base_vertex_base_instanceMultiDrawArraysInstancedBaseInstanceWEBGLFunc(this js.Ref) js.Ref
+func FuncWEBGL_multi_draw_instanced_base_vertex_base_instanceMultiDrawArraysInstancedBaseInstanceWEBGL(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WEBGL_multi_draw_instanced_base_vertex_base_instance_MultiDrawArraysInstancedBaseInstanceWEBGL
 //go:noescape
@@ -619,11 +617,11 @@ func TryWEBGL_multi_draw_instanced_base_vertex_base_instanceMultiDrawArraysInsta
 
 //go:wasmimport plat/js/web has_WEBGL_multi_draw_instanced_base_vertex_base_instance_MultiDrawElementsInstancedBaseVertexBaseInstanceWEBGL
 //go:noescape
-func HasWEBGL_multi_draw_instanced_base_vertex_base_instanceMultiDrawElementsInstancedBaseVertexBaseInstanceWEBGL(this js.Ref) js.Ref
+func HasFuncWEBGL_multi_draw_instanced_base_vertex_base_instanceMultiDrawElementsInstancedBaseVertexBaseInstanceWEBGL(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WEBGL_multi_draw_instanced_base_vertex_base_instance_MultiDrawElementsInstancedBaseVertexBaseInstanceWEBGL
 //go:noescape
-func WEBGL_multi_draw_instanced_base_vertex_base_instanceMultiDrawElementsInstancedBaseVertexBaseInstanceWEBGLFunc(this js.Ref) js.Ref
+func FuncWEBGL_multi_draw_instanced_base_vertex_base_instanceMultiDrawElementsInstancedBaseVertexBaseInstanceWEBGL(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WEBGL_multi_draw_instanced_base_vertex_base_instance_MultiDrawElementsInstancedBaseVertexBaseInstanceWEBGL
 //go:noescape
@@ -663,11 +661,11 @@ func TryWEBGL_multi_draw_instanced_base_vertex_base_instanceMultiDrawElementsIns
 
 //go:wasmimport plat/js/web has_WEBGL_provoking_vertex_ProvokingVertexWEBGL
 //go:noescape
-func HasWEBGL_provoking_vertexProvokingVertexWEBGL(this js.Ref) js.Ref
+func HasFuncWEBGL_provoking_vertexProvokingVertexWEBGL(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WEBGL_provoking_vertex_ProvokingVertexWEBGL
 //go:noescape
-func WEBGL_provoking_vertexProvokingVertexWEBGLFunc(this js.Ref) js.Ref
+func FuncWEBGL_provoking_vertexProvokingVertexWEBGL(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WEBGL_provoking_vertex_ProvokingVertexWEBGL
 //go:noescape
@@ -693,11 +691,11 @@ func WebAssemblyInstantiatedSourceJSLoad(
 
 //go:wasmimport plat/js/web has_WebAssembly_Validate
 //go:noescape
-func HasWebAssemblyValidate() js.Ref
+func HasFuncWebAssemblyValidate() js.Ref
 
 //go:wasmimport plat/js/web func_WebAssembly_Validate
 //go:noescape
-func WebAssemblyValidateFunc() js.Ref
+func FuncWebAssemblyValidate(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebAssembly_Validate
 //go:noescape
@@ -709,15 +707,15 @@ func CallWebAssemblyValidate(
 //go:noescape
 func TryWebAssemblyValidate(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	bytes js.Ref) (ok js.Ref)
+	bytes js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_WebAssembly_Compile
 //go:noescape
-func HasWebAssemblyCompile() js.Ref
+func HasFuncWebAssemblyCompile() js.Ref
 
 //go:wasmimport plat/js/web func_WebAssembly_Compile
 //go:noescape
-func WebAssemblyCompileFunc() js.Ref
+func FuncWebAssemblyCompile(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebAssembly_Compile
 //go:noescape
@@ -729,15 +727,15 @@ func CallWebAssemblyCompile(
 //go:noescape
 func TryWebAssemblyCompile(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	bytes js.Ref) (ok js.Ref)
+	bytes js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_WebAssembly_Instantiate
 //go:noescape
-func HasWebAssemblyInstantiate() js.Ref
+func HasFuncWebAssemblyInstantiate() js.Ref
 
 //go:wasmimport plat/js/web func_WebAssembly_Instantiate
 //go:noescape
-func WebAssemblyInstantiateFunc() js.Ref
+func FuncWebAssemblyInstantiate(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebAssembly_Instantiate
 //go:noescape
@@ -751,15 +749,15 @@ func CallWebAssemblyInstantiate(
 func TryWebAssemblyInstantiate(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	bytes js.Ref,
-	importObject js.Ref) (ok js.Ref)
+	importObject js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_WebAssembly_Instantiate1
 //go:noescape
-func HasWebAssemblyInstantiate1() js.Ref
+func HasFuncWebAssemblyInstantiate1() js.Ref
 
 //go:wasmimport plat/js/web func_WebAssembly_Instantiate1
 //go:noescape
-func WebAssemblyInstantiate1Func() js.Ref
+func FuncWebAssemblyInstantiate1(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebAssembly_Instantiate1
 //go:noescape
@@ -771,15 +769,15 @@ func CallWebAssemblyInstantiate1(
 //go:noescape
 func TryWebAssemblyInstantiate1(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	bytes js.Ref) (ok js.Ref)
+	bytes js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_WebAssembly_Instantiate2
 //go:noescape
-func HasWebAssemblyInstantiate2() js.Ref
+func HasFuncWebAssemblyInstantiate2() js.Ref
 
 //go:wasmimport plat/js/web func_WebAssembly_Instantiate2
 //go:noescape
-func WebAssemblyInstantiate2Func() js.Ref
+func FuncWebAssemblyInstantiate2(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebAssembly_Instantiate2
 //go:noescape
@@ -793,15 +791,15 @@ func CallWebAssemblyInstantiate2(
 func TryWebAssemblyInstantiate2(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	moduleObject js.Ref,
-	importObject js.Ref) (ok js.Ref)
+	importObject js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_WebAssembly_Instantiate3
 //go:noescape
-func HasWebAssemblyInstantiate3() js.Ref
+func HasFuncWebAssemblyInstantiate3() js.Ref
 
 //go:wasmimport plat/js/web func_WebAssembly_Instantiate3
 //go:noescape
-func WebAssemblyInstantiate3Func() js.Ref
+func FuncWebAssemblyInstantiate3(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebAssembly_Instantiate3
 //go:noescape
@@ -813,15 +811,15 @@ func CallWebAssemblyInstantiate3(
 //go:noescape
 func TryWebAssemblyInstantiate3(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	moduleObject js.Ref) (ok js.Ref)
+	moduleObject js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_WebAssembly_CompileStreaming
 //go:noescape
-func HasWebAssemblyCompileStreaming() js.Ref
+func HasFuncWebAssemblyCompileStreaming() js.Ref
 
 //go:wasmimport plat/js/web func_WebAssembly_CompileStreaming
 //go:noescape
-func WebAssemblyCompileStreamingFunc() js.Ref
+func FuncWebAssemblyCompileStreaming(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebAssembly_CompileStreaming
 //go:noescape
@@ -833,15 +831,15 @@ func CallWebAssemblyCompileStreaming(
 //go:noescape
 func TryWebAssemblyCompileStreaming(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	source js.Ref) (ok js.Ref)
+	source js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_WebAssembly_InstantiateStreaming
 //go:noescape
-func HasWebAssemblyInstantiateStreaming() js.Ref
+func HasFuncWebAssemblyInstantiateStreaming() js.Ref
 
 //go:wasmimport plat/js/web func_WebAssembly_InstantiateStreaming
 //go:noescape
-func WebAssemblyInstantiateStreamingFunc() js.Ref
+func FuncWebAssemblyInstantiateStreaming(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebAssembly_InstantiateStreaming
 //go:noescape
@@ -855,15 +853,15 @@ func CallWebAssemblyInstantiateStreaming(
 func TryWebAssemblyInstantiateStreaming(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	source js.Ref,
-	importObject js.Ref) (ok js.Ref)
+	importObject js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_WebAssembly_InstantiateStreaming1
 //go:noescape
-func HasWebAssemblyInstantiateStreaming1() js.Ref
+func HasFuncWebAssemblyInstantiateStreaming1() js.Ref
 
 //go:wasmimport plat/js/web func_WebAssembly_InstantiateStreaming1
 //go:noescape
-func WebAssemblyInstantiateStreaming1Func() js.Ref
+func FuncWebAssemblyInstantiateStreaming1(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebAssembly_InstantiateStreaming1
 //go:noescape
@@ -875,7 +873,7 @@ func CallWebAssemblyInstantiateStreaming1(
 //go:noescape
 func TryWebAssemblyInstantiateStreaming1(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	source js.Ref) (ok js.Ref)
+	source js.Ref) js.Ref
 
 //go:wasmimport plat/js/web store_WebGLContextEventInit
 //go:noescape

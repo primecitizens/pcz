@@ -1,0 +1,158 @@
+- File: webext/extension_options_internal.idl
+  Dict:
+    Name: PreferredSizeChangedOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionOptionsInternal
+    Fields:
+      - Name: width
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionOptionsInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionOptionsInternal
+      - Name: height
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionOptionsInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionOptionsInternal
+- File: webext/extension_options_internal.idl
+  Dict:
+    Name: SizeChangedOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionOptionsInternal
+    Fields:
+      - Name: oldWidth
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionOptionsInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionOptionsInternal
+      - Name: oldHeight
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionOptionsInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionOptionsInternal
+      - Name: newWidth
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionOptionsInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionOptionsInternal
+      - Name: newHeight
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionOptionsInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionOptionsInternal
+- File: webext/extension_options_internal.idl
+  WebextEvent:
+    Name: onClose
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionOptionsInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionOptionsInternal
+- File: webext/extension_options_internal.idl
+  WebextEvent:
+    Name: onLoad
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionOptionsInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionOptionsInternal
+- File: webext/extension_options_internal.idl
+  WebextEvent:
+    Name: onPreferredSizeChanged
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: PreferredSizeChangedOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionOptionsInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionOptionsInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionOptionsInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionOptionsInternal

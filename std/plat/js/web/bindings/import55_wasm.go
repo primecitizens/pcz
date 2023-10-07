@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web store_Transformer
 //go:noescape
@@ -107,11 +105,11 @@ func GetUIEventSourceCapabilities(
 
 //go:wasmimport plat/js/web has_UIEvent_InitUIEvent
 //go:noescape
-func HasUIEventInitUIEvent(this js.Ref) js.Ref
+func HasFuncUIEventInitUIEvent(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_UIEvent_InitUIEvent
 //go:noescape
-func UIEventInitUIEventFunc(this js.Ref) js.Ref
+func FuncUIEventInitUIEvent(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_UIEvent_InitUIEvent
 //go:noescape
@@ -135,11 +133,11 @@ func TryUIEventInitUIEvent(
 
 //go:wasmimport plat/js/web has_UIEvent_InitUIEvent1
 //go:noescape
-func HasUIEventInitUIEvent1(this js.Ref) js.Ref
+func HasFuncUIEventInitUIEvent1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_UIEvent_InitUIEvent1
 //go:noescape
-func UIEventInitUIEvent1Func(this js.Ref) js.Ref
+func FuncUIEventInitUIEvent1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_UIEvent_InitUIEvent1
 //go:noescape
@@ -161,11 +159,11 @@ func TryUIEventInitUIEvent1(
 
 //go:wasmimport plat/js/web has_UIEvent_InitUIEvent2
 //go:noescape
-func HasUIEventInitUIEvent2(this js.Ref) js.Ref
+func HasFuncUIEventInitUIEvent2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_UIEvent_InitUIEvent2
 //go:noescape
-func UIEventInitUIEvent2Func(this js.Ref) js.Ref
+func FuncUIEventInitUIEvent2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_UIEvent_InitUIEvent2
 //go:noescape
@@ -185,11 +183,11 @@ func TryUIEventInitUIEvent2(
 
 //go:wasmimport plat/js/web has_UIEvent_InitUIEvent3
 //go:noescape
-func HasUIEventInitUIEvent3(this js.Ref) js.Ref
+func HasFuncUIEventInitUIEvent3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_UIEvent_InitUIEvent3
 //go:noescape
-func UIEventInitUIEvent3Func(this js.Ref) js.Ref
+func FuncUIEventInitUIEvent3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_UIEvent_InitUIEvent3
 //go:noescape
@@ -207,11 +205,11 @@ func TryUIEventInitUIEvent3(
 
 //go:wasmimport plat/js/web has_UIEvent_InitUIEvent4
 //go:noescape
-func HasUIEventInitUIEvent4(this js.Ref) js.Ref
+func HasFuncUIEventInitUIEvent4(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_UIEvent_InitUIEvent4
 //go:noescape
-func UIEventInitUIEvent4Func(this js.Ref) js.Ref
+func FuncUIEventInitUIEvent4(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_UIEvent_InitUIEvent4
 //go:noescape
@@ -368,11 +366,11 @@ func SetURLHash(
 
 //go:wasmimport plat/js/web has_URL_CanParse
 //go:noescape
-func HasURLCanParse(this js.Ref) js.Ref
+func HasFuncURLCanParse(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_URL_CanParse
 //go:noescape
-func URLCanParseFunc(this js.Ref) js.Ref
+func FuncURLCanParse(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_URL_CanParse
 //go:noescape
@@ -390,11 +388,11 @@ func TryURLCanParse(
 
 //go:wasmimport plat/js/web has_URL_CanParse1
 //go:noescape
-func HasURLCanParse1(this js.Ref) js.Ref
+func HasFuncURLCanParse1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_URL_CanParse1
 //go:noescape
-func URLCanParse1Func(this js.Ref) js.Ref
+func FuncURLCanParse1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_URL_CanParse1
 //go:noescape
@@ -410,11 +408,11 @@ func TryURLCanParse1(
 
 //go:wasmimport plat/js/web has_URL_ToJSON
 //go:noescape
-func HasURLToJSON(this js.Ref) js.Ref
+func HasFuncURLToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_URL_ToJSON
 //go:noescape
-func URLToJSONFunc(this js.Ref) js.Ref
+func FuncURLToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_URL_ToJSON
 //go:noescape
@@ -428,11 +426,11 @@ func TryURLToJSON(
 
 //go:wasmimport plat/js/web has_URL_CreateObjectURL
 //go:noescape
-func HasURLCreateObjectURL(this js.Ref) js.Ref
+func HasFuncURLCreateObjectURL(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_URL_CreateObjectURL
 //go:noescape
-func URLCreateObjectURLFunc(this js.Ref) js.Ref
+func FuncURLCreateObjectURL(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_URL_CreateObjectURL
 //go:noescape
@@ -448,11 +446,11 @@ func TryURLCreateObjectURL(
 
 //go:wasmimport plat/js/web has_URL_RevokeObjectURL
 //go:noescape
-func HasURLRevokeObjectURL(this js.Ref) js.Ref
+func HasFuncURLRevokeObjectURL(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_URL_RevokeObjectURL
 //go:noescape
-func URLRevokeObjectURLFunc(this js.Ref) js.Ref
+func FuncURLRevokeObjectURL(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_URL_RevokeObjectURL
 //go:noescape
@@ -576,11 +574,11 @@ func GetURLPatternHash(
 
 //go:wasmimport plat/js/web has_URLPattern_Test
 //go:noescape
-func HasURLPatternTest(this js.Ref) js.Ref
+func HasFuncURLPatternTest(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_URLPattern_Test
 //go:noescape
-func URLPatternTestFunc(this js.Ref) js.Ref
+func FuncURLPatternTest(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_URLPattern_Test
 //go:noescape
@@ -598,11 +596,11 @@ func TryURLPatternTest(
 
 //go:wasmimport plat/js/web has_URLPattern_Test1
 //go:noescape
-func HasURLPatternTest1(this js.Ref) js.Ref
+func HasFuncURLPatternTest1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_URLPattern_Test1
 //go:noescape
-func URLPatternTest1Func(this js.Ref) js.Ref
+func FuncURLPatternTest1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_URLPattern_Test1
 //go:noescape
@@ -618,11 +616,11 @@ func TryURLPatternTest1(
 
 //go:wasmimport plat/js/web has_URLPattern_Test2
 //go:noescape
-func HasURLPatternTest2(this js.Ref) js.Ref
+func HasFuncURLPatternTest2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_URLPattern_Test2
 //go:noescape
-func URLPatternTest2Func(this js.Ref) js.Ref
+func FuncURLPatternTest2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_URLPattern_Test2
 //go:noescape
@@ -636,11 +634,11 @@ func TryURLPatternTest2(
 
 //go:wasmimport plat/js/web has_URLPattern_Exec
 //go:noescape
-func HasURLPatternExec(this js.Ref) js.Ref
+func HasFuncURLPatternExec(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_URLPattern_Exec
 //go:noescape
-func URLPatternExecFunc(this js.Ref) js.Ref
+func FuncURLPatternExec(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_URLPattern_Exec
 //go:noescape
@@ -658,11 +656,11 @@ func TryURLPatternExec(
 
 //go:wasmimport plat/js/web has_URLPattern_Exec1
 //go:noescape
-func HasURLPatternExec1(this js.Ref) js.Ref
+func HasFuncURLPatternExec1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_URLPattern_Exec1
 //go:noescape
-func URLPatternExec1Func(this js.Ref) js.Ref
+func FuncURLPatternExec1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_URLPattern_Exec1
 //go:noescape
@@ -678,11 +676,11 @@ func TryURLPatternExec1(
 
 //go:wasmimport plat/js/web has_URLPattern_Exec2
 //go:noescape
-func HasURLPatternExec2(this js.Ref) js.Ref
+func HasFuncURLPatternExec2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_URLPattern_Exec2
 //go:noescape
-func URLPatternExec2Func(this js.Ref) js.Ref
+func FuncURLPatternExec2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_URLPattern_Exec2
 //go:noescape
@@ -803,11 +801,11 @@ func GetWritableStreamDefaultControllerSignal(
 
 //go:wasmimport plat/js/web has_WritableStreamDefaultController_Error
 //go:noescape
-func HasWritableStreamDefaultControllerError(this js.Ref) js.Ref
+func HasFuncWritableStreamDefaultControllerError(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WritableStreamDefaultController_Error
 //go:noescape
-func WritableStreamDefaultControllerErrorFunc(this js.Ref) js.Ref
+func FuncWritableStreamDefaultControllerError(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WritableStreamDefaultController_Error
 //go:noescape
@@ -823,11 +821,11 @@ func TryWritableStreamDefaultControllerError(
 
 //go:wasmimport plat/js/web has_WritableStreamDefaultController_Error1
 //go:noescape
-func HasWritableStreamDefaultControllerError1(this js.Ref) js.Ref
+func HasFuncWritableStreamDefaultControllerError1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WritableStreamDefaultController_Error1
 //go:noescape
-func WritableStreamDefaultControllerError1Func(this js.Ref) js.Ref
+func FuncWritableStreamDefaultControllerError1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WritableStreamDefaultController_Error1
 //go:noescape
@@ -1088,11 +1086,11 @@ func SetVTTCueText(
 
 //go:wasmimport plat/js/web has_VTTCue_GetCueAsHTML
 //go:noescape
-func HasVTTCueGetCueAsHTML(this js.Ref) js.Ref
+func HasFuncVTTCueGetCueAsHTML(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_VTTCue_GetCueAsHTML
 //go:noescape
-func VTTCueGetCueAsHTMLFunc(this js.Ref) js.Ref
+func FuncVTTCueGetCueAsHTML(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_VTTCue_GetCueAsHTML
 //go:noescape
@@ -1167,11 +1165,11 @@ func GetVideoDecoderDecodeQueueSize(
 
 //go:wasmimport plat/js/web has_VideoDecoder_Configure
 //go:noescape
-func HasVideoDecoderConfigure(this js.Ref) js.Ref
+func HasFuncVideoDecoderConfigure(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_VideoDecoder_Configure
 //go:noescape
-func VideoDecoderConfigureFunc(this js.Ref) js.Ref
+func FuncVideoDecoderConfigure(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_VideoDecoder_Configure
 //go:noescape
@@ -1187,11 +1185,11 @@ func TryVideoDecoderConfigure(
 
 //go:wasmimport plat/js/web has_VideoDecoder_Decode
 //go:noescape
-func HasVideoDecoderDecode(this js.Ref) js.Ref
+func HasFuncVideoDecoderDecode(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_VideoDecoder_Decode
 //go:noescape
-func VideoDecoderDecodeFunc(this js.Ref) js.Ref
+func FuncVideoDecoderDecode(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_VideoDecoder_Decode
 //go:noescape
@@ -1207,11 +1205,11 @@ func TryVideoDecoderDecode(
 
 //go:wasmimport plat/js/web has_VideoDecoder_Flush
 //go:noescape
-func HasVideoDecoderFlush(this js.Ref) js.Ref
+func HasFuncVideoDecoderFlush(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_VideoDecoder_Flush
 //go:noescape
-func VideoDecoderFlushFunc(this js.Ref) js.Ref
+func FuncVideoDecoderFlush(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_VideoDecoder_Flush
 //go:noescape
@@ -1225,11 +1223,11 @@ func TryVideoDecoderFlush(
 
 //go:wasmimport plat/js/web has_VideoDecoder_Reset
 //go:noescape
-func HasVideoDecoderReset(this js.Ref) js.Ref
+func HasFuncVideoDecoderReset(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_VideoDecoder_Reset
 //go:noescape
-func VideoDecoderResetFunc(this js.Ref) js.Ref
+func FuncVideoDecoderReset(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_VideoDecoder_Reset
 //go:noescape
@@ -1243,11 +1241,11 @@ func TryVideoDecoderReset(
 
 //go:wasmimport plat/js/web has_VideoDecoder_Close
 //go:noescape
-func HasVideoDecoderClose(this js.Ref) js.Ref
+func HasFuncVideoDecoderClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_VideoDecoder_Close
 //go:noescape
-func VideoDecoderCloseFunc(this js.Ref) js.Ref
+func FuncVideoDecoderClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_VideoDecoder_Close
 //go:noescape
@@ -1261,11 +1259,11 @@ func TryVideoDecoderClose(
 
 //go:wasmimport plat/js/web has_VideoDecoder_IsConfigSupported
 //go:noescape
-func HasVideoDecoderIsConfigSupported(this js.Ref) js.Ref
+func HasFuncVideoDecoderIsConfigSupported(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_VideoDecoder_IsConfigSupported
 //go:noescape
-func VideoDecoderIsConfigSupportedFunc(this js.Ref) js.Ref
+func FuncVideoDecoderIsConfigSupported(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_VideoDecoder_IsConfigSupported
 //go:noescape

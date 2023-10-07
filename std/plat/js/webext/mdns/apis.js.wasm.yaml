@@ -1,0 +1,166 @@
+- File: webext/chrome/mdns.idl
+  Dict:
+    Name: MDnsService
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mdns
+    Fields:
+      - Name: serviceName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mdns
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mdns
+      - Name: serviceHostPort
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mdns
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mdns
+      - Name: ipAddress
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mdns
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mdns
+      - Name: serviceData
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - mdns
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mdns
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mdns
+- File: webext/chrome/mdns.idl
+  Interface:
+    Name: Properties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mdns
+    Operations:
+      - Name: MAX_SERVICE_INSTANCES_PER_EVENT
+        Modifier: static
+        Returns:
+          - Name: long
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - mdns
+        ExtAttrs:
+          - Name: value
+            Values:
+              - "2048"
+          - Name: Namespace
+            Values:
+              - chrome
+              - mdns
+- File: webext/chrome/mdns.idl
+  Callback:
+    Name: VoidCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mdns
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mdns
+- File: webext/chrome/mdns.idl
+  WebextFunc:
+    Name: forceDiscovery
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - mdns
+- File: webext/chrome/mdns.idl
+  WebextEvent:
+    Name: onServiceList
+    Modifier: static
+    Args:
+      - Name: services
+        Type:
+          Name: sequence
+          Params:
+            - Name: MDnsService
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - mdns
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mdns
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mdns
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mdns
+    ExtAttrs:
+      - Name: supportsFilters
+        Values:
+          - "true"
+      - Name: maxListeners
+        Values:
+          - "10"
+      - Name: Namespace
+        Values:
+          - chrome
+          - mdns

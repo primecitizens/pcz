@@ -4,30 +4,16 @@
 package web
 
 import (
-	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
-
-func NewHTMLPortalElement() (ret HTMLPortalElement) {
-	ret.ref = bindings.NewHTMLPortalElementByHTMLPortalElement()
-	return
-}
 
 type HTMLPortalElement struct {
 	HTMLElement
 }
 
 func (this HTMLPortalElement) Once() HTMLPortalElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -41,7 +27,7 @@ func (this HTMLPortalElement) FromRef(ref js.Ref) HTMLPortalElement {
 }
 
 func (this HTMLPortalElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Src returns the value of property "HTMLPortalElement.src".
@@ -49,7 +35,7 @@ func (this HTMLPortalElement) Free() {
 // It returns ok=false if there is no such property.
 func (this HTMLPortalElement) Src() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLPortalElementSrc(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -59,7 +45,7 @@ func (this HTMLPortalElement) Src() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLPortalElement) SetSrc(val js.String) bool {
 	return js.True == bindings.SetHTMLPortalElementSrc(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -69,7 +55,7 @@ func (this HTMLPortalElement) SetSrc(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLPortalElement) ReferrerPolicy() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLPortalElementReferrerPolicy(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -79,31 +65,30 @@ func (this HTMLPortalElement) ReferrerPolicy() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLPortalElement) SetReferrerPolicy(val js.String) bool {
 	return js.True == bindings.SetHTMLPortalElementReferrerPolicy(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
 
-// HasActivate returns true if the method "HTMLPortalElement.activate" exists.
-func (this HTMLPortalElement) HasActivate() bool {
-	return js.True == bindings.HasHTMLPortalElementActivate(
-		this.Ref(),
+// HasFuncActivate returns true if the method "HTMLPortalElement.activate" exists.
+func (this HTMLPortalElement) HasFuncActivate() bool {
+	return js.True == bindings.HasFuncHTMLPortalElementActivate(
+		this.ref,
 	)
 }
 
-// ActivateFunc returns the method "HTMLPortalElement.activate".
-func (this HTMLPortalElement) ActivateFunc() (fn js.Func[func(options PortalActivateOptions) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.HTMLPortalElementActivateFunc(
-			this.Ref(),
-		),
+// FuncActivate returns the method "HTMLPortalElement.activate".
+func (this HTMLPortalElement) FuncActivate() (fn js.Func[func(options PortalActivateOptions) js.Promise[js.Void]]) {
+	bindings.FuncHTMLPortalElementActivate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Activate calls the method "HTMLPortalElement.activate".
 func (this HTMLPortalElement) Activate(options PortalActivateOptions) (ret js.Promise[js.Void]) {
 	bindings.CallHTMLPortalElementActivate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -115,33 +100,32 @@ func (this HTMLPortalElement) Activate(options PortalActivateOptions) (ret js.Pr
 // the catch clause.
 func (this HTMLPortalElement) TryActivate(options PortalActivateOptions) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLPortalElementActivate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasActivate1 returns true if the method "HTMLPortalElement.activate" exists.
-func (this HTMLPortalElement) HasActivate1() bool {
-	return js.True == bindings.HasHTMLPortalElementActivate1(
-		this.Ref(),
+// HasFuncActivate1 returns true if the method "HTMLPortalElement.activate" exists.
+func (this HTMLPortalElement) HasFuncActivate1() bool {
+	return js.True == bindings.HasFuncHTMLPortalElementActivate1(
+		this.ref,
 	)
 }
 
-// Activate1Func returns the method "HTMLPortalElement.activate".
-func (this HTMLPortalElement) Activate1Func() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.HTMLPortalElementActivate1Func(
-			this.Ref(),
-		),
+// FuncActivate1 returns the method "HTMLPortalElement.activate".
+func (this HTMLPortalElement) FuncActivate1() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncHTMLPortalElementActivate1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Activate1 calls the method "HTMLPortalElement.activate".
 func (this HTMLPortalElement) Activate1() (ret js.Promise[js.Void]) {
 	bindings.CallHTMLPortalElementActivate1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -152,32 +136,31 @@ func (this HTMLPortalElement) Activate1() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this HTMLPortalElement) TryActivate1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLPortalElementActivate1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasPostMessage returns true if the method "HTMLPortalElement.postMessage" exists.
-func (this HTMLPortalElement) HasPostMessage() bool {
-	return js.True == bindings.HasHTMLPortalElementPostMessage(
-		this.Ref(),
+// HasFuncPostMessage returns true if the method "HTMLPortalElement.postMessage" exists.
+func (this HTMLPortalElement) HasFuncPostMessage() bool {
+	return js.True == bindings.HasFuncHTMLPortalElementPostMessage(
+		this.ref,
 	)
 }
 
-// PostMessageFunc returns the method "HTMLPortalElement.postMessage".
-func (this HTMLPortalElement) PostMessageFunc() (fn js.Func[func(message js.Any, options StructuredSerializeOptions)]) {
-	return fn.FromRef(
-		bindings.HTMLPortalElementPostMessageFunc(
-			this.Ref(),
-		),
+// FuncPostMessage returns the method "HTMLPortalElement.postMessage".
+func (this HTMLPortalElement) FuncPostMessage() (fn js.Func[func(message js.Any, options StructuredSerializeOptions)]) {
+	bindings.FuncHTMLPortalElementPostMessage(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PostMessage calls the method "HTMLPortalElement.postMessage".
 func (this HTMLPortalElement) PostMessage(message js.Any, options StructuredSerializeOptions) (ret js.Void) {
 	bindings.CallHTMLPortalElementPostMessage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		message.Ref(),
 		js.Pointer(&options),
 	)
@@ -190,7 +173,7 @@ func (this HTMLPortalElement) PostMessage(message js.Any, options StructuredSeri
 // the catch clause.
 func (this HTMLPortalElement) TryPostMessage(message js.Any, options StructuredSerializeOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLPortalElementPostMessage(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		message.Ref(),
 		js.Pointer(&options),
 	)
@@ -198,26 +181,25 @@ func (this HTMLPortalElement) TryPostMessage(message js.Any, options StructuredS
 	return
 }
 
-// HasPostMessage1 returns true if the method "HTMLPortalElement.postMessage" exists.
-func (this HTMLPortalElement) HasPostMessage1() bool {
-	return js.True == bindings.HasHTMLPortalElementPostMessage1(
-		this.Ref(),
+// HasFuncPostMessage1 returns true if the method "HTMLPortalElement.postMessage" exists.
+func (this HTMLPortalElement) HasFuncPostMessage1() bool {
+	return js.True == bindings.HasFuncHTMLPortalElementPostMessage1(
+		this.ref,
 	)
 }
 
-// PostMessage1Func returns the method "HTMLPortalElement.postMessage".
-func (this HTMLPortalElement) PostMessage1Func() (fn js.Func[func(message js.Any)]) {
-	return fn.FromRef(
-		bindings.HTMLPortalElementPostMessage1Func(
-			this.Ref(),
-		),
+// FuncPostMessage1 returns the method "HTMLPortalElement.postMessage".
+func (this HTMLPortalElement) FuncPostMessage1() (fn js.Func[func(message js.Any)]) {
+	bindings.FuncHTMLPortalElementPostMessage1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PostMessage1 calls the method "HTMLPortalElement.postMessage".
 func (this HTMLPortalElement) PostMessage1(message js.Any) (ret js.Void) {
 	bindings.CallHTMLPortalElementPostMessage1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		message.Ref(),
 	)
 
@@ -229,15 +211,10 @@ func (this HTMLPortalElement) PostMessage1(message js.Any) (ret js.Void) {
 // the catch clause.
 func (this HTMLPortalElement) TryPostMessage1(message js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLPortalElementPostMessage1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		message.Ref(),
 	)
 
-	return
-}
-
-func NewHTMLPreElement() (ret HTMLPreElement) {
-	ret.ref = bindings.NewHTMLPreElementByHTMLPreElement()
 	return
 }
 
@@ -246,7 +223,7 @@ type HTMLPreElement struct {
 }
 
 func (this HTMLPreElement) Once() HTMLPreElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -260,7 +237,7 @@ func (this HTMLPreElement) FromRef(ref js.Ref) HTMLPreElement {
 }
 
 func (this HTMLPreElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Width returns the value of property "HTMLPreElement.width".
@@ -268,7 +245,7 @@ func (this HTMLPreElement) Free() {
 // It returns ok=false if there is no such property.
 func (this HTMLPreElement) Width() (ret int32, ok bool) {
 	ok = js.True == bindings.GetHTMLPreElementWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -278,14 +255,9 @@ func (this HTMLPreElement) Width() (ret int32, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLPreElement) SetWidth(val int32) bool {
 	return js.True == bindings.SetHTMLPreElementWidth(
-		this.Ref(),
+		this.ref,
 		int32(val),
 	)
-}
-
-func NewHTMLProgressElement() (ret HTMLProgressElement) {
-	ret.ref = bindings.NewHTMLProgressElementByHTMLProgressElement()
-	return
 }
 
 type HTMLProgressElement struct {
@@ -293,7 +265,7 @@ type HTMLProgressElement struct {
 }
 
 func (this HTMLProgressElement) Once() HTMLProgressElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -307,7 +279,7 @@ func (this HTMLProgressElement) FromRef(ref js.Ref) HTMLProgressElement {
 }
 
 func (this HTMLProgressElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Value returns the value of property "HTMLProgressElement.value".
@@ -315,7 +287,7 @@ func (this HTMLProgressElement) Free() {
 // It returns ok=false if there is no such property.
 func (this HTMLProgressElement) Value() (ret float64, ok bool) {
 	ok = js.True == bindings.GetHTMLProgressElementValue(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -325,7 +297,7 @@ func (this HTMLProgressElement) Value() (ret float64, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLProgressElement) SetValue(val float64) bool {
 	return js.True == bindings.SetHTMLProgressElementValue(
-		this.Ref(),
+		this.ref,
 		float64(val),
 	)
 }
@@ -335,7 +307,7 @@ func (this HTMLProgressElement) SetValue(val float64) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLProgressElement) Max() (ret float64, ok bool) {
 	ok = js.True == bindings.GetHTMLProgressElementMax(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -345,7 +317,7 @@ func (this HTMLProgressElement) Max() (ret float64, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLProgressElement) SetMax(val float64) bool {
 	return js.True == bindings.SetHTMLProgressElementMax(
-		this.Ref(),
+		this.ref,
 		float64(val),
 	)
 }
@@ -355,7 +327,7 @@ func (this HTMLProgressElement) SetMax(val float64) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLProgressElement) Position() (ret float64, ok bool) {
 	ok = js.True == bindings.GetHTMLProgressElementPosition(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -365,13 +337,8 @@ func (this HTMLProgressElement) Position() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLProgressElement) Labels() (ret NodeList, ok bool) {
 	ok = js.True == bindings.GetHTMLProgressElementLabels(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
-	return
-}
-
-func NewHTMLQuoteElement() (ret HTMLQuoteElement) {
-	ret.ref = bindings.NewHTMLQuoteElementByHTMLQuoteElement()
 	return
 }
 
@@ -380,7 +347,7 @@ type HTMLQuoteElement struct {
 }
 
 func (this HTMLQuoteElement) Once() HTMLQuoteElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -394,7 +361,7 @@ func (this HTMLQuoteElement) FromRef(ref js.Ref) HTMLQuoteElement {
 }
 
 func (this HTMLQuoteElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Cite returns the value of property "HTMLQuoteElement.cite".
@@ -402,7 +369,7 @@ func (this HTMLQuoteElement) Free() {
 // It returns ok=false if there is no such property.
 func (this HTMLQuoteElement) Cite() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLQuoteElementCite(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -412,14 +379,9 @@ func (this HTMLQuoteElement) Cite() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLQuoteElement) SetCite(val js.String) bool {
 	return js.True == bindings.SetHTMLQuoteElementCite(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
-}
-
-func NewHTMLSelectElement() (ret HTMLSelectElement) {
-	ret.ref = bindings.NewHTMLSelectElementByHTMLSelectElement()
-	return
 }
 
 type HTMLSelectElement struct {
@@ -427,7 +389,7 @@ type HTMLSelectElement struct {
 }
 
 func (this HTMLSelectElement) Once() HTMLSelectElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -441,7 +403,7 @@ func (this HTMLSelectElement) FromRef(ref js.Ref) HTMLSelectElement {
 }
 
 func (this HTMLSelectElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Autocomplete returns the value of property "HTMLSelectElement.autocomplete".
@@ -449,7 +411,7 @@ func (this HTMLSelectElement) Free() {
 // It returns ok=false if there is no such property.
 func (this HTMLSelectElement) Autocomplete() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLSelectElementAutocomplete(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -459,7 +421,7 @@ func (this HTMLSelectElement) Autocomplete() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLSelectElement) SetAutocomplete(val js.String) bool {
 	return js.True == bindings.SetHTMLSelectElementAutocomplete(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -469,7 +431,7 @@ func (this HTMLSelectElement) SetAutocomplete(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLSelectElement) Disabled() (ret bool, ok bool) {
 	ok = js.True == bindings.GetHTMLSelectElementDisabled(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -479,7 +441,7 @@ func (this HTMLSelectElement) Disabled() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLSelectElement) SetDisabled(val bool) bool {
 	return js.True == bindings.SetHTMLSelectElementDisabled(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -489,7 +451,7 @@ func (this HTMLSelectElement) SetDisabled(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLSelectElement) Form() (ret HTMLFormElement, ok bool) {
 	ok = js.True == bindings.GetHTMLSelectElementForm(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -499,7 +461,7 @@ func (this HTMLSelectElement) Form() (ret HTMLFormElement, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLSelectElement) Multiple() (ret bool, ok bool) {
 	ok = js.True == bindings.GetHTMLSelectElementMultiple(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -509,7 +471,7 @@ func (this HTMLSelectElement) Multiple() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLSelectElement) SetMultiple(val bool) bool {
 	return js.True == bindings.SetHTMLSelectElementMultiple(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -519,7 +481,7 @@ func (this HTMLSelectElement) SetMultiple(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLSelectElement) Name() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLSelectElementName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -529,7 +491,7 @@ func (this HTMLSelectElement) Name() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLSelectElement) SetName(val js.String) bool {
 	return js.True == bindings.SetHTMLSelectElementName(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -539,7 +501,7 @@ func (this HTMLSelectElement) SetName(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLSelectElement) Required() (ret bool, ok bool) {
 	ok = js.True == bindings.GetHTMLSelectElementRequired(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -549,7 +511,7 @@ func (this HTMLSelectElement) Required() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLSelectElement) SetRequired(val bool) bool {
 	return js.True == bindings.SetHTMLSelectElementRequired(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -559,7 +521,7 @@ func (this HTMLSelectElement) SetRequired(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLSelectElement) Size() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetHTMLSelectElementSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -569,7 +531,7 @@ func (this HTMLSelectElement) Size() (ret uint32, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLSelectElement) SetSize(val uint32) bool {
 	return js.True == bindings.SetHTMLSelectElementSize(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
@@ -579,7 +541,7 @@ func (this HTMLSelectElement) SetSize(val uint32) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLSelectElement) Type() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLSelectElementType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -589,7 +551,7 @@ func (this HTMLSelectElement) Type() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLSelectElement) Options() (ret HTMLOptionsCollection, ok bool) {
 	ok = js.True == bindings.GetHTMLSelectElementOptions(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -599,7 +561,7 @@ func (this HTMLSelectElement) Options() (ret HTMLOptionsCollection, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLSelectElement) Length() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetHTMLSelectElementLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -609,7 +571,7 @@ func (this HTMLSelectElement) Length() (ret uint32, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLSelectElement) SetLength(val uint32) bool {
 	return js.True == bindings.SetHTMLSelectElementLength(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
@@ -619,7 +581,7 @@ func (this HTMLSelectElement) SetLength(val uint32) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLSelectElement) SelectedOptions() (ret HTMLCollection, ok bool) {
 	ok = js.True == bindings.GetHTMLSelectElementSelectedOptions(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -629,7 +591,7 @@ func (this HTMLSelectElement) SelectedOptions() (ret HTMLCollection, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLSelectElement) SelectedIndex() (ret int32, ok bool) {
 	ok = js.True == bindings.GetHTMLSelectElementSelectedIndex(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -639,7 +601,7 @@ func (this HTMLSelectElement) SelectedIndex() (ret int32, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLSelectElement) SetSelectedIndex(val int32) bool {
 	return js.True == bindings.SetHTMLSelectElementSelectedIndex(
-		this.Ref(),
+		this.ref,
 		int32(val),
 	)
 }
@@ -649,7 +611,7 @@ func (this HTMLSelectElement) SetSelectedIndex(val int32) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLSelectElement) Value() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLSelectElementValue(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -659,7 +621,7 @@ func (this HTMLSelectElement) Value() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLSelectElement) SetValue(val js.String) bool {
 	return js.True == bindings.SetHTMLSelectElementValue(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -669,7 +631,7 @@ func (this HTMLSelectElement) SetValue(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLSelectElement) WillValidate() (ret bool, ok bool) {
 	ok = js.True == bindings.GetHTMLSelectElementWillValidate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -679,7 +641,7 @@ func (this HTMLSelectElement) WillValidate() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLSelectElement) Validity() (ret ValidityState, ok bool) {
 	ok = js.True == bindings.GetHTMLSelectElementValidity(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -689,7 +651,7 @@ func (this HTMLSelectElement) Validity() (ret ValidityState, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLSelectElement) ValidationMessage() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLSelectElementValidationMessage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -699,31 +661,30 @@ func (this HTMLSelectElement) ValidationMessage() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLSelectElement) Labels() (ret NodeList, ok bool) {
 	ok = js.True == bindings.GetHTMLSelectElementLabels(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasItem returns true if the method "HTMLSelectElement.item" exists.
-func (this HTMLSelectElement) HasItem() bool {
-	return js.True == bindings.HasHTMLSelectElementItem(
-		this.Ref(),
+// HasFuncItem returns true if the method "HTMLSelectElement.item" exists.
+func (this HTMLSelectElement) HasFuncItem() bool {
+	return js.True == bindings.HasFuncHTMLSelectElementItem(
+		this.ref,
 	)
 }
 
-// ItemFunc returns the method "HTMLSelectElement.item".
-func (this HTMLSelectElement) ItemFunc() (fn js.Func[func(index uint32) HTMLOptionElement]) {
-	return fn.FromRef(
-		bindings.HTMLSelectElementItemFunc(
-			this.Ref(),
-		),
+// FuncItem returns the method "HTMLSelectElement.item".
+func (this HTMLSelectElement) FuncItem() (fn js.Func[func(index uint32) HTMLOptionElement]) {
+	bindings.FuncHTMLSelectElementItem(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Item calls the method "HTMLSelectElement.item".
 func (this HTMLSelectElement) Item(index uint32) (ret HTMLOptionElement) {
 	bindings.CallHTMLSelectElementItem(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 	)
 
@@ -735,33 +696,32 @@ func (this HTMLSelectElement) Item(index uint32) (ret HTMLOptionElement) {
 // the catch clause.
 func (this HTMLSelectElement) TryItem(index uint32) (ret HTMLOptionElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLSelectElementItem(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 	)
 
 	return
 }
 
-// HasNamedItem returns true if the method "HTMLSelectElement.namedItem" exists.
-func (this HTMLSelectElement) HasNamedItem() bool {
-	return js.True == bindings.HasHTMLSelectElementNamedItem(
-		this.Ref(),
+// HasFuncNamedItem returns true if the method "HTMLSelectElement.namedItem" exists.
+func (this HTMLSelectElement) HasFuncNamedItem() bool {
+	return js.True == bindings.HasFuncHTMLSelectElementNamedItem(
+		this.ref,
 	)
 }
 
-// NamedItemFunc returns the method "HTMLSelectElement.namedItem".
-func (this HTMLSelectElement) NamedItemFunc() (fn js.Func[func(name js.String) HTMLOptionElement]) {
-	return fn.FromRef(
-		bindings.HTMLSelectElementNamedItemFunc(
-			this.Ref(),
-		),
+// FuncNamedItem returns the method "HTMLSelectElement.namedItem".
+func (this HTMLSelectElement) FuncNamedItem() (fn js.Func[func(name js.String) HTMLOptionElement]) {
+	bindings.FuncHTMLSelectElementNamedItem(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // NamedItem calls the method "HTMLSelectElement.namedItem".
 func (this HTMLSelectElement) NamedItem(name js.String) (ret HTMLOptionElement) {
 	bindings.CallHTMLSelectElementNamedItem(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 	)
 
@@ -773,33 +733,32 @@ func (this HTMLSelectElement) NamedItem(name js.String) (ret HTMLOptionElement) 
 // the catch clause.
 func (this HTMLSelectElement) TryNamedItem(name js.String) (ret HTMLOptionElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLSelectElementNamedItem(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 	)
 
 	return
 }
 
-// HasAdd returns true if the method "HTMLSelectElement.add" exists.
-func (this HTMLSelectElement) HasAdd() bool {
-	return js.True == bindings.HasHTMLSelectElementAdd(
-		this.Ref(),
+// HasFuncAdd returns true if the method "HTMLSelectElement.add" exists.
+func (this HTMLSelectElement) HasFuncAdd() bool {
+	return js.True == bindings.HasFuncHTMLSelectElementAdd(
+		this.ref,
 	)
 }
 
-// AddFunc returns the method "HTMLSelectElement.add".
-func (this HTMLSelectElement) AddFunc() (fn js.Func[func(element OneOf_HTMLOptionElement_HTMLOptGroupElement, before OneOf_HTMLElement_Int32)]) {
-	return fn.FromRef(
-		bindings.HTMLSelectElementAddFunc(
-			this.Ref(),
-		),
+// FuncAdd returns the method "HTMLSelectElement.add".
+func (this HTMLSelectElement) FuncAdd() (fn js.Func[func(element OneOf_HTMLOptionElement_HTMLOptGroupElement, before OneOf_HTMLElement_Int32)]) {
+	bindings.FuncHTMLSelectElementAdd(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Add calls the method "HTMLSelectElement.add".
 func (this HTMLSelectElement) Add(element OneOf_HTMLOptionElement_HTMLOptGroupElement, before OneOf_HTMLElement_Int32) (ret js.Void) {
 	bindings.CallHTMLSelectElementAdd(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		element.Ref(),
 		before.Ref(),
 	)
@@ -812,7 +771,7 @@ func (this HTMLSelectElement) Add(element OneOf_HTMLOptionElement_HTMLOptGroupEl
 // the catch clause.
 func (this HTMLSelectElement) TryAdd(element OneOf_HTMLOptionElement_HTMLOptGroupElement, before OneOf_HTMLElement_Int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLSelectElementAdd(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		element.Ref(),
 		before.Ref(),
 	)
@@ -820,26 +779,25 @@ func (this HTMLSelectElement) TryAdd(element OneOf_HTMLOptionElement_HTMLOptGrou
 	return
 }
 
-// HasAdd1 returns true if the method "HTMLSelectElement.add" exists.
-func (this HTMLSelectElement) HasAdd1() bool {
-	return js.True == bindings.HasHTMLSelectElementAdd1(
-		this.Ref(),
+// HasFuncAdd1 returns true if the method "HTMLSelectElement.add" exists.
+func (this HTMLSelectElement) HasFuncAdd1() bool {
+	return js.True == bindings.HasFuncHTMLSelectElementAdd1(
+		this.ref,
 	)
 }
 
-// Add1Func returns the method "HTMLSelectElement.add".
-func (this HTMLSelectElement) Add1Func() (fn js.Func[func(element OneOf_HTMLOptionElement_HTMLOptGroupElement)]) {
-	return fn.FromRef(
-		bindings.HTMLSelectElementAdd1Func(
-			this.Ref(),
-		),
+// FuncAdd1 returns the method "HTMLSelectElement.add".
+func (this HTMLSelectElement) FuncAdd1() (fn js.Func[func(element OneOf_HTMLOptionElement_HTMLOptGroupElement)]) {
+	bindings.FuncHTMLSelectElementAdd1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Add1 calls the method "HTMLSelectElement.add".
 func (this HTMLSelectElement) Add1(element OneOf_HTMLOptionElement_HTMLOptGroupElement) (ret js.Void) {
 	bindings.CallHTMLSelectElementAdd1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		element.Ref(),
 	)
 
@@ -851,33 +809,32 @@ func (this HTMLSelectElement) Add1(element OneOf_HTMLOptionElement_HTMLOptGroupE
 // the catch clause.
 func (this HTMLSelectElement) TryAdd1(element OneOf_HTMLOptionElement_HTMLOptGroupElement) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLSelectElementAdd1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		element.Ref(),
 	)
 
 	return
 }
 
-// HasRemove returns true if the method "HTMLSelectElement.remove" exists.
-func (this HTMLSelectElement) HasRemove() bool {
-	return js.True == bindings.HasHTMLSelectElementRemove(
-		this.Ref(),
+// HasFuncRemove returns true if the method "HTMLSelectElement.remove" exists.
+func (this HTMLSelectElement) HasFuncRemove() bool {
+	return js.True == bindings.HasFuncHTMLSelectElementRemove(
+		this.ref,
 	)
 }
 
-// RemoveFunc returns the method "HTMLSelectElement.remove".
-func (this HTMLSelectElement) RemoveFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.HTMLSelectElementRemoveFunc(
-			this.Ref(),
-		),
+// FuncRemove returns the method "HTMLSelectElement.remove".
+func (this HTMLSelectElement) FuncRemove() (fn js.Func[func()]) {
+	bindings.FuncHTMLSelectElementRemove(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Remove calls the method "HTMLSelectElement.remove".
 func (this HTMLSelectElement) Remove() (ret js.Void) {
 	bindings.CallHTMLSelectElementRemove(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -888,32 +845,31 @@ func (this HTMLSelectElement) Remove() (ret js.Void) {
 // the catch clause.
 func (this HTMLSelectElement) TryRemove() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLSelectElementRemove(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasRemove1 returns true if the method "HTMLSelectElement.remove" exists.
-func (this HTMLSelectElement) HasRemove1() bool {
-	return js.True == bindings.HasHTMLSelectElementRemove1(
-		this.Ref(),
+// HasFuncRemove1 returns true if the method "HTMLSelectElement.remove" exists.
+func (this HTMLSelectElement) HasFuncRemove1() bool {
+	return js.True == bindings.HasFuncHTMLSelectElementRemove1(
+		this.ref,
 	)
 }
 
-// Remove1Func returns the method "HTMLSelectElement.remove".
-func (this HTMLSelectElement) Remove1Func() (fn js.Func[func(index int32)]) {
-	return fn.FromRef(
-		bindings.HTMLSelectElementRemove1Func(
-			this.Ref(),
-		),
+// FuncRemove1 returns the method "HTMLSelectElement.remove".
+func (this HTMLSelectElement) FuncRemove1() (fn js.Func[func(index int32)]) {
+	bindings.FuncHTMLSelectElementRemove1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Remove1 calls the method "HTMLSelectElement.remove".
 func (this HTMLSelectElement) Remove1(index int32) (ret js.Void) {
 	bindings.CallHTMLSelectElementRemove1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		int32(index),
 	)
 
@@ -925,33 +881,32 @@ func (this HTMLSelectElement) Remove1(index int32) (ret js.Void) {
 // the catch clause.
 func (this HTMLSelectElement) TryRemove1(index int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLSelectElementRemove1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		int32(index),
 	)
 
 	return
 }
 
-// HasSet returns true if the method "HTMLSelectElement." exists.
-func (this HTMLSelectElement) HasSet() bool {
-	return js.True == bindings.HasHTMLSelectElementSet(
-		this.Ref(),
+// HasFuncSet returns true if the method "HTMLSelectElement." exists.
+func (this HTMLSelectElement) HasFuncSet() bool {
+	return js.True == bindings.HasFuncHTMLSelectElementSet(
+		this.ref,
 	)
 }
 
-// SetFunc returns the method "HTMLSelectElement.".
-func (this HTMLSelectElement) SetFunc() (fn js.Func[func(index uint32, option HTMLOptionElement)]) {
-	return fn.FromRef(
-		bindings.HTMLSelectElementSetFunc(
-			this.Ref(),
-		),
+// FuncSet returns the method "HTMLSelectElement.".
+func (this HTMLSelectElement) FuncSet() (fn js.Func[func(index uint32, option HTMLOptionElement)]) {
+	bindings.FuncHTMLSelectElementSet(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Set calls the method "HTMLSelectElement.".
 func (this HTMLSelectElement) Set(index uint32, option HTMLOptionElement) (ret js.Void) {
 	bindings.CallHTMLSelectElementSet(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		option.Ref(),
 	)
@@ -964,7 +919,7 @@ func (this HTMLSelectElement) Set(index uint32, option HTMLOptionElement) (ret j
 // the catch clause.
 func (this HTMLSelectElement) TrySet(index uint32, option HTMLOptionElement) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLSelectElementSet(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		option.Ref(),
 	)
@@ -972,26 +927,25 @@ func (this HTMLSelectElement) TrySet(index uint32, option HTMLOptionElement) (re
 	return
 }
 
-// HasCheckValidity returns true if the method "HTMLSelectElement.checkValidity" exists.
-func (this HTMLSelectElement) HasCheckValidity() bool {
-	return js.True == bindings.HasHTMLSelectElementCheckValidity(
-		this.Ref(),
+// HasFuncCheckValidity returns true if the method "HTMLSelectElement.checkValidity" exists.
+func (this HTMLSelectElement) HasFuncCheckValidity() bool {
+	return js.True == bindings.HasFuncHTMLSelectElementCheckValidity(
+		this.ref,
 	)
 }
 
-// CheckValidityFunc returns the method "HTMLSelectElement.checkValidity".
-func (this HTMLSelectElement) CheckValidityFunc() (fn js.Func[func() bool]) {
-	return fn.FromRef(
-		bindings.HTMLSelectElementCheckValidityFunc(
-			this.Ref(),
-		),
+// FuncCheckValidity returns the method "HTMLSelectElement.checkValidity".
+func (this HTMLSelectElement) FuncCheckValidity() (fn js.Func[func() bool]) {
+	bindings.FuncHTMLSelectElementCheckValidity(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CheckValidity calls the method "HTMLSelectElement.checkValidity".
 func (this HTMLSelectElement) CheckValidity() (ret bool) {
 	bindings.CallHTMLSelectElementCheckValidity(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1002,32 +956,31 @@ func (this HTMLSelectElement) CheckValidity() (ret bool) {
 // the catch clause.
 func (this HTMLSelectElement) TryCheckValidity() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLSelectElementCheckValidity(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasReportValidity returns true if the method "HTMLSelectElement.reportValidity" exists.
-func (this HTMLSelectElement) HasReportValidity() bool {
-	return js.True == bindings.HasHTMLSelectElementReportValidity(
-		this.Ref(),
+// HasFuncReportValidity returns true if the method "HTMLSelectElement.reportValidity" exists.
+func (this HTMLSelectElement) HasFuncReportValidity() bool {
+	return js.True == bindings.HasFuncHTMLSelectElementReportValidity(
+		this.ref,
 	)
 }
 
-// ReportValidityFunc returns the method "HTMLSelectElement.reportValidity".
-func (this HTMLSelectElement) ReportValidityFunc() (fn js.Func[func() bool]) {
-	return fn.FromRef(
-		bindings.HTMLSelectElementReportValidityFunc(
-			this.Ref(),
-		),
+// FuncReportValidity returns the method "HTMLSelectElement.reportValidity".
+func (this HTMLSelectElement) FuncReportValidity() (fn js.Func[func() bool]) {
+	bindings.FuncHTMLSelectElementReportValidity(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReportValidity calls the method "HTMLSelectElement.reportValidity".
 func (this HTMLSelectElement) ReportValidity() (ret bool) {
 	bindings.CallHTMLSelectElementReportValidity(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1038,32 +991,31 @@ func (this HTMLSelectElement) ReportValidity() (ret bool) {
 // the catch clause.
 func (this HTMLSelectElement) TryReportValidity() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLSelectElementReportValidity(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSetCustomValidity returns true if the method "HTMLSelectElement.setCustomValidity" exists.
-func (this HTMLSelectElement) HasSetCustomValidity() bool {
-	return js.True == bindings.HasHTMLSelectElementSetCustomValidity(
-		this.Ref(),
+// HasFuncSetCustomValidity returns true if the method "HTMLSelectElement.setCustomValidity" exists.
+func (this HTMLSelectElement) HasFuncSetCustomValidity() bool {
+	return js.True == bindings.HasFuncHTMLSelectElementSetCustomValidity(
+		this.ref,
 	)
 }
 
-// SetCustomValidityFunc returns the method "HTMLSelectElement.setCustomValidity".
-func (this HTMLSelectElement) SetCustomValidityFunc() (fn js.Func[func(err js.String)]) {
-	return fn.FromRef(
-		bindings.HTMLSelectElementSetCustomValidityFunc(
-			this.Ref(),
-		),
+// FuncSetCustomValidity returns the method "HTMLSelectElement.setCustomValidity".
+func (this HTMLSelectElement) FuncSetCustomValidity() (fn js.Func[func(err js.String)]) {
+	bindings.FuncHTMLSelectElementSetCustomValidity(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetCustomValidity calls the method "HTMLSelectElement.setCustomValidity".
 func (this HTMLSelectElement) SetCustomValidity(err js.String) (ret js.Void) {
 	bindings.CallHTMLSelectElementSetCustomValidity(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		err.Ref(),
 	)
 
@@ -1075,15 +1027,10 @@ func (this HTMLSelectElement) SetCustomValidity(err js.String) (ret js.Void) {
 // the catch clause.
 func (this HTMLSelectElement) TrySetCustomValidity(err js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLSelectElementSetCustomValidity(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		err.Ref(),
 	)
 
-	return
-}
-
-func NewHTMLSourceElement() (ret HTMLSourceElement) {
-	ret.ref = bindings.NewHTMLSourceElementByHTMLSourceElement()
 	return
 }
 
@@ -1092,7 +1039,7 @@ type HTMLSourceElement struct {
 }
 
 func (this HTMLSourceElement) Once() HTMLSourceElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1106,7 +1053,7 @@ func (this HTMLSourceElement) FromRef(ref js.Ref) HTMLSourceElement {
 }
 
 func (this HTMLSourceElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Src returns the value of property "HTMLSourceElement.src".
@@ -1114,7 +1061,7 @@ func (this HTMLSourceElement) Free() {
 // It returns ok=false if there is no such property.
 func (this HTMLSourceElement) Src() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLSourceElementSrc(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1124,7 +1071,7 @@ func (this HTMLSourceElement) Src() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLSourceElement) SetSrc(val js.String) bool {
 	return js.True == bindings.SetHTMLSourceElementSrc(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1134,7 +1081,7 @@ func (this HTMLSourceElement) SetSrc(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLSourceElement) Type() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLSourceElementType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1144,7 +1091,7 @@ func (this HTMLSourceElement) Type() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLSourceElement) SetType(val js.String) bool {
 	return js.True == bindings.SetHTMLSourceElementType(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1154,7 +1101,7 @@ func (this HTMLSourceElement) SetType(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLSourceElement) Srcset() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLSourceElementSrcset(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1164,7 +1111,7 @@ func (this HTMLSourceElement) Srcset() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLSourceElement) SetSrcset(val js.String) bool {
 	return js.True == bindings.SetHTMLSourceElementSrcset(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1174,7 +1121,7 @@ func (this HTMLSourceElement) SetSrcset(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLSourceElement) Sizes() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLSourceElementSizes(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1184,7 +1131,7 @@ func (this HTMLSourceElement) Sizes() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLSourceElement) SetSizes(val js.String) bool {
 	return js.True == bindings.SetHTMLSourceElementSizes(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1194,7 +1141,7 @@ func (this HTMLSourceElement) SetSizes(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLSourceElement) Media() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLSourceElementMedia(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1204,7 +1151,7 @@ func (this HTMLSourceElement) Media() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLSourceElement) SetMedia(val js.String) bool {
 	return js.True == bindings.SetHTMLSourceElementMedia(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1214,7 +1161,7 @@ func (this HTMLSourceElement) SetMedia(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLSourceElement) Width() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetHTMLSourceElementWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1224,7 +1171,7 @@ func (this HTMLSourceElement) Width() (ret uint32, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLSourceElement) SetWidth(val uint32) bool {
 	return js.True == bindings.SetHTMLSourceElementWidth(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
@@ -1234,7 +1181,7 @@ func (this HTMLSourceElement) SetWidth(val uint32) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLSourceElement) Height() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetHTMLSourceElementHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1244,14 +1191,9 @@ func (this HTMLSourceElement) Height() (ret uint32, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLSourceElement) SetHeight(val uint32) bool {
 	return js.True == bindings.SetHTMLSourceElementHeight(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
-}
-
-func NewHTMLSpanElement() (ret HTMLSpanElement) {
-	ret.ref = bindings.NewHTMLSpanElementByHTMLSpanElement()
-	return
 }
 
 type HTMLSpanElement struct {
@@ -1259,7 +1201,7 @@ type HTMLSpanElement struct {
 }
 
 func (this HTMLSpanElement) Once() HTMLSpanElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1273,22 +1215,17 @@ func (this HTMLSpanElement) FromRef(ref js.Ref) HTMLSpanElement {
 }
 
 func (this HTMLSpanElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type HTMLString = js.String
-
-func NewHTMLStyleElement() (ret HTMLStyleElement) {
-	ret.ref = bindings.NewHTMLStyleElementByHTMLStyleElement()
-	return
-}
 
 type HTMLStyleElement struct {
 	HTMLElement
 }
 
 func (this HTMLStyleElement) Once() HTMLStyleElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1302,7 +1239,7 @@ func (this HTMLStyleElement) FromRef(ref js.Ref) HTMLStyleElement {
 }
 
 func (this HTMLStyleElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Disabled returns the value of property "HTMLStyleElement.disabled".
@@ -1310,7 +1247,7 @@ func (this HTMLStyleElement) Free() {
 // It returns ok=false if there is no such property.
 func (this HTMLStyleElement) Disabled() (ret bool, ok bool) {
 	ok = js.True == bindings.GetHTMLStyleElementDisabled(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1320,7 +1257,7 @@ func (this HTMLStyleElement) Disabled() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLStyleElement) SetDisabled(val bool) bool {
 	return js.True == bindings.SetHTMLStyleElementDisabled(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -1330,7 +1267,7 @@ func (this HTMLStyleElement) SetDisabled(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLStyleElement) Media() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLStyleElementMedia(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1340,7 +1277,7 @@ func (this HTMLStyleElement) Media() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLStyleElement) SetMedia(val js.String) bool {
 	return js.True == bindings.SetHTMLStyleElementMedia(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1350,7 +1287,7 @@ func (this HTMLStyleElement) SetMedia(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLStyleElement) Blocking() (ret DOMTokenList, ok bool) {
 	ok = js.True == bindings.GetHTMLStyleElementBlocking(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1360,7 +1297,7 @@ func (this HTMLStyleElement) Blocking() (ret DOMTokenList, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLStyleElement) Type() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLStyleElementType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1370,7 +1307,7 @@ func (this HTMLStyleElement) Type() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLStyleElement) SetType(val js.String) bool {
 	return js.True == bindings.SetHTMLStyleElementType(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1380,13 +1317,8 @@ func (this HTMLStyleElement) SetType(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLStyleElement) Sheet() (ret CSSStyleSheet, ok bool) {
 	ok = js.True == bindings.GetHTMLStyleElementSheet(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
-	return
-}
-
-func NewHTMLTableCaptionElement() (ret HTMLTableCaptionElement) {
-	ret.ref = bindings.NewHTMLTableCaptionElementByHTMLTableCaptionElement()
 	return
 }
 
@@ -1395,7 +1327,7 @@ type HTMLTableCaptionElement struct {
 }
 
 func (this HTMLTableCaptionElement) Once() HTMLTableCaptionElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1409,7 +1341,7 @@ func (this HTMLTableCaptionElement) FromRef(ref js.Ref) HTMLTableCaptionElement 
 }
 
 func (this HTMLTableCaptionElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Align returns the value of property "HTMLTableCaptionElement.align".
@@ -1417,7 +1349,7 @@ func (this HTMLTableCaptionElement) Free() {
 // It returns ok=false if there is no such property.
 func (this HTMLTableCaptionElement) Align() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableCaptionElementAlign(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1427,14 +1359,9 @@ func (this HTMLTableCaptionElement) Align() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableCaptionElement) SetAlign(val js.String) bool {
 	return js.True == bindings.SetHTMLTableCaptionElementAlign(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
-}
-
-func NewHTMLTableCellElement() (ret HTMLTableCellElement) {
-	ret.ref = bindings.NewHTMLTableCellElementByHTMLTableCellElement()
-	return
 }
 
 type HTMLTableCellElement struct {
@@ -1442,7 +1369,7 @@ type HTMLTableCellElement struct {
 }
 
 func (this HTMLTableCellElement) Once() HTMLTableCellElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1456,7 +1383,7 @@ func (this HTMLTableCellElement) FromRef(ref js.Ref) HTMLTableCellElement {
 }
 
 func (this HTMLTableCellElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // ColSpan returns the value of property "HTMLTableCellElement.colSpan".
@@ -1464,7 +1391,7 @@ func (this HTMLTableCellElement) Free() {
 // It returns ok=false if there is no such property.
 func (this HTMLTableCellElement) ColSpan() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetHTMLTableCellElementColSpan(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1474,7 +1401,7 @@ func (this HTMLTableCellElement) ColSpan() (ret uint32, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableCellElement) SetColSpan(val uint32) bool {
 	return js.True == bindings.SetHTMLTableCellElementColSpan(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
@@ -1484,7 +1411,7 @@ func (this HTMLTableCellElement) SetColSpan(val uint32) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableCellElement) RowSpan() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetHTMLTableCellElementRowSpan(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1494,7 +1421,7 @@ func (this HTMLTableCellElement) RowSpan() (ret uint32, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableCellElement) SetRowSpan(val uint32) bool {
 	return js.True == bindings.SetHTMLTableCellElementRowSpan(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
@@ -1504,7 +1431,7 @@ func (this HTMLTableCellElement) SetRowSpan(val uint32) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableCellElement) Headers() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableCellElementHeaders(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1514,7 +1441,7 @@ func (this HTMLTableCellElement) Headers() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableCellElement) SetHeaders(val js.String) bool {
 	return js.True == bindings.SetHTMLTableCellElementHeaders(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1524,7 +1451,7 @@ func (this HTMLTableCellElement) SetHeaders(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableCellElement) CellIndex() (ret int32, ok bool) {
 	ok = js.True == bindings.GetHTMLTableCellElementCellIndex(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1534,7 +1461,7 @@ func (this HTMLTableCellElement) CellIndex() (ret int32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLTableCellElement) Scope() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableCellElementScope(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1544,7 +1471,7 @@ func (this HTMLTableCellElement) Scope() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableCellElement) SetScope(val js.String) bool {
 	return js.True == bindings.SetHTMLTableCellElementScope(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1554,7 +1481,7 @@ func (this HTMLTableCellElement) SetScope(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableCellElement) Abbr() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableCellElementAbbr(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1564,7 +1491,7 @@ func (this HTMLTableCellElement) Abbr() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableCellElement) SetAbbr(val js.String) bool {
 	return js.True == bindings.SetHTMLTableCellElementAbbr(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1574,7 +1501,7 @@ func (this HTMLTableCellElement) SetAbbr(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableCellElement) Align() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableCellElementAlign(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1584,7 +1511,7 @@ func (this HTMLTableCellElement) Align() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableCellElement) SetAlign(val js.String) bool {
 	return js.True == bindings.SetHTMLTableCellElementAlign(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1594,7 +1521,7 @@ func (this HTMLTableCellElement) SetAlign(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableCellElement) Axis() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableCellElementAxis(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1604,7 +1531,7 @@ func (this HTMLTableCellElement) Axis() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableCellElement) SetAxis(val js.String) bool {
 	return js.True == bindings.SetHTMLTableCellElementAxis(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1614,7 +1541,7 @@ func (this HTMLTableCellElement) SetAxis(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableCellElement) Height() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableCellElementHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1624,7 +1551,7 @@ func (this HTMLTableCellElement) Height() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableCellElement) SetHeight(val js.String) bool {
 	return js.True == bindings.SetHTMLTableCellElementHeight(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1634,7 +1561,7 @@ func (this HTMLTableCellElement) SetHeight(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableCellElement) Width() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableCellElementWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1644,7 +1571,7 @@ func (this HTMLTableCellElement) Width() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableCellElement) SetWidth(val js.String) bool {
 	return js.True == bindings.SetHTMLTableCellElementWidth(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1654,7 +1581,7 @@ func (this HTMLTableCellElement) SetWidth(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableCellElement) Ch() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableCellElementCh(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1664,7 +1591,7 @@ func (this HTMLTableCellElement) Ch() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableCellElement) SetCh(val js.String) bool {
 	return js.True == bindings.SetHTMLTableCellElementCh(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1674,7 +1601,7 @@ func (this HTMLTableCellElement) SetCh(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableCellElement) ChOff() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableCellElementChOff(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1684,7 +1611,7 @@ func (this HTMLTableCellElement) ChOff() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableCellElement) SetChOff(val js.String) bool {
 	return js.True == bindings.SetHTMLTableCellElementChOff(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1694,7 +1621,7 @@ func (this HTMLTableCellElement) SetChOff(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableCellElement) NoWrap() (ret bool, ok bool) {
 	ok = js.True == bindings.GetHTMLTableCellElementNoWrap(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1704,7 +1631,7 @@ func (this HTMLTableCellElement) NoWrap() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableCellElement) SetNoWrap(val bool) bool {
 	return js.True == bindings.SetHTMLTableCellElementNoWrap(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -1714,7 +1641,7 @@ func (this HTMLTableCellElement) SetNoWrap(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableCellElement) VAlign() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableCellElementVAlign(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1724,7 +1651,7 @@ func (this HTMLTableCellElement) VAlign() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableCellElement) SetVAlign(val js.String) bool {
 	return js.True == bindings.SetHTMLTableCellElementVAlign(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1734,7 +1661,7 @@ func (this HTMLTableCellElement) SetVAlign(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableCellElement) BgColor() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableCellElementBgColor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1744,14 +1671,9 @@ func (this HTMLTableCellElement) BgColor() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableCellElement) SetBgColor(val js.String) bool {
 	return js.True == bindings.SetHTMLTableCellElementBgColor(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
-}
-
-func NewHTMLTableColElement() (ret HTMLTableColElement) {
-	ret.ref = bindings.NewHTMLTableColElementByHTMLTableColElement()
-	return
 }
 
 type HTMLTableColElement struct {
@@ -1759,7 +1681,7 @@ type HTMLTableColElement struct {
 }
 
 func (this HTMLTableColElement) Once() HTMLTableColElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1773,7 +1695,7 @@ func (this HTMLTableColElement) FromRef(ref js.Ref) HTMLTableColElement {
 }
 
 func (this HTMLTableColElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Span returns the value of property "HTMLTableColElement.span".
@@ -1781,7 +1703,7 @@ func (this HTMLTableColElement) Free() {
 // It returns ok=false if there is no such property.
 func (this HTMLTableColElement) Span() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetHTMLTableColElementSpan(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1791,7 +1713,7 @@ func (this HTMLTableColElement) Span() (ret uint32, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableColElement) SetSpan(val uint32) bool {
 	return js.True == bindings.SetHTMLTableColElementSpan(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
@@ -1801,7 +1723,7 @@ func (this HTMLTableColElement) SetSpan(val uint32) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableColElement) Align() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableColElementAlign(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1811,7 +1733,7 @@ func (this HTMLTableColElement) Align() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableColElement) SetAlign(val js.String) bool {
 	return js.True == bindings.SetHTMLTableColElementAlign(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1821,7 +1743,7 @@ func (this HTMLTableColElement) SetAlign(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableColElement) Ch() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableColElementCh(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1831,7 +1753,7 @@ func (this HTMLTableColElement) Ch() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableColElement) SetCh(val js.String) bool {
 	return js.True == bindings.SetHTMLTableColElementCh(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1841,7 +1763,7 @@ func (this HTMLTableColElement) SetCh(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableColElement) ChOff() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableColElementChOff(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1851,7 +1773,7 @@ func (this HTMLTableColElement) ChOff() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableColElement) SetChOff(val js.String) bool {
 	return js.True == bindings.SetHTMLTableColElementChOff(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1861,7 +1783,7 @@ func (this HTMLTableColElement) SetChOff(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableColElement) VAlign() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableColElementVAlign(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1871,7 +1793,7 @@ func (this HTMLTableColElement) VAlign() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableColElement) SetVAlign(val js.String) bool {
 	return js.True == bindings.SetHTMLTableColElementVAlign(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1881,7 +1803,7 @@ func (this HTMLTableColElement) SetVAlign(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableColElement) Width() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableColElementWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1891,14 +1813,9 @@ func (this HTMLTableColElement) Width() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableColElement) SetWidth(val js.String) bool {
 	return js.True == bindings.SetHTMLTableColElementWidth(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
-}
-
-func NewHTMLTableRowElement() (ret HTMLTableRowElement) {
-	ret.ref = bindings.NewHTMLTableRowElementByHTMLTableRowElement()
-	return
 }
 
 type HTMLTableRowElement struct {
@@ -1906,7 +1823,7 @@ type HTMLTableRowElement struct {
 }
 
 func (this HTMLTableRowElement) Once() HTMLTableRowElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1920,7 +1837,7 @@ func (this HTMLTableRowElement) FromRef(ref js.Ref) HTMLTableRowElement {
 }
 
 func (this HTMLTableRowElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // RowIndex returns the value of property "HTMLTableRowElement.rowIndex".
@@ -1928,7 +1845,7 @@ func (this HTMLTableRowElement) Free() {
 // It returns ok=false if there is no such property.
 func (this HTMLTableRowElement) RowIndex() (ret int32, ok bool) {
 	ok = js.True == bindings.GetHTMLTableRowElementRowIndex(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1938,7 +1855,7 @@ func (this HTMLTableRowElement) RowIndex() (ret int32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLTableRowElement) SectionRowIndex() (ret int32, ok bool) {
 	ok = js.True == bindings.GetHTMLTableRowElementSectionRowIndex(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1948,7 +1865,7 @@ func (this HTMLTableRowElement) SectionRowIndex() (ret int32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLTableRowElement) Cells() (ret HTMLCollection, ok bool) {
 	ok = js.True == bindings.GetHTMLTableRowElementCells(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1958,7 +1875,7 @@ func (this HTMLTableRowElement) Cells() (ret HTMLCollection, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLTableRowElement) Align() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableRowElementAlign(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1968,7 +1885,7 @@ func (this HTMLTableRowElement) Align() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableRowElement) SetAlign(val js.String) bool {
 	return js.True == bindings.SetHTMLTableRowElementAlign(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1978,7 +1895,7 @@ func (this HTMLTableRowElement) SetAlign(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableRowElement) Ch() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableRowElementCh(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1988,7 +1905,7 @@ func (this HTMLTableRowElement) Ch() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableRowElement) SetCh(val js.String) bool {
 	return js.True == bindings.SetHTMLTableRowElementCh(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1998,7 +1915,7 @@ func (this HTMLTableRowElement) SetCh(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableRowElement) ChOff() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableRowElementChOff(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2008,7 +1925,7 @@ func (this HTMLTableRowElement) ChOff() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableRowElement) SetChOff(val js.String) bool {
 	return js.True == bindings.SetHTMLTableRowElementChOff(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2018,7 +1935,7 @@ func (this HTMLTableRowElement) SetChOff(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableRowElement) VAlign() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableRowElementVAlign(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2028,7 +1945,7 @@ func (this HTMLTableRowElement) VAlign() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableRowElement) SetVAlign(val js.String) bool {
 	return js.True == bindings.SetHTMLTableRowElementVAlign(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2038,7 +1955,7 @@ func (this HTMLTableRowElement) SetVAlign(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableRowElement) BgColor() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableRowElementBgColor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2048,31 +1965,30 @@ func (this HTMLTableRowElement) BgColor() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableRowElement) SetBgColor(val js.String) bool {
 	return js.True == bindings.SetHTMLTableRowElementBgColor(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
 
-// HasInsertCell returns true if the method "HTMLTableRowElement.insertCell" exists.
-func (this HTMLTableRowElement) HasInsertCell() bool {
-	return js.True == bindings.HasHTMLTableRowElementInsertCell(
-		this.Ref(),
+// HasFuncInsertCell returns true if the method "HTMLTableRowElement.insertCell" exists.
+func (this HTMLTableRowElement) HasFuncInsertCell() bool {
+	return js.True == bindings.HasFuncHTMLTableRowElementInsertCell(
+		this.ref,
 	)
 }
 
-// InsertCellFunc returns the method "HTMLTableRowElement.insertCell".
-func (this HTMLTableRowElement) InsertCellFunc() (fn js.Func[func(index int32) HTMLTableCellElement]) {
-	return fn.FromRef(
-		bindings.HTMLTableRowElementInsertCellFunc(
-			this.Ref(),
-		),
+// FuncInsertCell returns the method "HTMLTableRowElement.insertCell".
+func (this HTMLTableRowElement) FuncInsertCell() (fn js.Func[func(index int32) HTMLTableCellElement]) {
+	bindings.FuncHTMLTableRowElementInsertCell(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InsertCell calls the method "HTMLTableRowElement.insertCell".
 func (this HTMLTableRowElement) InsertCell(index int32) (ret HTMLTableCellElement) {
 	bindings.CallHTMLTableRowElementInsertCell(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		int32(index),
 	)
 
@@ -2084,33 +2000,32 @@ func (this HTMLTableRowElement) InsertCell(index int32) (ret HTMLTableCellElemen
 // the catch clause.
 func (this HTMLTableRowElement) TryInsertCell(index int32) (ret HTMLTableCellElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableRowElementInsertCell(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		int32(index),
 	)
 
 	return
 }
 
-// HasInsertCell1 returns true if the method "HTMLTableRowElement.insertCell" exists.
-func (this HTMLTableRowElement) HasInsertCell1() bool {
-	return js.True == bindings.HasHTMLTableRowElementInsertCell1(
-		this.Ref(),
+// HasFuncInsertCell1 returns true if the method "HTMLTableRowElement.insertCell" exists.
+func (this HTMLTableRowElement) HasFuncInsertCell1() bool {
+	return js.True == bindings.HasFuncHTMLTableRowElementInsertCell1(
+		this.ref,
 	)
 }
 
-// InsertCell1Func returns the method "HTMLTableRowElement.insertCell".
-func (this HTMLTableRowElement) InsertCell1Func() (fn js.Func[func() HTMLTableCellElement]) {
-	return fn.FromRef(
-		bindings.HTMLTableRowElementInsertCell1Func(
-			this.Ref(),
-		),
+// FuncInsertCell1 returns the method "HTMLTableRowElement.insertCell".
+func (this HTMLTableRowElement) FuncInsertCell1() (fn js.Func[func() HTMLTableCellElement]) {
+	bindings.FuncHTMLTableRowElementInsertCell1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InsertCell1 calls the method "HTMLTableRowElement.insertCell".
 func (this HTMLTableRowElement) InsertCell1() (ret HTMLTableCellElement) {
 	bindings.CallHTMLTableRowElementInsertCell1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2121,32 +2036,31 @@ func (this HTMLTableRowElement) InsertCell1() (ret HTMLTableCellElement) {
 // the catch clause.
 func (this HTMLTableRowElement) TryInsertCell1() (ret HTMLTableCellElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableRowElementInsertCell1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasDeleteCell returns true if the method "HTMLTableRowElement.deleteCell" exists.
-func (this HTMLTableRowElement) HasDeleteCell() bool {
-	return js.True == bindings.HasHTMLTableRowElementDeleteCell(
-		this.Ref(),
+// HasFuncDeleteCell returns true if the method "HTMLTableRowElement.deleteCell" exists.
+func (this HTMLTableRowElement) HasFuncDeleteCell() bool {
+	return js.True == bindings.HasFuncHTMLTableRowElementDeleteCell(
+		this.ref,
 	)
 }
 
-// DeleteCellFunc returns the method "HTMLTableRowElement.deleteCell".
-func (this HTMLTableRowElement) DeleteCellFunc() (fn js.Func[func(index int32)]) {
-	return fn.FromRef(
-		bindings.HTMLTableRowElementDeleteCellFunc(
-			this.Ref(),
-		),
+// FuncDeleteCell returns the method "HTMLTableRowElement.deleteCell".
+func (this HTMLTableRowElement) FuncDeleteCell() (fn js.Func[func(index int32)]) {
+	bindings.FuncHTMLTableRowElementDeleteCell(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteCell calls the method "HTMLTableRowElement.deleteCell".
 func (this HTMLTableRowElement) DeleteCell(index int32) (ret js.Void) {
 	bindings.CallHTMLTableRowElementDeleteCell(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		int32(index),
 	)
 
@@ -2158,15 +2072,10 @@ func (this HTMLTableRowElement) DeleteCell(index int32) (ret js.Void) {
 // the catch clause.
 func (this HTMLTableRowElement) TryDeleteCell(index int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableRowElementDeleteCell(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		int32(index),
 	)
 
-	return
-}
-
-func NewHTMLTableSectionElement() (ret HTMLTableSectionElement) {
-	ret.ref = bindings.NewHTMLTableSectionElementByHTMLTableSectionElement()
 	return
 }
 
@@ -2175,7 +2084,7 @@ type HTMLTableSectionElement struct {
 }
 
 func (this HTMLTableSectionElement) Once() HTMLTableSectionElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2189,7 +2098,7 @@ func (this HTMLTableSectionElement) FromRef(ref js.Ref) HTMLTableSectionElement 
 }
 
 func (this HTMLTableSectionElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Rows returns the value of property "HTMLTableSectionElement.rows".
@@ -2197,7 +2106,7 @@ func (this HTMLTableSectionElement) Free() {
 // It returns ok=false if there is no such property.
 func (this HTMLTableSectionElement) Rows() (ret HTMLCollection, ok bool) {
 	ok = js.True == bindings.GetHTMLTableSectionElementRows(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2207,7 +2116,7 @@ func (this HTMLTableSectionElement) Rows() (ret HTMLCollection, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLTableSectionElement) Align() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableSectionElementAlign(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2217,7 +2126,7 @@ func (this HTMLTableSectionElement) Align() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableSectionElement) SetAlign(val js.String) bool {
 	return js.True == bindings.SetHTMLTableSectionElementAlign(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2227,7 +2136,7 @@ func (this HTMLTableSectionElement) SetAlign(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableSectionElement) Ch() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableSectionElementCh(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2237,7 +2146,7 @@ func (this HTMLTableSectionElement) Ch() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableSectionElement) SetCh(val js.String) bool {
 	return js.True == bindings.SetHTMLTableSectionElementCh(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2247,7 +2156,7 @@ func (this HTMLTableSectionElement) SetCh(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableSectionElement) ChOff() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableSectionElementChOff(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2257,7 +2166,7 @@ func (this HTMLTableSectionElement) ChOff() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableSectionElement) SetChOff(val js.String) bool {
 	return js.True == bindings.SetHTMLTableSectionElementChOff(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2267,7 +2176,7 @@ func (this HTMLTableSectionElement) SetChOff(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableSectionElement) VAlign() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableSectionElementVAlign(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2277,31 +2186,30 @@ func (this HTMLTableSectionElement) VAlign() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableSectionElement) SetVAlign(val js.String) bool {
 	return js.True == bindings.SetHTMLTableSectionElementVAlign(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
 
-// HasInsertRow returns true if the method "HTMLTableSectionElement.insertRow" exists.
-func (this HTMLTableSectionElement) HasInsertRow() bool {
-	return js.True == bindings.HasHTMLTableSectionElementInsertRow(
-		this.Ref(),
+// HasFuncInsertRow returns true if the method "HTMLTableSectionElement.insertRow" exists.
+func (this HTMLTableSectionElement) HasFuncInsertRow() bool {
+	return js.True == bindings.HasFuncHTMLTableSectionElementInsertRow(
+		this.ref,
 	)
 }
 
-// InsertRowFunc returns the method "HTMLTableSectionElement.insertRow".
-func (this HTMLTableSectionElement) InsertRowFunc() (fn js.Func[func(index int32) HTMLTableRowElement]) {
-	return fn.FromRef(
-		bindings.HTMLTableSectionElementInsertRowFunc(
-			this.Ref(),
-		),
+// FuncInsertRow returns the method "HTMLTableSectionElement.insertRow".
+func (this HTMLTableSectionElement) FuncInsertRow() (fn js.Func[func(index int32) HTMLTableRowElement]) {
+	bindings.FuncHTMLTableSectionElementInsertRow(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InsertRow calls the method "HTMLTableSectionElement.insertRow".
 func (this HTMLTableSectionElement) InsertRow(index int32) (ret HTMLTableRowElement) {
 	bindings.CallHTMLTableSectionElementInsertRow(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		int32(index),
 	)
 
@@ -2313,33 +2221,32 @@ func (this HTMLTableSectionElement) InsertRow(index int32) (ret HTMLTableRowElem
 // the catch clause.
 func (this HTMLTableSectionElement) TryInsertRow(index int32) (ret HTMLTableRowElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableSectionElementInsertRow(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		int32(index),
 	)
 
 	return
 }
 
-// HasInsertRow1 returns true if the method "HTMLTableSectionElement.insertRow" exists.
-func (this HTMLTableSectionElement) HasInsertRow1() bool {
-	return js.True == bindings.HasHTMLTableSectionElementInsertRow1(
-		this.Ref(),
+// HasFuncInsertRow1 returns true if the method "HTMLTableSectionElement.insertRow" exists.
+func (this HTMLTableSectionElement) HasFuncInsertRow1() bool {
+	return js.True == bindings.HasFuncHTMLTableSectionElementInsertRow1(
+		this.ref,
 	)
 }
 
-// InsertRow1Func returns the method "HTMLTableSectionElement.insertRow".
-func (this HTMLTableSectionElement) InsertRow1Func() (fn js.Func[func() HTMLTableRowElement]) {
-	return fn.FromRef(
-		bindings.HTMLTableSectionElementInsertRow1Func(
-			this.Ref(),
-		),
+// FuncInsertRow1 returns the method "HTMLTableSectionElement.insertRow".
+func (this HTMLTableSectionElement) FuncInsertRow1() (fn js.Func[func() HTMLTableRowElement]) {
+	bindings.FuncHTMLTableSectionElementInsertRow1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InsertRow1 calls the method "HTMLTableSectionElement.insertRow".
 func (this HTMLTableSectionElement) InsertRow1() (ret HTMLTableRowElement) {
 	bindings.CallHTMLTableSectionElementInsertRow1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2350,32 +2257,31 @@ func (this HTMLTableSectionElement) InsertRow1() (ret HTMLTableRowElement) {
 // the catch clause.
 func (this HTMLTableSectionElement) TryInsertRow1() (ret HTMLTableRowElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableSectionElementInsertRow1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasDeleteRow returns true if the method "HTMLTableSectionElement.deleteRow" exists.
-func (this HTMLTableSectionElement) HasDeleteRow() bool {
-	return js.True == bindings.HasHTMLTableSectionElementDeleteRow(
-		this.Ref(),
+// HasFuncDeleteRow returns true if the method "HTMLTableSectionElement.deleteRow" exists.
+func (this HTMLTableSectionElement) HasFuncDeleteRow() bool {
+	return js.True == bindings.HasFuncHTMLTableSectionElementDeleteRow(
+		this.ref,
 	)
 }
 
-// DeleteRowFunc returns the method "HTMLTableSectionElement.deleteRow".
-func (this HTMLTableSectionElement) DeleteRowFunc() (fn js.Func[func(index int32)]) {
-	return fn.FromRef(
-		bindings.HTMLTableSectionElementDeleteRowFunc(
-			this.Ref(),
-		),
+// FuncDeleteRow returns the method "HTMLTableSectionElement.deleteRow".
+func (this HTMLTableSectionElement) FuncDeleteRow() (fn js.Func[func(index int32)]) {
+	bindings.FuncHTMLTableSectionElementDeleteRow(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteRow calls the method "HTMLTableSectionElement.deleteRow".
 func (this HTMLTableSectionElement) DeleteRow(index int32) (ret js.Void) {
 	bindings.CallHTMLTableSectionElementDeleteRow(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		int32(index),
 	)
 
@@ -2387,15 +2293,10 @@ func (this HTMLTableSectionElement) DeleteRow(index int32) (ret js.Void) {
 // the catch clause.
 func (this HTMLTableSectionElement) TryDeleteRow(index int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableSectionElementDeleteRow(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		int32(index),
 	)
 
-	return
-}
-
-func NewHTMLTableElement() (ret HTMLTableElement) {
-	ret.ref = bindings.NewHTMLTableElementByHTMLTableElement()
 	return
 }
 
@@ -2404,7 +2305,7 @@ type HTMLTableElement struct {
 }
 
 func (this HTMLTableElement) Once() HTMLTableElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2418,7 +2319,7 @@ func (this HTMLTableElement) FromRef(ref js.Ref) HTMLTableElement {
 }
 
 func (this HTMLTableElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Caption returns the value of property "HTMLTableElement.caption".
@@ -2426,7 +2327,7 @@ func (this HTMLTableElement) Free() {
 // It returns ok=false if there is no such property.
 func (this HTMLTableElement) Caption() (ret HTMLTableCaptionElement, ok bool) {
 	ok = js.True == bindings.GetHTMLTableElementCaption(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2436,7 +2337,7 @@ func (this HTMLTableElement) Caption() (ret HTMLTableCaptionElement, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableElement) SetCaption(val HTMLTableCaptionElement) bool {
 	return js.True == bindings.SetHTMLTableElementCaption(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2446,7 +2347,7 @@ func (this HTMLTableElement) SetCaption(val HTMLTableCaptionElement) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableElement) THead() (ret HTMLTableSectionElement, ok bool) {
 	ok = js.True == bindings.GetHTMLTableElementTHead(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2456,7 +2357,7 @@ func (this HTMLTableElement) THead() (ret HTMLTableSectionElement, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableElement) SetTHead(val HTMLTableSectionElement) bool {
 	return js.True == bindings.SetHTMLTableElementTHead(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2466,7 +2367,7 @@ func (this HTMLTableElement) SetTHead(val HTMLTableSectionElement) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableElement) TFoot() (ret HTMLTableSectionElement, ok bool) {
 	ok = js.True == bindings.GetHTMLTableElementTFoot(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2476,7 +2377,7 @@ func (this HTMLTableElement) TFoot() (ret HTMLTableSectionElement, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableElement) SetTFoot(val HTMLTableSectionElement) bool {
 	return js.True == bindings.SetHTMLTableElementTFoot(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2486,7 +2387,7 @@ func (this HTMLTableElement) SetTFoot(val HTMLTableSectionElement) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableElement) TBodies() (ret HTMLCollection, ok bool) {
 	ok = js.True == bindings.GetHTMLTableElementTBodies(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2496,7 +2397,7 @@ func (this HTMLTableElement) TBodies() (ret HTMLCollection, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLTableElement) Rows() (ret HTMLCollection, ok bool) {
 	ok = js.True == bindings.GetHTMLTableElementRows(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2506,7 +2407,7 @@ func (this HTMLTableElement) Rows() (ret HTMLCollection, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLTableElement) Align() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableElementAlign(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2516,7 +2417,7 @@ func (this HTMLTableElement) Align() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableElement) SetAlign(val js.String) bool {
 	return js.True == bindings.SetHTMLTableElementAlign(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2526,7 +2427,7 @@ func (this HTMLTableElement) SetAlign(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableElement) Border() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableElementBorder(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2536,7 +2437,7 @@ func (this HTMLTableElement) Border() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableElement) SetBorder(val js.String) bool {
 	return js.True == bindings.SetHTMLTableElementBorder(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2546,7 +2447,7 @@ func (this HTMLTableElement) SetBorder(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableElement) Frame() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableElementFrame(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2556,7 +2457,7 @@ func (this HTMLTableElement) Frame() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableElement) SetFrame(val js.String) bool {
 	return js.True == bindings.SetHTMLTableElementFrame(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2566,7 +2467,7 @@ func (this HTMLTableElement) SetFrame(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableElement) Rules() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableElementRules(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2576,7 +2477,7 @@ func (this HTMLTableElement) Rules() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableElement) SetRules(val js.String) bool {
 	return js.True == bindings.SetHTMLTableElementRules(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2586,7 +2487,7 @@ func (this HTMLTableElement) SetRules(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableElement) Summary() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableElementSummary(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2596,7 +2497,7 @@ func (this HTMLTableElement) Summary() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableElement) SetSummary(val js.String) bool {
 	return js.True == bindings.SetHTMLTableElementSummary(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2606,7 +2507,7 @@ func (this HTMLTableElement) SetSummary(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableElement) Width() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableElementWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2616,7 +2517,7 @@ func (this HTMLTableElement) Width() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableElement) SetWidth(val js.String) bool {
 	return js.True == bindings.SetHTMLTableElementWidth(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2626,7 +2527,7 @@ func (this HTMLTableElement) SetWidth(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableElement) BgColor() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableElementBgColor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2636,7 +2537,7 @@ func (this HTMLTableElement) BgColor() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableElement) SetBgColor(val js.String) bool {
 	return js.True == bindings.SetHTMLTableElementBgColor(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2646,7 +2547,7 @@ func (this HTMLTableElement) SetBgColor(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableElement) CellPadding() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableElementCellPadding(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2656,7 +2557,7 @@ func (this HTMLTableElement) CellPadding() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableElement) SetCellPadding(val js.String) bool {
 	return js.True == bindings.SetHTMLTableElementCellPadding(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2666,7 +2567,7 @@ func (this HTMLTableElement) SetCellPadding(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTableElement) CellSpacing() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTableElementCellSpacing(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2676,31 +2577,30 @@ func (this HTMLTableElement) CellSpacing() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTableElement) SetCellSpacing(val js.String) bool {
 	return js.True == bindings.SetHTMLTableElementCellSpacing(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
 
-// HasCreateCaption returns true if the method "HTMLTableElement.createCaption" exists.
-func (this HTMLTableElement) HasCreateCaption() bool {
-	return js.True == bindings.HasHTMLTableElementCreateCaption(
-		this.Ref(),
+// HasFuncCreateCaption returns true if the method "HTMLTableElement.createCaption" exists.
+func (this HTMLTableElement) HasFuncCreateCaption() bool {
+	return js.True == bindings.HasFuncHTMLTableElementCreateCaption(
+		this.ref,
 	)
 }
 
-// CreateCaptionFunc returns the method "HTMLTableElement.createCaption".
-func (this HTMLTableElement) CreateCaptionFunc() (fn js.Func[func() HTMLTableCaptionElement]) {
-	return fn.FromRef(
-		bindings.HTMLTableElementCreateCaptionFunc(
-			this.Ref(),
-		),
+// FuncCreateCaption returns the method "HTMLTableElement.createCaption".
+func (this HTMLTableElement) FuncCreateCaption() (fn js.Func[func() HTMLTableCaptionElement]) {
+	bindings.FuncHTMLTableElementCreateCaption(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateCaption calls the method "HTMLTableElement.createCaption".
 func (this HTMLTableElement) CreateCaption() (ret HTMLTableCaptionElement) {
 	bindings.CallHTMLTableElementCreateCaption(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2711,32 +2611,31 @@ func (this HTMLTableElement) CreateCaption() (ret HTMLTableCaptionElement) {
 // the catch clause.
 func (this HTMLTableElement) TryCreateCaption() (ret HTMLTableCaptionElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableElementCreateCaption(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasDeleteCaption returns true if the method "HTMLTableElement.deleteCaption" exists.
-func (this HTMLTableElement) HasDeleteCaption() bool {
-	return js.True == bindings.HasHTMLTableElementDeleteCaption(
-		this.Ref(),
+// HasFuncDeleteCaption returns true if the method "HTMLTableElement.deleteCaption" exists.
+func (this HTMLTableElement) HasFuncDeleteCaption() bool {
+	return js.True == bindings.HasFuncHTMLTableElementDeleteCaption(
+		this.ref,
 	)
 }
 
-// DeleteCaptionFunc returns the method "HTMLTableElement.deleteCaption".
-func (this HTMLTableElement) DeleteCaptionFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.HTMLTableElementDeleteCaptionFunc(
-			this.Ref(),
-		),
+// FuncDeleteCaption returns the method "HTMLTableElement.deleteCaption".
+func (this HTMLTableElement) FuncDeleteCaption() (fn js.Func[func()]) {
+	bindings.FuncHTMLTableElementDeleteCaption(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteCaption calls the method "HTMLTableElement.deleteCaption".
 func (this HTMLTableElement) DeleteCaption() (ret js.Void) {
 	bindings.CallHTMLTableElementDeleteCaption(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2747,32 +2646,31 @@ func (this HTMLTableElement) DeleteCaption() (ret js.Void) {
 // the catch clause.
 func (this HTMLTableElement) TryDeleteCaption() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableElementDeleteCaption(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCreateTHead returns true if the method "HTMLTableElement.createTHead" exists.
-func (this HTMLTableElement) HasCreateTHead() bool {
-	return js.True == bindings.HasHTMLTableElementCreateTHead(
-		this.Ref(),
+// HasFuncCreateTHead returns true if the method "HTMLTableElement.createTHead" exists.
+func (this HTMLTableElement) HasFuncCreateTHead() bool {
+	return js.True == bindings.HasFuncHTMLTableElementCreateTHead(
+		this.ref,
 	)
 }
 
-// CreateTHeadFunc returns the method "HTMLTableElement.createTHead".
-func (this HTMLTableElement) CreateTHeadFunc() (fn js.Func[func() HTMLTableSectionElement]) {
-	return fn.FromRef(
-		bindings.HTMLTableElementCreateTHeadFunc(
-			this.Ref(),
-		),
+// FuncCreateTHead returns the method "HTMLTableElement.createTHead".
+func (this HTMLTableElement) FuncCreateTHead() (fn js.Func[func() HTMLTableSectionElement]) {
+	bindings.FuncHTMLTableElementCreateTHead(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateTHead calls the method "HTMLTableElement.createTHead".
 func (this HTMLTableElement) CreateTHead() (ret HTMLTableSectionElement) {
 	bindings.CallHTMLTableElementCreateTHead(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2783,32 +2681,31 @@ func (this HTMLTableElement) CreateTHead() (ret HTMLTableSectionElement) {
 // the catch clause.
 func (this HTMLTableElement) TryCreateTHead() (ret HTMLTableSectionElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableElementCreateTHead(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasDeleteTHead returns true if the method "HTMLTableElement.deleteTHead" exists.
-func (this HTMLTableElement) HasDeleteTHead() bool {
-	return js.True == bindings.HasHTMLTableElementDeleteTHead(
-		this.Ref(),
+// HasFuncDeleteTHead returns true if the method "HTMLTableElement.deleteTHead" exists.
+func (this HTMLTableElement) HasFuncDeleteTHead() bool {
+	return js.True == bindings.HasFuncHTMLTableElementDeleteTHead(
+		this.ref,
 	)
 }
 
-// DeleteTHeadFunc returns the method "HTMLTableElement.deleteTHead".
-func (this HTMLTableElement) DeleteTHeadFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.HTMLTableElementDeleteTHeadFunc(
-			this.Ref(),
-		),
+// FuncDeleteTHead returns the method "HTMLTableElement.deleteTHead".
+func (this HTMLTableElement) FuncDeleteTHead() (fn js.Func[func()]) {
+	bindings.FuncHTMLTableElementDeleteTHead(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteTHead calls the method "HTMLTableElement.deleteTHead".
 func (this HTMLTableElement) DeleteTHead() (ret js.Void) {
 	bindings.CallHTMLTableElementDeleteTHead(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2819,32 +2716,31 @@ func (this HTMLTableElement) DeleteTHead() (ret js.Void) {
 // the catch clause.
 func (this HTMLTableElement) TryDeleteTHead() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableElementDeleteTHead(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCreateTFoot returns true if the method "HTMLTableElement.createTFoot" exists.
-func (this HTMLTableElement) HasCreateTFoot() bool {
-	return js.True == bindings.HasHTMLTableElementCreateTFoot(
-		this.Ref(),
+// HasFuncCreateTFoot returns true if the method "HTMLTableElement.createTFoot" exists.
+func (this HTMLTableElement) HasFuncCreateTFoot() bool {
+	return js.True == bindings.HasFuncHTMLTableElementCreateTFoot(
+		this.ref,
 	)
 }
 
-// CreateTFootFunc returns the method "HTMLTableElement.createTFoot".
-func (this HTMLTableElement) CreateTFootFunc() (fn js.Func[func() HTMLTableSectionElement]) {
-	return fn.FromRef(
-		bindings.HTMLTableElementCreateTFootFunc(
-			this.Ref(),
-		),
+// FuncCreateTFoot returns the method "HTMLTableElement.createTFoot".
+func (this HTMLTableElement) FuncCreateTFoot() (fn js.Func[func() HTMLTableSectionElement]) {
+	bindings.FuncHTMLTableElementCreateTFoot(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateTFoot calls the method "HTMLTableElement.createTFoot".
 func (this HTMLTableElement) CreateTFoot() (ret HTMLTableSectionElement) {
 	bindings.CallHTMLTableElementCreateTFoot(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2855,32 +2751,31 @@ func (this HTMLTableElement) CreateTFoot() (ret HTMLTableSectionElement) {
 // the catch clause.
 func (this HTMLTableElement) TryCreateTFoot() (ret HTMLTableSectionElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableElementCreateTFoot(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasDeleteTFoot returns true if the method "HTMLTableElement.deleteTFoot" exists.
-func (this HTMLTableElement) HasDeleteTFoot() bool {
-	return js.True == bindings.HasHTMLTableElementDeleteTFoot(
-		this.Ref(),
+// HasFuncDeleteTFoot returns true if the method "HTMLTableElement.deleteTFoot" exists.
+func (this HTMLTableElement) HasFuncDeleteTFoot() bool {
+	return js.True == bindings.HasFuncHTMLTableElementDeleteTFoot(
+		this.ref,
 	)
 }
 
-// DeleteTFootFunc returns the method "HTMLTableElement.deleteTFoot".
-func (this HTMLTableElement) DeleteTFootFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.HTMLTableElementDeleteTFootFunc(
-			this.Ref(),
-		),
+// FuncDeleteTFoot returns the method "HTMLTableElement.deleteTFoot".
+func (this HTMLTableElement) FuncDeleteTFoot() (fn js.Func[func()]) {
+	bindings.FuncHTMLTableElementDeleteTFoot(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteTFoot calls the method "HTMLTableElement.deleteTFoot".
 func (this HTMLTableElement) DeleteTFoot() (ret js.Void) {
 	bindings.CallHTMLTableElementDeleteTFoot(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2891,32 +2786,31 @@ func (this HTMLTableElement) DeleteTFoot() (ret js.Void) {
 // the catch clause.
 func (this HTMLTableElement) TryDeleteTFoot() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableElementDeleteTFoot(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCreateTBody returns true if the method "HTMLTableElement.createTBody" exists.
-func (this HTMLTableElement) HasCreateTBody() bool {
-	return js.True == bindings.HasHTMLTableElementCreateTBody(
-		this.Ref(),
+// HasFuncCreateTBody returns true if the method "HTMLTableElement.createTBody" exists.
+func (this HTMLTableElement) HasFuncCreateTBody() bool {
+	return js.True == bindings.HasFuncHTMLTableElementCreateTBody(
+		this.ref,
 	)
 }
 
-// CreateTBodyFunc returns the method "HTMLTableElement.createTBody".
-func (this HTMLTableElement) CreateTBodyFunc() (fn js.Func[func() HTMLTableSectionElement]) {
-	return fn.FromRef(
-		bindings.HTMLTableElementCreateTBodyFunc(
-			this.Ref(),
-		),
+// FuncCreateTBody returns the method "HTMLTableElement.createTBody".
+func (this HTMLTableElement) FuncCreateTBody() (fn js.Func[func() HTMLTableSectionElement]) {
+	bindings.FuncHTMLTableElementCreateTBody(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateTBody calls the method "HTMLTableElement.createTBody".
 func (this HTMLTableElement) CreateTBody() (ret HTMLTableSectionElement) {
 	bindings.CallHTMLTableElementCreateTBody(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2927,32 +2821,31 @@ func (this HTMLTableElement) CreateTBody() (ret HTMLTableSectionElement) {
 // the catch clause.
 func (this HTMLTableElement) TryCreateTBody() (ret HTMLTableSectionElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableElementCreateTBody(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasInsertRow returns true if the method "HTMLTableElement.insertRow" exists.
-func (this HTMLTableElement) HasInsertRow() bool {
-	return js.True == bindings.HasHTMLTableElementInsertRow(
-		this.Ref(),
+// HasFuncInsertRow returns true if the method "HTMLTableElement.insertRow" exists.
+func (this HTMLTableElement) HasFuncInsertRow() bool {
+	return js.True == bindings.HasFuncHTMLTableElementInsertRow(
+		this.ref,
 	)
 }
 
-// InsertRowFunc returns the method "HTMLTableElement.insertRow".
-func (this HTMLTableElement) InsertRowFunc() (fn js.Func[func(index int32) HTMLTableRowElement]) {
-	return fn.FromRef(
-		bindings.HTMLTableElementInsertRowFunc(
-			this.Ref(),
-		),
+// FuncInsertRow returns the method "HTMLTableElement.insertRow".
+func (this HTMLTableElement) FuncInsertRow() (fn js.Func[func(index int32) HTMLTableRowElement]) {
+	bindings.FuncHTMLTableElementInsertRow(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InsertRow calls the method "HTMLTableElement.insertRow".
 func (this HTMLTableElement) InsertRow(index int32) (ret HTMLTableRowElement) {
 	bindings.CallHTMLTableElementInsertRow(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		int32(index),
 	)
 
@@ -2964,33 +2857,32 @@ func (this HTMLTableElement) InsertRow(index int32) (ret HTMLTableRowElement) {
 // the catch clause.
 func (this HTMLTableElement) TryInsertRow(index int32) (ret HTMLTableRowElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableElementInsertRow(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		int32(index),
 	)
 
 	return
 }
 
-// HasInsertRow1 returns true if the method "HTMLTableElement.insertRow" exists.
-func (this HTMLTableElement) HasInsertRow1() bool {
-	return js.True == bindings.HasHTMLTableElementInsertRow1(
-		this.Ref(),
+// HasFuncInsertRow1 returns true if the method "HTMLTableElement.insertRow" exists.
+func (this HTMLTableElement) HasFuncInsertRow1() bool {
+	return js.True == bindings.HasFuncHTMLTableElementInsertRow1(
+		this.ref,
 	)
 }
 
-// InsertRow1Func returns the method "HTMLTableElement.insertRow".
-func (this HTMLTableElement) InsertRow1Func() (fn js.Func[func() HTMLTableRowElement]) {
-	return fn.FromRef(
-		bindings.HTMLTableElementInsertRow1Func(
-			this.Ref(),
-		),
+// FuncInsertRow1 returns the method "HTMLTableElement.insertRow".
+func (this HTMLTableElement) FuncInsertRow1() (fn js.Func[func() HTMLTableRowElement]) {
+	bindings.FuncHTMLTableElementInsertRow1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InsertRow1 calls the method "HTMLTableElement.insertRow".
 func (this HTMLTableElement) InsertRow1() (ret HTMLTableRowElement) {
 	bindings.CallHTMLTableElementInsertRow1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3001,32 +2893,31 @@ func (this HTMLTableElement) InsertRow1() (ret HTMLTableRowElement) {
 // the catch clause.
 func (this HTMLTableElement) TryInsertRow1() (ret HTMLTableRowElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableElementInsertRow1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasDeleteRow returns true if the method "HTMLTableElement.deleteRow" exists.
-func (this HTMLTableElement) HasDeleteRow() bool {
-	return js.True == bindings.HasHTMLTableElementDeleteRow(
-		this.Ref(),
+// HasFuncDeleteRow returns true if the method "HTMLTableElement.deleteRow" exists.
+func (this HTMLTableElement) HasFuncDeleteRow() bool {
+	return js.True == bindings.HasFuncHTMLTableElementDeleteRow(
+		this.ref,
 	)
 }
 
-// DeleteRowFunc returns the method "HTMLTableElement.deleteRow".
-func (this HTMLTableElement) DeleteRowFunc() (fn js.Func[func(index int32)]) {
-	return fn.FromRef(
-		bindings.HTMLTableElementDeleteRowFunc(
-			this.Ref(),
-		),
+// FuncDeleteRow returns the method "HTMLTableElement.deleteRow".
+func (this HTMLTableElement) FuncDeleteRow() (fn js.Func[func(index int32)]) {
+	bindings.FuncHTMLTableElementDeleteRow(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteRow calls the method "HTMLTableElement.deleteRow".
 func (this HTMLTableElement) DeleteRow(index int32) (ret js.Void) {
 	bindings.CallHTMLTableElementDeleteRow(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		int32(index),
 	)
 
@@ -3038,15 +2929,10 @@ func (this HTMLTableElement) DeleteRow(index int32) (ret js.Void) {
 // the catch clause.
 func (this HTMLTableElement) TryDeleteRow(index int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableElementDeleteRow(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		int32(index),
 	)
 
-	return
-}
-
-func NewHTMLTemplateElement() (ret HTMLTemplateElement) {
-	ret.ref = bindings.NewHTMLTemplateElementByHTMLTemplateElement()
 	return
 }
 
@@ -3055,7 +2941,7 @@ type HTMLTemplateElement struct {
 }
 
 func (this HTMLTemplateElement) Once() HTMLTemplateElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3069,7 +2955,7 @@ func (this HTMLTemplateElement) FromRef(ref js.Ref) HTMLTemplateElement {
 }
 
 func (this HTMLTemplateElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Content returns the value of property "HTMLTemplateElement.content".
@@ -3077,13 +2963,8 @@ func (this HTMLTemplateElement) Free() {
 // It returns ok=false if there is no such property.
 func (this HTMLTemplateElement) Content() (ret DocumentFragment, ok bool) {
 	ok = js.True == bindings.GetHTMLTemplateElementContent(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
-	return
-}
-
-func NewHTMLTextAreaElement() (ret HTMLTextAreaElement) {
-	ret.ref = bindings.NewHTMLTextAreaElementByHTMLTextAreaElement()
 	return
 }
 
@@ -3092,7 +2973,7 @@ type HTMLTextAreaElement struct {
 }
 
 func (this HTMLTextAreaElement) Once() HTMLTextAreaElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3106,7 +2987,7 @@ func (this HTMLTextAreaElement) FromRef(ref js.Ref) HTMLTextAreaElement {
 }
 
 func (this HTMLTextAreaElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Autocomplete returns the value of property "HTMLTextAreaElement.autocomplete".
@@ -3114,7 +2995,7 @@ func (this HTMLTextAreaElement) Free() {
 // It returns ok=false if there is no such property.
 func (this HTMLTextAreaElement) Autocomplete() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTextAreaElementAutocomplete(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3124,7 +3005,7 @@ func (this HTMLTextAreaElement) Autocomplete() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTextAreaElement) SetAutocomplete(val js.String) bool {
 	return js.True == bindings.SetHTMLTextAreaElementAutocomplete(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -3134,7 +3015,7 @@ func (this HTMLTextAreaElement) SetAutocomplete(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTextAreaElement) Cols() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetHTMLTextAreaElementCols(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3144,7 +3025,7 @@ func (this HTMLTextAreaElement) Cols() (ret uint32, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTextAreaElement) SetCols(val uint32) bool {
 	return js.True == bindings.SetHTMLTextAreaElementCols(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
@@ -3154,7 +3035,7 @@ func (this HTMLTextAreaElement) SetCols(val uint32) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTextAreaElement) DirName() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTextAreaElementDirName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3164,7 +3045,7 @@ func (this HTMLTextAreaElement) DirName() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTextAreaElement) SetDirName(val js.String) bool {
 	return js.True == bindings.SetHTMLTextAreaElementDirName(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -3174,7 +3055,7 @@ func (this HTMLTextAreaElement) SetDirName(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTextAreaElement) Disabled() (ret bool, ok bool) {
 	ok = js.True == bindings.GetHTMLTextAreaElementDisabled(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3184,7 +3065,7 @@ func (this HTMLTextAreaElement) Disabled() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTextAreaElement) SetDisabled(val bool) bool {
 	return js.True == bindings.SetHTMLTextAreaElementDisabled(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -3194,7 +3075,7 @@ func (this HTMLTextAreaElement) SetDisabled(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTextAreaElement) Form() (ret HTMLFormElement, ok bool) {
 	ok = js.True == bindings.GetHTMLTextAreaElementForm(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3204,7 +3085,7 @@ func (this HTMLTextAreaElement) Form() (ret HTMLFormElement, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLTextAreaElement) MaxLength() (ret int32, ok bool) {
 	ok = js.True == bindings.GetHTMLTextAreaElementMaxLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3214,7 +3095,7 @@ func (this HTMLTextAreaElement) MaxLength() (ret int32, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTextAreaElement) SetMaxLength(val int32) bool {
 	return js.True == bindings.SetHTMLTextAreaElementMaxLength(
-		this.Ref(),
+		this.ref,
 		int32(val),
 	)
 }
@@ -3224,7 +3105,7 @@ func (this HTMLTextAreaElement) SetMaxLength(val int32) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTextAreaElement) MinLength() (ret int32, ok bool) {
 	ok = js.True == bindings.GetHTMLTextAreaElementMinLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3234,7 +3115,7 @@ func (this HTMLTextAreaElement) MinLength() (ret int32, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTextAreaElement) SetMinLength(val int32) bool {
 	return js.True == bindings.SetHTMLTextAreaElementMinLength(
-		this.Ref(),
+		this.ref,
 		int32(val),
 	)
 }
@@ -3244,7 +3125,7 @@ func (this HTMLTextAreaElement) SetMinLength(val int32) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTextAreaElement) Name() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTextAreaElementName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3254,7 +3135,7 @@ func (this HTMLTextAreaElement) Name() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTextAreaElement) SetName(val js.String) bool {
 	return js.True == bindings.SetHTMLTextAreaElementName(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -3264,7 +3145,7 @@ func (this HTMLTextAreaElement) SetName(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTextAreaElement) Placeholder() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTextAreaElementPlaceholder(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3274,7 +3155,7 @@ func (this HTMLTextAreaElement) Placeholder() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTextAreaElement) SetPlaceholder(val js.String) bool {
 	return js.True == bindings.SetHTMLTextAreaElementPlaceholder(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -3284,7 +3165,7 @@ func (this HTMLTextAreaElement) SetPlaceholder(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTextAreaElement) ReadOnly() (ret bool, ok bool) {
 	ok = js.True == bindings.GetHTMLTextAreaElementReadOnly(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3294,7 +3175,7 @@ func (this HTMLTextAreaElement) ReadOnly() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTextAreaElement) SetReadOnly(val bool) bool {
 	return js.True == bindings.SetHTMLTextAreaElementReadOnly(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -3304,7 +3185,7 @@ func (this HTMLTextAreaElement) SetReadOnly(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTextAreaElement) Required() (ret bool, ok bool) {
 	ok = js.True == bindings.GetHTMLTextAreaElementRequired(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3314,7 +3195,7 @@ func (this HTMLTextAreaElement) Required() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTextAreaElement) SetRequired(val bool) bool {
 	return js.True == bindings.SetHTMLTextAreaElementRequired(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -3324,7 +3205,7 @@ func (this HTMLTextAreaElement) SetRequired(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTextAreaElement) Rows() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetHTMLTextAreaElementRows(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3334,7 +3215,7 @@ func (this HTMLTextAreaElement) Rows() (ret uint32, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTextAreaElement) SetRows(val uint32) bool {
 	return js.True == bindings.SetHTMLTextAreaElementRows(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
@@ -3344,7 +3225,7 @@ func (this HTMLTextAreaElement) SetRows(val uint32) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTextAreaElement) Wrap() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTextAreaElementWrap(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3354,7 +3235,7 @@ func (this HTMLTextAreaElement) Wrap() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTextAreaElement) SetWrap(val js.String) bool {
 	return js.True == bindings.SetHTMLTextAreaElementWrap(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -3364,7 +3245,7 @@ func (this HTMLTextAreaElement) SetWrap(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTextAreaElement) Type() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTextAreaElementType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3374,7 +3255,7 @@ func (this HTMLTextAreaElement) Type() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLTextAreaElement) DefaultValue() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTextAreaElementDefaultValue(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3384,7 +3265,7 @@ func (this HTMLTextAreaElement) DefaultValue() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTextAreaElement) SetDefaultValue(val js.String) bool {
 	return js.True == bindings.SetHTMLTextAreaElementDefaultValue(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -3394,7 +3275,7 @@ func (this HTMLTextAreaElement) SetDefaultValue(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTextAreaElement) Value() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTextAreaElementValue(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3404,7 +3285,7 @@ func (this HTMLTextAreaElement) Value() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTextAreaElement) SetValue(val js.String) bool {
 	return js.True == bindings.SetHTMLTextAreaElementValue(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -3414,7 +3295,7 @@ func (this HTMLTextAreaElement) SetValue(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTextAreaElement) TextLength() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetHTMLTextAreaElementTextLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3424,7 +3305,7 @@ func (this HTMLTextAreaElement) TextLength() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLTextAreaElement) WillValidate() (ret bool, ok bool) {
 	ok = js.True == bindings.GetHTMLTextAreaElementWillValidate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3434,7 +3315,7 @@ func (this HTMLTextAreaElement) WillValidate() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLTextAreaElement) Validity() (ret ValidityState, ok bool) {
 	ok = js.True == bindings.GetHTMLTextAreaElementValidity(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3444,7 +3325,7 @@ func (this HTMLTextAreaElement) Validity() (ret ValidityState, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLTextAreaElement) ValidationMessage() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTextAreaElementValidationMessage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3454,7 +3335,7 @@ func (this HTMLTextAreaElement) ValidationMessage() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLTextAreaElement) Labels() (ret NodeList, ok bool) {
 	ok = js.True == bindings.GetHTMLTextAreaElementLabels(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3464,7 +3345,7 @@ func (this HTMLTextAreaElement) Labels() (ret NodeList, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLTextAreaElement) SelectionStart() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetHTMLTextAreaElementSelectionStart(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3474,7 +3355,7 @@ func (this HTMLTextAreaElement) SelectionStart() (ret uint32, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTextAreaElement) SetSelectionStart(val uint32) bool {
 	return js.True == bindings.SetHTMLTextAreaElementSelectionStart(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
@@ -3484,7 +3365,7 @@ func (this HTMLTextAreaElement) SetSelectionStart(val uint32) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTextAreaElement) SelectionEnd() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetHTMLTextAreaElementSelectionEnd(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3494,7 +3375,7 @@ func (this HTMLTextAreaElement) SelectionEnd() (ret uint32, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTextAreaElement) SetSelectionEnd(val uint32) bool {
 	return js.True == bindings.SetHTMLTextAreaElementSelectionEnd(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
@@ -3504,7 +3385,7 @@ func (this HTMLTextAreaElement) SetSelectionEnd(val uint32) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTextAreaElement) SelectionDirection() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTextAreaElementSelectionDirection(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3514,31 +3395,30 @@ func (this HTMLTextAreaElement) SelectionDirection() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTextAreaElement) SetSelectionDirection(val js.String) bool {
 	return js.True == bindings.SetHTMLTextAreaElementSelectionDirection(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
 
-// HasCheckValidity returns true if the method "HTMLTextAreaElement.checkValidity" exists.
-func (this HTMLTextAreaElement) HasCheckValidity() bool {
-	return js.True == bindings.HasHTMLTextAreaElementCheckValidity(
-		this.Ref(),
+// HasFuncCheckValidity returns true if the method "HTMLTextAreaElement.checkValidity" exists.
+func (this HTMLTextAreaElement) HasFuncCheckValidity() bool {
+	return js.True == bindings.HasFuncHTMLTextAreaElementCheckValidity(
+		this.ref,
 	)
 }
 
-// CheckValidityFunc returns the method "HTMLTextAreaElement.checkValidity".
-func (this HTMLTextAreaElement) CheckValidityFunc() (fn js.Func[func() bool]) {
-	return fn.FromRef(
-		bindings.HTMLTextAreaElementCheckValidityFunc(
-			this.Ref(),
-		),
+// FuncCheckValidity returns the method "HTMLTextAreaElement.checkValidity".
+func (this HTMLTextAreaElement) FuncCheckValidity() (fn js.Func[func() bool]) {
+	bindings.FuncHTMLTextAreaElementCheckValidity(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CheckValidity calls the method "HTMLTextAreaElement.checkValidity".
 func (this HTMLTextAreaElement) CheckValidity() (ret bool) {
 	bindings.CallHTMLTextAreaElementCheckValidity(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3549,32 +3429,31 @@ func (this HTMLTextAreaElement) CheckValidity() (ret bool) {
 // the catch clause.
 func (this HTMLTextAreaElement) TryCheckValidity() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTextAreaElementCheckValidity(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasReportValidity returns true if the method "HTMLTextAreaElement.reportValidity" exists.
-func (this HTMLTextAreaElement) HasReportValidity() bool {
-	return js.True == bindings.HasHTMLTextAreaElementReportValidity(
-		this.Ref(),
+// HasFuncReportValidity returns true if the method "HTMLTextAreaElement.reportValidity" exists.
+func (this HTMLTextAreaElement) HasFuncReportValidity() bool {
+	return js.True == bindings.HasFuncHTMLTextAreaElementReportValidity(
+		this.ref,
 	)
 }
 
-// ReportValidityFunc returns the method "HTMLTextAreaElement.reportValidity".
-func (this HTMLTextAreaElement) ReportValidityFunc() (fn js.Func[func() bool]) {
-	return fn.FromRef(
-		bindings.HTMLTextAreaElementReportValidityFunc(
-			this.Ref(),
-		),
+// FuncReportValidity returns the method "HTMLTextAreaElement.reportValidity".
+func (this HTMLTextAreaElement) FuncReportValidity() (fn js.Func[func() bool]) {
+	bindings.FuncHTMLTextAreaElementReportValidity(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReportValidity calls the method "HTMLTextAreaElement.reportValidity".
 func (this HTMLTextAreaElement) ReportValidity() (ret bool) {
 	bindings.CallHTMLTextAreaElementReportValidity(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3585,32 +3464,31 @@ func (this HTMLTextAreaElement) ReportValidity() (ret bool) {
 // the catch clause.
 func (this HTMLTextAreaElement) TryReportValidity() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTextAreaElementReportValidity(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSetCustomValidity returns true if the method "HTMLTextAreaElement.setCustomValidity" exists.
-func (this HTMLTextAreaElement) HasSetCustomValidity() bool {
-	return js.True == bindings.HasHTMLTextAreaElementSetCustomValidity(
-		this.Ref(),
+// HasFuncSetCustomValidity returns true if the method "HTMLTextAreaElement.setCustomValidity" exists.
+func (this HTMLTextAreaElement) HasFuncSetCustomValidity() bool {
+	return js.True == bindings.HasFuncHTMLTextAreaElementSetCustomValidity(
+		this.ref,
 	)
 }
 
-// SetCustomValidityFunc returns the method "HTMLTextAreaElement.setCustomValidity".
-func (this HTMLTextAreaElement) SetCustomValidityFunc() (fn js.Func[func(err js.String)]) {
-	return fn.FromRef(
-		bindings.HTMLTextAreaElementSetCustomValidityFunc(
-			this.Ref(),
-		),
+// FuncSetCustomValidity returns the method "HTMLTextAreaElement.setCustomValidity".
+func (this HTMLTextAreaElement) FuncSetCustomValidity() (fn js.Func[func(err js.String)]) {
+	bindings.FuncHTMLTextAreaElementSetCustomValidity(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetCustomValidity calls the method "HTMLTextAreaElement.setCustomValidity".
 func (this HTMLTextAreaElement) SetCustomValidity(err js.String) (ret js.Void) {
 	bindings.CallHTMLTextAreaElementSetCustomValidity(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		err.Ref(),
 	)
 
@@ -3622,33 +3500,32 @@ func (this HTMLTextAreaElement) SetCustomValidity(err js.String) (ret js.Void) {
 // the catch clause.
 func (this HTMLTextAreaElement) TrySetCustomValidity(err js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTextAreaElementSetCustomValidity(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		err.Ref(),
 	)
 
 	return
 }
 
-// HasSelect returns true if the method "HTMLTextAreaElement.select" exists.
-func (this HTMLTextAreaElement) HasSelect() bool {
-	return js.True == bindings.HasHTMLTextAreaElementSelect(
-		this.Ref(),
+// HasFuncSelect returns true if the method "HTMLTextAreaElement.select" exists.
+func (this HTMLTextAreaElement) HasFuncSelect() bool {
+	return js.True == bindings.HasFuncHTMLTextAreaElementSelect(
+		this.ref,
 	)
 }
 
-// SelectFunc returns the method "HTMLTextAreaElement.select".
-func (this HTMLTextAreaElement) SelectFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.HTMLTextAreaElementSelectFunc(
-			this.Ref(),
-		),
+// FuncSelect returns the method "HTMLTextAreaElement.select".
+func (this HTMLTextAreaElement) FuncSelect() (fn js.Func[func()]) {
+	bindings.FuncHTMLTextAreaElementSelect(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Select calls the method "HTMLTextAreaElement.select".
 func (this HTMLTextAreaElement) Select() (ret js.Void) {
 	bindings.CallHTMLTextAreaElementSelect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3659,32 +3536,31 @@ func (this HTMLTextAreaElement) Select() (ret js.Void) {
 // the catch clause.
 func (this HTMLTextAreaElement) TrySelect() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTextAreaElementSelect(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSetRangeText returns true if the method "HTMLTextAreaElement.setRangeText" exists.
-func (this HTMLTextAreaElement) HasSetRangeText() bool {
-	return js.True == bindings.HasHTMLTextAreaElementSetRangeText(
-		this.Ref(),
+// HasFuncSetRangeText returns true if the method "HTMLTextAreaElement.setRangeText" exists.
+func (this HTMLTextAreaElement) HasFuncSetRangeText() bool {
+	return js.True == bindings.HasFuncHTMLTextAreaElementSetRangeText(
+		this.ref,
 	)
 }
 
-// SetRangeTextFunc returns the method "HTMLTextAreaElement.setRangeText".
-func (this HTMLTextAreaElement) SetRangeTextFunc() (fn js.Func[func(replacement js.String)]) {
-	return fn.FromRef(
-		bindings.HTMLTextAreaElementSetRangeTextFunc(
-			this.Ref(),
-		),
+// FuncSetRangeText returns the method "HTMLTextAreaElement.setRangeText".
+func (this HTMLTextAreaElement) FuncSetRangeText() (fn js.Func[func(replacement js.String)]) {
+	bindings.FuncHTMLTextAreaElementSetRangeText(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetRangeText calls the method "HTMLTextAreaElement.setRangeText".
 func (this HTMLTextAreaElement) SetRangeText(replacement js.String) (ret js.Void) {
 	bindings.CallHTMLTextAreaElementSetRangeText(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		replacement.Ref(),
 	)
 
@@ -3696,33 +3572,32 @@ func (this HTMLTextAreaElement) SetRangeText(replacement js.String) (ret js.Void
 // the catch clause.
 func (this HTMLTextAreaElement) TrySetRangeText(replacement js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTextAreaElementSetRangeText(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		replacement.Ref(),
 	)
 
 	return
 }
 
-// HasSetRangeText1 returns true if the method "HTMLTextAreaElement.setRangeText" exists.
-func (this HTMLTextAreaElement) HasSetRangeText1() bool {
-	return js.True == bindings.HasHTMLTextAreaElementSetRangeText1(
-		this.Ref(),
+// HasFuncSetRangeText1 returns true if the method "HTMLTextAreaElement.setRangeText" exists.
+func (this HTMLTextAreaElement) HasFuncSetRangeText1() bool {
+	return js.True == bindings.HasFuncHTMLTextAreaElementSetRangeText1(
+		this.ref,
 	)
 }
 
-// SetRangeText1Func returns the method "HTMLTextAreaElement.setRangeText".
-func (this HTMLTextAreaElement) SetRangeText1Func() (fn js.Func[func(replacement js.String, start uint32, end uint32, selectionMode SelectionMode)]) {
-	return fn.FromRef(
-		bindings.HTMLTextAreaElementSetRangeText1Func(
-			this.Ref(),
-		),
+// FuncSetRangeText1 returns the method "HTMLTextAreaElement.setRangeText".
+func (this HTMLTextAreaElement) FuncSetRangeText1() (fn js.Func[func(replacement js.String, start uint32, end uint32, selectionMode SelectionMode)]) {
+	bindings.FuncHTMLTextAreaElementSetRangeText1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetRangeText1 calls the method "HTMLTextAreaElement.setRangeText".
 func (this HTMLTextAreaElement) SetRangeText1(replacement js.String, start uint32, end uint32, selectionMode SelectionMode) (ret js.Void) {
 	bindings.CallHTMLTextAreaElementSetRangeText1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		replacement.Ref(),
 		uint32(start),
 		uint32(end),
@@ -3737,7 +3612,7 @@ func (this HTMLTextAreaElement) SetRangeText1(replacement js.String, start uint3
 // the catch clause.
 func (this HTMLTextAreaElement) TrySetRangeText1(replacement js.String, start uint32, end uint32, selectionMode SelectionMode) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTextAreaElementSetRangeText1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		replacement.Ref(),
 		uint32(start),
 		uint32(end),
@@ -3747,26 +3622,25 @@ func (this HTMLTextAreaElement) TrySetRangeText1(replacement js.String, start ui
 	return
 }
 
-// HasSetRangeText2 returns true if the method "HTMLTextAreaElement.setRangeText" exists.
-func (this HTMLTextAreaElement) HasSetRangeText2() bool {
-	return js.True == bindings.HasHTMLTextAreaElementSetRangeText2(
-		this.Ref(),
+// HasFuncSetRangeText2 returns true if the method "HTMLTextAreaElement.setRangeText" exists.
+func (this HTMLTextAreaElement) HasFuncSetRangeText2() bool {
+	return js.True == bindings.HasFuncHTMLTextAreaElementSetRangeText2(
+		this.ref,
 	)
 }
 
-// SetRangeText2Func returns the method "HTMLTextAreaElement.setRangeText".
-func (this HTMLTextAreaElement) SetRangeText2Func() (fn js.Func[func(replacement js.String, start uint32, end uint32)]) {
-	return fn.FromRef(
-		bindings.HTMLTextAreaElementSetRangeText2Func(
-			this.Ref(),
-		),
+// FuncSetRangeText2 returns the method "HTMLTextAreaElement.setRangeText".
+func (this HTMLTextAreaElement) FuncSetRangeText2() (fn js.Func[func(replacement js.String, start uint32, end uint32)]) {
+	bindings.FuncHTMLTextAreaElementSetRangeText2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetRangeText2 calls the method "HTMLTextAreaElement.setRangeText".
 func (this HTMLTextAreaElement) SetRangeText2(replacement js.String, start uint32, end uint32) (ret js.Void) {
 	bindings.CallHTMLTextAreaElementSetRangeText2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		replacement.Ref(),
 		uint32(start),
 		uint32(end),
@@ -3780,7 +3654,7 @@ func (this HTMLTextAreaElement) SetRangeText2(replacement js.String, start uint3
 // the catch clause.
 func (this HTMLTextAreaElement) TrySetRangeText2(replacement js.String, start uint32, end uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTextAreaElementSetRangeText2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		replacement.Ref(),
 		uint32(start),
 		uint32(end),
@@ -3789,26 +3663,25 @@ func (this HTMLTextAreaElement) TrySetRangeText2(replacement js.String, start ui
 	return
 }
 
-// HasSetSelectionRange returns true if the method "HTMLTextAreaElement.setSelectionRange" exists.
-func (this HTMLTextAreaElement) HasSetSelectionRange() bool {
-	return js.True == bindings.HasHTMLTextAreaElementSetSelectionRange(
-		this.Ref(),
+// HasFuncSetSelectionRange returns true if the method "HTMLTextAreaElement.setSelectionRange" exists.
+func (this HTMLTextAreaElement) HasFuncSetSelectionRange() bool {
+	return js.True == bindings.HasFuncHTMLTextAreaElementSetSelectionRange(
+		this.ref,
 	)
 }
 
-// SetSelectionRangeFunc returns the method "HTMLTextAreaElement.setSelectionRange".
-func (this HTMLTextAreaElement) SetSelectionRangeFunc() (fn js.Func[func(start uint32, end uint32, direction js.String)]) {
-	return fn.FromRef(
-		bindings.HTMLTextAreaElementSetSelectionRangeFunc(
-			this.Ref(),
-		),
+// FuncSetSelectionRange returns the method "HTMLTextAreaElement.setSelectionRange".
+func (this HTMLTextAreaElement) FuncSetSelectionRange() (fn js.Func[func(start uint32, end uint32, direction js.String)]) {
+	bindings.FuncHTMLTextAreaElementSetSelectionRange(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetSelectionRange calls the method "HTMLTextAreaElement.setSelectionRange".
 func (this HTMLTextAreaElement) SetSelectionRange(start uint32, end uint32, direction js.String) (ret js.Void) {
 	bindings.CallHTMLTextAreaElementSetSelectionRange(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(start),
 		uint32(end),
 		direction.Ref(),
@@ -3822,7 +3695,7 @@ func (this HTMLTextAreaElement) SetSelectionRange(start uint32, end uint32, dire
 // the catch clause.
 func (this HTMLTextAreaElement) TrySetSelectionRange(start uint32, end uint32, direction js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTextAreaElementSetSelectionRange(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(start),
 		uint32(end),
 		direction.Ref(),
@@ -3831,26 +3704,25 @@ func (this HTMLTextAreaElement) TrySetSelectionRange(start uint32, end uint32, d
 	return
 }
 
-// HasSetSelectionRange1 returns true if the method "HTMLTextAreaElement.setSelectionRange" exists.
-func (this HTMLTextAreaElement) HasSetSelectionRange1() bool {
-	return js.True == bindings.HasHTMLTextAreaElementSetSelectionRange1(
-		this.Ref(),
+// HasFuncSetSelectionRange1 returns true if the method "HTMLTextAreaElement.setSelectionRange" exists.
+func (this HTMLTextAreaElement) HasFuncSetSelectionRange1() bool {
+	return js.True == bindings.HasFuncHTMLTextAreaElementSetSelectionRange1(
+		this.ref,
 	)
 }
 
-// SetSelectionRange1Func returns the method "HTMLTextAreaElement.setSelectionRange".
-func (this HTMLTextAreaElement) SetSelectionRange1Func() (fn js.Func[func(start uint32, end uint32)]) {
-	return fn.FromRef(
-		bindings.HTMLTextAreaElementSetSelectionRange1Func(
-			this.Ref(),
-		),
+// FuncSetSelectionRange1 returns the method "HTMLTextAreaElement.setSelectionRange".
+func (this HTMLTextAreaElement) FuncSetSelectionRange1() (fn js.Func[func(start uint32, end uint32)]) {
+	bindings.FuncHTMLTextAreaElementSetSelectionRange1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetSelectionRange1 calls the method "HTMLTextAreaElement.setSelectionRange".
 func (this HTMLTextAreaElement) SetSelectionRange1(start uint32, end uint32) (ret js.Void) {
 	bindings.CallHTMLTextAreaElementSetSelectionRange1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(start),
 		uint32(end),
 	)
@@ -3863,16 +3735,11 @@ func (this HTMLTextAreaElement) SetSelectionRange1(start uint32, end uint32) (re
 // the catch clause.
 func (this HTMLTextAreaElement) TrySetSelectionRange1(start uint32, end uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTextAreaElementSetSelectionRange1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(start),
 		uint32(end),
 	)
 
-	return
-}
-
-func NewHTMLTimeElement() (ret HTMLTimeElement) {
-	ret.ref = bindings.NewHTMLTimeElementByHTMLTimeElement()
 	return
 }
 
@@ -3881,7 +3748,7 @@ type HTMLTimeElement struct {
 }
 
 func (this HTMLTimeElement) Once() HTMLTimeElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3895,7 +3762,7 @@ func (this HTMLTimeElement) FromRef(ref js.Ref) HTMLTimeElement {
 }
 
 func (this HTMLTimeElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // DateTime returns the value of property "HTMLTimeElement.dateTime".
@@ -3903,7 +3770,7 @@ func (this HTMLTimeElement) Free() {
 // It returns ok=false if there is no such property.
 func (this HTMLTimeElement) DateTime() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTimeElementDateTime(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3913,14 +3780,9 @@ func (this HTMLTimeElement) DateTime() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTimeElement) SetDateTime(val js.String) bool {
 	return js.True == bindings.SetHTMLTimeElementDateTime(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
-}
-
-func NewHTMLTitleElement() (ret HTMLTitleElement) {
-	ret.ref = bindings.NewHTMLTitleElementByHTMLTitleElement()
-	return
 }
 
 type HTMLTitleElement struct {
@@ -3928,7 +3790,7 @@ type HTMLTitleElement struct {
 }
 
 func (this HTMLTitleElement) Once() HTMLTitleElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3942,7 +3804,7 @@ func (this HTMLTitleElement) FromRef(ref js.Ref) HTMLTitleElement {
 }
 
 func (this HTMLTitleElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Text returns the value of property "HTMLTitleElement.text".
@@ -3950,7 +3812,7 @@ func (this HTMLTitleElement) Free() {
 // It returns ok=false if there is no such property.
 func (this HTMLTitleElement) Text() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTitleElementText(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3960,7 +3822,7 @@ func (this HTMLTitleElement) Text() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTitleElement) SetText(val js.String) bool {
 	return js.True == bindings.SetHTMLTitleElementText(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -3972,17 +3834,12 @@ const (
 	HTMLTrackElement_ERROR   uint16 = 3
 )
 
-func NewHTMLTrackElement() (ret HTMLTrackElement) {
-	ret.ref = bindings.NewHTMLTrackElementByHTMLTrackElement()
-	return
-}
-
 type HTMLTrackElement struct {
 	HTMLElement
 }
 
 func (this HTMLTrackElement) Once() HTMLTrackElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3996,7 +3853,7 @@ func (this HTMLTrackElement) FromRef(ref js.Ref) HTMLTrackElement {
 }
 
 func (this HTMLTrackElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Kind returns the value of property "HTMLTrackElement.kind".
@@ -4004,7 +3861,7 @@ func (this HTMLTrackElement) Free() {
 // It returns ok=false if there is no such property.
 func (this HTMLTrackElement) Kind() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTrackElementKind(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4014,7 +3871,7 @@ func (this HTMLTrackElement) Kind() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTrackElement) SetKind(val js.String) bool {
 	return js.True == bindings.SetHTMLTrackElementKind(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -4024,7 +3881,7 @@ func (this HTMLTrackElement) SetKind(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTrackElement) Src() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTrackElementSrc(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4034,7 +3891,7 @@ func (this HTMLTrackElement) Src() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTrackElement) SetSrc(val js.String) bool {
 	return js.True == bindings.SetHTMLTrackElementSrc(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -4044,7 +3901,7 @@ func (this HTMLTrackElement) SetSrc(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTrackElement) Srclang() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTrackElementSrclang(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4054,7 +3911,7 @@ func (this HTMLTrackElement) Srclang() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTrackElement) SetSrclang(val js.String) bool {
 	return js.True == bindings.SetHTMLTrackElementSrclang(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -4064,7 +3921,7 @@ func (this HTMLTrackElement) SetSrclang(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTrackElement) Label() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLTrackElementLabel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4074,7 +3931,7 @@ func (this HTMLTrackElement) Label() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTrackElement) SetLabel(val js.String) bool {
 	return js.True == bindings.SetHTMLTrackElementLabel(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -4084,7 +3941,7 @@ func (this HTMLTrackElement) SetLabel(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTrackElement) Default() (ret bool, ok bool) {
 	ok = js.True == bindings.GetHTMLTrackElementDefault(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4094,7 +3951,7 @@ func (this HTMLTrackElement) Default() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLTrackElement) SetDefault(val bool) bool {
 	return js.True == bindings.SetHTMLTrackElementDefault(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -4104,7 +3961,7 @@ func (this HTMLTrackElement) SetDefault(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLTrackElement) ReadyState() (ret uint16, ok bool) {
 	ok = js.True == bindings.GetHTMLTrackElementReadyState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4114,13 +3971,8 @@ func (this HTMLTrackElement) ReadyState() (ret uint16, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLTrackElement) Track() (ret TextTrack, ok bool) {
 	ok = js.True == bindings.GetHTMLTrackElementTrack(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
-	return
-}
-
-func NewHTMLUListElement() (ret HTMLUListElement) {
-	ret.ref = bindings.NewHTMLUListElementByHTMLUListElement()
 	return
 }
 
@@ -4129,7 +3981,7 @@ type HTMLUListElement struct {
 }
 
 func (this HTMLUListElement) Once() HTMLUListElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -4143,7 +3995,7 @@ func (this HTMLUListElement) FromRef(ref js.Ref) HTMLUListElement {
 }
 
 func (this HTMLUListElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Compact returns the value of property "HTMLUListElement.compact".
@@ -4151,7 +4003,7 @@ func (this HTMLUListElement) Free() {
 // It returns ok=false if there is no such property.
 func (this HTMLUListElement) Compact() (ret bool, ok bool) {
 	ok = js.True == bindings.GetHTMLUListElementCompact(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4161,7 +4013,7 @@ func (this HTMLUListElement) Compact() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLUListElement) SetCompact(val bool) bool {
 	return js.True == bindings.SetHTMLUListElementCompact(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -4171,7 +4023,7 @@ func (this HTMLUListElement) SetCompact(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLUListElement) Type() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLUListElementType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4181,7 +4033,7 @@ func (this HTMLUListElement) Type() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLUListElement) SetType(val js.String) bool {
 	return js.True == bindings.SetHTMLUListElementType(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -4191,7 +4043,7 @@ type HTMLUnknownElement struct {
 }
 
 func (this HTMLUnknownElement) Once() HTMLUnknownElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -4205,7 +4057,7 @@ func (this HTMLUnknownElement) FromRef(ref js.Ref) HTMLUnknownElement {
 }
 
 func (this HTMLUnknownElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type HashChangeEventInit struct {
@@ -4257,17 +4109,28 @@ func (p HashChangeEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p HashChangeEventInit) UpdateFrom(ref js.Ref) {
+func (p *HashChangeEventInit) UpdateFrom(ref js.Ref) {
 	bindings.HashChangeEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p HashChangeEventInit) Update(ref js.Ref) {
+func (p *HashChangeEventInit) Update(ref js.Ref) {
 	bindings.HashChangeEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *HashChangeEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.OldURL.Ref(),
+		p.NewURL.Ref(),
+	)
+	p.OldURL = p.OldURL.FromRef(js.Undefined)
+	p.NewURL = p.NewURL.FromRef(js.Undefined)
 }
 
 func NewHashChangeEvent(typ js.String, eventInitDict HashChangeEventInit) (ret HashChangeEvent) {
@@ -4288,7 +4151,7 @@ type HashChangeEvent struct {
 }
 
 func (this HashChangeEvent) Once() HashChangeEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -4302,7 +4165,7 @@ func (this HashChangeEvent) FromRef(ref js.Ref) HashChangeEvent {
 }
 
 func (this HashChangeEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // OldURL returns the value of property "HashChangeEvent.oldURL".
@@ -4310,7 +4173,7 @@ func (this HashChangeEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this HashChangeEvent) OldURL() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHashChangeEventOldURL(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4320,7 +4183,7 @@ func (this HashChangeEvent) OldURL() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HashChangeEvent) NewURL() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHashChangeEventNewURL(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4372,17 +4235,22 @@ func (p HevcEncoderConfig) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p HevcEncoderConfig) UpdateFrom(ref js.Ref) {
+func (p *HevcEncoderConfig) UpdateFrom(ref js.Ref) {
 	bindings.HevcEncoderConfigJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p HevcEncoderConfig) Update(ref js.Ref) {
+func (p *HevcEncoderConfig) Update(ref js.Ref) {
 	bindings.HevcEncoderConfigJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *HevcEncoderConfig) FreeMembers(recursive bool) {
 }
 
 type HighlightType uint32
@@ -4424,7 +4292,7 @@ type Highlight struct {
 }
 
 func (this Highlight) Once() Highlight {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -4438,7 +4306,7 @@ func (this Highlight) FromRef(ref js.Ref) Highlight {
 }
 
 func (this Highlight) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Priority returns the value of property "Highlight.priority".
@@ -4446,7 +4314,7 @@ func (this Highlight) Free() {
 // It returns ok=false if there is no such property.
 func (this Highlight) Priority() (ret int32, ok bool) {
 	ok = js.True == bindings.GetHighlightPriority(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4456,7 +4324,7 @@ func (this Highlight) Priority() (ret int32, ok bool) {
 // It returns false if the property cannot be set.
 func (this Highlight) SetPriority(val int32) bool {
 	return js.True == bindings.SetHighlightPriority(
-		this.Ref(),
+		this.ref,
 		int32(val),
 	)
 }
@@ -4466,7 +4334,7 @@ func (this Highlight) SetPriority(val int32) bool {
 // It returns ok=false if there is no such property.
 func (this Highlight) Type() (ret HighlightType, ok bool) {
 	ok = js.True == bindings.GetHighlightType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4476,7 +4344,7 @@ func (this Highlight) Type() (ret HighlightType, ok bool) {
 // It returns false if the property cannot be set.
 func (this Highlight) SetType(val HighlightType) bool {
 	return js.True == bindings.SetHighlightType(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
@@ -4516,17 +4384,32 @@ func (p HkdfParams) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p HkdfParams) UpdateFrom(ref js.Ref) {
+func (p *HkdfParams) UpdateFrom(ref js.Ref) {
 	bindings.HkdfParamsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p HkdfParams) Update(ref js.Ref) {
+func (p *HkdfParams) Update(ref js.Ref) {
 	bindings.HkdfParamsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *HkdfParams) FreeMembers(recursive bool) {
+	js.Free(
+		p.Hash.Ref(),
+		p.Salt.Ref(),
+		p.Info.Ref(),
+		p.Name.Ref(),
+	)
+	p.Hash = p.Hash.FromRef(js.Undefined)
+	p.Salt = p.Salt.FromRef(js.Undefined)
+	p.Info = p.Info.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type HmacImportParams struct {
@@ -4564,17 +4447,28 @@ func (p HmacImportParams) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p HmacImportParams) UpdateFrom(ref js.Ref) {
+func (p *HmacImportParams) UpdateFrom(ref js.Ref) {
 	bindings.HmacImportParamsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p HmacImportParams) Update(ref js.Ref) {
+func (p *HmacImportParams) Update(ref js.Ref) {
 	bindings.HmacImportParamsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *HmacImportParams) FreeMembers(recursive bool) {
+	js.Free(
+		p.Hash.Ref(),
+		p.Name.Ref(),
+	)
+	p.Hash = p.Hash.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type KeyAlgorithm struct {
@@ -4600,17 +4494,26 @@ func (p KeyAlgorithm) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p KeyAlgorithm) UpdateFrom(ref js.Ref) {
+func (p *KeyAlgorithm) UpdateFrom(ref js.Ref) {
 	bindings.KeyAlgorithmJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p KeyAlgorithm) Update(ref js.Ref) {
+func (p *KeyAlgorithm) Update(ref js.Ref) {
 	bindings.KeyAlgorithmJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *KeyAlgorithm) FreeMembers(recursive bool) {
+	js.Free(
+		p.Name.Ref(),
+	)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type HmacKeyAlgorithm struct {
@@ -4646,17 +4549,29 @@ func (p HmacKeyAlgorithm) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p HmacKeyAlgorithm) UpdateFrom(ref js.Ref) {
+func (p *HmacKeyAlgorithm) UpdateFrom(ref js.Ref) {
 	bindings.HmacKeyAlgorithmJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p HmacKeyAlgorithm) Update(ref js.Ref) {
+func (p *HmacKeyAlgorithm) Update(ref js.Ref) {
 	bindings.HmacKeyAlgorithmJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *HmacKeyAlgorithm) FreeMembers(recursive bool) {
+	js.Free(
+		p.Name.Ref(),
+	)
+	p.Name = p.Name.FromRef(js.Undefined)
+	if recursive {
+		p.Hash.FreeMembers(true)
+	}
 }
 
 type HmacKeyGenParams struct {
@@ -4694,17 +4609,28 @@ func (p HmacKeyGenParams) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p HmacKeyGenParams) UpdateFrom(ref js.Ref) {
+func (p *HmacKeyGenParams) UpdateFrom(ref js.Ref) {
 	bindings.HmacKeyGenParamsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p HmacKeyGenParams) Update(ref js.Ref) {
+func (p *HmacKeyGenParams) Update(ref js.Ref) {
 	bindings.HmacKeyGenParamsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *HmacKeyGenParams) FreeMembers(recursive bool) {
+	js.Free(
+		p.Hash.Ref(),
+		p.Name.Ref(),
+	)
+	p.Hash = p.Hash.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type IDBCursorDirection uint32
@@ -4742,7 +4668,7 @@ type IDBIndex struct {
 }
 
 func (this IDBIndex) Once() IDBIndex {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -4756,7 +4682,7 @@ func (this IDBIndex) FromRef(ref js.Ref) IDBIndex {
 }
 
 func (this IDBIndex) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Name returns the value of property "IDBIndex.name".
@@ -4764,7 +4690,7 @@ func (this IDBIndex) Free() {
 // It returns ok=false if there is no such property.
 func (this IDBIndex) Name() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetIDBIndexName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4774,7 +4700,7 @@ func (this IDBIndex) Name() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this IDBIndex) SetName(val js.String) bool {
 	return js.True == bindings.SetIDBIndexName(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -4784,7 +4710,7 @@ func (this IDBIndex) SetName(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this IDBIndex) ObjectStore() (ret IDBObjectStore, ok bool) {
 	ok = js.True == bindings.GetIDBIndexObjectStore(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4794,7 +4720,7 @@ func (this IDBIndex) ObjectStore() (ret IDBObjectStore, ok bool) {
 // It returns ok=false if there is no such property.
 func (this IDBIndex) KeyPath() (ret js.Any, ok bool) {
 	ok = js.True == bindings.GetIDBIndexKeyPath(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4804,7 +4730,7 @@ func (this IDBIndex) KeyPath() (ret js.Any, ok bool) {
 // It returns ok=false if there is no such property.
 func (this IDBIndex) MultiEntry() (ret bool, ok bool) {
 	ok = js.True == bindings.GetIDBIndexMultiEntry(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4814,31 +4740,30 @@ func (this IDBIndex) MultiEntry() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this IDBIndex) Unique() (ret bool, ok bool) {
 	ok = js.True == bindings.GetIDBIndexUnique(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGet returns true if the method "IDBIndex.get" exists.
-func (this IDBIndex) HasGet() bool {
-	return js.True == bindings.HasIDBIndexGet(
-		this.Ref(),
+// HasFuncGet returns true if the method "IDBIndex.get" exists.
+func (this IDBIndex) HasFuncGet() bool {
+	return js.True == bindings.HasFuncIDBIndexGet(
+		this.ref,
 	)
 }
 
-// GetFunc returns the method "IDBIndex.get".
-func (this IDBIndex) GetFunc() (fn js.Func[func(query js.Any) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBIndexGetFunc(
-			this.Ref(),
-		),
+// FuncGet returns the method "IDBIndex.get".
+func (this IDBIndex) FuncGet() (fn js.Func[func(query js.Any) IDBRequest]) {
+	bindings.FuncIDBIndexGet(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Get calls the method "IDBIndex.get".
 func (this IDBIndex) Get(query js.Any) (ret IDBRequest) {
 	bindings.CallIDBIndexGet(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 	)
 
@@ -4850,33 +4775,32 @@ func (this IDBIndex) Get(query js.Any) (ret IDBRequest) {
 // the catch clause.
 func (this IDBIndex) TryGet(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexGet(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 	)
 
 	return
 }
 
-// HasGetKey returns true if the method "IDBIndex.getKey" exists.
-func (this IDBIndex) HasGetKey() bool {
-	return js.True == bindings.HasIDBIndexGetKey(
-		this.Ref(),
+// HasFuncGetKey returns true if the method "IDBIndex.getKey" exists.
+func (this IDBIndex) HasFuncGetKey() bool {
+	return js.True == bindings.HasFuncIDBIndexGetKey(
+		this.ref,
 	)
 }
 
-// GetKeyFunc returns the method "IDBIndex.getKey".
-func (this IDBIndex) GetKeyFunc() (fn js.Func[func(query js.Any) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBIndexGetKeyFunc(
-			this.Ref(),
-		),
+// FuncGetKey returns the method "IDBIndex.getKey".
+func (this IDBIndex) FuncGetKey() (fn js.Func[func(query js.Any) IDBRequest]) {
+	bindings.FuncIDBIndexGetKey(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetKey calls the method "IDBIndex.getKey".
 func (this IDBIndex) GetKey(query js.Any) (ret IDBRequest) {
 	bindings.CallIDBIndexGetKey(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 	)
 
@@ -4888,33 +4812,32 @@ func (this IDBIndex) GetKey(query js.Any) (ret IDBRequest) {
 // the catch clause.
 func (this IDBIndex) TryGetKey(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexGetKey(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 	)
 
 	return
 }
 
-// HasGetAll returns true if the method "IDBIndex.getAll" exists.
-func (this IDBIndex) HasGetAll() bool {
-	return js.True == bindings.HasIDBIndexGetAll(
-		this.Ref(),
+// HasFuncGetAll returns true if the method "IDBIndex.getAll" exists.
+func (this IDBIndex) HasFuncGetAll() bool {
+	return js.True == bindings.HasFuncIDBIndexGetAll(
+		this.ref,
 	)
 }
 
-// GetAllFunc returns the method "IDBIndex.getAll".
-func (this IDBIndex) GetAllFunc() (fn js.Func[func(query js.Any, count uint32) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBIndexGetAllFunc(
-			this.Ref(),
-		),
+// FuncGetAll returns the method "IDBIndex.getAll".
+func (this IDBIndex) FuncGetAll() (fn js.Func[func(query js.Any, count uint32) IDBRequest]) {
+	bindings.FuncIDBIndexGetAll(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAll calls the method "IDBIndex.getAll".
 func (this IDBIndex) GetAll(query js.Any, count uint32) (ret IDBRequest) {
 	bindings.CallIDBIndexGetAll(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 		uint32(count),
 	)
@@ -4927,7 +4850,7 @@ func (this IDBIndex) GetAll(query js.Any, count uint32) (ret IDBRequest) {
 // the catch clause.
 func (this IDBIndex) TryGetAll(query js.Any, count uint32) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexGetAll(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 		uint32(count),
 	)
@@ -4935,26 +4858,25 @@ func (this IDBIndex) TryGetAll(query js.Any, count uint32) (ret IDBRequest, exce
 	return
 }
 
-// HasGetAll1 returns true if the method "IDBIndex.getAll" exists.
-func (this IDBIndex) HasGetAll1() bool {
-	return js.True == bindings.HasIDBIndexGetAll1(
-		this.Ref(),
+// HasFuncGetAll1 returns true if the method "IDBIndex.getAll" exists.
+func (this IDBIndex) HasFuncGetAll1() bool {
+	return js.True == bindings.HasFuncIDBIndexGetAll1(
+		this.ref,
 	)
 }
 
-// GetAll1Func returns the method "IDBIndex.getAll".
-func (this IDBIndex) GetAll1Func() (fn js.Func[func(query js.Any) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBIndexGetAll1Func(
-			this.Ref(),
-		),
+// FuncGetAll1 returns the method "IDBIndex.getAll".
+func (this IDBIndex) FuncGetAll1() (fn js.Func[func(query js.Any) IDBRequest]) {
+	bindings.FuncIDBIndexGetAll1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAll1 calls the method "IDBIndex.getAll".
 func (this IDBIndex) GetAll1(query js.Any) (ret IDBRequest) {
 	bindings.CallIDBIndexGetAll1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 	)
 
@@ -4966,33 +4888,32 @@ func (this IDBIndex) GetAll1(query js.Any) (ret IDBRequest) {
 // the catch clause.
 func (this IDBIndex) TryGetAll1(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexGetAll1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 	)
 
 	return
 }
 
-// HasGetAll2 returns true if the method "IDBIndex.getAll" exists.
-func (this IDBIndex) HasGetAll2() bool {
-	return js.True == bindings.HasIDBIndexGetAll2(
-		this.Ref(),
+// HasFuncGetAll2 returns true if the method "IDBIndex.getAll" exists.
+func (this IDBIndex) HasFuncGetAll2() bool {
+	return js.True == bindings.HasFuncIDBIndexGetAll2(
+		this.ref,
 	)
 }
 
-// GetAll2Func returns the method "IDBIndex.getAll".
-func (this IDBIndex) GetAll2Func() (fn js.Func[func() IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBIndexGetAll2Func(
-			this.Ref(),
-		),
+// FuncGetAll2 returns the method "IDBIndex.getAll".
+func (this IDBIndex) FuncGetAll2() (fn js.Func[func() IDBRequest]) {
+	bindings.FuncIDBIndexGetAll2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAll2 calls the method "IDBIndex.getAll".
 func (this IDBIndex) GetAll2() (ret IDBRequest) {
 	bindings.CallIDBIndexGetAll2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -5003,32 +4924,31 @@ func (this IDBIndex) GetAll2() (ret IDBRequest) {
 // the catch clause.
 func (this IDBIndex) TryGetAll2() (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexGetAll2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetAllKeys returns true if the method "IDBIndex.getAllKeys" exists.
-func (this IDBIndex) HasGetAllKeys() bool {
-	return js.True == bindings.HasIDBIndexGetAllKeys(
-		this.Ref(),
+// HasFuncGetAllKeys returns true if the method "IDBIndex.getAllKeys" exists.
+func (this IDBIndex) HasFuncGetAllKeys() bool {
+	return js.True == bindings.HasFuncIDBIndexGetAllKeys(
+		this.ref,
 	)
 }
 
-// GetAllKeysFunc returns the method "IDBIndex.getAllKeys".
-func (this IDBIndex) GetAllKeysFunc() (fn js.Func[func(query js.Any, count uint32) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBIndexGetAllKeysFunc(
-			this.Ref(),
-		),
+// FuncGetAllKeys returns the method "IDBIndex.getAllKeys".
+func (this IDBIndex) FuncGetAllKeys() (fn js.Func[func(query js.Any, count uint32) IDBRequest]) {
+	bindings.FuncIDBIndexGetAllKeys(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAllKeys calls the method "IDBIndex.getAllKeys".
 func (this IDBIndex) GetAllKeys(query js.Any, count uint32) (ret IDBRequest) {
 	bindings.CallIDBIndexGetAllKeys(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 		uint32(count),
 	)
@@ -5041,7 +4961,7 @@ func (this IDBIndex) GetAllKeys(query js.Any, count uint32) (ret IDBRequest) {
 // the catch clause.
 func (this IDBIndex) TryGetAllKeys(query js.Any, count uint32) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexGetAllKeys(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 		uint32(count),
 	)
@@ -5049,26 +4969,25 @@ func (this IDBIndex) TryGetAllKeys(query js.Any, count uint32) (ret IDBRequest, 
 	return
 }
 
-// HasGetAllKeys1 returns true if the method "IDBIndex.getAllKeys" exists.
-func (this IDBIndex) HasGetAllKeys1() bool {
-	return js.True == bindings.HasIDBIndexGetAllKeys1(
-		this.Ref(),
+// HasFuncGetAllKeys1 returns true if the method "IDBIndex.getAllKeys" exists.
+func (this IDBIndex) HasFuncGetAllKeys1() bool {
+	return js.True == bindings.HasFuncIDBIndexGetAllKeys1(
+		this.ref,
 	)
 }
 
-// GetAllKeys1Func returns the method "IDBIndex.getAllKeys".
-func (this IDBIndex) GetAllKeys1Func() (fn js.Func[func(query js.Any) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBIndexGetAllKeys1Func(
-			this.Ref(),
-		),
+// FuncGetAllKeys1 returns the method "IDBIndex.getAllKeys".
+func (this IDBIndex) FuncGetAllKeys1() (fn js.Func[func(query js.Any) IDBRequest]) {
+	bindings.FuncIDBIndexGetAllKeys1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAllKeys1 calls the method "IDBIndex.getAllKeys".
 func (this IDBIndex) GetAllKeys1(query js.Any) (ret IDBRequest) {
 	bindings.CallIDBIndexGetAllKeys1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 	)
 
@@ -5080,33 +4999,32 @@ func (this IDBIndex) GetAllKeys1(query js.Any) (ret IDBRequest) {
 // the catch clause.
 func (this IDBIndex) TryGetAllKeys1(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexGetAllKeys1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 	)
 
 	return
 }
 
-// HasGetAllKeys2 returns true if the method "IDBIndex.getAllKeys" exists.
-func (this IDBIndex) HasGetAllKeys2() bool {
-	return js.True == bindings.HasIDBIndexGetAllKeys2(
-		this.Ref(),
+// HasFuncGetAllKeys2 returns true if the method "IDBIndex.getAllKeys" exists.
+func (this IDBIndex) HasFuncGetAllKeys2() bool {
+	return js.True == bindings.HasFuncIDBIndexGetAllKeys2(
+		this.ref,
 	)
 }
 
-// GetAllKeys2Func returns the method "IDBIndex.getAllKeys".
-func (this IDBIndex) GetAllKeys2Func() (fn js.Func[func() IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBIndexGetAllKeys2Func(
-			this.Ref(),
-		),
+// FuncGetAllKeys2 returns the method "IDBIndex.getAllKeys".
+func (this IDBIndex) FuncGetAllKeys2() (fn js.Func[func() IDBRequest]) {
+	bindings.FuncIDBIndexGetAllKeys2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAllKeys2 calls the method "IDBIndex.getAllKeys".
 func (this IDBIndex) GetAllKeys2() (ret IDBRequest) {
 	bindings.CallIDBIndexGetAllKeys2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -5117,32 +5035,31 @@ func (this IDBIndex) GetAllKeys2() (ret IDBRequest) {
 // the catch clause.
 func (this IDBIndex) TryGetAllKeys2() (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexGetAllKeys2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCount returns true if the method "IDBIndex.count" exists.
-func (this IDBIndex) HasCount() bool {
-	return js.True == bindings.HasIDBIndexCount(
-		this.Ref(),
+// HasFuncCount returns true if the method "IDBIndex.count" exists.
+func (this IDBIndex) HasFuncCount() bool {
+	return js.True == bindings.HasFuncIDBIndexCount(
+		this.ref,
 	)
 }
 
-// CountFunc returns the method "IDBIndex.count".
-func (this IDBIndex) CountFunc() (fn js.Func[func(query js.Any) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBIndexCountFunc(
-			this.Ref(),
-		),
+// FuncCount returns the method "IDBIndex.count".
+func (this IDBIndex) FuncCount() (fn js.Func[func(query js.Any) IDBRequest]) {
+	bindings.FuncIDBIndexCount(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Count calls the method "IDBIndex.count".
 func (this IDBIndex) Count(query js.Any) (ret IDBRequest) {
 	bindings.CallIDBIndexCount(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 	)
 
@@ -5154,33 +5071,32 @@ func (this IDBIndex) Count(query js.Any) (ret IDBRequest) {
 // the catch clause.
 func (this IDBIndex) TryCount(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexCount(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 	)
 
 	return
 }
 
-// HasCount1 returns true if the method "IDBIndex.count" exists.
-func (this IDBIndex) HasCount1() bool {
-	return js.True == bindings.HasIDBIndexCount1(
-		this.Ref(),
+// HasFuncCount1 returns true if the method "IDBIndex.count" exists.
+func (this IDBIndex) HasFuncCount1() bool {
+	return js.True == bindings.HasFuncIDBIndexCount1(
+		this.ref,
 	)
 }
 
-// Count1Func returns the method "IDBIndex.count".
-func (this IDBIndex) Count1Func() (fn js.Func[func() IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBIndexCount1Func(
-			this.Ref(),
-		),
+// FuncCount1 returns the method "IDBIndex.count".
+func (this IDBIndex) FuncCount1() (fn js.Func[func() IDBRequest]) {
+	bindings.FuncIDBIndexCount1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Count1 calls the method "IDBIndex.count".
 func (this IDBIndex) Count1() (ret IDBRequest) {
 	bindings.CallIDBIndexCount1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -5191,32 +5107,31 @@ func (this IDBIndex) Count1() (ret IDBRequest) {
 // the catch clause.
 func (this IDBIndex) TryCount1() (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexCount1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasOpenCursor returns true if the method "IDBIndex.openCursor" exists.
-func (this IDBIndex) HasOpenCursor() bool {
-	return js.True == bindings.HasIDBIndexOpenCursor(
-		this.Ref(),
+// HasFuncOpenCursor returns true if the method "IDBIndex.openCursor" exists.
+func (this IDBIndex) HasFuncOpenCursor() bool {
+	return js.True == bindings.HasFuncIDBIndexOpenCursor(
+		this.ref,
 	)
 }
 
-// OpenCursorFunc returns the method "IDBIndex.openCursor".
-func (this IDBIndex) OpenCursorFunc() (fn js.Func[func(query js.Any, direction IDBCursorDirection) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBIndexOpenCursorFunc(
-			this.Ref(),
-		),
+// FuncOpenCursor returns the method "IDBIndex.openCursor".
+func (this IDBIndex) FuncOpenCursor() (fn js.Func[func(query js.Any, direction IDBCursorDirection) IDBRequest]) {
+	bindings.FuncIDBIndexOpenCursor(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // OpenCursor calls the method "IDBIndex.openCursor".
 func (this IDBIndex) OpenCursor(query js.Any, direction IDBCursorDirection) (ret IDBRequest) {
 	bindings.CallIDBIndexOpenCursor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 		uint32(direction),
 	)
@@ -5229,7 +5144,7 @@ func (this IDBIndex) OpenCursor(query js.Any, direction IDBCursorDirection) (ret
 // the catch clause.
 func (this IDBIndex) TryOpenCursor(query js.Any, direction IDBCursorDirection) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexOpenCursor(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 		uint32(direction),
 	)
@@ -5237,26 +5152,25 @@ func (this IDBIndex) TryOpenCursor(query js.Any, direction IDBCursorDirection) (
 	return
 }
 
-// HasOpenCursor1 returns true if the method "IDBIndex.openCursor" exists.
-func (this IDBIndex) HasOpenCursor1() bool {
-	return js.True == bindings.HasIDBIndexOpenCursor1(
-		this.Ref(),
+// HasFuncOpenCursor1 returns true if the method "IDBIndex.openCursor" exists.
+func (this IDBIndex) HasFuncOpenCursor1() bool {
+	return js.True == bindings.HasFuncIDBIndexOpenCursor1(
+		this.ref,
 	)
 }
 
-// OpenCursor1Func returns the method "IDBIndex.openCursor".
-func (this IDBIndex) OpenCursor1Func() (fn js.Func[func(query js.Any) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBIndexOpenCursor1Func(
-			this.Ref(),
-		),
+// FuncOpenCursor1 returns the method "IDBIndex.openCursor".
+func (this IDBIndex) FuncOpenCursor1() (fn js.Func[func(query js.Any) IDBRequest]) {
+	bindings.FuncIDBIndexOpenCursor1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // OpenCursor1 calls the method "IDBIndex.openCursor".
 func (this IDBIndex) OpenCursor1(query js.Any) (ret IDBRequest) {
 	bindings.CallIDBIndexOpenCursor1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 	)
 
@@ -5268,33 +5182,32 @@ func (this IDBIndex) OpenCursor1(query js.Any) (ret IDBRequest) {
 // the catch clause.
 func (this IDBIndex) TryOpenCursor1(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexOpenCursor1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 	)
 
 	return
 }
 
-// HasOpenCursor2 returns true if the method "IDBIndex.openCursor" exists.
-func (this IDBIndex) HasOpenCursor2() bool {
-	return js.True == bindings.HasIDBIndexOpenCursor2(
-		this.Ref(),
+// HasFuncOpenCursor2 returns true if the method "IDBIndex.openCursor" exists.
+func (this IDBIndex) HasFuncOpenCursor2() bool {
+	return js.True == bindings.HasFuncIDBIndexOpenCursor2(
+		this.ref,
 	)
 }
 
-// OpenCursor2Func returns the method "IDBIndex.openCursor".
-func (this IDBIndex) OpenCursor2Func() (fn js.Func[func() IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBIndexOpenCursor2Func(
-			this.Ref(),
-		),
+// FuncOpenCursor2 returns the method "IDBIndex.openCursor".
+func (this IDBIndex) FuncOpenCursor2() (fn js.Func[func() IDBRequest]) {
+	bindings.FuncIDBIndexOpenCursor2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // OpenCursor2 calls the method "IDBIndex.openCursor".
 func (this IDBIndex) OpenCursor2() (ret IDBRequest) {
 	bindings.CallIDBIndexOpenCursor2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -5305,32 +5218,31 @@ func (this IDBIndex) OpenCursor2() (ret IDBRequest) {
 // the catch clause.
 func (this IDBIndex) TryOpenCursor2() (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexOpenCursor2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasOpenKeyCursor returns true if the method "IDBIndex.openKeyCursor" exists.
-func (this IDBIndex) HasOpenKeyCursor() bool {
-	return js.True == bindings.HasIDBIndexOpenKeyCursor(
-		this.Ref(),
+// HasFuncOpenKeyCursor returns true if the method "IDBIndex.openKeyCursor" exists.
+func (this IDBIndex) HasFuncOpenKeyCursor() bool {
+	return js.True == bindings.HasFuncIDBIndexOpenKeyCursor(
+		this.ref,
 	)
 }
 
-// OpenKeyCursorFunc returns the method "IDBIndex.openKeyCursor".
-func (this IDBIndex) OpenKeyCursorFunc() (fn js.Func[func(query js.Any, direction IDBCursorDirection) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBIndexOpenKeyCursorFunc(
-			this.Ref(),
-		),
+// FuncOpenKeyCursor returns the method "IDBIndex.openKeyCursor".
+func (this IDBIndex) FuncOpenKeyCursor() (fn js.Func[func(query js.Any, direction IDBCursorDirection) IDBRequest]) {
+	bindings.FuncIDBIndexOpenKeyCursor(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // OpenKeyCursor calls the method "IDBIndex.openKeyCursor".
 func (this IDBIndex) OpenKeyCursor(query js.Any, direction IDBCursorDirection) (ret IDBRequest) {
 	bindings.CallIDBIndexOpenKeyCursor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 		uint32(direction),
 	)
@@ -5343,7 +5255,7 @@ func (this IDBIndex) OpenKeyCursor(query js.Any, direction IDBCursorDirection) (
 // the catch clause.
 func (this IDBIndex) TryOpenKeyCursor(query js.Any, direction IDBCursorDirection) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexOpenKeyCursor(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 		uint32(direction),
 	)
@@ -5351,26 +5263,25 @@ func (this IDBIndex) TryOpenKeyCursor(query js.Any, direction IDBCursorDirection
 	return
 }
 
-// HasOpenKeyCursor1 returns true if the method "IDBIndex.openKeyCursor" exists.
-func (this IDBIndex) HasOpenKeyCursor1() bool {
-	return js.True == bindings.HasIDBIndexOpenKeyCursor1(
-		this.Ref(),
+// HasFuncOpenKeyCursor1 returns true if the method "IDBIndex.openKeyCursor" exists.
+func (this IDBIndex) HasFuncOpenKeyCursor1() bool {
+	return js.True == bindings.HasFuncIDBIndexOpenKeyCursor1(
+		this.ref,
 	)
 }
 
-// OpenKeyCursor1Func returns the method "IDBIndex.openKeyCursor".
-func (this IDBIndex) OpenKeyCursor1Func() (fn js.Func[func(query js.Any) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBIndexOpenKeyCursor1Func(
-			this.Ref(),
-		),
+// FuncOpenKeyCursor1 returns the method "IDBIndex.openKeyCursor".
+func (this IDBIndex) FuncOpenKeyCursor1() (fn js.Func[func(query js.Any) IDBRequest]) {
+	bindings.FuncIDBIndexOpenKeyCursor1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // OpenKeyCursor1 calls the method "IDBIndex.openKeyCursor".
 func (this IDBIndex) OpenKeyCursor1(query js.Any) (ret IDBRequest) {
 	bindings.CallIDBIndexOpenKeyCursor1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 	)
 
@@ -5382,33 +5293,32 @@ func (this IDBIndex) OpenKeyCursor1(query js.Any) (ret IDBRequest) {
 // the catch clause.
 func (this IDBIndex) TryOpenKeyCursor1(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexOpenKeyCursor1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 	)
 
 	return
 }
 
-// HasOpenKeyCursor2 returns true if the method "IDBIndex.openKeyCursor" exists.
-func (this IDBIndex) HasOpenKeyCursor2() bool {
-	return js.True == bindings.HasIDBIndexOpenKeyCursor2(
-		this.Ref(),
+// HasFuncOpenKeyCursor2 returns true if the method "IDBIndex.openKeyCursor" exists.
+func (this IDBIndex) HasFuncOpenKeyCursor2() bool {
+	return js.True == bindings.HasFuncIDBIndexOpenKeyCursor2(
+		this.ref,
 	)
 }
 
-// OpenKeyCursor2Func returns the method "IDBIndex.openKeyCursor".
-func (this IDBIndex) OpenKeyCursor2Func() (fn js.Func[func() IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBIndexOpenKeyCursor2Func(
-			this.Ref(),
-		),
+// FuncOpenKeyCursor2 returns the method "IDBIndex.openKeyCursor".
+func (this IDBIndex) FuncOpenKeyCursor2() (fn js.Func[func() IDBRequest]) {
+	bindings.FuncIDBIndexOpenKeyCursor2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // OpenKeyCursor2 calls the method "IDBIndex.openKeyCursor".
 func (this IDBIndex) OpenKeyCursor2() (ret IDBRequest) {
 	bindings.CallIDBIndexOpenKeyCursor2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -5419,7 +5329,7 @@ func (this IDBIndex) OpenKeyCursor2() (ret IDBRequest) {
 // the catch clause.
 func (this IDBIndex) TryOpenKeyCursor2() (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexOpenKeyCursor2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -5459,17 +5369,22 @@ func (p IDBIndexParameters) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p IDBIndexParameters) UpdateFrom(ref js.Ref) {
+func (p *IDBIndexParameters) UpdateFrom(ref js.Ref) {
 	bindings.IDBIndexParametersJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p IDBIndexParameters) Update(ref js.Ref) {
+func (p *IDBIndexParameters) Update(ref js.Ref) {
 	bindings.IDBIndexParametersJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *IDBIndexParameters) FreeMembers(recursive bool) {
 }
 
 type IDBTransactionMode uint32
@@ -5549,17 +5464,22 @@ func (p IDBTransactionOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p IDBTransactionOptions) UpdateFrom(ref js.Ref) {
+func (p *IDBTransactionOptions) UpdateFrom(ref js.Ref) {
 	bindings.IDBTransactionOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p IDBTransactionOptions) Update(ref js.Ref) {
+func (p *IDBTransactionOptions) Update(ref js.Ref) {
 	bindings.IDBTransactionOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *IDBTransactionOptions) FreeMembers(recursive bool) {
 }
 
 type IDBObjectStoreParameters struct {
@@ -5593,17 +5513,26 @@ func (p IDBObjectStoreParameters) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p IDBObjectStoreParameters) UpdateFrom(ref js.Ref) {
+func (p *IDBObjectStoreParameters) UpdateFrom(ref js.Ref) {
 	bindings.IDBObjectStoreParametersJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p IDBObjectStoreParameters) Update(ref js.Ref) {
+func (p *IDBObjectStoreParameters) Update(ref js.Ref) {
 	bindings.IDBObjectStoreParametersJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *IDBObjectStoreParameters) FreeMembers(recursive bool) {
+	js.Free(
+		p.KeyPath.Ref(),
+	)
+	p.KeyPath = p.KeyPath.FromRef(js.Undefined)
 }
 
 type IDBDatabase struct {
@@ -5611,7 +5540,7 @@ type IDBDatabase struct {
 }
 
 func (this IDBDatabase) Once() IDBDatabase {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -5625,7 +5554,7 @@ func (this IDBDatabase) FromRef(ref js.Ref) IDBDatabase {
 }
 
 func (this IDBDatabase) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Name returns the value of property "IDBDatabase.name".
@@ -5633,7 +5562,7 @@ func (this IDBDatabase) Free() {
 // It returns ok=false if there is no such property.
 func (this IDBDatabase) Name() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetIDBDatabaseName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5643,7 +5572,7 @@ func (this IDBDatabase) Name() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this IDBDatabase) Version() (ret uint64, ok bool) {
 	ok = js.True == bindings.GetIDBDatabaseVersion(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5653,31 +5582,30 @@ func (this IDBDatabase) Version() (ret uint64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this IDBDatabase) ObjectStoreNames() (ret DOMStringList, ok bool) {
 	ok = js.True == bindings.GetIDBDatabaseObjectStoreNames(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasTransaction returns true if the method "IDBDatabase.transaction" exists.
-func (this IDBDatabase) HasTransaction() bool {
-	return js.True == bindings.HasIDBDatabaseTransaction(
-		this.Ref(),
+// HasFuncTransaction returns true if the method "IDBDatabase.transaction" exists.
+func (this IDBDatabase) HasFuncTransaction() bool {
+	return js.True == bindings.HasFuncIDBDatabaseTransaction(
+		this.ref,
 	)
 }
 
-// TransactionFunc returns the method "IDBDatabase.transaction".
-func (this IDBDatabase) TransactionFunc() (fn js.Func[func(storeNames OneOf_String_ArrayString, mode IDBTransactionMode, options IDBTransactionOptions) IDBTransaction]) {
-	return fn.FromRef(
-		bindings.IDBDatabaseTransactionFunc(
-			this.Ref(),
-		),
+// FuncTransaction returns the method "IDBDatabase.transaction".
+func (this IDBDatabase) FuncTransaction() (fn js.Func[func(storeNames OneOf_String_ArrayString, mode IDBTransactionMode, options IDBTransactionOptions) IDBTransaction]) {
+	bindings.FuncIDBDatabaseTransaction(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Transaction calls the method "IDBDatabase.transaction".
 func (this IDBDatabase) Transaction(storeNames OneOf_String_ArrayString, mode IDBTransactionMode, options IDBTransactionOptions) (ret IDBTransaction) {
 	bindings.CallIDBDatabaseTransaction(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		storeNames.Ref(),
 		uint32(mode),
 		js.Pointer(&options),
@@ -5691,7 +5619,7 @@ func (this IDBDatabase) Transaction(storeNames OneOf_String_ArrayString, mode ID
 // the catch clause.
 func (this IDBDatabase) TryTransaction(storeNames OneOf_String_ArrayString, mode IDBTransactionMode, options IDBTransactionOptions) (ret IDBTransaction, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBDatabaseTransaction(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		storeNames.Ref(),
 		uint32(mode),
 		js.Pointer(&options),
@@ -5700,26 +5628,25 @@ func (this IDBDatabase) TryTransaction(storeNames OneOf_String_ArrayString, mode
 	return
 }
 
-// HasTransaction1 returns true if the method "IDBDatabase.transaction" exists.
-func (this IDBDatabase) HasTransaction1() bool {
-	return js.True == bindings.HasIDBDatabaseTransaction1(
-		this.Ref(),
+// HasFuncTransaction1 returns true if the method "IDBDatabase.transaction" exists.
+func (this IDBDatabase) HasFuncTransaction1() bool {
+	return js.True == bindings.HasFuncIDBDatabaseTransaction1(
+		this.ref,
 	)
 }
 
-// Transaction1Func returns the method "IDBDatabase.transaction".
-func (this IDBDatabase) Transaction1Func() (fn js.Func[func(storeNames OneOf_String_ArrayString, mode IDBTransactionMode) IDBTransaction]) {
-	return fn.FromRef(
-		bindings.IDBDatabaseTransaction1Func(
-			this.Ref(),
-		),
+// FuncTransaction1 returns the method "IDBDatabase.transaction".
+func (this IDBDatabase) FuncTransaction1() (fn js.Func[func(storeNames OneOf_String_ArrayString, mode IDBTransactionMode) IDBTransaction]) {
+	bindings.FuncIDBDatabaseTransaction1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Transaction1 calls the method "IDBDatabase.transaction".
 func (this IDBDatabase) Transaction1(storeNames OneOf_String_ArrayString, mode IDBTransactionMode) (ret IDBTransaction) {
 	bindings.CallIDBDatabaseTransaction1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		storeNames.Ref(),
 		uint32(mode),
 	)
@@ -5732,7 +5659,7 @@ func (this IDBDatabase) Transaction1(storeNames OneOf_String_ArrayString, mode I
 // the catch clause.
 func (this IDBDatabase) TryTransaction1(storeNames OneOf_String_ArrayString, mode IDBTransactionMode) (ret IDBTransaction, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBDatabaseTransaction1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		storeNames.Ref(),
 		uint32(mode),
 	)
@@ -5740,26 +5667,25 @@ func (this IDBDatabase) TryTransaction1(storeNames OneOf_String_ArrayString, mod
 	return
 }
 
-// HasTransaction2 returns true if the method "IDBDatabase.transaction" exists.
-func (this IDBDatabase) HasTransaction2() bool {
-	return js.True == bindings.HasIDBDatabaseTransaction2(
-		this.Ref(),
+// HasFuncTransaction2 returns true if the method "IDBDatabase.transaction" exists.
+func (this IDBDatabase) HasFuncTransaction2() bool {
+	return js.True == bindings.HasFuncIDBDatabaseTransaction2(
+		this.ref,
 	)
 }
 
-// Transaction2Func returns the method "IDBDatabase.transaction".
-func (this IDBDatabase) Transaction2Func() (fn js.Func[func(storeNames OneOf_String_ArrayString) IDBTransaction]) {
-	return fn.FromRef(
-		bindings.IDBDatabaseTransaction2Func(
-			this.Ref(),
-		),
+// FuncTransaction2 returns the method "IDBDatabase.transaction".
+func (this IDBDatabase) FuncTransaction2() (fn js.Func[func(storeNames OneOf_String_ArrayString) IDBTransaction]) {
+	bindings.FuncIDBDatabaseTransaction2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Transaction2 calls the method "IDBDatabase.transaction".
 func (this IDBDatabase) Transaction2(storeNames OneOf_String_ArrayString) (ret IDBTransaction) {
 	bindings.CallIDBDatabaseTransaction2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		storeNames.Ref(),
 	)
 
@@ -5771,33 +5697,32 @@ func (this IDBDatabase) Transaction2(storeNames OneOf_String_ArrayString) (ret I
 // the catch clause.
 func (this IDBDatabase) TryTransaction2(storeNames OneOf_String_ArrayString) (ret IDBTransaction, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBDatabaseTransaction2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		storeNames.Ref(),
 	)
 
 	return
 }
 
-// HasClose returns true if the method "IDBDatabase.close" exists.
-func (this IDBDatabase) HasClose() bool {
-	return js.True == bindings.HasIDBDatabaseClose(
-		this.Ref(),
+// HasFuncClose returns true if the method "IDBDatabase.close" exists.
+func (this IDBDatabase) HasFuncClose() bool {
+	return js.True == bindings.HasFuncIDBDatabaseClose(
+		this.ref,
 	)
 }
 
-// CloseFunc returns the method "IDBDatabase.close".
-func (this IDBDatabase) CloseFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.IDBDatabaseCloseFunc(
-			this.Ref(),
-		),
+// FuncClose returns the method "IDBDatabase.close".
+func (this IDBDatabase) FuncClose() (fn js.Func[func()]) {
+	bindings.FuncIDBDatabaseClose(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Close calls the method "IDBDatabase.close".
 func (this IDBDatabase) Close() (ret js.Void) {
 	bindings.CallIDBDatabaseClose(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -5808,32 +5733,31 @@ func (this IDBDatabase) Close() (ret js.Void) {
 // the catch clause.
 func (this IDBDatabase) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBDatabaseClose(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCreateObjectStore returns true if the method "IDBDatabase.createObjectStore" exists.
-func (this IDBDatabase) HasCreateObjectStore() bool {
-	return js.True == bindings.HasIDBDatabaseCreateObjectStore(
-		this.Ref(),
+// HasFuncCreateObjectStore returns true if the method "IDBDatabase.createObjectStore" exists.
+func (this IDBDatabase) HasFuncCreateObjectStore() bool {
+	return js.True == bindings.HasFuncIDBDatabaseCreateObjectStore(
+		this.ref,
 	)
 }
 
-// CreateObjectStoreFunc returns the method "IDBDatabase.createObjectStore".
-func (this IDBDatabase) CreateObjectStoreFunc() (fn js.Func[func(name js.String, options IDBObjectStoreParameters) IDBObjectStore]) {
-	return fn.FromRef(
-		bindings.IDBDatabaseCreateObjectStoreFunc(
-			this.Ref(),
-		),
+// FuncCreateObjectStore returns the method "IDBDatabase.createObjectStore".
+func (this IDBDatabase) FuncCreateObjectStore() (fn js.Func[func(name js.String, options IDBObjectStoreParameters) IDBObjectStore]) {
+	bindings.FuncIDBDatabaseCreateObjectStore(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateObjectStore calls the method "IDBDatabase.createObjectStore".
 func (this IDBDatabase) CreateObjectStore(name js.String, options IDBObjectStoreParameters) (ret IDBObjectStore) {
 	bindings.CallIDBDatabaseCreateObjectStore(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 		js.Pointer(&options),
 	)
@@ -5846,7 +5770,7 @@ func (this IDBDatabase) CreateObjectStore(name js.String, options IDBObjectStore
 // the catch clause.
 func (this IDBDatabase) TryCreateObjectStore(name js.String, options IDBObjectStoreParameters) (ret IDBObjectStore, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBDatabaseCreateObjectStore(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 		js.Pointer(&options),
 	)
@@ -5854,26 +5778,25 @@ func (this IDBDatabase) TryCreateObjectStore(name js.String, options IDBObjectSt
 	return
 }
 
-// HasCreateObjectStore1 returns true if the method "IDBDatabase.createObjectStore" exists.
-func (this IDBDatabase) HasCreateObjectStore1() bool {
-	return js.True == bindings.HasIDBDatabaseCreateObjectStore1(
-		this.Ref(),
+// HasFuncCreateObjectStore1 returns true if the method "IDBDatabase.createObjectStore" exists.
+func (this IDBDatabase) HasFuncCreateObjectStore1() bool {
+	return js.True == bindings.HasFuncIDBDatabaseCreateObjectStore1(
+		this.ref,
 	)
 }
 
-// CreateObjectStore1Func returns the method "IDBDatabase.createObjectStore".
-func (this IDBDatabase) CreateObjectStore1Func() (fn js.Func[func(name js.String) IDBObjectStore]) {
-	return fn.FromRef(
-		bindings.IDBDatabaseCreateObjectStore1Func(
-			this.Ref(),
-		),
+// FuncCreateObjectStore1 returns the method "IDBDatabase.createObjectStore".
+func (this IDBDatabase) FuncCreateObjectStore1() (fn js.Func[func(name js.String) IDBObjectStore]) {
+	bindings.FuncIDBDatabaseCreateObjectStore1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateObjectStore1 calls the method "IDBDatabase.createObjectStore".
 func (this IDBDatabase) CreateObjectStore1(name js.String) (ret IDBObjectStore) {
 	bindings.CallIDBDatabaseCreateObjectStore1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 	)
 
@@ -5885,33 +5808,32 @@ func (this IDBDatabase) CreateObjectStore1(name js.String) (ret IDBObjectStore) 
 // the catch clause.
 func (this IDBDatabase) TryCreateObjectStore1(name js.String) (ret IDBObjectStore, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBDatabaseCreateObjectStore1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 	)
 
 	return
 }
 
-// HasDeleteObjectStore returns true if the method "IDBDatabase.deleteObjectStore" exists.
-func (this IDBDatabase) HasDeleteObjectStore() bool {
-	return js.True == bindings.HasIDBDatabaseDeleteObjectStore(
-		this.Ref(),
+// HasFuncDeleteObjectStore returns true if the method "IDBDatabase.deleteObjectStore" exists.
+func (this IDBDatabase) HasFuncDeleteObjectStore() bool {
+	return js.True == bindings.HasFuncIDBDatabaseDeleteObjectStore(
+		this.ref,
 	)
 }
 
-// DeleteObjectStoreFunc returns the method "IDBDatabase.deleteObjectStore".
-func (this IDBDatabase) DeleteObjectStoreFunc() (fn js.Func[func(name js.String)]) {
-	return fn.FromRef(
-		bindings.IDBDatabaseDeleteObjectStoreFunc(
-			this.Ref(),
-		),
+// FuncDeleteObjectStore returns the method "IDBDatabase.deleteObjectStore".
+func (this IDBDatabase) FuncDeleteObjectStore() (fn js.Func[func(name js.String)]) {
+	bindings.FuncIDBDatabaseDeleteObjectStore(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteObjectStore calls the method "IDBDatabase.deleteObjectStore".
 func (this IDBDatabase) DeleteObjectStore(name js.String) (ret js.Void) {
 	bindings.CallIDBDatabaseDeleteObjectStore(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 	)
 
@@ -5923,7 +5845,7 @@ func (this IDBDatabase) DeleteObjectStore(name js.String) (ret js.Void) {
 // the catch clause.
 func (this IDBDatabase) TryDeleteObjectStore(name js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBDatabaseDeleteObjectStore(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 	)
 
@@ -5935,7 +5857,7 @@ type IDBTransaction struct {
 }
 
 func (this IDBTransaction) Once() IDBTransaction {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -5949,7 +5871,7 @@ func (this IDBTransaction) FromRef(ref js.Ref) IDBTransaction {
 }
 
 func (this IDBTransaction) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // ObjectStoreNames returns the value of property "IDBTransaction.objectStoreNames".
@@ -5957,7 +5879,7 @@ func (this IDBTransaction) Free() {
 // It returns ok=false if there is no such property.
 func (this IDBTransaction) ObjectStoreNames() (ret DOMStringList, ok bool) {
 	ok = js.True == bindings.GetIDBTransactionObjectStoreNames(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5967,7 +5889,7 @@ func (this IDBTransaction) ObjectStoreNames() (ret DOMStringList, ok bool) {
 // It returns ok=false if there is no such property.
 func (this IDBTransaction) Mode() (ret IDBTransactionMode, ok bool) {
 	ok = js.True == bindings.GetIDBTransactionMode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5977,7 +5899,7 @@ func (this IDBTransaction) Mode() (ret IDBTransactionMode, ok bool) {
 // It returns ok=false if there is no such property.
 func (this IDBTransaction) Durability() (ret IDBTransactionDurability, ok bool) {
 	ok = js.True == bindings.GetIDBTransactionDurability(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5987,7 +5909,7 @@ func (this IDBTransaction) Durability() (ret IDBTransactionDurability, ok bool) 
 // It returns ok=false if there is no such property.
 func (this IDBTransaction) Db() (ret IDBDatabase, ok bool) {
 	ok = js.True == bindings.GetIDBTransactionDb(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5997,31 +5919,30 @@ func (this IDBTransaction) Db() (ret IDBDatabase, ok bool) {
 // It returns ok=false if there is no such property.
 func (this IDBTransaction) Error() (ret DOMException, ok bool) {
 	ok = js.True == bindings.GetIDBTransactionError(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasObjectStore returns true if the method "IDBTransaction.objectStore" exists.
-func (this IDBTransaction) HasObjectStore() bool {
-	return js.True == bindings.HasIDBTransactionObjectStore(
-		this.Ref(),
+// HasFuncObjectStore returns true if the method "IDBTransaction.objectStore" exists.
+func (this IDBTransaction) HasFuncObjectStore() bool {
+	return js.True == bindings.HasFuncIDBTransactionObjectStore(
+		this.ref,
 	)
 }
 
-// ObjectStoreFunc returns the method "IDBTransaction.objectStore".
-func (this IDBTransaction) ObjectStoreFunc() (fn js.Func[func(name js.String) IDBObjectStore]) {
-	return fn.FromRef(
-		bindings.IDBTransactionObjectStoreFunc(
-			this.Ref(),
-		),
+// FuncObjectStore returns the method "IDBTransaction.objectStore".
+func (this IDBTransaction) FuncObjectStore() (fn js.Func[func(name js.String) IDBObjectStore]) {
+	bindings.FuncIDBTransactionObjectStore(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ObjectStore calls the method "IDBTransaction.objectStore".
 func (this IDBTransaction) ObjectStore(name js.String) (ret IDBObjectStore) {
 	bindings.CallIDBTransactionObjectStore(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 	)
 
@@ -6033,33 +5954,32 @@ func (this IDBTransaction) ObjectStore(name js.String) (ret IDBObjectStore) {
 // the catch clause.
 func (this IDBTransaction) TryObjectStore(name js.String) (ret IDBObjectStore, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBTransactionObjectStore(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 	)
 
 	return
 }
 
-// HasCommit returns true if the method "IDBTransaction.commit" exists.
-func (this IDBTransaction) HasCommit() bool {
-	return js.True == bindings.HasIDBTransactionCommit(
-		this.Ref(),
+// HasFuncCommit returns true if the method "IDBTransaction.commit" exists.
+func (this IDBTransaction) HasFuncCommit() bool {
+	return js.True == bindings.HasFuncIDBTransactionCommit(
+		this.ref,
 	)
 }
 
-// CommitFunc returns the method "IDBTransaction.commit".
-func (this IDBTransaction) CommitFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.IDBTransactionCommitFunc(
-			this.Ref(),
-		),
+// FuncCommit returns the method "IDBTransaction.commit".
+func (this IDBTransaction) FuncCommit() (fn js.Func[func()]) {
+	bindings.FuncIDBTransactionCommit(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Commit calls the method "IDBTransaction.commit".
 func (this IDBTransaction) Commit() (ret js.Void) {
 	bindings.CallIDBTransactionCommit(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -6070,32 +5990,31 @@ func (this IDBTransaction) Commit() (ret js.Void) {
 // the catch clause.
 func (this IDBTransaction) TryCommit() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBTransactionCommit(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasAbort returns true if the method "IDBTransaction.abort" exists.
-func (this IDBTransaction) HasAbort() bool {
-	return js.True == bindings.HasIDBTransactionAbort(
-		this.Ref(),
+// HasFuncAbort returns true if the method "IDBTransaction.abort" exists.
+func (this IDBTransaction) HasFuncAbort() bool {
+	return js.True == bindings.HasFuncIDBTransactionAbort(
+		this.ref,
 	)
 }
 
-// AbortFunc returns the method "IDBTransaction.abort".
-func (this IDBTransaction) AbortFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.IDBTransactionAbortFunc(
-			this.Ref(),
-		),
+// FuncAbort returns the method "IDBTransaction.abort".
+func (this IDBTransaction) FuncAbort() (fn js.Func[func()]) {
+	bindings.FuncIDBTransactionAbort(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Abort calls the method "IDBTransaction.abort".
 func (this IDBTransaction) Abort() (ret js.Void) {
 	bindings.CallIDBTransactionAbort(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -6106,7 +6025,7 @@ func (this IDBTransaction) Abort() (ret js.Void) {
 // the catch clause.
 func (this IDBTransaction) TryAbort() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBTransactionAbort(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -6117,7 +6036,7 @@ type IDBObjectStore struct {
 }
 
 func (this IDBObjectStore) Once() IDBObjectStore {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -6131,7 +6050,7 @@ func (this IDBObjectStore) FromRef(ref js.Ref) IDBObjectStore {
 }
 
 func (this IDBObjectStore) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Name returns the value of property "IDBObjectStore.name".
@@ -6139,7 +6058,7 @@ func (this IDBObjectStore) Free() {
 // It returns ok=false if there is no such property.
 func (this IDBObjectStore) Name() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetIDBObjectStoreName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -6149,7 +6068,7 @@ func (this IDBObjectStore) Name() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this IDBObjectStore) SetName(val js.String) bool {
 	return js.True == bindings.SetIDBObjectStoreName(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -6159,7 +6078,7 @@ func (this IDBObjectStore) SetName(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this IDBObjectStore) KeyPath() (ret js.Any, ok bool) {
 	ok = js.True == bindings.GetIDBObjectStoreKeyPath(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -6169,7 +6088,7 @@ func (this IDBObjectStore) KeyPath() (ret js.Any, ok bool) {
 // It returns ok=false if there is no such property.
 func (this IDBObjectStore) IndexNames() (ret DOMStringList, ok bool) {
 	ok = js.True == bindings.GetIDBObjectStoreIndexNames(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -6179,7 +6098,7 @@ func (this IDBObjectStore) IndexNames() (ret DOMStringList, ok bool) {
 // It returns ok=false if there is no such property.
 func (this IDBObjectStore) Transaction() (ret IDBTransaction, ok bool) {
 	ok = js.True == bindings.GetIDBObjectStoreTransaction(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -6189,31 +6108,30 @@ func (this IDBObjectStore) Transaction() (ret IDBTransaction, ok bool) {
 // It returns ok=false if there is no such property.
 func (this IDBObjectStore) AutoIncrement() (ret bool, ok bool) {
 	ok = js.True == bindings.GetIDBObjectStoreAutoIncrement(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasPut returns true if the method "IDBObjectStore.put" exists.
-func (this IDBObjectStore) HasPut() bool {
-	return js.True == bindings.HasIDBObjectStorePut(
-		this.Ref(),
+// HasFuncPut returns true if the method "IDBObjectStore.put" exists.
+func (this IDBObjectStore) HasFuncPut() bool {
+	return js.True == bindings.HasFuncIDBObjectStorePut(
+		this.ref,
 	)
 }
 
-// PutFunc returns the method "IDBObjectStore.put".
-func (this IDBObjectStore) PutFunc() (fn js.Func[func(value js.Any, key js.Any) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBObjectStorePutFunc(
-			this.Ref(),
-		),
+// FuncPut returns the method "IDBObjectStore.put".
+func (this IDBObjectStore) FuncPut() (fn js.Func[func(value js.Any, key js.Any) IDBRequest]) {
+	bindings.FuncIDBObjectStorePut(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Put calls the method "IDBObjectStore.put".
 func (this IDBObjectStore) Put(value js.Any, key js.Any) (ret IDBRequest) {
 	bindings.CallIDBObjectStorePut(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		value.Ref(),
 		key.Ref(),
 	)
@@ -6226,7 +6144,7 @@ func (this IDBObjectStore) Put(value js.Any, key js.Any) (ret IDBRequest) {
 // the catch clause.
 func (this IDBObjectStore) TryPut(value js.Any, key js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStorePut(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		value.Ref(),
 		key.Ref(),
 	)
@@ -6234,26 +6152,25 @@ func (this IDBObjectStore) TryPut(value js.Any, key js.Any) (ret IDBRequest, exc
 	return
 }
 
-// HasPut1 returns true if the method "IDBObjectStore.put" exists.
-func (this IDBObjectStore) HasPut1() bool {
-	return js.True == bindings.HasIDBObjectStorePut1(
-		this.Ref(),
+// HasFuncPut1 returns true if the method "IDBObjectStore.put" exists.
+func (this IDBObjectStore) HasFuncPut1() bool {
+	return js.True == bindings.HasFuncIDBObjectStorePut1(
+		this.ref,
 	)
 }
 
-// Put1Func returns the method "IDBObjectStore.put".
-func (this IDBObjectStore) Put1Func() (fn js.Func[func(value js.Any) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBObjectStorePut1Func(
-			this.Ref(),
-		),
+// FuncPut1 returns the method "IDBObjectStore.put".
+func (this IDBObjectStore) FuncPut1() (fn js.Func[func(value js.Any) IDBRequest]) {
+	bindings.FuncIDBObjectStorePut1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Put1 calls the method "IDBObjectStore.put".
 func (this IDBObjectStore) Put1(value js.Any) (ret IDBRequest) {
 	bindings.CallIDBObjectStorePut1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		value.Ref(),
 	)
 
@@ -6265,33 +6182,32 @@ func (this IDBObjectStore) Put1(value js.Any) (ret IDBRequest) {
 // the catch clause.
 func (this IDBObjectStore) TryPut1(value js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStorePut1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		value.Ref(),
 	)
 
 	return
 }
 
-// HasAdd returns true if the method "IDBObjectStore.add" exists.
-func (this IDBObjectStore) HasAdd() bool {
-	return js.True == bindings.HasIDBObjectStoreAdd(
-		this.Ref(),
+// HasFuncAdd returns true if the method "IDBObjectStore.add" exists.
+func (this IDBObjectStore) HasFuncAdd() bool {
+	return js.True == bindings.HasFuncIDBObjectStoreAdd(
+		this.ref,
 	)
 }
 
-// AddFunc returns the method "IDBObjectStore.add".
-func (this IDBObjectStore) AddFunc() (fn js.Func[func(value js.Any, key js.Any) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBObjectStoreAddFunc(
-			this.Ref(),
-		),
+// FuncAdd returns the method "IDBObjectStore.add".
+func (this IDBObjectStore) FuncAdd() (fn js.Func[func(value js.Any, key js.Any) IDBRequest]) {
+	bindings.FuncIDBObjectStoreAdd(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Add calls the method "IDBObjectStore.add".
 func (this IDBObjectStore) Add(value js.Any, key js.Any) (ret IDBRequest) {
 	bindings.CallIDBObjectStoreAdd(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		value.Ref(),
 		key.Ref(),
 	)
@@ -6304,7 +6220,7 @@ func (this IDBObjectStore) Add(value js.Any, key js.Any) (ret IDBRequest) {
 // the catch clause.
 func (this IDBObjectStore) TryAdd(value js.Any, key js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreAdd(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		value.Ref(),
 		key.Ref(),
 	)
@@ -6312,26 +6228,25 @@ func (this IDBObjectStore) TryAdd(value js.Any, key js.Any) (ret IDBRequest, exc
 	return
 }
 
-// HasAdd1 returns true if the method "IDBObjectStore.add" exists.
-func (this IDBObjectStore) HasAdd1() bool {
-	return js.True == bindings.HasIDBObjectStoreAdd1(
-		this.Ref(),
+// HasFuncAdd1 returns true if the method "IDBObjectStore.add" exists.
+func (this IDBObjectStore) HasFuncAdd1() bool {
+	return js.True == bindings.HasFuncIDBObjectStoreAdd1(
+		this.ref,
 	)
 }
 
-// Add1Func returns the method "IDBObjectStore.add".
-func (this IDBObjectStore) Add1Func() (fn js.Func[func(value js.Any) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBObjectStoreAdd1Func(
-			this.Ref(),
-		),
+// FuncAdd1 returns the method "IDBObjectStore.add".
+func (this IDBObjectStore) FuncAdd1() (fn js.Func[func(value js.Any) IDBRequest]) {
+	bindings.FuncIDBObjectStoreAdd1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Add1 calls the method "IDBObjectStore.add".
 func (this IDBObjectStore) Add1(value js.Any) (ret IDBRequest) {
 	bindings.CallIDBObjectStoreAdd1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		value.Ref(),
 	)
 
@@ -6343,33 +6258,32 @@ func (this IDBObjectStore) Add1(value js.Any) (ret IDBRequest) {
 // the catch clause.
 func (this IDBObjectStore) TryAdd1(value js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreAdd1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		value.Ref(),
 	)
 
 	return
 }
 
-// HasDelete returns true if the method "IDBObjectStore.delete" exists.
-func (this IDBObjectStore) HasDelete() bool {
-	return js.True == bindings.HasIDBObjectStoreDelete(
-		this.Ref(),
+// HasFuncDelete returns true if the method "IDBObjectStore.delete" exists.
+func (this IDBObjectStore) HasFuncDelete() bool {
+	return js.True == bindings.HasFuncIDBObjectStoreDelete(
+		this.ref,
 	)
 }
 
-// DeleteFunc returns the method "IDBObjectStore.delete".
-func (this IDBObjectStore) DeleteFunc() (fn js.Func[func(query js.Any) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBObjectStoreDeleteFunc(
-			this.Ref(),
-		),
+// FuncDelete returns the method "IDBObjectStore.delete".
+func (this IDBObjectStore) FuncDelete() (fn js.Func[func(query js.Any) IDBRequest]) {
+	bindings.FuncIDBObjectStoreDelete(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Delete calls the method "IDBObjectStore.delete".
 func (this IDBObjectStore) Delete(query js.Any) (ret IDBRequest) {
 	bindings.CallIDBObjectStoreDelete(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 	)
 
@@ -6381,33 +6295,32 @@ func (this IDBObjectStore) Delete(query js.Any) (ret IDBRequest) {
 // the catch clause.
 func (this IDBObjectStore) TryDelete(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreDelete(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 	)
 
 	return
 }
 
-// HasClear returns true if the method "IDBObjectStore.clear" exists.
-func (this IDBObjectStore) HasClear() bool {
-	return js.True == bindings.HasIDBObjectStoreClear(
-		this.Ref(),
+// HasFuncClear returns true if the method "IDBObjectStore.clear" exists.
+func (this IDBObjectStore) HasFuncClear() bool {
+	return js.True == bindings.HasFuncIDBObjectStoreClear(
+		this.ref,
 	)
 }
 
-// ClearFunc returns the method "IDBObjectStore.clear".
-func (this IDBObjectStore) ClearFunc() (fn js.Func[func() IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBObjectStoreClearFunc(
-			this.Ref(),
-		),
+// FuncClear returns the method "IDBObjectStore.clear".
+func (this IDBObjectStore) FuncClear() (fn js.Func[func() IDBRequest]) {
+	bindings.FuncIDBObjectStoreClear(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Clear calls the method "IDBObjectStore.clear".
 func (this IDBObjectStore) Clear() (ret IDBRequest) {
 	bindings.CallIDBObjectStoreClear(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -6418,32 +6331,31 @@ func (this IDBObjectStore) Clear() (ret IDBRequest) {
 // the catch clause.
 func (this IDBObjectStore) TryClear() (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreClear(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGet returns true if the method "IDBObjectStore.get" exists.
-func (this IDBObjectStore) HasGet() bool {
-	return js.True == bindings.HasIDBObjectStoreGet(
-		this.Ref(),
+// HasFuncGet returns true if the method "IDBObjectStore.get" exists.
+func (this IDBObjectStore) HasFuncGet() bool {
+	return js.True == bindings.HasFuncIDBObjectStoreGet(
+		this.ref,
 	)
 }
 
-// GetFunc returns the method "IDBObjectStore.get".
-func (this IDBObjectStore) GetFunc() (fn js.Func[func(query js.Any) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBObjectStoreGetFunc(
-			this.Ref(),
-		),
+// FuncGet returns the method "IDBObjectStore.get".
+func (this IDBObjectStore) FuncGet() (fn js.Func[func(query js.Any) IDBRequest]) {
+	bindings.FuncIDBObjectStoreGet(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Get calls the method "IDBObjectStore.get".
 func (this IDBObjectStore) Get(query js.Any) (ret IDBRequest) {
 	bindings.CallIDBObjectStoreGet(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 	)
 
@@ -6455,33 +6367,32 @@ func (this IDBObjectStore) Get(query js.Any) (ret IDBRequest) {
 // the catch clause.
 func (this IDBObjectStore) TryGet(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreGet(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 	)
 
 	return
 }
 
-// HasGetKey returns true if the method "IDBObjectStore.getKey" exists.
-func (this IDBObjectStore) HasGetKey() bool {
-	return js.True == bindings.HasIDBObjectStoreGetKey(
-		this.Ref(),
+// HasFuncGetKey returns true if the method "IDBObjectStore.getKey" exists.
+func (this IDBObjectStore) HasFuncGetKey() bool {
+	return js.True == bindings.HasFuncIDBObjectStoreGetKey(
+		this.ref,
 	)
 }
 
-// GetKeyFunc returns the method "IDBObjectStore.getKey".
-func (this IDBObjectStore) GetKeyFunc() (fn js.Func[func(query js.Any) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBObjectStoreGetKeyFunc(
-			this.Ref(),
-		),
+// FuncGetKey returns the method "IDBObjectStore.getKey".
+func (this IDBObjectStore) FuncGetKey() (fn js.Func[func(query js.Any) IDBRequest]) {
+	bindings.FuncIDBObjectStoreGetKey(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetKey calls the method "IDBObjectStore.getKey".
 func (this IDBObjectStore) GetKey(query js.Any) (ret IDBRequest) {
 	bindings.CallIDBObjectStoreGetKey(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 	)
 
@@ -6493,33 +6404,32 @@ func (this IDBObjectStore) GetKey(query js.Any) (ret IDBRequest) {
 // the catch clause.
 func (this IDBObjectStore) TryGetKey(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreGetKey(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 	)
 
 	return
 }
 
-// HasGetAll returns true if the method "IDBObjectStore.getAll" exists.
-func (this IDBObjectStore) HasGetAll() bool {
-	return js.True == bindings.HasIDBObjectStoreGetAll(
-		this.Ref(),
+// HasFuncGetAll returns true if the method "IDBObjectStore.getAll" exists.
+func (this IDBObjectStore) HasFuncGetAll() bool {
+	return js.True == bindings.HasFuncIDBObjectStoreGetAll(
+		this.ref,
 	)
 }
 
-// GetAllFunc returns the method "IDBObjectStore.getAll".
-func (this IDBObjectStore) GetAllFunc() (fn js.Func[func(query js.Any, count uint32) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBObjectStoreGetAllFunc(
-			this.Ref(),
-		),
+// FuncGetAll returns the method "IDBObjectStore.getAll".
+func (this IDBObjectStore) FuncGetAll() (fn js.Func[func(query js.Any, count uint32) IDBRequest]) {
+	bindings.FuncIDBObjectStoreGetAll(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAll calls the method "IDBObjectStore.getAll".
 func (this IDBObjectStore) GetAll(query js.Any, count uint32) (ret IDBRequest) {
 	bindings.CallIDBObjectStoreGetAll(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 		uint32(count),
 	)
@@ -6532,7 +6442,7 @@ func (this IDBObjectStore) GetAll(query js.Any, count uint32) (ret IDBRequest) {
 // the catch clause.
 func (this IDBObjectStore) TryGetAll(query js.Any, count uint32) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreGetAll(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 		uint32(count),
 	)
@@ -6540,26 +6450,25 @@ func (this IDBObjectStore) TryGetAll(query js.Any, count uint32) (ret IDBRequest
 	return
 }
 
-// HasGetAll1 returns true if the method "IDBObjectStore.getAll" exists.
-func (this IDBObjectStore) HasGetAll1() bool {
-	return js.True == bindings.HasIDBObjectStoreGetAll1(
-		this.Ref(),
+// HasFuncGetAll1 returns true if the method "IDBObjectStore.getAll" exists.
+func (this IDBObjectStore) HasFuncGetAll1() bool {
+	return js.True == bindings.HasFuncIDBObjectStoreGetAll1(
+		this.ref,
 	)
 }
 
-// GetAll1Func returns the method "IDBObjectStore.getAll".
-func (this IDBObjectStore) GetAll1Func() (fn js.Func[func(query js.Any) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBObjectStoreGetAll1Func(
-			this.Ref(),
-		),
+// FuncGetAll1 returns the method "IDBObjectStore.getAll".
+func (this IDBObjectStore) FuncGetAll1() (fn js.Func[func(query js.Any) IDBRequest]) {
+	bindings.FuncIDBObjectStoreGetAll1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAll1 calls the method "IDBObjectStore.getAll".
 func (this IDBObjectStore) GetAll1(query js.Any) (ret IDBRequest) {
 	bindings.CallIDBObjectStoreGetAll1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 	)
 
@@ -6571,33 +6480,32 @@ func (this IDBObjectStore) GetAll1(query js.Any) (ret IDBRequest) {
 // the catch clause.
 func (this IDBObjectStore) TryGetAll1(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreGetAll1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 	)
 
 	return
 }
 
-// HasGetAll2 returns true if the method "IDBObjectStore.getAll" exists.
-func (this IDBObjectStore) HasGetAll2() bool {
-	return js.True == bindings.HasIDBObjectStoreGetAll2(
-		this.Ref(),
+// HasFuncGetAll2 returns true if the method "IDBObjectStore.getAll" exists.
+func (this IDBObjectStore) HasFuncGetAll2() bool {
+	return js.True == bindings.HasFuncIDBObjectStoreGetAll2(
+		this.ref,
 	)
 }
 
-// GetAll2Func returns the method "IDBObjectStore.getAll".
-func (this IDBObjectStore) GetAll2Func() (fn js.Func[func() IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBObjectStoreGetAll2Func(
-			this.Ref(),
-		),
+// FuncGetAll2 returns the method "IDBObjectStore.getAll".
+func (this IDBObjectStore) FuncGetAll2() (fn js.Func[func() IDBRequest]) {
+	bindings.FuncIDBObjectStoreGetAll2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAll2 calls the method "IDBObjectStore.getAll".
 func (this IDBObjectStore) GetAll2() (ret IDBRequest) {
 	bindings.CallIDBObjectStoreGetAll2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -6608,32 +6516,31 @@ func (this IDBObjectStore) GetAll2() (ret IDBRequest) {
 // the catch clause.
 func (this IDBObjectStore) TryGetAll2() (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreGetAll2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetAllKeys returns true if the method "IDBObjectStore.getAllKeys" exists.
-func (this IDBObjectStore) HasGetAllKeys() bool {
-	return js.True == bindings.HasIDBObjectStoreGetAllKeys(
-		this.Ref(),
+// HasFuncGetAllKeys returns true if the method "IDBObjectStore.getAllKeys" exists.
+func (this IDBObjectStore) HasFuncGetAllKeys() bool {
+	return js.True == bindings.HasFuncIDBObjectStoreGetAllKeys(
+		this.ref,
 	)
 }
 
-// GetAllKeysFunc returns the method "IDBObjectStore.getAllKeys".
-func (this IDBObjectStore) GetAllKeysFunc() (fn js.Func[func(query js.Any, count uint32) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBObjectStoreGetAllKeysFunc(
-			this.Ref(),
-		),
+// FuncGetAllKeys returns the method "IDBObjectStore.getAllKeys".
+func (this IDBObjectStore) FuncGetAllKeys() (fn js.Func[func(query js.Any, count uint32) IDBRequest]) {
+	bindings.FuncIDBObjectStoreGetAllKeys(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAllKeys calls the method "IDBObjectStore.getAllKeys".
 func (this IDBObjectStore) GetAllKeys(query js.Any, count uint32) (ret IDBRequest) {
 	bindings.CallIDBObjectStoreGetAllKeys(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 		uint32(count),
 	)
@@ -6646,7 +6553,7 @@ func (this IDBObjectStore) GetAllKeys(query js.Any, count uint32) (ret IDBReques
 // the catch clause.
 func (this IDBObjectStore) TryGetAllKeys(query js.Any, count uint32) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreGetAllKeys(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 		uint32(count),
 	)
@@ -6654,26 +6561,25 @@ func (this IDBObjectStore) TryGetAllKeys(query js.Any, count uint32) (ret IDBReq
 	return
 }
 
-// HasGetAllKeys1 returns true if the method "IDBObjectStore.getAllKeys" exists.
-func (this IDBObjectStore) HasGetAllKeys1() bool {
-	return js.True == bindings.HasIDBObjectStoreGetAllKeys1(
-		this.Ref(),
+// HasFuncGetAllKeys1 returns true if the method "IDBObjectStore.getAllKeys" exists.
+func (this IDBObjectStore) HasFuncGetAllKeys1() bool {
+	return js.True == bindings.HasFuncIDBObjectStoreGetAllKeys1(
+		this.ref,
 	)
 }
 
-// GetAllKeys1Func returns the method "IDBObjectStore.getAllKeys".
-func (this IDBObjectStore) GetAllKeys1Func() (fn js.Func[func(query js.Any) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBObjectStoreGetAllKeys1Func(
-			this.Ref(),
-		),
+// FuncGetAllKeys1 returns the method "IDBObjectStore.getAllKeys".
+func (this IDBObjectStore) FuncGetAllKeys1() (fn js.Func[func(query js.Any) IDBRequest]) {
+	bindings.FuncIDBObjectStoreGetAllKeys1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAllKeys1 calls the method "IDBObjectStore.getAllKeys".
 func (this IDBObjectStore) GetAllKeys1(query js.Any) (ret IDBRequest) {
 	bindings.CallIDBObjectStoreGetAllKeys1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 	)
 
@@ -6685,33 +6591,32 @@ func (this IDBObjectStore) GetAllKeys1(query js.Any) (ret IDBRequest) {
 // the catch clause.
 func (this IDBObjectStore) TryGetAllKeys1(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreGetAllKeys1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 	)
 
 	return
 }
 
-// HasGetAllKeys2 returns true if the method "IDBObjectStore.getAllKeys" exists.
-func (this IDBObjectStore) HasGetAllKeys2() bool {
-	return js.True == bindings.HasIDBObjectStoreGetAllKeys2(
-		this.Ref(),
+// HasFuncGetAllKeys2 returns true if the method "IDBObjectStore.getAllKeys" exists.
+func (this IDBObjectStore) HasFuncGetAllKeys2() bool {
+	return js.True == bindings.HasFuncIDBObjectStoreGetAllKeys2(
+		this.ref,
 	)
 }
 
-// GetAllKeys2Func returns the method "IDBObjectStore.getAllKeys".
-func (this IDBObjectStore) GetAllKeys2Func() (fn js.Func[func() IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBObjectStoreGetAllKeys2Func(
-			this.Ref(),
-		),
+// FuncGetAllKeys2 returns the method "IDBObjectStore.getAllKeys".
+func (this IDBObjectStore) FuncGetAllKeys2() (fn js.Func[func() IDBRequest]) {
+	bindings.FuncIDBObjectStoreGetAllKeys2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAllKeys2 calls the method "IDBObjectStore.getAllKeys".
 func (this IDBObjectStore) GetAllKeys2() (ret IDBRequest) {
 	bindings.CallIDBObjectStoreGetAllKeys2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -6722,32 +6627,31 @@ func (this IDBObjectStore) GetAllKeys2() (ret IDBRequest) {
 // the catch clause.
 func (this IDBObjectStore) TryGetAllKeys2() (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreGetAllKeys2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCount returns true if the method "IDBObjectStore.count" exists.
-func (this IDBObjectStore) HasCount() bool {
-	return js.True == bindings.HasIDBObjectStoreCount(
-		this.Ref(),
+// HasFuncCount returns true if the method "IDBObjectStore.count" exists.
+func (this IDBObjectStore) HasFuncCount() bool {
+	return js.True == bindings.HasFuncIDBObjectStoreCount(
+		this.ref,
 	)
 }
 
-// CountFunc returns the method "IDBObjectStore.count".
-func (this IDBObjectStore) CountFunc() (fn js.Func[func(query js.Any) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBObjectStoreCountFunc(
-			this.Ref(),
-		),
+// FuncCount returns the method "IDBObjectStore.count".
+func (this IDBObjectStore) FuncCount() (fn js.Func[func(query js.Any) IDBRequest]) {
+	bindings.FuncIDBObjectStoreCount(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Count calls the method "IDBObjectStore.count".
 func (this IDBObjectStore) Count(query js.Any) (ret IDBRequest) {
 	bindings.CallIDBObjectStoreCount(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 	)
 
@@ -6759,33 +6663,32 @@ func (this IDBObjectStore) Count(query js.Any) (ret IDBRequest) {
 // the catch clause.
 func (this IDBObjectStore) TryCount(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreCount(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 	)
 
 	return
 }
 
-// HasCount1 returns true if the method "IDBObjectStore.count" exists.
-func (this IDBObjectStore) HasCount1() bool {
-	return js.True == bindings.HasIDBObjectStoreCount1(
-		this.Ref(),
+// HasFuncCount1 returns true if the method "IDBObjectStore.count" exists.
+func (this IDBObjectStore) HasFuncCount1() bool {
+	return js.True == bindings.HasFuncIDBObjectStoreCount1(
+		this.ref,
 	)
 }
 
-// Count1Func returns the method "IDBObjectStore.count".
-func (this IDBObjectStore) Count1Func() (fn js.Func[func() IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBObjectStoreCount1Func(
-			this.Ref(),
-		),
+// FuncCount1 returns the method "IDBObjectStore.count".
+func (this IDBObjectStore) FuncCount1() (fn js.Func[func() IDBRequest]) {
+	bindings.FuncIDBObjectStoreCount1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Count1 calls the method "IDBObjectStore.count".
 func (this IDBObjectStore) Count1() (ret IDBRequest) {
 	bindings.CallIDBObjectStoreCount1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -6796,32 +6699,31 @@ func (this IDBObjectStore) Count1() (ret IDBRequest) {
 // the catch clause.
 func (this IDBObjectStore) TryCount1() (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreCount1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasOpenCursor returns true if the method "IDBObjectStore.openCursor" exists.
-func (this IDBObjectStore) HasOpenCursor() bool {
-	return js.True == bindings.HasIDBObjectStoreOpenCursor(
-		this.Ref(),
+// HasFuncOpenCursor returns true if the method "IDBObjectStore.openCursor" exists.
+func (this IDBObjectStore) HasFuncOpenCursor() bool {
+	return js.True == bindings.HasFuncIDBObjectStoreOpenCursor(
+		this.ref,
 	)
 }
 
-// OpenCursorFunc returns the method "IDBObjectStore.openCursor".
-func (this IDBObjectStore) OpenCursorFunc() (fn js.Func[func(query js.Any, direction IDBCursorDirection) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBObjectStoreOpenCursorFunc(
-			this.Ref(),
-		),
+// FuncOpenCursor returns the method "IDBObjectStore.openCursor".
+func (this IDBObjectStore) FuncOpenCursor() (fn js.Func[func(query js.Any, direction IDBCursorDirection) IDBRequest]) {
+	bindings.FuncIDBObjectStoreOpenCursor(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // OpenCursor calls the method "IDBObjectStore.openCursor".
 func (this IDBObjectStore) OpenCursor(query js.Any, direction IDBCursorDirection) (ret IDBRequest) {
 	bindings.CallIDBObjectStoreOpenCursor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 		uint32(direction),
 	)
@@ -6834,7 +6736,7 @@ func (this IDBObjectStore) OpenCursor(query js.Any, direction IDBCursorDirection
 // the catch clause.
 func (this IDBObjectStore) TryOpenCursor(query js.Any, direction IDBCursorDirection) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreOpenCursor(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 		uint32(direction),
 	)
@@ -6842,26 +6744,25 @@ func (this IDBObjectStore) TryOpenCursor(query js.Any, direction IDBCursorDirect
 	return
 }
 
-// HasOpenCursor1 returns true if the method "IDBObjectStore.openCursor" exists.
-func (this IDBObjectStore) HasOpenCursor1() bool {
-	return js.True == bindings.HasIDBObjectStoreOpenCursor1(
-		this.Ref(),
+// HasFuncOpenCursor1 returns true if the method "IDBObjectStore.openCursor" exists.
+func (this IDBObjectStore) HasFuncOpenCursor1() bool {
+	return js.True == bindings.HasFuncIDBObjectStoreOpenCursor1(
+		this.ref,
 	)
 }
 
-// OpenCursor1Func returns the method "IDBObjectStore.openCursor".
-func (this IDBObjectStore) OpenCursor1Func() (fn js.Func[func(query js.Any) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBObjectStoreOpenCursor1Func(
-			this.Ref(),
-		),
+// FuncOpenCursor1 returns the method "IDBObjectStore.openCursor".
+func (this IDBObjectStore) FuncOpenCursor1() (fn js.Func[func(query js.Any) IDBRequest]) {
+	bindings.FuncIDBObjectStoreOpenCursor1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // OpenCursor1 calls the method "IDBObjectStore.openCursor".
 func (this IDBObjectStore) OpenCursor1(query js.Any) (ret IDBRequest) {
 	bindings.CallIDBObjectStoreOpenCursor1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 	)
 
@@ -6873,33 +6774,32 @@ func (this IDBObjectStore) OpenCursor1(query js.Any) (ret IDBRequest) {
 // the catch clause.
 func (this IDBObjectStore) TryOpenCursor1(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreOpenCursor1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 	)
 
 	return
 }
 
-// HasOpenCursor2 returns true if the method "IDBObjectStore.openCursor" exists.
-func (this IDBObjectStore) HasOpenCursor2() bool {
-	return js.True == bindings.HasIDBObjectStoreOpenCursor2(
-		this.Ref(),
+// HasFuncOpenCursor2 returns true if the method "IDBObjectStore.openCursor" exists.
+func (this IDBObjectStore) HasFuncOpenCursor2() bool {
+	return js.True == bindings.HasFuncIDBObjectStoreOpenCursor2(
+		this.ref,
 	)
 }
 
-// OpenCursor2Func returns the method "IDBObjectStore.openCursor".
-func (this IDBObjectStore) OpenCursor2Func() (fn js.Func[func() IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBObjectStoreOpenCursor2Func(
-			this.Ref(),
-		),
+// FuncOpenCursor2 returns the method "IDBObjectStore.openCursor".
+func (this IDBObjectStore) FuncOpenCursor2() (fn js.Func[func() IDBRequest]) {
+	bindings.FuncIDBObjectStoreOpenCursor2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // OpenCursor2 calls the method "IDBObjectStore.openCursor".
 func (this IDBObjectStore) OpenCursor2() (ret IDBRequest) {
 	bindings.CallIDBObjectStoreOpenCursor2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -6910,32 +6810,31 @@ func (this IDBObjectStore) OpenCursor2() (ret IDBRequest) {
 // the catch clause.
 func (this IDBObjectStore) TryOpenCursor2() (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreOpenCursor2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasOpenKeyCursor returns true if the method "IDBObjectStore.openKeyCursor" exists.
-func (this IDBObjectStore) HasOpenKeyCursor() bool {
-	return js.True == bindings.HasIDBObjectStoreOpenKeyCursor(
-		this.Ref(),
+// HasFuncOpenKeyCursor returns true if the method "IDBObjectStore.openKeyCursor" exists.
+func (this IDBObjectStore) HasFuncOpenKeyCursor() bool {
+	return js.True == bindings.HasFuncIDBObjectStoreOpenKeyCursor(
+		this.ref,
 	)
 }
 
-// OpenKeyCursorFunc returns the method "IDBObjectStore.openKeyCursor".
-func (this IDBObjectStore) OpenKeyCursorFunc() (fn js.Func[func(query js.Any, direction IDBCursorDirection) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBObjectStoreOpenKeyCursorFunc(
-			this.Ref(),
-		),
+// FuncOpenKeyCursor returns the method "IDBObjectStore.openKeyCursor".
+func (this IDBObjectStore) FuncOpenKeyCursor() (fn js.Func[func(query js.Any, direction IDBCursorDirection) IDBRequest]) {
+	bindings.FuncIDBObjectStoreOpenKeyCursor(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // OpenKeyCursor calls the method "IDBObjectStore.openKeyCursor".
 func (this IDBObjectStore) OpenKeyCursor(query js.Any, direction IDBCursorDirection) (ret IDBRequest) {
 	bindings.CallIDBObjectStoreOpenKeyCursor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 		uint32(direction),
 	)
@@ -6948,7 +6847,7 @@ func (this IDBObjectStore) OpenKeyCursor(query js.Any, direction IDBCursorDirect
 // the catch clause.
 func (this IDBObjectStore) TryOpenKeyCursor(query js.Any, direction IDBCursorDirection) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreOpenKeyCursor(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 		uint32(direction),
 	)
@@ -6956,26 +6855,25 @@ func (this IDBObjectStore) TryOpenKeyCursor(query js.Any, direction IDBCursorDir
 	return
 }
 
-// HasOpenKeyCursor1 returns true if the method "IDBObjectStore.openKeyCursor" exists.
-func (this IDBObjectStore) HasOpenKeyCursor1() bool {
-	return js.True == bindings.HasIDBObjectStoreOpenKeyCursor1(
-		this.Ref(),
+// HasFuncOpenKeyCursor1 returns true if the method "IDBObjectStore.openKeyCursor" exists.
+func (this IDBObjectStore) HasFuncOpenKeyCursor1() bool {
+	return js.True == bindings.HasFuncIDBObjectStoreOpenKeyCursor1(
+		this.ref,
 	)
 }
 
-// OpenKeyCursor1Func returns the method "IDBObjectStore.openKeyCursor".
-func (this IDBObjectStore) OpenKeyCursor1Func() (fn js.Func[func(query js.Any) IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBObjectStoreOpenKeyCursor1Func(
-			this.Ref(),
-		),
+// FuncOpenKeyCursor1 returns the method "IDBObjectStore.openKeyCursor".
+func (this IDBObjectStore) FuncOpenKeyCursor1() (fn js.Func[func(query js.Any) IDBRequest]) {
+	bindings.FuncIDBObjectStoreOpenKeyCursor1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // OpenKeyCursor1 calls the method "IDBObjectStore.openKeyCursor".
 func (this IDBObjectStore) OpenKeyCursor1(query js.Any) (ret IDBRequest) {
 	bindings.CallIDBObjectStoreOpenKeyCursor1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 	)
 
@@ -6987,33 +6885,32 @@ func (this IDBObjectStore) OpenKeyCursor1(query js.Any) (ret IDBRequest) {
 // the catch clause.
 func (this IDBObjectStore) TryOpenKeyCursor1(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreOpenKeyCursor1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 	)
 
 	return
 }
 
-// HasOpenKeyCursor2 returns true if the method "IDBObjectStore.openKeyCursor" exists.
-func (this IDBObjectStore) HasOpenKeyCursor2() bool {
-	return js.True == bindings.HasIDBObjectStoreOpenKeyCursor2(
-		this.Ref(),
+// HasFuncOpenKeyCursor2 returns true if the method "IDBObjectStore.openKeyCursor" exists.
+func (this IDBObjectStore) HasFuncOpenKeyCursor2() bool {
+	return js.True == bindings.HasFuncIDBObjectStoreOpenKeyCursor2(
+		this.ref,
 	)
 }
 
-// OpenKeyCursor2Func returns the method "IDBObjectStore.openKeyCursor".
-func (this IDBObjectStore) OpenKeyCursor2Func() (fn js.Func[func() IDBRequest]) {
-	return fn.FromRef(
-		bindings.IDBObjectStoreOpenKeyCursor2Func(
-			this.Ref(),
-		),
+// FuncOpenKeyCursor2 returns the method "IDBObjectStore.openKeyCursor".
+func (this IDBObjectStore) FuncOpenKeyCursor2() (fn js.Func[func() IDBRequest]) {
+	bindings.FuncIDBObjectStoreOpenKeyCursor2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // OpenKeyCursor2 calls the method "IDBObjectStore.openKeyCursor".
 func (this IDBObjectStore) OpenKeyCursor2() (ret IDBRequest) {
 	bindings.CallIDBObjectStoreOpenKeyCursor2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -7024,32 +6921,31 @@ func (this IDBObjectStore) OpenKeyCursor2() (ret IDBRequest) {
 // the catch clause.
 func (this IDBObjectStore) TryOpenKeyCursor2() (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreOpenKeyCursor2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasIndex returns true if the method "IDBObjectStore.index" exists.
-func (this IDBObjectStore) HasIndex() bool {
-	return js.True == bindings.HasIDBObjectStoreIndex(
-		this.Ref(),
+// HasFuncIndex returns true if the method "IDBObjectStore.index" exists.
+func (this IDBObjectStore) HasFuncIndex() bool {
+	return js.True == bindings.HasFuncIDBObjectStoreIndex(
+		this.ref,
 	)
 }
 
-// IndexFunc returns the method "IDBObjectStore.index".
-func (this IDBObjectStore) IndexFunc() (fn js.Func[func(name js.String) IDBIndex]) {
-	return fn.FromRef(
-		bindings.IDBObjectStoreIndexFunc(
-			this.Ref(),
-		),
+// FuncIndex returns the method "IDBObjectStore.index".
+func (this IDBObjectStore) FuncIndex() (fn js.Func[func(name js.String) IDBIndex]) {
+	bindings.FuncIDBObjectStoreIndex(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Index calls the method "IDBObjectStore.index".
 func (this IDBObjectStore) Index(name js.String) (ret IDBIndex) {
 	bindings.CallIDBObjectStoreIndex(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 	)
 
@@ -7061,33 +6957,32 @@ func (this IDBObjectStore) Index(name js.String) (ret IDBIndex) {
 // the catch clause.
 func (this IDBObjectStore) TryIndex(name js.String) (ret IDBIndex, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreIndex(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 	)
 
 	return
 }
 
-// HasCreateIndex returns true if the method "IDBObjectStore.createIndex" exists.
-func (this IDBObjectStore) HasCreateIndex() bool {
-	return js.True == bindings.HasIDBObjectStoreCreateIndex(
-		this.Ref(),
+// HasFuncCreateIndex returns true if the method "IDBObjectStore.createIndex" exists.
+func (this IDBObjectStore) HasFuncCreateIndex() bool {
+	return js.True == bindings.HasFuncIDBObjectStoreCreateIndex(
+		this.ref,
 	)
 }
 
-// CreateIndexFunc returns the method "IDBObjectStore.createIndex".
-func (this IDBObjectStore) CreateIndexFunc() (fn js.Func[func(name js.String, keyPath OneOf_String_ArrayString, options IDBIndexParameters) IDBIndex]) {
-	return fn.FromRef(
-		bindings.IDBObjectStoreCreateIndexFunc(
-			this.Ref(),
-		),
+// FuncCreateIndex returns the method "IDBObjectStore.createIndex".
+func (this IDBObjectStore) FuncCreateIndex() (fn js.Func[func(name js.String, keyPath OneOf_String_ArrayString, options IDBIndexParameters) IDBIndex]) {
+	bindings.FuncIDBObjectStoreCreateIndex(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateIndex calls the method "IDBObjectStore.createIndex".
 func (this IDBObjectStore) CreateIndex(name js.String, keyPath OneOf_String_ArrayString, options IDBIndexParameters) (ret IDBIndex) {
 	bindings.CallIDBObjectStoreCreateIndex(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 		keyPath.Ref(),
 		js.Pointer(&options),
@@ -7101,7 +6996,7 @@ func (this IDBObjectStore) CreateIndex(name js.String, keyPath OneOf_String_Arra
 // the catch clause.
 func (this IDBObjectStore) TryCreateIndex(name js.String, keyPath OneOf_String_ArrayString, options IDBIndexParameters) (ret IDBIndex, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreCreateIndex(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 		keyPath.Ref(),
 		js.Pointer(&options),
@@ -7110,26 +7005,25 @@ func (this IDBObjectStore) TryCreateIndex(name js.String, keyPath OneOf_String_A
 	return
 }
 
-// HasCreateIndex1 returns true if the method "IDBObjectStore.createIndex" exists.
-func (this IDBObjectStore) HasCreateIndex1() bool {
-	return js.True == bindings.HasIDBObjectStoreCreateIndex1(
-		this.Ref(),
+// HasFuncCreateIndex1 returns true if the method "IDBObjectStore.createIndex" exists.
+func (this IDBObjectStore) HasFuncCreateIndex1() bool {
+	return js.True == bindings.HasFuncIDBObjectStoreCreateIndex1(
+		this.ref,
 	)
 }
 
-// CreateIndex1Func returns the method "IDBObjectStore.createIndex".
-func (this IDBObjectStore) CreateIndex1Func() (fn js.Func[func(name js.String, keyPath OneOf_String_ArrayString) IDBIndex]) {
-	return fn.FromRef(
-		bindings.IDBObjectStoreCreateIndex1Func(
-			this.Ref(),
-		),
+// FuncCreateIndex1 returns the method "IDBObjectStore.createIndex".
+func (this IDBObjectStore) FuncCreateIndex1() (fn js.Func[func(name js.String, keyPath OneOf_String_ArrayString) IDBIndex]) {
+	bindings.FuncIDBObjectStoreCreateIndex1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateIndex1 calls the method "IDBObjectStore.createIndex".
 func (this IDBObjectStore) CreateIndex1(name js.String, keyPath OneOf_String_ArrayString) (ret IDBIndex) {
 	bindings.CallIDBObjectStoreCreateIndex1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 		keyPath.Ref(),
 	)
@@ -7142,7 +7036,7 @@ func (this IDBObjectStore) CreateIndex1(name js.String, keyPath OneOf_String_Arr
 // the catch clause.
 func (this IDBObjectStore) TryCreateIndex1(name js.String, keyPath OneOf_String_ArrayString) (ret IDBIndex, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreCreateIndex1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 		keyPath.Ref(),
 	)
@@ -7150,26 +7044,25 @@ func (this IDBObjectStore) TryCreateIndex1(name js.String, keyPath OneOf_String_
 	return
 }
 
-// HasDeleteIndex returns true if the method "IDBObjectStore.deleteIndex" exists.
-func (this IDBObjectStore) HasDeleteIndex() bool {
-	return js.True == bindings.HasIDBObjectStoreDeleteIndex(
-		this.Ref(),
+// HasFuncDeleteIndex returns true if the method "IDBObjectStore.deleteIndex" exists.
+func (this IDBObjectStore) HasFuncDeleteIndex() bool {
+	return js.True == bindings.HasFuncIDBObjectStoreDeleteIndex(
+		this.ref,
 	)
 }
 
-// DeleteIndexFunc returns the method "IDBObjectStore.deleteIndex".
-func (this IDBObjectStore) DeleteIndexFunc() (fn js.Func[func(name js.String)]) {
-	return fn.FromRef(
-		bindings.IDBObjectStoreDeleteIndexFunc(
-			this.Ref(),
-		),
+// FuncDeleteIndex returns the method "IDBObjectStore.deleteIndex".
+func (this IDBObjectStore) FuncDeleteIndex() (fn js.Func[func(name js.String)]) {
+	bindings.FuncIDBObjectStoreDeleteIndex(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteIndex calls the method "IDBObjectStore.deleteIndex".
 func (this IDBObjectStore) DeleteIndex(name js.String) (ret js.Void) {
 	bindings.CallIDBObjectStoreDeleteIndex(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 	)
 
@@ -7181,7 +7074,7 @@ func (this IDBObjectStore) DeleteIndex(name js.String) (ret js.Void) {
 // the catch clause.
 func (this IDBObjectStore) TryDeleteIndex(name js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreDeleteIndex(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 	)
 

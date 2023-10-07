@@ -1,0 +1,273 @@
+- File: webext/system_cpu.idl
+  Dict:
+    Name: CpuInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - cpu
+    Fields:
+      - Name: numOfProcessors
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - cpu
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - cpu
+      - Name: archName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - cpu
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - cpu
+      - Name: modelName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - cpu
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - cpu
+      - Name: features
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - system
+                    - cpu
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - cpu
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - cpu
+      - Name: processors
+        Type:
+          Name: sequence
+          Params:
+            - Name: ProcessorInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - system
+                    - cpu
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - cpu
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - cpu
+      - Name: temperatures
+        Type:
+          Name: sequence
+          Params:
+            - Name: double
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - system
+                    - cpu
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - cpu
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - cpu
+- File: webext/system_cpu.idl
+  Callback:
+    Name: CpuInfoCallback
+    Args:
+      - Name: info
+        Type:
+          Name: CpuInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - cpu
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - cpu
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - cpu
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - cpu
+- File: webext/system_cpu.idl
+  Dict:
+    Name: CpuTime
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - cpu
+    Fields:
+      - Name: user
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - cpu
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - cpu
+      - Name: kernel
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - cpu
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - cpu
+      - Name: idle
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - cpu
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - cpu
+      - Name: total
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - cpu
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - cpu
+- File: webext/system_cpu.idl
+  Dict:
+    Name: ProcessorInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - cpu
+    Fields:
+      - Name: usage
+        Type:
+          Name: CpuTime
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - cpu
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - cpu
+- File: webext/system_cpu.idl
+  WebextFunc:
+    Name: getInfo
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: CpuInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - system
+                  - cpu
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - cpu

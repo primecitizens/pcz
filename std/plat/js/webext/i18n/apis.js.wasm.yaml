@@ -1,0 +1,180 @@
+- File: webext/i18n.json
+  Dict:
+    Name: DetectLanguageReturnType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - i18n
+    Fields:
+      - Name: isReliable
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - i18n
+      - Name: languages
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: DetectLanguageReturnTypeFieldLanguagesElem
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - i18n
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - i18n
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - i18n
+- File: webext/i18n.json
+  Dict:
+    Name: DetectLanguageReturnTypeFieldLanguagesElem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - i18n
+    Fields:
+      - Name: language
+        Required: true
+        Type:
+          Name: LanguageCode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - i18n
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - i18n
+      - Name: percentage
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - i18n
+- File: webext/i18n.json
+  Dict:
+    Name: GetMessageArgOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - i18n
+    Fields:
+      - Name: escapeLt
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - i18n
+- File: webext/i18n.json
+  Typedef:
+    Name: LanguageCode
+    Type:
+      Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - i18n
+- File: webext/i18n.json
+  WebextFunc:
+    Name: detectLanguage
+    Args:
+      - Name: text
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DetectLanguageReturnType
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - i18n
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - i18n
+- File: webext/i18n.json
+  WebextFunc:
+    Name: getAcceptLanguages
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: LanguageCode
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - i18n
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - i18n
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - i18n
+- File: webext/i18n.json
+  WebextFunc:
+    Name: getMessage
+    Args:
+      - Name: messageName
+        Type:
+          Name: DOMString
+      - Name: substitutions
+        Optional: true
+        Type:
+          Name: any
+      - Name: options
+        Optional: true
+        Type:
+          Name: GetMessageArgOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - i18n
+    Returns:
+      - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - i18n
+- File: webext/i18n.json
+  WebextFunc:
+    Name: getUILanguage
+    Returns:
+      - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - i18n

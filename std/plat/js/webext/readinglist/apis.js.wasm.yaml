@@ -1,0 +1,540 @@
+- File: webext/chrome/reading_list.idl
+  Callback:
+    Name: AddEntryCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - readingList
+- File: webext/chrome/reading_list.idl
+  Dict:
+    Name: AddEntryOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - readingList
+    Fields:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - readingList
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+      - Name: title
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - readingList
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+      - Name: hasBeenRead
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - readingList
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+- File: webext/chrome/reading_list.idl
+  Callback:
+    Name: QueryCallback
+    Args:
+      - Name: entries
+        Type:
+          Name: sequence
+          Params:
+            - Name: ReadingListEntry
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - readingList
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - readingList
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - readingList
+- File: webext/chrome/reading_list.idl
+  Dict:
+    Name: QueryInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - readingList
+    Fields:
+      - Name: url
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - readingList
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+      - Name: title
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - readingList
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+      - Name: hasBeenRead
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - readingList
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+- File: webext/chrome/reading_list.idl
+  Dict:
+    Name: ReadingListEntry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - readingList
+    Fields:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - readingList
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+      - Name: title
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - readingList
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+      - Name: hasBeenRead
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - readingList
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+      - Name: lastUpdateTime
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - readingList
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+      - Name: creationTime
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - readingList
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+- File: webext/chrome/reading_list.idl
+  Callback:
+    Name: RemoveEntryCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - readingList
+- File: webext/chrome/reading_list.idl
+  Dict:
+    Name: RemoveOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - readingList
+    Fields:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - readingList
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+- File: webext/chrome/reading_list.idl
+  Callback:
+    Name: UpdateEntryCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - readingList
+- File: webext/chrome/reading_list.idl
+  Dict:
+    Name: UpdateEntryOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - readingList
+    Fields:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - readingList
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+      - Name: title
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - readingList
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+      - Name: hasBeenRead
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - readingList
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+- File: webext/chrome/reading_list.idl
+  WebextFunc:
+    Name: addEntry
+    Modifier: static
+    Args:
+      - Name: entry
+        Type:
+          Name: AddEntryOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - readingList
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - readingList
+- File: webext/chrome/reading_list.idl
+  WebextEvent:
+    Name: onEntryAdded
+    Modifier: static
+    Args:
+      - Name: entry
+        Type:
+          Name: ReadingListEntry
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - readingList
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - readingList
+- File: webext/chrome/reading_list.idl
+  WebextEvent:
+    Name: onEntryRemoved
+    Modifier: static
+    Args:
+      - Name: entry
+        Type:
+          Name: ReadingListEntry
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - readingList
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - readingList
+- File: webext/chrome/reading_list.idl
+  WebextEvent:
+    Name: onEntryUpdated
+    Modifier: static
+    Args:
+      - Name: entry
+        Type:
+          Name: ReadingListEntry
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - readingList
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - readingList
+- File: webext/chrome/reading_list.idl
+  WebextFunc:
+    Name: query
+    Modifier: static
+    Args:
+      - Name: info
+        Type:
+          Name: QueryInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - readingList
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: ReadingListEntry
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - readingList
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - readingList
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - readingList
+- File: webext/chrome/reading_list.idl
+  WebextFunc:
+    Name: removeEntry
+    Modifier: static
+    Args:
+      - Name: info
+        Type:
+          Name: RemoveOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - readingList
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - readingList
+- File: webext/chrome/reading_list.idl
+  WebextFunc:
+    Name: updateEntry
+    Modifier: static
+    Args:
+      - Name: info
+        Type:
+          Name: UpdateEntryOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - readingList
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - readingList
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - readingList

@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web get_AuthenticatorAttestationResponse_AttestationObject
 //go:noescape
@@ -25,11 +23,11 @@ func GetAuthenticatorAttestationResponseAttestationObject(
 
 //go:wasmimport plat/js/web has_AuthenticatorAttestationResponse_GetTransports
 //go:noescape
-func HasAuthenticatorAttestationResponseGetTransports(this js.Ref) js.Ref
+func HasFuncAuthenticatorAttestationResponseGetTransports(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AuthenticatorAttestationResponse_GetTransports
 //go:noescape
-func AuthenticatorAttestationResponseGetTransportsFunc(this js.Ref) js.Ref
+func FuncAuthenticatorAttestationResponseGetTransports(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AuthenticatorAttestationResponse_GetTransports
 //go:noescape
@@ -43,11 +41,11 @@ func TryAuthenticatorAttestationResponseGetTransports(
 
 //go:wasmimport plat/js/web has_AuthenticatorAttestationResponse_GetAuthenticatorData
 //go:noescape
-func HasAuthenticatorAttestationResponseGetAuthenticatorData(this js.Ref) js.Ref
+func HasFuncAuthenticatorAttestationResponseGetAuthenticatorData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AuthenticatorAttestationResponse_GetAuthenticatorData
 //go:noescape
-func AuthenticatorAttestationResponseGetAuthenticatorDataFunc(this js.Ref) js.Ref
+func FuncAuthenticatorAttestationResponseGetAuthenticatorData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AuthenticatorAttestationResponse_GetAuthenticatorData
 //go:noescape
@@ -61,11 +59,11 @@ func TryAuthenticatorAttestationResponseGetAuthenticatorData(
 
 //go:wasmimport plat/js/web has_AuthenticatorAttestationResponse_GetPublicKey
 //go:noescape
-func HasAuthenticatorAttestationResponseGetPublicKey(this js.Ref) js.Ref
+func HasFuncAuthenticatorAttestationResponseGetPublicKey(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AuthenticatorAttestationResponse_GetPublicKey
 //go:noescape
-func AuthenticatorAttestationResponseGetPublicKeyFunc(this js.Ref) js.Ref
+func FuncAuthenticatorAttestationResponseGetPublicKey(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AuthenticatorAttestationResponse_GetPublicKey
 //go:noescape
@@ -79,11 +77,11 @@ func TryAuthenticatorAttestationResponseGetPublicKey(
 
 //go:wasmimport plat/js/web has_AuthenticatorAttestationResponse_GetPublicKeyAlgorithm
 //go:noescape
-func HasAuthenticatorAttestationResponseGetPublicKeyAlgorithm(this js.Ref) js.Ref
+func HasFuncAuthenticatorAttestationResponseGetPublicKeyAlgorithm(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AuthenticatorAttestationResponse_GetPublicKeyAlgorithm
 //go:noescape
-func AuthenticatorAttestationResponseGetPublicKeyAlgorithmFunc(this js.Ref) js.Ref
+func FuncAuthenticatorAttestationResponseGetPublicKeyAlgorithm(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AuthenticatorAttestationResponse_GetPublicKeyAlgorithm
 //go:noescape
@@ -166,11 +164,11 @@ func GetURLSearchParamsSize(
 
 //go:wasmimport plat/js/web has_URLSearchParams_Append
 //go:noescape
-func HasURLSearchParamsAppend(this js.Ref) js.Ref
+func HasFuncURLSearchParamsAppend(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_URLSearchParams_Append
 //go:noescape
-func URLSearchParamsAppendFunc(this js.Ref) js.Ref
+func FuncURLSearchParamsAppend(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_URLSearchParams_Append
 //go:noescape
@@ -188,11 +186,11 @@ func TryURLSearchParamsAppend(
 
 //go:wasmimport plat/js/web has_URLSearchParams_Delete
 //go:noescape
-func HasURLSearchParamsDelete(this js.Ref) js.Ref
+func HasFuncURLSearchParamsDelete(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_URLSearchParams_Delete
 //go:noescape
-func URLSearchParamsDeleteFunc(this js.Ref) js.Ref
+func FuncURLSearchParamsDelete(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_URLSearchParams_Delete
 //go:noescape
@@ -210,11 +208,11 @@ func TryURLSearchParamsDelete(
 
 //go:wasmimport plat/js/web has_URLSearchParams_Delete1
 //go:noescape
-func HasURLSearchParamsDelete1(this js.Ref) js.Ref
+func HasFuncURLSearchParamsDelete1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_URLSearchParams_Delete1
 //go:noescape
-func URLSearchParamsDelete1Func(this js.Ref) js.Ref
+func FuncURLSearchParamsDelete1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_URLSearchParams_Delete1
 //go:noescape
@@ -230,11 +228,11 @@ func TryURLSearchParamsDelete1(
 
 //go:wasmimport plat/js/web has_URLSearchParams_Get
 //go:noescape
-func HasURLSearchParamsGet(this js.Ref) js.Ref
+func HasFuncURLSearchParamsGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_URLSearchParams_Get
 //go:noescape
-func URLSearchParamsGetFunc(this js.Ref) js.Ref
+func FuncURLSearchParamsGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_URLSearchParams_Get
 //go:noescape
@@ -250,11 +248,11 @@ func TryURLSearchParamsGet(
 
 //go:wasmimport plat/js/web has_URLSearchParams_GetAll
 //go:noescape
-func HasURLSearchParamsGetAll(this js.Ref) js.Ref
+func HasFuncURLSearchParamsGetAll(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_URLSearchParams_GetAll
 //go:noescape
-func URLSearchParamsGetAllFunc(this js.Ref) js.Ref
+func FuncURLSearchParamsGetAll(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_URLSearchParams_GetAll
 //go:noescape
@@ -270,11 +268,11 @@ func TryURLSearchParamsGetAll(
 
 //go:wasmimport plat/js/web has_URLSearchParams_Has
 //go:noescape
-func HasURLSearchParamsHas(this js.Ref) js.Ref
+func HasFuncURLSearchParamsHas(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_URLSearchParams_Has
 //go:noescape
-func URLSearchParamsHasFunc(this js.Ref) js.Ref
+func FuncURLSearchParamsHas(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_URLSearchParams_Has
 //go:noescape
@@ -292,11 +290,11 @@ func TryURLSearchParamsHas(
 
 //go:wasmimport plat/js/web has_URLSearchParams_Has1
 //go:noescape
-func HasURLSearchParamsHas1(this js.Ref) js.Ref
+func HasFuncURLSearchParamsHas1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_URLSearchParams_Has1
 //go:noescape
-func URLSearchParamsHas1Func(this js.Ref) js.Ref
+func FuncURLSearchParamsHas1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_URLSearchParams_Has1
 //go:noescape
@@ -312,11 +310,11 @@ func TryURLSearchParamsHas1(
 
 //go:wasmimport plat/js/web has_URLSearchParams_Set
 //go:noescape
-func HasURLSearchParamsSet(this js.Ref) js.Ref
+func HasFuncURLSearchParamsSet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_URLSearchParams_Set
 //go:noescape
-func URLSearchParamsSetFunc(this js.Ref) js.Ref
+func FuncURLSearchParamsSet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_URLSearchParams_Set
 //go:noescape
@@ -334,11 +332,11 @@ func TryURLSearchParamsSet(
 
 //go:wasmimport plat/js/web has_URLSearchParams_Sort
 //go:noescape
-func HasURLSearchParamsSort(this js.Ref) js.Ref
+func HasFuncURLSearchParamsSort(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_URLSearchParams_Sort
 //go:noescape
-func URLSearchParamsSortFunc(this js.Ref) js.Ref
+func FuncURLSearchParamsSort(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_URLSearchParams_Sort
 //go:noescape
@@ -352,11 +350,11 @@ func TryURLSearchParamsSort(
 
 //go:wasmimport plat/js/web has_URLSearchParams_ToString
 //go:noescape
-func HasURLSearchParamsToString(this js.Ref) js.Ref
+func HasFuncURLSearchParamsToString(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_URLSearchParams_ToString
 //go:noescape
-func URLSearchParamsToStringFunc(this js.Ref) js.Ref
+func FuncURLSearchParamsToString(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_URLSearchParams_ToString
 //go:noescape
@@ -443,11 +441,11 @@ func NewHeadersByHeaders1() js.Ref
 
 //go:wasmimport plat/js/web has_Headers_Append
 //go:noescape
-func HasHeadersAppend(this js.Ref) js.Ref
+func HasFuncHeadersAppend(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Headers_Append
 //go:noescape
-func HeadersAppendFunc(this js.Ref) js.Ref
+func FuncHeadersAppend(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Headers_Append
 //go:noescape
@@ -465,11 +463,11 @@ func TryHeadersAppend(
 
 //go:wasmimport plat/js/web has_Headers_Delete
 //go:noescape
-func HasHeadersDelete(this js.Ref) js.Ref
+func HasFuncHeadersDelete(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Headers_Delete
 //go:noescape
-func HeadersDeleteFunc(this js.Ref) js.Ref
+func FuncHeadersDelete(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Headers_Delete
 //go:noescape
@@ -485,11 +483,11 @@ func TryHeadersDelete(
 
 //go:wasmimport plat/js/web has_Headers_Get
 //go:noescape
-func HasHeadersGet(this js.Ref) js.Ref
+func HasFuncHeadersGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Headers_Get
 //go:noescape
-func HeadersGetFunc(this js.Ref) js.Ref
+func FuncHeadersGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Headers_Get
 //go:noescape
@@ -505,11 +503,11 @@ func TryHeadersGet(
 
 //go:wasmimport plat/js/web has_Headers_GetSetCookie
 //go:noescape
-func HasHeadersGetSetCookie(this js.Ref) js.Ref
+func HasFuncHeadersGetSetCookie(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Headers_GetSetCookie
 //go:noescape
-func HeadersGetSetCookieFunc(this js.Ref) js.Ref
+func FuncHeadersGetSetCookie(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Headers_GetSetCookie
 //go:noescape
@@ -523,11 +521,11 @@ func TryHeadersGetSetCookie(
 
 //go:wasmimport plat/js/web has_Headers_Has
 //go:noescape
-func HasHeadersHas(this js.Ref) js.Ref
+func HasFuncHeadersHas(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Headers_Has
 //go:noescape
-func HeadersHasFunc(this js.Ref) js.Ref
+func FuncHeadersHas(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Headers_Has
 //go:noescape
@@ -543,11 +541,11 @@ func TryHeadersHas(
 
 //go:wasmimport plat/js/web has_Headers_Set
 //go:noescape
-func HasHeadersSet(this js.Ref) js.Ref
+func HasFuncHeadersSet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Headers_Set
 //go:noescape
-func HeadersSetFunc(this js.Ref) js.Ref
+func FuncHeadersSet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Headers_Set
 //go:noescape

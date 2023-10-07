@@ -1,0 +1,162 @@
+- File: webext/file_handlers.idl
+  Dict:
+    Name: FileHandler
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileHandlers
+    Fields:
+      - Name: accept
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileHandlers
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileHandlers
+      - Name: action
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileHandlers
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileHandlers
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileHandlers
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileHandlers
+      - Name: icons
+        Type:
+          Name: sequence
+          Params:
+            - Name: Icon
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileHandlers
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileHandlers
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileHandlers
+      - Name: launch_type
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileHandlers
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileHandlers
+- File: webext/file_handlers.idl
+  Dict:
+    Name: Icon
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileHandlers
+    Fields:
+      - Name: src
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileHandlers
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileHandlers
+      - Name: sizes
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileHandlers
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileHandlers
+      - Name: type
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileHandlers
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileHandlers
+- File: webext/file_handlers.idl
+  Dict:
+    Name: ManifestKeys
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileHandlers
+    Fields:
+      - Name: file_handlers
+        Type:
+          Name: sequence
+          Params:
+            - Name: FileHandler
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileHandlers
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileHandlers
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileHandlers

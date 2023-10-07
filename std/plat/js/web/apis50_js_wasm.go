@@ -5,17 +5,9 @@ package web
 
 import (
 	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 type RTCTrackEventInit struct {
 	// Receiver is "RTCTrackEventInit.receiver"
@@ -74,17 +66,32 @@ func (p RTCTrackEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCTrackEventInit) UpdateFrom(ref js.Ref) {
+func (p *RTCTrackEventInit) UpdateFrom(ref js.Ref) {
 	bindings.RTCTrackEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCTrackEventInit) Update(ref js.Ref) {
+func (p *RTCTrackEventInit) Update(ref js.Ref) {
 	bindings.RTCTrackEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCTrackEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Receiver.Ref(),
+		p.Track.Ref(),
+		p.Streams.Ref(),
+		p.Transceiver.Ref(),
+	)
+	p.Receiver = p.Receiver.FromRef(js.Undefined)
+	p.Track = p.Track.FromRef(js.Undefined)
+	p.Streams = p.Streams.FromRef(js.Undefined)
+	p.Transceiver = p.Transceiver.FromRef(js.Undefined)
 }
 
 func NewRTCTrackEvent(typ js.String, eventInitDict RTCTrackEventInit) (ret RTCTrackEvent) {
@@ -99,7 +106,7 @@ type RTCTrackEvent struct {
 }
 
 func (this RTCTrackEvent) Once() RTCTrackEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -113,7 +120,7 @@ func (this RTCTrackEvent) FromRef(ref js.Ref) RTCTrackEvent {
 }
 
 func (this RTCTrackEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Receiver returns the value of property "RTCTrackEvent.receiver".
@@ -121,7 +128,7 @@ func (this RTCTrackEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCTrackEvent) Receiver() (ret RTCRtpReceiver, ok bool) {
 	ok = js.True == bindings.GetRTCTrackEventReceiver(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -131,7 +138,7 @@ func (this RTCTrackEvent) Receiver() (ret RTCRtpReceiver, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCTrackEvent) Track() (ret MediaStreamTrack, ok bool) {
 	ok = js.True == bindings.GetRTCTrackEventTrack(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -141,7 +148,7 @@ func (this RTCTrackEvent) Track() (ret MediaStreamTrack, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCTrackEvent) Streams() (ret js.FrozenArray[MediaStream], ok bool) {
 	ok = js.True == bindings.GetRTCTrackEventStreams(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -151,7 +158,7 @@ func (this RTCTrackEvent) Streams() (ret js.FrozenArray[MediaStream], ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCTrackEvent) Transceiver() (ret RTCRtpTransceiver, ok bool) {
 	ok = js.True == bindings.GetRTCTrackEventTransceiver(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -174,7 +181,7 @@ type RTCTransformEvent struct {
 }
 
 func (this RTCTransformEvent) Once() RTCTransformEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -188,7 +195,7 @@ func (this RTCTransformEvent) FromRef(ref js.Ref) RTCTransformEvent {
 }
 
 func (this RTCTransformEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Transformer returns the value of property "RTCTransformEvent.transformer".
@@ -196,7 +203,7 @@ func (this RTCTransformEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCTransformEvent) Transformer() (ret RTCRtpScriptTransformer, ok bool) {
 	ok = js.True == bindings.GetRTCTransformEventTransformer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -312,17 +319,40 @@ func (p RTCTransportStats) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCTransportStats) UpdateFrom(ref js.Ref) {
+func (p *RTCTransportStats) UpdateFrom(ref js.Ref) {
 	bindings.RTCTransportStatsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCTransportStats) Update(ref js.Ref) {
+func (p *RTCTransportStats) Update(ref js.Ref) {
 	bindings.RTCTransportStatsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCTransportStats) FreeMembers(recursive bool) {
+	js.Free(
+		p.IceLocalUsernameFragment.Ref(),
+		p.SelectedCandidatePairId.Ref(),
+		p.LocalCertificateId.Ref(),
+		p.RemoteCertificateId.Ref(),
+		p.TlsVersion.Ref(),
+		p.DtlsCipher.Ref(),
+		p.SrtpCipher.Ref(),
+		p.Id.Ref(),
+	)
+	p.IceLocalUsernameFragment = p.IceLocalUsernameFragment.FromRef(js.Undefined)
+	p.SelectedCandidatePairId = p.SelectedCandidatePairId.FromRef(js.Undefined)
+	p.LocalCertificateId = p.LocalCertificateId.FromRef(js.Undefined)
+	p.RemoteCertificateId = p.RemoteCertificateId.FromRef(js.Undefined)
+	p.TlsVersion = p.TlsVersion.FromRef(js.Undefined)
+	p.DtlsCipher = p.DtlsCipher.FromRef(js.Undefined)
+	p.SrtpCipher = p.SrtpCipher.FromRef(js.Undefined)
+	p.Id = p.Id.FromRef(js.Undefined)
 }
 
 type RTCVideoSourceStats struct {
@@ -393,17 +423,30 @@ func (p RTCVideoSourceStats) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCVideoSourceStats) UpdateFrom(ref js.Ref) {
+func (p *RTCVideoSourceStats) UpdateFrom(ref js.Ref) {
 	bindings.RTCVideoSourceStatsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCVideoSourceStats) Update(ref js.Ref) {
+func (p *RTCVideoSourceStats) Update(ref js.Ref) {
 	bindings.RTCVideoSourceStatsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCVideoSourceStats) FreeMembers(recursive bool) {
+	js.Free(
+		p.TrackIdentifier.Ref(),
+		p.Kind.Ref(),
+		p.Id.Ref(),
+	)
+	p.TrackIdentifier = p.TrackIdentifier.FromRef(js.Undefined)
+	p.Kind = p.Kind.FromRef(js.Undefined)
+	p.Id = p.Id.FromRef(js.Undefined)
 }
 
 type ReadableStreamBYOBRequest struct {
@@ -411,7 +454,7 @@ type ReadableStreamBYOBRequest struct {
 }
 
 func (this ReadableStreamBYOBRequest) Once() ReadableStreamBYOBRequest {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -425,7 +468,7 @@ func (this ReadableStreamBYOBRequest) FromRef(ref js.Ref) ReadableStreamBYOBRequ
 }
 
 func (this ReadableStreamBYOBRequest) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // View returns the value of property "ReadableStreamBYOBRequest.view".
@@ -433,31 +476,30 @@ func (this ReadableStreamBYOBRequest) Free() {
 // It returns ok=false if there is no such property.
 func (this ReadableStreamBYOBRequest) View() (ret js.ArrayBufferView, ok bool) {
 	ok = js.True == bindings.GetReadableStreamBYOBRequestView(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasRespond returns true if the method "ReadableStreamBYOBRequest.respond" exists.
-func (this ReadableStreamBYOBRequest) HasRespond() bool {
-	return js.True == bindings.HasReadableStreamBYOBRequestRespond(
-		this.Ref(),
+// HasFuncRespond returns true if the method "ReadableStreamBYOBRequest.respond" exists.
+func (this ReadableStreamBYOBRequest) HasFuncRespond() bool {
+	return js.True == bindings.HasFuncReadableStreamBYOBRequestRespond(
+		this.ref,
 	)
 }
 
-// RespondFunc returns the method "ReadableStreamBYOBRequest.respond".
-func (this ReadableStreamBYOBRequest) RespondFunc() (fn js.Func[func(bytesWritten uint64)]) {
-	return fn.FromRef(
-		bindings.ReadableStreamBYOBRequestRespondFunc(
-			this.Ref(),
-		),
+// FuncRespond returns the method "ReadableStreamBYOBRequest.respond".
+func (this ReadableStreamBYOBRequest) FuncRespond() (fn js.Func[func(bytesWritten uint64)]) {
+	bindings.FuncReadableStreamBYOBRequestRespond(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Respond calls the method "ReadableStreamBYOBRequest.respond".
 func (this ReadableStreamBYOBRequest) Respond(bytesWritten uint64) (ret js.Void) {
 	bindings.CallReadableStreamBYOBRequestRespond(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(bytesWritten),
 	)
 
@@ -469,33 +511,32 @@ func (this ReadableStreamBYOBRequest) Respond(bytesWritten uint64) (ret js.Void)
 // the catch clause.
 func (this ReadableStreamBYOBRequest) TryRespond(bytesWritten uint64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamBYOBRequestRespond(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(bytesWritten),
 	)
 
 	return
 }
 
-// HasRespondWithNewView returns true if the method "ReadableStreamBYOBRequest.respondWithNewView" exists.
-func (this ReadableStreamBYOBRequest) HasRespondWithNewView() bool {
-	return js.True == bindings.HasReadableStreamBYOBRequestRespondWithNewView(
-		this.Ref(),
+// HasFuncRespondWithNewView returns true if the method "ReadableStreamBYOBRequest.respondWithNewView" exists.
+func (this ReadableStreamBYOBRequest) HasFuncRespondWithNewView() bool {
+	return js.True == bindings.HasFuncReadableStreamBYOBRequestRespondWithNewView(
+		this.ref,
 	)
 }
 
-// RespondWithNewViewFunc returns the method "ReadableStreamBYOBRequest.respondWithNewView".
-func (this ReadableStreamBYOBRequest) RespondWithNewViewFunc() (fn js.Func[func(view js.ArrayBufferView)]) {
-	return fn.FromRef(
-		bindings.ReadableStreamBYOBRequestRespondWithNewViewFunc(
-			this.Ref(),
-		),
+// FuncRespondWithNewView returns the method "ReadableStreamBYOBRequest.respondWithNewView".
+func (this ReadableStreamBYOBRequest) FuncRespondWithNewView() (fn js.Func[func(view js.ArrayBufferView)]) {
+	bindings.FuncReadableStreamBYOBRequestRespondWithNewView(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RespondWithNewView calls the method "ReadableStreamBYOBRequest.respondWithNewView".
 func (this ReadableStreamBYOBRequest) RespondWithNewView(view js.ArrayBufferView) (ret js.Void) {
 	bindings.CallReadableStreamBYOBRequestRespondWithNewView(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		view.Ref(),
 	)
 
@@ -507,7 +548,7 @@ func (this ReadableStreamBYOBRequest) RespondWithNewView(view js.ArrayBufferView
 // the catch clause.
 func (this ReadableStreamBYOBRequest) TryRespondWithNewView(view js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamBYOBRequestRespondWithNewView(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		view.Ref(),
 	)
 
@@ -519,7 +560,7 @@ type ReadableByteStreamController struct {
 }
 
 func (this ReadableByteStreamController) Once() ReadableByteStreamController {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -533,7 +574,7 @@ func (this ReadableByteStreamController) FromRef(ref js.Ref) ReadableByteStreamC
 }
 
 func (this ReadableByteStreamController) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // ByobRequest returns the value of property "ReadableByteStreamController.byobRequest".
@@ -541,7 +582,7 @@ func (this ReadableByteStreamController) Free() {
 // It returns ok=false if there is no such property.
 func (this ReadableByteStreamController) ByobRequest() (ret ReadableStreamBYOBRequest, ok bool) {
 	ok = js.True == bindings.GetReadableByteStreamControllerByobRequest(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -551,31 +592,30 @@ func (this ReadableByteStreamController) ByobRequest() (ret ReadableStreamBYOBRe
 // It returns ok=false if there is no such property.
 func (this ReadableByteStreamController) DesiredSize() (ret float64, ok bool) {
 	ok = js.True == bindings.GetReadableByteStreamControllerDesiredSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasClose returns true if the method "ReadableByteStreamController.close" exists.
-func (this ReadableByteStreamController) HasClose() bool {
-	return js.True == bindings.HasReadableByteStreamControllerClose(
-		this.Ref(),
+// HasFuncClose returns true if the method "ReadableByteStreamController.close" exists.
+func (this ReadableByteStreamController) HasFuncClose() bool {
+	return js.True == bindings.HasFuncReadableByteStreamControllerClose(
+		this.ref,
 	)
 }
 
-// CloseFunc returns the method "ReadableByteStreamController.close".
-func (this ReadableByteStreamController) CloseFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.ReadableByteStreamControllerCloseFunc(
-			this.Ref(),
-		),
+// FuncClose returns the method "ReadableByteStreamController.close".
+func (this ReadableByteStreamController) FuncClose() (fn js.Func[func()]) {
+	bindings.FuncReadableByteStreamControllerClose(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Close calls the method "ReadableByteStreamController.close".
 func (this ReadableByteStreamController) Close() (ret js.Void) {
 	bindings.CallReadableByteStreamControllerClose(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -586,32 +626,31 @@ func (this ReadableByteStreamController) Close() (ret js.Void) {
 // the catch clause.
 func (this ReadableByteStreamController) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableByteStreamControllerClose(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasEnqueue returns true if the method "ReadableByteStreamController.enqueue" exists.
-func (this ReadableByteStreamController) HasEnqueue() bool {
-	return js.True == bindings.HasReadableByteStreamControllerEnqueue(
-		this.Ref(),
+// HasFuncEnqueue returns true if the method "ReadableByteStreamController.enqueue" exists.
+func (this ReadableByteStreamController) HasFuncEnqueue() bool {
+	return js.True == bindings.HasFuncReadableByteStreamControllerEnqueue(
+		this.ref,
 	)
 }
 
-// EnqueueFunc returns the method "ReadableByteStreamController.enqueue".
-func (this ReadableByteStreamController) EnqueueFunc() (fn js.Func[func(chunk js.ArrayBufferView)]) {
-	return fn.FromRef(
-		bindings.ReadableByteStreamControllerEnqueueFunc(
-			this.Ref(),
-		),
+// FuncEnqueue returns the method "ReadableByteStreamController.enqueue".
+func (this ReadableByteStreamController) FuncEnqueue() (fn js.Func[func(chunk js.ArrayBufferView)]) {
+	bindings.FuncReadableByteStreamControllerEnqueue(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Enqueue calls the method "ReadableByteStreamController.enqueue".
 func (this ReadableByteStreamController) Enqueue(chunk js.ArrayBufferView) (ret js.Void) {
 	bindings.CallReadableByteStreamControllerEnqueue(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		chunk.Ref(),
 	)
 
@@ -623,33 +662,32 @@ func (this ReadableByteStreamController) Enqueue(chunk js.ArrayBufferView) (ret 
 // the catch clause.
 func (this ReadableByteStreamController) TryEnqueue(chunk js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableByteStreamControllerEnqueue(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		chunk.Ref(),
 	)
 
 	return
 }
 
-// HasError returns true if the method "ReadableByteStreamController.error" exists.
-func (this ReadableByteStreamController) HasError() bool {
-	return js.True == bindings.HasReadableByteStreamControllerError(
-		this.Ref(),
+// HasFuncError returns true if the method "ReadableByteStreamController.error" exists.
+func (this ReadableByteStreamController) HasFuncError() bool {
+	return js.True == bindings.HasFuncReadableByteStreamControllerError(
+		this.ref,
 	)
 }
 
-// ErrorFunc returns the method "ReadableByteStreamController.error".
-func (this ReadableByteStreamController) ErrorFunc() (fn js.Func[func(e js.Any)]) {
-	return fn.FromRef(
-		bindings.ReadableByteStreamControllerErrorFunc(
-			this.Ref(),
-		),
+// FuncError returns the method "ReadableByteStreamController.error".
+func (this ReadableByteStreamController) FuncError() (fn js.Func[func(e js.Any)]) {
+	bindings.FuncReadableByteStreamControllerError(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Error calls the method "ReadableByteStreamController.error".
 func (this ReadableByteStreamController) Error(e js.Any) (ret js.Void) {
 	bindings.CallReadableByteStreamControllerError(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		e.Ref(),
 	)
 
@@ -661,33 +699,32 @@ func (this ReadableByteStreamController) Error(e js.Any) (ret js.Void) {
 // the catch clause.
 func (this ReadableByteStreamController) TryError(e js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableByteStreamControllerError(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		e.Ref(),
 	)
 
 	return
 }
 
-// HasError1 returns true if the method "ReadableByteStreamController.error" exists.
-func (this ReadableByteStreamController) HasError1() bool {
-	return js.True == bindings.HasReadableByteStreamControllerError1(
-		this.Ref(),
+// HasFuncError1 returns true if the method "ReadableByteStreamController.error" exists.
+func (this ReadableByteStreamController) HasFuncError1() bool {
+	return js.True == bindings.HasFuncReadableByteStreamControllerError1(
+		this.ref,
 	)
 }
 
-// Error1Func returns the method "ReadableByteStreamController.error".
-func (this ReadableByteStreamController) Error1Func() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.ReadableByteStreamControllerError1Func(
-			this.Ref(),
-		),
+// FuncError1 returns the method "ReadableByteStreamController.error".
+func (this ReadableByteStreamController) FuncError1() (fn js.Func[func()]) {
+	bindings.FuncReadableByteStreamControllerError1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Error1 calls the method "ReadableByteStreamController.error".
 func (this ReadableByteStreamController) Error1() (ret js.Void) {
 	bindings.CallReadableByteStreamControllerError1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -698,7 +735,7 @@ func (this ReadableByteStreamController) Error1() (ret js.Void) {
 // the catch clause.
 func (this ReadableByteStreamController) TryError1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableByteStreamControllerError1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -709,7 +746,7 @@ type ReadableStreamDefaultController struct {
 }
 
 func (this ReadableStreamDefaultController) Once() ReadableStreamDefaultController {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -723,7 +760,7 @@ func (this ReadableStreamDefaultController) FromRef(ref js.Ref) ReadableStreamDe
 }
 
 func (this ReadableStreamDefaultController) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // DesiredSize returns the value of property "ReadableStreamDefaultController.desiredSize".
@@ -731,31 +768,30 @@ func (this ReadableStreamDefaultController) Free() {
 // It returns ok=false if there is no such property.
 func (this ReadableStreamDefaultController) DesiredSize() (ret float64, ok bool) {
 	ok = js.True == bindings.GetReadableStreamDefaultControllerDesiredSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasClose returns true if the method "ReadableStreamDefaultController.close" exists.
-func (this ReadableStreamDefaultController) HasClose() bool {
-	return js.True == bindings.HasReadableStreamDefaultControllerClose(
-		this.Ref(),
+// HasFuncClose returns true if the method "ReadableStreamDefaultController.close" exists.
+func (this ReadableStreamDefaultController) HasFuncClose() bool {
+	return js.True == bindings.HasFuncReadableStreamDefaultControllerClose(
+		this.ref,
 	)
 }
 
-// CloseFunc returns the method "ReadableStreamDefaultController.close".
-func (this ReadableStreamDefaultController) CloseFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.ReadableStreamDefaultControllerCloseFunc(
-			this.Ref(),
-		),
+// FuncClose returns the method "ReadableStreamDefaultController.close".
+func (this ReadableStreamDefaultController) FuncClose() (fn js.Func[func()]) {
+	bindings.FuncReadableStreamDefaultControllerClose(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Close calls the method "ReadableStreamDefaultController.close".
 func (this ReadableStreamDefaultController) Close() (ret js.Void) {
 	bindings.CallReadableStreamDefaultControllerClose(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -766,32 +802,31 @@ func (this ReadableStreamDefaultController) Close() (ret js.Void) {
 // the catch clause.
 func (this ReadableStreamDefaultController) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamDefaultControllerClose(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasEnqueue returns true if the method "ReadableStreamDefaultController.enqueue" exists.
-func (this ReadableStreamDefaultController) HasEnqueue() bool {
-	return js.True == bindings.HasReadableStreamDefaultControllerEnqueue(
-		this.Ref(),
+// HasFuncEnqueue returns true if the method "ReadableStreamDefaultController.enqueue" exists.
+func (this ReadableStreamDefaultController) HasFuncEnqueue() bool {
+	return js.True == bindings.HasFuncReadableStreamDefaultControllerEnqueue(
+		this.ref,
 	)
 }
 
-// EnqueueFunc returns the method "ReadableStreamDefaultController.enqueue".
-func (this ReadableStreamDefaultController) EnqueueFunc() (fn js.Func[func(chunk js.Any)]) {
-	return fn.FromRef(
-		bindings.ReadableStreamDefaultControllerEnqueueFunc(
-			this.Ref(),
-		),
+// FuncEnqueue returns the method "ReadableStreamDefaultController.enqueue".
+func (this ReadableStreamDefaultController) FuncEnqueue() (fn js.Func[func(chunk js.Any)]) {
+	bindings.FuncReadableStreamDefaultControllerEnqueue(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Enqueue calls the method "ReadableStreamDefaultController.enqueue".
 func (this ReadableStreamDefaultController) Enqueue(chunk js.Any) (ret js.Void) {
 	bindings.CallReadableStreamDefaultControllerEnqueue(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		chunk.Ref(),
 	)
 
@@ -803,33 +838,32 @@ func (this ReadableStreamDefaultController) Enqueue(chunk js.Any) (ret js.Void) 
 // the catch clause.
 func (this ReadableStreamDefaultController) TryEnqueue(chunk js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamDefaultControllerEnqueue(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		chunk.Ref(),
 	)
 
 	return
 }
 
-// HasEnqueue1 returns true if the method "ReadableStreamDefaultController.enqueue" exists.
-func (this ReadableStreamDefaultController) HasEnqueue1() bool {
-	return js.True == bindings.HasReadableStreamDefaultControllerEnqueue1(
-		this.Ref(),
+// HasFuncEnqueue1 returns true if the method "ReadableStreamDefaultController.enqueue" exists.
+func (this ReadableStreamDefaultController) HasFuncEnqueue1() bool {
+	return js.True == bindings.HasFuncReadableStreamDefaultControllerEnqueue1(
+		this.ref,
 	)
 }
 
-// Enqueue1Func returns the method "ReadableStreamDefaultController.enqueue".
-func (this ReadableStreamDefaultController) Enqueue1Func() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.ReadableStreamDefaultControllerEnqueue1Func(
-			this.Ref(),
-		),
+// FuncEnqueue1 returns the method "ReadableStreamDefaultController.enqueue".
+func (this ReadableStreamDefaultController) FuncEnqueue1() (fn js.Func[func()]) {
+	bindings.FuncReadableStreamDefaultControllerEnqueue1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Enqueue1 calls the method "ReadableStreamDefaultController.enqueue".
 func (this ReadableStreamDefaultController) Enqueue1() (ret js.Void) {
 	bindings.CallReadableStreamDefaultControllerEnqueue1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -840,32 +874,31 @@ func (this ReadableStreamDefaultController) Enqueue1() (ret js.Void) {
 // the catch clause.
 func (this ReadableStreamDefaultController) TryEnqueue1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamDefaultControllerEnqueue1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasError returns true if the method "ReadableStreamDefaultController.error" exists.
-func (this ReadableStreamDefaultController) HasError() bool {
-	return js.True == bindings.HasReadableStreamDefaultControllerError(
-		this.Ref(),
+// HasFuncError returns true if the method "ReadableStreamDefaultController.error" exists.
+func (this ReadableStreamDefaultController) HasFuncError() bool {
+	return js.True == bindings.HasFuncReadableStreamDefaultControllerError(
+		this.ref,
 	)
 }
 
-// ErrorFunc returns the method "ReadableStreamDefaultController.error".
-func (this ReadableStreamDefaultController) ErrorFunc() (fn js.Func[func(e js.Any)]) {
-	return fn.FromRef(
-		bindings.ReadableStreamDefaultControllerErrorFunc(
-			this.Ref(),
-		),
+// FuncError returns the method "ReadableStreamDefaultController.error".
+func (this ReadableStreamDefaultController) FuncError() (fn js.Func[func(e js.Any)]) {
+	bindings.FuncReadableStreamDefaultControllerError(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Error calls the method "ReadableStreamDefaultController.error".
 func (this ReadableStreamDefaultController) Error(e js.Any) (ret js.Void) {
 	bindings.CallReadableStreamDefaultControllerError(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		e.Ref(),
 	)
 
@@ -877,33 +910,32 @@ func (this ReadableStreamDefaultController) Error(e js.Any) (ret js.Void) {
 // the catch clause.
 func (this ReadableStreamDefaultController) TryError(e js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamDefaultControllerError(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		e.Ref(),
 	)
 
 	return
 }
 
-// HasError1 returns true if the method "ReadableStreamDefaultController.error" exists.
-func (this ReadableStreamDefaultController) HasError1() bool {
-	return js.True == bindings.HasReadableStreamDefaultControllerError1(
-		this.Ref(),
+// HasFuncError1 returns true if the method "ReadableStreamDefaultController.error" exists.
+func (this ReadableStreamDefaultController) HasFuncError1() bool {
+	return js.True == bindings.HasFuncReadableStreamDefaultControllerError1(
+		this.ref,
 	)
 }
 
-// Error1Func returns the method "ReadableStreamDefaultController.error".
-func (this ReadableStreamDefaultController) Error1Func() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.ReadableStreamDefaultControllerError1Func(
-			this.Ref(),
-		),
+// FuncError1 returns the method "ReadableStreamDefaultController.error".
+func (this ReadableStreamDefaultController) FuncError1() (fn js.Func[func()]) {
+	bindings.FuncReadableStreamDefaultControllerError1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Error1 calls the method "ReadableStreamDefaultController.error".
 func (this ReadableStreamDefaultController) Error1() (ret js.Void) {
 	bindings.CallReadableStreamDefaultControllerError1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -914,7 +946,7 @@ func (this ReadableStreamDefaultController) Error1() (ret js.Void) {
 // the catch clause.
 func (this ReadableStreamDefaultController) TryError1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamDefaultControllerError1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -975,17 +1007,22 @@ func (p ReadableStreamIteratorOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ReadableStreamIteratorOptions) UpdateFrom(ref js.Ref) {
+func (p *ReadableStreamIteratorOptions) UpdateFrom(ref js.Ref) {
 	bindings.ReadableStreamIteratorOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ReadableStreamIteratorOptions) Update(ref js.Ref) {
+func (p *ReadableStreamIteratorOptions) Update(ref js.Ref) {
 	bindings.ReadableStreamIteratorOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ReadableStreamIteratorOptions) FreeMembers(recursive bool) {
 }
 
 type ReadableStreamType uint32
@@ -1032,17 +1069,26 @@ func (p RelativeOrientationReadingValues) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RelativeOrientationReadingValues) UpdateFrom(ref js.Ref) {
+func (p *RelativeOrientationReadingValues) UpdateFrom(ref js.Ref) {
 	bindings.RelativeOrientationReadingValuesJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RelativeOrientationReadingValues) Update(ref js.Ref) {
+func (p *RelativeOrientationReadingValues) Update(ref js.Ref) {
 	bindings.RelativeOrientationReadingValuesJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RelativeOrientationReadingValues) FreeMembers(recursive bool) {
+	js.Free(
+		p.Quaternion.Ref(),
+	)
+	p.Quaternion = p.Quaternion.FromRef(js.Undefined)
 }
 
 func NewRelativeOrientationSensor(sensorOptions OrientationSensorOptions) (ret RelativeOrientationSensor) {
@@ -1061,7 +1107,7 @@ type RelativeOrientationSensor struct {
 }
 
 func (this RelativeOrientationSensor) Once() RelativeOrientationSensor {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1075,7 +1121,7 @@ func (this RelativeOrientationSensor) FromRef(ref js.Ref) RelativeOrientationSen
 }
 
 func (this RelativeOrientationSensor) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type ReportBody struct {
@@ -1083,7 +1129,7 @@ type ReportBody struct {
 }
 
 func (this ReportBody) Once() ReportBody {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1097,29 +1143,28 @@ func (this ReportBody) FromRef(ref js.Ref) ReportBody {
 }
 
 func (this ReportBody) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasToJSON returns true if the method "ReportBody.toJSON" exists.
-func (this ReportBody) HasToJSON() bool {
-	return js.True == bindings.HasReportBodyToJSON(
-		this.Ref(),
+// HasFuncToJSON returns true if the method "ReportBody.toJSON" exists.
+func (this ReportBody) HasFuncToJSON() bool {
+	return js.True == bindings.HasFuncReportBodyToJSON(
+		this.ref,
 	)
 }
 
-// ToJSONFunc returns the method "ReportBody.toJSON".
-func (this ReportBody) ToJSONFunc() (fn js.Func[func() js.Object]) {
-	return fn.FromRef(
-		bindings.ReportBodyToJSONFunc(
-			this.Ref(),
-		),
+// FuncToJSON returns the method "ReportBody.toJSON".
+func (this ReportBody) FuncToJSON() (fn js.Func[func() js.Object]) {
+	bindings.FuncReportBodyToJSON(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ToJSON calls the method "ReportBody.toJSON".
 func (this ReportBody) ToJSON() (ret js.Object) {
 	bindings.CallReportBodyToJSON(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1130,7 +1175,7 @@ func (this ReportBody) ToJSON() (ret js.Object) {
 // the catch clause.
 func (this ReportBody) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReportBodyToJSON(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1141,7 +1186,7 @@ type Report struct {
 }
 
 func (this Report) Once() Report {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1155,7 +1200,7 @@ func (this Report) FromRef(ref js.Ref) Report {
 }
 
 func (this Report) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Type returns the value of property "Report.type".
@@ -1163,7 +1208,7 @@ func (this Report) Free() {
 // It returns ok=false if there is no such property.
 func (this Report) Type() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetReportType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1173,7 +1218,7 @@ func (this Report) Type() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Report) Url() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetReportUrl(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1183,31 +1228,30 @@ func (this Report) Url() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Report) Body() (ret ReportBody, ok bool) {
 	ok = js.True == bindings.GetReportBody(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasToJSON returns true if the method "Report.toJSON" exists.
-func (this Report) HasToJSON() bool {
-	return js.True == bindings.HasReportToJSON(
-		this.Ref(),
+// HasFuncToJSON returns true if the method "Report.toJSON" exists.
+func (this Report) HasFuncToJSON() bool {
+	return js.True == bindings.HasFuncReportToJSON(
+		this.ref,
 	)
 }
 
-// ToJSONFunc returns the method "Report.toJSON".
-func (this Report) ToJSONFunc() (fn js.Func[func() js.Object]) {
-	return fn.FromRef(
-		bindings.ReportToJSONFunc(
-			this.Ref(),
-		),
+// FuncToJSON returns the method "Report.toJSON".
+func (this Report) FuncToJSON() (fn js.Func[func() js.Object]) {
+	bindings.FuncReportToJSON(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ToJSON calls the method "Report.toJSON".
 func (this Report) ToJSON() (ret js.Object) {
 	bindings.CallReportToJSON(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1218,7 +1262,7 @@ func (this Report) ToJSON() (ret js.Object) {
 // the catch clause.
 func (this Report) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReportToJSON(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1308,17 +1352,42 @@ func (p ReportResultBrowserSignals) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ReportResultBrowserSignals) UpdateFrom(ref js.Ref) {
+func (p *ReportResultBrowserSignals) UpdateFrom(ref js.Ref) {
 	bindings.ReportResultBrowserSignalsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ReportResultBrowserSignals) Update(ref js.Ref) {
+func (p *ReportResultBrowserSignals) Update(ref js.Ref) {
 	bindings.ReportResultBrowserSignalsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ReportResultBrowserSignals) FreeMembers(recursive bool) {
+	js.Free(
+		p.TopLevelSellerSignals.Ref(),
+		p.TopWindowHostname.Ref(),
+		p.InterestGroupOwner.Ref(),
+		p.RenderURL.Ref(),
+		p.BidCurrency.Ref(),
+		p.HighestScoringOtherBidCurrency.Ref(),
+		p.TopLevelSeller.Ref(),
+		p.ComponentSeller.Ref(),
+		p.BuyerAndSellerReportingId.Ref(),
+	)
+	p.TopLevelSellerSignals = p.TopLevelSellerSignals.FromRef(js.Undefined)
+	p.TopWindowHostname = p.TopWindowHostname.FromRef(js.Undefined)
+	p.InterestGroupOwner = p.InterestGroupOwner.FromRef(js.Undefined)
+	p.RenderURL = p.RenderURL.FromRef(js.Undefined)
+	p.BidCurrency = p.BidCurrency.FromRef(js.Undefined)
+	p.HighestScoringOtherBidCurrency = p.HighestScoringOtherBidCurrency.FromRef(js.Undefined)
+	p.TopLevelSeller = p.TopLevelSeller.FromRef(js.Undefined)
+	p.ComponentSeller = p.ComponentSeller.FromRef(js.Undefined)
+	p.BuyerAndSellerReportingId = p.BuyerAndSellerReportingId.FromRef(js.Undefined)
 }
 
 type ReportWinBrowserSignals struct {
@@ -1421,17 +1490,46 @@ func (p ReportWinBrowserSignals) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ReportWinBrowserSignals) UpdateFrom(ref js.Ref) {
+func (p *ReportWinBrowserSignals) UpdateFrom(ref js.Ref) {
 	bindings.ReportWinBrowserSignalsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ReportWinBrowserSignals) Update(ref js.Ref) {
+func (p *ReportWinBrowserSignals) Update(ref js.Ref) {
 	bindings.ReportWinBrowserSignalsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ReportWinBrowserSignals) FreeMembers(recursive bool) {
+	js.Free(
+		p.Seller.Ref(),
+		p.InterestGroupName.Ref(),
+		p.BuyerReportingId.Ref(),
+		p.TopWindowHostname.Ref(),
+		p.InterestGroupOwner.Ref(),
+		p.RenderURL.Ref(),
+		p.BidCurrency.Ref(),
+		p.HighestScoringOtherBidCurrency.Ref(),
+		p.TopLevelSeller.Ref(),
+		p.ComponentSeller.Ref(),
+		p.BuyerAndSellerReportingId.Ref(),
+	)
+	p.Seller = p.Seller.FromRef(js.Undefined)
+	p.InterestGroupName = p.InterestGroupName.FromRef(js.Undefined)
+	p.BuyerReportingId = p.BuyerReportingId.FromRef(js.Undefined)
+	p.TopWindowHostname = p.TopWindowHostname.FromRef(js.Undefined)
+	p.InterestGroupOwner = p.InterestGroupOwner.FromRef(js.Undefined)
+	p.RenderURL = p.RenderURL.FromRef(js.Undefined)
+	p.BidCurrency = p.BidCurrency.FromRef(js.Undefined)
+	p.HighestScoringOtherBidCurrency = p.HighestScoringOtherBidCurrency.FromRef(js.Undefined)
+	p.TopLevelSeller = p.TopLevelSeller.FromRef(js.Undefined)
+	p.ComponentSeller = p.ComponentSeller.FromRef(js.Undefined)
+	p.BuyerAndSellerReportingId = p.BuyerAndSellerReportingId.FromRef(js.Undefined)
 }
 
 type ReportingBrowserSignals struct {
@@ -1493,17 +1591,40 @@ func (p ReportingBrowserSignals) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ReportingBrowserSignals) UpdateFrom(ref js.Ref) {
+func (p *ReportingBrowserSignals) UpdateFrom(ref js.Ref) {
 	bindings.ReportingBrowserSignalsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ReportingBrowserSignals) Update(ref js.Ref) {
+func (p *ReportingBrowserSignals) Update(ref js.Ref) {
 	bindings.ReportingBrowserSignalsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ReportingBrowserSignals) FreeMembers(recursive bool) {
+	js.Free(
+		p.TopWindowHostname.Ref(),
+		p.InterestGroupOwner.Ref(),
+		p.RenderURL.Ref(),
+		p.BidCurrency.Ref(),
+		p.HighestScoringOtherBidCurrency.Ref(),
+		p.TopLevelSeller.Ref(),
+		p.ComponentSeller.Ref(),
+		p.BuyerAndSellerReportingId.Ref(),
+	)
+	p.TopWindowHostname = p.TopWindowHostname.FromRef(js.Undefined)
+	p.InterestGroupOwner = p.InterestGroupOwner.FromRef(js.Undefined)
+	p.RenderURL = p.RenderURL.FromRef(js.Undefined)
+	p.BidCurrency = p.BidCurrency.FromRef(js.Undefined)
+	p.HighestScoringOtherBidCurrency = p.HighestScoringOtherBidCurrency.FromRef(js.Undefined)
+	p.TopLevelSeller = p.TopLevelSeller.FromRef(js.Undefined)
+	p.ComponentSeller = p.ComponentSeller.FromRef(js.Undefined)
+	p.BuyerAndSellerReportingId = p.BuyerAndSellerReportingId.FromRef(js.Undefined)
 }
 
 type ReportingObserverCallbackFunc func(this js.Ref, reports js.Array[Report], observer ReportingObserver) js.Ref
@@ -1552,7 +1673,7 @@ func (cb *ReportingObserverCallback[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 2+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
 
 	if ctx.Return(cb.Fn(
@@ -1599,17 +1720,26 @@ func (p ReportingObserverOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ReportingObserverOptions) UpdateFrom(ref js.Ref) {
+func (p *ReportingObserverOptions) UpdateFrom(ref js.Ref) {
 	bindings.ReportingObserverOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ReportingObserverOptions) Update(ref js.Ref) {
+func (p *ReportingObserverOptions) Update(ref js.Ref) {
 	bindings.ReportingObserverOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ReportingObserverOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Types.Ref(),
+	)
+	p.Types = p.Types.FromRef(js.Undefined)
 }
 
 func NewReportingObserver(callback js.Func[func(reports js.Array[Report], observer ReportingObserver)], options ReportingObserverOptions) (ret ReportingObserver) {
@@ -1630,7 +1760,7 @@ type ReportingObserver struct {
 }
 
 func (this ReportingObserver) Once() ReportingObserver {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1644,29 +1774,28 @@ func (this ReportingObserver) FromRef(ref js.Ref) ReportingObserver {
 }
 
 func (this ReportingObserver) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasObserve returns true if the method "ReportingObserver.observe" exists.
-func (this ReportingObserver) HasObserve() bool {
-	return js.True == bindings.HasReportingObserverObserve(
-		this.Ref(),
+// HasFuncObserve returns true if the method "ReportingObserver.observe" exists.
+func (this ReportingObserver) HasFuncObserve() bool {
+	return js.True == bindings.HasFuncReportingObserverObserve(
+		this.ref,
 	)
 }
 
-// ObserveFunc returns the method "ReportingObserver.observe".
-func (this ReportingObserver) ObserveFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.ReportingObserverObserveFunc(
-			this.Ref(),
-		),
+// FuncObserve returns the method "ReportingObserver.observe".
+func (this ReportingObserver) FuncObserve() (fn js.Func[func()]) {
+	bindings.FuncReportingObserverObserve(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Observe calls the method "ReportingObserver.observe".
 func (this ReportingObserver) Observe() (ret js.Void) {
 	bindings.CallReportingObserverObserve(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1677,32 +1806,31 @@ func (this ReportingObserver) Observe() (ret js.Void) {
 // the catch clause.
 func (this ReportingObserver) TryObserve() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReportingObserverObserve(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasDisconnect returns true if the method "ReportingObserver.disconnect" exists.
-func (this ReportingObserver) HasDisconnect() bool {
-	return js.True == bindings.HasReportingObserverDisconnect(
-		this.Ref(),
+// HasFuncDisconnect returns true if the method "ReportingObserver.disconnect" exists.
+func (this ReportingObserver) HasFuncDisconnect() bool {
+	return js.True == bindings.HasFuncReportingObserverDisconnect(
+		this.ref,
 	)
 }
 
-// DisconnectFunc returns the method "ReportingObserver.disconnect".
-func (this ReportingObserver) DisconnectFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.ReportingObserverDisconnectFunc(
-			this.Ref(),
-		),
+// FuncDisconnect returns the method "ReportingObserver.disconnect".
+func (this ReportingObserver) FuncDisconnect() (fn js.Func[func()]) {
+	bindings.FuncReportingObserverDisconnect(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Disconnect calls the method "ReportingObserver.disconnect".
 func (this ReportingObserver) Disconnect() (ret js.Void) {
 	bindings.CallReportingObserverDisconnect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1713,32 +1841,31 @@ func (this ReportingObserver) Disconnect() (ret js.Void) {
 // the catch clause.
 func (this ReportingObserver) TryDisconnect() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReportingObserverDisconnect(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasTakeRecords returns true if the method "ReportingObserver.takeRecords" exists.
-func (this ReportingObserver) HasTakeRecords() bool {
-	return js.True == bindings.HasReportingObserverTakeRecords(
-		this.Ref(),
+// HasFuncTakeRecords returns true if the method "ReportingObserver.takeRecords" exists.
+func (this ReportingObserver) HasFuncTakeRecords() bool {
+	return js.True == bindings.HasFuncReportingObserverTakeRecords(
+		this.ref,
 	)
 }
 
-// TakeRecordsFunc returns the method "ReportingObserver.takeRecords".
-func (this ReportingObserver) TakeRecordsFunc() (fn js.Func[func() ReportList]) {
-	return fn.FromRef(
-		bindings.ReportingObserverTakeRecordsFunc(
-			this.Ref(),
-		),
+// FuncTakeRecords returns the method "ReportingObserver.takeRecords".
+func (this ReportingObserver) FuncTakeRecords() (fn js.Func[func() ReportList]) {
+	bindings.FuncReportingObserverTakeRecords(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TakeRecords calls the method "ReportingObserver.takeRecords".
 func (this ReportingObserver) TakeRecords() (ret ReportList) {
 	bindings.CallReportingObserverTakeRecords(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1749,7 +1876,7 @@ func (this ReportingObserver) TakeRecords() (ret ReportList) {
 // the catch clause.
 func (this ReportingObserver) TryTakeRecords() (ret ReportList, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReportingObserverTakeRecords(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1828,7 +1955,7 @@ func (cb *ResizeObserverCallback[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 2+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
 
 	if ctx.Return(cb.Fn(
@@ -1849,7 +1976,7 @@ type ResizeObserverSize struct {
 }
 
 func (this ResizeObserverSize) Once() ResizeObserverSize {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1863,7 +1990,7 @@ func (this ResizeObserverSize) FromRef(ref js.Ref) ResizeObserverSize {
 }
 
 func (this ResizeObserverSize) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // InlineSize returns the value of property "ResizeObserverSize.inlineSize".
@@ -1871,7 +1998,7 @@ func (this ResizeObserverSize) Free() {
 // It returns ok=false if there is no such property.
 func (this ResizeObserverSize) InlineSize() (ret float64, ok bool) {
 	ok = js.True == bindings.GetResizeObserverSizeInlineSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1881,7 +2008,7 @@ func (this ResizeObserverSize) InlineSize() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ResizeObserverSize) BlockSize() (ret float64, ok bool) {
 	ok = js.True == bindings.GetResizeObserverSizeBlockSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1891,7 +2018,7 @@ type ResizeObserverEntry struct {
 }
 
 func (this ResizeObserverEntry) Once() ResizeObserverEntry {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1905,7 +2032,7 @@ func (this ResizeObserverEntry) FromRef(ref js.Ref) ResizeObserverEntry {
 }
 
 func (this ResizeObserverEntry) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Target returns the value of property "ResizeObserverEntry.target".
@@ -1913,7 +2040,7 @@ func (this ResizeObserverEntry) Free() {
 // It returns ok=false if there is no such property.
 func (this ResizeObserverEntry) Target() (ret Element, ok bool) {
 	ok = js.True == bindings.GetResizeObserverEntryTarget(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1923,7 +2050,7 @@ func (this ResizeObserverEntry) Target() (ret Element, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ResizeObserverEntry) ContentRect() (ret DOMRectReadOnly, ok bool) {
 	ok = js.True == bindings.GetResizeObserverEntryContentRect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1933,7 +2060,7 @@ func (this ResizeObserverEntry) ContentRect() (ret DOMRectReadOnly, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ResizeObserverEntry) BorderBoxSize() (ret js.FrozenArray[ResizeObserverSize], ok bool) {
 	ok = js.True == bindings.GetResizeObserverEntryBorderBoxSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1943,7 +2070,7 @@ func (this ResizeObserverEntry) BorderBoxSize() (ret js.FrozenArray[ResizeObserv
 // It returns ok=false if there is no such property.
 func (this ResizeObserverEntry) ContentBoxSize() (ret js.FrozenArray[ResizeObserverSize], ok bool) {
 	ok = js.True == bindings.GetResizeObserverEntryContentBoxSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1953,7 +2080,7 @@ func (this ResizeObserverEntry) ContentBoxSize() (ret js.FrozenArray[ResizeObser
 // It returns ok=false if there is no such property.
 func (this ResizeObserverEntry) DevicePixelContentBoxSize() (ret js.FrozenArray[ResizeObserverSize], ok bool) {
 	ok = js.True == bindings.GetResizeObserverEntryDevicePixelContentBoxSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2008,17 +2135,22 @@ func (p ResizeObserverOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ResizeObserverOptions) UpdateFrom(ref js.Ref) {
+func (p *ResizeObserverOptions) UpdateFrom(ref js.Ref) {
 	bindings.ResizeObserverOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ResizeObserverOptions) Update(ref js.Ref) {
+func (p *ResizeObserverOptions) Update(ref js.Ref) {
 	bindings.ResizeObserverOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ResizeObserverOptions) FreeMembers(recursive bool) {
 }
 
 func NewResizeObserver(callback js.Func[func(entries js.Array[ResizeObserverEntry], observer ResizeObserver)]) (ret ResizeObserver) {
@@ -2032,7 +2164,7 @@ type ResizeObserver struct {
 }
 
 func (this ResizeObserver) Once() ResizeObserver {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2046,29 +2178,28 @@ func (this ResizeObserver) FromRef(ref js.Ref) ResizeObserver {
 }
 
 func (this ResizeObserver) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasObserve returns true if the method "ResizeObserver.observe" exists.
-func (this ResizeObserver) HasObserve() bool {
-	return js.True == bindings.HasResizeObserverObserve(
-		this.Ref(),
+// HasFuncObserve returns true if the method "ResizeObserver.observe" exists.
+func (this ResizeObserver) HasFuncObserve() bool {
+	return js.True == bindings.HasFuncResizeObserverObserve(
+		this.ref,
 	)
 }
 
-// ObserveFunc returns the method "ResizeObserver.observe".
-func (this ResizeObserver) ObserveFunc() (fn js.Func[func(target Element, options ResizeObserverOptions)]) {
-	return fn.FromRef(
-		bindings.ResizeObserverObserveFunc(
-			this.Ref(),
-		),
+// FuncObserve returns the method "ResizeObserver.observe".
+func (this ResizeObserver) FuncObserve() (fn js.Func[func(target Element, options ResizeObserverOptions)]) {
+	bindings.FuncResizeObserverObserve(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Observe calls the method "ResizeObserver.observe".
 func (this ResizeObserver) Observe(target Element, options ResizeObserverOptions) (ret js.Void) {
 	bindings.CallResizeObserverObserve(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		target.Ref(),
 		js.Pointer(&options),
 	)
@@ -2081,7 +2212,7 @@ func (this ResizeObserver) Observe(target Element, options ResizeObserverOptions
 // the catch clause.
 func (this ResizeObserver) TryObserve(target Element, options ResizeObserverOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryResizeObserverObserve(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		target.Ref(),
 		js.Pointer(&options),
 	)
@@ -2089,26 +2220,25 @@ func (this ResizeObserver) TryObserve(target Element, options ResizeObserverOpti
 	return
 }
 
-// HasObserve1 returns true if the method "ResizeObserver.observe" exists.
-func (this ResizeObserver) HasObserve1() bool {
-	return js.True == bindings.HasResizeObserverObserve1(
-		this.Ref(),
+// HasFuncObserve1 returns true if the method "ResizeObserver.observe" exists.
+func (this ResizeObserver) HasFuncObserve1() bool {
+	return js.True == bindings.HasFuncResizeObserverObserve1(
+		this.ref,
 	)
 }
 
-// Observe1Func returns the method "ResizeObserver.observe".
-func (this ResizeObserver) Observe1Func() (fn js.Func[func(target Element)]) {
-	return fn.FromRef(
-		bindings.ResizeObserverObserve1Func(
-			this.Ref(),
-		),
+// FuncObserve1 returns the method "ResizeObserver.observe".
+func (this ResizeObserver) FuncObserve1() (fn js.Func[func(target Element)]) {
+	bindings.FuncResizeObserverObserve1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Observe1 calls the method "ResizeObserver.observe".
 func (this ResizeObserver) Observe1(target Element) (ret js.Void) {
 	bindings.CallResizeObserverObserve1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		target.Ref(),
 	)
 
@@ -2120,33 +2250,32 @@ func (this ResizeObserver) Observe1(target Element) (ret js.Void) {
 // the catch clause.
 func (this ResizeObserver) TryObserve1(target Element) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryResizeObserverObserve1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		target.Ref(),
 	)
 
 	return
 }
 
-// HasUnobserve returns true if the method "ResizeObserver.unobserve" exists.
-func (this ResizeObserver) HasUnobserve() bool {
-	return js.True == bindings.HasResizeObserverUnobserve(
-		this.Ref(),
+// HasFuncUnobserve returns true if the method "ResizeObserver.unobserve" exists.
+func (this ResizeObserver) HasFuncUnobserve() bool {
+	return js.True == bindings.HasFuncResizeObserverUnobserve(
+		this.ref,
 	)
 }
 
-// UnobserveFunc returns the method "ResizeObserver.unobserve".
-func (this ResizeObserver) UnobserveFunc() (fn js.Func[func(target Element)]) {
-	return fn.FromRef(
-		bindings.ResizeObserverUnobserveFunc(
-			this.Ref(),
-		),
+// FuncUnobserve returns the method "ResizeObserver.unobserve".
+func (this ResizeObserver) FuncUnobserve() (fn js.Func[func(target Element)]) {
+	bindings.FuncResizeObserverUnobserve(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Unobserve calls the method "ResizeObserver.unobserve".
 func (this ResizeObserver) Unobserve(target Element) (ret js.Void) {
 	bindings.CallResizeObserverUnobserve(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		target.Ref(),
 	)
 
@@ -2158,33 +2287,32 @@ func (this ResizeObserver) Unobserve(target Element) (ret js.Void) {
 // the catch clause.
 func (this ResizeObserver) TryUnobserve(target Element) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryResizeObserverUnobserve(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		target.Ref(),
 	)
 
 	return
 }
 
-// HasDisconnect returns true if the method "ResizeObserver.disconnect" exists.
-func (this ResizeObserver) HasDisconnect() bool {
-	return js.True == bindings.HasResizeObserverDisconnect(
-		this.Ref(),
+// HasFuncDisconnect returns true if the method "ResizeObserver.disconnect" exists.
+func (this ResizeObserver) HasFuncDisconnect() bool {
+	return js.True == bindings.HasFuncResizeObserverDisconnect(
+		this.ref,
 	)
 }
 
-// DisconnectFunc returns the method "ResizeObserver.disconnect".
-func (this ResizeObserver) DisconnectFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.ResizeObserverDisconnectFunc(
-			this.Ref(),
-		),
+// FuncDisconnect returns the method "ResizeObserver.disconnect".
+func (this ResizeObserver) FuncDisconnect() (fn js.Func[func()]) {
+	bindings.FuncResizeObserverDisconnect(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Disconnect calls the method "ResizeObserver.disconnect".
 func (this ResizeObserver) Disconnect() (ret js.Void) {
 	bindings.CallResizeObserverDisconnect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2195,7 +2323,7 @@ func (this ResizeObserver) Disconnect() (ret js.Void) {
 // the catch clause.
 func (this ResizeObserver) TryDisconnect() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryResizeObserverDisconnect(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -2228,17 +2356,28 @@ func (p RsaHashedImportParams) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RsaHashedImportParams) UpdateFrom(ref js.Ref) {
+func (p *RsaHashedImportParams) UpdateFrom(ref js.Ref) {
 	bindings.RsaHashedImportParamsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RsaHashedImportParams) Update(ref js.Ref) {
+func (p *RsaHashedImportParams) Update(ref js.Ref) {
 	bindings.RsaHashedImportParamsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RsaHashedImportParams) FreeMembers(recursive bool) {
+	js.Free(
+		p.Hash.Ref(),
+		p.Name.Ref(),
+	)
+	p.Hash = p.Hash.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type RsaHashedKeyAlgorithm struct {
@@ -2278,17 +2417,31 @@ func (p RsaHashedKeyAlgorithm) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RsaHashedKeyAlgorithm) UpdateFrom(ref js.Ref) {
+func (p *RsaHashedKeyAlgorithm) UpdateFrom(ref js.Ref) {
 	bindings.RsaHashedKeyAlgorithmJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RsaHashedKeyAlgorithm) Update(ref js.Ref) {
+func (p *RsaHashedKeyAlgorithm) Update(ref js.Ref) {
 	bindings.RsaHashedKeyAlgorithmJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RsaHashedKeyAlgorithm) FreeMembers(recursive bool) {
+	js.Free(
+		p.PublicExponent.Ref(),
+		p.Name.Ref(),
+	)
+	p.PublicExponent = p.PublicExponent.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
+	if recursive {
+		p.Hash.FreeMembers(true)
+	}
 }
 
 type RsaHashedKeyGenParams struct {
@@ -2326,17 +2479,30 @@ func (p RsaHashedKeyGenParams) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RsaHashedKeyGenParams) UpdateFrom(ref js.Ref) {
+func (p *RsaHashedKeyGenParams) UpdateFrom(ref js.Ref) {
 	bindings.RsaHashedKeyGenParamsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RsaHashedKeyGenParams) Update(ref js.Ref) {
+func (p *RsaHashedKeyGenParams) Update(ref js.Ref) {
 	bindings.RsaHashedKeyGenParamsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RsaHashedKeyGenParams) FreeMembers(recursive bool) {
+	js.Free(
+		p.Hash.Ref(),
+		p.PublicExponent.Ref(),
+		p.Name.Ref(),
+	)
+	p.Hash = p.Hash.FromRef(js.Undefined)
+	p.PublicExponent = p.PublicExponent.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type RsaKeyAlgorithm struct {
@@ -2370,17 +2536,28 @@ func (p RsaKeyAlgorithm) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RsaKeyAlgorithm) UpdateFrom(ref js.Ref) {
+func (p *RsaKeyAlgorithm) UpdateFrom(ref js.Ref) {
 	bindings.RsaKeyAlgorithmJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RsaKeyAlgorithm) Update(ref js.Ref) {
+func (p *RsaKeyAlgorithm) Update(ref js.Ref) {
 	bindings.RsaKeyAlgorithmJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RsaKeyAlgorithm) FreeMembers(recursive bool) {
+	js.Free(
+		p.PublicExponent.Ref(),
+		p.Name.Ref(),
+	)
+	p.PublicExponent = p.PublicExponent.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type RsaKeyGenParams struct {
@@ -2414,17 +2591,28 @@ func (p RsaKeyGenParams) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RsaKeyGenParams) UpdateFrom(ref js.Ref) {
+func (p *RsaKeyGenParams) UpdateFrom(ref js.Ref) {
 	bindings.RsaKeyGenParamsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RsaKeyGenParams) Update(ref js.Ref) {
+func (p *RsaKeyGenParams) Update(ref js.Ref) {
 	bindings.RsaKeyGenParamsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RsaKeyGenParams) FreeMembers(recursive bool) {
+	js.Free(
+		p.PublicExponent.Ref(),
+		p.Name.Ref(),
+	)
+	p.PublicExponent = p.PublicExponent.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type RsaOaepParams struct {
@@ -2454,17 +2642,28 @@ func (p RsaOaepParams) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RsaOaepParams) UpdateFrom(ref js.Ref) {
+func (p *RsaOaepParams) UpdateFrom(ref js.Ref) {
 	bindings.RsaOaepParamsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RsaOaepParams) Update(ref js.Ref) {
+func (p *RsaOaepParams) Update(ref js.Ref) {
 	bindings.RsaOaepParamsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RsaOaepParams) FreeMembers(recursive bool) {
+	js.Free(
+		p.Label.Ref(),
+		p.Name.Ref(),
+	)
+	p.Label = p.Label.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type RsaPssParams struct {
@@ -2494,17 +2693,26 @@ func (p RsaPssParams) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RsaPssParams) UpdateFrom(ref js.Ref) {
+func (p *RsaPssParams) UpdateFrom(ref js.Ref) {
 	bindings.RsaPssParamsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RsaPssParams) Update(ref js.Ref) {
+func (p *RsaPssParams) Update(ref js.Ref) {
 	bindings.RsaPssParamsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RsaPssParams) FreeMembers(recursive bool) {
+	js.Free(
+		p.Name.Ref(),
+	)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type SFrameTransformErrorEventType uint32
@@ -2587,17 +2795,28 @@ func (p SFrameTransformErrorEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p SFrameTransformErrorEventInit) UpdateFrom(ref js.Ref) {
+func (p *SFrameTransformErrorEventInit) UpdateFrom(ref js.Ref) {
 	bindings.SFrameTransformErrorEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p SFrameTransformErrorEventInit) Update(ref js.Ref) {
+func (p *SFrameTransformErrorEventInit) Update(ref js.Ref) {
 	bindings.SFrameTransformErrorEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *SFrameTransformErrorEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Frame.Ref(),
+		p.KeyID.Ref(),
+	)
+	p.Frame = p.Frame.FromRef(js.Undefined)
+	p.KeyID = p.KeyID.FromRef(js.Undefined)
 }
 
 func NewSFrameTransformErrorEvent(typ js.String, eventInitDict SFrameTransformErrorEventInit) (ret SFrameTransformErrorEvent) {
@@ -2612,7 +2831,7 @@ type SFrameTransformErrorEvent struct {
 }
 
 func (this SFrameTransformErrorEvent) Once() SFrameTransformErrorEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2626,7 +2845,7 @@ func (this SFrameTransformErrorEvent) FromRef(ref js.Ref) SFrameTransformErrorEv
 }
 
 func (this SFrameTransformErrorEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // ErrorType returns the value of property "SFrameTransformErrorEvent.errorType".
@@ -2634,7 +2853,7 @@ func (this SFrameTransformErrorEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this SFrameTransformErrorEvent) ErrorType() (ret SFrameTransformErrorEventType, ok bool) {
 	ok = js.True == bindings.GetSFrameTransformErrorEventErrorType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2644,7 +2863,7 @@ func (this SFrameTransformErrorEvent) ErrorType() (ret SFrameTransformErrorEvent
 // It returns ok=false if there is no such property.
 func (this SFrameTransformErrorEvent) KeyID() (ret CryptoKeyID, ok bool) {
 	ok = js.True == bindings.GetSFrameTransformErrorEventKeyID(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2654,7 +2873,7 @@ func (this SFrameTransformErrorEvent) KeyID() (ret CryptoKeyID, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SFrameTransformErrorEvent) Frame() (ret js.Any, ok bool) {
 	ok = js.True == bindings.GetSFrameTransformErrorEventFrame(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2664,7 +2883,7 @@ type SVGAElement struct {
 }
 
 func (this SVGAElement) Once() SVGAElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2678,7 +2897,7 @@ func (this SVGAElement) FromRef(ref js.Ref) SVGAElement {
 }
 
 func (this SVGAElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Target returns the value of property "SVGAElement.target".
@@ -2686,7 +2905,7 @@ func (this SVGAElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGAElement) Target() (ret SVGAnimatedString, ok bool) {
 	ok = js.True == bindings.GetSVGAElementTarget(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2696,7 +2915,7 @@ func (this SVGAElement) Target() (ret SVGAnimatedString, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGAElement) Download() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSVGAElementDownload(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2706,7 +2925,7 @@ func (this SVGAElement) Download() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this SVGAElement) SetDownload(val js.String) bool {
 	return js.True == bindings.SetSVGAElementDownload(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2716,7 +2935,7 @@ func (this SVGAElement) SetDownload(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this SVGAElement) Ping() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSVGAElementPing(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2726,7 +2945,7 @@ func (this SVGAElement) Ping() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this SVGAElement) SetPing(val js.String) bool {
 	return js.True == bindings.SetSVGAElementPing(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2736,7 +2955,7 @@ func (this SVGAElement) SetPing(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this SVGAElement) Rel() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSVGAElementRel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2746,7 +2965,7 @@ func (this SVGAElement) Rel() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this SVGAElement) SetRel(val js.String) bool {
 	return js.True == bindings.SetSVGAElementRel(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2756,7 +2975,7 @@ func (this SVGAElement) SetRel(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this SVGAElement) RelList() (ret DOMTokenList, ok bool) {
 	ok = js.True == bindings.GetSVGAElementRelList(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2766,7 +2985,7 @@ func (this SVGAElement) RelList() (ret DOMTokenList, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGAElement) Hreflang() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSVGAElementHreflang(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2776,7 +2995,7 @@ func (this SVGAElement) Hreflang() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this SVGAElement) SetHreflang(val js.String) bool {
 	return js.True == bindings.SetSVGAElementHreflang(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2786,7 +3005,7 @@ func (this SVGAElement) SetHreflang(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this SVGAElement) Type() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSVGAElementType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2796,7 +3015,7 @@ func (this SVGAElement) Type() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this SVGAElement) SetType(val js.String) bool {
 	return js.True == bindings.SetSVGAElementType(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2806,7 +3025,7 @@ func (this SVGAElement) SetType(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this SVGAElement) Text() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSVGAElementText(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2816,7 +3035,7 @@ func (this SVGAElement) Text() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this SVGAElement) SetText(val js.String) bool {
 	return js.True == bindings.SetSVGAElementText(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2826,7 +3045,7 @@ func (this SVGAElement) SetText(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this SVGAElement) ReferrerPolicy() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSVGAElementReferrerPolicy(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2836,7 +3055,7 @@ func (this SVGAElement) ReferrerPolicy() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this SVGAElement) SetReferrerPolicy(val js.String) bool {
 	return js.True == bindings.SetSVGAElementReferrerPolicy(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2846,7 +3065,7 @@ func (this SVGAElement) SetReferrerPolicy(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this SVGAElement) Origin() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSVGAElementOrigin(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2856,7 +3075,7 @@ func (this SVGAElement) Origin() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGAElement) Protocol() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSVGAElementProtocol(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2866,7 +3085,7 @@ func (this SVGAElement) Protocol() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this SVGAElement) SetProtocol(val js.String) bool {
 	return js.True == bindings.SetSVGAElementProtocol(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2876,7 +3095,7 @@ func (this SVGAElement) SetProtocol(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this SVGAElement) Username() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSVGAElementUsername(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2886,7 +3105,7 @@ func (this SVGAElement) Username() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this SVGAElement) SetUsername(val js.String) bool {
 	return js.True == bindings.SetSVGAElementUsername(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2896,7 +3115,7 @@ func (this SVGAElement) SetUsername(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this SVGAElement) Password() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSVGAElementPassword(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2906,7 +3125,7 @@ func (this SVGAElement) Password() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this SVGAElement) SetPassword(val js.String) bool {
 	return js.True == bindings.SetSVGAElementPassword(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2916,7 +3135,7 @@ func (this SVGAElement) SetPassword(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this SVGAElement) Host() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSVGAElementHost(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2926,7 +3145,7 @@ func (this SVGAElement) Host() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this SVGAElement) SetHost(val js.String) bool {
 	return js.True == bindings.SetSVGAElementHost(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2936,7 +3155,7 @@ func (this SVGAElement) SetHost(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this SVGAElement) Hostname() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSVGAElementHostname(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2946,7 +3165,7 @@ func (this SVGAElement) Hostname() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this SVGAElement) SetHostname(val js.String) bool {
 	return js.True == bindings.SetSVGAElementHostname(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2956,7 +3175,7 @@ func (this SVGAElement) SetHostname(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this SVGAElement) Port() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSVGAElementPort(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2966,7 +3185,7 @@ func (this SVGAElement) Port() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this SVGAElement) SetPort(val js.String) bool {
 	return js.True == bindings.SetSVGAElementPort(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2976,7 +3195,7 @@ func (this SVGAElement) SetPort(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this SVGAElement) Pathname() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSVGAElementPathname(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2986,7 +3205,7 @@ func (this SVGAElement) Pathname() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this SVGAElement) SetPathname(val js.String) bool {
 	return js.True == bindings.SetSVGAElementPathname(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2996,7 +3215,7 @@ func (this SVGAElement) SetPathname(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this SVGAElement) Search() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSVGAElementSearch(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3006,7 +3225,7 @@ func (this SVGAElement) Search() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this SVGAElement) SetSearch(val js.String) bool {
 	return js.True == bindings.SetSVGAElementSearch(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -3016,7 +3235,7 @@ func (this SVGAElement) SetSearch(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this SVGAElement) Hash() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSVGAElementHash(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3026,7 +3245,7 @@ func (this SVGAElement) Hash() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this SVGAElement) SetHash(val js.String) bool {
 	return js.True == bindings.SetSVGAElementHash(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -3036,7 +3255,7 @@ func (this SVGAElement) SetHash(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this SVGAElement) Href() (ret SVGAnimatedString, ok bool) {
 	ok = js.True == bindings.GetSVGAElementHref(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3046,7 +3265,7 @@ type SVGAnimateElement struct {
 }
 
 func (this SVGAnimateElement) Once() SVGAnimateElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3060,7 +3279,7 @@ func (this SVGAnimateElement) FromRef(ref js.Ref) SVGAnimateElement {
 }
 
 func (this SVGAnimateElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type SVGAnimateMotionElement struct {
@@ -3068,7 +3287,7 @@ type SVGAnimateMotionElement struct {
 }
 
 func (this SVGAnimateMotionElement) Once() SVGAnimateMotionElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3082,7 +3301,7 @@ func (this SVGAnimateMotionElement) FromRef(ref js.Ref) SVGAnimateMotionElement 
 }
 
 func (this SVGAnimateMotionElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type SVGAnimateTransformElement struct {
@@ -3090,7 +3309,7 @@ type SVGAnimateTransformElement struct {
 }
 
 func (this SVGAnimateTransformElement) Once() SVGAnimateTransformElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3104,7 +3323,7 @@ func (this SVGAnimateTransformElement) FromRef(ref js.Ref) SVGAnimateTransformEl
 }
 
 func (this SVGAnimateTransformElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type SVGAnimatedAngle struct {
@@ -3112,7 +3331,7 @@ type SVGAnimatedAngle struct {
 }
 
 func (this SVGAnimatedAngle) Once() SVGAnimatedAngle {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3126,7 +3345,7 @@ func (this SVGAnimatedAngle) FromRef(ref js.Ref) SVGAnimatedAngle {
 }
 
 func (this SVGAnimatedAngle) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // BaseVal returns the value of property "SVGAnimatedAngle.baseVal".
@@ -3134,7 +3353,7 @@ func (this SVGAnimatedAngle) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGAnimatedAngle) BaseVal() (ret SVGAngle, ok bool) {
 	ok = js.True == bindings.GetSVGAnimatedAngleBaseVal(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3144,7 +3363,7 @@ func (this SVGAnimatedAngle) BaseVal() (ret SVGAngle, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGAnimatedAngle) AnimVal() (ret SVGAngle, ok bool) {
 	ok = js.True == bindings.GetSVGAnimatedAngleAnimVal(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3154,7 +3373,7 @@ type SVGAnimatedBoolean struct {
 }
 
 func (this SVGAnimatedBoolean) Once() SVGAnimatedBoolean {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3168,7 +3387,7 @@ func (this SVGAnimatedBoolean) FromRef(ref js.Ref) SVGAnimatedBoolean {
 }
 
 func (this SVGAnimatedBoolean) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // BaseVal returns the value of property "SVGAnimatedBoolean.baseVal".
@@ -3176,7 +3395,7 @@ func (this SVGAnimatedBoolean) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGAnimatedBoolean) BaseVal() (ret bool, ok bool) {
 	ok = js.True == bindings.GetSVGAnimatedBooleanBaseVal(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3186,7 +3405,7 @@ func (this SVGAnimatedBoolean) BaseVal() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this SVGAnimatedBoolean) SetBaseVal(val bool) bool {
 	return js.True == bindings.SetSVGAnimatedBooleanBaseVal(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -3196,7 +3415,7 @@ func (this SVGAnimatedBoolean) SetBaseVal(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this SVGAnimatedBoolean) AnimVal() (ret bool, ok bool) {
 	ok = js.True == bindings.GetSVGAnimatedBooleanAnimVal(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }

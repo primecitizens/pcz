@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web constof_MLOperandType
 //go:noescape
@@ -223,11 +221,11 @@ func NewMLGraphBuilderByMLGraphBuilder(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Input
 //go:noescape
-func HasMLGraphBuilderInput(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderInput(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Input
 //go:noescape
-func MLGraphBuilderInputFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderInput(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Input
 //go:noescape
@@ -245,11 +243,11 @@ func TryMLGraphBuilderInput(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Constant
 //go:noescape
-func HasMLGraphBuilderConstant(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderConstant(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Constant
 //go:noescape
-func MLGraphBuilderConstantFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderConstant(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Constant
 //go:noescape
@@ -267,11 +265,11 @@ func TryMLGraphBuilderConstant(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Constant1
 //go:noescape
-func HasMLGraphBuilderConstant1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderConstant1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Constant1
 //go:noescape
-func MLGraphBuilderConstant1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderConstant1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Constant1
 //go:noescape
@@ -289,11 +287,11 @@ func TryMLGraphBuilderConstant1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Constant2
 //go:noescape
-func HasMLGraphBuilderConstant2(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderConstant2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Constant2
 //go:noescape
-func MLGraphBuilderConstant2Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderConstant2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Constant2
 //go:noescape
@@ -309,11 +307,11 @@ func TryMLGraphBuilderConstant2(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Build
 //go:noescape
-func HasMLGraphBuilderBuild(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderBuild(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Build
 //go:noescape
-func MLGraphBuilderBuildFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderBuild(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Build
 //go:noescape
@@ -329,11 +327,11 @@ func TryMLGraphBuilderBuild(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_BuildSync
 //go:noescape
-func HasMLGraphBuilderBuildSync(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderBuildSync(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_BuildSync
 //go:noescape
-func MLGraphBuilderBuildSyncFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderBuildSync(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_BuildSync
 //go:noescape
@@ -349,11 +347,11 @@ func TryMLGraphBuilderBuildSync(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_HardSigmoid
 //go:noescape
-func HasMLGraphBuilderHardSigmoid(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderHardSigmoid(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_HardSigmoid
 //go:noescape
-func MLGraphBuilderHardSigmoidFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderHardSigmoid(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_HardSigmoid
 //go:noescape
@@ -371,11 +369,11 @@ func TryMLGraphBuilderHardSigmoid(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_HardSigmoid1
 //go:noescape
-func HasMLGraphBuilderHardSigmoid1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderHardSigmoid1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_HardSigmoid1
 //go:noescape
-func MLGraphBuilderHardSigmoid1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderHardSigmoid1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_HardSigmoid1
 //go:noescape
@@ -391,11 +389,11 @@ func TryMLGraphBuilderHardSigmoid1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_HardSigmoid2
 //go:noescape
-func HasMLGraphBuilderHardSigmoid2(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderHardSigmoid2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_HardSigmoid2
 //go:noescape
-func MLGraphBuilderHardSigmoid2Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderHardSigmoid2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_HardSigmoid2
 //go:noescape
@@ -411,11 +409,11 @@ func TryMLGraphBuilderHardSigmoid2(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_HardSigmoid3
 //go:noescape
-func HasMLGraphBuilderHardSigmoid3(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderHardSigmoid3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_HardSigmoid3
 //go:noescape
-func MLGraphBuilderHardSigmoid3Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderHardSigmoid3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_HardSigmoid3
 //go:noescape
@@ -429,11 +427,11 @@ func TryMLGraphBuilderHardSigmoid3(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_GruCell
 //go:noescape
-func HasMLGraphBuilderGruCell(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderGruCell(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_GruCell
 //go:noescape
-func MLGraphBuilderGruCellFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderGruCell(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_GruCell
 //go:noescape
@@ -459,11 +457,11 @@ func TryMLGraphBuilderGruCell(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_GruCell1
 //go:noescape
-func HasMLGraphBuilderGruCell1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderGruCell1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_GruCell1
 //go:noescape
-func MLGraphBuilderGruCell1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderGruCell1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_GruCell1
 //go:noescape
@@ -487,11 +485,11 @@ func TryMLGraphBuilderGruCell1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Slice
 //go:noescape
-func HasMLGraphBuilderSlice(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderSlice(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Slice
 //go:noescape
-func MLGraphBuilderSliceFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderSlice(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Slice
 //go:noescape
@@ -511,11 +509,11 @@ func TryMLGraphBuilderSlice(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_AveragePool2d
 //go:noescape
-func HasMLGraphBuilderAveragePool2d(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderAveragePool2d(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_AveragePool2d
 //go:noescape
-func MLGraphBuilderAveragePool2dFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderAveragePool2d(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_AveragePool2d
 //go:noescape
@@ -533,11 +531,11 @@ func TryMLGraphBuilderAveragePool2d(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_AveragePool2d1
 //go:noescape
-func HasMLGraphBuilderAveragePool2d1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderAveragePool2d1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_AveragePool2d1
 //go:noescape
-func MLGraphBuilderAveragePool2d1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderAveragePool2d1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_AveragePool2d1
 //go:noescape
@@ -553,11 +551,11 @@ func TryMLGraphBuilderAveragePool2d1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_L2Pool2d
 //go:noescape
-func HasMLGraphBuilderL2Pool2d(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderL2Pool2d(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_L2Pool2d
 //go:noescape
-func MLGraphBuilderL2Pool2dFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderL2Pool2d(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_L2Pool2d
 //go:noescape
@@ -575,11 +573,11 @@ func TryMLGraphBuilderL2Pool2d(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_L2Pool2d1
 //go:noescape
-func HasMLGraphBuilderL2Pool2d1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderL2Pool2d1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_L2Pool2d1
 //go:noescape
-func MLGraphBuilderL2Pool2d1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderL2Pool2d1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_L2Pool2d1
 //go:noescape
@@ -595,11 +593,11 @@ func TryMLGraphBuilderL2Pool2d1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_MaxPool2d
 //go:noescape
-func HasMLGraphBuilderMaxPool2d(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderMaxPool2d(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_MaxPool2d
 //go:noescape
-func MLGraphBuilderMaxPool2dFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderMaxPool2d(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_MaxPool2d
 //go:noescape
@@ -617,11 +615,11 @@ func TryMLGraphBuilderMaxPool2d(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_MaxPool2d1
 //go:noescape
-func HasMLGraphBuilderMaxPool2d1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderMaxPool2d1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_MaxPool2d1
 //go:noescape
-func MLGraphBuilderMaxPool2d1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderMaxPool2d1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_MaxPool2d1
 //go:noescape
@@ -637,11 +635,11 @@ func TryMLGraphBuilderMaxPool2d1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Linear
 //go:noescape
-func HasMLGraphBuilderLinear(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderLinear(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Linear
 //go:noescape
-func MLGraphBuilderLinearFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderLinear(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Linear
 //go:noescape
@@ -659,11 +657,11 @@ func TryMLGraphBuilderLinear(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Linear1
 //go:noescape
-func HasMLGraphBuilderLinear1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderLinear1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Linear1
 //go:noescape
-func MLGraphBuilderLinear1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderLinear1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Linear1
 //go:noescape
@@ -679,11 +677,11 @@ func TryMLGraphBuilderLinear1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Linear2
 //go:noescape
-func HasMLGraphBuilderLinear2(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderLinear2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Linear2
 //go:noescape
-func MLGraphBuilderLinear2Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderLinear2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Linear2
 //go:noescape
@@ -699,11 +697,11 @@ func TryMLGraphBuilderLinear2(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Linear3
 //go:noescape
-func HasMLGraphBuilderLinear3(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderLinear3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Linear3
 //go:noescape
-func MLGraphBuilderLinear3Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderLinear3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Linear3
 //go:noescape
@@ -717,11 +715,11 @@ func TryMLGraphBuilderLinear3(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_LeakyRelu
 //go:noescape
-func HasMLGraphBuilderLeakyRelu(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderLeakyRelu(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_LeakyRelu
 //go:noescape
-func MLGraphBuilderLeakyReluFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderLeakyRelu(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_LeakyRelu
 //go:noescape
@@ -739,11 +737,11 @@ func TryMLGraphBuilderLeakyRelu(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_LeakyRelu1
 //go:noescape
-func HasMLGraphBuilderLeakyRelu1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderLeakyRelu1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_LeakyRelu1
 //go:noescape
-func MLGraphBuilderLeakyRelu1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderLeakyRelu1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_LeakyRelu1
 //go:noescape
@@ -759,11 +757,11 @@ func TryMLGraphBuilderLeakyRelu1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_LeakyRelu2
 //go:noescape
-func HasMLGraphBuilderLeakyRelu2(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderLeakyRelu2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_LeakyRelu2
 //go:noescape
-func MLGraphBuilderLeakyRelu2Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderLeakyRelu2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_LeakyRelu2
 //go:noescape
@@ -779,11 +777,11 @@ func TryMLGraphBuilderLeakyRelu2(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_LeakyRelu3
 //go:noescape
-func HasMLGraphBuilderLeakyRelu3(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderLeakyRelu3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_LeakyRelu3
 //go:noescape
-func MLGraphBuilderLeakyRelu3Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderLeakyRelu3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_LeakyRelu3
 //go:noescape
@@ -797,11 +795,11 @@ func TryMLGraphBuilderLeakyRelu3(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Pad
 //go:noescape
-func HasMLGraphBuilderPad(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderPad(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Pad
 //go:noescape
-func MLGraphBuilderPadFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderPad(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Pad
 //go:noescape
@@ -823,11 +821,11 @@ func TryMLGraphBuilderPad(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Pad1
 //go:noescape
-func HasMLGraphBuilderPad1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderPad1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Pad1
 //go:noescape
-func MLGraphBuilderPad1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderPad1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Pad1
 //go:noescape
@@ -847,11 +845,11 @@ func TryMLGraphBuilderPad1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_InstanceNormalization
 //go:noescape
-func HasMLGraphBuilderInstanceNormalization(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderInstanceNormalization(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_InstanceNormalization
 //go:noescape
-func MLGraphBuilderInstanceNormalizationFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderInstanceNormalization(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_InstanceNormalization
 //go:noescape
@@ -869,11 +867,11 @@ func TryMLGraphBuilderInstanceNormalization(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_InstanceNormalization1
 //go:noescape
-func HasMLGraphBuilderInstanceNormalization1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderInstanceNormalization1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_InstanceNormalization1
 //go:noescape
-func MLGraphBuilderInstanceNormalization1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderInstanceNormalization1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_InstanceNormalization1
 //go:noescape
@@ -889,11 +887,11 @@ func TryMLGraphBuilderInstanceNormalization1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Softplus
 //go:noescape
-func HasMLGraphBuilderSoftplus(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderSoftplus(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Softplus
 //go:noescape
-func MLGraphBuilderSoftplusFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderSoftplus(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Softplus
 //go:noescape
@@ -911,11 +909,11 @@ func TryMLGraphBuilderSoftplus(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Softplus1
 //go:noescape
-func HasMLGraphBuilderSoftplus1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderSoftplus1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Softplus1
 //go:noescape
-func MLGraphBuilderSoftplus1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderSoftplus1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Softplus1
 //go:noescape
@@ -931,11 +929,11 @@ func TryMLGraphBuilderSoftplus1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Softplus2
 //go:noescape
-func HasMLGraphBuilderSoftplus2(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderSoftplus2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Softplus2
 //go:noescape
-func MLGraphBuilderSoftplus2Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderSoftplus2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Softplus2
 //go:noescape
@@ -951,11 +949,11 @@ func TryMLGraphBuilderSoftplus2(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Softplus3
 //go:noescape
-func HasMLGraphBuilderSoftplus3(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderSoftplus3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Softplus3
 //go:noescape
-func MLGraphBuilderSoftplus3Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderSoftplus3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Softplus3
 //go:noescape
@@ -969,11 +967,11 @@ func TryMLGraphBuilderSoftplus3(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Softsign
 //go:noescape
-func HasMLGraphBuilderSoftsign(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderSoftsign(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Softsign
 //go:noescape
-func MLGraphBuilderSoftsignFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderSoftsign(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Softsign
 //go:noescape
@@ -989,11 +987,11 @@ func TryMLGraphBuilderSoftsign(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Softsign1
 //go:noescape
-func HasMLGraphBuilderSoftsign1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderSoftsign1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Softsign1
 //go:noescape
-func MLGraphBuilderSoftsign1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderSoftsign1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Softsign1
 //go:noescape
@@ -1007,11 +1005,11 @@ func TryMLGraphBuilderSoftsign1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Sigmoid
 //go:noescape
-func HasMLGraphBuilderSigmoid(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderSigmoid(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Sigmoid
 //go:noescape
-func MLGraphBuilderSigmoidFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderSigmoid(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Sigmoid
 //go:noescape
@@ -1027,11 +1025,11 @@ func TryMLGraphBuilderSigmoid(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Sigmoid1
 //go:noescape
-func HasMLGraphBuilderSigmoid1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderSigmoid1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Sigmoid1
 //go:noescape
-func MLGraphBuilderSigmoid1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderSigmoid1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Sigmoid1
 //go:noescape
@@ -1045,11 +1043,11 @@ func TryMLGraphBuilderSigmoid1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Reshape
 //go:noescape
-func HasMLGraphBuilderReshape(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderReshape(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Reshape
 //go:noescape
-func MLGraphBuilderReshapeFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderReshape(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Reshape
 //go:noescape
@@ -1067,11 +1065,11 @@ func TryMLGraphBuilderReshape(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Conv2d
 //go:noescape
-func HasMLGraphBuilderConv2d(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderConv2d(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Conv2d
 //go:noescape
-func MLGraphBuilderConv2dFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderConv2d(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Conv2d
 //go:noescape
@@ -1091,11 +1089,11 @@ func TryMLGraphBuilderConv2d(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Conv2d1
 //go:noescape
-func HasMLGraphBuilderConv2d1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderConv2d1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Conv2d1
 //go:noescape
-func MLGraphBuilderConv2d1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderConv2d1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Conv2d1
 //go:noescape
@@ -1113,11 +1111,11 @@ func TryMLGraphBuilderConv2d1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Split
 //go:noescape
-func HasMLGraphBuilderSplit(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderSplit(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Split
 //go:noescape
-func MLGraphBuilderSplitFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderSplit(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Split
 //go:noescape
@@ -1137,11 +1135,11 @@ func TryMLGraphBuilderSplit(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Split1
 //go:noescape
-func HasMLGraphBuilderSplit1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderSplit1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Split1
 //go:noescape
-func MLGraphBuilderSplit1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderSplit1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Split1
 //go:noescape
@@ -1159,11 +1157,11 @@ func TryMLGraphBuilderSplit1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Resample2d
 //go:noescape
-func HasMLGraphBuilderResample2d(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderResample2d(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Resample2d
 //go:noescape
-func MLGraphBuilderResample2dFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderResample2d(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Resample2d
 //go:noescape
@@ -1181,11 +1179,11 @@ func TryMLGraphBuilderResample2d(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Resample2d1
 //go:noescape
-func HasMLGraphBuilderResample2d1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderResample2d1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Resample2d1
 //go:noescape
-func MLGraphBuilderResample2d1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderResample2d1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Resample2d1
 //go:noescape
@@ -1201,11 +1199,11 @@ func TryMLGraphBuilderResample2d1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_HardSwish
 //go:noescape
-func HasMLGraphBuilderHardSwish(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderHardSwish(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_HardSwish
 //go:noescape
-func MLGraphBuilderHardSwishFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderHardSwish(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_HardSwish
 //go:noescape
@@ -1221,11 +1219,11 @@ func TryMLGraphBuilderHardSwish(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_HardSwish1
 //go:noescape
-func HasMLGraphBuilderHardSwish1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderHardSwish1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_HardSwish1
 //go:noescape
-func MLGraphBuilderHardSwish1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderHardSwish1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_HardSwish1
 //go:noescape
@@ -1239,11 +1237,11 @@ func TryMLGraphBuilderHardSwish1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Softmax
 //go:noescape
-func HasMLGraphBuilderSoftmax(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderSoftmax(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Softmax
 //go:noescape
-func MLGraphBuilderSoftmaxFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderSoftmax(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Softmax
 //go:noescape
@@ -1259,11 +1257,11 @@ func TryMLGraphBuilderSoftmax(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Softmax1
 //go:noescape
-func HasMLGraphBuilderSoftmax1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderSoftmax1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Softmax1
 //go:noescape
-func MLGraphBuilderSoftmax1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderSoftmax1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Softmax1
 //go:noescape
@@ -1277,11 +1275,11 @@ func TryMLGraphBuilderSoftmax1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_ConvTranspose2d
 //go:noescape
-func HasMLGraphBuilderConvTranspose2d(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderConvTranspose2d(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_ConvTranspose2d
 //go:noescape
-func MLGraphBuilderConvTranspose2dFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderConvTranspose2d(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_ConvTranspose2d
 //go:noescape
@@ -1301,11 +1299,11 @@ func TryMLGraphBuilderConvTranspose2d(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_ConvTranspose2d1
 //go:noescape
-func HasMLGraphBuilderConvTranspose2d1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderConvTranspose2d1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_ConvTranspose2d1
 //go:noescape
-func MLGraphBuilderConvTranspose2d1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderConvTranspose2d1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_ConvTranspose2d1
 //go:noescape
@@ -1323,11 +1321,11 @@ func TryMLGraphBuilderConvTranspose2d1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Relu
 //go:noescape
-func HasMLGraphBuilderRelu(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderRelu(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Relu
 //go:noescape
-func MLGraphBuilderReluFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderRelu(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Relu
 //go:noescape
@@ -1343,11 +1341,11 @@ func TryMLGraphBuilderRelu(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Relu1
 //go:noescape
-func HasMLGraphBuilderRelu1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderRelu1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Relu1
 //go:noescape
-func MLGraphBuilderRelu1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderRelu1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Relu1
 //go:noescape
@@ -1361,11 +1359,11 @@ func TryMLGraphBuilderRelu1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Add
 //go:noescape
-func HasMLGraphBuilderAdd(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderAdd(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Add
 //go:noescape
-func MLGraphBuilderAddFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderAdd(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Add
 //go:noescape
@@ -1383,11 +1381,11 @@ func TryMLGraphBuilderAdd(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Sub
 //go:noescape
-func HasMLGraphBuilderSub(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderSub(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Sub
 //go:noescape
-func MLGraphBuilderSubFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderSub(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Sub
 //go:noescape
@@ -1405,11 +1403,11 @@ func TryMLGraphBuilderSub(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Mul
 //go:noescape
-func HasMLGraphBuilderMul(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderMul(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Mul
 //go:noescape
-func MLGraphBuilderMulFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderMul(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Mul
 //go:noescape
@@ -1427,11 +1425,11 @@ func TryMLGraphBuilderMul(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Div
 //go:noescape
-func HasMLGraphBuilderDiv(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderDiv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Div
 //go:noescape
-func MLGraphBuilderDivFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderDiv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Div
 //go:noescape
@@ -1449,11 +1447,11 @@ func TryMLGraphBuilderDiv(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Max
 //go:noescape
-func HasMLGraphBuilderMax(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderMax(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Max
 //go:noescape
-func MLGraphBuilderMaxFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderMax(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Max
 //go:noescape
@@ -1471,11 +1469,11 @@ func TryMLGraphBuilderMax(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Min
 //go:noescape
-func HasMLGraphBuilderMin(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderMin(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Min
 //go:noescape
-func MLGraphBuilderMinFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderMin(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Min
 //go:noescape
@@ -1493,11 +1491,11 @@ func TryMLGraphBuilderMin(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Pow
 //go:noescape
-func HasMLGraphBuilderPow(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderPow(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Pow
 //go:noescape
-func MLGraphBuilderPowFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderPow(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Pow
 //go:noescape
@@ -1515,11 +1513,11 @@ func TryMLGraphBuilderPow(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_ReduceL1
 //go:noescape
-func HasMLGraphBuilderReduceL1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderReduceL1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_ReduceL1
 //go:noescape
-func MLGraphBuilderReduceL1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderReduceL1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_ReduceL1
 //go:noescape
@@ -1537,11 +1535,11 @@ func TryMLGraphBuilderReduceL1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_ReduceL11
 //go:noescape
-func HasMLGraphBuilderReduceL11(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderReduceL11(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_ReduceL11
 //go:noescape
-func MLGraphBuilderReduceL11Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderReduceL11(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_ReduceL11
 //go:noescape
@@ -1557,11 +1555,11 @@ func TryMLGraphBuilderReduceL11(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_ReduceL2
 //go:noescape
-func HasMLGraphBuilderReduceL2(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderReduceL2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_ReduceL2
 //go:noescape
-func MLGraphBuilderReduceL2Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderReduceL2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_ReduceL2
 //go:noescape
@@ -1579,11 +1577,11 @@ func TryMLGraphBuilderReduceL2(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_ReduceL21
 //go:noescape
-func HasMLGraphBuilderReduceL21(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderReduceL21(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_ReduceL21
 //go:noescape
-func MLGraphBuilderReduceL21Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderReduceL21(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_ReduceL21
 //go:noescape
@@ -1599,11 +1597,11 @@ func TryMLGraphBuilderReduceL21(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_ReduceLogSum
 //go:noescape
-func HasMLGraphBuilderReduceLogSum(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderReduceLogSum(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_ReduceLogSum
 //go:noescape
-func MLGraphBuilderReduceLogSumFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderReduceLogSum(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_ReduceLogSum
 //go:noescape
@@ -1621,11 +1619,11 @@ func TryMLGraphBuilderReduceLogSum(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_ReduceLogSum1
 //go:noescape
-func HasMLGraphBuilderReduceLogSum1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderReduceLogSum1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_ReduceLogSum1
 //go:noescape
-func MLGraphBuilderReduceLogSum1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderReduceLogSum1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_ReduceLogSum1
 //go:noescape
@@ -1641,11 +1639,11 @@ func TryMLGraphBuilderReduceLogSum1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_ReduceLogSumExp
 //go:noescape
-func HasMLGraphBuilderReduceLogSumExp(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderReduceLogSumExp(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_ReduceLogSumExp
 //go:noescape
-func MLGraphBuilderReduceLogSumExpFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderReduceLogSumExp(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_ReduceLogSumExp
 //go:noescape
@@ -1663,11 +1661,11 @@ func TryMLGraphBuilderReduceLogSumExp(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_ReduceLogSumExp1
 //go:noescape
-func HasMLGraphBuilderReduceLogSumExp1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderReduceLogSumExp1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_ReduceLogSumExp1
 //go:noescape
-func MLGraphBuilderReduceLogSumExp1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderReduceLogSumExp1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_ReduceLogSumExp1
 //go:noescape
@@ -1683,11 +1681,11 @@ func TryMLGraphBuilderReduceLogSumExp1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_ReduceMax
 //go:noescape
-func HasMLGraphBuilderReduceMax(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderReduceMax(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_ReduceMax
 //go:noescape
-func MLGraphBuilderReduceMaxFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderReduceMax(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_ReduceMax
 //go:noescape
@@ -1705,11 +1703,11 @@ func TryMLGraphBuilderReduceMax(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_ReduceMax1
 //go:noescape
-func HasMLGraphBuilderReduceMax1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderReduceMax1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_ReduceMax1
 //go:noescape
-func MLGraphBuilderReduceMax1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderReduceMax1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_ReduceMax1
 //go:noescape
@@ -1725,11 +1723,11 @@ func TryMLGraphBuilderReduceMax1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_ReduceMean
 //go:noescape
-func HasMLGraphBuilderReduceMean(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderReduceMean(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_ReduceMean
 //go:noescape
-func MLGraphBuilderReduceMeanFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderReduceMean(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_ReduceMean
 //go:noescape
@@ -1747,11 +1745,11 @@ func TryMLGraphBuilderReduceMean(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_ReduceMean1
 //go:noescape
-func HasMLGraphBuilderReduceMean1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderReduceMean1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_ReduceMean1
 //go:noescape
-func MLGraphBuilderReduceMean1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderReduceMean1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_ReduceMean1
 //go:noescape
@@ -1767,11 +1765,11 @@ func TryMLGraphBuilderReduceMean1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_ReduceMin
 //go:noescape
-func HasMLGraphBuilderReduceMin(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderReduceMin(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_ReduceMin
 //go:noescape
-func MLGraphBuilderReduceMinFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderReduceMin(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_ReduceMin
 //go:noescape
@@ -1789,11 +1787,11 @@ func TryMLGraphBuilderReduceMin(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_ReduceMin1
 //go:noescape
-func HasMLGraphBuilderReduceMin1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderReduceMin1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_ReduceMin1
 //go:noescape
-func MLGraphBuilderReduceMin1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderReduceMin1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_ReduceMin1
 //go:noescape
@@ -1809,11 +1807,11 @@ func TryMLGraphBuilderReduceMin1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_ReduceProduct
 //go:noescape
-func HasMLGraphBuilderReduceProduct(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderReduceProduct(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_ReduceProduct
 //go:noescape
-func MLGraphBuilderReduceProductFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderReduceProduct(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_ReduceProduct
 //go:noescape
@@ -1831,11 +1829,11 @@ func TryMLGraphBuilderReduceProduct(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_ReduceProduct1
 //go:noescape
-func HasMLGraphBuilderReduceProduct1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderReduceProduct1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_ReduceProduct1
 //go:noescape
-func MLGraphBuilderReduceProduct1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderReduceProduct1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_ReduceProduct1
 //go:noescape
@@ -1851,11 +1849,11 @@ func TryMLGraphBuilderReduceProduct1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_ReduceSum
 //go:noescape
-func HasMLGraphBuilderReduceSum(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderReduceSum(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_ReduceSum
 //go:noescape
-func MLGraphBuilderReduceSumFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderReduceSum(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_ReduceSum
 //go:noescape
@@ -1873,11 +1871,11 @@ func TryMLGraphBuilderReduceSum(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_ReduceSum1
 //go:noescape
-func HasMLGraphBuilderReduceSum1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderReduceSum1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_ReduceSum1
 //go:noescape
-func MLGraphBuilderReduceSum1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderReduceSum1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_ReduceSum1
 //go:noescape
@@ -1893,11 +1891,11 @@ func TryMLGraphBuilderReduceSum1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_ReduceSumSquare
 //go:noescape
-func HasMLGraphBuilderReduceSumSquare(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderReduceSumSquare(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_ReduceSumSquare
 //go:noescape
-func MLGraphBuilderReduceSumSquareFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderReduceSumSquare(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_ReduceSumSquare
 //go:noescape
@@ -1915,11 +1913,11 @@ func TryMLGraphBuilderReduceSumSquare(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_ReduceSumSquare1
 //go:noescape
-func HasMLGraphBuilderReduceSumSquare1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderReduceSumSquare1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_ReduceSumSquare1
 //go:noescape
-func MLGraphBuilderReduceSumSquare1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderReduceSumSquare1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_ReduceSumSquare1
 //go:noescape
@@ -1935,11 +1933,11 @@ func TryMLGraphBuilderReduceSumSquare1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Lstm
 //go:noescape
-func HasMLGraphBuilderLstm(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderLstm(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Lstm
 //go:noescape
-func MLGraphBuilderLstmFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderLstm(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Lstm
 //go:noescape
@@ -1965,11 +1963,11 @@ func TryMLGraphBuilderLstm(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Lstm1
 //go:noescape
-func HasMLGraphBuilderLstm1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderLstm1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Lstm1
 //go:noescape
-func MLGraphBuilderLstm1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderLstm1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Lstm1
 //go:noescape
@@ -1993,11 +1991,11 @@ func TryMLGraphBuilderLstm1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Matmul
 //go:noescape
-func HasMLGraphBuilderMatmul(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderMatmul(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Matmul
 //go:noescape
-func MLGraphBuilderMatmulFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderMatmul(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Matmul
 //go:noescape
@@ -2015,11 +2013,11 @@ func TryMLGraphBuilderMatmul(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Squeeze
 //go:noescape
-func HasMLGraphBuilderSqueeze(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderSqueeze(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Squeeze
 //go:noescape
-func MLGraphBuilderSqueezeFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderSqueeze(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Squeeze
 //go:noescape
@@ -2037,11 +2035,11 @@ func TryMLGraphBuilderSqueeze(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Squeeze1
 //go:noescape
-func HasMLGraphBuilderSqueeze1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderSqueeze1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Squeeze1
 //go:noescape
-func MLGraphBuilderSqueeze1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderSqueeze1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Squeeze1
 //go:noescape
@@ -2057,11 +2055,11 @@ func TryMLGraphBuilderSqueeze1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Tanh
 //go:noescape
-func HasMLGraphBuilderTanh(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderTanh(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Tanh
 //go:noescape
-func MLGraphBuilderTanhFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderTanh(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Tanh
 //go:noescape
@@ -2077,11 +2075,11 @@ func TryMLGraphBuilderTanh(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Tanh1
 //go:noescape
-func HasMLGraphBuilderTanh1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderTanh1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Tanh1
 //go:noescape
-func MLGraphBuilderTanh1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderTanh1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Tanh1
 //go:noescape
@@ -2095,11 +2093,11 @@ func TryMLGraphBuilderTanh1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Gru
 //go:noescape
-func HasMLGraphBuilderGru(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderGru(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Gru
 //go:noescape
-func MLGraphBuilderGruFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderGru(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Gru
 //go:noescape
@@ -2125,11 +2123,11 @@ func TryMLGraphBuilderGru(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Gru1
 //go:noescape
-func HasMLGraphBuilderGru1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderGru1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Gru1
 //go:noescape
-func MLGraphBuilderGru1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderGru1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Gru1
 //go:noescape
@@ -2153,11 +2151,11 @@ func TryMLGraphBuilderGru1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Abs
 //go:noescape
-func HasMLGraphBuilderAbs(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderAbs(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Abs
 //go:noescape
-func MLGraphBuilderAbsFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderAbs(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Abs
 //go:noescape
@@ -2173,11 +2171,11 @@ func TryMLGraphBuilderAbs(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Ceil
 //go:noescape
-func HasMLGraphBuilderCeil(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderCeil(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Ceil
 //go:noescape
-func MLGraphBuilderCeilFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderCeil(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Ceil
 //go:noescape
@@ -2193,11 +2191,11 @@ func TryMLGraphBuilderCeil(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Cos
 //go:noescape
-func HasMLGraphBuilderCos(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderCos(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Cos
 //go:noescape
-func MLGraphBuilderCosFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderCos(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Cos
 //go:noescape
@@ -2213,11 +2211,11 @@ func TryMLGraphBuilderCos(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Exp
 //go:noescape
-func HasMLGraphBuilderExp(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderExp(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Exp
 //go:noescape
-func MLGraphBuilderExpFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderExp(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Exp
 //go:noescape
@@ -2233,11 +2231,11 @@ func TryMLGraphBuilderExp(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Floor
 //go:noescape
-func HasMLGraphBuilderFloor(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderFloor(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Floor
 //go:noescape
-func MLGraphBuilderFloorFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderFloor(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Floor
 //go:noescape
@@ -2253,11 +2251,11 @@ func TryMLGraphBuilderFloor(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Log
 //go:noescape
-func HasMLGraphBuilderLog(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderLog(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Log
 //go:noescape
-func MLGraphBuilderLogFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderLog(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Log
 //go:noescape
@@ -2273,11 +2271,11 @@ func TryMLGraphBuilderLog(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Neg
 //go:noescape
-func HasMLGraphBuilderNeg(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderNeg(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Neg
 //go:noescape
-func MLGraphBuilderNegFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderNeg(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Neg
 //go:noescape
@@ -2293,11 +2291,11 @@ func TryMLGraphBuilderNeg(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Sin
 //go:noescape
-func HasMLGraphBuilderSin(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderSin(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Sin
 //go:noescape
-func MLGraphBuilderSinFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderSin(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Sin
 //go:noescape
@@ -2313,11 +2311,11 @@ func TryMLGraphBuilderSin(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Tan
 //go:noescape
-func HasMLGraphBuilderTan(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderTan(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Tan
 //go:noescape
-func MLGraphBuilderTanFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderTan(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Tan
 //go:noescape
@@ -2333,11 +2331,11 @@ func TryMLGraphBuilderTan(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Transpose
 //go:noescape
-func HasMLGraphBuilderTranspose(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderTranspose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Transpose
 //go:noescape
-func MLGraphBuilderTransposeFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderTranspose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Transpose
 //go:noescape
@@ -2355,11 +2353,11 @@ func TryMLGraphBuilderTranspose(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Transpose1
 //go:noescape
-func HasMLGraphBuilderTranspose1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderTranspose1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Transpose1
 //go:noescape
-func MLGraphBuilderTranspose1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderTranspose1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Transpose1
 //go:noescape
@@ -2375,11 +2373,11 @@ func TryMLGraphBuilderTranspose1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Prelu
 //go:noescape
-func HasMLGraphBuilderPrelu(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderPrelu(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Prelu
 //go:noescape
-func MLGraphBuilderPreluFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderPrelu(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Prelu
 //go:noescape
@@ -2397,11 +2395,11 @@ func TryMLGraphBuilderPrelu(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Concat
 //go:noescape
-func HasMLGraphBuilderConcat(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderConcat(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Concat
 //go:noescape
-func MLGraphBuilderConcatFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderConcat(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Concat
 //go:noescape
@@ -2419,11 +2417,11 @@ func TryMLGraphBuilderConcat(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Gemm
 //go:noescape
-func HasMLGraphBuilderGemm(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderGemm(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Gemm
 //go:noescape
-func MLGraphBuilderGemmFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderGemm(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Gemm
 //go:noescape
@@ -2443,11 +2441,11 @@ func TryMLGraphBuilderGemm(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Gemm1
 //go:noescape
-func HasMLGraphBuilderGemm1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderGemm1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Gemm1
 //go:noescape
-func MLGraphBuilderGemm1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderGemm1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Gemm1
 //go:noescape
@@ -2465,11 +2463,11 @@ func TryMLGraphBuilderGemm1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_LstmCell
 //go:noescape
-func HasMLGraphBuilderLstmCell(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderLstmCell(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_LstmCell
 //go:noescape
-func MLGraphBuilderLstmCellFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderLstmCell(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_LstmCell
 //go:noescape
@@ -2497,11 +2495,11 @@ func TryMLGraphBuilderLstmCell(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_LstmCell1
 //go:noescape
-func HasMLGraphBuilderLstmCell1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderLstmCell1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_LstmCell1
 //go:noescape
-func MLGraphBuilderLstmCell1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderLstmCell1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_LstmCell1
 //go:noescape
@@ -2527,11 +2525,11 @@ func TryMLGraphBuilderLstmCell1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_BatchNormalization
 //go:noescape
-func HasMLGraphBuilderBatchNormalization(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderBatchNormalization(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_BatchNormalization
 //go:noescape
-func MLGraphBuilderBatchNormalizationFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderBatchNormalization(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_BatchNormalization
 //go:noescape
@@ -2553,11 +2551,11 @@ func TryMLGraphBuilderBatchNormalization(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_BatchNormalization1
 //go:noescape
-func HasMLGraphBuilderBatchNormalization1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderBatchNormalization1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_BatchNormalization1
 //go:noescape
-func MLGraphBuilderBatchNormalization1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderBatchNormalization1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_BatchNormalization1
 //go:noescape
@@ -2577,11 +2575,11 @@ func TryMLGraphBuilderBatchNormalization1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Elu
 //go:noescape
-func HasMLGraphBuilderElu(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderElu(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Elu
 //go:noescape
-func MLGraphBuilderEluFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderElu(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Elu
 //go:noescape
@@ -2599,11 +2597,11 @@ func TryMLGraphBuilderElu(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Elu1
 //go:noescape
-func HasMLGraphBuilderElu1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderElu1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Elu1
 //go:noescape
-func MLGraphBuilderElu1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderElu1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Elu1
 //go:noescape
@@ -2619,11 +2617,11 @@ func TryMLGraphBuilderElu1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Elu2
 //go:noescape
-func HasMLGraphBuilderElu2(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderElu2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Elu2
 //go:noescape
-func MLGraphBuilderElu2Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderElu2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Elu2
 //go:noescape
@@ -2639,11 +2637,11 @@ func TryMLGraphBuilderElu2(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Elu3
 //go:noescape
-func HasMLGraphBuilderElu3(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderElu3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Elu3
 //go:noescape
-func MLGraphBuilderElu3Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderElu3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Elu3
 //go:noescape
@@ -2657,11 +2655,11 @@ func TryMLGraphBuilderElu3(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Clamp
 //go:noescape
-func HasMLGraphBuilderClamp(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderClamp(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Clamp
 //go:noescape
-func MLGraphBuilderClampFunc(this js.Ref) js.Ref
+func FuncMLGraphBuilderClamp(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Clamp
 //go:noescape
@@ -2679,11 +2677,11 @@ func TryMLGraphBuilderClamp(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Clamp1
 //go:noescape
-func HasMLGraphBuilderClamp1(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderClamp1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Clamp1
 //go:noescape
-func MLGraphBuilderClamp1Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderClamp1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Clamp1
 //go:noescape
@@ -2699,11 +2697,11 @@ func TryMLGraphBuilderClamp1(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Clamp2
 //go:noescape
-func HasMLGraphBuilderClamp2(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderClamp2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Clamp2
 //go:noescape
-func MLGraphBuilderClamp2Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderClamp2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Clamp2
 //go:noescape
@@ -2719,11 +2717,11 @@ func TryMLGraphBuilderClamp2(
 
 //go:wasmimport plat/js/web has_MLGraphBuilder_Clamp3
 //go:noescape
-func HasMLGraphBuilderClamp3(this js.Ref) js.Ref
+func HasFuncMLGraphBuilderClamp3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLGraphBuilder_Clamp3
 //go:noescape
-func MLGraphBuilderClamp3Func(this js.Ref) js.Ref
+func FuncMLGraphBuilderClamp3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLGraphBuilder_Clamp3
 //go:noescape
@@ -2836,11 +2834,11 @@ func SetMathMLElementTabIndex(
 
 //go:wasmimport plat/js/web has_MathMLElement_Focus
 //go:noescape
-func HasMathMLElementFocus(this js.Ref) js.Ref
+func HasFuncMathMLElementFocus(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MathMLElement_Focus
 //go:noescape
-func MathMLElementFocusFunc(this js.Ref) js.Ref
+func FuncMathMLElementFocus(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MathMLElement_Focus
 //go:noescape
@@ -2856,11 +2854,11 @@ func TryMathMLElementFocus(
 
 //go:wasmimport plat/js/web has_MathMLElement_Focus1
 //go:noescape
-func HasMathMLElementFocus1(this js.Ref) js.Ref
+func HasFuncMathMLElementFocus1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MathMLElement_Focus1
 //go:noescape
-func MathMLElementFocus1Func(this js.Ref) js.Ref
+func FuncMathMLElementFocus1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MathMLElement_Focus1
 //go:noescape
@@ -2874,11 +2872,11 @@ func TryMathMLElementFocus1(
 
 //go:wasmimport plat/js/web has_MathMLElement_Blur
 //go:noescape
-func HasMathMLElementBlur(this js.Ref) js.Ref
+func HasFuncMathMLElementBlur(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MathMLElement_Blur
 //go:noescape
-func MathMLElementBlurFunc(this js.Ref) js.Ref
+func FuncMathMLElementBlur(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MathMLElement_Blur
 //go:noescape

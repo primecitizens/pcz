@@ -1,0 +1,786 @@
+- File: webext/bluetooth.idl
+  Dict:
+    Name: AdapterState
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetooth
+    Fields:
+      - Name: address
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: powered
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: available
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: discovering
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+- File: webext/bluetooth.idl
+  Callback:
+    Name: AdapterStateCallback
+    Args:
+      - Name: adapterInfo
+        Type:
+          Name: AdapterState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetooth
+- File: webext/bluetooth.idl
+  Dict:
+    Name: BluetoothFilter
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetooth
+    Fields:
+      - Name: filterType
+        Type:
+          Name: FilterType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: limit
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+- File: webext/bluetooth.idl
+  Dict:
+    Name: Device
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetooth
+    Fields:
+      - Name: address
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: name
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: deviceClass
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: vendorIdSource
+        Type:
+          Name: VendorIdSource
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: vendorId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: productId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: deviceId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: type
+        Type:
+          Name: DeviceType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: paired
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: connected
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: connecting
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: connectable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: uuids
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - bluetooth
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: inquiryRssi
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: inquiryTxPower
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: transport
+        Type:
+          Name: Transport
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+      - Name: batteryPercentage
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+- File: webext/bluetooth.idl
+  Enum:
+    Name: DeviceType
+    Values:
+      - computer
+      - phone
+      - modem
+      - audio
+      - carAudio
+      - video
+      - peripheral
+      - joystick
+      - gamepad
+      - keyboard
+      - mouse
+      - tablet
+      - keyboardMouseCombo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetooth
+- File: webext/bluetooth.idl
+  Enum:
+    Name: FilterType
+    Values:
+      - all
+      - known
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetooth
+- File: webext/bluetooth.idl
+  Callback:
+    Name: GetDeviceCallback
+    Args:
+      - Name: deviceInfo
+        Type:
+          Name: Device
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetooth
+- File: webext/bluetooth.idl
+  Callback:
+    Name: GetDevicesCallback
+    Args:
+      - Name: deviceInfos
+        Type:
+          Name: sequence
+          Params:
+            - Name: Device
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - bluetooth
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetooth
+- File: webext/bluetooth.idl
+  Callback:
+    Name: StartDiscoveryCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetooth
+- File: webext/bluetooth.idl
+  Callback:
+    Name: StopDiscoveryCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetooth
+- File: webext/bluetooth.idl
+  Enum:
+    Name: Transport
+    Values:
+      - invalid
+      - classic
+      - le
+      - dual
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetooth
+- File: webext/bluetooth.idl
+  Enum:
+    Name: VendorIdSource
+    Values:
+      - bluetooth
+      - usb
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetooth
+- File: webext/bluetooth.idl
+  WebextFunc:
+    Name: getAdapterState
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: AdapterState
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bluetooth
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetooth
+- File: webext/bluetooth.idl
+  WebextFunc:
+    Name: getDevice
+    Modifier: static
+    Args:
+      - Name: deviceAddress
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Device
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bluetooth
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetooth
+- File: webext/bluetooth.idl
+  WebextFunc:
+    Name: getDevices
+    Modifier: static
+    Args:
+      - Name: filter
+        Optional: true
+        Type:
+          Name: BluetoothFilter
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: Device
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - bluetooth
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bluetooth
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetooth
+- File: webext/bluetooth.idl
+  WebextEvent:
+    Name: onAdapterStateChanged
+    Modifier: static
+    Args:
+      - Name: state
+        Type:
+          Name: AdapterState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetooth
+- File: webext/bluetooth.idl
+  WebextEvent:
+    Name: onDeviceAdded
+    Modifier: static
+    Args:
+      - Name: device
+        Type:
+          Name: Device
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetooth
+- File: webext/bluetooth.idl
+  WebextEvent:
+    Name: onDeviceChanged
+    Modifier: static
+    Args:
+      - Name: device
+        Type:
+          Name: Device
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetooth
+- File: webext/bluetooth.idl
+  WebextEvent:
+    Name: onDeviceRemoved
+    Modifier: static
+    Args:
+      - Name: device
+        Type:
+          Name: Device
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetooth
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetooth
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetooth
+- File: webext/bluetooth.idl
+  WebextFunc:
+    Name: startDiscovery
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetooth
+- File: webext/bluetooth.idl
+  WebextFunc:
+    Name: stopDiscovery
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetooth

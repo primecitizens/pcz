@@ -1,0 +1,372 @@
+- File: webext/lock_screen_data.idl
+  Callback:
+    Name: DataCallback
+    Args:
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - lockScreen
+                - data
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - lockScreen
+              - data
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - lockScreen
+              - data
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - lockScreen
+          - data
+- File: webext/lock_screen_data.idl
+  Callback:
+    Name: DataItemCallback
+    Args:
+      - Name: item
+        Type:
+          Name: DataItemInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - lockScreen
+                - data
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - lockScreen
+              - data
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - lockScreen
+              - data
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - lockScreen
+          - data
+- File: webext/lock_screen_data.idl
+  Dict:
+    Name: DataItemInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - lockScreen
+          - data
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - lockScreen
+                - data
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - lockScreen
+              - data
+- File: webext/lock_screen_data.idl
+  Callback:
+    Name: DataItemListCallback
+    Args:
+      - Name: items
+        Type:
+          Name: sequence
+          Params:
+            - Name: DataItemInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - lockScreen
+                    - data
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - lockScreen
+                - data
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - lockScreen
+              - data
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - lockScreen
+              - data
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - lockScreen
+          - data
+- File: webext/lock_screen_data.idl
+  Dict:
+    Name: DataItemsAvailableEvent
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - lockScreen
+          - data
+    Fields:
+      - Name: wasLocked
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - lockScreen
+                - data
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - lockScreen
+              - data
+- File: webext/lock_screen_data.idl
+  Callback:
+    Name: VoidCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - lockScreen
+              - data
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - lockScreen
+          - data
+- File: webext/lock_screen_data.idl
+  WebextFunc:
+    Name: create
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DataItemInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - lockScreen
+                  - data
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - lockScreen
+          - data
+- File: webext/lock_screen_data.idl
+  WebextFunc:
+    Name: delete
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - lockScreen
+                - data
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - lockScreen
+              - data
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - lockScreen
+          - data
+- File: webext/lock_screen_data.idl
+  WebextFunc:
+    Name: getAll
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: DataItemInfo
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - lockScreen
+                      - data
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - lockScreen
+                  - data
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - lockScreen
+          - data
+- File: webext/lock_screen_data.idl
+  WebextFunc:
+    Name: getContent
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - lockScreen
+                - data
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - lockScreen
+              - data
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ArrayBuffer
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - lockScreen
+                  - data
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - lockScreen
+          - data
+- File: webext/lock_screen_data.idl
+  WebextEvent:
+    Name: onDataItemsAvailable
+    Modifier: static
+    Args:
+      - Name: event
+        Type:
+          Name: DataItemsAvailableEvent
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - lockScreen
+                - data
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - lockScreen
+              - data
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - lockScreen
+              - data
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - lockScreen
+          - data
+- File: webext/lock_screen_data.idl
+  WebextFunc:
+    Name: setContent
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - lockScreen
+                - data
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - lockScreen
+              - data
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - lockScreen
+                - data
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - lockScreen
+              - data
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - lockScreen
+          - data

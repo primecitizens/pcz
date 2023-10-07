@@ -1,0 +1,317 @@
+- File: webext/chrome/enterprise_platform_keys_internal.idl
+  Dict:
+    Name: Algorithm
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - platformKeysInternal
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeysInternal
+      - Name: modulusLength
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeysInternal
+      - Name: publicExponent
+        Type:
+          Name: ArrayBuffer
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeysInternal
+      - Name: hash
+        Type:
+          Name: Hash
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeysInternal
+      - Name: namedCurve
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeysInternal
+- File: webext/chrome/enterprise_platform_keys_internal.idl
+  Callback:
+    Name: GenerateKeyCallback
+    Args:
+      - Name: publicKey
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeysInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeysInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - platformKeysInternal
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/enterprise_platform_keys_internal.idl
+  Callback:
+    Name: GetTokensCallback
+    Args:
+      - Name: tokenIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - enterprise
+                    - platformKeysInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeysInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeysInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - platformKeysInternal
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/enterprise_platform_keys_internal.idl
+  Dict:
+    Name: Hash
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - platformKeysInternal
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeysInternal
+- File: webext/chrome/enterprise_platform_keys_internal.idl
+  WebextFunc:
+    Name: generateKey
+    Modifier: static
+    Args:
+      - Name: tokenId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeysInternal
+      - Name: algorithm
+        Type:
+          Name: Algorithm
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeysInternal
+      - Name: softwareBacked
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeysInternal
+      - Name: callback
+        Type:
+          Name: GenerateKeyCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeysInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeysInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - platformKeysInternal
+- File: webext/chrome/enterprise_platform_keys_internal.idl
+  WebextFunc:
+    Name: getTokens
+    Modifier: static
+    Args:
+      - Name: callback
+        Type:
+          Name: GetTokensCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeysInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeysInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - platformKeysInternal

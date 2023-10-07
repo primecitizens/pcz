@@ -1,0 +1,363 @@
+- File: webext/chrome/tts_engine.json
+  Dict:
+    Name: AudioBuffer
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - ttsEngine
+    Fields:
+      - Name: audioBuffer
+        Required: true
+        Type:
+          Name: Uint8Array
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - ttsEngine
+      - Name: charIndex
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - ttsEngine
+      - Name: isLastBuffer
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - ttsEngine
+- File: webext/chrome/tts_engine.json
+  Dict:
+    Name: AudioStreamOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - ttsEngine
+    Fields:
+      - Name: bufferSize
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - ttsEngine
+      - Name: sampleRate
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - ttsEngine
+- File: webext/chrome/tts_engine.json
+  Callback:
+    Name: OnSpeakArgSendTtsEvent
+    Args:
+      - Name: event
+        Type:
+          Name: TtsEvent
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tts
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - ttsEngine
+- File: webext/chrome/tts_engine.json
+  Callback:
+    Name: OnSpeakWithAudioStreamArgSendError
+    Args:
+      - Name: errorMessage
+        Optional: true
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - ttsEngine
+- File: webext/chrome/tts_engine.json
+  Callback:
+    Name: OnSpeakWithAudioStreamArgSendTtsAudio
+    Args:
+      - Name: audioBufferParams
+        Type:
+          Name: AudioBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - ttsEngine
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - ttsEngine
+- File: webext/chrome/tts_engine.json
+  Dict:
+    Name: SpeakOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - ttsEngine
+    Fields:
+      - Name: gender
+        Type:
+          Name: VoiceGender
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - ttsEngine
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - ttsEngine
+      - Name: lang
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - ttsEngine
+      - Name: pitch
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - ttsEngine
+      - Name: rate
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - ttsEngine
+      - Name: voiceName
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - ttsEngine
+      - Name: volume
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - ttsEngine
+- File: webext/chrome/tts_engine.json
+  Enum:
+    Name: VoiceGender
+    Values:
+      - male
+      - female
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - ttsEngine
+- File: webext/chrome/tts_engine.json
+  WebextEvent:
+    Name: onPause
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - ttsEngine
+- File: webext/chrome/tts_engine.json
+  WebextEvent:
+    Name: onResume
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - ttsEngine
+- File: webext/chrome/tts_engine.json
+  WebextEvent:
+    Name: onSpeak
+    Args:
+      - Name: utterance
+        Type:
+          Name: DOMString
+      - Name: options
+        Type:
+          Name: SpeakOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - ttsEngine
+      - Name: sendTtsEvent
+        Type:
+          Name: OnSpeakArgSendTtsEvent
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - ttsEngine
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - ttsEngine
+- File: webext/chrome/tts_engine.json
+  WebextEvent:
+    Name: onSpeakWithAudioStream
+    Args:
+      - Name: utterance
+        Type:
+          Name: DOMString
+      - Name: options
+        Type:
+          Name: SpeakOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - ttsEngine
+      - Name: audioStreamOptions
+        Type:
+          Name: AudioStreamOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - ttsEngine
+      - Name: sendTtsAudio
+        Type:
+          Name: OnSpeakWithAudioStreamArgSendTtsAudio
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - ttsEngine
+      - Name: sendError
+        Type:
+          Name: OnSpeakWithAudioStreamArgSendError
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - ttsEngine
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - ttsEngine
+- File: webext/chrome/tts_engine.json
+  WebextEvent:
+    Name: onStop
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - ttsEngine
+- File: webext/chrome/tts_engine.json
+  WebextFunc:
+    Name: sendTtsAudio
+    Args:
+      - Name: requestId
+        Type:
+          Name: long long
+      - Name: audio
+        Type:
+          Name: AudioBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - ttsEngine
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - ttsEngine
+- File: webext/chrome/tts_engine.json
+  WebextFunc:
+    Name: sendTtsEvent
+    Args:
+      - Name: requestId
+        Type:
+          Name: long long
+      - Name: event
+        Type:
+          Name: TtsEvent
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tts
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - ttsEngine
+- File: webext/chrome/tts_engine.json
+  WebextFunc:
+    Name: updateVoices
+    Args:
+      - Name: voices
+        Type:
+          Name: sequence
+          Params:
+            - Name: TtsVoice
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - tts
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - ttsEngine
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - ttsEngine

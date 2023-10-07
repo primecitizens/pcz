@@ -11,20 +11,18 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web has_ANGLE_instanced_arrays_DrawArraysInstancedANGLE
 //go:noescape
-func HasANGLE_instanced_arraysDrawArraysInstancedANGLE(this js.Ref) js.Ref
+func HasFuncANGLE_instanced_arraysDrawArraysInstancedANGLE(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ANGLE_instanced_arrays_DrawArraysInstancedANGLE
 //go:noescape
-func ANGLE_instanced_arraysDrawArraysInstancedANGLEFunc(this js.Ref) js.Ref
+func FuncANGLE_instanced_arraysDrawArraysInstancedANGLE(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ANGLE_instanced_arrays_DrawArraysInstancedANGLE
 //go:noescape
@@ -46,11 +44,11 @@ func TryANGLE_instanced_arraysDrawArraysInstancedANGLE(
 
 //go:wasmimport plat/js/web has_ANGLE_instanced_arrays_DrawElementsInstancedANGLE
 //go:noescape
-func HasANGLE_instanced_arraysDrawElementsInstancedANGLE(this js.Ref) js.Ref
+func HasFuncANGLE_instanced_arraysDrawElementsInstancedANGLE(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ANGLE_instanced_arrays_DrawElementsInstancedANGLE
 //go:noescape
-func ANGLE_instanced_arraysDrawElementsInstancedANGLEFunc(this js.Ref) js.Ref
+func FuncANGLE_instanced_arraysDrawElementsInstancedANGLE(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ANGLE_instanced_arrays_DrawElementsInstancedANGLE
 //go:noescape
@@ -74,11 +72,11 @@ func TryANGLE_instanced_arraysDrawElementsInstancedANGLE(
 
 //go:wasmimport plat/js/web has_ANGLE_instanced_arrays_VertexAttribDivisorANGLE
 //go:noescape
-func HasANGLE_instanced_arraysVertexAttribDivisorANGLE(this js.Ref) js.Ref
+func HasFuncANGLE_instanced_arraysVertexAttribDivisorANGLE(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ANGLE_instanced_arrays_VertexAttribDivisorANGLE
 //go:noescape
-func ANGLE_instanced_arraysVertexAttribDivisorANGLEFunc(this js.Ref) js.Ref
+func FuncANGLE_instanced_arraysVertexAttribDivisorANGLE(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ANGLE_instanced_arrays_VertexAttribDivisorANGLE
 //go:noescape
@@ -150,11 +148,11 @@ func EventListenerOptionsJSLoad(
 
 //go:wasmimport plat/js/web has_EventTarget_AddEventListener
 //go:noescape
-func HasEventTargetAddEventListener(this js.Ref) js.Ref
+func HasFuncEventTargetAddEventListener(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_EventTarget_AddEventListener
 //go:noescape
-func EventTargetAddEventListenerFunc(this js.Ref) js.Ref
+func FuncEventTargetAddEventListener(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_EventTarget_AddEventListener
 //go:noescape
@@ -174,11 +172,11 @@ func TryEventTargetAddEventListener(
 
 //go:wasmimport plat/js/web has_EventTarget_AddEventListener1
 //go:noescape
-func HasEventTargetAddEventListener1(this js.Ref) js.Ref
+func HasFuncEventTargetAddEventListener1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_EventTarget_AddEventListener1
 //go:noescape
-func EventTargetAddEventListener1Func(this js.Ref) js.Ref
+func FuncEventTargetAddEventListener1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_EventTarget_AddEventListener1
 //go:noescape
@@ -196,11 +194,11 @@ func TryEventTargetAddEventListener1(
 
 //go:wasmimport plat/js/web has_EventTarget_RemoveEventListener
 //go:noescape
-func HasEventTargetRemoveEventListener(this js.Ref) js.Ref
+func HasFuncEventTargetRemoveEventListener(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_EventTarget_RemoveEventListener
 //go:noescape
-func EventTargetRemoveEventListenerFunc(this js.Ref) js.Ref
+func FuncEventTargetRemoveEventListener(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_EventTarget_RemoveEventListener
 //go:noescape
@@ -220,11 +218,11 @@ func TryEventTargetRemoveEventListener(
 
 //go:wasmimport plat/js/web has_EventTarget_RemoveEventListener1
 //go:noescape
-func HasEventTargetRemoveEventListener1(this js.Ref) js.Ref
+func HasFuncEventTargetRemoveEventListener1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_EventTarget_RemoveEventListener1
 //go:noescape
-func EventTargetRemoveEventListener1Func(this js.Ref) js.Ref
+func FuncEventTargetRemoveEventListener1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_EventTarget_RemoveEventListener1
 //go:noescape
@@ -242,11 +240,11 @@ func TryEventTargetRemoveEventListener1(
 
 //go:wasmimport plat/js/web has_EventTarget_DispatchEvent
 //go:noescape
-func HasEventTargetDispatchEvent(this js.Ref) js.Ref
+func HasFuncEventTargetDispatchEvent(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_EventTarget_DispatchEvent
 //go:noescape
-func EventTargetDispatchEventFunc(this js.Ref) js.Ref
+func FuncEventTargetDispatchEvent(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_EventTarget_DispatchEvent
 //go:noescape
@@ -352,11 +350,11 @@ func GetEventTimeStamp(
 
 //go:wasmimport plat/js/web has_Event_ComposedPath
 //go:noescape
-func HasEventComposedPath(this js.Ref) js.Ref
+func HasFuncEventComposedPath(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Event_ComposedPath
 //go:noescape
-func EventComposedPathFunc(this js.Ref) js.Ref
+func FuncEventComposedPath(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Event_ComposedPath
 //go:noescape
@@ -370,11 +368,11 @@ func TryEventComposedPath(
 
 //go:wasmimport plat/js/web has_Event_StopPropagation
 //go:noescape
-func HasEventStopPropagation(this js.Ref) js.Ref
+func HasFuncEventStopPropagation(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Event_StopPropagation
 //go:noescape
-func EventStopPropagationFunc(this js.Ref) js.Ref
+func FuncEventStopPropagation(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Event_StopPropagation
 //go:noescape
@@ -388,11 +386,11 @@ func TryEventStopPropagation(
 
 //go:wasmimport plat/js/web has_Event_StopImmediatePropagation
 //go:noescape
-func HasEventStopImmediatePropagation(this js.Ref) js.Ref
+func HasFuncEventStopImmediatePropagation(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Event_StopImmediatePropagation
 //go:noescape
-func EventStopImmediatePropagationFunc(this js.Ref) js.Ref
+func FuncEventStopImmediatePropagation(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Event_StopImmediatePropagation
 //go:noescape
@@ -406,11 +404,11 @@ func TryEventStopImmediatePropagation(
 
 //go:wasmimport plat/js/web has_Event_PreventDefault
 //go:noescape
-func HasEventPreventDefault(this js.Ref) js.Ref
+func HasFuncEventPreventDefault(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Event_PreventDefault
 //go:noescape
-func EventPreventDefaultFunc(this js.Ref) js.Ref
+func FuncEventPreventDefault(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Event_PreventDefault
 //go:noescape
@@ -424,11 +422,11 @@ func TryEventPreventDefault(
 
 //go:wasmimport plat/js/web has_Event_InitEvent
 //go:noescape
-func HasEventInitEvent(this js.Ref) js.Ref
+func HasFuncEventInitEvent(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Event_InitEvent
 //go:noescape
-func EventInitEventFunc(this js.Ref) js.Ref
+func FuncEventInitEvent(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Event_InitEvent
 //go:noescape
@@ -448,11 +446,11 @@ func TryEventInitEvent(
 
 //go:wasmimport plat/js/web has_Event_InitEvent1
 //go:noescape
-func HasEventInitEvent1(this js.Ref) js.Ref
+func HasFuncEventInitEvent1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Event_InitEvent1
 //go:noescape
-func EventInitEvent1Func(this js.Ref) js.Ref
+func FuncEventInitEvent1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Event_InitEvent1
 //go:noescape
@@ -470,11 +468,11 @@ func TryEventInitEvent1(
 
 //go:wasmimport plat/js/web has_Event_InitEvent2
 //go:noescape
-func HasEventInitEvent2(this js.Ref) js.Ref
+func HasFuncEventInitEvent2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Event_InitEvent2
 //go:noescape
-func EventInitEvent2Func(this js.Ref) js.Ref
+func FuncEventInitEvent2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Event_InitEvent2
 //go:noescape
@@ -500,11 +498,11 @@ func GetAbortSignalReason(
 
 //go:wasmimport plat/js/web has_AbortSignal_Abort
 //go:noescape
-func HasAbortSignalAbort(this js.Ref) js.Ref
+func HasFuncAbortSignalAbort(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AbortSignal_Abort
 //go:noescape
-func AbortSignalAbortFunc(this js.Ref) js.Ref
+func FuncAbortSignalAbort(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AbortSignal_Abort
 //go:noescape
@@ -520,11 +518,11 @@ func TryAbortSignalAbort(
 
 //go:wasmimport plat/js/web has_AbortSignal_Abort1
 //go:noescape
-func HasAbortSignalAbort1(this js.Ref) js.Ref
+func HasFuncAbortSignalAbort1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AbortSignal_Abort1
 //go:noescape
-func AbortSignalAbort1Func(this js.Ref) js.Ref
+func FuncAbortSignalAbort1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AbortSignal_Abort1
 //go:noescape
@@ -538,11 +536,11 @@ func TryAbortSignalAbort1(
 
 //go:wasmimport plat/js/web has_AbortSignal_Timeout
 //go:noescape
-func HasAbortSignalTimeout(this js.Ref) js.Ref
+func HasFuncAbortSignalTimeout(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AbortSignal_Timeout
 //go:noescape
-func AbortSignalTimeoutFunc(this js.Ref) js.Ref
+func FuncAbortSignalTimeout(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AbortSignal_Timeout
 //go:noescape
@@ -558,11 +556,11 @@ func TryAbortSignalTimeout(
 
 //go:wasmimport plat/js/web has_AbortSignal_Any
 //go:noescape
-func HasAbortSignalAny(this js.Ref) js.Ref
+func HasFuncAbortSignalAny(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AbortSignal_Any
 //go:noescape
-func AbortSignalAnyFunc(this js.Ref) js.Ref
+func FuncAbortSignalAny(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AbortSignal_Any
 //go:noescape
@@ -578,11 +576,11 @@ func TryAbortSignalAny(
 
 //go:wasmimport plat/js/web has_AbortSignal_ThrowIfAborted
 //go:noescape
-func HasAbortSignalThrowIfAborted(this js.Ref) js.Ref
+func HasFuncAbortSignalThrowIfAborted(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AbortSignal_ThrowIfAborted
 //go:noescape
-func AbortSignalThrowIfAbortedFunc(this js.Ref) js.Ref
+func FuncAbortSignalThrowIfAborted(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AbortSignal_ThrowIfAborted
 //go:noescape
@@ -601,11 +599,11 @@ func GetAbortControllerSignal(
 
 //go:wasmimport plat/js/web has_AbortController_Abort
 //go:noescape
-func HasAbortControllerAbort(this js.Ref) js.Ref
+func HasFuncAbortControllerAbort(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AbortController_Abort
 //go:noescape
-func AbortControllerAbortFunc(this js.Ref) js.Ref
+func FuncAbortControllerAbort(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AbortController_Abort
 //go:noescape
@@ -621,11 +619,11 @@ func TryAbortControllerAbort(
 
 //go:wasmimport plat/js/web has_AbortController_Abort1
 //go:noescape
-func HasAbortControllerAbort1(this js.Ref) js.Ref
+func HasFuncAbortControllerAbort1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AbortController_Abort1
 //go:noescape
-func AbortControllerAbort1Func(this js.Ref) js.Ref
+func FuncAbortControllerAbort1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AbortController_Abort1
 //go:noescape
@@ -760,11 +758,11 @@ func GetCSSNumericArrayLength(
 
 //go:wasmimport plat/js/web has_CSSNumericArray_Get
 //go:noescape
-func HasCSSNumericArrayGet(this js.Ref) js.Ref
+func HasFuncCSSNumericArrayGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSNumericArray_Get
 //go:noescape
-func CSSNumericArrayGetFunc(this js.Ref) js.Ref
+func FuncCSSNumericArrayGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSNumericArray_Get
 //go:noescape
@@ -805,11 +803,11 @@ func CSSNumericTypeJSLoad(
 
 //go:wasmimport plat/js/web has_CSSNumericValue_Add
 //go:noescape
-func HasCSSNumericValueAdd(this js.Ref) js.Ref
+func HasFuncCSSNumericValueAdd(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSNumericValue_Add
 //go:noescape
-func CSSNumericValueAddFunc(this js.Ref) js.Ref
+func FuncCSSNumericValueAdd(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSNumericValue_Add
 //go:noescape
@@ -827,11 +825,11 @@ func TryCSSNumericValueAdd(
 
 //go:wasmimport plat/js/web has_CSSNumericValue_Sub
 //go:noescape
-func HasCSSNumericValueSub(this js.Ref) js.Ref
+func HasFuncCSSNumericValueSub(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSNumericValue_Sub
 //go:noescape
-func CSSNumericValueSubFunc(this js.Ref) js.Ref
+func FuncCSSNumericValueSub(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSNumericValue_Sub
 //go:noescape
@@ -849,11 +847,11 @@ func TryCSSNumericValueSub(
 
 //go:wasmimport plat/js/web has_CSSNumericValue_Mul
 //go:noescape
-func HasCSSNumericValueMul(this js.Ref) js.Ref
+func HasFuncCSSNumericValueMul(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSNumericValue_Mul
 //go:noescape
-func CSSNumericValueMulFunc(this js.Ref) js.Ref
+func FuncCSSNumericValueMul(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSNumericValue_Mul
 //go:noescape
@@ -871,11 +869,11 @@ func TryCSSNumericValueMul(
 
 //go:wasmimport plat/js/web has_CSSNumericValue_Div
 //go:noescape
-func HasCSSNumericValueDiv(this js.Ref) js.Ref
+func HasFuncCSSNumericValueDiv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSNumericValue_Div
 //go:noescape
-func CSSNumericValueDivFunc(this js.Ref) js.Ref
+func FuncCSSNumericValueDiv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSNumericValue_Div
 //go:noescape
@@ -893,11 +891,11 @@ func TryCSSNumericValueDiv(
 
 //go:wasmimport plat/js/web has_CSSNumericValue_Min
 //go:noescape
-func HasCSSNumericValueMin(this js.Ref) js.Ref
+func HasFuncCSSNumericValueMin(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSNumericValue_Min
 //go:noescape
-func CSSNumericValueMinFunc(this js.Ref) js.Ref
+func FuncCSSNumericValueMin(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSNumericValue_Min
 //go:noescape
@@ -915,11 +913,11 @@ func TryCSSNumericValueMin(
 
 //go:wasmimport plat/js/web has_CSSNumericValue_Max
 //go:noescape
-func HasCSSNumericValueMax(this js.Ref) js.Ref
+func HasFuncCSSNumericValueMax(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSNumericValue_Max
 //go:noescape
-func CSSNumericValueMaxFunc(this js.Ref) js.Ref
+func FuncCSSNumericValueMax(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSNumericValue_Max
 //go:noescape
@@ -937,11 +935,11 @@ func TryCSSNumericValueMax(
 
 //go:wasmimport plat/js/web has_CSSNumericValue_Equals
 //go:noescape
-func HasCSSNumericValueEquals(this js.Ref) js.Ref
+func HasFuncCSSNumericValueEquals(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSNumericValue_Equals
 //go:noescape
-func CSSNumericValueEqualsFunc(this js.Ref) js.Ref
+func FuncCSSNumericValueEquals(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSNumericValue_Equals
 //go:noescape
@@ -959,11 +957,11 @@ func TryCSSNumericValueEquals(
 
 //go:wasmimport plat/js/web has_CSSNumericValue_To
 //go:noescape
-func HasCSSNumericValueTo(this js.Ref) js.Ref
+func HasFuncCSSNumericValueTo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSNumericValue_To
 //go:noescape
-func CSSNumericValueToFunc(this js.Ref) js.Ref
+func FuncCSSNumericValueTo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSNumericValue_To
 //go:noescape
@@ -979,11 +977,11 @@ func TryCSSNumericValueTo(
 
 //go:wasmimport plat/js/web has_CSSNumericValue_ToSum
 //go:noescape
-func HasCSSNumericValueToSum(this js.Ref) js.Ref
+func HasFuncCSSNumericValueToSum(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSNumericValue_ToSum
 //go:noescape
-func CSSNumericValueToSumFunc(this js.Ref) js.Ref
+func FuncCSSNumericValueToSum(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSNumericValue_ToSum
 //go:noescape
@@ -1001,11 +999,11 @@ func TryCSSNumericValueToSum(
 
 //go:wasmimport plat/js/web has_CSSNumericValue_Type
 //go:noescape
-func HasCSSNumericValueType(this js.Ref) js.Ref
+func HasFuncCSSNumericValueType(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSNumericValue_Type
 //go:noescape
-func CSSNumericValueTypeFunc(this js.Ref) js.Ref
+func FuncCSSNumericValueType(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSNumericValue_Type
 //go:noescape
@@ -1019,11 +1017,11 @@ func TryCSSNumericValueType(
 
 //go:wasmimport plat/js/web has_CSSNumericValue_Parse
 //go:noescape
-func HasCSSNumericValueParse(this js.Ref) js.Ref
+func HasFuncCSSNumericValueParse(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSNumericValue_Parse
 //go:noescape
-func CSSNumericValueParseFunc(this js.Ref) js.Ref
+func FuncCSSNumericValueParse(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSNumericValue_Parse
 //go:noescape

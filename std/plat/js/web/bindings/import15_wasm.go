@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web store_GPUExtent3DDict
 //go:noescape
@@ -313,11 +311,11 @@ func SetGPUShaderModuleLabel(
 
 //go:wasmimport plat/js/web has_GPUShaderModule_GetCompilationInfo
 //go:noescape
-func HasGPUShaderModuleGetCompilationInfo(this js.Ref) js.Ref
+func HasFuncGPUShaderModuleGetCompilationInfo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUShaderModule_GetCompilationInfo
 //go:noescape
-func GPUShaderModuleGetCompilationInfoFunc(this js.Ref) js.Ref
+func FuncGPUShaderModuleGetCompilationInfo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUShaderModule_GetCompilationInfo
 //go:noescape

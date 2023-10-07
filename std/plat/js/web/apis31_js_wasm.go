@@ -5,17 +5,9 @@ package web
 
 import (
 	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 type OneOf_GPUBuffer_GPUTexture struct {
 	ref js.Ref
@@ -52,7 +44,7 @@ type MLCommandEncoder struct {
 }
 
 func (this MLCommandEncoder) Once() MLCommandEncoder {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -66,29 +58,28 @@ func (this MLCommandEncoder) FromRef(ref js.Ref) MLCommandEncoder {
 }
 
 func (this MLCommandEncoder) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasDispatch returns true if the method "MLCommandEncoder.dispatch" exists.
-func (this MLCommandEncoder) HasDispatch() bool {
-	return js.True == bindings.HasMLCommandEncoderDispatch(
-		this.Ref(),
+// HasFuncDispatch returns true if the method "MLCommandEncoder.dispatch" exists.
+func (this MLCommandEncoder) HasFuncDispatch() bool {
+	return js.True == bindings.HasFuncMLCommandEncoderDispatch(
+		this.ref,
 	)
 }
 
-// DispatchFunc returns the method "MLCommandEncoder.dispatch".
-func (this MLCommandEncoder) DispatchFunc() (fn js.Func[func(graph MLGraph, inputs MLNamedGPUResources, outputs MLNamedGPUResources)]) {
-	return fn.FromRef(
-		bindings.MLCommandEncoderDispatchFunc(
-			this.Ref(),
-		),
+// FuncDispatch returns the method "MLCommandEncoder.dispatch".
+func (this MLCommandEncoder) FuncDispatch() (fn js.Func[func(graph MLGraph, inputs MLNamedGPUResources, outputs MLNamedGPUResources)]) {
+	bindings.FuncMLCommandEncoderDispatch(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Dispatch calls the method "MLCommandEncoder.dispatch".
 func (this MLCommandEncoder) Dispatch(graph MLGraph, inputs MLNamedGPUResources, outputs MLNamedGPUResources) (ret js.Void) {
 	bindings.CallMLCommandEncoderDispatch(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		graph.Ref(),
 		inputs.Ref(),
 		outputs.Ref(),
@@ -102,7 +93,7 @@ func (this MLCommandEncoder) Dispatch(graph MLGraph, inputs MLNamedGPUResources,
 // the catch clause.
 func (this MLCommandEncoder) TryDispatch(graph MLGraph, inputs MLNamedGPUResources, outputs MLNamedGPUResources) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLCommandEncoderDispatch(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		graph.Ref(),
 		inputs.Ref(),
 		outputs.Ref(),
@@ -111,26 +102,25 @@ func (this MLCommandEncoder) TryDispatch(graph MLGraph, inputs MLNamedGPUResourc
 	return
 }
 
-// HasFinish returns true if the method "MLCommandEncoder.finish" exists.
-func (this MLCommandEncoder) HasFinish() bool {
-	return js.True == bindings.HasMLCommandEncoderFinish(
-		this.Ref(),
+// HasFuncFinish returns true if the method "MLCommandEncoder.finish" exists.
+func (this MLCommandEncoder) HasFuncFinish() bool {
+	return js.True == bindings.HasFuncMLCommandEncoderFinish(
+		this.ref,
 	)
 }
 
-// FinishFunc returns the method "MLCommandEncoder.finish".
-func (this MLCommandEncoder) FinishFunc() (fn js.Func[func(descriptor GPUCommandBufferDescriptor) GPUCommandBuffer]) {
-	return fn.FromRef(
-		bindings.MLCommandEncoderFinishFunc(
-			this.Ref(),
-		),
+// FuncFinish returns the method "MLCommandEncoder.finish".
+func (this MLCommandEncoder) FuncFinish() (fn js.Func[func(descriptor GPUCommandBufferDescriptor) GPUCommandBuffer]) {
+	bindings.FuncMLCommandEncoderFinish(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Finish calls the method "MLCommandEncoder.finish".
 func (this MLCommandEncoder) Finish(descriptor GPUCommandBufferDescriptor) (ret GPUCommandBuffer) {
 	bindings.CallMLCommandEncoderFinish(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&descriptor),
 	)
 
@@ -142,33 +132,32 @@ func (this MLCommandEncoder) Finish(descriptor GPUCommandBufferDescriptor) (ret 
 // the catch clause.
 func (this MLCommandEncoder) TryFinish(descriptor GPUCommandBufferDescriptor) (ret GPUCommandBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLCommandEncoderFinish(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&descriptor),
 	)
 
 	return
 }
 
-// HasFinish1 returns true if the method "MLCommandEncoder.finish" exists.
-func (this MLCommandEncoder) HasFinish1() bool {
-	return js.True == bindings.HasMLCommandEncoderFinish1(
-		this.Ref(),
+// HasFuncFinish1 returns true if the method "MLCommandEncoder.finish" exists.
+func (this MLCommandEncoder) HasFuncFinish1() bool {
+	return js.True == bindings.HasFuncMLCommandEncoderFinish1(
+		this.ref,
 	)
 }
 
-// Finish1Func returns the method "MLCommandEncoder.finish".
-func (this MLCommandEncoder) Finish1Func() (fn js.Func[func() GPUCommandBuffer]) {
-	return fn.FromRef(
-		bindings.MLCommandEncoderFinish1Func(
-			this.Ref(),
-		),
+// FuncFinish1 returns the method "MLCommandEncoder.finish".
+func (this MLCommandEncoder) FuncFinish1() (fn js.Func[func() GPUCommandBuffer]) {
+	bindings.FuncMLCommandEncoderFinish1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Finish1 calls the method "MLCommandEncoder.finish".
 func (this MLCommandEncoder) Finish1() (ret GPUCommandBuffer) {
 	bindings.CallMLCommandEncoderFinish1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -179,32 +168,31 @@ func (this MLCommandEncoder) Finish1() (ret GPUCommandBuffer) {
 // the catch clause.
 func (this MLCommandEncoder) TryFinish1() (ret GPUCommandBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLCommandEncoderFinish1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasInitializeGraph returns true if the method "MLCommandEncoder.initializeGraph" exists.
-func (this MLCommandEncoder) HasInitializeGraph() bool {
-	return js.True == bindings.HasMLCommandEncoderInitializeGraph(
-		this.Ref(),
+// HasFuncInitializeGraph returns true if the method "MLCommandEncoder.initializeGraph" exists.
+func (this MLCommandEncoder) HasFuncInitializeGraph() bool {
+	return js.True == bindings.HasFuncMLCommandEncoderInitializeGraph(
+		this.ref,
 	)
 }
 
-// InitializeGraphFunc returns the method "MLCommandEncoder.initializeGraph".
-func (this MLCommandEncoder) InitializeGraphFunc() (fn js.Func[func(graph MLGraph)]) {
-	return fn.FromRef(
-		bindings.MLCommandEncoderInitializeGraphFunc(
-			this.Ref(),
-		),
+// FuncInitializeGraph returns the method "MLCommandEncoder.initializeGraph".
+func (this MLCommandEncoder) FuncInitializeGraph() (fn js.Func[func(graph MLGraph)]) {
+	bindings.FuncMLCommandEncoderInitializeGraph(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InitializeGraph calls the method "MLCommandEncoder.initializeGraph".
 func (this MLCommandEncoder) InitializeGraph(graph MLGraph) (ret js.Void) {
 	bindings.CallMLCommandEncoderInitializeGraph(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		graph.Ref(),
 	)
 
@@ -216,7 +204,7 @@ func (this MLCommandEncoder) InitializeGraph(graph MLGraph) (ret js.Void) {
 // the catch clause.
 func (this MLCommandEncoder) TryInitializeGraph(graph MLGraph) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLCommandEncoderInitializeGraph(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		graph.Ref(),
 	)
 
@@ -228,7 +216,7 @@ type MLContext struct {
 }
 
 func (this MLContext) Once() MLContext {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -242,29 +230,28 @@ func (this MLContext) FromRef(ref js.Ref) MLContext {
 }
 
 func (this MLContext) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasCompute returns true if the method "MLContext.compute" exists.
-func (this MLContext) HasCompute() bool {
-	return js.True == bindings.HasMLContextCompute(
-		this.Ref(),
+// HasFuncCompute returns true if the method "MLContext.compute" exists.
+func (this MLContext) HasFuncCompute() bool {
+	return js.True == bindings.HasFuncMLContextCompute(
+		this.ref,
 	)
 }
 
-// ComputeFunc returns the method "MLContext.compute".
-func (this MLContext) ComputeFunc() (fn js.Func[func(graph MLGraph, inputs MLNamedArrayBufferViews, outputs MLNamedArrayBufferViews) js.Promise[MLComputeResult]]) {
-	return fn.FromRef(
-		bindings.MLContextComputeFunc(
-			this.Ref(),
-		),
+// FuncCompute returns the method "MLContext.compute".
+func (this MLContext) FuncCompute() (fn js.Func[func(graph MLGraph, inputs MLNamedArrayBufferViews, outputs MLNamedArrayBufferViews) js.Promise[MLComputeResult]]) {
+	bindings.FuncMLContextCompute(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Compute calls the method "MLContext.compute".
 func (this MLContext) Compute(graph MLGraph, inputs MLNamedArrayBufferViews, outputs MLNamedArrayBufferViews) (ret js.Promise[MLComputeResult]) {
 	bindings.CallMLContextCompute(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		graph.Ref(),
 		inputs.Ref(),
 		outputs.Ref(),
@@ -278,7 +265,7 @@ func (this MLContext) Compute(graph MLGraph, inputs MLNamedArrayBufferViews, out
 // the catch clause.
 func (this MLContext) TryCompute(graph MLGraph, inputs MLNamedArrayBufferViews, outputs MLNamedArrayBufferViews) (ret js.Promise[MLComputeResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLContextCompute(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		graph.Ref(),
 		inputs.Ref(),
 		outputs.Ref(),
@@ -287,26 +274,25 @@ func (this MLContext) TryCompute(graph MLGraph, inputs MLNamedArrayBufferViews, 
 	return
 }
 
-// HasComputeSync returns true if the method "MLContext.computeSync" exists.
-func (this MLContext) HasComputeSync() bool {
-	return js.True == bindings.HasMLContextComputeSync(
-		this.Ref(),
+// HasFuncComputeSync returns true if the method "MLContext.computeSync" exists.
+func (this MLContext) HasFuncComputeSync() bool {
+	return js.True == bindings.HasFuncMLContextComputeSync(
+		this.ref,
 	)
 }
 
-// ComputeSyncFunc returns the method "MLContext.computeSync".
-func (this MLContext) ComputeSyncFunc() (fn js.Func[func(graph MLGraph, inputs MLNamedArrayBufferViews, outputs MLNamedArrayBufferViews)]) {
-	return fn.FromRef(
-		bindings.MLContextComputeSyncFunc(
-			this.Ref(),
-		),
+// FuncComputeSync returns the method "MLContext.computeSync".
+func (this MLContext) FuncComputeSync() (fn js.Func[func(graph MLGraph, inputs MLNamedArrayBufferViews, outputs MLNamedArrayBufferViews)]) {
+	bindings.FuncMLContextComputeSync(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ComputeSync calls the method "MLContext.computeSync".
 func (this MLContext) ComputeSync(graph MLGraph, inputs MLNamedArrayBufferViews, outputs MLNamedArrayBufferViews) (ret js.Void) {
 	bindings.CallMLContextComputeSync(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		graph.Ref(),
 		inputs.Ref(),
 		outputs.Ref(),
@@ -320,7 +306,7 @@ func (this MLContext) ComputeSync(graph MLGraph, inputs MLNamedArrayBufferViews,
 // the catch clause.
 func (this MLContext) TryComputeSync(graph MLGraph, inputs MLNamedArrayBufferViews, outputs MLNamedArrayBufferViews) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLContextComputeSync(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		graph.Ref(),
 		inputs.Ref(),
 		outputs.Ref(),
@@ -329,26 +315,25 @@ func (this MLContext) TryComputeSync(graph MLGraph, inputs MLNamedArrayBufferVie
 	return
 }
 
-// HasCreateCommandEncoder returns true if the method "MLContext.createCommandEncoder" exists.
-func (this MLContext) HasCreateCommandEncoder() bool {
-	return js.True == bindings.HasMLContextCreateCommandEncoder(
-		this.Ref(),
+// HasFuncCreateCommandEncoder returns true if the method "MLContext.createCommandEncoder" exists.
+func (this MLContext) HasFuncCreateCommandEncoder() bool {
+	return js.True == bindings.HasFuncMLContextCreateCommandEncoder(
+		this.ref,
 	)
 }
 
-// CreateCommandEncoderFunc returns the method "MLContext.createCommandEncoder".
-func (this MLContext) CreateCommandEncoderFunc() (fn js.Func[func() MLCommandEncoder]) {
-	return fn.FromRef(
-		bindings.MLContextCreateCommandEncoderFunc(
-			this.Ref(),
-		),
+// FuncCreateCommandEncoder returns the method "MLContext.createCommandEncoder".
+func (this MLContext) FuncCreateCommandEncoder() (fn js.Func[func() MLCommandEncoder]) {
+	bindings.FuncMLContextCreateCommandEncoder(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateCommandEncoder calls the method "MLContext.createCommandEncoder".
 func (this MLContext) CreateCommandEncoder() (ret MLCommandEncoder) {
 	bindings.CallMLContextCreateCommandEncoder(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -359,7 +344,7 @@ func (this MLContext) CreateCommandEncoder() (ret MLCommandEncoder) {
 // the catch clause.
 func (this MLContext) TryCreateCommandEncoder() (ret MLCommandEncoder, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLContextCreateCommandEncoder(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -443,17 +428,22 @@ func (p MLContextOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLContextOptions) UpdateFrom(ref js.Ref) {
+func (p *MLContextOptions) UpdateFrom(ref js.Ref) {
 	bindings.MLContextOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLContextOptions) Update(ref js.Ref) {
+func (p *MLContextOptions) Update(ref js.Ref) {
 	bindings.MLContextOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLContextOptions) FreeMembers(recursive bool) {
 }
 
 type ML struct {
@@ -461,7 +451,7 @@ type ML struct {
 }
 
 func (this ML) Once() ML {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -475,29 +465,28 @@ func (this ML) FromRef(ref js.Ref) ML {
 }
 
 func (this ML) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasCreateContext returns true if the method "ML.createContext" exists.
-func (this ML) HasCreateContext() bool {
-	return js.True == bindings.HasMLCreateContext(
-		this.Ref(),
+// HasFuncCreateContext returns true if the method "ML.createContext" exists.
+func (this ML) HasFuncCreateContext() bool {
+	return js.True == bindings.HasFuncMLCreateContext(
+		this.ref,
 	)
 }
 
-// CreateContextFunc returns the method "ML.createContext".
-func (this ML) CreateContextFunc() (fn js.Func[func(options MLContextOptions) js.Promise[MLContext]]) {
-	return fn.FromRef(
-		bindings.MLCreateContextFunc(
-			this.Ref(),
-		),
+// FuncCreateContext returns the method "ML.createContext".
+func (this ML) FuncCreateContext() (fn js.Func[func(options MLContextOptions) js.Promise[MLContext]]) {
+	bindings.FuncMLCreateContext(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateContext calls the method "ML.createContext".
 func (this ML) CreateContext(options MLContextOptions) (ret js.Promise[MLContext]) {
 	bindings.CallMLCreateContext(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -509,33 +498,32 @@ func (this ML) CreateContext(options MLContextOptions) (ret js.Promise[MLContext
 // the catch clause.
 func (this ML) TryCreateContext(options MLContextOptions) (ret js.Promise[MLContext], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLCreateContext(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasCreateContext1 returns true if the method "ML.createContext" exists.
-func (this ML) HasCreateContext1() bool {
-	return js.True == bindings.HasMLCreateContext1(
-		this.Ref(),
+// HasFuncCreateContext1 returns true if the method "ML.createContext" exists.
+func (this ML) HasFuncCreateContext1() bool {
+	return js.True == bindings.HasFuncMLCreateContext1(
+		this.ref,
 	)
 }
 
-// CreateContext1Func returns the method "ML.createContext".
-func (this ML) CreateContext1Func() (fn js.Func[func() js.Promise[MLContext]]) {
-	return fn.FromRef(
-		bindings.MLCreateContext1Func(
-			this.Ref(),
-		),
+// FuncCreateContext1 returns the method "ML.createContext".
+func (this ML) FuncCreateContext1() (fn js.Func[func() js.Promise[MLContext]]) {
+	bindings.FuncMLCreateContext1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateContext1 calls the method "ML.createContext".
 func (this ML) CreateContext1() (ret js.Promise[MLContext]) {
 	bindings.CallMLCreateContext1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -546,32 +534,31 @@ func (this ML) CreateContext1() (ret js.Promise[MLContext]) {
 // the catch clause.
 func (this ML) TryCreateContext1() (ret js.Promise[MLContext], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLCreateContext1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCreateContext2 returns true if the method "ML.createContext" exists.
-func (this ML) HasCreateContext2() bool {
-	return js.True == bindings.HasMLCreateContext2(
-		this.Ref(),
+// HasFuncCreateContext2 returns true if the method "ML.createContext" exists.
+func (this ML) HasFuncCreateContext2() bool {
+	return js.True == bindings.HasFuncMLCreateContext2(
+		this.ref,
 	)
 }
 
-// CreateContext2Func returns the method "ML.createContext".
-func (this ML) CreateContext2Func() (fn js.Func[func(gpuDevice GPUDevice) js.Promise[MLContext]]) {
-	return fn.FromRef(
-		bindings.MLCreateContext2Func(
-			this.Ref(),
-		),
+// FuncCreateContext2 returns the method "ML.createContext".
+func (this ML) FuncCreateContext2() (fn js.Func[func(gpuDevice GPUDevice) js.Promise[MLContext]]) {
+	bindings.FuncMLCreateContext2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateContext2 calls the method "ML.createContext".
 func (this ML) CreateContext2(gpuDevice GPUDevice) (ret js.Promise[MLContext]) {
 	bindings.CallMLCreateContext2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		gpuDevice.Ref(),
 	)
 
@@ -583,33 +570,32 @@ func (this ML) CreateContext2(gpuDevice GPUDevice) (ret js.Promise[MLContext]) {
 // the catch clause.
 func (this ML) TryCreateContext2(gpuDevice GPUDevice) (ret js.Promise[MLContext], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLCreateContext2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		gpuDevice.Ref(),
 	)
 
 	return
 }
 
-// HasCreateContextSync returns true if the method "ML.createContextSync" exists.
-func (this ML) HasCreateContextSync() bool {
-	return js.True == bindings.HasMLCreateContextSync(
-		this.Ref(),
+// HasFuncCreateContextSync returns true if the method "ML.createContextSync" exists.
+func (this ML) HasFuncCreateContextSync() bool {
+	return js.True == bindings.HasFuncMLCreateContextSync(
+		this.ref,
 	)
 }
 
-// CreateContextSyncFunc returns the method "ML.createContextSync".
-func (this ML) CreateContextSyncFunc() (fn js.Func[func(options MLContextOptions) MLContext]) {
-	return fn.FromRef(
-		bindings.MLCreateContextSyncFunc(
-			this.Ref(),
-		),
+// FuncCreateContextSync returns the method "ML.createContextSync".
+func (this ML) FuncCreateContextSync() (fn js.Func[func(options MLContextOptions) MLContext]) {
+	bindings.FuncMLCreateContextSync(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateContextSync calls the method "ML.createContextSync".
 func (this ML) CreateContextSync(options MLContextOptions) (ret MLContext) {
 	bindings.CallMLCreateContextSync(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -621,33 +607,32 @@ func (this ML) CreateContextSync(options MLContextOptions) (ret MLContext) {
 // the catch clause.
 func (this ML) TryCreateContextSync(options MLContextOptions) (ret MLContext, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLCreateContextSync(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasCreateContextSync1 returns true if the method "ML.createContextSync" exists.
-func (this ML) HasCreateContextSync1() bool {
-	return js.True == bindings.HasMLCreateContextSync1(
-		this.Ref(),
+// HasFuncCreateContextSync1 returns true if the method "ML.createContextSync" exists.
+func (this ML) HasFuncCreateContextSync1() bool {
+	return js.True == bindings.HasFuncMLCreateContextSync1(
+		this.ref,
 	)
 }
 
-// CreateContextSync1Func returns the method "ML.createContextSync".
-func (this ML) CreateContextSync1Func() (fn js.Func[func() MLContext]) {
-	return fn.FromRef(
-		bindings.MLCreateContextSync1Func(
-			this.Ref(),
-		),
+// FuncCreateContextSync1 returns the method "ML.createContextSync".
+func (this ML) FuncCreateContextSync1() (fn js.Func[func() MLContext]) {
+	bindings.FuncMLCreateContextSync1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateContextSync1 calls the method "ML.createContextSync".
 func (this ML) CreateContextSync1() (ret MLContext) {
 	bindings.CallMLCreateContextSync1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -658,32 +643,31 @@ func (this ML) CreateContextSync1() (ret MLContext) {
 // the catch clause.
 func (this ML) TryCreateContextSync1() (ret MLContext, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLCreateContextSync1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCreateContextSync2 returns true if the method "ML.createContextSync" exists.
-func (this ML) HasCreateContextSync2() bool {
-	return js.True == bindings.HasMLCreateContextSync2(
-		this.Ref(),
+// HasFuncCreateContextSync2 returns true if the method "ML.createContextSync" exists.
+func (this ML) HasFuncCreateContextSync2() bool {
+	return js.True == bindings.HasFuncMLCreateContextSync2(
+		this.ref,
 	)
 }
 
-// CreateContextSync2Func returns the method "ML.createContextSync".
-func (this ML) CreateContextSync2Func() (fn js.Func[func(gpuDevice GPUDevice) MLContext]) {
-	return fn.FromRef(
-		bindings.MLCreateContextSync2Func(
-			this.Ref(),
-		),
+// FuncCreateContextSync2 returns the method "ML.createContextSync".
+func (this ML) FuncCreateContextSync2() (fn js.Func[func(gpuDevice GPUDevice) MLContext]) {
+	bindings.FuncMLCreateContextSync2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateContextSync2 calls the method "ML.createContextSync".
 func (this ML) CreateContextSync2(gpuDevice GPUDevice) (ret MLContext) {
 	bindings.CallMLCreateContextSync2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		gpuDevice.Ref(),
 	)
 
@@ -695,7 +679,7 @@ func (this ML) CreateContextSync2(gpuDevice GPUDevice) (ret MLContext) {
 // the catch clause.
 func (this ML) TryCreateContextSync2(gpuDevice GPUDevice) (ret MLContext, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLCreateContextSync2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		gpuDevice.Ref(),
 	)
 
@@ -786,7 +770,7 @@ type NetworkInformation struct {
 }
 
 func (this NetworkInformation) Once() NetworkInformation {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -800,7 +784,7 @@ func (this NetworkInformation) FromRef(ref js.Ref) NetworkInformation {
 }
 
 func (this NetworkInformation) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Type returns the value of property "NetworkInformation.type".
@@ -808,7 +792,7 @@ func (this NetworkInformation) Free() {
 // It returns ok=false if there is no such property.
 func (this NetworkInformation) Type() (ret ConnectionType, ok bool) {
 	ok = js.True == bindings.GetNetworkInformationType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -818,7 +802,7 @@ func (this NetworkInformation) Type() (ret ConnectionType, ok bool) {
 // It returns ok=false if there is no such property.
 func (this NetworkInformation) EffectiveType() (ret EffectiveConnectionType, ok bool) {
 	ok = js.True == bindings.GetNetworkInformationEffectiveType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -828,7 +812,7 @@ func (this NetworkInformation) EffectiveType() (ret EffectiveConnectionType, ok 
 // It returns ok=false if there is no such property.
 func (this NetworkInformation) DownlinkMax() (ret Megabit, ok bool) {
 	ok = js.True == bindings.GetNetworkInformationDownlinkMax(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -838,7 +822,7 @@ func (this NetworkInformation) DownlinkMax() (ret Megabit, ok bool) {
 // It returns ok=false if there is no such property.
 func (this NetworkInformation) Downlink() (ret Megabit, ok bool) {
 	ok = js.True == bindings.GetNetworkInformationDownlink(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -848,7 +832,7 @@ func (this NetworkInformation) Downlink() (ret Megabit, ok bool) {
 // It returns ok=false if there is no such property.
 func (this NetworkInformation) Rtt() (ret Millisecond, ok bool) {
 	ok = js.True == bindings.GetNetworkInformationRtt(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -858,7 +842,7 @@ func (this NetworkInformation) Rtt() (ret Millisecond, ok bool) {
 // It returns ok=false if there is no such property.
 func (this NetworkInformation) SaveData() (ret bool, ok bool) {
 	ok = js.True == bindings.GetNetworkInformationSaveData(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -937,17 +921,26 @@ func (p GPUQueueDescriptor) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUQueueDescriptor) UpdateFrom(ref js.Ref) {
+func (p *GPUQueueDescriptor) UpdateFrom(ref js.Ref) {
 	bindings.GPUQueueDescriptorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUQueueDescriptor) Update(ref js.Ref) {
+func (p *GPUQueueDescriptor) Update(ref js.Ref) {
 	bindings.GPUQueueDescriptorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUQueueDescriptor) FreeMembers(recursive bool) {
+	js.Free(
+		p.Label.Ref(),
+	)
+	p.Label = p.Label.FromRef(js.Undefined)
 }
 
 type GPUDeviceDescriptor struct {
@@ -987,17 +980,33 @@ func (p GPUDeviceDescriptor) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUDeviceDescriptor) UpdateFrom(ref js.Ref) {
+func (p *GPUDeviceDescriptor) UpdateFrom(ref js.Ref) {
 	bindings.GPUDeviceDescriptorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUDeviceDescriptor) Update(ref js.Ref) {
+func (p *GPUDeviceDescriptor) Update(ref js.Ref) {
 	bindings.GPUDeviceDescriptorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUDeviceDescriptor) FreeMembers(recursive bool) {
+	js.Free(
+		p.RequiredFeatures.Ref(),
+		p.RequiredLimits.Ref(),
+		p.Label.Ref(),
+	)
+	p.RequiredFeatures = p.RequiredFeatures.FromRef(js.Undefined)
+	p.RequiredLimits = p.RequiredLimits.FromRef(js.Undefined)
+	p.Label = p.Label.FromRef(js.Undefined)
+	if recursive {
+		p.DefaultQueue.FreeMembers(true)
+	}
 }
 
 type GPUAdapterInfo struct {
@@ -1005,7 +1014,7 @@ type GPUAdapterInfo struct {
 }
 
 func (this GPUAdapterInfo) Once() GPUAdapterInfo {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1019,7 +1028,7 @@ func (this GPUAdapterInfo) FromRef(ref js.Ref) GPUAdapterInfo {
 }
 
 func (this GPUAdapterInfo) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Vendor returns the value of property "GPUAdapterInfo.vendor".
@@ -1027,7 +1036,7 @@ func (this GPUAdapterInfo) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUAdapterInfo) Vendor() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGPUAdapterInfoVendor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1037,7 +1046,7 @@ func (this GPUAdapterInfo) Vendor() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUAdapterInfo) Architecture() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGPUAdapterInfoArchitecture(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1047,7 +1056,7 @@ func (this GPUAdapterInfo) Architecture() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUAdapterInfo) Device() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGPUAdapterInfoDevice(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1057,7 +1066,7 @@ func (this GPUAdapterInfo) Device() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUAdapterInfo) Description() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGPUAdapterInfoDescription(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1067,7 +1076,7 @@ type GPUAdapter struct {
 }
 
 func (this GPUAdapter) Once() GPUAdapter {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1081,7 +1090,7 @@ func (this GPUAdapter) FromRef(ref js.Ref) GPUAdapter {
 }
 
 func (this GPUAdapter) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Features returns the value of property "GPUAdapter.features".
@@ -1089,7 +1098,7 @@ func (this GPUAdapter) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUAdapter) Features() (ret GPUSupportedFeatures, ok bool) {
 	ok = js.True == bindings.GetGPUAdapterFeatures(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1099,7 +1108,7 @@ func (this GPUAdapter) Features() (ret GPUSupportedFeatures, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUAdapter) Limits() (ret GPUSupportedLimits, ok bool) {
 	ok = js.True == bindings.GetGPUAdapterLimits(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1109,31 +1118,30 @@ func (this GPUAdapter) Limits() (ret GPUSupportedLimits, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUAdapter) IsFallbackAdapter() (ret bool, ok bool) {
 	ok = js.True == bindings.GetGPUAdapterIsFallbackAdapter(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasRequestDevice returns true if the method "GPUAdapter.requestDevice" exists.
-func (this GPUAdapter) HasRequestDevice() bool {
-	return js.True == bindings.HasGPUAdapterRequestDevice(
-		this.Ref(),
+// HasFuncRequestDevice returns true if the method "GPUAdapter.requestDevice" exists.
+func (this GPUAdapter) HasFuncRequestDevice() bool {
+	return js.True == bindings.HasFuncGPUAdapterRequestDevice(
+		this.ref,
 	)
 }
 
-// RequestDeviceFunc returns the method "GPUAdapter.requestDevice".
-func (this GPUAdapter) RequestDeviceFunc() (fn js.Func[func(descriptor GPUDeviceDescriptor) js.Promise[GPUDevice]]) {
-	return fn.FromRef(
-		bindings.GPUAdapterRequestDeviceFunc(
-			this.Ref(),
-		),
+// FuncRequestDevice returns the method "GPUAdapter.requestDevice".
+func (this GPUAdapter) FuncRequestDevice() (fn js.Func[func(descriptor GPUDeviceDescriptor) js.Promise[GPUDevice]]) {
+	bindings.FuncGPUAdapterRequestDevice(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RequestDevice calls the method "GPUAdapter.requestDevice".
 func (this GPUAdapter) RequestDevice(descriptor GPUDeviceDescriptor) (ret js.Promise[GPUDevice]) {
 	bindings.CallGPUAdapterRequestDevice(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&descriptor),
 	)
 
@@ -1145,33 +1153,32 @@ func (this GPUAdapter) RequestDevice(descriptor GPUDeviceDescriptor) (ret js.Pro
 // the catch clause.
 func (this GPUAdapter) TryRequestDevice(descriptor GPUDeviceDescriptor) (ret js.Promise[GPUDevice], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUAdapterRequestDevice(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&descriptor),
 	)
 
 	return
 }
 
-// HasRequestDevice1 returns true if the method "GPUAdapter.requestDevice" exists.
-func (this GPUAdapter) HasRequestDevice1() bool {
-	return js.True == bindings.HasGPUAdapterRequestDevice1(
-		this.Ref(),
+// HasFuncRequestDevice1 returns true if the method "GPUAdapter.requestDevice" exists.
+func (this GPUAdapter) HasFuncRequestDevice1() bool {
+	return js.True == bindings.HasFuncGPUAdapterRequestDevice1(
+		this.ref,
 	)
 }
 
-// RequestDevice1Func returns the method "GPUAdapter.requestDevice".
-func (this GPUAdapter) RequestDevice1Func() (fn js.Func[func() js.Promise[GPUDevice]]) {
-	return fn.FromRef(
-		bindings.GPUAdapterRequestDevice1Func(
-			this.Ref(),
-		),
+// FuncRequestDevice1 returns the method "GPUAdapter.requestDevice".
+func (this GPUAdapter) FuncRequestDevice1() (fn js.Func[func() js.Promise[GPUDevice]]) {
+	bindings.FuncGPUAdapterRequestDevice1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RequestDevice1 calls the method "GPUAdapter.requestDevice".
 func (this GPUAdapter) RequestDevice1() (ret js.Promise[GPUDevice]) {
 	bindings.CallGPUAdapterRequestDevice1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1182,32 +1189,31 @@ func (this GPUAdapter) RequestDevice1() (ret js.Promise[GPUDevice]) {
 // the catch clause.
 func (this GPUAdapter) TryRequestDevice1() (ret js.Promise[GPUDevice], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUAdapterRequestDevice1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasRequestAdapterInfo returns true if the method "GPUAdapter.requestAdapterInfo" exists.
-func (this GPUAdapter) HasRequestAdapterInfo() bool {
-	return js.True == bindings.HasGPUAdapterRequestAdapterInfo(
-		this.Ref(),
+// HasFuncRequestAdapterInfo returns true if the method "GPUAdapter.requestAdapterInfo" exists.
+func (this GPUAdapter) HasFuncRequestAdapterInfo() bool {
+	return js.True == bindings.HasFuncGPUAdapterRequestAdapterInfo(
+		this.ref,
 	)
 }
 
-// RequestAdapterInfoFunc returns the method "GPUAdapter.requestAdapterInfo".
-func (this GPUAdapter) RequestAdapterInfoFunc() (fn js.Func[func(unmaskHints js.Array[js.String]) js.Promise[GPUAdapterInfo]]) {
-	return fn.FromRef(
-		bindings.GPUAdapterRequestAdapterInfoFunc(
-			this.Ref(),
-		),
+// FuncRequestAdapterInfo returns the method "GPUAdapter.requestAdapterInfo".
+func (this GPUAdapter) FuncRequestAdapterInfo() (fn js.Func[func(unmaskHints js.Array[js.String]) js.Promise[GPUAdapterInfo]]) {
+	bindings.FuncGPUAdapterRequestAdapterInfo(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RequestAdapterInfo calls the method "GPUAdapter.requestAdapterInfo".
 func (this GPUAdapter) RequestAdapterInfo(unmaskHints js.Array[js.String]) (ret js.Promise[GPUAdapterInfo]) {
 	bindings.CallGPUAdapterRequestAdapterInfo(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		unmaskHints.Ref(),
 	)
 
@@ -1219,33 +1225,32 @@ func (this GPUAdapter) RequestAdapterInfo(unmaskHints js.Array[js.String]) (ret 
 // the catch clause.
 func (this GPUAdapter) TryRequestAdapterInfo(unmaskHints js.Array[js.String]) (ret js.Promise[GPUAdapterInfo], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUAdapterRequestAdapterInfo(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		unmaskHints.Ref(),
 	)
 
 	return
 }
 
-// HasRequestAdapterInfo1 returns true if the method "GPUAdapter.requestAdapterInfo" exists.
-func (this GPUAdapter) HasRequestAdapterInfo1() bool {
-	return js.True == bindings.HasGPUAdapterRequestAdapterInfo1(
-		this.Ref(),
+// HasFuncRequestAdapterInfo1 returns true if the method "GPUAdapter.requestAdapterInfo" exists.
+func (this GPUAdapter) HasFuncRequestAdapterInfo1() bool {
+	return js.True == bindings.HasFuncGPUAdapterRequestAdapterInfo1(
+		this.ref,
 	)
 }
 
-// RequestAdapterInfo1Func returns the method "GPUAdapter.requestAdapterInfo".
-func (this GPUAdapter) RequestAdapterInfo1Func() (fn js.Func[func() js.Promise[GPUAdapterInfo]]) {
-	return fn.FromRef(
-		bindings.GPUAdapterRequestAdapterInfo1Func(
-			this.Ref(),
-		),
+// FuncRequestAdapterInfo1 returns the method "GPUAdapter.requestAdapterInfo".
+func (this GPUAdapter) FuncRequestAdapterInfo1() (fn js.Func[func() js.Promise[GPUAdapterInfo]]) {
+	bindings.FuncGPUAdapterRequestAdapterInfo1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RequestAdapterInfo1 calls the method "GPUAdapter.requestAdapterInfo".
 func (this GPUAdapter) RequestAdapterInfo1() (ret js.Promise[GPUAdapterInfo]) {
 	bindings.CallGPUAdapterRequestAdapterInfo1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1256,7 +1261,7 @@ func (this GPUAdapter) RequestAdapterInfo1() (ret js.Promise[GPUAdapterInfo]) {
 // the catch clause.
 func (this GPUAdapter) TryRequestAdapterInfo1() (ret js.Promise[GPUAdapterInfo], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUAdapterRequestAdapterInfo1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1317,17 +1322,22 @@ func (p GPURequestAdapterOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPURequestAdapterOptions) UpdateFrom(ref js.Ref) {
+func (p *GPURequestAdapterOptions) UpdateFrom(ref js.Ref) {
 	bindings.GPURequestAdapterOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPURequestAdapterOptions) Update(ref js.Ref) {
+func (p *GPURequestAdapterOptions) Update(ref js.Ref) {
 	bindings.GPURequestAdapterOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPURequestAdapterOptions) FreeMembers(recursive bool) {
 }
 
 type WGSLLanguageFeatures struct {
@@ -1335,7 +1345,7 @@ type WGSLLanguageFeatures struct {
 }
 
 func (this WGSLLanguageFeatures) Once() WGSLLanguageFeatures {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1349,7 +1359,7 @@ func (this WGSLLanguageFeatures) FromRef(ref js.Ref) WGSLLanguageFeatures {
 }
 
 func (this WGSLLanguageFeatures) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type GPU struct {
@@ -1357,7 +1367,7 @@ type GPU struct {
 }
 
 func (this GPU) Once() GPU {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1371,7 +1381,7 @@ func (this GPU) FromRef(ref js.Ref) GPU {
 }
 
 func (this GPU) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // WgslLanguageFeatures returns the value of property "GPU.wgslLanguageFeatures".
@@ -1379,31 +1389,30 @@ func (this GPU) Free() {
 // It returns ok=false if there is no such property.
 func (this GPU) WgslLanguageFeatures() (ret WGSLLanguageFeatures, ok bool) {
 	ok = js.True == bindings.GetGPUWgslLanguageFeatures(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasRequestAdapter returns true if the method "GPU.requestAdapter" exists.
-func (this GPU) HasRequestAdapter() bool {
-	return js.True == bindings.HasGPURequestAdapter(
-		this.Ref(),
+// HasFuncRequestAdapter returns true if the method "GPU.requestAdapter" exists.
+func (this GPU) HasFuncRequestAdapter() bool {
+	return js.True == bindings.HasFuncGPURequestAdapter(
+		this.ref,
 	)
 }
 
-// RequestAdapterFunc returns the method "GPU.requestAdapter".
-func (this GPU) RequestAdapterFunc() (fn js.Func[func(options GPURequestAdapterOptions) js.Promise[GPUAdapter]]) {
-	return fn.FromRef(
-		bindings.GPURequestAdapterFunc(
-			this.Ref(),
-		),
+// FuncRequestAdapter returns the method "GPU.requestAdapter".
+func (this GPU) FuncRequestAdapter() (fn js.Func[func(options GPURequestAdapterOptions) js.Promise[GPUAdapter]]) {
+	bindings.FuncGPURequestAdapter(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RequestAdapter calls the method "GPU.requestAdapter".
 func (this GPU) RequestAdapter(options GPURequestAdapterOptions) (ret js.Promise[GPUAdapter]) {
 	bindings.CallGPURequestAdapter(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -1415,33 +1424,32 @@ func (this GPU) RequestAdapter(options GPURequestAdapterOptions) (ret js.Promise
 // the catch clause.
 func (this GPU) TryRequestAdapter(options GPURequestAdapterOptions) (ret js.Promise[GPUAdapter], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURequestAdapter(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasRequestAdapter1 returns true if the method "GPU.requestAdapter" exists.
-func (this GPU) HasRequestAdapter1() bool {
-	return js.True == bindings.HasGPURequestAdapter1(
-		this.Ref(),
+// HasFuncRequestAdapter1 returns true if the method "GPU.requestAdapter" exists.
+func (this GPU) HasFuncRequestAdapter1() bool {
+	return js.True == bindings.HasFuncGPURequestAdapter1(
+		this.ref,
 	)
 }
 
-// RequestAdapter1Func returns the method "GPU.requestAdapter".
-func (this GPU) RequestAdapter1Func() (fn js.Func[func() js.Promise[GPUAdapter]]) {
-	return fn.FromRef(
-		bindings.GPURequestAdapter1Func(
-			this.Ref(),
-		),
+// FuncRequestAdapter1 returns the method "GPU.requestAdapter".
+func (this GPU) FuncRequestAdapter1() (fn js.Func[func() js.Promise[GPUAdapter]]) {
+	bindings.FuncGPURequestAdapter1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RequestAdapter1 calls the method "GPU.requestAdapter".
 func (this GPU) RequestAdapter1() (ret js.Promise[GPUAdapter]) {
 	bindings.CallGPURequestAdapter1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1452,32 +1460,31 @@ func (this GPU) RequestAdapter1() (ret js.Promise[GPUAdapter]) {
 // the catch clause.
 func (this GPU) TryRequestAdapter1() (ret js.Promise[GPUAdapter], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURequestAdapter1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetPreferredCanvasFormat returns true if the method "GPU.getPreferredCanvasFormat" exists.
-func (this GPU) HasGetPreferredCanvasFormat() bool {
-	return js.True == bindings.HasGPUGetPreferredCanvasFormat(
-		this.Ref(),
+// HasFuncGetPreferredCanvasFormat returns true if the method "GPU.getPreferredCanvasFormat" exists.
+func (this GPU) HasFuncGetPreferredCanvasFormat() bool {
+	return js.True == bindings.HasFuncGPUGetPreferredCanvasFormat(
+		this.ref,
 	)
 }
 
-// GetPreferredCanvasFormatFunc returns the method "GPU.getPreferredCanvasFormat".
-func (this GPU) GetPreferredCanvasFormatFunc() (fn js.Func[func() GPUTextureFormat]) {
-	return fn.FromRef(
-		bindings.GPUGetPreferredCanvasFormatFunc(
-			this.Ref(),
-		),
+// FuncGetPreferredCanvasFormat returns the method "GPU.getPreferredCanvasFormat".
+func (this GPU) FuncGetPreferredCanvasFormat() (fn js.Func[func() GPUTextureFormat]) {
+	bindings.FuncGPUGetPreferredCanvasFormat(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetPreferredCanvasFormat calls the method "GPU.getPreferredCanvasFormat".
 func (this GPU) GetPreferredCanvasFormat() (ret GPUTextureFormat) {
 	bindings.CallGPUGetPreferredCanvasFormat(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1488,7 +1495,7 @@ func (this GPU) GetPreferredCanvasFormat() (ret GPUTextureFormat) {
 // the catch clause.
 func (this GPU) TryGetPreferredCanvasFormat() (ret GPUTextureFormat, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUGetPreferredCanvasFormat(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1499,7 +1506,7 @@ type Navigator struct {
 }
 
 func (this Navigator) Once() Navigator {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1513,7 +1520,7 @@ func (this Navigator) FromRef(ref js.Ref) Navigator {
 }
 
 func (this Navigator) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Hid returns the value of property "Navigator.hid".
@@ -1521,7 +1528,7 @@ func (this Navigator) Free() {
 // It returns ok=false if there is no such property.
 func (this Navigator) Hid() (ret HID, ok bool) {
 	ok = js.True == bindings.GetNavigatorHid(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1531,7 +1538,7 @@ func (this Navigator) Hid() (ret HID, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) WindowControlsOverlay() (ret WindowControlsOverlay, ok bool) {
 	ok = js.True == bindings.GetNavigatorWindowControlsOverlay(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1541,7 +1548,7 @@ func (this Navigator) WindowControlsOverlay() (ret WindowControlsOverlay, ok boo
 // It returns ok=false if there is no such property.
 func (this Navigator) Credentials() (ret CredentialsContainer, ok bool) {
 	ok = js.True == bindings.GetNavigatorCredentials(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1551,7 +1558,7 @@ func (this Navigator) Credentials() (ret CredentialsContainer, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Clipboard() (ret Clipboard, ok bool) {
 	ok = js.True == bindings.GetNavigatorClipboard(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1561,7 +1568,7 @@ func (this Navigator) Clipboard() (ret Clipboard, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Geolocation() (ret Geolocation, ok bool) {
 	ok = js.True == bindings.GetNavigatorGeolocation(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1571,7 +1578,7 @@ func (this Navigator) Geolocation() (ret Geolocation, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Usb() (ret USB, ok bool) {
 	ok = js.True == bindings.GetNavigatorUsb(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1581,7 +1588,7 @@ func (this Navigator) Usb() (ret USB, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) EpubReadingSystem() (ret EpubReadingSystem, ok bool) {
 	ok = js.True == bindings.GetNavigatorEpubReadingSystem(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1591,7 +1598,7 @@ func (this Navigator) EpubReadingSystem() (ret EpubReadingSystem, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Xr() (ret XRSystem, ok bool) {
 	ok = js.True == bindings.GetNavigatorXr(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1601,7 +1608,7 @@ func (this Navigator) Xr() (ret XRSystem, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) ServiceWorker() (ret ServiceWorkerContainer, ok bool) {
 	ok = js.True == bindings.GetNavigatorServiceWorker(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1611,7 +1618,7 @@ func (this Navigator) ServiceWorker() (ret ServiceWorkerContainer, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) MediaDevices() (ret MediaDevices, ok bool) {
 	ok = js.True == bindings.GetNavigatorMediaDevices(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1621,7 +1628,7 @@ func (this Navigator) MediaDevices() (ret MediaDevices, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Bluetooth() (ret Bluetooth, ok bool) {
 	ok = js.True == bindings.GetNavigatorBluetooth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1631,7 +1638,7 @@ func (this Navigator) Bluetooth() (ret Bluetooth, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Serial() (ret Serial, ok bool) {
 	ok = js.True == bindings.GetNavigatorSerial(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1641,7 +1648,7 @@ func (this Navigator) Serial() (ret Serial, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) MediaCapabilities() (ret MediaCapabilities, ok bool) {
 	ok = js.True == bindings.GetNavigatorMediaCapabilities(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1651,7 +1658,7 @@ func (this Navigator) MediaCapabilities() (ret MediaCapabilities, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) UserActivation() (ret UserActivation, ok bool) {
 	ok = js.True == bindings.GetNavigatorUserActivation(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1661,7 +1668,7 @@ func (this Navigator) UserActivation() (ret UserActivation, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Permissions() (ret Permissions, ok bool) {
 	ok = js.True == bindings.GetNavigatorPermissions(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1671,7 +1678,7 @@ func (this Navigator) Permissions() (ret Permissions, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Contacts() (ret ContactsManager, ok bool) {
 	ok = js.True == bindings.GetNavigatorContacts(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1681,7 +1688,7 @@ func (this Navigator) Contacts() (ret ContactsManager, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Keyboard() (ret Keyboard, ok bool) {
 	ok = js.True == bindings.GetNavigatorKeyboard(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1691,7 +1698,7 @@ func (this Navigator) Keyboard() (ret Keyboard, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) MediaSession() (ret MediaSession, ok bool) {
 	ok = js.True == bindings.GetNavigatorMediaSession(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1701,7 +1708,7 @@ func (this Navigator) MediaSession() (ret MediaSession, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) DevicePosture() (ret DevicePosture, ok bool) {
 	ok = js.True == bindings.GetNavigatorDevicePosture(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1711,7 +1718,7 @@ func (this Navigator) DevicePosture() (ret DevicePosture, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) MaxTouchPoints() (ret int32, ok bool) {
 	ok = js.True == bindings.GetNavigatorMaxTouchPoints(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1721,7 +1728,7 @@ func (this Navigator) MaxTouchPoints() (ret int32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Scheduling() (ret Scheduling, ok bool) {
 	ok = js.True == bindings.GetNavigatorScheduling(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1731,7 +1738,7 @@ func (this Navigator) Scheduling() (ret Scheduling, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) WakeLock() (ret WakeLock, ok bool) {
 	ok = js.True == bindings.GetNavigatorWakeLock(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1741,7 +1748,7 @@ func (this Navigator) WakeLock() (ret WakeLock, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Ink() (ret Ink, ok bool) {
 	ok = js.True == bindings.GetNavigatorInk(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1751,7 +1758,7 @@ func (this Navigator) Ink() (ret Ink, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Presentation() (ret Presentation, ok bool) {
 	ok = js.True == bindings.GetNavigatorPresentation(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1761,7 +1768,7 @@ func (this Navigator) Presentation() (ret Presentation, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) VirtualKeyboard() (ret VirtualKeyboard, ok bool) {
 	ok = js.True == bindings.GetNavigatorVirtualKeyboard(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1771,7 +1778,7 @@ func (this Navigator) VirtualKeyboard() (ret VirtualKeyboard, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) UserAgentData() (ret NavigatorUAData, ok bool) {
 	ok = js.True == bindings.GetNavigatorUserAgentData(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1781,7 +1788,7 @@ func (this Navigator) UserAgentData() (ret NavigatorUAData, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) HardwareConcurrency() (ret uint64, ok bool) {
 	ok = js.True == bindings.GetNavigatorHardwareConcurrency(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1791,7 +1798,7 @@ func (this Navigator) HardwareConcurrency() (ret uint64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) DeviceMemory() (ret float64, ok bool) {
 	ok = js.True == bindings.GetNavigatorDeviceMemory(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1801,7 +1808,7 @@ func (this Navigator) DeviceMemory() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Storage() (ret StorageManager, ok bool) {
 	ok = js.True == bindings.GetNavigatorStorage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1811,7 +1818,7 @@ func (this Navigator) Storage() (ret StorageManager, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) StorageBuckets() (ret StorageBucketManager, ok bool) {
 	ok = js.True == bindings.GetNavigatorStorageBuckets(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1821,7 +1828,7 @@ func (this Navigator) StorageBuckets() (ret StorageBucketManager, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Locks() (ret LockManager, ok bool) {
 	ok = js.True == bindings.GetNavigatorLocks(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1831,7 +1838,7 @@ func (this Navigator) Locks() (ret LockManager, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) AppCodeName() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetNavigatorAppCodeName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1841,7 +1848,7 @@ func (this Navigator) AppCodeName() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) AppName() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetNavigatorAppName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1851,7 +1858,7 @@ func (this Navigator) AppName() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) AppVersion() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetNavigatorAppVersion(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1861,7 +1868,7 @@ func (this Navigator) AppVersion() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Platform() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetNavigatorPlatform(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1871,7 +1878,7 @@ func (this Navigator) Platform() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Product() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetNavigatorProduct(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1881,7 +1888,7 @@ func (this Navigator) Product() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) ProductSub() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetNavigatorProductSub(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1891,7 +1898,7 @@ func (this Navigator) ProductSub() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) UserAgent() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetNavigatorUserAgent(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1901,7 +1908,7 @@ func (this Navigator) UserAgent() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Vendor() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetNavigatorVendor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1911,7 +1918,7 @@ func (this Navigator) Vendor() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) VendorSub() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetNavigatorVendorSub(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1921,7 +1928,7 @@ func (this Navigator) VendorSub() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Oscpu() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetNavigatorOscpu(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1931,7 +1938,7 @@ func (this Navigator) Oscpu() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Language() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetNavigatorLanguage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1941,7 +1948,7 @@ func (this Navigator) Language() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Languages() (ret js.FrozenArray[js.String], ok bool) {
 	ok = js.True == bindings.GetNavigatorLanguages(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1951,7 +1958,7 @@ func (this Navigator) Languages() (ret js.FrozenArray[js.String], ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) OnLine() (ret bool, ok bool) {
 	ok = js.True == bindings.GetNavigatorOnLine(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1961,7 +1968,7 @@ func (this Navigator) OnLine() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) CookieEnabled() (ret bool, ok bool) {
 	ok = js.True == bindings.GetNavigatorCookieEnabled(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1971,7 +1978,7 @@ func (this Navigator) CookieEnabled() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Plugins() (ret PluginArray, ok bool) {
 	ok = js.True == bindings.GetNavigatorPlugins(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1981,7 +1988,7 @@ func (this Navigator) Plugins() (ret PluginArray, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) MimeTypes() (ret MimeTypeArray, ok bool) {
 	ok = js.True == bindings.GetNavigatorMimeTypes(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1991,7 +1998,7 @@ func (this Navigator) MimeTypes() (ret MimeTypeArray, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) PdfViewerEnabled() (ret bool, ok bool) {
 	ok = js.True == bindings.GetNavigatorPdfViewerEnabled(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2001,7 +2008,7 @@ func (this Navigator) PdfViewerEnabled() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Webdriver() (ret bool, ok bool) {
 	ok = js.True == bindings.GetNavigatorWebdriver(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2011,7 +2018,7 @@ func (this Navigator) Webdriver() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Ml() (ret ML, ok bool) {
 	ok = js.True == bindings.GetNavigatorMl(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2021,7 +2028,7 @@ func (this Navigator) Ml() (ret ML, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Connection() (ret NetworkInformation, ok bool) {
 	ok = js.True == bindings.GetNavigatorConnection(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2031,31 +2038,30 @@ func (this Navigator) Connection() (ret NetworkInformation, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigator) Gpu() (ret GPU, ok bool) {
 	ok = js.True == bindings.GetNavigatorGpu(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasUpdateAdInterestGroups returns true if the method "Navigator.updateAdInterestGroups" exists.
-func (this Navigator) HasUpdateAdInterestGroups() bool {
-	return js.True == bindings.HasNavigatorUpdateAdInterestGroups(
-		this.Ref(),
+// HasFuncUpdateAdInterestGroups returns true if the method "Navigator.updateAdInterestGroups" exists.
+func (this Navigator) HasFuncUpdateAdInterestGroups() bool {
+	return js.True == bindings.HasFuncNavigatorUpdateAdInterestGroups(
+		this.ref,
 	)
 }
 
-// UpdateAdInterestGroupsFunc returns the method "Navigator.updateAdInterestGroups".
-func (this Navigator) UpdateAdInterestGroupsFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.NavigatorUpdateAdInterestGroupsFunc(
-			this.Ref(),
-		),
+// FuncUpdateAdInterestGroups returns the method "Navigator.updateAdInterestGroups".
+func (this Navigator) FuncUpdateAdInterestGroups() (fn js.Func[func()]) {
+	bindings.FuncNavigatorUpdateAdInterestGroups(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UpdateAdInterestGroups calls the method "Navigator.updateAdInterestGroups".
 func (this Navigator) UpdateAdInterestGroups() (ret js.Void) {
 	bindings.CallNavigatorUpdateAdInterestGroups(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2066,32 +2072,31 @@ func (this Navigator) UpdateAdInterestGroups() (ret js.Void) {
 // the catch clause.
 func (this Navigator) TryUpdateAdInterestGroups() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorUpdateAdInterestGroups(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSendBeacon returns true if the method "Navigator.sendBeacon" exists.
-func (this Navigator) HasSendBeacon() bool {
-	return js.True == bindings.HasNavigatorSendBeacon(
-		this.Ref(),
+// HasFuncSendBeacon returns true if the method "Navigator.sendBeacon" exists.
+func (this Navigator) HasFuncSendBeacon() bool {
+	return js.True == bindings.HasFuncNavigatorSendBeacon(
+		this.ref,
 	)
 }
 
-// SendBeaconFunc returns the method "Navigator.sendBeacon".
-func (this Navigator) SendBeaconFunc() (fn js.Func[func(url js.String, data BodyInit) bool]) {
-	return fn.FromRef(
-		bindings.NavigatorSendBeaconFunc(
-			this.Ref(),
-		),
+// FuncSendBeacon returns the method "Navigator.sendBeacon".
+func (this Navigator) FuncSendBeacon() (fn js.Func[func(url js.String, data BodyInit) bool]) {
+	bindings.FuncNavigatorSendBeacon(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SendBeacon calls the method "Navigator.sendBeacon".
 func (this Navigator) SendBeacon(url js.String, data BodyInit) (ret bool) {
 	bindings.CallNavigatorSendBeacon(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		url.Ref(),
 		data.Ref(),
 	)
@@ -2104,7 +2109,7 @@ func (this Navigator) SendBeacon(url js.String, data BodyInit) (ret bool) {
 // the catch clause.
 func (this Navigator) TrySendBeacon(url js.String, data BodyInit) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorSendBeacon(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		url.Ref(),
 		data.Ref(),
 	)
@@ -2112,26 +2117,25 @@ func (this Navigator) TrySendBeacon(url js.String, data BodyInit) (ret bool, exc
 	return
 }
 
-// HasSendBeacon1 returns true if the method "Navigator.sendBeacon" exists.
-func (this Navigator) HasSendBeacon1() bool {
-	return js.True == bindings.HasNavigatorSendBeacon1(
-		this.Ref(),
+// HasFuncSendBeacon1 returns true if the method "Navigator.sendBeacon" exists.
+func (this Navigator) HasFuncSendBeacon1() bool {
+	return js.True == bindings.HasFuncNavigatorSendBeacon1(
+		this.ref,
 	)
 }
 
-// SendBeacon1Func returns the method "Navigator.sendBeacon".
-func (this Navigator) SendBeacon1Func() (fn js.Func[func(url js.String) bool]) {
-	return fn.FromRef(
-		bindings.NavigatorSendBeacon1Func(
-			this.Ref(),
-		),
+// FuncSendBeacon1 returns the method "Navigator.sendBeacon".
+func (this Navigator) FuncSendBeacon1() (fn js.Func[func(url js.String) bool]) {
+	bindings.FuncNavigatorSendBeacon1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SendBeacon1 calls the method "Navigator.sendBeacon".
 func (this Navigator) SendBeacon1(url js.String) (ret bool) {
 	bindings.CallNavigatorSendBeacon1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		url.Ref(),
 	)
 
@@ -2143,33 +2147,32 @@ func (this Navigator) SendBeacon1(url js.String) (ret bool) {
 // the catch clause.
 func (this Navigator) TrySendBeacon1(url js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorSendBeacon1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		url.Ref(),
 	)
 
 	return
 }
 
-// HasGetBattery returns true if the method "Navigator.getBattery" exists.
-func (this Navigator) HasGetBattery() bool {
-	return js.True == bindings.HasNavigatorGetBattery(
-		this.Ref(),
+// HasFuncGetBattery returns true if the method "Navigator.getBattery" exists.
+func (this Navigator) HasFuncGetBattery() bool {
+	return js.True == bindings.HasFuncNavigatorGetBattery(
+		this.ref,
 	)
 }
 
-// GetBatteryFunc returns the method "Navigator.getBattery".
-func (this Navigator) GetBatteryFunc() (fn js.Func[func() js.Promise[BatteryManager]]) {
-	return fn.FromRef(
-		bindings.NavigatorGetBatteryFunc(
-			this.Ref(),
-		),
+// FuncGetBattery returns the method "Navigator.getBattery".
+func (this Navigator) FuncGetBattery() (fn js.Func[func() js.Promise[BatteryManager]]) {
+	bindings.FuncNavigatorGetBattery(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetBattery calls the method "Navigator.getBattery".
 func (this Navigator) GetBattery() (ret js.Promise[BatteryManager]) {
 	bindings.CallNavigatorGetBattery(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2180,32 +2183,31 @@ func (this Navigator) GetBattery() (ret js.Promise[BatteryManager]) {
 // the catch clause.
 func (this Navigator) TryGetBattery() (ret js.Promise[BatteryManager], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorGetBattery(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasVibrate returns true if the method "Navigator.vibrate" exists.
-func (this Navigator) HasVibrate() bool {
-	return js.True == bindings.HasNavigatorVibrate(
-		this.Ref(),
+// HasFuncVibrate returns true if the method "Navigator.vibrate" exists.
+func (this Navigator) HasFuncVibrate() bool {
+	return js.True == bindings.HasFuncNavigatorVibrate(
+		this.ref,
 	)
 }
 
-// VibrateFunc returns the method "Navigator.vibrate".
-func (this Navigator) VibrateFunc() (fn js.Func[func(pattern VibratePattern) bool]) {
-	return fn.FromRef(
-		bindings.NavigatorVibrateFunc(
-			this.Ref(),
-		),
+// FuncVibrate returns the method "Navigator.vibrate".
+func (this Navigator) FuncVibrate() (fn js.Func[func(pattern VibratePattern) bool]) {
+	bindings.FuncNavigatorVibrate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Vibrate calls the method "Navigator.vibrate".
 func (this Navigator) Vibrate(pattern VibratePattern) (ret bool) {
 	bindings.CallNavigatorVibrate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		pattern.Ref(),
 	)
 
@@ -2217,33 +2219,32 @@ func (this Navigator) Vibrate(pattern VibratePattern) (ret bool) {
 // the catch clause.
 func (this Navigator) TryVibrate(pattern VibratePattern) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorVibrate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		pattern.Ref(),
 	)
 
 	return
 }
 
-// HasGetGamepads returns true if the method "Navigator.getGamepads" exists.
-func (this Navigator) HasGetGamepads() bool {
-	return js.True == bindings.HasNavigatorGetGamepads(
-		this.Ref(),
+// HasFuncGetGamepads returns true if the method "Navigator.getGamepads" exists.
+func (this Navigator) HasFuncGetGamepads() bool {
+	return js.True == bindings.HasFuncNavigatorGetGamepads(
+		this.ref,
 	)
 }
 
-// GetGamepadsFunc returns the method "Navigator.getGamepads".
-func (this Navigator) GetGamepadsFunc() (fn js.Func[func() js.Array[Gamepad]]) {
-	return fn.FromRef(
-		bindings.NavigatorGetGamepadsFunc(
-			this.Ref(),
-		),
+// FuncGetGamepads returns the method "Navigator.getGamepads".
+func (this Navigator) FuncGetGamepads() (fn js.Func[func() js.Array[Gamepad]]) {
+	bindings.FuncNavigatorGetGamepads(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetGamepads calls the method "Navigator.getGamepads".
 func (this Navigator) GetGamepads() (ret js.Array[Gamepad]) {
 	bindings.CallNavigatorGetGamepads(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2254,32 +2255,31 @@ func (this Navigator) GetGamepads() (ret js.Array[Gamepad]) {
 // the catch clause.
 func (this Navigator) TryGetGamepads() (ret js.Array[Gamepad], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorGetGamepads(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetInstalledRelatedApps returns true if the method "Navigator.getInstalledRelatedApps" exists.
-func (this Navigator) HasGetInstalledRelatedApps() bool {
-	return js.True == bindings.HasNavigatorGetInstalledRelatedApps(
-		this.Ref(),
+// HasFuncGetInstalledRelatedApps returns true if the method "Navigator.getInstalledRelatedApps" exists.
+func (this Navigator) HasFuncGetInstalledRelatedApps() bool {
+	return js.True == bindings.HasFuncNavigatorGetInstalledRelatedApps(
+		this.ref,
 	)
 }
 
-// GetInstalledRelatedAppsFunc returns the method "Navigator.getInstalledRelatedApps".
-func (this Navigator) GetInstalledRelatedAppsFunc() (fn js.Func[func() js.Promise[js.Array[RelatedApplication]]]) {
-	return fn.FromRef(
-		bindings.NavigatorGetInstalledRelatedAppsFunc(
-			this.Ref(),
-		),
+// FuncGetInstalledRelatedApps returns the method "Navigator.getInstalledRelatedApps".
+func (this Navigator) FuncGetInstalledRelatedApps() (fn js.Func[func() js.Promise[js.Array[RelatedApplication]]]) {
+	bindings.FuncNavigatorGetInstalledRelatedApps(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetInstalledRelatedApps calls the method "Navigator.getInstalledRelatedApps".
 func (this Navigator) GetInstalledRelatedApps() (ret js.Promise[js.Array[RelatedApplication]]) {
 	bindings.CallNavigatorGetInstalledRelatedApps(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2290,32 +2290,31 @@ func (this Navigator) GetInstalledRelatedApps() (ret js.Promise[js.Array[Related
 // the catch clause.
 func (this Navigator) TryGetInstalledRelatedApps() (ret js.Promise[js.Array[RelatedApplication]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorGetInstalledRelatedApps(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasRequestMediaKeySystemAccess returns true if the method "Navigator.requestMediaKeySystemAccess" exists.
-func (this Navigator) HasRequestMediaKeySystemAccess() bool {
-	return js.True == bindings.HasNavigatorRequestMediaKeySystemAccess(
-		this.Ref(),
+// HasFuncRequestMediaKeySystemAccess returns true if the method "Navigator.requestMediaKeySystemAccess" exists.
+func (this Navigator) HasFuncRequestMediaKeySystemAccess() bool {
+	return js.True == bindings.HasFuncNavigatorRequestMediaKeySystemAccess(
+		this.ref,
 	)
 }
 
-// RequestMediaKeySystemAccessFunc returns the method "Navigator.requestMediaKeySystemAccess".
-func (this Navigator) RequestMediaKeySystemAccessFunc() (fn js.Func[func(keySystem js.String, supportedConfigurations js.Array[MediaKeySystemConfiguration]) js.Promise[MediaKeySystemAccess]]) {
-	return fn.FromRef(
-		bindings.NavigatorRequestMediaKeySystemAccessFunc(
-			this.Ref(),
-		),
+// FuncRequestMediaKeySystemAccess returns the method "Navigator.requestMediaKeySystemAccess".
+func (this Navigator) FuncRequestMediaKeySystemAccess() (fn js.Func[func(keySystem js.String, supportedConfigurations js.Array[MediaKeySystemConfiguration]) js.Promise[MediaKeySystemAccess]]) {
+	bindings.FuncNavigatorRequestMediaKeySystemAccess(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RequestMediaKeySystemAccess calls the method "Navigator.requestMediaKeySystemAccess".
 func (this Navigator) RequestMediaKeySystemAccess(keySystem js.String, supportedConfigurations js.Array[MediaKeySystemConfiguration]) (ret js.Promise[MediaKeySystemAccess]) {
 	bindings.CallNavigatorRequestMediaKeySystemAccess(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		keySystem.Ref(),
 		supportedConfigurations.Ref(),
 	)
@@ -2328,7 +2327,7 @@ func (this Navigator) RequestMediaKeySystemAccess(keySystem js.String, supported
 // the catch clause.
 func (this Navigator) TryRequestMediaKeySystemAccess(keySystem js.String, supportedConfigurations js.Array[MediaKeySystemConfiguration]) (ret js.Promise[MediaKeySystemAccess], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorRequestMediaKeySystemAccess(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		keySystem.Ref(),
 		supportedConfigurations.Ref(),
 	)
@@ -2336,26 +2335,25 @@ func (this Navigator) TryRequestMediaKeySystemAccess(keySystem js.String, suppor
 	return
 }
 
-// HasJoinAdInterestGroup returns true if the method "Navigator.joinAdInterestGroup" exists.
-func (this Navigator) HasJoinAdInterestGroup() bool {
-	return js.True == bindings.HasNavigatorJoinAdInterestGroup(
-		this.Ref(),
+// HasFuncJoinAdInterestGroup returns true if the method "Navigator.joinAdInterestGroup" exists.
+func (this Navigator) HasFuncJoinAdInterestGroup() bool {
+	return js.True == bindings.HasFuncNavigatorJoinAdInterestGroup(
+		this.ref,
 	)
 }
 
-// JoinAdInterestGroupFunc returns the method "Navigator.joinAdInterestGroup".
-func (this Navigator) JoinAdInterestGroupFunc() (fn js.Func[func(group AuctionAdInterestGroup) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.NavigatorJoinAdInterestGroupFunc(
-			this.Ref(),
-		),
+// FuncJoinAdInterestGroup returns the method "Navigator.joinAdInterestGroup".
+func (this Navigator) FuncJoinAdInterestGroup() (fn js.Func[func(group AuctionAdInterestGroup) js.Promise[js.Void]]) {
+	bindings.FuncNavigatorJoinAdInterestGroup(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // JoinAdInterestGroup calls the method "Navigator.joinAdInterestGroup".
 func (this Navigator) JoinAdInterestGroup(group AuctionAdInterestGroup) (ret js.Promise[js.Void]) {
 	bindings.CallNavigatorJoinAdInterestGroup(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&group),
 	)
 
@@ -2367,33 +2365,32 @@ func (this Navigator) JoinAdInterestGroup(group AuctionAdInterestGroup) (ret js.
 // the catch clause.
 func (this Navigator) TryJoinAdInterestGroup(group AuctionAdInterestGroup) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorJoinAdInterestGroup(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&group),
 	)
 
 	return
 }
 
-// HasGetUserMedia returns true if the method "Navigator.getUserMedia" exists.
-func (this Navigator) HasGetUserMedia() bool {
-	return js.True == bindings.HasNavigatorGetUserMedia(
-		this.Ref(),
+// HasFuncGetUserMedia returns true if the method "Navigator.getUserMedia" exists.
+func (this Navigator) HasFuncGetUserMedia() bool {
+	return js.True == bindings.HasFuncNavigatorGetUserMedia(
+		this.ref,
 	)
 }
 
-// GetUserMediaFunc returns the method "Navigator.getUserMedia".
-func (this Navigator) GetUserMediaFunc() (fn js.Func[func(constraints MediaStreamConstraints, successCallback js.Func[func(stream MediaStream)], errorCallback js.Func[func(err DOMException)])]) {
-	return fn.FromRef(
-		bindings.NavigatorGetUserMediaFunc(
-			this.Ref(),
-		),
+// FuncGetUserMedia returns the method "Navigator.getUserMedia".
+func (this Navigator) FuncGetUserMedia() (fn js.Func[func(constraints MediaStreamConstraints, successCallback js.Func[func(stream MediaStream)], errorCallback js.Func[func(err DOMException)])]) {
+	bindings.FuncNavigatorGetUserMedia(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetUserMedia calls the method "Navigator.getUserMedia".
 func (this Navigator) GetUserMedia(constraints MediaStreamConstraints, successCallback js.Func[func(stream MediaStream)], errorCallback js.Func[func(err DOMException)]) (ret js.Void) {
 	bindings.CallNavigatorGetUserMedia(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&constraints),
 		successCallback.Ref(),
 		errorCallback.Ref(),
@@ -2407,7 +2404,7 @@ func (this Navigator) GetUserMedia(constraints MediaStreamConstraints, successCa
 // the catch clause.
 func (this Navigator) TryGetUserMedia(constraints MediaStreamConstraints, successCallback js.Func[func(stream MediaStream)], errorCallback js.Func[func(err DOMException)]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorGetUserMedia(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&constraints),
 		successCallback.Ref(),
 		errorCallback.Ref(),
@@ -2416,26 +2413,25 @@ func (this Navigator) TryGetUserMedia(constraints MediaStreamConstraints, succes
 	return
 }
 
-// HasLeaveAdInterestGroup returns true if the method "Navigator.leaveAdInterestGroup" exists.
-func (this Navigator) HasLeaveAdInterestGroup() bool {
-	return js.True == bindings.HasNavigatorLeaveAdInterestGroup(
-		this.Ref(),
+// HasFuncLeaveAdInterestGroup returns true if the method "Navigator.leaveAdInterestGroup" exists.
+func (this Navigator) HasFuncLeaveAdInterestGroup() bool {
+	return js.True == bindings.HasFuncNavigatorLeaveAdInterestGroup(
+		this.ref,
 	)
 }
 
-// LeaveAdInterestGroupFunc returns the method "Navigator.leaveAdInterestGroup".
-func (this Navigator) LeaveAdInterestGroupFunc() (fn js.Func[func(group AuctionAdInterestGroupKey) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.NavigatorLeaveAdInterestGroupFunc(
-			this.Ref(),
-		),
+// FuncLeaveAdInterestGroup returns the method "Navigator.leaveAdInterestGroup".
+func (this Navigator) FuncLeaveAdInterestGroup() (fn js.Func[func(group AuctionAdInterestGroupKey) js.Promise[js.Void]]) {
+	bindings.FuncNavigatorLeaveAdInterestGroup(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // LeaveAdInterestGroup calls the method "Navigator.leaveAdInterestGroup".
 func (this Navigator) LeaveAdInterestGroup(group AuctionAdInterestGroupKey) (ret js.Promise[js.Void]) {
 	bindings.CallNavigatorLeaveAdInterestGroup(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&group),
 	)
 
@@ -2447,33 +2443,32 @@ func (this Navigator) LeaveAdInterestGroup(group AuctionAdInterestGroupKey) (ret
 // the catch clause.
 func (this Navigator) TryLeaveAdInterestGroup(group AuctionAdInterestGroupKey) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorLeaveAdInterestGroup(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&group),
 	)
 
 	return
 }
 
-// HasLeaveAdInterestGroup1 returns true if the method "Navigator.leaveAdInterestGroup" exists.
-func (this Navigator) HasLeaveAdInterestGroup1() bool {
-	return js.True == bindings.HasNavigatorLeaveAdInterestGroup1(
-		this.Ref(),
+// HasFuncLeaveAdInterestGroup1 returns true if the method "Navigator.leaveAdInterestGroup" exists.
+func (this Navigator) HasFuncLeaveAdInterestGroup1() bool {
+	return js.True == bindings.HasFuncNavigatorLeaveAdInterestGroup1(
+		this.ref,
 	)
 }
 
-// LeaveAdInterestGroup1Func returns the method "Navigator.leaveAdInterestGroup".
-func (this Navigator) LeaveAdInterestGroup1Func() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.NavigatorLeaveAdInterestGroup1Func(
-			this.Ref(),
-		),
+// FuncLeaveAdInterestGroup1 returns the method "Navigator.leaveAdInterestGroup".
+func (this Navigator) FuncLeaveAdInterestGroup1() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncNavigatorLeaveAdInterestGroup1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // LeaveAdInterestGroup1 calls the method "Navigator.leaveAdInterestGroup".
 func (this Navigator) LeaveAdInterestGroup1() (ret js.Promise[js.Void]) {
 	bindings.CallNavigatorLeaveAdInterestGroup1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2484,32 +2479,31 @@ func (this Navigator) LeaveAdInterestGroup1() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this Navigator) TryLeaveAdInterestGroup1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorLeaveAdInterestGroup1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasRunAdAuction returns true if the method "Navigator.runAdAuction" exists.
-func (this Navigator) HasRunAdAuction() bool {
-	return js.True == bindings.HasNavigatorRunAdAuction(
-		this.Ref(),
+// HasFuncRunAdAuction returns true if the method "Navigator.runAdAuction" exists.
+func (this Navigator) HasFuncRunAdAuction() bool {
+	return js.True == bindings.HasFuncNavigatorRunAdAuction(
+		this.ref,
 	)
 }
 
-// RunAdAuctionFunc returns the method "Navigator.runAdAuction".
-func (this Navigator) RunAdAuctionFunc() (fn js.Func[func(config AuctionAdConfig) js.Promise[OneOf_String_FencedFrameConfig]]) {
-	return fn.FromRef(
-		bindings.NavigatorRunAdAuctionFunc(
-			this.Ref(),
-		),
+// FuncRunAdAuction returns the method "Navigator.runAdAuction".
+func (this Navigator) FuncRunAdAuction() (fn js.Func[func(config AuctionAdConfig) js.Promise[OneOf_String_FencedFrameConfig]]) {
+	bindings.FuncNavigatorRunAdAuction(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RunAdAuction calls the method "Navigator.runAdAuction".
 func (this Navigator) RunAdAuction(config AuctionAdConfig) (ret js.Promise[OneOf_String_FencedFrameConfig]) {
 	bindings.CallNavigatorRunAdAuction(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&config),
 	)
 
@@ -2521,33 +2515,32 @@ func (this Navigator) RunAdAuction(config AuctionAdConfig) (ret js.Promise[OneOf
 // the catch clause.
 func (this Navigator) TryRunAdAuction(config AuctionAdConfig) (ret js.Promise[OneOf_String_FencedFrameConfig], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorRunAdAuction(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&config),
 	)
 
 	return
 }
 
-// HasShare returns true if the method "Navigator.share" exists.
-func (this Navigator) HasShare() bool {
-	return js.True == bindings.HasNavigatorShare(
-		this.Ref(),
+// HasFuncShare returns true if the method "Navigator.share" exists.
+func (this Navigator) HasFuncShare() bool {
+	return js.True == bindings.HasFuncNavigatorShare(
+		this.ref,
 	)
 }
 
-// ShareFunc returns the method "Navigator.share".
-func (this Navigator) ShareFunc() (fn js.Func[func(data ShareData) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.NavigatorShareFunc(
-			this.Ref(),
-		),
+// FuncShare returns the method "Navigator.share".
+func (this Navigator) FuncShare() (fn js.Func[func(data ShareData) js.Promise[js.Void]]) {
+	bindings.FuncNavigatorShare(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Share calls the method "Navigator.share".
 func (this Navigator) Share(data ShareData) (ret js.Promise[js.Void]) {
 	bindings.CallNavigatorShare(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&data),
 	)
 
@@ -2559,33 +2552,32 @@ func (this Navigator) Share(data ShareData) (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this Navigator) TryShare(data ShareData) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorShare(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&data),
 	)
 
 	return
 }
 
-// HasShare1 returns true if the method "Navigator.share" exists.
-func (this Navigator) HasShare1() bool {
-	return js.True == bindings.HasNavigatorShare1(
-		this.Ref(),
+// HasFuncShare1 returns true if the method "Navigator.share" exists.
+func (this Navigator) HasFuncShare1() bool {
+	return js.True == bindings.HasFuncNavigatorShare1(
+		this.ref,
 	)
 }
 
-// Share1Func returns the method "Navigator.share".
-func (this Navigator) Share1Func() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.NavigatorShare1Func(
-			this.Ref(),
-		),
+// FuncShare1 returns the method "Navigator.share".
+func (this Navigator) FuncShare1() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncNavigatorShare1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Share1 calls the method "Navigator.share".
 func (this Navigator) Share1() (ret js.Promise[js.Void]) {
 	bindings.CallNavigatorShare1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2596,32 +2588,31 @@ func (this Navigator) Share1() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this Navigator) TryShare1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorShare1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCanShare returns true if the method "Navigator.canShare" exists.
-func (this Navigator) HasCanShare() bool {
-	return js.True == bindings.HasNavigatorCanShare(
-		this.Ref(),
+// HasFuncCanShare returns true if the method "Navigator.canShare" exists.
+func (this Navigator) HasFuncCanShare() bool {
+	return js.True == bindings.HasFuncNavigatorCanShare(
+		this.ref,
 	)
 }
 
-// CanShareFunc returns the method "Navigator.canShare".
-func (this Navigator) CanShareFunc() (fn js.Func[func(data ShareData) bool]) {
-	return fn.FromRef(
-		bindings.NavigatorCanShareFunc(
-			this.Ref(),
-		),
+// FuncCanShare returns the method "Navigator.canShare".
+func (this Navigator) FuncCanShare() (fn js.Func[func(data ShareData) bool]) {
+	bindings.FuncNavigatorCanShare(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CanShare calls the method "Navigator.canShare".
 func (this Navigator) CanShare(data ShareData) (ret bool) {
 	bindings.CallNavigatorCanShare(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&data),
 	)
 
@@ -2633,33 +2624,32 @@ func (this Navigator) CanShare(data ShareData) (ret bool) {
 // the catch clause.
 func (this Navigator) TryCanShare(data ShareData) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorCanShare(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&data),
 	)
 
 	return
 }
 
-// HasCanShare1 returns true if the method "Navigator.canShare" exists.
-func (this Navigator) HasCanShare1() bool {
-	return js.True == bindings.HasNavigatorCanShare1(
-		this.Ref(),
+// HasFuncCanShare1 returns true if the method "Navigator.canShare" exists.
+func (this Navigator) HasFuncCanShare1() bool {
+	return js.True == bindings.HasFuncNavigatorCanShare1(
+		this.ref,
 	)
 }
 
-// CanShare1Func returns the method "Navigator.canShare".
-func (this Navigator) CanShare1Func() (fn js.Func[func() bool]) {
-	return fn.FromRef(
-		bindings.NavigatorCanShare1Func(
-			this.Ref(),
-		),
+// FuncCanShare1 returns the method "Navigator.canShare".
+func (this Navigator) FuncCanShare1() (fn js.Func[func() bool]) {
+	bindings.FuncNavigatorCanShare1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CanShare1 calls the method "Navigator.canShare".
 func (this Navigator) CanShare1() (ret bool) {
 	bindings.CallNavigatorCanShare1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2670,32 +2660,31 @@ func (this Navigator) CanShare1() (ret bool) {
 // the catch clause.
 func (this Navigator) TryCanShare1() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorCanShare1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasRequestMIDIAccess returns true if the method "Navigator.requestMIDIAccess" exists.
-func (this Navigator) HasRequestMIDIAccess() bool {
-	return js.True == bindings.HasNavigatorRequestMIDIAccess(
-		this.Ref(),
+// HasFuncRequestMIDIAccess returns true if the method "Navigator.requestMIDIAccess" exists.
+func (this Navigator) HasFuncRequestMIDIAccess() bool {
+	return js.True == bindings.HasFuncNavigatorRequestMIDIAccess(
+		this.ref,
 	)
 }
 
-// RequestMIDIAccessFunc returns the method "Navigator.requestMIDIAccess".
-func (this Navigator) RequestMIDIAccessFunc() (fn js.Func[func(options MIDIOptions) js.Promise[MIDIAccess]]) {
-	return fn.FromRef(
-		bindings.NavigatorRequestMIDIAccessFunc(
-			this.Ref(),
-		),
+// FuncRequestMIDIAccess returns the method "Navigator.requestMIDIAccess".
+func (this Navigator) FuncRequestMIDIAccess() (fn js.Func[func(options MIDIOptions) js.Promise[MIDIAccess]]) {
+	bindings.FuncNavigatorRequestMIDIAccess(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RequestMIDIAccess calls the method "Navigator.requestMIDIAccess".
 func (this Navigator) RequestMIDIAccess(options MIDIOptions) (ret js.Promise[MIDIAccess]) {
 	bindings.CallNavigatorRequestMIDIAccess(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -2707,33 +2696,32 @@ func (this Navigator) RequestMIDIAccess(options MIDIOptions) (ret js.Promise[MID
 // the catch clause.
 func (this Navigator) TryRequestMIDIAccess(options MIDIOptions) (ret js.Promise[MIDIAccess], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorRequestMIDIAccess(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasRequestMIDIAccess1 returns true if the method "Navigator.requestMIDIAccess" exists.
-func (this Navigator) HasRequestMIDIAccess1() bool {
-	return js.True == bindings.HasNavigatorRequestMIDIAccess1(
-		this.Ref(),
+// HasFuncRequestMIDIAccess1 returns true if the method "Navigator.requestMIDIAccess" exists.
+func (this Navigator) HasFuncRequestMIDIAccess1() bool {
+	return js.True == bindings.HasFuncNavigatorRequestMIDIAccess1(
+		this.ref,
 	)
 }
 
-// RequestMIDIAccess1Func returns the method "Navigator.requestMIDIAccess".
-func (this Navigator) RequestMIDIAccess1Func() (fn js.Func[func() js.Promise[MIDIAccess]]) {
-	return fn.FromRef(
-		bindings.NavigatorRequestMIDIAccess1Func(
-			this.Ref(),
-		),
+// FuncRequestMIDIAccess1 returns the method "Navigator.requestMIDIAccess".
+func (this Navigator) FuncRequestMIDIAccess1() (fn js.Func[func() js.Promise[MIDIAccess]]) {
+	bindings.FuncNavigatorRequestMIDIAccess1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RequestMIDIAccess1 calls the method "Navigator.requestMIDIAccess".
 func (this Navigator) RequestMIDIAccess1() (ret js.Promise[MIDIAccess]) {
 	bindings.CallNavigatorRequestMIDIAccess1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2744,32 +2732,31 @@ func (this Navigator) RequestMIDIAccess1() (ret js.Promise[MIDIAccess]) {
 // the catch clause.
 func (this Navigator) TryRequestMIDIAccess1() (ret js.Promise[MIDIAccess], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorRequestMIDIAccess1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetAutoplayPolicy returns true if the method "Navigator.getAutoplayPolicy" exists.
-func (this Navigator) HasGetAutoplayPolicy() bool {
-	return js.True == bindings.HasNavigatorGetAutoplayPolicy(
-		this.Ref(),
+// HasFuncGetAutoplayPolicy returns true if the method "Navigator.getAutoplayPolicy" exists.
+func (this Navigator) HasFuncGetAutoplayPolicy() bool {
+	return js.True == bindings.HasFuncNavigatorGetAutoplayPolicy(
+		this.ref,
 	)
 }
 
-// GetAutoplayPolicyFunc returns the method "Navigator.getAutoplayPolicy".
-func (this Navigator) GetAutoplayPolicyFunc() (fn js.Func[func(typ AutoplayPolicyMediaType) AutoplayPolicy]) {
-	return fn.FromRef(
-		bindings.NavigatorGetAutoplayPolicyFunc(
-			this.Ref(),
-		),
+// FuncGetAutoplayPolicy returns the method "Navigator.getAutoplayPolicy".
+func (this Navigator) FuncGetAutoplayPolicy() (fn js.Func[func(typ AutoplayPolicyMediaType) AutoplayPolicy]) {
+	bindings.FuncNavigatorGetAutoplayPolicy(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAutoplayPolicy calls the method "Navigator.getAutoplayPolicy".
 func (this Navigator) GetAutoplayPolicy(typ AutoplayPolicyMediaType) (ret AutoplayPolicy) {
 	bindings.CallNavigatorGetAutoplayPolicy(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(typ),
 	)
 
@@ -2781,33 +2768,32 @@ func (this Navigator) GetAutoplayPolicy(typ AutoplayPolicyMediaType) (ret Autopl
 // the catch clause.
 func (this Navigator) TryGetAutoplayPolicy(typ AutoplayPolicyMediaType) (ret AutoplayPolicy, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorGetAutoplayPolicy(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(typ),
 	)
 
 	return
 }
 
-// HasGetAutoplayPolicy1 returns true if the method "Navigator.getAutoplayPolicy" exists.
-func (this Navigator) HasGetAutoplayPolicy1() bool {
-	return js.True == bindings.HasNavigatorGetAutoplayPolicy1(
-		this.Ref(),
+// HasFuncGetAutoplayPolicy1 returns true if the method "Navigator.getAutoplayPolicy" exists.
+func (this Navigator) HasFuncGetAutoplayPolicy1() bool {
+	return js.True == bindings.HasFuncNavigatorGetAutoplayPolicy1(
+		this.ref,
 	)
 }
 
-// GetAutoplayPolicy1Func returns the method "Navigator.getAutoplayPolicy".
-func (this Navigator) GetAutoplayPolicy1Func() (fn js.Func[func(element HTMLMediaElement) AutoplayPolicy]) {
-	return fn.FromRef(
-		bindings.NavigatorGetAutoplayPolicy1Func(
-			this.Ref(),
-		),
+// FuncGetAutoplayPolicy1 returns the method "Navigator.getAutoplayPolicy".
+func (this Navigator) FuncGetAutoplayPolicy1() (fn js.Func[func(element HTMLMediaElement) AutoplayPolicy]) {
+	bindings.FuncNavigatorGetAutoplayPolicy1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAutoplayPolicy1 calls the method "Navigator.getAutoplayPolicy".
 func (this Navigator) GetAutoplayPolicy1(element HTMLMediaElement) (ret AutoplayPolicy) {
 	bindings.CallNavigatorGetAutoplayPolicy1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		element.Ref(),
 	)
 
@@ -2819,33 +2805,32 @@ func (this Navigator) GetAutoplayPolicy1(element HTMLMediaElement) (ret Autoplay
 // the catch clause.
 func (this Navigator) TryGetAutoplayPolicy1(element HTMLMediaElement) (ret AutoplayPolicy, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorGetAutoplayPolicy1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		element.Ref(),
 	)
 
 	return
 }
 
-// HasGetAutoplayPolicy2 returns true if the method "Navigator.getAutoplayPolicy" exists.
-func (this Navigator) HasGetAutoplayPolicy2() bool {
-	return js.True == bindings.HasNavigatorGetAutoplayPolicy2(
-		this.Ref(),
+// HasFuncGetAutoplayPolicy2 returns true if the method "Navigator.getAutoplayPolicy" exists.
+func (this Navigator) HasFuncGetAutoplayPolicy2() bool {
+	return js.True == bindings.HasFuncNavigatorGetAutoplayPolicy2(
+		this.ref,
 	)
 }
 
-// GetAutoplayPolicy2Func returns the method "Navigator.getAutoplayPolicy".
-func (this Navigator) GetAutoplayPolicy2Func() (fn js.Func[func(context AudioContext) AutoplayPolicy]) {
-	return fn.FromRef(
-		bindings.NavigatorGetAutoplayPolicy2Func(
-			this.Ref(),
-		),
+// FuncGetAutoplayPolicy2 returns the method "Navigator.getAutoplayPolicy".
+func (this Navigator) FuncGetAutoplayPolicy2() (fn js.Func[func(context AudioContext) AutoplayPolicy]) {
+	bindings.FuncNavigatorGetAutoplayPolicy2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAutoplayPolicy2 calls the method "Navigator.getAutoplayPolicy".
 func (this Navigator) GetAutoplayPolicy2(context AudioContext) (ret AutoplayPolicy) {
 	bindings.CallNavigatorGetAutoplayPolicy2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		context.Ref(),
 	)
 
@@ -2857,33 +2842,32 @@ func (this Navigator) GetAutoplayPolicy2(context AudioContext) (ret AutoplayPoli
 // the catch clause.
 func (this Navigator) TryGetAutoplayPolicy2(context AudioContext) (ret AutoplayPolicy, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorGetAutoplayPolicy2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		context.Ref(),
 	)
 
 	return
 }
 
-// HasTaintEnabled returns true if the method "Navigator.taintEnabled" exists.
-func (this Navigator) HasTaintEnabled() bool {
-	return js.True == bindings.HasNavigatorTaintEnabled(
-		this.Ref(),
+// HasFuncTaintEnabled returns true if the method "Navigator.taintEnabled" exists.
+func (this Navigator) HasFuncTaintEnabled() bool {
+	return js.True == bindings.HasFuncNavigatorTaintEnabled(
+		this.ref,
 	)
 }
 
-// TaintEnabledFunc returns the method "Navigator.taintEnabled".
-func (this Navigator) TaintEnabledFunc() (fn js.Func[func() bool]) {
-	return fn.FromRef(
-		bindings.NavigatorTaintEnabledFunc(
-			this.Ref(),
-		),
+// FuncTaintEnabled returns the method "Navigator.taintEnabled".
+func (this Navigator) FuncTaintEnabled() (fn js.Func[func() bool]) {
+	bindings.FuncNavigatorTaintEnabled(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TaintEnabled calls the method "Navigator.taintEnabled".
 func (this Navigator) TaintEnabled() (ret bool) {
 	bindings.CallNavigatorTaintEnabled(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2894,32 +2878,31 @@ func (this Navigator) TaintEnabled() (ret bool) {
 // the catch clause.
 func (this Navigator) TryTaintEnabled() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorTaintEnabled(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasRegisterProtocolHandler returns true if the method "Navigator.registerProtocolHandler" exists.
-func (this Navigator) HasRegisterProtocolHandler() bool {
-	return js.True == bindings.HasNavigatorRegisterProtocolHandler(
-		this.Ref(),
+// HasFuncRegisterProtocolHandler returns true if the method "Navigator.registerProtocolHandler" exists.
+func (this Navigator) HasFuncRegisterProtocolHandler() bool {
+	return js.True == bindings.HasFuncNavigatorRegisterProtocolHandler(
+		this.ref,
 	)
 }
 
-// RegisterProtocolHandlerFunc returns the method "Navigator.registerProtocolHandler".
-func (this Navigator) RegisterProtocolHandlerFunc() (fn js.Func[func(scheme js.String, url js.String)]) {
-	return fn.FromRef(
-		bindings.NavigatorRegisterProtocolHandlerFunc(
-			this.Ref(),
-		),
+// FuncRegisterProtocolHandler returns the method "Navigator.registerProtocolHandler".
+func (this Navigator) FuncRegisterProtocolHandler() (fn js.Func[func(scheme js.String, url js.String)]) {
+	bindings.FuncNavigatorRegisterProtocolHandler(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RegisterProtocolHandler calls the method "Navigator.registerProtocolHandler".
 func (this Navigator) RegisterProtocolHandler(scheme js.String, url js.String) (ret js.Void) {
 	bindings.CallNavigatorRegisterProtocolHandler(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		scheme.Ref(),
 		url.Ref(),
 	)
@@ -2932,7 +2915,7 @@ func (this Navigator) RegisterProtocolHandler(scheme js.String, url js.String) (
 // the catch clause.
 func (this Navigator) TryRegisterProtocolHandler(scheme js.String, url js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorRegisterProtocolHandler(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		scheme.Ref(),
 		url.Ref(),
 	)
@@ -2940,26 +2923,25 @@ func (this Navigator) TryRegisterProtocolHandler(scheme js.String, url js.String
 	return
 }
 
-// HasUnregisterProtocolHandler returns true if the method "Navigator.unregisterProtocolHandler" exists.
-func (this Navigator) HasUnregisterProtocolHandler() bool {
-	return js.True == bindings.HasNavigatorUnregisterProtocolHandler(
-		this.Ref(),
+// HasFuncUnregisterProtocolHandler returns true if the method "Navigator.unregisterProtocolHandler" exists.
+func (this Navigator) HasFuncUnregisterProtocolHandler() bool {
+	return js.True == bindings.HasFuncNavigatorUnregisterProtocolHandler(
+		this.ref,
 	)
 }
 
-// UnregisterProtocolHandlerFunc returns the method "Navigator.unregisterProtocolHandler".
-func (this Navigator) UnregisterProtocolHandlerFunc() (fn js.Func[func(scheme js.String, url js.String)]) {
-	return fn.FromRef(
-		bindings.NavigatorUnregisterProtocolHandlerFunc(
-			this.Ref(),
-		),
+// FuncUnregisterProtocolHandler returns the method "Navigator.unregisterProtocolHandler".
+func (this Navigator) FuncUnregisterProtocolHandler() (fn js.Func[func(scheme js.String, url js.String)]) {
+	bindings.FuncNavigatorUnregisterProtocolHandler(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UnregisterProtocolHandler calls the method "Navigator.unregisterProtocolHandler".
 func (this Navigator) UnregisterProtocolHandler(scheme js.String, url js.String) (ret js.Void) {
 	bindings.CallNavigatorUnregisterProtocolHandler(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		scheme.Ref(),
 		url.Ref(),
 	)
@@ -2972,7 +2954,7 @@ func (this Navigator) UnregisterProtocolHandler(scheme js.String, url js.String)
 // the catch clause.
 func (this Navigator) TryUnregisterProtocolHandler(scheme js.String, url js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorUnregisterProtocolHandler(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		scheme.Ref(),
 		url.Ref(),
 	)
@@ -2980,26 +2962,25 @@ func (this Navigator) TryUnregisterProtocolHandler(scheme js.String, url js.Stri
 	return
 }
 
-// HasJavaEnabled returns true if the method "Navigator.javaEnabled" exists.
-func (this Navigator) HasJavaEnabled() bool {
-	return js.True == bindings.HasNavigatorJavaEnabled(
-		this.Ref(),
+// HasFuncJavaEnabled returns true if the method "Navigator.javaEnabled" exists.
+func (this Navigator) HasFuncJavaEnabled() bool {
+	return js.True == bindings.HasFuncNavigatorJavaEnabled(
+		this.ref,
 	)
 }
 
-// JavaEnabledFunc returns the method "Navigator.javaEnabled".
-func (this Navigator) JavaEnabledFunc() (fn js.Func[func() bool]) {
-	return fn.FromRef(
-		bindings.NavigatorJavaEnabledFunc(
-			this.Ref(),
-		),
+// FuncJavaEnabled returns the method "Navigator.javaEnabled".
+func (this Navigator) FuncJavaEnabled() (fn js.Func[func() bool]) {
+	bindings.FuncNavigatorJavaEnabled(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // JavaEnabled calls the method "Navigator.javaEnabled".
 func (this Navigator) JavaEnabled() (ret bool) {
 	bindings.CallNavigatorJavaEnabled(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3010,32 +2991,31 @@ func (this Navigator) JavaEnabled() (ret bool) {
 // the catch clause.
 func (this Navigator) TryJavaEnabled() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorJavaEnabled(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSetAppBadge returns true if the method "Navigator.setAppBadge" exists.
-func (this Navigator) HasSetAppBadge() bool {
-	return js.True == bindings.HasNavigatorSetAppBadge(
-		this.Ref(),
+// HasFuncSetAppBadge returns true if the method "Navigator.setAppBadge" exists.
+func (this Navigator) HasFuncSetAppBadge() bool {
+	return js.True == bindings.HasFuncNavigatorSetAppBadge(
+		this.ref,
 	)
 }
 
-// SetAppBadgeFunc returns the method "Navigator.setAppBadge".
-func (this Navigator) SetAppBadgeFunc() (fn js.Func[func(contents uint64) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.NavigatorSetAppBadgeFunc(
-			this.Ref(),
-		),
+// FuncSetAppBadge returns the method "Navigator.setAppBadge".
+func (this Navigator) FuncSetAppBadge() (fn js.Func[func(contents uint64) js.Promise[js.Void]]) {
+	bindings.FuncNavigatorSetAppBadge(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetAppBadge calls the method "Navigator.setAppBadge".
 func (this Navigator) SetAppBadge(contents uint64) (ret js.Promise[js.Void]) {
 	bindings.CallNavigatorSetAppBadge(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(contents),
 	)
 
@@ -3047,33 +3027,32 @@ func (this Navigator) SetAppBadge(contents uint64) (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this Navigator) TrySetAppBadge(contents uint64) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorSetAppBadge(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(contents),
 	)
 
 	return
 }
 
-// HasSetAppBadge1 returns true if the method "Navigator.setAppBadge" exists.
-func (this Navigator) HasSetAppBadge1() bool {
-	return js.True == bindings.HasNavigatorSetAppBadge1(
-		this.Ref(),
+// HasFuncSetAppBadge1 returns true if the method "Navigator.setAppBadge" exists.
+func (this Navigator) HasFuncSetAppBadge1() bool {
+	return js.True == bindings.HasFuncNavigatorSetAppBadge1(
+		this.ref,
 	)
 }
 
-// SetAppBadge1Func returns the method "Navigator.setAppBadge".
-func (this Navigator) SetAppBadge1Func() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.NavigatorSetAppBadge1Func(
-			this.Ref(),
-		),
+// FuncSetAppBadge1 returns the method "Navigator.setAppBadge".
+func (this Navigator) FuncSetAppBadge1() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncNavigatorSetAppBadge1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetAppBadge1 calls the method "Navigator.setAppBadge".
 func (this Navigator) SetAppBadge1() (ret js.Promise[js.Void]) {
 	bindings.CallNavigatorSetAppBadge1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3084,32 +3063,31 @@ func (this Navigator) SetAppBadge1() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this Navigator) TrySetAppBadge1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorSetAppBadge1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasClearAppBadge returns true if the method "Navigator.clearAppBadge" exists.
-func (this Navigator) HasClearAppBadge() bool {
-	return js.True == bindings.HasNavigatorClearAppBadge(
-		this.Ref(),
+// HasFuncClearAppBadge returns true if the method "Navigator.clearAppBadge" exists.
+func (this Navigator) HasFuncClearAppBadge() bool {
+	return js.True == bindings.HasFuncNavigatorClearAppBadge(
+		this.ref,
 	)
 }
 
-// ClearAppBadgeFunc returns the method "Navigator.clearAppBadge".
-func (this Navigator) ClearAppBadgeFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.NavigatorClearAppBadgeFunc(
-			this.Ref(),
-		),
+// FuncClearAppBadge returns the method "Navigator.clearAppBadge".
+func (this Navigator) FuncClearAppBadge() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncNavigatorClearAppBadge(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ClearAppBadge calls the method "Navigator.clearAppBadge".
 func (this Navigator) ClearAppBadge() (ret js.Promise[js.Void]) {
 	bindings.CallNavigatorClearAppBadge(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3120,7 +3098,7 @@ func (this Navigator) ClearAppBadge() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this Navigator) TryClearAppBadge() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorClearAppBadge(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -3171,7 +3149,7 @@ func (cb *LaunchConsumer[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 1+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
 
 	if ctx.Return(cb.Fn(
@@ -3191,7 +3169,7 @@ type LaunchParams struct {
 }
 
 func (this LaunchParams) Once() LaunchParams {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3205,7 +3183,7 @@ func (this LaunchParams) FromRef(ref js.Ref) LaunchParams {
 }
 
 func (this LaunchParams) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // TargetURL returns the value of property "LaunchParams.targetURL".
@@ -3213,7 +3191,7 @@ func (this LaunchParams) Free() {
 // It returns ok=false if there is no such property.
 func (this LaunchParams) TargetURL() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetLaunchParamsTargetURL(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3223,7 +3201,7 @@ func (this LaunchParams) TargetURL() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this LaunchParams) Files() (ret js.FrozenArray[FileSystemHandle], ok bool) {
 	ok = js.True == bindings.GetLaunchParamsFiles(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3233,7 +3211,7 @@ type LaunchQueue struct {
 }
 
 func (this LaunchQueue) Once() LaunchQueue {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3247,29 +3225,28 @@ func (this LaunchQueue) FromRef(ref js.Ref) LaunchQueue {
 }
 
 func (this LaunchQueue) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasSetConsumer returns true if the method "LaunchQueue.setConsumer" exists.
-func (this LaunchQueue) HasSetConsumer() bool {
-	return js.True == bindings.HasLaunchQueueSetConsumer(
-		this.Ref(),
+// HasFuncSetConsumer returns true if the method "LaunchQueue.setConsumer" exists.
+func (this LaunchQueue) HasFuncSetConsumer() bool {
+	return js.True == bindings.HasFuncLaunchQueueSetConsumer(
+		this.ref,
 	)
 }
 
-// SetConsumerFunc returns the method "LaunchQueue.setConsumer".
-func (this LaunchQueue) SetConsumerFunc() (fn js.Func[func(consumer js.Func[func(params LaunchParams) js.Any])]) {
-	return fn.FromRef(
-		bindings.LaunchQueueSetConsumerFunc(
-			this.Ref(),
-		),
+// FuncSetConsumer returns the method "LaunchQueue.setConsumer".
+func (this LaunchQueue) FuncSetConsumer() (fn js.Func[func(consumer js.Func[func(params LaunchParams) js.Any])]) {
+	bindings.FuncLaunchQueueSetConsumer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetConsumer calls the method "LaunchQueue.setConsumer".
 func (this LaunchQueue) SetConsumer(consumer js.Func[func(params LaunchParams) js.Any]) (ret js.Void) {
 	bindings.CallLaunchQueueSetConsumer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		consumer.Ref(),
 	)
 
@@ -3281,7 +3258,7 @@ func (this LaunchQueue) SetConsumer(consumer js.Func[func(params LaunchParams) j
 // the catch clause.
 func (this LaunchQueue) TrySetConsumer(consumer js.Func[func(params LaunchParams) js.Any]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryLaunchQueueSetConsumer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		consumer.Ref(),
 	)
 
@@ -3360,17 +3337,30 @@ func (p FenceEvent) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p FenceEvent) UpdateFrom(ref js.Ref) {
+func (p *FenceEvent) UpdateFrom(ref js.Ref) {
 	bindings.FenceEventJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p FenceEvent) Update(ref js.Ref) {
+func (p *FenceEvent) Update(ref js.Ref) {
 	bindings.FenceEventJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *FenceEvent) FreeMembers(recursive bool) {
+	js.Free(
+		p.EventType.Ref(),
+		p.EventData.Ref(),
+		p.Destination.Ref(),
+	)
+	p.EventType = p.EventType.FromRef(js.Undefined)
+	p.EventData = p.EventData.FromRef(js.Undefined)
+	p.Destination = p.Destination.FromRef(js.Undefined)
 }
 
 type OneOf_FenceEvent_String struct {
@@ -3408,7 +3398,7 @@ type Fence struct {
 }
 
 func (this Fence) Once() Fence {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3422,29 +3412,28 @@ func (this Fence) FromRef(ref js.Ref) Fence {
 }
 
 func (this Fence) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasReportEvent returns true if the method "Fence.reportEvent" exists.
-func (this Fence) HasReportEvent() bool {
-	return js.True == bindings.HasFenceReportEvent(
-		this.Ref(),
+// HasFuncReportEvent returns true if the method "Fence.reportEvent" exists.
+func (this Fence) HasFuncReportEvent() bool {
+	return js.True == bindings.HasFuncFenceReportEvent(
+		this.ref,
 	)
 }
 
-// ReportEventFunc returns the method "Fence.reportEvent".
-func (this Fence) ReportEventFunc() (fn js.Func[func(event ReportEventType)]) {
-	return fn.FromRef(
-		bindings.FenceReportEventFunc(
-			this.Ref(),
-		),
+// FuncReportEvent returns the method "Fence.reportEvent".
+func (this Fence) FuncReportEvent() (fn js.Func[func(event ReportEventType)]) {
+	bindings.FuncFenceReportEvent(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReportEvent calls the method "Fence.reportEvent".
 func (this Fence) ReportEvent(event ReportEventType) (ret js.Void) {
 	bindings.CallFenceReportEvent(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		event.Ref(),
 	)
 
@@ -3456,33 +3445,32 @@ func (this Fence) ReportEvent(event ReportEventType) (ret js.Void) {
 // the catch clause.
 func (this Fence) TryReportEvent(event ReportEventType) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFenceReportEvent(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		event.Ref(),
 	)
 
 	return
 }
 
-// HasSetReportEventDataForAutomaticBeacons returns true if the method "Fence.setReportEventDataForAutomaticBeacons" exists.
-func (this Fence) HasSetReportEventDataForAutomaticBeacons() bool {
-	return js.True == bindings.HasFenceSetReportEventDataForAutomaticBeacons(
-		this.Ref(),
+// HasFuncSetReportEventDataForAutomaticBeacons returns true if the method "Fence.setReportEventDataForAutomaticBeacons" exists.
+func (this Fence) HasFuncSetReportEventDataForAutomaticBeacons() bool {
+	return js.True == bindings.HasFuncFenceSetReportEventDataForAutomaticBeacons(
+		this.ref,
 	)
 }
 
-// SetReportEventDataForAutomaticBeaconsFunc returns the method "Fence.setReportEventDataForAutomaticBeacons".
-func (this Fence) SetReportEventDataForAutomaticBeaconsFunc() (fn js.Func[func(event FenceEvent)]) {
-	return fn.FromRef(
-		bindings.FenceSetReportEventDataForAutomaticBeaconsFunc(
-			this.Ref(),
-		),
+// FuncSetReportEventDataForAutomaticBeacons returns the method "Fence.setReportEventDataForAutomaticBeacons".
+func (this Fence) FuncSetReportEventDataForAutomaticBeacons() (fn js.Func[func(event FenceEvent)]) {
+	bindings.FuncFenceSetReportEventDataForAutomaticBeacons(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetReportEventDataForAutomaticBeacons calls the method "Fence.setReportEventDataForAutomaticBeacons".
 func (this Fence) SetReportEventDataForAutomaticBeacons(event FenceEvent) (ret js.Void) {
 	bindings.CallFenceSetReportEventDataForAutomaticBeacons(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&event),
 	)
 
@@ -3494,33 +3482,32 @@ func (this Fence) SetReportEventDataForAutomaticBeacons(event FenceEvent) (ret j
 // the catch clause.
 func (this Fence) TrySetReportEventDataForAutomaticBeacons(event FenceEvent) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFenceSetReportEventDataForAutomaticBeacons(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&event),
 	)
 
 	return
 }
 
-// HasGetNestedConfigs returns true if the method "Fence.getNestedConfigs" exists.
-func (this Fence) HasGetNestedConfigs() bool {
-	return js.True == bindings.HasFenceGetNestedConfigs(
-		this.Ref(),
+// HasFuncGetNestedConfigs returns true if the method "Fence.getNestedConfigs" exists.
+func (this Fence) HasFuncGetNestedConfigs() bool {
+	return js.True == bindings.HasFuncFenceGetNestedConfigs(
+		this.ref,
 	)
 }
 
-// GetNestedConfigsFunc returns the method "Fence.getNestedConfigs".
-func (this Fence) GetNestedConfigsFunc() (fn js.Func[func() js.Array[FencedFrameConfig]]) {
-	return fn.FromRef(
-		bindings.FenceGetNestedConfigsFunc(
-			this.Ref(),
-		),
+// FuncGetNestedConfigs returns the method "Fence.getNestedConfigs".
+func (this Fence) FuncGetNestedConfigs() (fn js.Func[func() js.Array[FencedFrameConfig]]) {
+	bindings.FuncFenceGetNestedConfigs(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetNestedConfigs calls the method "Fence.getNestedConfigs".
 func (this Fence) GetNestedConfigs() (ret js.Array[FencedFrameConfig]) {
 	bindings.CallFenceGetNestedConfigs(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3531,7 +3518,7 @@ func (this Fence) GetNestedConfigs() (ret js.Array[FencedFrameConfig]) {
 // the catch clause.
 func (this Fence) TryGetNestedConfigs() (ret js.Array[FencedFrameConfig], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFenceGetNestedConfigs(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -3542,7 +3529,7 @@ type PortalHost struct {
 }
 
 func (this PortalHost) Once() PortalHost {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3556,29 +3543,28 @@ func (this PortalHost) FromRef(ref js.Ref) PortalHost {
 }
 
 func (this PortalHost) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasPostMessage returns true if the method "PortalHost.postMessage" exists.
-func (this PortalHost) HasPostMessage() bool {
-	return js.True == bindings.HasPortalHostPostMessage(
-		this.Ref(),
+// HasFuncPostMessage returns true if the method "PortalHost.postMessage" exists.
+func (this PortalHost) HasFuncPostMessage() bool {
+	return js.True == bindings.HasFuncPortalHostPostMessage(
+		this.ref,
 	)
 }
 
-// PostMessageFunc returns the method "PortalHost.postMessage".
-func (this PortalHost) PostMessageFunc() (fn js.Func[func(message js.Any, options StructuredSerializeOptions)]) {
-	return fn.FromRef(
-		bindings.PortalHostPostMessageFunc(
-			this.Ref(),
-		),
+// FuncPostMessage returns the method "PortalHost.postMessage".
+func (this PortalHost) FuncPostMessage() (fn js.Func[func(message js.Any, options StructuredSerializeOptions)]) {
+	bindings.FuncPortalHostPostMessage(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PostMessage calls the method "PortalHost.postMessage".
 func (this PortalHost) PostMessage(message js.Any, options StructuredSerializeOptions) (ret js.Void) {
 	bindings.CallPortalHostPostMessage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		message.Ref(),
 		js.Pointer(&options),
 	)
@@ -3591,7 +3577,7 @@ func (this PortalHost) PostMessage(message js.Any, options StructuredSerializeOp
 // the catch clause.
 func (this PortalHost) TryPostMessage(message js.Any, options StructuredSerializeOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPortalHostPostMessage(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		message.Ref(),
 		js.Pointer(&options),
 	)
@@ -3599,26 +3585,25 @@ func (this PortalHost) TryPostMessage(message js.Any, options StructuredSerializ
 	return
 }
 
-// HasPostMessage1 returns true if the method "PortalHost.postMessage" exists.
-func (this PortalHost) HasPostMessage1() bool {
-	return js.True == bindings.HasPortalHostPostMessage1(
-		this.Ref(),
+// HasFuncPostMessage1 returns true if the method "PortalHost.postMessage" exists.
+func (this PortalHost) HasFuncPostMessage1() bool {
+	return js.True == bindings.HasFuncPortalHostPostMessage1(
+		this.ref,
 	)
 }
 
-// PostMessage1Func returns the method "PortalHost.postMessage".
-func (this PortalHost) PostMessage1Func() (fn js.Func[func(message js.Any)]) {
-	return fn.FromRef(
-		bindings.PortalHostPostMessage1Func(
-			this.Ref(),
-		),
+// FuncPostMessage1 returns the method "PortalHost.postMessage".
+func (this PortalHost) FuncPostMessage1() (fn js.Func[func(message js.Any)]) {
+	bindings.FuncPortalHostPostMessage1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PostMessage1 calls the method "PortalHost.postMessage".
 func (this PortalHost) PostMessage1(message js.Any) (ret js.Void) {
 	bindings.CallPortalHostPostMessage1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		message.Ref(),
 	)
 
@@ -3630,7 +3615,7 @@ func (this PortalHost) PostMessage1(message js.Any) (ret js.Void) {
 // the catch clause.
 func (this PortalHost) TryPostMessage1(message js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPortalHostPostMessage1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		message.Ref(),
 	)
 
@@ -3714,7 +3699,7 @@ type ScreenOrientation struct {
 }
 
 func (this ScreenOrientation) Once() ScreenOrientation {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3728,7 +3713,7 @@ func (this ScreenOrientation) FromRef(ref js.Ref) ScreenOrientation {
 }
 
 func (this ScreenOrientation) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Type returns the value of property "ScreenOrientation.type".
@@ -3736,7 +3721,7 @@ func (this ScreenOrientation) Free() {
 // It returns ok=false if there is no such property.
 func (this ScreenOrientation) Type() (ret OrientationType, ok bool) {
 	ok = js.True == bindings.GetScreenOrientationType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3746,31 +3731,30 @@ func (this ScreenOrientation) Type() (ret OrientationType, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ScreenOrientation) Angle() (ret uint16, ok bool) {
 	ok = js.True == bindings.GetScreenOrientationAngle(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasLock returns true if the method "ScreenOrientation.lock" exists.
-func (this ScreenOrientation) HasLock() bool {
-	return js.True == bindings.HasScreenOrientationLock(
-		this.Ref(),
+// HasFuncLock returns true if the method "ScreenOrientation.lock" exists.
+func (this ScreenOrientation) HasFuncLock() bool {
+	return js.True == bindings.HasFuncScreenOrientationLock(
+		this.ref,
 	)
 }
 
-// LockFunc returns the method "ScreenOrientation.lock".
-func (this ScreenOrientation) LockFunc() (fn js.Func[func(orientation OrientationLockType) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.ScreenOrientationLockFunc(
-			this.Ref(),
-		),
+// FuncLock returns the method "ScreenOrientation.lock".
+func (this ScreenOrientation) FuncLock() (fn js.Func[func(orientation OrientationLockType) js.Promise[js.Void]]) {
+	bindings.FuncScreenOrientationLock(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Lock calls the method "ScreenOrientation.lock".
 func (this ScreenOrientation) Lock(orientation OrientationLockType) (ret js.Promise[js.Void]) {
 	bindings.CallScreenOrientationLock(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(orientation),
 	)
 
@@ -3782,33 +3766,32 @@ func (this ScreenOrientation) Lock(orientation OrientationLockType) (ret js.Prom
 // the catch clause.
 func (this ScreenOrientation) TryLock(orientation OrientationLockType) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryScreenOrientationLock(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(orientation),
 	)
 
 	return
 }
 
-// HasUnlock returns true if the method "ScreenOrientation.unlock" exists.
-func (this ScreenOrientation) HasUnlock() bool {
-	return js.True == bindings.HasScreenOrientationUnlock(
-		this.Ref(),
+// HasFuncUnlock returns true if the method "ScreenOrientation.unlock" exists.
+func (this ScreenOrientation) HasFuncUnlock() bool {
+	return js.True == bindings.HasFuncScreenOrientationUnlock(
+		this.ref,
 	)
 }
 
-// UnlockFunc returns the method "ScreenOrientation.unlock".
-func (this ScreenOrientation) UnlockFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.ScreenOrientationUnlockFunc(
-			this.Ref(),
-		),
+// FuncUnlock returns the method "ScreenOrientation.unlock".
+func (this ScreenOrientation) FuncUnlock() (fn js.Func[func()]) {
+	bindings.FuncScreenOrientationUnlock(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Unlock calls the method "ScreenOrientation.unlock".
 func (this ScreenOrientation) Unlock() (ret js.Void) {
 	bindings.CallScreenOrientationUnlock(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3819,7 +3802,7 @@ func (this ScreenOrientation) Unlock() (ret js.Void) {
 // the catch clause.
 func (this ScreenOrientation) TryUnlock() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryScreenOrientationUnlock(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -3830,7 +3813,7 @@ type Screen struct {
 }
 
 func (this Screen) Once() Screen {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3844,7 +3827,7 @@ func (this Screen) FromRef(ref js.Ref) Screen {
 }
 
 func (this Screen) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // AvailWidth returns the value of property "Screen.availWidth".
@@ -3852,7 +3835,7 @@ func (this Screen) Free() {
 // It returns ok=false if there is no such property.
 func (this Screen) AvailWidth() (ret int32, ok bool) {
 	ok = js.True == bindings.GetScreenAvailWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3862,7 +3845,7 @@ func (this Screen) AvailWidth() (ret int32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Screen) AvailHeight() (ret int32, ok bool) {
 	ok = js.True == bindings.GetScreenAvailHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3872,7 +3855,7 @@ func (this Screen) AvailHeight() (ret int32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Screen) Width() (ret int32, ok bool) {
 	ok = js.True == bindings.GetScreenWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3882,7 +3865,7 @@ func (this Screen) Width() (ret int32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Screen) Height() (ret int32, ok bool) {
 	ok = js.True == bindings.GetScreenHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3892,7 +3875,7 @@ func (this Screen) Height() (ret int32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Screen) ColorDepth() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetScreenColorDepth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3902,7 +3885,7 @@ func (this Screen) ColorDepth() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Screen) PixelDepth() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetScreenPixelDepth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3912,7 +3895,7 @@ func (this Screen) PixelDepth() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Screen) IsExtended() (ret bool, ok bool) {
 	ok = js.True == bindings.GetScreenIsExtended(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3922,7 +3905,7 @@ func (this Screen) IsExtended() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Screen) Orientation() (ret ScreenOrientation, ok bool) {
 	ok = js.True == bindings.GetScreenOrientation(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3932,7 +3915,7 @@ type VisualViewport struct {
 }
 
 func (this VisualViewport) Once() VisualViewport {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3946,7 +3929,7 @@ func (this VisualViewport) FromRef(ref js.Ref) VisualViewport {
 }
 
 func (this VisualViewport) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // OffsetLeft returns the value of property "VisualViewport.offsetLeft".
@@ -3954,7 +3937,7 @@ func (this VisualViewport) Free() {
 // It returns ok=false if there is no such property.
 func (this VisualViewport) OffsetLeft() (ret float64, ok bool) {
 	ok = js.True == bindings.GetVisualViewportOffsetLeft(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3964,7 +3947,7 @@ func (this VisualViewport) OffsetLeft() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this VisualViewport) OffsetTop() (ret float64, ok bool) {
 	ok = js.True == bindings.GetVisualViewportOffsetTop(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3974,7 +3957,7 @@ func (this VisualViewport) OffsetTop() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this VisualViewport) PageLeft() (ret float64, ok bool) {
 	ok = js.True == bindings.GetVisualViewportPageLeft(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3984,7 +3967,7 @@ func (this VisualViewport) PageLeft() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this VisualViewport) PageTop() (ret float64, ok bool) {
 	ok = js.True == bindings.GetVisualViewportPageTop(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3994,7 +3977,7 @@ func (this VisualViewport) PageTop() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this VisualViewport) Width() (ret float64, ok bool) {
 	ok = js.True == bindings.GetVisualViewportWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4004,7 +3987,7 @@ func (this VisualViewport) Width() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this VisualViewport) Height() (ret float64, ok bool) {
 	ok = js.True == bindings.GetVisualViewportHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4014,7 +3997,7 @@ func (this VisualViewport) Height() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this VisualViewport) Scale() (ret float64, ok bool) {
 	ok = js.True == bindings.GetVisualViewportScale(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4057,17 +4040,26 @@ func (p SharedStorageRunOperationMethodOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p SharedStorageRunOperationMethodOptions) UpdateFrom(ref js.Ref) {
+func (p *SharedStorageRunOperationMethodOptions) UpdateFrom(ref js.Ref) {
 	bindings.SharedStorageRunOperationMethodOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p SharedStorageRunOperationMethodOptions) Update(ref js.Ref) {
+func (p *SharedStorageRunOperationMethodOptions) Update(ref js.Ref) {
 	bindings.SharedStorageRunOperationMethodOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *SharedStorageRunOperationMethodOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Data.Ref(),
+	)
+	p.Data = p.Data.FromRef(js.Undefined)
 }
 
 type SharedStorageResponse = OneOf_String_FencedFrameConfig
@@ -4099,15 +4091,26 @@ func (p SharedStorageUrlWithMetadata) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p SharedStorageUrlWithMetadata) UpdateFrom(ref js.Ref) {
+func (p *SharedStorageUrlWithMetadata) UpdateFrom(ref js.Ref) {
 	bindings.SharedStorageUrlWithMetadataJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p SharedStorageUrlWithMetadata) Update(ref js.Ref) {
+func (p *SharedStorageUrlWithMetadata) Update(ref js.Ref) {
 	bindings.SharedStorageUrlWithMetadataJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *SharedStorageUrlWithMetadata) FreeMembers(recursive bool) {
+	js.Free(
+		p.Url.Ref(),
+		p.ReportingMetadata.Ref(),
+	)
+	p.Url = p.Url.FromRef(js.Undefined)
+	p.ReportingMetadata = p.ReportingMetadata.FromRef(js.Undefined)
 }

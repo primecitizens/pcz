@@ -1,4 +1,4 @@
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUOrigin3D
     Type:
@@ -7,7 +7,7 @@
           Params:
             - Name: GPUIntegerCoordinate
         - Name: GPUOrigin3DDict
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUOrigin3DDict
     Fields:
@@ -23,7 +23,7 @@
         Default: "0"
         Type:
           Name: GPUIntegerCoordinate
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUOutOfMemoryError
     Inherits: GPUError
@@ -44,12 +44,12 @@
               - Window
               - DedicatedWorker
           - Name: SecureContext
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUPipelineConstantValue
     Type:
       Name: double
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUPipelineDescriptorBase
     Inherits: GPUObjectDescriptorBase
@@ -64,7 +64,7 @@
         Default: '""'
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUPipelineError
     Inherits: DOMException
@@ -104,7 +104,7 @@
               - DedicatedWorker
           - Name: SecureContext
           - Name: Serializable
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUPipelineErrorInit
     Fields:
@@ -112,13 +112,13 @@
         Required: true
         Type:
           Name: GPUPipelineErrorReason
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUPipelineErrorReason
     Values:
       - validation
       - internal
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUPipelineLayout
     ExtAttrs:
@@ -131,7 +131,7 @@
       - Name: label
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUPipelineLayoutDescriptor
     Inherits: GPUObjectDescriptorBase
@@ -146,13 +146,13 @@
         Default: '""'
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUPowerPreference
     Values:
       - low-power
       - high-performance
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUPrimitiveState
     Fields:
@@ -175,7 +175,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUPrimitiveTopology
     Values:
@@ -184,7 +184,7 @@
       - line-strip
       - triangle-list
       - triangle-strip
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUProgrammableStage
     Fields:
@@ -202,7 +202,7 @@
           Params:
             - Name: USVString
             - Name: GPUPipelineConstantValue
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUQuerySet
     ExtAttrs:
@@ -245,7 +245,7 @@
               - Window
               - DedicatedWorker
           - Name: SecureContext
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUQuerySetDescriptor
     Inherits: GPUObjectDescriptorBase
@@ -262,13 +262,13 @@
         Default: '""'
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUQueryType
     Values:
       - occlusion
       - timestamp
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUQueue
     ExtAttrs:
@@ -377,7 +377,7 @@
               - Window
               - DedicatedWorker
           - Name: SecureContext
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUQueueDescriptor
     Inherits: GPUObjectDescriptorBase
@@ -386,7 +386,7 @@
         Default: '""'
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPURenderBundle
     ExtAttrs:
@@ -399,7 +399,7 @@
       - Name: label
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPURenderBundleDescriptor
     Inherits: GPUObjectDescriptorBase
@@ -408,7 +408,7 @@
         Default: '""'
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPURenderBundleEncoder
     ExtAttrs:
@@ -607,7 +607,7 @@
               Name: USVString
         Returns:
           - Name: undefined
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPURenderBundleEncoderDescriptor
     Inherits: GPURenderPassLayout
@@ -638,7 +638,7 @@
         Default: '""'
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPURenderPassColorAttachment
     Fields:
@@ -660,7 +660,7 @@
         Required: true
         Type:
           Name: GPUStoreOp
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPURenderPassDepthStencilAttachment
     Fields:
@@ -695,7 +695,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPURenderPassDescriptor
     Inherits: GPUObjectDescriptorBase
@@ -724,7 +724,7 @@
         Default: '""'
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPURenderPassEncoder
     ExtAttrs:
@@ -1030,7 +1030,7 @@
               Name: USVString
         Returns:
           - Name: undefined
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPURenderPassLayout
     Inherits: GPUObjectDescriptorBase
@@ -1053,7 +1053,7 @@
         Default: '""'
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPURenderPassTimestampWrites
     Fields:
@@ -1067,7 +1067,7 @@
       - Name: endOfPassWriteIndex
         Type:
           Name: GPUSize32
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPURenderPipeline
     ExtAttrs:
@@ -1090,7 +1090,7 @@
           - Name: GPUBindGroupLayout
         ExtAttrs:
           - Name: NewObject
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPURenderPipelineDescriptor
     Inherits: GPUPipelineDescriptorBase
@@ -1123,7 +1123,7 @@
         Default: '""'
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPURequestAdapterOptions
     Fields:
@@ -1134,12 +1134,12 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUSampleMask
     Type:
       Name: unsigned long
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUSampler
     ExtAttrs:
@@ -1152,7 +1152,7 @@
       - Name: label
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUSamplerBindingLayout
     Fields:
@@ -1160,14 +1160,14 @@
         Default: '"filtering"'
         Type:
           Name: GPUSamplerBindingType
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUSamplerBindingType
     Values:
       - filtering
       - non-filtering
       - comparison
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUSamplerDescriptor
     Inherits: GPUObjectDescriptorBase
@@ -1217,7 +1217,7 @@
         Default: '""'
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUShaderModule
     ExtAttrs:
@@ -1242,7 +1242,7 @@
               - Window
               - DedicatedWorker
           - Name: SecureContext
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUShaderModuleCompilationHint
     Fields:
@@ -1251,7 +1251,7 @@
           Union:
             - Name: GPUPipelineLayout
             - Name: GPUAutoLayoutMode
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUShaderModuleDescriptor
     Inherits: GPUObjectDescriptorBase
@@ -1273,7 +1273,7 @@
         Default: '""'
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Namespace:
     Name: GPUShaderStage
     ExtAttrs:
@@ -1295,37 +1295,37 @@
         Value: "0x4"
         Type:
           Name: GPUFlagsConstant
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUShaderStageFlags
     Type:
       Name: unsigned long
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUSignedOffset32
     Type:
       Name: long
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUSize32
     Type:
       Name: unsigned long
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUSize32Out
     Type:
       Name: unsigned long
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUSize64
     Type:
       Name: unsigned long long
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUSize64Out
     Type:
       Name: unsigned long long
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUStencilFaceState
     Fields:
@@ -1345,7 +1345,7 @@
         Default: '"keep"'
         Type:
           Name: GPUStencilOperation
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUStencilOperation
     Values:
@@ -1357,7 +1357,7 @@
       - decrement-clamp
       - increment-wrap
       - decrement-wrap
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUStencilValue
     Type:

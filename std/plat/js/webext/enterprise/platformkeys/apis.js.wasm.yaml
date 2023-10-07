@@ -1,0 +1,734 @@
+- File: webext/chrome/enterprise_platform_keys.idl
+  Enum:
+    Name: Algorithm
+    Values:
+      - RSA
+      - ECDSA
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - platformKeys
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/enterprise_platform_keys.idl
+  Callback:
+    Name: ChallengeCallback
+    Args:
+      - Name: response
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - platformKeys
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/enterprise_platform_keys.idl
+  Dict:
+    Name: ChallengeKeyOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - platformKeys
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: challenge
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+      - Name: registerKey
+        Type:
+          Name: RegisterKeyOptions
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+      - Name: scope
+        Type:
+          Name: Scope
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+- File: webext/chrome/enterprise_platform_keys.idl
+  Callback:
+    Name: DoneCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - platformKeys
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/enterprise_platform_keys.idl
+  Callback:
+    Name: GetCertificatesCallback
+    Args:
+      - Name: certificates
+        Type:
+          Name: sequence
+          Params:
+            - Name: ArrayBuffer
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - enterprise
+                    - platformKeys
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - platformKeys
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/enterprise_platform_keys.idl
+  Callback:
+    Name: GetTokensCallback
+    Args:
+      - Name: tokens
+        Type:
+          Name: sequence
+          Params:
+            - Name: Token
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - enterprise
+                    - platformKeys
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - platformKeys
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/enterprise_platform_keys.idl
+  Dict:
+    Name: RegisterKeyOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - platformKeys
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: algorithm
+        Type:
+          Name: Algorithm
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+- File: webext/chrome/enterprise_platform_keys.idl
+  Enum:
+    Name: Scope
+    Values:
+      - USER
+      - MACHINE
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - platformKeys
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/enterprise_platform_keys.idl
+  Dict:
+    Name: Token
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - platformKeys
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+      - Name: nocompile
+      - Name: noinline_doc
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+      - Name: subtleCrypto
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - SubtleCrypto
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+      - Name: softwareBackedSubtleCrypto
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - SubtleCrypto
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+- File: webext/chrome/enterprise_platform_keys.idl
+  WebextFunc:
+    Name: challengeKey
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: ChallengeKeyOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+      - Name: callback
+        Type:
+          Name: ChallengeCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - platformKeys
+- File: webext/chrome/enterprise_platform_keys.idl
+  WebextFunc:
+    Name: challengeMachineKey
+    Modifier: static
+    Args:
+      - Name: challenge
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+      - Name: registerKey
+        Optional: true
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+      - Name: callback
+        Type:
+          Name: ChallengeCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+    ExtAttrs:
+      - Name: deprecated
+        Values:
+          - Use $(ref:challengeKey) instead.
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - platformKeys
+- File: webext/chrome/enterprise_platform_keys.idl
+  WebextFunc:
+    Name: challengeUserKey
+    Modifier: static
+    Args:
+      - Name: challenge
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+      - Name: registerKey
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+      - Name: callback
+        Type:
+          Name: ChallengeCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+    ExtAttrs:
+      - Name: deprecated
+        Values:
+          - Use $(ref:challengeKey) instead.
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - platformKeys
+- File: webext/chrome/enterprise_platform_keys.idl
+  WebextFunc:
+    Name: getCertificates
+    Modifier: static
+    Args:
+      - Name: tokenId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+      - Name: callback
+        Type:
+          Name: GetCertificatesCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - platformKeys
+- File: webext/chrome/enterprise_platform_keys.idl
+  WebextFunc:
+    Name: getTokens
+    Modifier: static
+    Args:
+      - Name: callback
+        Type:
+          Name: GetTokensCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - platformKeys
+- File: webext/chrome/enterprise_platform_keys.idl
+  WebextFunc:
+    Name: importCertificate
+    Modifier: static
+    Args:
+      - Name: tokenId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+      - Name: certificate
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+      - Name: callback
+        Optional: true
+        Type:
+          Name: DoneCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - platformKeys
+- File: webext/chrome/enterprise_platform_keys.idl
+  WebextFunc:
+    Name: removeCertificate
+    Modifier: static
+    Args:
+      - Name: tokenId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+      - Name: certificate
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+      - Name: callback
+        Optional: true
+        Type:
+          Name: DoneCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - platformKeys
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - platformKeys

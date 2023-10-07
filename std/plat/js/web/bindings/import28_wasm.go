@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web constof_ServiceWorkerState
 //go:noescape
@@ -34,11 +32,11 @@ func GetServiceWorkerState(
 
 //go:wasmimport plat/js/web has_ServiceWorker_PostMessage
 //go:noescape
-func HasServiceWorkerPostMessage(this js.Ref) js.Ref
+func HasFuncServiceWorkerPostMessage(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ServiceWorker_PostMessage
 //go:noescape
-func ServiceWorkerPostMessageFunc(this js.Ref) js.Ref
+func FuncServiceWorkerPostMessage(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ServiceWorker_PostMessage
 //go:noescape
@@ -56,11 +54,11 @@ func TryServiceWorkerPostMessage(
 
 //go:wasmimport plat/js/web has_ServiceWorker_PostMessage1
 //go:noescape
-func HasServiceWorkerPostMessage1(this js.Ref) js.Ref
+func HasFuncServiceWorkerPostMessage1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ServiceWorker_PostMessage1
 //go:noescape
-func ServiceWorkerPostMessage1Func(this js.Ref) js.Ref
+func FuncServiceWorkerPostMessage1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ServiceWorker_PostMessage1
 //go:noescape
@@ -78,11 +76,11 @@ func TryServiceWorkerPostMessage1(
 
 //go:wasmimport plat/js/web has_ServiceWorker_PostMessage2
 //go:noescape
-func HasServiceWorkerPostMessage2(this js.Ref) js.Ref
+func HasFuncServiceWorkerPostMessage2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ServiceWorker_PostMessage2
 //go:noescape
-func ServiceWorkerPostMessage2Func(this js.Ref) js.Ref
+func FuncServiceWorkerPostMessage2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ServiceWorker_PostMessage2
 //go:noescape
@@ -108,11 +106,11 @@ func NavigationPreloadStateJSLoad(
 
 //go:wasmimport plat/js/web has_NavigationPreloadManager_Enable
 //go:noescape
-func HasNavigationPreloadManagerEnable(this js.Ref) js.Ref
+func HasFuncNavigationPreloadManagerEnable(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_NavigationPreloadManager_Enable
 //go:noescape
-func NavigationPreloadManagerEnableFunc(this js.Ref) js.Ref
+func FuncNavigationPreloadManagerEnable(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_NavigationPreloadManager_Enable
 //go:noescape
@@ -126,11 +124,11 @@ func TryNavigationPreloadManagerEnable(
 
 //go:wasmimport plat/js/web has_NavigationPreloadManager_Disable
 //go:noescape
-func HasNavigationPreloadManagerDisable(this js.Ref) js.Ref
+func HasFuncNavigationPreloadManagerDisable(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_NavigationPreloadManager_Disable
 //go:noescape
-func NavigationPreloadManagerDisableFunc(this js.Ref) js.Ref
+func FuncNavigationPreloadManagerDisable(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_NavigationPreloadManager_Disable
 //go:noescape
@@ -144,11 +142,11 @@ func TryNavigationPreloadManagerDisable(
 
 //go:wasmimport plat/js/web has_NavigationPreloadManager_SetHeaderValue
 //go:noescape
-func HasNavigationPreloadManagerSetHeaderValue(this js.Ref) js.Ref
+func HasFuncNavigationPreloadManagerSetHeaderValue(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_NavigationPreloadManager_SetHeaderValue
 //go:noescape
-func NavigationPreloadManagerSetHeaderValueFunc(this js.Ref) js.Ref
+func FuncNavigationPreloadManagerSetHeaderValue(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_NavigationPreloadManager_SetHeaderValue
 //go:noescape
@@ -164,11 +162,11 @@ func TryNavigationPreloadManagerSetHeaderValue(
 
 //go:wasmimport plat/js/web has_NavigationPreloadManager_GetState
 //go:noescape
-func HasNavigationPreloadManagerGetState(this js.Ref) js.Ref
+func HasFuncNavigationPreloadManagerGetState(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_NavigationPreloadManager_GetState
 //go:noescape
-func NavigationPreloadManagerGetStateFunc(this js.Ref) js.Ref
+func FuncNavigationPreloadManagerGetState(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_NavigationPreloadManager_GetState
 //go:noescape
@@ -186,11 +184,11 @@ func ConstOfServiceWorkerUpdateViaCache(str js.Ref) uint32
 
 //go:wasmimport plat/js/web has_SyncManager_Register
 //go:noescape
-func HasSyncManagerRegister(this js.Ref) js.Ref
+func HasFuncSyncManagerRegister(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SyncManager_Register
 //go:noescape
-func SyncManagerRegisterFunc(this js.Ref) js.Ref
+func FuncSyncManagerRegister(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SyncManager_Register
 //go:noescape
@@ -206,11 +204,11 @@ func TrySyncManagerRegister(
 
 //go:wasmimport plat/js/web has_SyncManager_GetTags
 //go:noescape
-func HasSyncManagerGetTags(this js.Ref) js.Ref
+func HasFuncSyncManagerGetTags(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SyncManager_GetTags
 //go:noescape
-func SyncManagerGetTagsFunc(this js.Ref) js.Ref
+func FuncSyncManagerGetTags(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SyncManager_GetTags
 //go:noescape
@@ -263,11 +261,11 @@ func GetPushSubscriptionOptions(
 
 //go:wasmimport plat/js/web has_PushSubscription_GetKey
 //go:noescape
-func HasPushSubscriptionGetKey(this js.Ref) js.Ref
+func HasFuncPushSubscriptionGetKey(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PushSubscription_GetKey
 //go:noescape
-func PushSubscriptionGetKeyFunc(this js.Ref) js.Ref
+func FuncPushSubscriptionGetKey(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PushSubscription_GetKey
 //go:noescape
@@ -283,11 +281,11 @@ func TryPushSubscriptionGetKey(
 
 //go:wasmimport plat/js/web has_PushSubscription_Unsubscribe
 //go:noescape
-func HasPushSubscriptionUnsubscribe(this js.Ref) js.Ref
+func HasFuncPushSubscriptionUnsubscribe(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PushSubscription_Unsubscribe
 //go:noescape
-func PushSubscriptionUnsubscribeFunc(this js.Ref) js.Ref
+func FuncPushSubscriptionUnsubscribe(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PushSubscription_Unsubscribe
 //go:noescape
@@ -301,11 +299,11 @@ func TryPushSubscriptionUnsubscribe(
 
 //go:wasmimport plat/js/web has_PushSubscription_ToJSON
 //go:noescape
-func HasPushSubscriptionToJSON(this js.Ref) js.Ref
+func HasFuncPushSubscriptionToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PushSubscription_ToJSON
 //go:noescape
-func PushSubscriptionToJSONFunc(this js.Ref) js.Ref
+func FuncPushSubscriptionToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PushSubscription_ToJSON
 //go:noescape
@@ -334,11 +332,11 @@ func GetPushManagerSupportedContentEncodings(
 
 //go:wasmimport plat/js/web has_PushManager_Subscribe
 //go:noescape
-func HasPushManagerSubscribe(this js.Ref) js.Ref
+func HasFuncPushManagerSubscribe(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PushManager_Subscribe
 //go:noescape
-func PushManagerSubscribeFunc(this js.Ref) js.Ref
+func FuncPushManagerSubscribe(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PushManager_Subscribe
 //go:noescape
@@ -354,11 +352,11 @@ func TryPushManagerSubscribe(
 
 //go:wasmimport plat/js/web has_PushManager_Subscribe1
 //go:noescape
-func HasPushManagerSubscribe1(this js.Ref) js.Ref
+func HasFuncPushManagerSubscribe1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PushManager_Subscribe1
 //go:noescape
-func PushManagerSubscribe1Func(this js.Ref) js.Ref
+func FuncPushManagerSubscribe1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PushManager_Subscribe1
 //go:noescape
@@ -372,11 +370,11 @@ func TryPushManagerSubscribe1(
 
 //go:wasmimport plat/js/web has_PushManager_GetSubscription
 //go:noescape
-func HasPushManagerGetSubscription(this js.Ref) js.Ref
+func HasFuncPushManagerGetSubscription(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PushManager_GetSubscription
 //go:noescape
-func PushManagerGetSubscriptionFunc(this js.Ref) js.Ref
+func FuncPushManagerGetSubscription(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PushManager_GetSubscription
 //go:noescape
@@ -390,11 +388,11 @@ func TryPushManagerGetSubscription(
 
 //go:wasmimport plat/js/web has_PushManager_PermissionState
 //go:noescape
-func HasPushManagerPermissionState(this js.Ref) js.Ref
+func HasFuncPushManagerPermissionState(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PushManager_PermissionState
 //go:noescape
-func PushManagerPermissionStateFunc(this js.Ref) js.Ref
+func FuncPushManagerPermissionState(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PushManager_PermissionState
 //go:noescape
@@ -410,11 +408,11 @@ func TryPushManagerPermissionState(
 
 //go:wasmimport plat/js/web has_PushManager_PermissionState1
 //go:noescape
-func HasPushManagerPermissionState1(this js.Ref) js.Ref
+func HasFuncPushManagerPermissionState1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PushManager_PermissionState1
 //go:noescape
-func PushManagerPermissionState1Func(this js.Ref) js.Ref
+func FuncPushManagerPermissionState1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PushManager_PermissionState1
 //go:noescape
@@ -444,11 +442,11 @@ func SetPaymentManagerUserHint(
 
 //go:wasmimport plat/js/web has_PaymentManager_EnableDelegations
 //go:noescape
-func HasPaymentManagerEnableDelegations(this js.Ref) js.Ref
+func HasFuncPaymentManagerEnableDelegations(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PaymentManager_EnableDelegations
 //go:noescape
-func PaymentManagerEnableDelegationsFunc(this js.Ref) js.Ref
+func FuncPaymentManagerEnableDelegations(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PaymentManager_EnableDelegations
 //go:noescape
@@ -464,11 +462,11 @@ func TryPaymentManagerEnableDelegations(
 
 //go:wasmimport plat/js/web has_PeriodicSyncManager_Register
 //go:noescape
-func HasPeriodicSyncManagerRegister(this js.Ref) js.Ref
+func HasFuncPeriodicSyncManagerRegister(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PeriodicSyncManager_Register
 //go:noescape
-func PeriodicSyncManagerRegisterFunc(this js.Ref) js.Ref
+func FuncPeriodicSyncManagerRegister(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PeriodicSyncManager_Register
 //go:noescape
@@ -486,11 +484,11 @@ func TryPeriodicSyncManagerRegister(
 
 //go:wasmimport plat/js/web has_PeriodicSyncManager_Register1
 //go:noescape
-func HasPeriodicSyncManagerRegister1(this js.Ref) js.Ref
+func HasFuncPeriodicSyncManagerRegister1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PeriodicSyncManager_Register1
 //go:noescape
-func PeriodicSyncManagerRegister1Func(this js.Ref) js.Ref
+func FuncPeriodicSyncManagerRegister1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PeriodicSyncManager_Register1
 //go:noescape
@@ -506,11 +504,11 @@ func TryPeriodicSyncManagerRegister1(
 
 //go:wasmimport plat/js/web has_PeriodicSyncManager_GetTags
 //go:noescape
-func HasPeriodicSyncManagerGetTags(this js.Ref) js.Ref
+func HasFuncPeriodicSyncManagerGetTags(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PeriodicSyncManager_GetTags
 //go:noescape
-func PeriodicSyncManagerGetTagsFunc(this js.Ref) js.Ref
+func FuncPeriodicSyncManagerGetTags(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PeriodicSyncManager_GetTags
 //go:noescape
@@ -524,11 +522,11 @@ func TryPeriodicSyncManagerGetTags(
 
 //go:wasmimport plat/js/web has_PeriodicSyncManager_Unregister
 //go:noescape
-func HasPeriodicSyncManagerUnregister(this js.Ref) js.Ref
+func HasFuncPeriodicSyncManagerUnregister(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PeriodicSyncManager_Unregister
 //go:noescape
-func PeriodicSyncManagerUnregisterFunc(this js.Ref) js.Ref
+func FuncPeriodicSyncManagerUnregister(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PeriodicSyncManager_Unregister
 //go:noescape
@@ -554,11 +552,11 @@ func CookieStoreGetOptionsJSLoad(
 
 //go:wasmimport plat/js/web has_CookieStoreManager_Subscribe
 //go:noescape
-func HasCookieStoreManagerSubscribe(this js.Ref) js.Ref
+func HasFuncCookieStoreManagerSubscribe(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CookieStoreManager_Subscribe
 //go:noescape
-func CookieStoreManagerSubscribeFunc(this js.Ref) js.Ref
+func FuncCookieStoreManagerSubscribe(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CookieStoreManager_Subscribe
 //go:noescape
@@ -574,11 +572,11 @@ func TryCookieStoreManagerSubscribe(
 
 //go:wasmimport plat/js/web has_CookieStoreManager_GetSubscriptions
 //go:noescape
-func HasCookieStoreManagerGetSubscriptions(this js.Ref) js.Ref
+func HasFuncCookieStoreManagerGetSubscriptions(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CookieStoreManager_GetSubscriptions
 //go:noescape
-func CookieStoreManagerGetSubscriptionsFunc(this js.Ref) js.Ref
+func FuncCookieStoreManagerGetSubscriptions(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CookieStoreManager_GetSubscriptions
 //go:noescape
@@ -592,11 +590,11 @@ func TryCookieStoreManagerGetSubscriptions(
 
 //go:wasmimport plat/js/web has_CookieStoreManager_Unsubscribe
 //go:noescape
-func HasCookieStoreManagerUnsubscribe(this js.Ref) js.Ref
+func HasFuncCookieStoreManagerUnsubscribe(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CookieStoreManager_Unsubscribe
 //go:noescape
-func CookieStoreManagerUnsubscribeFunc(this js.Ref) js.Ref
+func FuncCookieStoreManagerUnsubscribe(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CookieStoreManager_Unsubscribe
 //go:noescape
@@ -626,11 +624,11 @@ func ContentDescriptionJSLoad(
 
 //go:wasmimport plat/js/web has_ContentIndex_Add
 //go:noescape
-func HasContentIndexAdd(this js.Ref) js.Ref
+func HasFuncContentIndexAdd(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ContentIndex_Add
 //go:noescape
-func ContentIndexAddFunc(this js.Ref) js.Ref
+func FuncContentIndexAdd(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ContentIndex_Add
 //go:noescape
@@ -646,11 +644,11 @@ func TryContentIndexAdd(
 
 //go:wasmimport plat/js/web has_ContentIndex_Delete
 //go:noescape
-func HasContentIndexDelete(this js.Ref) js.Ref
+func HasFuncContentIndexDelete(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ContentIndex_Delete
 //go:noescape
-func ContentIndexDeleteFunc(this js.Ref) js.Ref
+func FuncContentIndexDelete(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ContentIndex_Delete
 //go:noescape
@@ -666,11 +664,11 @@ func TryContentIndexDelete(
 
 //go:wasmimport plat/js/web has_ContentIndex_GetAll
 //go:noescape
-func HasContentIndexGetAll(this js.Ref) js.Ref
+func HasFuncContentIndexGetAll(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ContentIndex_GetAll
 //go:noescape
-func ContentIndexGetAllFunc(this js.Ref) js.Ref
+func FuncContentIndexGetAll(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ContentIndex_GetAll
 //go:noescape
@@ -749,11 +747,11 @@ func GetServiceWorkerRegistrationIndex(
 
 //go:wasmimport plat/js/web has_ServiceWorkerRegistration_Update
 //go:noescape
-func HasServiceWorkerRegistrationUpdate(this js.Ref) js.Ref
+func HasFuncServiceWorkerRegistrationUpdate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ServiceWorkerRegistration_Update
 //go:noescape
-func ServiceWorkerRegistrationUpdateFunc(this js.Ref) js.Ref
+func FuncServiceWorkerRegistrationUpdate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ServiceWorkerRegistration_Update
 //go:noescape
@@ -767,11 +765,11 @@ func TryServiceWorkerRegistrationUpdate(
 
 //go:wasmimport plat/js/web has_ServiceWorkerRegistration_Unregister
 //go:noescape
-func HasServiceWorkerRegistrationUnregister(this js.Ref) js.Ref
+func HasFuncServiceWorkerRegistrationUnregister(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ServiceWorkerRegistration_Unregister
 //go:noescape
-func ServiceWorkerRegistrationUnregisterFunc(this js.Ref) js.Ref
+func FuncServiceWorkerRegistrationUnregister(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ServiceWorkerRegistration_Unregister
 //go:noescape
@@ -785,11 +783,11 @@ func TryServiceWorkerRegistrationUnregister(
 
 //go:wasmimport plat/js/web has_ServiceWorkerRegistration_ShowNotification
 //go:noescape
-func HasServiceWorkerRegistrationShowNotification(this js.Ref) js.Ref
+func HasFuncServiceWorkerRegistrationShowNotification(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ServiceWorkerRegistration_ShowNotification
 //go:noescape
-func ServiceWorkerRegistrationShowNotificationFunc(this js.Ref) js.Ref
+func FuncServiceWorkerRegistrationShowNotification(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ServiceWorkerRegistration_ShowNotification
 //go:noescape
@@ -807,11 +805,11 @@ func TryServiceWorkerRegistrationShowNotification(
 
 //go:wasmimport plat/js/web has_ServiceWorkerRegistration_ShowNotification1
 //go:noescape
-func HasServiceWorkerRegistrationShowNotification1(this js.Ref) js.Ref
+func HasFuncServiceWorkerRegistrationShowNotification1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ServiceWorkerRegistration_ShowNotification1
 //go:noescape
-func ServiceWorkerRegistrationShowNotification1Func(this js.Ref) js.Ref
+func FuncServiceWorkerRegistrationShowNotification1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ServiceWorkerRegistration_ShowNotification1
 //go:noescape
@@ -827,11 +825,11 @@ func TryServiceWorkerRegistrationShowNotification1(
 
 //go:wasmimport plat/js/web has_ServiceWorkerRegistration_GetNotifications
 //go:noescape
-func HasServiceWorkerRegistrationGetNotifications(this js.Ref) js.Ref
+func HasFuncServiceWorkerRegistrationGetNotifications(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ServiceWorkerRegistration_GetNotifications
 //go:noescape
-func ServiceWorkerRegistrationGetNotificationsFunc(this js.Ref) js.Ref
+func FuncServiceWorkerRegistrationGetNotifications(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ServiceWorkerRegistration_GetNotifications
 //go:noescape
@@ -847,11 +845,11 @@ func TryServiceWorkerRegistrationGetNotifications(
 
 //go:wasmimport plat/js/web has_ServiceWorkerRegistration_GetNotifications1
 //go:noescape
-func HasServiceWorkerRegistrationGetNotifications1(this js.Ref) js.Ref
+func HasFuncServiceWorkerRegistrationGetNotifications1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ServiceWorkerRegistration_GetNotifications1
 //go:noescape
-func ServiceWorkerRegistrationGetNotifications1Func(this js.Ref) js.Ref
+func FuncServiceWorkerRegistrationGetNotifications1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ServiceWorkerRegistration_GetNotifications1
 //go:noescape
@@ -889,11 +887,11 @@ func GetServiceWorkerContainerReady(
 
 //go:wasmimport plat/js/web has_ServiceWorkerContainer_Register
 //go:noescape
-func HasServiceWorkerContainerRegister(this js.Ref) js.Ref
+func HasFuncServiceWorkerContainerRegister(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ServiceWorkerContainer_Register
 //go:noescape
-func ServiceWorkerContainerRegisterFunc(this js.Ref) js.Ref
+func FuncServiceWorkerContainerRegister(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ServiceWorkerContainer_Register
 //go:noescape
@@ -911,11 +909,11 @@ func TryServiceWorkerContainerRegister(
 
 //go:wasmimport plat/js/web has_ServiceWorkerContainer_Register1
 //go:noescape
-func HasServiceWorkerContainerRegister1(this js.Ref) js.Ref
+func HasFuncServiceWorkerContainerRegister1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ServiceWorkerContainer_Register1
 //go:noescape
-func ServiceWorkerContainerRegister1Func(this js.Ref) js.Ref
+func FuncServiceWorkerContainerRegister1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ServiceWorkerContainer_Register1
 //go:noescape
@@ -931,11 +929,11 @@ func TryServiceWorkerContainerRegister1(
 
 //go:wasmimport plat/js/web has_ServiceWorkerContainer_GetRegistration
 //go:noescape
-func HasServiceWorkerContainerGetRegistration(this js.Ref) js.Ref
+func HasFuncServiceWorkerContainerGetRegistration(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ServiceWorkerContainer_GetRegistration
 //go:noescape
-func ServiceWorkerContainerGetRegistrationFunc(this js.Ref) js.Ref
+func FuncServiceWorkerContainerGetRegistration(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ServiceWorkerContainer_GetRegistration
 //go:noescape
@@ -951,11 +949,11 @@ func TryServiceWorkerContainerGetRegistration(
 
 //go:wasmimport plat/js/web has_ServiceWorkerContainer_GetRegistration1
 //go:noescape
-func HasServiceWorkerContainerGetRegistration1(this js.Ref) js.Ref
+func HasFuncServiceWorkerContainerGetRegistration1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ServiceWorkerContainer_GetRegistration1
 //go:noescape
-func ServiceWorkerContainerGetRegistration1Func(this js.Ref) js.Ref
+func FuncServiceWorkerContainerGetRegistration1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ServiceWorkerContainer_GetRegistration1
 //go:noescape
@@ -969,11 +967,11 @@ func TryServiceWorkerContainerGetRegistration1(
 
 //go:wasmimport plat/js/web has_ServiceWorkerContainer_GetRegistrations
 //go:noescape
-func HasServiceWorkerContainerGetRegistrations(this js.Ref) js.Ref
+func HasFuncServiceWorkerContainerGetRegistrations(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ServiceWorkerContainer_GetRegistrations
 //go:noescape
-func ServiceWorkerContainerGetRegistrationsFunc(this js.Ref) js.Ref
+func FuncServiceWorkerContainerGetRegistrations(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ServiceWorkerContainer_GetRegistrations
 //go:noescape
@@ -987,11 +985,11 @@ func TryServiceWorkerContainerGetRegistrations(
 
 //go:wasmimport plat/js/web has_ServiceWorkerContainer_StartMessages
 //go:noescape
-func HasServiceWorkerContainerStartMessages(this js.Ref) js.Ref
+func HasFuncServiceWorkerContainerStartMessages(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ServiceWorkerContainer_StartMessages
 //go:noescape
-func ServiceWorkerContainerStartMessagesFunc(this js.Ref) js.Ref
+func FuncServiceWorkerContainerStartMessages(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ServiceWorkerContainer_StartMessages
 //go:noescape
@@ -1029,11 +1027,11 @@ func GetMediaDeviceInfoGroupId(
 
 //go:wasmimport plat/js/web has_MediaDeviceInfo_ToJSON
 //go:noescape
-func HasMediaDeviceInfoToJSON(this js.Ref) js.Ref
+func HasFuncMediaDeviceInfoToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaDeviceInfo_ToJSON
 //go:noescape
-func MediaDeviceInfoToJSONFunc(this js.Ref) js.Ref
+func FuncMediaDeviceInfoToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaDeviceInfo_ToJSON
 //go:noescape
@@ -1093,11 +1091,11 @@ func MediaTrackSupportedConstraintsJSLoad(
 
 //go:wasmimport plat/js/web has_MediaDevices_EnumerateDevices
 //go:noescape
-func HasMediaDevicesEnumerateDevices(this js.Ref) js.Ref
+func HasFuncMediaDevicesEnumerateDevices(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaDevices_EnumerateDevices
 //go:noescape
-func MediaDevicesEnumerateDevicesFunc(this js.Ref) js.Ref
+func FuncMediaDevicesEnumerateDevices(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaDevices_EnumerateDevices
 //go:noescape
@@ -1111,11 +1109,11 @@ func TryMediaDevicesEnumerateDevices(
 
 //go:wasmimport plat/js/web has_MediaDevices_GetDisplayMedia
 //go:noescape
-func HasMediaDevicesGetDisplayMedia(this js.Ref) js.Ref
+func HasFuncMediaDevicesGetDisplayMedia(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaDevices_GetDisplayMedia
 //go:noescape
-func MediaDevicesGetDisplayMediaFunc(this js.Ref) js.Ref
+func FuncMediaDevicesGetDisplayMedia(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaDevices_GetDisplayMedia
 //go:noescape
@@ -1131,11 +1129,11 @@ func TryMediaDevicesGetDisplayMedia(
 
 //go:wasmimport plat/js/web has_MediaDevices_GetDisplayMedia1
 //go:noescape
-func HasMediaDevicesGetDisplayMedia1(this js.Ref) js.Ref
+func HasFuncMediaDevicesGetDisplayMedia1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaDevices_GetDisplayMedia1
 //go:noescape
-func MediaDevicesGetDisplayMedia1Func(this js.Ref) js.Ref
+func FuncMediaDevicesGetDisplayMedia1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaDevices_GetDisplayMedia1
 //go:noescape
@@ -1149,11 +1147,11 @@ func TryMediaDevicesGetDisplayMedia1(
 
 //go:wasmimport plat/js/web has_MediaDevices_SetSupportedCaptureActions
 //go:noescape
-func HasMediaDevicesSetSupportedCaptureActions(this js.Ref) js.Ref
+func HasFuncMediaDevicesSetSupportedCaptureActions(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaDevices_SetSupportedCaptureActions
 //go:noescape
-func MediaDevicesSetSupportedCaptureActionsFunc(this js.Ref) js.Ref
+func FuncMediaDevicesSetSupportedCaptureActions(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaDevices_SetSupportedCaptureActions
 //go:noescape
@@ -1169,11 +1167,11 @@ func TryMediaDevicesSetSupportedCaptureActions(
 
 //go:wasmimport plat/js/web has_MediaDevices_SelectAudioOutput
 //go:noescape
-func HasMediaDevicesSelectAudioOutput(this js.Ref) js.Ref
+func HasFuncMediaDevicesSelectAudioOutput(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaDevices_SelectAudioOutput
 //go:noescape
-func MediaDevicesSelectAudioOutputFunc(this js.Ref) js.Ref
+func FuncMediaDevicesSelectAudioOutput(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaDevices_SelectAudioOutput
 //go:noescape
@@ -1189,11 +1187,11 @@ func TryMediaDevicesSelectAudioOutput(
 
 //go:wasmimport plat/js/web has_MediaDevices_SelectAudioOutput1
 //go:noescape
-func HasMediaDevicesSelectAudioOutput1(this js.Ref) js.Ref
+func HasFuncMediaDevicesSelectAudioOutput1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaDevices_SelectAudioOutput1
 //go:noescape
-func MediaDevicesSelectAudioOutput1Func(this js.Ref) js.Ref
+func FuncMediaDevicesSelectAudioOutput1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaDevices_SelectAudioOutput1
 //go:noescape
@@ -1207,11 +1205,11 @@ func TryMediaDevicesSelectAudioOutput1(
 
 //go:wasmimport plat/js/web has_MediaDevices_SetCaptureHandleConfig
 //go:noescape
-func HasMediaDevicesSetCaptureHandleConfig(this js.Ref) js.Ref
+func HasFuncMediaDevicesSetCaptureHandleConfig(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaDevices_SetCaptureHandleConfig
 //go:noescape
-func MediaDevicesSetCaptureHandleConfigFunc(this js.Ref) js.Ref
+func FuncMediaDevicesSetCaptureHandleConfig(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaDevices_SetCaptureHandleConfig
 //go:noescape
@@ -1227,11 +1225,11 @@ func TryMediaDevicesSetCaptureHandleConfig(
 
 //go:wasmimport plat/js/web has_MediaDevices_SetCaptureHandleConfig1
 //go:noescape
-func HasMediaDevicesSetCaptureHandleConfig1(this js.Ref) js.Ref
+func HasFuncMediaDevicesSetCaptureHandleConfig1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaDevices_SetCaptureHandleConfig1
 //go:noescape
-func MediaDevicesSetCaptureHandleConfig1Func(this js.Ref) js.Ref
+func FuncMediaDevicesSetCaptureHandleConfig1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaDevices_SetCaptureHandleConfig1
 //go:noescape
@@ -1245,11 +1243,11 @@ func TryMediaDevicesSetCaptureHandleConfig1(
 
 //go:wasmimport plat/js/web has_MediaDevices_GetViewportMedia
 //go:noescape
-func HasMediaDevicesGetViewportMedia(this js.Ref) js.Ref
+func HasFuncMediaDevicesGetViewportMedia(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaDevices_GetViewportMedia
 //go:noescape
-func MediaDevicesGetViewportMediaFunc(this js.Ref) js.Ref
+func FuncMediaDevicesGetViewportMedia(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaDevices_GetViewportMedia
 //go:noescape
@@ -1265,11 +1263,11 @@ func TryMediaDevicesGetViewportMedia(
 
 //go:wasmimport plat/js/web has_MediaDevices_GetViewportMedia1
 //go:noescape
-func HasMediaDevicesGetViewportMedia1(this js.Ref) js.Ref
+func HasFuncMediaDevicesGetViewportMedia1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaDevices_GetViewportMedia1
 //go:noescape
-func MediaDevicesGetViewportMedia1Func(this js.Ref) js.Ref
+func FuncMediaDevicesGetViewportMedia1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaDevices_GetViewportMedia1
 //go:noescape
@@ -1283,11 +1281,11 @@ func TryMediaDevicesGetViewportMedia1(
 
 //go:wasmimport plat/js/web has_MediaDevices_GetSupportedConstraints
 //go:noescape
-func HasMediaDevicesGetSupportedConstraints(this js.Ref) js.Ref
+func HasFuncMediaDevicesGetSupportedConstraints(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaDevices_GetSupportedConstraints
 //go:noescape
-func MediaDevicesGetSupportedConstraintsFunc(this js.Ref) js.Ref
+func FuncMediaDevicesGetSupportedConstraints(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaDevices_GetSupportedConstraints
 //go:noescape
@@ -1301,11 +1299,11 @@ func TryMediaDevicesGetSupportedConstraints(
 
 //go:wasmimport plat/js/web has_MediaDevices_GetUserMedia
 //go:noescape
-func HasMediaDevicesGetUserMedia(this js.Ref) js.Ref
+func HasFuncMediaDevicesGetUserMedia(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaDevices_GetUserMedia
 //go:noescape
-func MediaDevicesGetUserMediaFunc(this js.Ref) js.Ref
+func FuncMediaDevicesGetUserMedia(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaDevices_GetUserMedia
 //go:noescape
@@ -1321,11 +1319,11 @@ func TryMediaDevicesGetUserMedia(
 
 //go:wasmimport plat/js/web has_MediaDevices_GetUserMedia1
 //go:noescape
-func HasMediaDevicesGetUserMedia1(this js.Ref) js.Ref
+func HasFuncMediaDevicesGetUserMedia1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaDevices_GetUserMedia1
 //go:noescape
-func MediaDevicesGetUserMedia1Func(this js.Ref) js.Ref
+func FuncMediaDevicesGetUserMedia1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaDevices_GetUserMedia1
 //go:noescape

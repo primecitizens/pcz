@@ -5,17 +5,10 @@ package web
 
 import (
 	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/mark"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 type EncodedVideoChunkMetadata struct {
 	// DecoderConfig is "EncodedVideoChunkMetadata.decoderConfig"
@@ -52,23 +45,36 @@ func (p EncodedVideoChunkMetadata) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p EncodedVideoChunkMetadata) UpdateFrom(ref js.Ref) {
+func (p *EncodedVideoChunkMetadata) UpdateFrom(ref js.Ref) {
 	bindings.EncodedVideoChunkMetadataJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p EncodedVideoChunkMetadata) Update(ref js.Ref) {
+func (p *EncodedVideoChunkMetadata) Update(ref js.Ref) {
 	bindings.EncodedVideoChunkMetadataJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
 }
 
-type EncodedVideoChunkOutputCallbackFunc func(this js.Ref, chunk EncodedVideoChunk, metadata EncodedVideoChunkMetadata) js.Ref
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *EncodedVideoChunkMetadata) FreeMembers(recursive bool) {
+	js.Free(
+		p.AlphaSideData.Ref(),
+	)
+	p.AlphaSideData = p.AlphaSideData.FromRef(js.Undefined)
+	if recursive {
+		p.DecoderConfig.FreeMembers(true)
+		p.Svc.FreeMembers(true)
+	}
+}
 
-func (fn EncodedVideoChunkOutputCallbackFunc) Register() js.Func[func(chunk EncodedVideoChunk, metadata EncodedVideoChunkMetadata)] {
-	return js.RegisterCallback[func(chunk EncodedVideoChunk, metadata EncodedVideoChunkMetadata)](
+type EncodedVideoChunkOutputCallbackFunc func(this js.Ref, chunk EncodedVideoChunk, metadata *EncodedVideoChunkMetadata) js.Ref
+
+func (fn EncodedVideoChunkOutputCallbackFunc) Register() js.Func[func(chunk EncodedVideoChunk, metadata *EncodedVideoChunkMetadata)] {
+	return js.RegisterCallback[func(chunk EncodedVideoChunk, metadata *EncodedVideoChunkMetadata)](
 		fn, abi.FuncPCABIInternal(fn),
 	)
 }
@@ -81,12 +87,15 @@ func (fn EncodedVideoChunkOutputCallbackFunc) DispatchCallback(
 		targetPC != uintptr(abi.FuncPCABIInternal(fn)) {
 		js.ThrowInvalidCallbackInvocation()
 	}
+	var arg1 EncodedVideoChunkMetadata
+	arg1.UpdateFrom(args[1+1])
+	defer arg1.FreeMembers(true)
 
 	if ctx.Return(fn(
 		args[0],
 
 		EncodedVideoChunk{}.FromRef(args[0+1]),
-		EncodedVideoChunkMetadata{}.FromRef(args[1+1]),
+		mark.NoEscape(&arg1),
 	)) {
 		return
 	}
@@ -95,12 +104,12 @@ func (fn EncodedVideoChunkOutputCallbackFunc) DispatchCallback(
 }
 
 type EncodedVideoChunkOutputCallback[T any] struct {
-	Fn  func(arg T, this js.Ref, chunk EncodedVideoChunk, metadata EncodedVideoChunkMetadata) js.Ref
+	Fn  func(arg T, this js.Ref, chunk EncodedVideoChunk, metadata *EncodedVideoChunkMetadata) js.Ref
 	Arg T
 }
 
-func (cb *EncodedVideoChunkOutputCallback[T]) Register() js.Func[func(chunk EncodedVideoChunk, metadata EncodedVideoChunkMetadata)] {
-	return js.RegisterCallback[func(chunk EncodedVideoChunk, metadata EncodedVideoChunkMetadata)](
+func (cb *EncodedVideoChunkOutputCallback[T]) Register() js.Func[func(chunk EncodedVideoChunk, metadata *EncodedVideoChunkMetadata)] {
+	return js.RegisterCallback[func(chunk EncodedVideoChunk, metadata *EncodedVideoChunkMetadata)](
 		cb, abi.FuncPCABIInternal(cb.Fn),
 	)
 }
@@ -111,15 +120,18 @@ func (cb *EncodedVideoChunkOutputCallback[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 2+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
+	var arg1 EncodedVideoChunkMetadata
+	arg1.UpdateFrom(args[1+1])
+	defer arg1.FreeMembers(true)
 
 	if ctx.Return(cb.Fn(
 		cb.Arg,
 		args[0],
 
 		EncodedVideoChunk{}.FromRef(args[0+1]),
-		EncodedVideoChunkMetadata{}.FromRef(args[1+1]),
+		mark.NoEscape(&arg1),
 	)) {
 		return
 	}
@@ -194,17 +206,30 @@ func (p ErrorEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ErrorEventInit) UpdateFrom(ref js.Ref) {
+func (p *ErrorEventInit) UpdateFrom(ref js.Ref) {
 	bindings.ErrorEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ErrorEventInit) Update(ref js.Ref) {
+func (p *ErrorEventInit) Update(ref js.Ref) {
 	bindings.ErrorEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ErrorEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Message.Ref(),
+		p.Filename.Ref(),
+		p.Error.Ref(),
+	)
+	p.Message = p.Message.FromRef(js.Undefined)
+	p.Filename = p.Filename.FromRef(js.Undefined)
+	p.Error = p.Error.FromRef(js.Undefined)
 }
 
 func NewErrorEvent(typ js.String, eventInitDict ErrorEventInit) (ret ErrorEvent) {
@@ -225,7 +250,7 @@ type ErrorEvent struct {
 }
 
 func (this ErrorEvent) Once() ErrorEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -239,7 +264,7 @@ func (this ErrorEvent) FromRef(ref js.Ref) ErrorEvent {
 }
 
 func (this ErrorEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Message returns the value of property "ErrorEvent.message".
@@ -247,7 +272,7 @@ func (this ErrorEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this ErrorEvent) Message() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetErrorEventMessage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -257,7 +282,7 @@ func (this ErrorEvent) Message() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ErrorEvent) Filename() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetErrorEventFilename(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -267,7 +292,7 @@ func (this ErrorEvent) Filename() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ErrorEvent) Lineno() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetErrorEventLineno(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -277,7 +302,7 @@ func (this ErrorEvent) Lineno() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ErrorEvent) Colno() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetErrorEventColno(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -287,7 +312,7 @@ func (this ErrorEvent) Colno() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ErrorEvent) Error() (ret js.Any, ok bool) {
 	ok = js.True == bindings.GetErrorEventError(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -442,17 +467,26 @@ func (p EventModifierInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p EventModifierInit) UpdateFrom(ref js.Ref) {
+func (p *EventModifierInit) UpdateFrom(ref js.Ref) {
 	bindings.EventModifierInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p EventModifierInit) Update(ref js.Ref) {
+func (p *EventModifierInit) Update(ref js.Ref) {
 	bindings.EventModifierInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *EventModifierInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.View.Ref(),
+	)
+	p.View = p.View.FromRef(js.Undefined)
 }
 
 const (
@@ -488,17 +522,22 @@ func (p EventSourceInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p EventSourceInit) UpdateFrom(ref js.Ref) {
+func (p *EventSourceInit) UpdateFrom(ref js.Ref) {
 	bindings.EventSourceInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p EventSourceInit) Update(ref js.Ref) {
+func (p *EventSourceInit) Update(ref js.Ref) {
 	bindings.EventSourceInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *EventSourceInit) FreeMembers(recursive bool) {
 }
 
 func NewEventSource(url js.String, eventSourceInitDict EventSourceInit) (ret EventSource) {
@@ -519,7 +558,7 @@ type EventSource struct {
 }
 
 func (this EventSource) Once() EventSource {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -533,7 +572,7 @@ func (this EventSource) FromRef(ref js.Ref) EventSource {
 }
 
 func (this EventSource) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Url returns the value of property "EventSource.url".
@@ -541,7 +580,7 @@ func (this EventSource) Free() {
 // It returns ok=false if there is no such property.
 func (this EventSource) Url() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetEventSourceUrl(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -551,7 +590,7 @@ func (this EventSource) Url() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this EventSource) WithCredentials() (ret bool, ok bool) {
 	ok = js.True == bindings.GetEventSourceWithCredentials(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -561,31 +600,30 @@ func (this EventSource) WithCredentials() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this EventSource) ReadyState() (ret uint16, ok bool) {
 	ok = js.True == bindings.GetEventSourceReadyState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasClose returns true if the method "EventSource.close" exists.
-func (this EventSource) HasClose() bool {
-	return js.True == bindings.HasEventSourceClose(
-		this.Ref(),
+// HasFuncClose returns true if the method "EventSource.close" exists.
+func (this EventSource) HasFuncClose() bool {
+	return js.True == bindings.HasFuncEventSourceClose(
+		this.ref,
 	)
 }
 
-// CloseFunc returns the method "EventSource.close".
-func (this EventSource) CloseFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.EventSourceCloseFunc(
-			this.Ref(),
-		),
+// FuncClose returns the method "EventSource.close".
+func (this EventSource) FuncClose() (fn js.Func[func()]) {
+	bindings.FuncEventSourceClose(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Close calls the method "EventSource.close".
 func (this EventSource) Close() (ret js.Void) {
 	bindings.CallEventSourceClose(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -596,7 +634,7 @@ func (this EventSource) Close() (ret js.Void) {
 // the catch clause.
 func (this EventSource) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEventSourceClose(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -651,17 +689,28 @@ func (p ExtendableCookieChangeEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ExtendableCookieChangeEventInit) UpdateFrom(ref js.Ref) {
+func (p *ExtendableCookieChangeEventInit) UpdateFrom(ref js.Ref) {
 	bindings.ExtendableCookieChangeEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ExtendableCookieChangeEventInit) Update(ref js.Ref) {
+func (p *ExtendableCookieChangeEventInit) Update(ref js.Ref) {
 	bindings.ExtendableCookieChangeEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ExtendableCookieChangeEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Changed.Ref(),
+		p.Deleted.Ref(),
+	)
+	p.Changed = p.Changed.FromRef(js.Undefined)
+	p.Deleted = p.Deleted.FromRef(js.Undefined)
 }
 
 func NewExtendableCookieChangeEvent(typ js.String, eventInitDict ExtendableCookieChangeEventInit) (ret ExtendableCookieChangeEvent) {
@@ -682,7 +731,7 @@ type ExtendableCookieChangeEvent struct {
 }
 
 func (this ExtendableCookieChangeEvent) Once() ExtendableCookieChangeEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -696,7 +745,7 @@ func (this ExtendableCookieChangeEvent) FromRef(ref js.Ref) ExtendableCookieChan
 }
 
 func (this ExtendableCookieChangeEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Changed returns the value of property "ExtendableCookieChangeEvent.changed".
@@ -704,7 +753,7 @@ func (this ExtendableCookieChangeEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this ExtendableCookieChangeEvent) Changed() (ret js.FrozenArray[CookieListItem], ok bool) {
 	ok = js.True == bindings.GetExtendableCookieChangeEventChanged(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -714,7 +763,7 @@ func (this ExtendableCookieChangeEvent) Changed() (ret js.FrozenArray[CookieList
 // It returns ok=false if there is no such property.
 func (this ExtendableCookieChangeEvent) Deleted() (ret js.FrozenArray[CookieListItem], ok bool) {
 	ok = js.True == bindings.GetExtendableCookieChangeEventDeleted(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -760,17 +809,22 @@ func (p ExtendableEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ExtendableEventInit) UpdateFrom(ref js.Ref) {
+func (p *ExtendableEventInit) UpdateFrom(ref js.Ref) {
 	bindings.ExtendableEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ExtendableEventInit) Update(ref js.Ref) {
+func (p *ExtendableEventInit) Update(ref js.Ref) {
 	bindings.ExtendableEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ExtendableEventInit) FreeMembers(recursive bool) {
 }
 
 func NewExtendableEvent(typ js.String, eventInitDict ExtendableEventInit) (ret ExtendableEvent) {
@@ -791,7 +845,7 @@ type ExtendableEvent struct {
 }
 
 func (this ExtendableEvent) Once() ExtendableEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -805,29 +859,28 @@ func (this ExtendableEvent) FromRef(ref js.Ref) ExtendableEvent {
 }
 
 func (this ExtendableEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasWaitUntil returns true if the method "ExtendableEvent.waitUntil" exists.
-func (this ExtendableEvent) HasWaitUntil() bool {
-	return js.True == bindings.HasExtendableEventWaitUntil(
-		this.Ref(),
+// HasFuncWaitUntil returns true if the method "ExtendableEvent.waitUntil" exists.
+func (this ExtendableEvent) HasFuncWaitUntil() bool {
+	return js.True == bindings.HasFuncExtendableEventWaitUntil(
+		this.ref,
 	)
 }
 
-// WaitUntilFunc returns the method "ExtendableEvent.waitUntil".
-func (this ExtendableEvent) WaitUntilFunc() (fn js.Func[func(f js.Promise[js.Any])]) {
-	return fn.FromRef(
-		bindings.ExtendableEventWaitUntilFunc(
-			this.Ref(),
-		),
+// FuncWaitUntil returns the method "ExtendableEvent.waitUntil".
+func (this ExtendableEvent) FuncWaitUntil() (fn js.Func[func(f js.Promise[js.Any])]) {
+	bindings.FuncExtendableEventWaitUntil(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // WaitUntil calls the method "ExtendableEvent.waitUntil".
 func (this ExtendableEvent) WaitUntil(f js.Promise[js.Any]) (ret js.Void) {
 	bindings.CallExtendableEventWaitUntil(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		f.Ref(),
 	)
 
@@ -839,7 +892,7 @@ func (this ExtendableEvent) WaitUntil(f js.Promise[js.Any]) (ret js.Void) {
 // the catch clause.
 func (this ExtendableEvent) TryWaitUntil(f js.Promise[js.Any]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryExtendableEventWaitUntil(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		f.Ref(),
 	)
 
@@ -937,17 +990,34 @@ func (p ExtendableMessageEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ExtendableMessageEventInit) UpdateFrom(ref js.Ref) {
+func (p *ExtendableMessageEventInit) UpdateFrom(ref js.Ref) {
 	bindings.ExtendableMessageEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ExtendableMessageEventInit) Update(ref js.Ref) {
+func (p *ExtendableMessageEventInit) Update(ref js.Ref) {
 	bindings.ExtendableMessageEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ExtendableMessageEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Data.Ref(),
+		p.Origin.Ref(),
+		p.LastEventId.Ref(),
+		p.Source.Ref(),
+		p.Ports.Ref(),
+	)
+	p.Data = p.Data.FromRef(js.Undefined)
+	p.Origin = p.Origin.FromRef(js.Undefined)
+	p.LastEventId = p.LastEventId.FromRef(js.Undefined)
+	p.Source = p.Source.FromRef(js.Undefined)
+	p.Ports = p.Ports.FromRef(js.Undefined)
 }
 
 func NewExtendableMessageEvent(typ js.String, eventInitDict ExtendableMessageEventInit) (ret ExtendableMessageEvent) {
@@ -968,7 +1038,7 @@ type ExtendableMessageEvent struct {
 }
 
 func (this ExtendableMessageEvent) Once() ExtendableMessageEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -982,7 +1052,7 @@ func (this ExtendableMessageEvent) FromRef(ref js.Ref) ExtendableMessageEvent {
 }
 
 func (this ExtendableMessageEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Data returns the value of property "ExtendableMessageEvent.data".
@@ -990,7 +1060,7 @@ func (this ExtendableMessageEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this ExtendableMessageEvent) Data() (ret js.Any, ok bool) {
 	ok = js.True == bindings.GetExtendableMessageEventData(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1000,7 +1070,7 @@ func (this ExtendableMessageEvent) Data() (ret js.Any, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ExtendableMessageEvent) Origin() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetExtendableMessageEventOrigin(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1010,7 +1080,7 @@ func (this ExtendableMessageEvent) Origin() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ExtendableMessageEvent) LastEventId() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetExtendableMessageEventLastEventId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1020,7 +1090,7 @@ func (this ExtendableMessageEvent) LastEventId() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ExtendableMessageEvent) Source() (ret OneOf_Client_ServiceWorker_MessagePort, ok bool) {
 	ok = js.True == bindings.GetExtendableMessageEventSource(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1030,7 +1100,7 @@ func (this ExtendableMessageEvent) Source() (ret OneOf_Client_ServiceWorker_Mess
 // It returns ok=false if there is no such property.
 func (this ExtendableMessageEvent) Ports() (ret js.FrozenArray[MessagePort], ok bool) {
 	ok = js.True == bindings.GetExtendableMessageEventPorts(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1040,7 +1110,7 @@ type EyeDropper struct {
 }
 
 func (this EyeDropper) Once() EyeDropper {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1054,29 +1124,28 @@ func (this EyeDropper) FromRef(ref js.Ref) EyeDropper {
 }
 
 func (this EyeDropper) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasOpen returns true if the method "EyeDropper.open" exists.
-func (this EyeDropper) HasOpen() bool {
-	return js.True == bindings.HasEyeDropperOpen(
-		this.Ref(),
+// HasFuncOpen returns true if the method "EyeDropper.open" exists.
+func (this EyeDropper) HasFuncOpen() bool {
+	return js.True == bindings.HasFuncEyeDropperOpen(
+		this.ref,
 	)
 }
 
-// OpenFunc returns the method "EyeDropper.open".
-func (this EyeDropper) OpenFunc() (fn js.Func[func(options ColorSelectionOptions) js.Promise[ColorSelectionResult]]) {
-	return fn.FromRef(
-		bindings.EyeDropperOpenFunc(
-			this.Ref(),
-		),
+// FuncOpen returns the method "EyeDropper.open".
+func (this EyeDropper) FuncOpen() (fn js.Func[func(options ColorSelectionOptions) js.Promise[ColorSelectionResult]]) {
+	bindings.FuncEyeDropperOpen(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Open calls the method "EyeDropper.open".
 func (this EyeDropper) Open(options ColorSelectionOptions) (ret js.Promise[ColorSelectionResult]) {
 	bindings.CallEyeDropperOpen(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -1088,33 +1157,32 @@ func (this EyeDropper) Open(options ColorSelectionOptions) (ret js.Promise[Color
 // the catch clause.
 func (this EyeDropper) TryOpen(options ColorSelectionOptions) (ret js.Promise[ColorSelectionResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEyeDropperOpen(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasOpen1 returns true if the method "EyeDropper.open" exists.
-func (this EyeDropper) HasOpen1() bool {
-	return js.True == bindings.HasEyeDropperOpen1(
-		this.Ref(),
+// HasFuncOpen1 returns true if the method "EyeDropper.open" exists.
+func (this EyeDropper) HasFuncOpen1() bool {
+	return js.True == bindings.HasFuncEyeDropperOpen1(
+		this.ref,
 	)
 }
 
-// Open1Func returns the method "EyeDropper.open".
-func (this EyeDropper) Open1Func() (fn js.Func[func() js.Promise[ColorSelectionResult]]) {
-	return fn.FromRef(
-		bindings.EyeDropperOpen1Func(
-			this.Ref(),
-		),
+// FuncOpen1 returns the method "EyeDropper.open".
+func (this EyeDropper) FuncOpen1() (fn js.Func[func() js.Promise[ColorSelectionResult]]) {
+	bindings.FuncEyeDropperOpen1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Open1 calls the method "EyeDropper.open".
 func (this EyeDropper) Open1() (ret js.Promise[ColorSelectionResult]) {
 	bindings.CallEyeDropperOpen1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1125,7 +1193,7 @@ func (this EyeDropper) Open1() (ret js.Promise[ColorSelectionResult]) {
 // the catch clause.
 func (this EyeDropper) TryOpen1() (ret js.Promise[ColorSelectionResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEyeDropperOpen1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1165,17 +1233,22 @@ func (p FaceDetectorOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p FaceDetectorOptions) UpdateFrom(ref js.Ref) {
+func (p *FaceDetectorOptions) UpdateFrom(ref js.Ref) {
 	bindings.FaceDetectorOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p FaceDetectorOptions) Update(ref js.Ref) {
+func (p *FaceDetectorOptions) Update(ref js.Ref) {
 	bindings.FaceDetectorOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *FaceDetectorOptions) FreeMembers(recursive bool) {
 }
 
 func NewFaceDetector(faceDetectorOptions FaceDetectorOptions) (ret FaceDetector) {
@@ -1194,7 +1267,7 @@ type FaceDetector struct {
 }
 
 func (this FaceDetector) Once() FaceDetector {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1208,29 +1281,28 @@ func (this FaceDetector) FromRef(ref js.Ref) FaceDetector {
 }
 
 func (this FaceDetector) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasDetect returns true if the method "FaceDetector.detect" exists.
-func (this FaceDetector) HasDetect() bool {
-	return js.True == bindings.HasFaceDetectorDetect(
-		this.Ref(),
+// HasFuncDetect returns true if the method "FaceDetector.detect" exists.
+func (this FaceDetector) HasFuncDetect() bool {
+	return js.True == bindings.HasFuncFaceDetectorDetect(
+		this.ref,
 	)
 }
 
-// DetectFunc returns the method "FaceDetector.detect".
-func (this FaceDetector) DetectFunc() (fn js.Func[func(image ImageBitmapSource) js.Promise[js.Array[DetectedFace]]]) {
-	return fn.FromRef(
-		bindings.FaceDetectorDetectFunc(
-			this.Ref(),
-		),
+// FuncDetect returns the method "FaceDetector.detect".
+func (this FaceDetector) FuncDetect() (fn js.Func[func(image ImageBitmapSource) js.Promise[js.Array[DetectedFace]]]) {
+	bindings.FuncFaceDetectorDetect(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Detect calls the method "FaceDetector.detect".
 func (this FaceDetector) Detect(image ImageBitmapSource) (ret js.Promise[js.Array[DetectedFace]]) {
 	bindings.CallFaceDetectorDetect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		image.Ref(),
 	)
 
@@ -1242,7 +1314,7 @@ func (this FaceDetector) Detect(image ImageBitmapSource) (ret js.Promise[js.Arra
 // the catch clause.
 func (this FaceDetector) TryDetect(image ImageBitmapSource) (ret js.Promise[js.Array[DetectedFace]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFaceDetectorDetect(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		image.Ref(),
 	)
 
@@ -1260,7 +1332,7 @@ type FederatedCredential struct {
 }
 
 func (this FederatedCredential) Once() FederatedCredential {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1274,7 +1346,7 @@ func (this FederatedCredential) FromRef(ref js.Ref) FederatedCredential {
 }
 
 func (this FederatedCredential) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Provider returns the value of property "FederatedCredential.provider".
@@ -1282,7 +1354,7 @@ func (this FederatedCredential) Free() {
 // It returns ok=false if there is no such property.
 func (this FederatedCredential) Provider() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFederatedCredentialProvider(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1292,7 +1364,7 @@ func (this FederatedCredential) Provider() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this FederatedCredential) Protocol() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFederatedCredentialProtocol(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1302,7 +1374,7 @@ func (this FederatedCredential) Protocol() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this FederatedCredential) Name() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFederatedCredentialName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1312,7 +1384,7 @@ func (this FederatedCredential) Name() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this FederatedCredential) IconURL() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFederatedCredentialIconURL(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1384,17 +1456,36 @@ func (p FetchEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p FetchEventInit) UpdateFrom(ref js.Ref) {
+func (p *FetchEventInit) UpdateFrom(ref js.Ref) {
 	bindings.FetchEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p FetchEventInit) Update(ref js.Ref) {
+func (p *FetchEventInit) Update(ref js.Ref) {
 	bindings.FetchEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *FetchEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Request.Ref(),
+		p.PreloadResponse.Ref(),
+		p.ClientId.Ref(),
+		p.ResultingClientId.Ref(),
+		p.ReplacesClientId.Ref(),
+		p.Handled.Ref(),
+	)
+	p.Request = p.Request.FromRef(js.Undefined)
+	p.PreloadResponse = p.PreloadResponse.FromRef(js.Undefined)
+	p.ClientId = p.ClientId.FromRef(js.Undefined)
+	p.ResultingClientId = p.ResultingClientId.FromRef(js.Undefined)
+	p.ReplacesClientId = p.ReplacesClientId.FromRef(js.Undefined)
+	p.Handled = p.Handled.FromRef(js.Undefined)
 }
 
 func NewFetchEvent(typ js.String, eventInitDict FetchEventInit) (ret FetchEvent) {
@@ -1409,7 +1500,7 @@ type FetchEvent struct {
 }
 
 func (this FetchEvent) Once() FetchEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1423,7 +1514,7 @@ func (this FetchEvent) FromRef(ref js.Ref) FetchEvent {
 }
 
 func (this FetchEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Request returns the value of property "FetchEvent.request".
@@ -1431,7 +1522,7 @@ func (this FetchEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this FetchEvent) Request() (ret Request, ok bool) {
 	ok = js.True == bindings.GetFetchEventRequest(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1441,7 +1532,7 @@ func (this FetchEvent) Request() (ret Request, ok bool) {
 // It returns ok=false if there is no such property.
 func (this FetchEvent) PreloadResponse() (ret js.Promise[js.Any], ok bool) {
 	ok = js.True == bindings.GetFetchEventPreloadResponse(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1451,7 +1542,7 @@ func (this FetchEvent) PreloadResponse() (ret js.Promise[js.Any], ok bool) {
 // It returns ok=false if there is no such property.
 func (this FetchEvent) ClientId() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFetchEventClientId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1461,7 +1552,7 @@ func (this FetchEvent) ClientId() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this FetchEvent) ResultingClientId() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFetchEventResultingClientId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1471,7 +1562,7 @@ func (this FetchEvent) ResultingClientId() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this FetchEvent) ReplacesClientId() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFetchEventReplacesClientId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1481,31 +1572,30 @@ func (this FetchEvent) ReplacesClientId() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this FetchEvent) Handled() (ret js.Promise[js.Void], ok bool) {
 	ok = js.True == bindings.GetFetchEventHandled(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasRespondWith returns true if the method "FetchEvent.respondWith" exists.
-func (this FetchEvent) HasRespondWith() bool {
-	return js.True == bindings.HasFetchEventRespondWith(
-		this.Ref(),
+// HasFuncRespondWith returns true if the method "FetchEvent.respondWith" exists.
+func (this FetchEvent) HasFuncRespondWith() bool {
+	return js.True == bindings.HasFuncFetchEventRespondWith(
+		this.ref,
 	)
 }
 
-// RespondWithFunc returns the method "FetchEvent.respondWith".
-func (this FetchEvent) RespondWithFunc() (fn js.Func[func(r js.Promise[Response])]) {
-	return fn.FromRef(
-		bindings.FetchEventRespondWithFunc(
-			this.Ref(),
-		),
+// FuncRespondWith returns the method "FetchEvent.respondWith".
+func (this FetchEvent) FuncRespondWith() (fn js.Func[func(r js.Promise[Response])]) {
+	bindings.FuncFetchEventRespondWith(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RespondWith calls the method "FetchEvent.respondWith".
 func (this FetchEvent) RespondWith(r js.Promise[Response]) (ret js.Void) {
 	bindings.CallFetchEventRespondWith(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		r.Ref(),
 	)
 
@@ -1517,7 +1607,7 @@ func (this FetchEvent) RespondWith(r js.Promise[Response]) (ret js.Void) {
 // the catch clause.
 func (this FetchEvent) TryRespondWith(r js.Promise[Response]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFetchEventRespondWith(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		r.Ref(),
 	)
 
@@ -1569,7 +1659,7 @@ func (cb *FileCallback[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 1+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
 
 	if ctx.Return(cb.Fn(
@@ -1623,17 +1713,30 @@ func (p FilePickerOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p FilePickerOptions) UpdateFrom(ref js.Ref) {
+func (p *FilePickerOptions) UpdateFrom(ref js.Ref) {
 	bindings.FilePickerOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p FilePickerOptions) Update(ref js.Ref) {
+func (p *FilePickerOptions) Update(ref js.Ref) {
 	bindings.FilePickerOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *FilePickerOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Types.Ref(),
+		p.Id.Ref(),
+		p.StartIn.Ref(),
+	)
+	p.Types = p.Types.FromRef(js.Undefined)
+	p.Id = p.Id.FromRef(js.Undefined)
+	p.StartIn = p.StartIn.FromRef(js.Undefined)
 }
 
 const (
@@ -1673,7 +1776,7 @@ type FileReader struct {
 }
 
 func (this FileReader) Once() FileReader {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1687,7 +1790,7 @@ func (this FileReader) FromRef(ref js.Ref) FileReader {
 }
 
 func (this FileReader) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // ReadyState returns the value of property "FileReader.readyState".
@@ -1695,7 +1798,7 @@ func (this FileReader) Free() {
 // It returns ok=false if there is no such property.
 func (this FileReader) ReadyState() (ret uint16, ok bool) {
 	ok = js.True == bindings.GetFileReaderReadyState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1705,7 +1808,7 @@ func (this FileReader) ReadyState() (ret uint16, ok bool) {
 // It returns ok=false if there is no such property.
 func (this FileReader) Result() (ret OneOf_String_ArrayBuffer, ok bool) {
 	ok = js.True == bindings.GetFileReaderResult(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1715,31 +1818,30 @@ func (this FileReader) Result() (ret OneOf_String_ArrayBuffer, ok bool) {
 // It returns ok=false if there is no such property.
 func (this FileReader) Error() (ret DOMException, ok bool) {
 	ok = js.True == bindings.GetFileReaderError(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasReadAsArrayBuffer returns true if the method "FileReader.readAsArrayBuffer" exists.
-func (this FileReader) HasReadAsArrayBuffer() bool {
-	return js.True == bindings.HasFileReaderReadAsArrayBuffer(
-		this.Ref(),
+// HasFuncReadAsArrayBuffer returns true if the method "FileReader.readAsArrayBuffer" exists.
+func (this FileReader) HasFuncReadAsArrayBuffer() bool {
+	return js.True == bindings.HasFuncFileReaderReadAsArrayBuffer(
+		this.ref,
 	)
 }
 
-// ReadAsArrayBufferFunc returns the method "FileReader.readAsArrayBuffer".
-func (this FileReader) ReadAsArrayBufferFunc() (fn js.Func[func(blob Blob)]) {
-	return fn.FromRef(
-		bindings.FileReaderReadAsArrayBufferFunc(
-			this.Ref(),
-		),
+// FuncReadAsArrayBuffer returns the method "FileReader.readAsArrayBuffer".
+func (this FileReader) FuncReadAsArrayBuffer() (fn js.Func[func(blob Blob)]) {
+	bindings.FuncFileReaderReadAsArrayBuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReadAsArrayBuffer calls the method "FileReader.readAsArrayBuffer".
 func (this FileReader) ReadAsArrayBuffer(blob Blob) (ret js.Void) {
 	bindings.CallFileReaderReadAsArrayBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		blob.Ref(),
 	)
 
@@ -1751,33 +1853,32 @@ func (this FileReader) ReadAsArrayBuffer(blob Blob) (ret js.Void) {
 // the catch clause.
 func (this FileReader) TryReadAsArrayBuffer(blob Blob) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileReaderReadAsArrayBuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		blob.Ref(),
 	)
 
 	return
 }
 
-// HasReadAsBinaryString returns true if the method "FileReader.readAsBinaryString" exists.
-func (this FileReader) HasReadAsBinaryString() bool {
-	return js.True == bindings.HasFileReaderReadAsBinaryString(
-		this.Ref(),
+// HasFuncReadAsBinaryString returns true if the method "FileReader.readAsBinaryString" exists.
+func (this FileReader) HasFuncReadAsBinaryString() bool {
+	return js.True == bindings.HasFuncFileReaderReadAsBinaryString(
+		this.ref,
 	)
 }
 
-// ReadAsBinaryStringFunc returns the method "FileReader.readAsBinaryString".
-func (this FileReader) ReadAsBinaryStringFunc() (fn js.Func[func(blob Blob)]) {
-	return fn.FromRef(
-		bindings.FileReaderReadAsBinaryStringFunc(
-			this.Ref(),
-		),
+// FuncReadAsBinaryString returns the method "FileReader.readAsBinaryString".
+func (this FileReader) FuncReadAsBinaryString() (fn js.Func[func(blob Blob)]) {
+	bindings.FuncFileReaderReadAsBinaryString(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReadAsBinaryString calls the method "FileReader.readAsBinaryString".
 func (this FileReader) ReadAsBinaryString(blob Blob) (ret js.Void) {
 	bindings.CallFileReaderReadAsBinaryString(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		blob.Ref(),
 	)
 
@@ -1789,33 +1890,32 @@ func (this FileReader) ReadAsBinaryString(blob Blob) (ret js.Void) {
 // the catch clause.
 func (this FileReader) TryReadAsBinaryString(blob Blob) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileReaderReadAsBinaryString(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		blob.Ref(),
 	)
 
 	return
 }
 
-// HasReadAsText returns true if the method "FileReader.readAsText" exists.
-func (this FileReader) HasReadAsText() bool {
-	return js.True == bindings.HasFileReaderReadAsText(
-		this.Ref(),
+// HasFuncReadAsText returns true if the method "FileReader.readAsText" exists.
+func (this FileReader) HasFuncReadAsText() bool {
+	return js.True == bindings.HasFuncFileReaderReadAsText(
+		this.ref,
 	)
 }
 
-// ReadAsTextFunc returns the method "FileReader.readAsText".
-func (this FileReader) ReadAsTextFunc() (fn js.Func[func(blob Blob, encoding js.String)]) {
-	return fn.FromRef(
-		bindings.FileReaderReadAsTextFunc(
-			this.Ref(),
-		),
+// FuncReadAsText returns the method "FileReader.readAsText".
+func (this FileReader) FuncReadAsText() (fn js.Func[func(blob Blob, encoding js.String)]) {
+	bindings.FuncFileReaderReadAsText(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReadAsText calls the method "FileReader.readAsText".
 func (this FileReader) ReadAsText(blob Blob, encoding js.String) (ret js.Void) {
 	bindings.CallFileReaderReadAsText(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		blob.Ref(),
 		encoding.Ref(),
 	)
@@ -1828,7 +1928,7 @@ func (this FileReader) ReadAsText(blob Blob, encoding js.String) (ret js.Void) {
 // the catch clause.
 func (this FileReader) TryReadAsText(blob Blob, encoding js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileReaderReadAsText(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		blob.Ref(),
 		encoding.Ref(),
 	)
@@ -1836,26 +1936,25 @@ func (this FileReader) TryReadAsText(blob Blob, encoding js.String) (ret js.Void
 	return
 }
 
-// HasReadAsText1 returns true if the method "FileReader.readAsText" exists.
-func (this FileReader) HasReadAsText1() bool {
-	return js.True == bindings.HasFileReaderReadAsText1(
-		this.Ref(),
+// HasFuncReadAsText1 returns true if the method "FileReader.readAsText" exists.
+func (this FileReader) HasFuncReadAsText1() bool {
+	return js.True == bindings.HasFuncFileReaderReadAsText1(
+		this.ref,
 	)
 }
 
-// ReadAsText1Func returns the method "FileReader.readAsText".
-func (this FileReader) ReadAsText1Func() (fn js.Func[func(blob Blob)]) {
-	return fn.FromRef(
-		bindings.FileReaderReadAsText1Func(
-			this.Ref(),
-		),
+// FuncReadAsText1 returns the method "FileReader.readAsText".
+func (this FileReader) FuncReadAsText1() (fn js.Func[func(blob Blob)]) {
+	bindings.FuncFileReaderReadAsText1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReadAsText1 calls the method "FileReader.readAsText".
 func (this FileReader) ReadAsText1(blob Blob) (ret js.Void) {
 	bindings.CallFileReaderReadAsText1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		blob.Ref(),
 	)
 
@@ -1867,33 +1966,32 @@ func (this FileReader) ReadAsText1(blob Blob) (ret js.Void) {
 // the catch clause.
 func (this FileReader) TryReadAsText1(blob Blob) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileReaderReadAsText1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		blob.Ref(),
 	)
 
 	return
 }
 
-// HasReadAsDataURL returns true if the method "FileReader.readAsDataURL" exists.
-func (this FileReader) HasReadAsDataURL() bool {
-	return js.True == bindings.HasFileReaderReadAsDataURL(
-		this.Ref(),
+// HasFuncReadAsDataURL returns true if the method "FileReader.readAsDataURL" exists.
+func (this FileReader) HasFuncReadAsDataURL() bool {
+	return js.True == bindings.HasFuncFileReaderReadAsDataURL(
+		this.ref,
 	)
 }
 
-// ReadAsDataURLFunc returns the method "FileReader.readAsDataURL".
-func (this FileReader) ReadAsDataURLFunc() (fn js.Func[func(blob Blob)]) {
-	return fn.FromRef(
-		bindings.FileReaderReadAsDataURLFunc(
-			this.Ref(),
-		),
+// FuncReadAsDataURL returns the method "FileReader.readAsDataURL".
+func (this FileReader) FuncReadAsDataURL() (fn js.Func[func(blob Blob)]) {
+	bindings.FuncFileReaderReadAsDataURL(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReadAsDataURL calls the method "FileReader.readAsDataURL".
 func (this FileReader) ReadAsDataURL(blob Blob) (ret js.Void) {
 	bindings.CallFileReaderReadAsDataURL(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		blob.Ref(),
 	)
 
@@ -1905,33 +2003,32 @@ func (this FileReader) ReadAsDataURL(blob Blob) (ret js.Void) {
 // the catch clause.
 func (this FileReader) TryReadAsDataURL(blob Blob) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileReaderReadAsDataURL(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		blob.Ref(),
 	)
 
 	return
 }
 
-// HasAbort returns true if the method "FileReader.abort" exists.
-func (this FileReader) HasAbort() bool {
-	return js.True == bindings.HasFileReaderAbort(
-		this.Ref(),
+// HasFuncAbort returns true if the method "FileReader.abort" exists.
+func (this FileReader) HasFuncAbort() bool {
+	return js.True == bindings.HasFuncFileReaderAbort(
+		this.ref,
 	)
 }
 
-// AbortFunc returns the method "FileReader.abort".
-func (this FileReader) AbortFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.FileReaderAbortFunc(
-			this.Ref(),
-		),
+// FuncAbort returns the method "FileReader.abort".
+func (this FileReader) FuncAbort() (fn js.Func[func()]) {
+	bindings.FuncFileReaderAbort(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Abort calls the method "FileReader.abort".
 func (this FileReader) Abort() (ret js.Void) {
 	bindings.CallFileReaderAbort(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1942,7 +2039,7 @@ func (this FileReader) Abort() (ret js.Void) {
 // the catch clause.
 func (this FileReader) TryAbort() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileReaderAbort(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1953,7 +2050,7 @@ type FileReaderSync struct {
 }
 
 func (this FileReaderSync) Once() FileReaderSync {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1967,29 +2064,28 @@ func (this FileReaderSync) FromRef(ref js.Ref) FileReaderSync {
 }
 
 func (this FileReaderSync) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasReadAsArrayBuffer returns true if the method "FileReaderSync.readAsArrayBuffer" exists.
-func (this FileReaderSync) HasReadAsArrayBuffer() bool {
-	return js.True == bindings.HasFileReaderSyncReadAsArrayBuffer(
-		this.Ref(),
+// HasFuncReadAsArrayBuffer returns true if the method "FileReaderSync.readAsArrayBuffer" exists.
+func (this FileReaderSync) HasFuncReadAsArrayBuffer() bool {
+	return js.True == bindings.HasFuncFileReaderSyncReadAsArrayBuffer(
+		this.ref,
 	)
 }
 
-// ReadAsArrayBufferFunc returns the method "FileReaderSync.readAsArrayBuffer".
-func (this FileReaderSync) ReadAsArrayBufferFunc() (fn js.Func[func(blob Blob) js.ArrayBuffer]) {
-	return fn.FromRef(
-		bindings.FileReaderSyncReadAsArrayBufferFunc(
-			this.Ref(),
-		),
+// FuncReadAsArrayBuffer returns the method "FileReaderSync.readAsArrayBuffer".
+func (this FileReaderSync) FuncReadAsArrayBuffer() (fn js.Func[func(blob Blob) js.ArrayBuffer]) {
+	bindings.FuncFileReaderSyncReadAsArrayBuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReadAsArrayBuffer calls the method "FileReaderSync.readAsArrayBuffer".
 func (this FileReaderSync) ReadAsArrayBuffer(blob Blob) (ret js.ArrayBuffer) {
 	bindings.CallFileReaderSyncReadAsArrayBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		blob.Ref(),
 	)
 
@@ -2001,33 +2097,32 @@ func (this FileReaderSync) ReadAsArrayBuffer(blob Blob) (ret js.ArrayBuffer) {
 // the catch clause.
 func (this FileReaderSync) TryReadAsArrayBuffer(blob Blob) (ret js.ArrayBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileReaderSyncReadAsArrayBuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		blob.Ref(),
 	)
 
 	return
 }
 
-// HasReadAsBinaryString returns true if the method "FileReaderSync.readAsBinaryString" exists.
-func (this FileReaderSync) HasReadAsBinaryString() bool {
-	return js.True == bindings.HasFileReaderSyncReadAsBinaryString(
-		this.Ref(),
+// HasFuncReadAsBinaryString returns true if the method "FileReaderSync.readAsBinaryString" exists.
+func (this FileReaderSync) HasFuncReadAsBinaryString() bool {
+	return js.True == bindings.HasFuncFileReaderSyncReadAsBinaryString(
+		this.ref,
 	)
 }
 
-// ReadAsBinaryStringFunc returns the method "FileReaderSync.readAsBinaryString".
-func (this FileReaderSync) ReadAsBinaryStringFunc() (fn js.Func[func(blob Blob) js.String]) {
-	return fn.FromRef(
-		bindings.FileReaderSyncReadAsBinaryStringFunc(
-			this.Ref(),
-		),
+// FuncReadAsBinaryString returns the method "FileReaderSync.readAsBinaryString".
+func (this FileReaderSync) FuncReadAsBinaryString() (fn js.Func[func(blob Blob) js.String]) {
+	bindings.FuncFileReaderSyncReadAsBinaryString(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReadAsBinaryString calls the method "FileReaderSync.readAsBinaryString".
 func (this FileReaderSync) ReadAsBinaryString(blob Blob) (ret js.String) {
 	bindings.CallFileReaderSyncReadAsBinaryString(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		blob.Ref(),
 	)
 
@@ -2039,33 +2134,32 @@ func (this FileReaderSync) ReadAsBinaryString(blob Blob) (ret js.String) {
 // the catch clause.
 func (this FileReaderSync) TryReadAsBinaryString(blob Blob) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileReaderSyncReadAsBinaryString(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		blob.Ref(),
 	)
 
 	return
 }
 
-// HasReadAsText returns true if the method "FileReaderSync.readAsText" exists.
-func (this FileReaderSync) HasReadAsText() bool {
-	return js.True == bindings.HasFileReaderSyncReadAsText(
-		this.Ref(),
+// HasFuncReadAsText returns true if the method "FileReaderSync.readAsText" exists.
+func (this FileReaderSync) HasFuncReadAsText() bool {
+	return js.True == bindings.HasFuncFileReaderSyncReadAsText(
+		this.ref,
 	)
 }
 
-// ReadAsTextFunc returns the method "FileReaderSync.readAsText".
-func (this FileReaderSync) ReadAsTextFunc() (fn js.Func[func(blob Blob, encoding js.String) js.String]) {
-	return fn.FromRef(
-		bindings.FileReaderSyncReadAsTextFunc(
-			this.Ref(),
-		),
+// FuncReadAsText returns the method "FileReaderSync.readAsText".
+func (this FileReaderSync) FuncReadAsText() (fn js.Func[func(blob Blob, encoding js.String) js.String]) {
+	bindings.FuncFileReaderSyncReadAsText(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReadAsText calls the method "FileReaderSync.readAsText".
 func (this FileReaderSync) ReadAsText(blob Blob, encoding js.String) (ret js.String) {
 	bindings.CallFileReaderSyncReadAsText(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		blob.Ref(),
 		encoding.Ref(),
 	)
@@ -2078,7 +2172,7 @@ func (this FileReaderSync) ReadAsText(blob Blob, encoding js.String) (ret js.Str
 // the catch clause.
 func (this FileReaderSync) TryReadAsText(blob Blob, encoding js.String) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileReaderSyncReadAsText(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		blob.Ref(),
 		encoding.Ref(),
 	)
@@ -2086,26 +2180,25 @@ func (this FileReaderSync) TryReadAsText(blob Blob, encoding js.String) (ret js.
 	return
 }
 
-// HasReadAsText1 returns true if the method "FileReaderSync.readAsText" exists.
-func (this FileReaderSync) HasReadAsText1() bool {
-	return js.True == bindings.HasFileReaderSyncReadAsText1(
-		this.Ref(),
+// HasFuncReadAsText1 returns true if the method "FileReaderSync.readAsText" exists.
+func (this FileReaderSync) HasFuncReadAsText1() bool {
+	return js.True == bindings.HasFuncFileReaderSyncReadAsText1(
+		this.ref,
 	)
 }
 
-// ReadAsText1Func returns the method "FileReaderSync.readAsText".
-func (this FileReaderSync) ReadAsText1Func() (fn js.Func[func(blob Blob) js.String]) {
-	return fn.FromRef(
-		bindings.FileReaderSyncReadAsText1Func(
-			this.Ref(),
-		),
+// FuncReadAsText1 returns the method "FileReaderSync.readAsText".
+func (this FileReaderSync) FuncReadAsText1() (fn js.Func[func(blob Blob) js.String]) {
+	bindings.FuncFileReaderSyncReadAsText1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReadAsText1 calls the method "FileReaderSync.readAsText".
 func (this FileReaderSync) ReadAsText1(blob Blob) (ret js.String) {
 	bindings.CallFileReaderSyncReadAsText1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		blob.Ref(),
 	)
 
@@ -2117,33 +2210,32 @@ func (this FileReaderSync) ReadAsText1(blob Blob) (ret js.String) {
 // the catch clause.
 func (this FileReaderSync) TryReadAsText1(blob Blob) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileReaderSyncReadAsText1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		blob.Ref(),
 	)
 
 	return
 }
 
-// HasReadAsDataURL returns true if the method "FileReaderSync.readAsDataURL" exists.
-func (this FileReaderSync) HasReadAsDataURL() bool {
-	return js.True == bindings.HasFileReaderSyncReadAsDataURL(
-		this.Ref(),
+// HasFuncReadAsDataURL returns true if the method "FileReaderSync.readAsDataURL" exists.
+func (this FileReaderSync) HasFuncReadAsDataURL() bool {
+	return js.True == bindings.HasFuncFileReaderSyncReadAsDataURL(
+		this.ref,
 	)
 }
 
-// ReadAsDataURLFunc returns the method "FileReaderSync.readAsDataURL".
-func (this FileReaderSync) ReadAsDataURLFunc() (fn js.Func[func(blob Blob) js.String]) {
-	return fn.FromRef(
-		bindings.FileReaderSyncReadAsDataURLFunc(
-			this.Ref(),
-		),
+// FuncReadAsDataURL returns the method "FileReaderSync.readAsDataURL".
+func (this FileReaderSync) FuncReadAsDataURL() (fn js.Func[func(blob Blob) js.String]) {
+	bindings.FuncFileReaderSyncReadAsDataURL(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReadAsDataURL calls the method "FileReaderSync.readAsDataURL".
 func (this FileReaderSync) ReadAsDataURL(blob Blob) (ret js.String) {
 	bindings.CallFileReaderSyncReadAsDataURL(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		blob.Ref(),
 	)
 
@@ -2155,7 +2247,7 @@ func (this FileReaderSync) ReadAsDataURL(blob Blob) (ret js.String) {
 // the catch clause.
 func (this FileReaderSync) TryReadAsDataURL(blob Blob) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileReaderSyncReadAsDataURL(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		blob.Ref(),
 	)
 
@@ -2167,7 +2259,7 @@ type FileSystemFileEntry struct {
 }
 
 func (this FileSystemFileEntry) Once() FileSystemFileEntry {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2181,29 +2273,28 @@ func (this FileSystemFileEntry) FromRef(ref js.Ref) FileSystemFileEntry {
 }
 
 func (this FileSystemFileEntry) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasFile returns true if the method "FileSystemFileEntry.file" exists.
-func (this FileSystemFileEntry) HasFile() bool {
-	return js.True == bindings.HasFileSystemFileEntryFile(
-		this.Ref(),
+// HasFuncFile returns true if the method "FileSystemFileEntry.file" exists.
+func (this FileSystemFileEntry) HasFuncFile() bool {
+	return js.True == bindings.HasFuncFileSystemFileEntryFile(
+		this.ref,
 	)
 }
 
-// FileFunc returns the method "FileSystemFileEntry.file".
-func (this FileSystemFileEntry) FileFunc() (fn js.Func[func(successCallback js.Func[func(file File)], errorCallback js.Func[func(err DOMException)])]) {
-	return fn.FromRef(
-		bindings.FileSystemFileEntryFileFunc(
-			this.Ref(),
-		),
+// FuncFile returns the method "FileSystemFileEntry.file".
+func (this FileSystemFileEntry) FuncFile() (fn js.Func[func(successCallback js.Func[func(file File)], errorCallback js.Func[func(err DOMException)])]) {
+	bindings.FuncFileSystemFileEntryFile(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // File calls the method "FileSystemFileEntry.file".
 func (this FileSystemFileEntry) File(successCallback js.Func[func(file File)], errorCallback js.Func[func(err DOMException)]) (ret js.Void) {
 	bindings.CallFileSystemFileEntryFile(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		successCallback.Ref(),
 		errorCallback.Ref(),
 	)
@@ -2216,7 +2307,7 @@ func (this FileSystemFileEntry) File(successCallback js.Func[func(file File)], e
 // the catch clause.
 func (this FileSystemFileEntry) TryFile(successCallback js.Func[func(file File)], errorCallback js.Func[func(err DOMException)]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemFileEntryFile(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		successCallback.Ref(),
 		errorCallback.Ref(),
 	)
@@ -2224,26 +2315,25 @@ func (this FileSystemFileEntry) TryFile(successCallback js.Func[func(file File)]
 	return
 }
 
-// HasFile1 returns true if the method "FileSystemFileEntry.file" exists.
-func (this FileSystemFileEntry) HasFile1() bool {
-	return js.True == bindings.HasFileSystemFileEntryFile1(
-		this.Ref(),
+// HasFuncFile1 returns true if the method "FileSystemFileEntry.file" exists.
+func (this FileSystemFileEntry) HasFuncFile1() bool {
+	return js.True == bindings.HasFuncFileSystemFileEntryFile1(
+		this.ref,
 	)
 }
 
-// File1Func returns the method "FileSystemFileEntry.file".
-func (this FileSystemFileEntry) File1Func() (fn js.Func[func(successCallback js.Func[func(file File)])]) {
-	return fn.FromRef(
-		bindings.FileSystemFileEntryFile1Func(
-			this.Ref(),
-		),
+// FuncFile1 returns the method "FileSystemFileEntry.file".
+func (this FileSystemFileEntry) FuncFile1() (fn js.Func[func(successCallback js.Func[func(file File)])]) {
+	bindings.FuncFileSystemFileEntryFile1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // File1 calls the method "FileSystemFileEntry.file".
 func (this FileSystemFileEntry) File1(successCallback js.Func[func(file File)]) (ret js.Void) {
 	bindings.CallFileSystemFileEntryFile1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		successCallback.Ref(),
 	)
 
@@ -2255,7 +2345,7 @@ func (this FileSystemFileEntry) File1(successCallback js.Func[func(file File)]) 
 // the catch clause.
 func (this FileSystemFileEntry) TryFile1(successCallback js.Func[func(file File)]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemFileEntryFile1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		successCallback.Ref(),
 	)
 
@@ -2293,17 +2383,28 @@ func (p FileSystemPermissionDescriptor) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p FileSystemPermissionDescriptor) UpdateFrom(ref js.Ref) {
+func (p *FileSystemPermissionDescriptor) UpdateFrom(ref js.Ref) {
 	bindings.FileSystemPermissionDescriptorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p FileSystemPermissionDescriptor) Update(ref js.Ref) {
+func (p *FileSystemPermissionDescriptor) Update(ref js.Ref) {
 	bindings.FileSystemPermissionDescriptorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *FileSystemPermissionDescriptor) FreeMembers(recursive bool) {
+	js.Free(
+		p.Handle.Ref(),
+		p.Name.Ref(),
+	)
+	p.Handle = p.Handle.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type FillLightMode uint32
@@ -2389,17 +2490,28 @@ func (p FocusEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p FocusEventInit) UpdateFrom(ref js.Ref) {
+func (p *FocusEventInit) UpdateFrom(ref js.Ref) {
 	bindings.FocusEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p FocusEventInit) Update(ref js.Ref) {
+func (p *FocusEventInit) Update(ref js.Ref) {
 	bindings.FocusEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *FocusEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.RelatedTarget.Ref(),
+		p.View.Ref(),
+	)
+	p.RelatedTarget = p.RelatedTarget.FromRef(js.Undefined)
+	p.View = p.View.FromRef(js.Undefined)
 }
 
 func NewFocusEvent(typ js.String, eventInitDict FocusEventInit) (ret FocusEvent) {
@@ -2420,7 +2532,7 @@ type FocusEvent struct {
 }
 
 func (this FocusEvent) Once() FocusEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2434,7 +2546,7 @@ func (this FocusEvent) FromRef(ref js.Ref) FocusEvent {
 }
 
 func (this FocusEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // RelatedTarget returns the value of property "FocusEvent.relatedTarget".
@@ -2442,7 +2554,7 @@ func (this FocusEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this FocusEvent) RelatedTarget() (ret EventTarget, ok bool) {
 	ok = js.True == bindings.GetFocusEventRelatedTarget(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2492,17 +2604,26 @@ func (p FontFaceSetLoadEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p FontFaceSetLoadEventInit) UpdateFrom(ref js.Ref) {
+func (p *FontFaceSetLoadEventInit) UpdateFrom(ref js.Ref) {
 	bindings.FontFaceSetLoadEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p FontFaceSetLoadEventInit) Update(ref js.Ref) {
+func (p *FontFaceSetLoadEventInit) Update(ref js.Ref) {
 	bindings.FontFaceSetLoadEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *FontFaceSetLoadEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Fontfaces.Ref(),
+	)
+	p.Fontfaces = p.Fontfaces.FromRef(js.Undefined)
 }
 
 func NewFontFaceSetLoadEvent(typ js.String, eventInitDict FontFaceSetLoadEventInit) (ret FontFaceSetLoadEvent) {
@@ -2523,7 +2644,7 @@ type FontFaceSetLoadEvent struct {
 }
 
 func (this FontFaceSetLoadEvent) Once() FontFaceSetLoadEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2537,7 +2658,7 @@ func (this FontFaceSetLoadEvent) FromRef(ref js.Ref) FontFaceSetLoadEvent {
 }
 
 func (this FontFaceSetLoadEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Fontfaces returns the value of property "FontFaceSetLoadEvent.fontfaces".
@@ -2545,7 +2666,7 @@ func (this FontFaceSetLoadEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this FontFaceSetLoadEvent) Fontfaces() (ret js.FrozenArray[FontFace], ok bool) {
 	ok = js.True == bindings.GetFontFaceSetLoadEventFontfaces(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2555,7 +2676,7 @@ type FontFaceVariationAxis struct {
 }
 
 func (this FontFaceVariationAxis) Once() FontFaceVariationAxis {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2569,7 +2690,7 @@ func (this FontFaceVariationAxis) FromRef(ref js.Ref) FontFaceVariationAxis {
 }
 
 func (this FontFaceVariationAxis) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Name returns the value of property "FontFaceVariationAxis.name".
@@ -2577,7 +2698,7 @@ func (this FontFaceVariationAxis) Free() {
 // It returns ok=false if there is no such property.
 func (this FontFaceVariationAxis) Name() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFontFaceVariationAxisName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2587,7 +2708,7 @@ func (this FontFaceVariationAxis) Name() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this FontFaceVariationAxis) AxisTag() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFontFaceVariationAxisAxisTag(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2597,7 +2718,7 @@ func (this FontFaceVariationAxis) AxisTag() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this FontFaceVariationAxis) MinimumValue() (ret float64, ok bool) {
 	ok = js.True == bindings.GetFontFaceVariationAxisMinimumValue(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2607,7 +2728,7 @@ func (this FontFaceVariationAxis) MinimumValue() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this FontFaceVariationAxis) MaximumValue() (ret float64, ok bool) {
 	ok = js.True == bindings.GetFontFaceVariationAxisMaximumValue(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2617,7 +2738,7 @@ func (this FontFaceVariationAxis) MaximumValue() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this FontFaceVariationAxis) DefaultValue() (ret float64, ok bool) {
 	ok = js.True == bindings.GetFontFaceVariationAxisDefaultValue(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2667,17 +2788,26 @@ func (p FormDataEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p FormDataEventInit) UpdateFrom(ref js.Ref) {
+func (p *FormDataEventInit) UpdateFrom(ref js.Ref) {
 	bindings.FormDataEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p FormDataEventInit) Update(ref js.Ref) {
+func (p *FormDataEventInit) Update(ref js.Ref) {
 	bindings.FormDataEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *FormDataEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.FormData.Ref(),
+	)
+	p.FormData = p.FormData.FromRef(js.Undefined)
 }
 
 func NewFormDataEvent(typ js.String, eventInitDict FormDataEventInit) (ret FormDataEvent) {
@@ -2692,7 +2822,7 @@ type FormDataEvent struct {
 }
 
 func (this FormDataEvent) Once() FormDataEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2706,7 +2836,7 @@ func (this FormDataEvent) FromRef(ref js.Ref) FormDataEvent {
 }
 
 func (this FormDataEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // FormData returns the value of property "FormDataEvent.formData".
@@ -2714,7 +2844,7 @@ func (this FormDataEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this FormDataEvent) FormData() (ret FormData, ok bool) {
 	ok = js.True == bindings.GetFormDataEventFormData(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2774,17 +2904,31 @@ func (p FragmentResultOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p FragmentResultOptions) UpdateFrom(ref js.Ref) {
+func (p *FragmentResultOptions) UpdateFrom(ref js.Ref) {
 	bindings.FragmentResultOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p FragmentResultOptions) Update(ref js.Ref) {
+func (p *FragmentResultOptions) Update(ref js.Ref) {
 	bindings.FragmentResultOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *FragmentResultOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.ChildFragments.Ref(),
+		p.Data.Ref(),
+	)
+	p.ChildFragments = p.ChildFragments.FromRef(js.Undefined)
+	p.Data = p.Data.FromRef(js.Undefined)
+	if recursive {
+		p.BreakToken.FreeMembers(true)
+	}
 }
 
 func NewFragmentResult(options FragmentResultOptions) (ret FragmentResult) {
@@ -2803,7 +2947,7 @@ type FragmentResult struct {
 }
 
 func (this FragmentResult) Once() FragmentResult {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2817,7 +2961,7 @@ func (this FragmentResult) FromRef(ref js.Ref) FragmentResult {
 }
 
 func (this FragmentResult) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // InlineSize returns the value of property "FragmentResult.inlineSize".
@@ -2825,7 +2969,7 @@ func (this FragmentResult) Free() {
 // It returns ok=false if there is no such property.
 func (this FragmentResult) InlineSize() (ret float64, ok bool) {
 	ok = js.True == bindings.GetFragmentResultInlineSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2835,7 +2979,7 @@ func (this FragmentResult) InlineSize() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this FragmentResult) BlockSize() (ret float64, ok bool) {
 	ok = js.True == bindings.GetFragmentResultBlockSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }

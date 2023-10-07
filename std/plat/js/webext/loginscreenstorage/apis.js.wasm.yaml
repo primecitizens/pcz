@@ -1,0 +1,193 @@
+- File: webext/chrome/login_screen_storage.idl
+  Callback:
+    Name: RetrieveCallback
+    Args:
+      - Name: data
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - loginScreenStorage
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - loginScreenStorage
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - loginScreenStorage
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - loginScreenStorage
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/login_screen_storage.idl
+  Callback:
+    Name: StoreCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - loginScreenStorage
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - loginScreenStorage
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/login_screen_storage.idl
+  WebextFunc:
+    Name: retrieveCredentials
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - loginScreenStorage
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - loginScreenStorage
+- File: webext/chrome/login_screen_storage.idl
+  WebextFunc:
+    Name: retrievePersistentData
+    Modifier: static
+    Args:
+      - Name: ownerId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - loginScreenStorage
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - loginScreenStorage
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - loginScreenStorage
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - loginScreenStorage
+- File: webext/chrome/login_screen_storage.idl
+  WebextFunc:
+    Name: storeCredentials
+    Modifier: static
+    Args:
+      - Name: extensionId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - loginScreenStorage
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - loginScreenStorage
+      - Name: credentials
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - loginScreenStorage
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - loginScreenStorage
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - loginScreenStorage
+- File: webext/chrome/login_screen_storage.idl
+  WebextFunc:
+    Name: storePersistentData
+    Modifier: static
+    Args:
+      - Name: extensionIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - loginScreenStorage
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - loginScreenStorage
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - loginScreenStorage
+      - Name: data
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - loginScreenStorage
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - loginScreenStorage
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - loginScreenStorage

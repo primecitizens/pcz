@@ -1,0 +1,329 @@
+- File: webext/chrome/terminal_private.json
+  Dict:
+    Name: GetOSInfoReturnType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - terminalPrivate
+    Fields:
+      - Name: alternative_emulator
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - terminalPrivate
+      - Name: tast
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - terminalPrivate
+- File: webext/chrome/terminal_private.json
+  Dict:
+    Name: OpenWindowArgData
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - terminalPrivate
+    Fields:
+      - Name: asTab
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - terminalPrivate
+      - Name: url
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - terminalPrivate
+- File: webext/chrome/terminal_private.json
+  Enum:
+    Name: OutputType
+    Values:
+      - stdout
+      - stderr
+      - exit
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - terminalPrivate
+- File: webext/chrome/terminal_private.json
+  WebextFunc:
+    Name: ackOutput
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - terminalPrivate
+- File: webext/chrome/terminal_private.json
+  WebextFunc:
+    Name: closeTerminalProcess
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - terminalPrivate
+- File: webext/chrome/terminal_private.json
+  WebextFunc:
+    Name: getOSInfo
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: GetOSInfoReturnType
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - terminalPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - terminalPrivate
+- File: webext/chrome/terminal_private.json
+  WebextFunc:
+    Name: getPrefs
+    Args:
+      - Name: paths
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - terminalPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: any
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - terminalPrivate
+- File: webext/chrome/terminal_private.json
+  WebextEvent:
+    Name: onPrefChanged
+    Args:
+      - Name: prefs
+        Type:
+          Name: any
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - terminalPrivate
+- File: webext/chrome/terminal_private.json
+  WebextEvent:
+    Name: onProcessOutput
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: type
+        Type:
+          Name: OutputType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - terminalPrivate
+      - Name: data
+        Type:
+          Name: Uint8Array
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - terminalPrivate
+- File: webext/chrome/terminal_private.json
+  WebextFunc:
+    Name: onTerminalResize
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: width
+        Type:
+          Name: long long
+      - Name: height
+        Type:
+          Name: long long
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - terminalPrivate
+- File: webext/chrome/terminal_private.json
+  WebextFunc:
+    Name: openOptionsPage
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - terminalPrivate
+- File: webext/chrome/terminal_private.json
+  WebextFunc:
+    Name: openSettingsSubpage
+    Args:
+      - Name: subpage
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - terminalPrivate
+- File: webext/chrome/terminal_private.json
+  WebextFunc:
+    Name: openTerminalProcess
+    Args:
+      - Name: processName
+        Type:
+          Name: DOMString
+      - Name: args
+        Optional: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - terminalPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - terminalPrivate
+- File: webext/chrome/terminal_private.json
+  WebextFunc:
+    Name: openVmshellProcess
+    Args:
+      - Name: args
+        Optional: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - terminalPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - terminalPrivate
+- File: webext/chrome/terminal_private.json
+  WebextFunc:
+    Name: openWindow
+    Args:
+      - Name: data
+        Optional: true
+        Type:
+          Name: OpenWindowArgData
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - terminalPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - terminalPrivate
+- File: webext/chrome/terminal_private.json
+  WebextFunc:
+    Name: sendInput
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: input
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - terminalPrivate
+- File: webext/chrome/terminal_private.json
+  WebextFunc:
+    Name: setPrefs
+    Args:
+      - Name: prefs
+        Type:
+          Name: any
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - terminalPrivate

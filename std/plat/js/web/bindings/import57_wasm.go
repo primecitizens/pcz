@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web new_WebGLContextEvent_WebGLContextEvent
 //go:noescape
@@ -84,11 +82,11 @@ func SetWebSocketBinaryType(
 
 //go:wasmimport plat/js/web has_WebSocket_Close
 //go:noescape
-func HasWebSocketClose(this js.Ref) js.Ref
+func HasFuncWebSocketClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebSocket_Close
 //go:noescape
-func WebSocketCloseFunc(this js.Ref) js.Ref
+func FuncWebSocketClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebSocket_Close
 //go:noescape
@@ -106,11 +104,11 @@ func TryWebSocketClose(
 
 //go:wasmimport plat/js/web has_WebSocket_Close1
 //go:noescape
-func HasWebSocketClose1(this js.Ref) js.Ref
+func HasFuncWebSocketClose1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebSocket_Close1
 //go:noescape
-func WebSocketClose1Func(this js.Ref) js.Ref
+func FuncWebSocketClose1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebSocket_Close1
 //go:noescape
@@ -126,11 +124,11 @@ func TryWebSocketClose1(
 
 //go:wasmimport plat/js/web has_WebSocket_Close2
 //go:noescape
-func HasWebSocketClose2(this js.Ref) js.Ref
+func HasFuncWebSocketClose2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebSocket_Close2
 //go:noescape
-func WebSocketClose2Func(this js.Ref) js.Ref
+func FuncWebSocketClose2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebSocket_Close2
 //go:noescape
@@ -144,11 +142,11 @@ func TryWebSocketClose2(
 
 //go:wasmimport plat/js/web has_WebSocket_Send
 //go:noescape
-func HasWebSocketSend(this js.Ref) js.Ref
+func HasFuncWebSocketSend(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebSocket_Send
 //go:noescape
-func WebSocketSendFunc(this js.Ref) js.Ref
+func FuncWebSocketSend(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebSocket_Send
 //go:noescape
@@ -243,11 +241,11 @@ func NewWebTransportReceiveStreamByWebTransportReceiveStream2() js.Ref
 
 //go:wasmimport plat/js/web has_WebTransportReceiveStream_GetStats
 //go:noescape
-func HasWebTransportReceiveStreamGetStats(this js.Ref) js.Ref
+func HasFuncWebTransportReceiveStreamGetStats(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebTransportReceiveStream_GetStats
 //go:noescape
-func WebTransportReceiveStreamGetStatsFunc(this js.Ref) js.Ref
+func FuncWebTransportReceiveStreamGetStats(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebTransportReceiveStream_GetStats
 //go:noescape
@@ -298,11 +296,11 @@ func SetWebTransportSendStreamSendOrder(
 
 //go:wasmimport plat/js/web has_WebTransportSendStream_GetStats
 //go:noescape
-func HasWebTransportSendStreamGetStats(this js.Ref) js.Ref
+func HasFuncWebTransportSendStreamGetStats(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebTransportSendStream_GetStats
 //go:noescape
-func WebTransportSendStreamGetStatsFunc(this js.Ref) js.Ref
+func FuncWebTransportSendStreamGetStats(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebTransportSendStream_GetStats
 //go:noescape
@@ -454,11 +452,11 @@ func GetWebTransportIncomingUnidirectionalStreams(
 
 //go:wasmimport plat/js/web has_WebTransport_GetStats
 //go:noescape
-func HasWebTransportGetStats(this js.Ref) js.Ref
+func HasFuncWebTransportGetStats(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebTransport_GetStats
 //go:noescape
-func WebTransportGetStatsFunc(this js.Ref) js.Ref
+func FuncWebTransportGetStats(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebTransport_GetStats
 //go:noescape
@@ -472,11 +470,11 @@ func TryWebTransportGetStats(
 
 //go:wasmimport plat/js/web has_WebTransport_Close
 //go:noescape
-func HasWebTransportClose(this js.Ref) js.Ref
+func HasFuncWebTransportClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebTransport_Close
 //go:noescape
-func WebTransportCloseFunc(this js.Ref) js.Ref
+func FuncWebTransportClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebTransport_Close
 //go:noescape
@@ -492,11 +490,11 @@ func TryWebTransportClose(
 
 //go:wasmimport plat/js/web has_WebTransport_Close1
 //go:noescape
-func HasWebTransportClose1(this js.Ref) js.Ref
+func HasFuncWebTransportClose1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebTransport_Close1
 //go:noescape
-func WebTransportClose1Func(this js.Ref) js.Ref
+func FuncWebTransportClose1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebTransport_Close1
 //go:noescape
@@ -510,11 +508,11 @@ func TryWebTransportClose1(
 
 //go:wasmimport plat/js/web has_WebTransport_CreateBidirectionalStream
 //go:noescape
-func HasWebTransportCreateBidirectionalStream(this js.Ref) js.Ref
+func HasFuncWebTransportCreateBidirectionalStream(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebTransport_CreateBidirectionalStream
 //go:noescape
-func WebTransportCreateBidirectionalStreamFunc(this js.Ref) js.Ref
+func FuncWebTransportCreateBidirectionalStream(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebTransport_CreateBidirectionalStream
 //go:noescape
@@ -530,11 +528,11 @@ func TryWebTransportCreateBidirectionalStream(
 
 //go:wasmimport plat/js/web has_WebTransport_CreateBidirectionalStream1
 //go:noescape
-func HasWebTransportCreateBidirectionalStream1(this js.Ref) js.Ref
+func HasFuncWebTransportCreateBidirectionalStream1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebTransport_CreateBidirectionalStream1
 //go:noescape
-func WebTransportCreateBidirectionalStream1Func(this js.Ref) js.Ref
+func FuncWebTransportCreateBidirectionalStream1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebTransport_CreateBidirectionalStream1
 //go:noescape
@@ -548,11 +546,11 @@ func TryWebTransportCreateBidirectionalStream1(
 
 //go:wasmimport plat/js/web has_WebTransport_CreateUnidirectionalStream
 //go:noescape
-func HasWebTransportCreateUnidirectionalStream(this js.Ref) js.Ref
+func HasFuncWebTransportCreateUnidirectionalStream(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebTransport_CreateUnidirectionalStream
 //go:noescape
-func WebTransportCreateUnidirectionalStreamFunc(this js.Ref) js.Ref
+func FuncWebTransportCreateUnidirectionalStream(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebTransport_CreateUnidirectionalStream
 //go:noescape
@@ -568,11 +566,11 @@ func TryWebTransportCreateUnidirectionalStream(
 
 //go:wasmimport plat/js/web has_WebTransport_CreateUnidirectionalStream1
 //go:noescape
-func HasWebTransportCreateUnidirectionalStream1(this js.Ref) js.Ref
+func HasFuncWebTransportCreateUnidirectionalStream1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebTransport_CreateUnidirectionalStream1
 //go:noescape
-func WebTransportCreateUnidirectionalStream1Func(this js.Ref) js.Ref
+func FuncWebTransportCreateUnidirectionalStream1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebTransport_CreateUnidirectionalStream1
 //go:noescape
@@ -877,11 +875,11 @@ func GetWorkerNavigatorGpu(
 
 //go:wasmimport plat/js/web has_WorkerNavigator_TaintEnabled
 //go:noescape
-func HasWorkerNavigatorTaintEnabled(this js.Ref) js.Ref
+func HasFuncWorkerNavigatorTaintEnabled(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerNavigator_TaintEnabled
 //go:noescape
-func WorkerNavigatorTaintEnabledFunc(this js.Ref) js.Ref
+func FuncWorkerNavigatorTaintEnabled(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerNavigator_TaintEnabled
 //go:noescape
@@ -895,11 +893,11 @@ func TryWorkerNavigatorTaintEnabled(
 
 //go:wasmimport plat/js/web has_WorkerNavigator_SetAppBadge
 //go:noescape
-func HasWorkerNavigatorSetAppBadge(this js.Ref) js.Ref
+func HasFuncWorkerNavigatorSetAppBadge(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerNavigator_SetAppBadge
 //go:noescape
-func WorkerNavigatorSetAppBadgeFunc(this js.Ref) js.Ref
+func FuncWorkerNavigatorSetAppBadge(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerNavigator_SetAppBadge
 //go:noescape
@@ -915,11 +913,11 @@ func TryWorkerNavigatorSetAppBadge(
 
 //go:wasmimport plat/js/web has_WorkerNavigator_SetAppBadge1
 //go:noescape
-func HasWorkerNavigatorSetAppBadge1(this js.Ref) js.Ref
+func HasFuncWorkerNavigatorSetAppBadge1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerNavigator_SetAppBadge1
 //go:noescape
-func WorkerNavigatorSetAppBadge1Func(this js.Ref) js.Ref
+func FuncWorkerNavigatorSetAppBadge1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerNavigator_SetAppBadge1
 //go:noescape
@@ -933,11 +931,11 @@ func TryWorkerNavigatorSetAppBadge1(
 
 //go:wasmimport plat/js/web has_WorkerNavigator_ClearAppBadge
 //go:noescape
-func HasWorkerNavigatorClearAppBadge(this js.Ref) js.Ref
+func HasFuncWorkerNavigatorClearAppBadge(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerNavigator_ClearAppBadge
 //go:noescape
-func WorkerNavigatorClearAppBadgeFunc(this js.Ref) js.Ref
+func FuncWorkerNavigatorClearAppBadge(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerNavigator_ClearAppBadge
 //go:noescape
@@ -1016,11 +1014,11 @@ func GetWorkerGlobalScopePerformance(
 
 //go:wasmimport plat/js/web has_WorkerGlobalScope_ImportScripts
 //go:noescape
-func HasWorkerGlobalScopeImportScripts(this js.Ref) js.Ref
+func HasFuncWorkerGlobalScopeImportScripts(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerGlobalScope_ImportScripts
 //go:noescape
-func WorkerGlobalScopeImportScriptsFunc(this js.Ref) js.Ref
+func FuncWorkerGlobalScopeImportScripts(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerGlobalScope_ImportScripts
 //go:noescape
@@ -1038,11 +1036,11 @@ func TryWorkerGlobalScopeImportScripts(
 
 //go:wasmimport plat/js/web has_WorkerGlobalScope_ReportError
 //go:noescape
-func HasWorkerGlobalScopeReportError(this js.Ref) js.Ref
+func HasFuncWorkerGlobalScopeReportError(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerGlobalScope_ReportError
 //go:noescape
-func WorkerGlobalScopeReportErrorFunc(this js.Ref) js.Ref
+func FuncWorkerGlobalScopeReportError(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerGlobalScope_ReportError
 //go:noescape
@@ -1058,11 +1056,11 @@ func TryWorkerGlobalScopeReportError(
 
 //go:wasmimport plat/js/web has_WorkerGlobalScope_Btoa
 //go:noescape
-func HasWorkerGlobalScopeBtoa(this js.Ref) js.Ref
+func HasFuncWorkerGlobalScopeBtoa(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerGlobalScope_Btoa
 //go:noescape
-func WorkerGlobalScopeBtoaFunc(this js.Ref) js.Ref
+func FuncWorkerGlobalScopeBtoa(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerGlobalScope_Btoa
 //go:noescape
@@ -1078,11 +1076,11 @@ func TryWorkerGlobalScopeBtoa(
 
 //go:wasmimport plat/js/web has_WorkerGlobalScope_Atob
 //go:noescape
-func HasWorkerGlobalScopeAtob(this js.Ref) js.Ref
+func HasFuncWorkerGlobalScopeAtob(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerGlobalScope_Atob
 //go:noescape
-func WorkerGlobalScopeAtobFunc(this js.Ref) js.Ref
+func FuncWorkerGlobalScopeAtob(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerGlobalScope_Atob
 //go:noescape
@@ -1098,11 +1096,11 @@ func TryWorkerGlobalScopeAtob(
 
 //go:wasmimport plat/js/web has_WorkerGlobalScope_SetTimeout
 //go:noescape
-func HasWorkerGlobalScopeSetTimeout(this js.Ref) js.Ref
+func HasFuncWorkerGlobalScopeSetTimeout(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerGlobalScope_SetTimeout
 //go:noescape
-func WorkerGlobalScopeSetTimeoutFunc(this js.Ref) js.Ref
+func FuncWorkerGlobalScopeSetTimeout(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerGlobalScope_SetTimeout
 //go:noescape
@@ -1124,11 +1122,11 @@ func TryWorkerGlobalScopeSetTimeout(
 
 //go:wasmimport plat/js/web has_WorkerGlobalScope_SetTimeout1
 //go:noescape
-func HasWorkerGlobalScopeSetTimeout1(this js.Ref) js.Ref
+func HasFuncWorkerGlobalScopeSetTimeout1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerGlobalScope_SetTimeout1
 //go:noescape
-func WorkerGlobalScopeSetTimeout1Func(this js.Ref) js.Ref
+func FuncWorkerGlobalScopeSetTimeout1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerGlobalScope_SetTimeout1
 //go:noescape
@@ -1144,11 +1142,11 @@ func TryWorkerGlobalScopeSetTimeout1(
 
 //go:wasmimport plat/js/web has_WorkerGlobalScope_ClearTimeout
 //go:noescape
-func HasWorkerGlobalScopeClearTimeout(this js.Ref) js.Ref
+func HasFuncWorkerGlobalScopeClearTimeout(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerGlobalScope_ClearTimeout
 //go:noescape
-func WorkerGlobalScopeClearTimeoutFunc(this js.Ref) js.Ref
+func FuncWorkerGlobalScopeClearTimeout(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerGlobalScope_ClearTimeout
 //go:noescape
@@ -1164,11 +1162,11 @@ func TryWorkerGlobalScopeClearTimeout(
 
 //go:wasmimport plat/js/web has_WorkerGlobalScope_ClearTimeout1
 //go:noescape
-func HasWorkerGlobalScopeClearTimeout1(this js.Ref) js.Ref
+func HasFuncWorkerGlobalScopeClearTimeout1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerGlobalScope_ClearTimeout1
 //go:noescape
-func WorkerGlobalScopeClearTimeout1Func(this js.Ref) js.Ref
+func FuncWorkerGlobalScopeClearTimeout1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerGlobalScope_ClearTimeout1
 //go:noescape
@@ -1182,11 +1180,11 @@ func TryWorkerGlobalScopeClearTimeout1(
 
 //go:wasmimport plat/js/web has_WorkerGlobalScope_SetInterval
 //go:noescape
-func HasWorkerGlobalScopeSetInterval(this js.Ref) js.Ref
+func HasFuncWorkerGlobalScopeSetInterval(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerGlobalScope_SetInterval
 //go:noescape
-func WorkerGlobalScopeSetIntervalFunc(this js.Ref) js.Ref
+func FuncWorkerGlobalScopeSetInterval(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerGlobalScope_SetInterval
 //go:noescape
@@ -1208,11 +1206,11 @@ func TryWorkerGlobalScopeSetInterval(
 
 //go:wasmimport plat/js/web has_WorkerGlobalScope_SetInterval1
 //go:noescape
-func HasWorkerGlobalScopeSetInterval1(this js.Ref) js.Ref
+func HasFuncWorkerGlobalScopeSetInterval1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerGlobalScope_SetInterval1
 //go:noescape
-func WorkerGlobalScopeSetInterval1Func(this js.Ref) js.Ref
+func FuncWorkerGlobalScopeSetInterval1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerGlobalScope_SetInterval1
 //go:noescape
@@ -1228,11 +1226,11 @@ func TryWorkerGlobalScopeSetInterval1(
 
 //go:wasmimport plat/js/web has_WorkerGlobalScope_ClearInterval
 //go:noescape
-func HasWorkerGlobalScopeClearInterval(this js.Ref) js.Ref
+func HasFuncWorkerGlobalScopeClearInterval(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerGlobalScope_ClearInterval
 //go:noescape
-func WorkerGlobalScopeClearIntervalFunc(this js.Ref) js.Ref
+func FuncWorkerGlobalScopeClearInterval(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerGlobalScope_ClearInterval
 //go:noescape
@@ -1248,11 +1246,11 @@ func TryWorkerGlobalScopeClearInterval(
 
 //go:wasmimport plat/js/web has_WorkerGlobalScope_ClearInterval1
 //go:noescape
-func HasWorkerGlobalScopeClearInterval1(this js.Ref) js.Ref
+func HasFuncWorkerGlobalScopeClearInterval1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerGlobalScope_ClearInterval1
 //go:noescape
-func WorkerGlobalScopeClearInterval1Func(this js.Ref) js.Ref
+func FuncWorkerGlobalScopeClearInterval1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerGlobalScope_ClearInterval1
 //go:noescape
@@ -1266,11 +1264,11 @@ func TryWorkerGlobalScopeClearInterval1(
 
 //go:wasmimport plat/js/web has_WorkerGlobalScope_QueueMicrotask
 //go:noescape
-func HasWorkerGlobalScopeQueueMicrotask(this js.Ref) js.Ref
+func HasFuncWorkerGlobalScopeQueueMicrotask(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerGlobalScope_QueueMicrotask
 //go:noescape
-func WorkerGlobalScopeQueueMicrotaskFunc(this js.Ref) js.Ref
+func FuncWorkerGlobalScopeQueueMicrotask(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerGlobalScope_QueueMicrotask
 //go:noescape
@@ -1286,11 +1284,11 @@ func TryWorkerGlobalScopeQueueMicrotask(
 
 //go:wasmimport plat/js/web has_WorkerGlobalScope_CreateImageBitmap
 //go:noescape
-func HasWorkerGlobalScopeCreateImageBitmap(this js.Ref) js.Ref
+func HasFuncWorkerGlobalScopeCreateImageBitmap(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerGlobalScope_CreateImageBitmap
 //go:noescape
-func WorkerGlobalScopeCreateImageBitmapFunc(this js.Ref) js.Ref
+func FuncWorkerGlobalScopeCreateImageBitmap(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerGlobalScope_CreateImageBitmap
 //go:noescape
@@ -1308,11 +1306,11 @@ func TryWorkerGlobalScopeCreateImageBitmap(
 
 //go:wasmimport plat/js/web has_WorkerGlobalScope_CreateImageBitmap1
 //go:noescape
-func HasWorkerGlobalScopeCreateImageBitmap1(this js.Ref) js.Ref
+func HasFuncWorkerGlobalScopeCreateImageBitmap1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerGlobalScope_CreateImageBitmap1
 //go:noescape
-func WorkerGlobalScopeCreateImageBitmap1Func(this js.Ref) js.Ref
+func FuncWorkerGlobalScopeCreateImageBitmap1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerGlobalScope_CreateImageBitmap1
 //go:noescape
@@ -1328,11 +1326,11 @@ func TryWorkerGlobalScopeCreateImageBitmap1(
 
 //go:wasmimport plat/js/web has_WorkerGlobalScope_CreateImageBitmap2
 //go:noescape
-func HasWorkerGlobalScopeCreateImageBitmap2(this js.Ref) js.Ref
+func HasFuncWorkerGlobalScopeCreateImageBitmap2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerGlobalScope_CreateImageBitmap2
 //go:noescape
-func WorkerGlobalScopeCreateImageBitmap2Func(this js.Ref) js.Ref
+func FuncWorkerGlobalScopeCreateImageBitmap2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerGlobalScope_CreateImageBitmap2
 //go:noescape
@@ -1358,11 +1356,11 @@ func TryWorkerGlobalScopeCreateImageBitmap2(
 
 //go:wasmimport plat/js/web has_WorkerGlobalScope_CreateImageBitmap3
 //go:noescape
-func HasWorkerGlobalScopeCreateImageBitmap3(this js.Ref) js.Ref
+func HasFuncWorkerGlobalScopeCreateImageBitmap3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerGlobalScope_CreateImageBitmap3
 //go:noescape
-func WorkerGlobalScopeCreateImageBitmap3Func(this js.Ref) js.Ref
+func FuncWorkerGlobalScopeCreateImageBitmap3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerGlobalScope_CreateImageBitmap3
 //go:noescape
@@ -1386,11 +1384,11 @@ func TryWorkerGlobalScopeCreateImageBitmap3(
 
 //go:wasmimport plat/js/web has_WorkerGlobalScope_StructuredClone
 //go:noescape
-func HasWorkerGlobalScopeStructuredClone(this js.Ref) js.Ref
+func HasFuncWorkerGlobalScopeStructuredClone(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerGlobalScope_StructuredClone
 //go:noescape
-func WorkerGlobalScopeStructuredCloneFunc(this js.Ref) js.Ref
+func FuncWorkerGlobalScopeStructuredClone(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerGlobalScope_StructuredClone
 //go:noescape
@@ -1408,11 +1406,11 @@ func TryWorkerGlobalScopeStructuredClone(
 
 //go:wasmimport plat/js/web has_WorkerGlobalScope_StructuredClone1
 //go:noescape
-func HasWorkerGlobalScopeStructuredClone1(this js.Ref) js.Ref
+func HasFuncWorkerGlobalScopeStructuredClone1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerGlobalScope_StructuredClone1
 //go:noescape
-func WorkerGlobalScopeStructuredClone1Func(this js.Ref) js.Ref
+func FuncWorkerGlobalScopeStructuredClone1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerGlobalScope_StructuredClone1
 //go:noescape
@@ -1428,11 +1426,11 @@ func TryWorkerGlobalScopeStructuredClone1(
 
 //go:wasmimport plat/js/web has_WorkerGlobalScope_Fetch
 //go:noescape
-func HasWorkerGlobalScopeFetch(this js.Ref) js.Ref
+func HasFuncWorkerGlobalScopeFetch(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerGlobalScope_Fetch
 //go:noescape
-func WorkerGlobalScopeFetchFunc(this js.Ref) js.Ref
+func FuncWorkerGlobalScopeFetch(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerGlobalScope_Fetch
 //go:noescape
@@ -1450,11 +1448,11 @@ func TryWorkerGlobalScopeFetch(
 
 //go:wasmimport plat/js/web has_WorkerGlobalScope_Fetch1
 //go:noescape
-func HasWorkerGlobalScopeFetch1(this js.Ref) js.Ref
+func HasFuncWorkerGlobalScopeFetch1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkerGlobalScope_Fetch1
 //go:noescape
-func WorkerGlobalScopeFetch1Func(this js.Ref) js.Ref
+func FuncWorkerGlobalScopeFetch1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkerGlobalScope_Fetch1
 //go:noescape
@@ -1513,11 +1511,11 @@ func SetWorkletAnimationEffectLocalTime(
 
 //go:wasmimport plat/js/web has_WorkletAnimationEffect_GetTiming
 //go:noescape
-func HasWorkletAnimationEffectGetTiming(this js.Ref) js.Ref
+func HasFuncWorkletAnimationEffectGetTiming(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkletAnimationEffect_GetTiming
 //go:noescape
-func WorkletAnimationEffectGetTimingFunc(this js.Ref) js.Ref
+func FuncWorkletAnimationEffectGetTiming(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkletAnimationEffect_GetTiming
 //go:noescape
@@ -1531,11 +1529,11 @@ func TryWorkletAnimationEffectGetTiming(
 
 //go:wasmimport plat/js/web has_WorkletAnimationEffect_GetComputedTiming
 //go:noescape
-func HasWorkletAnimationEffectGetComputedTiming(this js.Ref) js.Ref
+func HasFuncWorkletAnimationEffectGetComputedTiming(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkletAnimationEffect_GetComputedTiming
 //go:noescape
-func WorkletAnimationEffectGetComputedTimingFunc(this js.Ref) js.Ref
+func FuncWorkletAnimationEffectGetComputedTiming(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkletAnimationEffect_GetComputedTiming
 //go:noescape
@@ -1549,11 +1547,11 @@ func TryWorkletAnimationEffectGetComputedTiming(
 
 //go:wasmimport plat/js/web has_WorkletGroupEffect_GetChildren
 //go:noescape
-func HasWorkletGroupEffectGetChildren(this js.Ref) js.Ref
+func HasFuncWorkletGroupEffectGetChildren(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WorkletGroupEffect_GetChildren
 //go:noescape
-func WorkletGroupEffectGetChildrenFunc(this js.Ref) js.Ref
+func FuncWorkletGroupEffectGetChildren(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WorkletGroupEffect_GetChildren
 //go:noescape
@@ -1647,11 +1645,11 @@ func GetXMLHttpRequestResponseXML(
 
 //go:wasmimport plat/js/web has_XMLHttpRequest_Open
 //go:noescape
-func HasXMLHttpRequestOpen(this js.Ref) js.Ref
+func HasFuncXMLHttpRequestOpen(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XMLHttpRequest_Open
 //go:noescape
-func XMLHttpRequestOpenFunc(this js.Ref) js.Ref
+func FuncXMLHttpRequestOpen(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XMLHttpRequest_Open
 //go:noescape
@@ -1669,11 +1667,11 @@ func TryXMLHttpRequestOpen(
 
 //go:wasmimport plat/js/web has_XMLHttpRequest_Open1
 //go:noescape
-func HasXMLHttpRequestOpen1(this js.Ref) js.Ref
+func HasFuncXMLHttpRequestOpen1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XMLHttpRequest_Open1
 //go:noescape
-func XMLHttpRequestOpen1Func(this js.Ref) js.Ref
+func FuncXMLHttpRequestOpen1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XMLHttpRequest_Open1
 //go:noescape
@@ -1697,11 +1695,11 @@ func TryXMLHttpRequestOpen1(
 
 //go:wasmimport plat/js/web has_XMLHttpRequest_Open2
 //go:noescape
-func HasXMLHttpRequestOpen2(this js.Ref) js.Ref
+func HasFuncXMLHttpRequestOpen2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XMLHttpRequest_Open2
 //go:noescape
-func XMLHttpRequestOpen2Func(this js.Ref) js.Ref
+func FuncXMLHttpRequestOpen2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XMLHttpRequest_Open2
 //go:noescape
@@ -1723,11 +1721,11 @@ func TryXMLHttpRequestOpen2(
 
 //go:wasmimport plat/js/web has_XMLHttpRequest_Open3
 //go:noescape
-func HasXMLHttpRequestOpen3(this js.Ref) js.Ref
+func HasFuncXMLHttpRequestOpen3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XMLHttpRequest_Open3
 //go:noescape
-func XMLHttpRequestOpen3Func(this js.Ref) js.Ref
+func FuncXMLHttpRequestOpen3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XMLHttpRequest_Open3
 //go:noescape
@@ -1747,11 +1745,11 @@ func TryXMLHttpRequestOpen3(
 
 //go:wasmimport plat/js/web has_XMLHttpRequest_SetRequestHeader
 //go:noescape
-func HasXMLHttpRequestSetRequestHeader(this js.Ref) js.Ref
+func HasFuncXMLHttpRequestSetRequestHeader(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XMLHttpRequest_SetRequestHeader
 //go:noescape
-func XMLHttpRequestSetRequestHeaderFunc(this js.Ref) js.Ref
+func FuncXMLHttpRequestSetRequestHeader(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XMLHttpRequest_SetRequestHeader
 //go:noescape
@@ -1769,11 +1767,11 @@ func TryXMLHttpRequestSetRequestHeader(
 
 //go:wasmimport plat/js/web has_XMLHttpRequest_Send
 //go:noescape
-func HasXMLHttpRequestSend(this js.Ref) js.Ref
+func HasFuncXMLHttpRequestSend(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XMLHttpRequest_Send
 //go:noescape
-func XMLHttpRequestSendFunc(this js.Ref) js.Ref
+func FuncXMLHttpRequestSend(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XMLHttpRequest_Send
 //go:noescape
@@ -1789,11 +1787,11 @@ func TryXMLHttpRequestSend(
 
 //go:wasmimport plat/js/web has_XMLHttpRequest_Send1
 //go:noescape
-func HasXMLHttpRequestSend1(this js.Ref) js.Ref
+func HasFuncXMLHttpRequestSend1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XMLHttpRequest_Send1
 //go:noescape
-func XMLHttpRequestSend1Func(this js.Ref) js.Ref
+func FuncXMLHttpRequestSend1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XMLHttpRequest_Send1
 //go:noescape
@@ -1807,11 +1805,11 @@ func TryXMLHttpRequestSend1(
 
 //go:wasmimport plat/js/web has_XMLHttpRequest_Abort
 //go:noescape
-func HasXMLHttpRequestAbort(this js.Ref) js.Ref
+func HasFuncXMLHttpRequestAbort(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XMLHttpRequest_Abort
 //go:noescape
-func XMLHttpRequestAbortFunc(this js.Ref) js.Ref
+func FuncXMLHttpRequestAbort(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XMLHttpRequest_Abort
 //go:noescape
@@ -1825,11 +1823,11 @@ func TryXMLHttpRequestAbort(
 
 //go:wasmimport plat/js/web has_XMLHttpRequest_GetResponseHeader
 //go:noescape
-func HasXMLHttpRequestGetResponseHeader(this js.Ref) js.Ref
+func HasFuncXMLHttpRequestGetResponseHeader(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XMLHttpRequest_GetResponseHeader
 //go:noescape
-func XMLHttpRequestGetResponseHeaderFunc(this js.Ref) js.Ref
+func FuncXMLHttpRequestGetResponseHeader(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XMLHttpRequest_GetResponseHeader
 //go:noescape
@@ -1845,11 +1843,11 @@ func TryXMLHttpRequestGetResponseHeader(
 
 //go:wasmimport plat/js/web has_XMLHttpRequest_GetAllResponseHeaders
 //go:noescape
-func HasXMLHttpRequestGetAllResponseHeaders(this js.Ref) js.Ref
+func HasFuncXMLHttpRequestGetAllResponseHeaders(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XMLHttpRequest_GetAllResponseHeaders
 //go:noescape
-func XMLHttpRequestGetAllResponseHeadersFunc(this js.Ref) js.Ref
+func FuncXMLHttpRequestGetAllResponseHeaders(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XMLHttpRequest_GetAllResponseHeaders
 //go:noescape
@@ -1863,11 +1861,11 @@ func TryXMLHttpRequestGetAllResponseHeaders(
 
 //go:wasmimport plat/js/web has_XMLHttpRequest_OverrideMimeType
 //go:noescape
-func HasXMLHttpRequestOverrideMimeType(this js.Ref) js.Ref
+func HasFuncXMLHttpRequestOverrideMimeType(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XMLHttpRequest_OverrideMimeType
 //go:noescape
-func XMLHttpRequestOverrideMimeTypeFunc(this js.Ref) js.Ref
+func FuncXMLHttpRequestOverrideMimeType(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XMLHttpRequest_OverrideMimeType
 //go:noescape
@@ -1883,11 +1881,11 @@ func TryXMLHttpRequestOverrideMimeType(
 
 //go:wasmimport plat/js/web has_XMLHttpRequest_SetAttributionReporting
 //go:noescape
-func HasXMLHttpRequestSetAttributionReporting(this js.Ref) js.Ref
+func HasFuncXMLHttpRequestSetAttributionReporting(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XMLHttpRequest_SetAttributionReporting
 //go:noescape
-func XMLHttpRequestSetAttributionReportingFunc(this js.Ref) js.Ref
+func FuncXMLHttpRequestSetAttributionReporting(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XMLHttpRequest_SetAttributionReporting
 //go:noescape
@@ -1903,11 +1901,11 @@ func TryXMLHttpRequestSetAttributionReporting(
 
 //go:wasmimport plat/js/web has_XMLHttpRequest_SetPrivateToken
 //go:noescape
-func HasXMLHttpRequestSetPrivateToken(this js.Ref) js.Ref
+func HasFuncXMLHttpRequestSetPrivateToken(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XMLHttpRequest_SetPrivateToken
 //go:noescape
-func XMLHttpRequestSetPrivateTokenFunc(this js.Ref) js.Ref
+func FuncXMLHttpRequestSetPrivateToken(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XMLHttpRequest_SetPrivateToken
 //go:noescape
@@ -1923,11 +1921,11 @@ func TryXMLHttpRequestSetPrivateToken(
 
 //go:wasmimport plat/js/web has_XMLSerializer_SerializeToString
 //go:noescape
-func HasXMLSerializerSerializeToString(this js.Ref) js.Ref
+func HasFuncXMLSerializerSerializeToString(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XMLSerializer_SerializeToString
 //go:noescape
-func XMLSerializerSerializeToStringFunc(this js.Ref) js.Ref
+func FuncXMLSerializerSerializeToString(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XMLSerializer_SerializeToString
 //go:noescape
@@ -1943,11 +1941,11 @@ func TryXMLSerializerSerializeToString(
 
 //go:wasmimport plat/js/web has_XPathEvaluator_CreateExpression
 //go:noescape
-func HasXPathEvaluatorCreateExpression(this js.Ref) js.Ref
+func HasFuncXPathEvaluatorCreateExpression(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XPathEvaluator_CreateExpression
 //go:noescape
-func XPathEvaluatorCreateExpressionFunc(this js.Ref) js.Ref
+func FuncXPathEvaluatorCreateExpression(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XPathEvaluator_CreateExpression
 //go:noescape
@@ -1965,11 +1963,11 @@ func TryXPathEvaluatorCreateExpression(
 
 //go:wasmimport plat/js/web has_XPathEvaluator_CreateExpression1
 //go:noescape
-func HasXPathEvaluatorCreateExpression1(this js.Ref) js.Ref
+func HasFuncXPathEvaluatorCreateExpression1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XPathEvaluator_CreateExpression1
 //go:noescape
-func XPathEvaluatorCreateExpression1Func(this js.Ref) js.Ref
+func FuncXPathEvaluatorCreateExpression1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XPathEvaluator_CreateExpression1
 //go:noescape
@@ -1985,11 +1983,11 @@ func TryXPathEvaluatorCreateExpression1(
 
 //go:wasmimport plat/js/web has_XPathEvaluator_CreateNSResolver
 //go:noescape
-func HasXPathEvaluatorCreateNSResolver(this js.Ref) js.Ref
+func HasFuncXPathEvaluatorCreateNSResolver(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XPathEvaluator_CreateNSResolver
 //go:noescape
-func XPathEvaluatorCreateNSResolverFunc(this js.Ref) js.Ref
+func FuncXPathEvaluatorCreateNSResolver(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XPathEvaluator_CreateNSResolver
 //go:noescape
@@ -2005,11 +2003,11 @@ func TryXPathEvaluatorCreateNSResolver(
 
 //go:wasmimport plat/js/web has_XPathEvaluator_Evaluate
 //go:noescape
-func HasXPathEvaluatorEvaluate(this js.Ref) js.Ref
+func HasFuncXPathEvaluatorEvaluate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XPathEvaluator_Evaluate
 //go:noescape
-func XPathEvaluatorEvaluateFunc(this js.Ref) js.Ref
+func FuncXPathEvaluatorEvaluate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XPathEvaluator_Evaluate
 //go:noescape
@@ -2033,11 +2031,11 @@ func TryXPathEvaluatorEvaluate(
 
 //go:wasmimport plat/js/web has_XPathEvaluator_Evaluate1
 //go:noescape
-func HasXPathEvaluatorEvaluate1(this js.Ref) js.Ref
+func HasFuncXPathEvaluatorEvaluate1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XPathEvaluator_Evaluate1
 //go:noescape
-func XPathEvaluatorEvaluate1Func(this js.Ref) js.Ref
+func FuncXPathEvaluatorEvaluate1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XPathEvaluator_Evaluate1
 //go:noescape
@@ -2059,11 +2057,11 @@ func TryXPathEvaluatorEvaluate1(
 
 //go:wasmimport plat/js/web has_XPathEvaluator_Evaluate2
 //go:noescape
-func HasXPathEvaluatorEvaluate2(this js.Ref) js.Ref
+func HasFuncXPathEvaluatorEvaluate2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XPathEvaluator_Evaluate2
 //go:noescape
-func XPathEvaluatorEvaluate2Func(this js.Ref) js.Ref
+func FuncXPathEvaluatorEvaluate2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XPathEvaluator_Evaluate2
 //go:noescape
@@ -2083,11 +2081,11 @@ func TryXPathEvaluatorEvaluate2(
 
 //go:wasmimport plat/js/web has_XPathEvaluator_Evaluate3
 //go:noescape
-func HasXPathEvaluatorEvaluate3(this js.Ref) js.Ref
+func HasFuncXPathEvaluatorEvaluate3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XPathEvaluator_Evaluate3
 //go:noescape
-func XPathEvaluatorEvaluate3Func(this js.Ref) js.Ref
+func FuncXPathEvaluatorEvaluate3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XPathEvaluator_Evaluate3
 //go:noescape

@@ -1,0 +1,825 @@
+- File: webext/chrome/bookmarks.json
+  Dict:
+    Name: BookmarkTreeNode
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+    Fields:
+      - Name: children
+        Type:
+          Name: sequence
+          Params:
+            - Name: BookmarkTreeNode
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - bookmarks
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bookmarks
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+      - Name: dateAdded
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+      - Name: dateGroupModified
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+      - Name: dateLastUsed
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+      - Name: id
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+      - Name: index
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+      - Name: parentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+      - Name: title
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+      - Name: unmodifiable
+        Type:
+          Name: BookmarkTreeNodeUnmodifiable
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bookmarks
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+      - Name: url
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+- File: webext/chrome/bookmarks.json
+  Enum:
+    Name: BookmarkTreeNodeUnmodifiable
+    Values:
+      - managed
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+- File: webext/chrome/bookmarks.json
+  Dict:
+    Name: CreateDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+    Fields:
+      - Name: index
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+      - Name: parentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+      - Name: title
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+      - Name: url
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+- File: webext/chrome/bookmarks.json
+  WebextProp:
+    Name: MAX_SUSTAINED_WRITE_OPERATIONS_PER_MINUTE
+    Type:
+      Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+- File: webext/chrome/bookmarks.json
+  WebextProp:
+    Name: MAX_WRITE_OPERATIONS_PER_HOUR
+    Type:
+      Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+- File: webext/chrome/bookmarks.json
+  Dict:
+    Name: MoveArgDestination
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+    Fields:
+      - Name: index
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+      - Name: parentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+- File: webext/chrome/bookmarks.json
+  Dict:
+    Name: OnChangedArgChangeInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+    Fields:
+      - Name: title
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+      - Name: url
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+- File: webext/chrome/bookmarks.json
+  Dict:
+    Name: OnChildrenReorderedArgReorderInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+    Fields:
+      - Name: childIds
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bookmarks
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+- File: webext/chrome/bookmarks.json
+  Dict:
+    Name: OnMovedArgMoveInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+    Fields:
+      - Name: index
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+      - Name: oldIndex
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+      - Name: oldParentId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+      - Name: parentId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+- File: webext/chrome/bookmarks.json
+  Dict:
+    Name: OnRemovedArgRemoveInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+    Fields:
+      - Name: index
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+      - Name: node
+        Required: true
+        Type:
+          Name: BookmarkTreeNode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bookmarks
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+      - Name: parentId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+- File: webext/chrome/bookmarks.json
+  Dict:
+    Name: SearchArgQueryChoice1
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+    Fields:
+      - Name: query
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+      - Name: title
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+      - Name: url
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+- File: webext/chrome/bookmarks.json
+  Dict:
+    Name: UpdateArgChanges
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+    Fields:
+      - Name: title
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+      - Name: url
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bookmarks
+- File: webext/chrome/bookmarks.json
+  WebextFunc:
+    Name: create
+    Args:
+      - Name: bookmark
+        Type:
+          Name: CreateDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bookmarks
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: BookmarkTreeNode
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bookmarks
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+- File: webext/chrome/bookmarks.json
+  WebextFunc:
+    Name: get
+    Args:
+      - Name: idOrIdList
+        Type:
+          Union:
+            - Name: DOMString
+            - Name: sequence
+              Params:
+                - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - bookmarks
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: BookmarkTreeNode
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - bookmarks
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bookmarks
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+- File: webext/chrome/bookmarks.json
+  WebextFunc:
+    Name: getChildren
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: BookmarkTreeNode
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - bookmarks
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bookmarks
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+- File: webext/chrome/bookmarks.json
+  WebextFunc:
+    Name: getRecent
+    Args:
+      - Name: numberOfItems
+        Type:
+          Name: long long
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: BookmarkTreeNode
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - bookmarks
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bookmarks
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+- File: webext/chrome/bookmarks.json
+  WebextFunc:
+    Name: getSubTree
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: BookmarkTreeNode
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - bookmarks
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bookmarks
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+- File: webext/chrome/bookmarks.json
+  WebextFunc:
+    Name: getTree
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: BookmarkTreeNode
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - bookmarks
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bookmarks
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+- File: webext/chrome/bookmarks.json
+  WebextFunc:
+    Name: move
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: destination
+        Type:
+          Name: MoveArgDestination
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bookmarks
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: BookmarkTreeNode
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bookmarks
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+- File: webext/chrome/bookmarks.json
+  WebextEvent:
+    Name: onChanged
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: changeInfo
+        Type:
+          Name: OnChangedArgChangeInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bookmarks
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+- File: webext/chrome/bookmarks.json
+  WebextEvent:
+    Name: onChildrenReordered
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: reorderInfo
+        Type:
+          Name: OnChildrenReorderedArgReorderInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bookmarks
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+- File: webext/chrome/bookmarks.json
+  WebextEvent:
+    Name: onCreated
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: bookmark
+        Type:
+          Name: BookmarkTreeNode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bookmarks
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+- File: webext/chrome/bookmarks.json
+  WebextEvent:
+    Name: onImportBegan
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+- File: webext/chrome/bookmarks.json
+  WebextEvent:
+    Name: onImportEnded
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+- File: webext/chrome/bookmarks.json
+  WebextEvent:
+    Name: onMoved
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: moveInfo
+        Type:
+          Name: OnMovedArgMoveInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bookmarks
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+- File: webext/chrome/bookmarks.json
+  WebextEvent:
+    Name: onRemoved
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: removeInfo
+        Type:
+          Name: OnRemovedArgRemoveInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bookmarks
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+- File: webext/chrome/bookmarks.json
+  WebextFunc:
+    Name: remove
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+- File: webext/chrome/bookmarks.json
+  WebextFunc:
+    Name: removeTree
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+- File: webext/chrome/bookmarks.json
+  WebextFunc:
+    Name: search
+    Args:
+      - Name: query
+        Type:
+          Union:
+            - Name: DOMString
+            - Name: SearchArgQueryChoice1
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - bookmarks
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: BookmarkTreeNode
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - bookmarks
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bookmarks
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks
+- File: webext/chrome/bookmarks.json
+  WebextFunc:
+    Name: update
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: changes
+        Type:
+          Name: UpdateArgChanges
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bookmarks
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: BookmarkTreeNode
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bookmarks
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bookmarks

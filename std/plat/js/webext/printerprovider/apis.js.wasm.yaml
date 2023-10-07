@@ -1,0 +1,422 @@
+- File: webext/printer_provider.idl
+  Callback:
+    Name: CapabilitiesCallback
+    Args:
+      - Name: capabilities
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printerProvider
+- File: webext/printer_provider.idl
+  Callback:
+    Name: PrintCallback
+    Args:
+      - Name: result
+        Type:
+          Name: PrintError
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printerProvider
+- File: webext/printer_provider.idl
+  Enum:
+    Name: PrintError
+    Values:
+      - OK
+      - FAILED
+      - INVALID_TICKET
+      - INVALID_DATA
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printerProvider
+- File: webext/printer_provider.idl
+  Dict:
+    Name: PrintJob
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printerProvider
+    Fields:
+      - Name: printerId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+      - Name: title
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+      - Name: ticket
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+      - Name: contentType
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+      - Name: document
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProvider
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - Blob
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+- File: webext/printer_provider.idl
+  Dict:
+    Name: PrinterInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printerProvider
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+      - Name: description
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+- File: webext/printer_provider.idl
+  Callback:
+    Name: PrinterInfoCallback
+    Args:
+      - Name: printerInfo
+        Optional: true
+        Type:
+          Name: PrinterInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printerProvider
+- File: webext/printer_provider.idl
+  Callback:
+    Name: PrintersCallback
+    Args:
+      - Name: printerInfo
+        Type:
+          Name: sequence
+          Params:
+            - Name: PrinterInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - printerProvider
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printerProvider
+- File: webext/printer_provider.idl
+  WebextEvent:
+    Name: onGetCapabilityRequested
+    Modifier: static
+    Args:
+      - Name: printerId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+      - Name: resultCallback
+        Type:
+          Name: CapabilitiesCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printerProvider
+- File: webext/printer_provider.idl
+  WebextEvent:
+    Name: onGetPrintersRequested
+    Modifier: static
+    Args:
+      - Name: resultCallback
+        Type:
+          Name: PrintersCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printerProvider
+- File: webext/printer_provider.idl
+  WebextEvent:
+    Name: onGetUsbPrinterInfoRequested
+    Modifier: static
+    Args:
+      - Name: device
+        Type:
+          Name: Device
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: resultCallback
+        Type:
+          Name: PrinterInfoCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printerProvider
+- File: webext/printer_provider.idl
+  WebextEvent:
+    Name: onPrintRequested
+    Modifier: static
+    Args:
+      - Name: printJob
+        Type:
+          Name: PrintJob
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+      - Name: resultCallback
+        Type:
+          Name: PrintCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printerProvider

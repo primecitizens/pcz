@@ -1,4 +1,4 @@
-- File: css-conditional.idl
+- File: webref/css-conditional.idl
   Interface:
     Name: CSSMediaRule
     Inherits: CSSConditionRule
@@ -19,7 +19,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: cssom.idl
+- File: webref/cssom.idl
   Interface:
     Name: CSSNamespaceRule
     Inherits: CSSRule
@@ -44,14 +44,14 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Typedef:
     Name: CSSNumberish
     Type:
       Union:
         - Name: double
         - Name: CSSNumericValue
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSNumericArray
     ExtAttrs:
@@ -91,7 +91,7 @@
     Iterable:
       TypeParams:
         - Name: CSSNumericValue
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Enum:
     Name: CSSNumericBaseType
     Values:
@@ -102,7 +102,7 @@
       - resolution
       - flex
       - percent
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Dict:
     Name: CSSNumericType
     Fields:
@@ -130,7 +130,7 @@
       - Name: percentHint
         Type:
           Name: CSSNumericBaseType
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSNumericValue
     Inherits: CSSStyleValue
@@ -298,7 +298,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSOKLCH
     Inherits: CSSColorValue
@@ -373,7 +373,7 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSOKLab
     Inherits: CSSColorValue
@@ -448,7 +448,7 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: cssom.idl
+- File: webref/cssom.idl
   Interface:
     Name: CSSPageRule
     Inherits: CSSGroupingRule
@@ -476,7 +476,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-parser-api.idl
+- File: webref/css-parser-api.idl
   Interface:
     Name: CSSParserAtRule
     Inherits: CSSParserRule
@@ -541,7 +541,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-parser-api.idl
+- File: webref/css-parser-api.idl
   Interface:
     Name: CSSParserBlock
     Inherits: CSSParserValue
@@ -588,7 +588,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-parser-api.idl
+- File: webref/css-parser-api.idl
   Interface:
     Name: CSSParserDeclaration
     Inherits: CSSParserRule
@@ -636,7 +636,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-parser-api.idl
+- File: webref/css-parser-api.idl
   Interface:
     Name: CSSParserFunction
     Inherits: CSSParserValue
@@ -687,14 +687,14 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-parser-api.idl
+- File: webref/css-parser-api.idl
   Dict:
     Name: CSSParserOptions
     Fields:
       - Name: atRules
         Type:
           Name: object
-- File: css-parser-api.idl
+- File: webref/css-parser-api.idl
   Interface:
     Name: CSSParserQualifiedRule
     Inherits: CSSParserRule
@@ -747,21 +747,21 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-parser-api.idl
+- File: webref/css-parser-api.idl
   Interface:
     Name: CSSParserRule
     ExtAttrs:
       - Name: Exposed
         Values:
           - Window
-- File: css-parser-api.idl
+- File: webref/css-parser-api.idl
   Interface:
     Name: CSSParserValue
     ExtAttrs:
       - Name: Exposed
         Values:
           - Window
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSPerspective
     Inherits: CSSTransformComponent
@@ -795,14 +795,14 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Typedef:
     Name: CSSPerspectiveValue
     Type:
       Union:
         - Name: CSSNumericValue
         - Name: CSSKeywordish
-- File: css-anchor-position.idl
+- File: webref/css-anchor-position.idl
   Interface:
     Name: CSSPositionFallbackRule
     Inherits: CSSGroupingRule
@@ -819,7 +819,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-properties-values-api.idl
+- File: webref/css-properties-values-api.idl
   Interface:
     Name: CSSPropertyRule
     Inherits: CSSRule
@@ -861,7 +861,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-pseudo.idl
+- File: webref/css-pseudo.idl
   Interface:
     Name: CSSPseudoElement
     Inherits: EventTarget
@@ -965,7 +965,7 @@
               Name: ConvertCoordinateOptions
         Returns:
           - Name: DOMPoint
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSRGB
     Inherits: CSSColorValue
@@ -1040,7 +1040,7 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSRotate
     Inherits: CSSTransformComponent
@@ -1124,7 +1124,7 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: cssom.idl
+- File: webref/cssom.idl
   Interface:
     Name: CSSRule
     ExtAttrs:
@@ -1218,7 +1218,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: cssom.idl
+- File: webref/cssom.idl
   Interface:
     Name: CSSRuleList
     ExtAttrs:
@@ -1248,7 +1248,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSScale
     Inherits: CSSTransformComponent
@@ -1309,7 +1309,7 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-cascade-6.idl
+- File: webref/css-cascade-6.idl
   Interface:
     Name: CSSScopeRule
     Inherits: CSSGroupingRule
@@ -1336,7 +1336,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSSkew
     Inherits: CSSTransformComponent
@@ -1383,7 +1383,7 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSSkewX
     Inherits: CSSTransformComponent
@@ -1417,7 +1417,7 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSSkewY
     Inherits: CSSTransformComponent
@@ -1451,7 +1451,7 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-transitions-2.idl
+- File: webref/css-transitions-2.idl
   Interface:
     Name: CSSStartingStyleRule
     Inherits: CSSGroupingRule
@@ -1459,14 +1459,14 @@
       - Name: Exposed
         Values:
           - Window
-- File: css-parser-api.idl
+- File: webref/css-parser-api.idl
   Typedef:
     Name: CSSStringSource
     Type:
       Union:
         - Name: DOMString
         - Name: ReadableStream
-- File: cssom.idl
+- File: webref/cssom.idl
   Interface:
     Name: CSSStyleDeclaration
     ExtAttrs:
@@ -1576,7 +1576,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: cssom.idl
+- File: webref/cssom.idl
   Interface:
     Name: CSSStyleRule
     Inherits: CSSGroupingRule
@@ -1610,7 +1610,7 @@
           Name: StylePropertyMap
         ExtAttrs:
           - Name: SameObject
-- File: cssom.idl
+- File: webref/cssom.idl
   Interface:
     Name: CSSStyleSheet
     Inherits: StyleSheet
@@ -1733,7 +1733,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: cssom.idl
+- File: webref/cssom.idl
   Dict:
     Name: CSSStyleSheetInit
     Fields:
@@ -1751,7 +1751,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSStyleValue
     ExtAttrs:
@@ -1802,7 +1802,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-conditional.idl
+- File: webref/css-conditional.idl
   Interface:
     Name: CSSSupportsRule
     Inherits: CSSConditionRule
@@ -1810,7 +1810,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: css-parser-api.idl
+- File: webref/css-parser-api.idl
   Typedef:
     Name: CSSToken
     Type:
@@ -1818,7 +1818,7 @@
         - Name: DOMString
         - Name: CSSStyleValue
         - Name: CSSParserValue
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSTransformComponent
     ExtAttrs:
@@ -1858,7 +1858,7 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSTransformValue
     Inherits: CSSStyleValue
@@ -1951,7 +1951,7 @@
     Iterable:
       TypeParams:
         - Name: CSSTransformComponent
-- File: css-transitions-2.idl
+- File: webref/css-transitions-2.idl
   Interface:
     Name: CSSTransition
     Inherits: Animation
@@ -1986,7 +1986,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSTranslate
     Inherits: CSSTransformComponent
@@ -2047,7 +2047,7 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-anchor-position.idl
+- File: webref/css-anchor-position.idl
   Interface:
     Name: CSSTryRule
     Inherits: CSSRule
@@ -2068,7 +2068,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSUnitValue
     Inherits: CSSNumericValue
@@ -2116,14 +2116,14 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Typedef:
     Name: CSSUnparsedSegment
     Type:
       Union:
         - Name: USVString
         - Name: CSSVariableReferenceValue
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSUnparsedValue
     Inherits: CSSStyleValue
@@ -2195,7 +2195,7 @@
     Iterable:
       TypeParams:
         - Name: CSSUnparsedSegment
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSVariableReferenceValue
     ExtAttrs:

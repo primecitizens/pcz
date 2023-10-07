@@ -1,0 +1,117 @@
+- File: webext/chrome/echo_private.json
+  Dict:
+    Name: GetUserConsentArgConsentRequester
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - echoPrivate
+    Fields:
+      - Name: origin
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - echoPrivate
+      - Name: serviceName
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - echoPrivate
+      - Name: tabId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - echoPrivate
+- File: webext/chrome/echo_private.json
+  WebextFunc:
+    Name: getOfferInfo
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: any
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - echoPrivate
+- File: webext/chrome/echo_private.json
+  WebextFunc:
+    Name: getOobeTimestamp
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - echoPrivate
+- File: webext/chrome/echo_private.json
+  WebextFunc:
+    Name: getRegistrationCode
+    Args:
+      - Name: type
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - echoPrivate
+- File: webext/chrome/echo_private.json
+  WebextFunc:
+    Name: getUserConsent
+    Args:
+      - Name: consentRequester
+        Type:
+          Name: GetUserConsentArgConsentRequester
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - echoPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - echoPrivate
+- File: webext/chrome/echo_private.json
+  WebextFunc:
+    Name: setOfferInfo
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: offerInfo
+        Type:
+          Name: any
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - echoPrivate

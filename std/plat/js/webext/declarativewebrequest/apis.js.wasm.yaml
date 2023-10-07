@@ -1,0 +1,1485 @@
+- File: webext/declarative_web_request.json
+  Dict:
+    Name: AddRequestCookie
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+    Fields:
+      - Name: cookie
+        Required: true
+        Type:
+          Name: RequestCookie
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: instanceType
+        Required: true
+        Type:
+          Name: AddRequestCookieInstanceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Enum:
+    Name: AddRequestCookieInstanceType
+    Values:
+      - declarativeWebRequest.AddRequestCookie
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Dict:
+    Name: AddResponseCookie
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+    Fields:
+      - Name: cookie
+        Required: true
+        Type:
+          Name: ResponseCookie
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: instanceType
+        Required: true
+        Type:
+          Name: AddResponseCookieInstanceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Enum:
+    Name: AddResponseCookieInstanceType
+    Values:
+      - declarativeWebRequest.AddResponseCookie
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Dict:
+    Name: AddResponseHeader
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+    Fields:
+      - Name: instanceType
+        Required: true
+        Type:
+          Name: AddResponseHeaderInstanceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: value
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Enum:
+    Name: AddResponseHeaderInstanceType
+    Values:
+      - declarativeWebRequest.AddResponseHeader
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Dict:
+    Name: CancelRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+    Fields:
+      - Name: instanceType
+        Required: true
+        Type:
+          Name: CancelRequestInstanceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Enum:
+    Name: CancelRequestInstanceType
+    Values:
+      - declarativeWebRequest.CancelRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Dict:
+    Name: EditRequestCookie
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+    Fields:
+      - Name: filter
+        Required: true
+        Type:
+          Name: RequestCookie
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: instanceType
+        Required: true
+        Type:
+          Name: EditRequestCookieInstanceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: modification
+        Required: true
+        Type:
+          Name: RequestCookie
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Enum:
+    Name: EditRequestCookieInstanceType
+    Values:
+      - declarativeWebRequest.EditRequestCookie
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Dict:
+    Name: EditResponseCookie
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+    Fields:
+      - Name: filter
+        Required: true
+        Type:
+          Name: FilterResponseCookie
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: instanceType
+        Required: true
+        Type:
+          Name: EditResponseCookieInstanceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: modification
+        Required: true
+        Type:
+          Name: ResponseCookie
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Enum:
+    Name: EditResponseCookieInstanceType
+    Values:
+      - declarativeWebRequest.EditResponseCookie
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Dict:
+    Name: FilterResponseCookie
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+    Fields:
+      - Name: ageLowerBound
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: ageUpperBound
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: domain
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: expires
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: httpOnly
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: maxAge
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: path
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: secure
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: sessionCookie
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: value
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Dict:
+    Name: HeaderFilter
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+    Fields:
+      - Name: nameContains
+        Type:
+          Union:
+            - Name: sequence
+              Params:
+                - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeWebRequest
+            - Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: nameEquals
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: namePrefix
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: nameSuffix
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: valueContains
+        Type:
+          Union:
+            - Name: sequence
+              Params:
+                - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeWebRequest
+            - Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: valueEquals
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: valuePrefix
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: valueSuffix
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Dict:
+    Name: IgnoreRules
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+    Fields:
+      - Name: hasTag
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: instanceType
+        Required: true
+        Type:
+          Name: IgnoreRulesInstanceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: lowerPriorityThan
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Enum:
+    Name: IgnoreRulesInstanceType
+    Values:
+      - declarativeWebRequest.IgnoreRules
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Dict:
+    Name: OnMessageArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+    Fields:
+      - Name: documentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: documentLifecycle
+        Required: true
+        Type:
+          Name: DocumentLifecycle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: frameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: frameType
+        Required: true
+        Type:
+          Name: FrameType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: message
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: method
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: parentDocumentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: parentFrameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: requestId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: stage
+        Required: true
+        Type:
+          Name: Stage
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: tabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: timeStamp
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: type
+        Required: true
+        Type:
+          Name: ResourceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Dict:
+    Name: RedirectByRegEx
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+    Fields:
+      - Name: from
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: instanceType
+        Required: true
+        Type:
+          Name: RedirectByRegExInstanceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: to
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Enum:
+    Name: RedirectByRegExInstanceType
+    Values:
+      - declarativeWebRequest.RedirectByRegEx
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Dict:
+    Name: RedirectRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+    Fields:
+      - Name: instanceType
+        Required: true
+        Type:
+          Name: RedirectRequestInstanceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: redirectUrl
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Enum:
+    Name: RedirectRequestInstanceType
+    Values:
+      - declarativeWebRequest.RedirectRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Dict:
+    Name: RedirectToEmptyDocument
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+    Fields:
+      - Name: instanceType
+        Required: true
+        Type:
+          Name: RedirectToEmptyDocumentInstanceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Enum:
+    Name: RedirectToEmptyDocumentInstanceType
+    Values:
+      - declarativeWebRequest.RedirectToEmptyDocument
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Dict:
+    Name: RedirectToTransparentImage
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+    Fields:
+      - Name: instanceType
+        Required: true
+        Type:
+          Name: RedirectToTransparentImageInstanceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Enum:
+    Name: RedirectToTransparentImageInstanceType
+    Values:
+      - declarativeWebRequest.RedirectToTransparentImage
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Dict:
+    Name: RemoveRequestCookie
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+    Fields:
+      - Name: filter
+        Required: true
+        Type:
+          Name: RequestCookie
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: instanceType
+        Required: true
+        Type:
+          Name: RemoveRequestCookieInstanceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Enum:
+    Name: RemoveRequestCookieInstanceType
+    Values:
+      - declarativeWebRequest.RemoveRequestCookie
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Dict:
+    Name: RemoveRequestHeader
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+    Fields:
+      - Name: instanceType
+        Required: true
+        Type:
+          Name: RemoveRequestHeaderInstanceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Enum:
+    Name: RemoveRequestHeaderInstanceType
+    Values:
+      - declarativeWebRequest.RemoveRequestHeader
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Dict:
+    Name: RemoveResponseCookie
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+    Fields:
+      - Name: filter
+        Required: true
+        Type:
+          Name: FilterResponseCookie
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: instanceType
+        Required: true
+        Type:
+          Name: RemoveResponseCookieInstanceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Enum:
+    Name: RemoveResponseCookieInstanceType
+    Values:
+      - declarativeWebRequest.RemoveResponseCookie
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Dict:
+    Name: RemoveResponseHeader
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+    Fields:
+      - Name: instanceType
+        Required: true
+        Type:
+          Name: RemoveResponseHeaderInstanceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: value
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Enum:
+    Name: RemoveResponseHeaderInstanceType
+    Values:
+      - declarativeWebRequest.RemoveResponseHeader
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Dict:
+    Name: RequestCookie
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+    Fields:
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: value
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Dict:
+    Name: RequestMatcher
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+    Fields:
+      - Name: contentType
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: excludeContentType
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: excludeRequestHeaders
+        Type:
+          Name: sequence
+          Params:
+            - Name: HeaderFilter
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeWebRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: excludeResponseHeaders
+        Type:
+          Name: sequence
+          Params:
+            - Name: HeaderFilter
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeWebRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: firstPartyForCookiesUrl
+        Type:
+          Name: UrlFilter
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: instanceType
+        Required: true
+        Type:
+          Name: RequestMatcherInstanceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: requestHeaders
+        Type:
+          Name: sequence
+          Params:
+            - Name: HeaderFilter
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeWebRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: resourceType
+        Type:
+          Name: sequence
+          Params:
+            - Name: ResourceType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: responseHeaders
+        Type:
+          Name: sequence
+          Params:
+            - Name: HeaderFilter
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeWebRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: stages
+        Type:
+          Name: sequence
+          Params:
+            - Name: Stage
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeWebRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: thirdPartyForCookies
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: url
+        Type:
+          Name: UrlFilter
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Enum:
+    Name: RequestMatcherInstanceType
+    Values:
+      - declarativeWebRequest.RequestMatcher
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Dict:
+    Name: ResponseCookie
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+    Fields:
+      - Name: domain
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: expires
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: httpOnly
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: maxAge
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: path
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: secure
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: value
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Dict:
+    Name: SendMessageToExtension
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+    Fields:
+      - Name: instanceType
+        Required: true
+        Type:
+          Name: SendMessageToExtensionInstanceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: message
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Enum:
+    Name: SendMessageToExtensionInstanceType
+    Values:
+      - declarativeWebRequest.SendMessageToExtension
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Dict:
+    Name: SetRequestHeader
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+    Fields:
+      - Name: instanceType
+        Required: true
+        Type:
+          Name: SetRequestHeaderInstanceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+      - Name: value
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Enum:
+    Name: SetRequestHeaderInstanceType
+    Values:
+      - declarativeWebRequest.SetRequestHeader
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  Enum:
+    Name: Stage
+    Values:
+      - onBeforeRequest
+      - onBeforeSendHeaders
+      - onHeadersReceived
+      - onAuthRequired
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  WebextEvent:
+    Name: onMessage
+    Args:
+      - Name: details
+        Type:
+          Name: OnMessageArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeWebRequest
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest
+- File: webext/declarative_web_request.json
+  WebextEvent:
+    Name: onRequest
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeWebRequest

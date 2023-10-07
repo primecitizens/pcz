@@ -1,0 +1,350 @@
+- File: webext/user_scripts.idl
+  Callback:
+    Name: GetScriptsCallback
+    Args:
+      - Name: scripts
+        Type:
+          Name: sequence
+          Params:
+            - Name: RegisteredUserScript
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - userScripts
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - userScripts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - userScripts
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - userScripts
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - userScripts
+- File: webext/user_scripts.idl
+  Callback:
+    Name: RegisterCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - userScripts
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - userScripts
+- File: webext/user_scripts.idl
+  Dict:
+    Name: RegisteredUserScript
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - userScripts
+    Fields:
+      - Name: allFrames
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - userScripts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - userScripts
+      - Name: excludeMatches
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - userScripts
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - userScripts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - userScripts
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - userScripts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - userScripts
+      - Name: js
+        Type:
+          Name: sequence
+          Params:
+            - Name: ScriptSource
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - userScripts
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - userScripts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - userScripts
+      - Name: matches
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - userScripts
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - userScripts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - userScripts
+      - Name: runAt
+        Type:
+          Name: RunAt
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionTypes
+- File: webext/user_scripts.idl
+  Dict:
+    Name: ScriptSource
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - userScripts
+    Fields:
+      - Name: code
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - userScripts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - userScripts
+      - Name: file
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - userScripts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - userScripts
+- File: webext/user_scripts.idl
+  Callback:
+    Name: UnregisterCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - userScripts
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - userScripts
+- File: webext/user_scripts.idl
+  Dict:
+    Name: UserScriptFilter
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - userScripts
+    Fields:
+      - Name: ids
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - userScripts
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - userScripts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - userScripts
+- File: webext/user_scripts.idl
+  WebextFunc:
+    Name: getScripts
+    Modifier: static
+    Args:
+      - Name: filter
+        Optional: true
+        Type:
+          Name: UserScriptFilter
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - userScripts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - userScripts
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: RegisteredUserScript
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - userScripts
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - userScripts
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - userScripts
+- File: webext/user_scripts.idl
+  WebextFunc:
+    Name: register
+    Modifier: static
+    Args:
+      - Name: scripts
+        Type:
+          Name: sequence
+          Params:
+            - Name: RegisteredUserScript
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - userScripts
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - userScripts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - userScripts
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - userScripts
+- File: webext/user_scripts.idl
+  WebextFunc:
+    Name: unregister
+    Modifier: static
+    Args:
+      - Name: filter
+        Optional: true
+        Type:
+          Name: UserScriptFilter
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - userScripts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - userScripts
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - userScripts

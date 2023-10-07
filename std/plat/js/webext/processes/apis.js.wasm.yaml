@@ -1,0 +1,705 @@
+- File: webext/chrome/processes.idl
+  Dict:
+    Name: Cache
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - processes
+    Fields:
+      - Name: size
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+      - Name: liveSize
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+- File: webext/chrome/processes.idl
+  Callback:
+    Name: GetProcessIdForTabCallback
+    Args:
+      - Name: processId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - processes
+- File: webext/chrome/processes.idl
+  Callback:
+    Name: GetProcessInfoCallback
+    Args:
+      - Name: processes
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - processes
+- File: webext/chrome/processes.idl
+  Dict:
+    Name: Process
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - processes
+    Fields:
+      - Name: id
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+      - Name: osProcessId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+      - Name: type
+        Type:
+          Name: ProcessType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+      - Name: profile
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+      - Name: naclDebugPort
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+      - Name: tasks
+        Type:
+          Name: sequence
+          Params:
+            - Name: TaskInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - processes
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+      - Name: cpu
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+      - Name: network
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+      - Name: privateMemory
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+      - Name: jsMemoryAllocated
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+      - Name: jsMemoryUsed
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+      - Name: sqliteMemory
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+      - Name: imageCache
+        Type:
+          Name: Cache
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+      - Name: scriptCache
+        Type:
+          Name: Cache
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+      - Name: cssCache
+        Type:
+          Name: Cache
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+- File: webext/chrome/processes.idl
+  Enum:
+    Name: ProcessType
+    Values:
+      - browser
+      - renderer
+      - extension
+      - notification
+      - plugin
+      - worker
+      - nacl
+      - service_worker
+      - utility
+      - gpu
+      - other
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - processes
+- File: webext/chrome/processes.idl
+  Dict:
+    Name: TaskInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - processes
+    Fields:
+      - Name: title
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+      - Name: tabId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+- File: webext/chrome/processes.idl
+  Callback:
+    Name: TerminateCallback
+    Args:
+      - Name: didTerminate
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - processes
+- File: webext/chrome/processes.idl
+  WebextFunc:
+    Name: getProcessIdForTab
+    Modifier: static
+    Args:
+      - Name: tabId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: long
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - processes
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - processes
+- File: webext/chrome/processes.idl
+  WebextFunc:
+    Name: getProcessInfo
+    Modifier: static
+    Args:
+      - Name: processIds
+        Type:
+          Union:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - processes
+            - Name: sequence
+              Params:
+                - Name: long
+                  ExtAttrs:
+                    - Name: Namespace
+                      Values:
+                        - chrome
+                        - processes
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - processes
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+      - Name: includeMemory
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: object
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - processes
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - processes
+- File: webext/chrome/processes.idl
+  WebextEvent:
+    Name: onCreated
+    Modifier: static
+    Args:
+      - Name: process
+        Type:
+          Name: Process
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - processes
+- File: webext/chrome/processes.idl
+  WebextEvent:
+    Name: onExited
+    Modifier: static
+    Args:
+      - Name: processId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+      - Name: exitType
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+      - Name: exitCode
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - processes
+- File: webext/chrome/processes.idl
+  WebextEvent:
+    Name: onUnresponsive
+    Modifier: static
+    Args:
+      - Name: process
+        Type:
+          Name: Process
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - processes
+- File: webext/chrome/processes.idl
+  WebextEvent:
+    Name: onUpdated
+    Modifier: static
+    Args:
+      - Name: processes
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - processes
+- File: webext/chrome/processes.idl
+  WebextEvent:
+    Name: onUpdatedWithMemory
+    Modifier: static
+    Args:
+      - Name: processes
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - processes
+- File: webext/chrome/processes.idl
+  WebextFunc:
+    Name: terminate
+    Modifier: static
+    Args:
+      - Name: processId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - processes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - processes
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - processes
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - processes

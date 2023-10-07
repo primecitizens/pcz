@@ -1,16 +1,16 @@
-- File: screen-wake-lock.idl
+- File: webref/screen-wake-lock.idl
   Enum:
     Name: WakeLockType
     Values:
       - screen
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Dict:
     Name: WatchAdvertisementsOptions
     Fields:
       - Name: signal
         Type:
           Name: AbortSignal
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: WaveShaperNode
     Inherits: AudioNode
@@ -48,7 +48,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: WaveShaperOptions
     Inherits: AudioNodeOptions
@@ -71,7 +71,7 @@
       - Name: channelInterpretation
         Type:
           Name: ChannelInterpretation
-- File: wasm-js-api.idl
+- File: webref/wasm-js-api.idl
   Namespace:
     Name: WebAssembly
     ExtAttrs:
@@ -163,7 +163,7 @@
             Values:
               - Window
               - Worker
-- File: wasm-js-api.idl
+- File: webref/wasm-js-api.idl
   Dict:
     Name: WebAssemblyInstantiatedSource
     Fields:
@@ -175,7 +175,7 @@
         Required: true
         Type:
           Name: Instance
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Callback:
     Name: WebCodecsErrorCallback
     Args:
@@ -184,7 +184,7 @@
           Name: DOMException
     Returns:
       - Name: undefined
-- File: webgl2.idl
+- File: webref/webgl2.idl
   Interface:
     Name: WebGL2RenderingContext
     ExtAttrs:
@@ -4989,7 +4989,7 @@
               - Name: undefined
         ExtAttrs:
           - Name: NewObject
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Interface:
     Name: WebGLActiveInfo
     ExtAttrs:
@@ -5025,7 +5025,7 @@
             Values:
               - Window
               - Worker
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Interface:
     Name: WebGLBuffer
     Inherits: WebGLObject
@@ -5034,7 +5034,7 @@
         Values:
           - Window
           - Worker
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Dict:
     Name: WebGLContextAttributes
     Fields:
@@ -5078,7 +5078,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Interface:
     Name: WebGLContextEvent
     Inherits: Event
@@ -5112,7 +5112,7 @@
             Values:
               - Window
               - Worker
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Dict:
     Name: WebGLContextEventInit
     Inherits: EventInit
@@ -5133,7 +5133,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Interface:
     Name: WebGLFramebuffer
     Inherits: WebGLObject
@@ -5142,7 +5142,7 @@
         Values:
           - Window
           - Worker
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Interface:
     Name: WebGLObject
     ExtAttrs:
@@ -5150,14 +5150,14 @@
         Values:
           - Window
           - Worker
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Enum:
     Name: WebGLPowerPreference
     Values:
       - default
       - low-power
       - high-performance
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Interface:
     Name: WebGLProgram
     Inherits: WebGLObject
@@ -5166,7 +5166,7 @@
         Values:
           - Window
           - Worker
-- File: webgl2.idl
+- File: webref/webgl2.idl
   Interface:
     Name: WebGLQuery
     Inherits: WebGLObject
@@ -5175,7 +5175,7 @@
         Values:
           - Window
           - Worker
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Interface:
     Name: WebGLRenderbuffer
     Inherits: WebGLObject
@@ -5184,7 +5184,7 @@
         Values:
           - Window
           - Worker
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Interface:
     Name: WebGLRenderingContext
     ExtAttrs:
@@ -8028,7 +8028,7 @@
               Name: Float32List
         Returns:
           - Name: undefined
-- File: webgl2.idl
+- File: webref/webgl2.idl
   Interface:
     Name: WebGLSampler
     Inherits: WebGLObject
@@ -8037,7 +8037,7 @@
         Values:
           - Window
           - Worker
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Interface:
     Name: WebGLShader
     Inherits: WebGLObject
@@ -8046,7 +8046,7 @@
         Values:
           - Window
           - Worker
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Interface:
     Name: WebGLShaderPrecisionFormat
     ExtAttrs:
@@ -8082,7 +8082,7 @@
             Values:
               - Window
               - Worker
-- File: webgl2.idl
+- File: webref/webgl2.idl
   Interface:
     Name: WebGLSync
     Inherits: WebGLObject
@@ -8091,7 +8091,7 @@
         Values:
           - Window
           - Worker
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Interface:
     Name: WebGLTexture
     Inherits: WebGLObject
@@ -8100,7 +8100,7 @@
         Values:
           - Window
           - Worker
-- File: EXT_disjoint_timer_query.idl
+- File: webref/EXT_disjoint_timer_query.idl
   Interface:
     Name: WebGLTimerQueryEXT
     Inherits: WebGLObject
@@ -8110,7 +8110,7 @@
           - Window
           - Worker
       - Name: LegacyNoInterfaceObject
-- File: webgl2.idl
+- File: webref/webgl2.idl
   Interface:
     Name: WebGLTransformFeedback
     Inherits: WebGLObject
@@ -8119,7 +8119,7 @@
         Values:
           - Window
           - Worker
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Interface:
     Name: WebGLUniformLocation
     ExtAttrs:
@@ -8127,7 +8127,7 @@
         Values:
           - Window
           - Worker
-- File: webgl2.idl
+- File: webref/webgl2.idl
   Interface:
     Name: WebGLVertexArrayObject
     Inherits: WebGLObject
@@ -8136,7 +8136,7 @@
         Values:
           - Window
           - Worker
-- File: OES_vertex_array_object.idl
+- File: webref/OES_vertex_array_object.idl
   Interface:
     Name: WebGLVertexArrayObjectOES
     Inherits: WebGLObject
@@ -8146,7 +8146,7 @@
           - Window
           - Worker
       - Name: LegacyNoInterfaceObject
-- File: websockets.idl
+- File: webref/websockets.idl
   Interface:
     Name: WebSocket
     Inherits: EventTarget
@@ -8310,7 +8310,7 @@
             Values:
               - Window
               - Worker
-- File: webtransport.idl
+- File: webref/webtransport.idl
   Interface:
     Name: WebTransport
     ExtAttrs:
@@ -8483,7 +8483,7 @@
               - Window
               - Worker
           - Name: SecureContext
-- File: webtransport.idl
+- File: webref/webtransport.idl
   Interface:
     Name: WebTransportBidirectionalStream
     ExtAttrs:
@@ -8513,7 +8513,7 @@
               - Window
               - Worker
           - Name: SecureContext
-- File: webtransport.idl
+- File: webref/webtransport.idl
   Dict:
     Name: WebTransportCloseInfo
     Fields:
@@ -8525,14 +8525,14 @@
         Default: '""'
         Type:
           Name: USVString
-- File: webtransport.idl
+- File: webref/webtransport.idl
   Enum:
     Name: WebTransportCongestionControl
     Values:
       - default
       - throughput
       - low-latency
-- File: webtransport.idl
+- File: webref/webtransport.idl
   Interface:
     Name: WebTransportDatagramDuplexStream
     ExtAttrs:
@@ -8608,7 +8608,7 @@
               - Window
               - Worker
           - Name: SecureContext
-- File: webtransport.idl
+- File: webref/webtransport.idl
   Dict:
     Name: WebTransportDatagramStats
     Fields:
@@ -8624,7 +8624,7 @@
       - Name: lostOutgoing
         Type:
           Name: unsigned long long
-- File: webtransport.idl
+- File: webref/webtransport.idl
   Interface:
     Name: WebTransportError
     Inherits: DOMException
@@ -8678,7 +8678,7 @@
               - Worker
           - Name: Serializable
           - Name: SecureContext
-- File: webtransport.idl
+- File: webref/webtransport.idl
   Dict:
     Name: WebTransportErrorOptions
     Fields:
@@ -8693,13 +8693,13 @@
           Nullable: true
         ExtAttrs:
           - Name: Clamp
-- File: webtransport.idl
+- File: webref/webtransport.idl
   Enum:
     Name: WebTransportErrorSource
     Values:
       - stream
       - session
-- File: webtransport.idl
+- File: webref/webtransport.idl
   Dict:
     Name: WebTransportHash
     Fields:
@@ -8709,7 +8709,7 @@
       - Name: value
         Type:
           Name: BufferSource
-- File: webtransport.idl
+- File: webref/webtransport.idl
   Dict:
     Name: WebTransportOptions
     Fields:
@@ -8730,7 +8730,7 @@
         Default: '"default"'
         Type:
           Name: WebTransportCongestionControl
-- File: webtransport.idl
+- File: webref/webtransport.idl
   Interface:
     Name: WebTransportReceiveStream
     Inherits: ReadableStream
@@ -8769,7 +8769,6 @@
         ExtAttrs:
           - Name: Exposed
           - Name: Transferable
-          - Name: SecureContext
     Iterable:
       TypeParams:
         - Name: any
@@ -8780,7 +8779,7 @@
           Default: '{}'
           Type:
             Name: ReadableStreamIteratorOptions
-- File: webtransport.idl
+- File: webref/webtransport.idl
   Dict:
     Name: WebTransportReceiveStreamStats
     Fields:
@@ -8793,14 +8792,14 @@
       - Name: bytesRead
         Type:
           Name: unsigned long long
-- File: webtransport.idl
+- File: webref/webtransport.idl
   Enum:
     Name: WebTransportReliabilityMode
     Values:
       - pending
       - reliable-only
       - supports-unreliable
-- File: webtransport.idl
+- File: webref/webtransport.idl
   Interface:
     Name: WebTransportSendStream
     Inherits: WritableStream
@@ -8851,8 +8850,7 @@
         ExtAttrs:
           - Name: Exposed
           - Name: Transferable
-          - Name: SecureContext
-- File: webtransport.idl
+- File: webref/webtransport.idl
   Dict:
     Name: WebTransportSendStreamOptions
     Fields:
@@ -8861,7 +8859,7 @@
         Type:
           Name: long long
           Nullable: true
-- File: webtransport.idl
+- File: webref/webtransport.idl
   Dict:
     Name: WebTransportSendStreamStats
     Fields:
@@ -8877,7 +8875,7 @@
       - Name: bytesAcknowledged
         Type:
           Name: unsigned long long
-- File: webtransport.idl
+- File: webref/webtransport.idl
   Dict:
     Name: WebTransportStats
     Fields:
@@ -8921,7 +8919,7 @@
         Type:
           Name: unsigned long long
           Nullable: true
-- File: file-system-access.idl
+- File: webref/file-system-access.idl
   Enum:
     Name: WellKnownDirectory
     Values:

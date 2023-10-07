@@ -1,0 +1,143 @@
+- File: webext/guest_view_internal.json
+  Dict:
+    Name: Size
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - guestViewInternal
+    Fields:
+      - Name: height
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - guestViewInternal
+      - Name: width
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - guestViewInternal
+- File: webext/guest_view_internal.json
+  Dict:
+    Name: SizeParams
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - guestViewInternal
+    Fields:
+      - Name: enableAutoSize
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - guestViewInternal
+      - Name: max
+        Type:
+          Name: Size
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - guestViewInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - guestViewInternal
+      - Name: min
+        Type:
+          Name: Size
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - guestViewInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - guestViewInternal
+      - Name: normal
+        Type:
+          Name: Size
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - guestViewInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - guestViewInternal
+- File: webext/guest_view_internal.json
+  WebextFunc:
+    Name: createGuest
+    Args:
+      - Name: viewType
+        Type:
+          Name: DOMString
+      - Name: ownerRoutingId
+        Type:
+          Name: long long
+      - Name: createParams
+        Type:
+          Name: any
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: long long
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - guestViewInternal
+- File: webext/guest_view_internal.json
+  WebextFunc:
+    Name: destroyUnattachedGuest
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - guestViewInternal
+- File: webext/guest_view_internal.json
+  WebextFunc:
+    Name: setSize
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: params
+        Type:
+          Name: SizeParams
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - guestViewInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - guestViewInternal

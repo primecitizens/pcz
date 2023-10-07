@@ -1,4 +1,4 @@
-- File: clipboard-apis.idl
+- File: webref/clipboard-apis.idl
   Interface:
     Name: ClipboardEvent
     Inherits: Event
@@ -30,7 +30,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: clipboard-apis.idl
+- File: webref/clipboard-apis.idl
   Dict:
     Name: ClipboardEventInit
     Inherits: EventInit
@@ -52,7 +52,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: clipboard-apis.idl
+- File: webref/clipboard-apis.idl
   Interface:
     Name: ClipboardItem
     ExtAttrs:
@@ -114,7 +114,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: clipboard-apis.idl
+- File: webref/clipboard-apis.idl
   Typedef:
     Name: ClipboardItemData
     Type:
@@ -123,7 +123,7 @@
         - Union:
             - Name: DOMString
             - Name: Blob
-- File: clipboard-apis.idl
+- File: webref/clipboard-apis.idl
   Dict:
     Name: ClipboardItemOptions
     Fields:
@@ -131,14 +131,14 @@
         Default: '"unspecified"'
         Type:
           Name: PresentationStyle
-- File: clipboard-apis.idl
+- File: webref/clipboard-apis.idl
   Typedef:
     Name: ClipboardItems
     Type:
       Name: sequence
       Params:
         - Name: ClipboardItem
-- File: clipboard-apis.idl
+- File: webref/clipboard-apis.idl
   Dict:
     Name: ClipboardPermissionDescriptor
     Inherits: PermissionDescriptor
@@ -151,7 +151,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: websockets.idl
+- File: webref/websockets.idl
   Interface:
     Name: CloseEvent
     Inherits: Event
@@ -203,7 +203,7 @@
             Values:
               - Window
               - Worker
-- File: websockets.idl
+- File: webref/websockets.idl
   Dict:
     Name: CloseEventInit
     Inherits: EventInit
@@ -232,14 +232,14 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Enum:
     Name: CodecState
     Values:
       - unconfigured
       - configured
       - closed
-- File: secure-payment-confirmation.idl
+- File: webref/secure-payment-confirmation.idl
   Dict:
     Name: CollectedClientAdditionalPaymentData
     Fields:
@@ -265,7 +265,7 @@
         Required: true
         Type:
           Name: PaymentCredentialInstrument
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: CollectedClientData
     Fields:
@@ -287,7 +287,7 @@
       - Name: crossOrigin
         Type:
           Name: boolean
-- File: secure-payment-confirmation.idl
+- File: webref/secure-payment-confirmation.idl
   Dict:
     Name: CollectedClientPaymentData
     Inherits: CollectedClientData
@@ -314,34 +314,34 @@
       - Name: crossOrigin
         Type:
           Name: boolean
-- File: media-capabilities.idl
+- File: webref/media-capabilities.idl
   Enum:
     Name: ColorGamut
     Values:
       - srgb
       - p3
       - rec2020
-- File: eyedropper-api.idl
+- File: webref/eyedropper-api.idl
   Dict:
     Name: ColorSelectionOptions
     Fields:
       - Name: signal
         Type:
           Name: AbortSignal
-- File: eyedropper-api.idl
+- File: webref/eyedropper-api.idl
   Dict:
     Name: ColorSelectionResult
     Fields:
       - Name: sRGBHex
         Type:
           Name: DOMString
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: ColorSpaceConversion
     Values:
       - none
       - default
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: Comment
     Inherits: CharacterData
@@ -360,14 +360,14 @@
           - Name: Exposed
             Values:
               - Window
-- File: web-animations.idl
+- File: webref/web-animations.idl
   Enum:
     Name: CompositeOperation
     Values:
       - replace
       - add
       - accumulate
-- File: web-animations.idl
+- File: webref/web-animations.idl
   Enum:
     Name: CompositeOperationOrAuto
     Values:
@@ -375,7 +375,7 @@
       - add
       - accumulate
       - auto
-- File: uievents.idl
+- File: webref/uievents.idl
   Interface:
     Name: CompositionEvent
     Inherits: UIEvent
@@ -435,7 +435,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: uievents.idl
+- File: webref/uievents.idl
   Dict:
     Name: CompositionEventInit
     Inherits: UIEventInit
@@ -465,14 +465,14 @@
         Default: "false"
         Type:
           Name: boolean
-- File: compression.idl
+- File: webref/compression.idl
   Enum:
     Name: CompressionFormat
     Values:
       - deflate
       - deflate-raw
       - gzip
-- File: compression.idl
+- File: webref/compression.idl
   Interface:
     Name: CompressionStream
     ExtAttrs:
@@ -493,7 +493,7 @@
               Name: CompressionFormat
         ExtAttrs:
           - Name: Exposed
-- File: web-animations.idl
+- File: webref/web-animations.idl
   Dict:
     Name: ComputedEffectTiming
     Inherits: EffectTiming
@@ -539,7 +539,7 @@
         Type:
           Name: CSSNumberish
           Nullable: true
-- File: netinfo.idl
+- File: webref/netinfo.idl
   Enum:
     Name: ConnectionType
     Values:
@@ -552,7 +552,7 @@
       - unknown
       - wifi
       - wimax
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: ConstantSourceNode
     Inherits: AudioScheduledSourceNode
@@ -583,7 +583,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: ConstantSourceOptions
     Fields:
@@ -591,14 +591,14 @@
         Default: "1"
         Type:
           Name: float
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Typedef:
     Name: ConstrainBoolean
     Type:
       Union:
         - Name: boolean
         - Name: ConstrainBooleanParameters
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Dict:
     Name: ConstrainBooleanParameters
     Fields:
@@ -608,7 +608,7 @@
       - Name: ideal
         Type:
           Name: boolean
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Typedef:
     Name: ConstrainDOMString
     Type:
@@ -618,7 +618,7 @@
           Params:
             - Name: DOMString
         - Name: ConstrainDOMStringParameters
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Dict:
     Name: ConstrainDOMStringParameters
     Fields:
@@ -636,14 +636,14 @@
             - Name: sequence
               Params:
                 - Name: DOMString
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Typedef:
     Name: ConstrainDouble
     Type:
       Union:
         - Name: double
         - Name: ConstrainDoubleRange
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Dict:
     Name: ConstrainDoubleRange
     Inherits: DoubleRange
@@ -660,7 +660,7 @@
       - Name: min
         Type:
           Name: double
-- File: image-capture.idl
+- File: webref/image-capture.idl
   Typedef:
     Name: ConstrainPoint2D
     Type:
@@ -669,7 +669,7 @@
           Params:
             - Name: Point2D
         - Name: ConstrainPoint2DParameters
-- File: image-capture.idl
+- File: webref/image-capture.idl
   Dict:
     Name: ConstrainPoint2DParameters
     Fields:
@@ -683,14 +683,14 @@
           Name: sequence
           Params:
             - Name: Point2D
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Typedef:
     Name: ConstrainULong
     Type:
       Union:
         - Name: unsigned long
         - Name: ConstrainULongRange
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Dict:
     Name: ConstrainULongRange
     Inherits: ULongRange
@@ -715,7 +715,7 @@
           Name: unsigned long
         ExtAttrs:
           - Name: Clamp
-- File: contact-picker.idl
+- File: webref/contact-picker.idl
   Interface:
     Name: ContactAddress
     ExtAttrs:
@@ -814,7 +814,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: contact-picker.idl
+- File: webref/contact-picker.idl
   Dict:
     Name: ContactInfo
     Fields:
@@ -843,7 +843,7 @@
           Name: sequence
           Params:
             - Name: DOMString
-- File: contact-picker.idl
+- File: webref/contact-picker.idl
   Enum:
     Name: ContactProperty
     Values:
@@ -852,7 +852,7 @@
       - icon
       - name
       - tel
-- File: contact-picker.idl
+- File: webref/contact-picker.idl
   Interface:
     Name: ContactsManager
     ExtAttrs:
@@ -896,7 +896,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: contact-picker.idl
+- File: webref/contact-picker.idl
   Dict:
     Name: ContactsSelectOptions
     Fields:
@@ -904,7 +904,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: content-index.idl
+- File: webref/content-index.idl
   Enum:
     Name: ContentCategory
     Values:
@@ -913,7 +913,7 @@
       - article
       - video
       - audio
-- File: content-index.idl
+- File: webref/content-index.idl
   Dict:
     Name: ContentDescription
     Fields:
@@ -943,7 +943,7 @@
         Required: true
         Type:
           Name: USVString
-- File: content-index.idl
+- File: webref/content-index.idl
   Interface:
     Name: ContentIndex
     ExtAttrs:
@@ -992,7 +992,7 @@
             Values:
               - Window
               - Worker
-- File: content-index.idl
+- File: webref/content-index.idl
   Interface:
     Name: ContentIndexEvent
     Inherits: ExtendableEvent
@@ -1021,7 +1021,7 @@
           - Name: Exposed
             Values:
               - ServiceWorker
-- File: content-index.idl
+- File: webref/content-index.idl
   Dict:
     Name: ContentIndexEventInit
     Inherits: ExtendableEventInit
@@ -1042,7 +1042,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: css-contain.idl
+- File: webref/css-contain.idl
   Interface:
     Name: ContentVisibilityAutoStateChangeEvent
     Inherits: Event
@@ -1073,7 +1073,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-contain.idl
+- File: webref/css-contain.idl
   Dict:
     Name: ContentVisibilityAutoStateChangeEventInit
     Inherits: EventInit

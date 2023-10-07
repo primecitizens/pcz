@@ -1,0 +1,154 @@
+- File: webext/chrome/certificate_provider_internal.idl
+  Callback:
+    Name: DoneCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProviderInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProviderInternal
+- File: webext/chrome/certificate_provider_internal.idl
+  Callback:
+    Name: ResultCallback
+    Args:
+      - Name: rejectedCertificates
+        Type:
+          Name: sequence
+          Params:
+            - Name: ArrayBuffer
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - certificateProviderInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProviderInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProviderInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProviderInternal
+- File: webext/chrome/certificate_provider_internal.idl
+  WebextFunc:
+    Name: reportCertificates
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProviderInternal
+      - Name: certificates
+        Optional: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: CertificateInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - certificateProvider
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: ArrayBuffer
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - certificateProviderInternal
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - certificateProviderInternal
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProviderInternal
+- File: webext/chrome/certificate_provider_internal.idl
+  WebextFunc:
+    Name: reportSignature
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProviderInternal
+      - Name: signature
+        Optional: true
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProviderInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProviderInternal

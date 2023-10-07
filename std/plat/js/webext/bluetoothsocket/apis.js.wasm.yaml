@@ -1,0 +1,1204 @@
+- File: webext/bluetooth_socket.idl
+  Enum:
+    Name: AcceptError
+    Values:
+      - system_error
+      - not_listening
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  Dict:
+    Name: AcceptErrorInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+    Fields:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: errorMessage
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: error
+        Type:
+          Name: AcceptError
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  Dict:
+    Name: AcceptInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+    Fields:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: clientSocketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  Callback:
+    Name: CloseCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  Callback:
+    Name: ConnectCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  Callback:
+    Name: CreateCallback
+    Args:
+      - Name: createInfo
+        Type:
+          Name: CreateInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  Dict:
+    Name: CreateInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+    Fields:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  Callback:
+    Name: DisconnectCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  Callback:
+    Name: GetInfoCallback
+    Args:
+      - Name: socketInfo
+        Type:
+          Name: SocketInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  Callback:
+    Name: GetSocketsCallback
+    Args:
+      - Name: sockets
+        Type:
+          Name: sequence
+          Params:
+            - Name: SocketInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - bluetoothSocket
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  Callback:
+    Name: ListenCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  Dict:
+    Name: ListenOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+    Fields:
+      - Name: channel
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: psm
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: backlog
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  Enum:
+    Name: ReceiveError
+    Values:
+      - disconnected
+      - system_error
+      - not_connected
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  Dict:
+    Name: ReceiveErrorInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+    Fields:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: errorMessage
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: error
+        Type:
+          Name: ReceiveError
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  Dict:
+    Name: ReceiveInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+    Fields:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  Callback:
+    Name: SendCallback
+    Args:
+      - Name: bytesSent
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  Callback:
+    Name: SetPausedCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  Dict:
+    Name: SocketInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+    Fields:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: persistent
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: name
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: bufferSize
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: paused
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: connected
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: address
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: uuid
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  Dict:
+    Name: SocketProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+    Fields:
+      - Name: persistent
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: name
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: bufferSize
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  Callback:
+    Name: UpdateCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  WebextFunc:
+    Name: close
+    Modifier: static
+    Args:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  WebextFunc:
+    Name: connect
+    Modifier: static
+    Args:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: address
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: uuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  WebextFunc:
+    Name: create
+    Modifier: static
+    Args:
+      - Name: properties
+        Optional: true
+        Type:
+          Name: SocketProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: CreateInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bluetoothSocket
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  WebextFunc:
+    Name: disconnect
+    Modifier: static
+    Args:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  WebextFunc:
+    Name: getInfo
+    Modifier: static
+    Args:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: SocketInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bluetoothSocket
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  WebextFunc:
+    Name: getSockets
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: SocketInfo
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - bluetoothSocket
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bluetoothSocket
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  WebextFunc:
+    Name: listenUsingL2cap
+    Modifier: static
+    Args:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: uuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: options
+        Optional: true
+        Type:
+          Name: ListenOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  WebextFunc:
+    Name: listenUsingRfcomm
+    Modifier: static
+    Args:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: uuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: options
+        Optional: true
+        Type:
+          Name: ListenOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  WebextEvent:
+    Name: onAccept
+    Modifier: static
+    Args:
+      - Name: info
+        Type:
+          Name: AcceptInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  WebextEvent:
+    Name: onAcceptError
+    Modifier: static
+    Args:
+      - Name: info
+        Type:
+          Name: AcceptErrorInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  WebextEvent:
+    Name: onReceive
+    Modifier: static
+    Args:
+      - Name: info
+        Type:
+          Name: ReceiveInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  WebextEvent:
+    Name: onReceiveError
+    Modifier: static
+    Args:
+      - Name: info
+        Type:
+          Name: ReceiveErrorInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  WebextFunc:
+    Name: send
+    Modifier: static
+    Args:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: long
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bluetoothSocket
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  WebextFunc:
+    Name: setPaused
+    Modifier: static
+    Args:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: paused
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket
+- File: webext/bluetooth_socket.idl
+  WebextFunc:
+    Name: update
+    Modifier: static
+    Args:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+      - Name: properties
+        Type:
+          Name: SocketProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothSocket
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothSocket
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothSocket

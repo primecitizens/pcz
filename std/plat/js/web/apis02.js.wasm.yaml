@@ -1,4 +1,4 @@
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: AudioTrackList
     Inherits: EventTarget
@@ -60,7 +60,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: AudioWorklet
     Inherits: Worklet
@@ -79,7 +79,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: AudioWorkletGlobalScope
     Inherits: WorkletGlobalScope
@@ -91,7 +91,6 @@
       - Name: Exposed
         Values:
           - AudioWorklet
-      - Name: SecureContext
     Attrs:
       - Name: currentFrame
         Readonly: true
@@ -105,7 +104,6 @@
           - Name: Exposed
             Values:
               - AudioWorklet
-          - Name: SecureContext
       - Name: currentTime
         Readonly: true
         Type:
@@ -118,7 +116,6 @@
           - Name: Exposed
             Values:
               - AudioWorklet
-          - Name: SecureContext
       - Name: sampleRate
         Readonly: true
         Type:
@@ -131,7 +128,6 @@
           - Name: Exposed
             Values:
               - AudioWorklet
-          - Name: SecureContext
       - Name: port
         Readonly: true
         Type:
@@ -144,7 +140,6 @@
           - Name: Exposed
             Values:
               - AudioWorklet
-          - Name: SecureContext
     Operations:
       - Name: registerProcessor
         Args:
@@ -164,8 +159,7 @@
           - Name: Exposed
             Values:
               - AudioWorklet
-          - Name: SecureContext
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: AudioWorkletNode
     Inherits: AudioNode
@@ -219,7 +213,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: AudioWorkletNodeOptions
     Inherits: AudioNodeOptions
@@ -255,7 +249,7 @@
       - Name: channelInterpretation
         Type:
           Name: ChannelInterpretation
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Callback:
     Name: AudioWorkletProcessCallback
     Args:
@@ -278,7 +272,7 @@
           Name: object
     Returns:
       - Name: boolean
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: AudioWorkletProcessor
     ExtAttrs:
@@ -294,7 +288,7 @@
           - Name: Exposed
             Values:
               - AudioWorklet
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Callback:
     Name: AudioWorkletProcessorConstructor
     Args:
@@ -303,7 +297,7 @@
           Name: object
     Returns:
       - Name: AudioWorkletProcessor
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: AuthenticationExtensionsClientInputs
     Fields:
@@ -353,10 +347,10 @@
       - Name: devicePubKey
         Type:
           Name: AuthenticationExtensionsDevicePublicKeyInputs
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: AuthenticationExtensionsClientInputsJSON
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: AuthenticationExtensionsClientOutputs
     Fields:
@@ -387,10 +381,10 @@
       - Name: hmacCreateSecret
         Type:
           Name: boolean
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: AuthenticationExtensionsClientOutputsJSON
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: AuthenticationExtensionsDevicePublicKeyInputs
     Fields:
@@ -404,14 +398,14 @@
           Name: sequence
           Params:
             - Name: DOMString
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: AuthenticationExtensionsDevicePublicKeyOutputs
     Fields:
       - Name: signature
         Type:
           Name: ArrayBuffer
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: AuthenticationExtensionsLargeBlobInputs
     Fields:
@@ -424,7 +418,7 @@
       - Name: write
         Type:
           Name: BufferSource
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: AuthenticationExtensionsLargeBlobOutputs
     Fields:
@@ -437,7 +431,7 @@
       - Name: written
         Type:
           Name: boolean
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: AuthenticationExtensionsPRFInputs
     Fields:
@@ -450,7 +444,7 @@
           Params:
             - Name: USVString
             - Name: AuthenticationExtensionsPRFValues
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: AuthenticationExtensionsPRFOutputs
     Fields:
@@ -460,7 +454,7 @@
       - Name: results
         Type:
           Name: AuthenticationExtensionsPRFValues
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: AuthenticationExtensionsPRFValues
     Fields:
@@ -471,7 +465,7 @@
       - Name: second
         Type:
           Name: BufferSource
-- File: secure-payment-confirmation.idl
+- File: webref/secure-payment-confirmation.idl
   Dict:
     Name: AuthenticationExtensionsPaymentInputs
     Fields:
@@ -496,7 +490,7 @@
       - Name: instrument
         Type:
           Name: PaymentCredentialInstrument
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: AuthenticationResponseJSON
     Fields:
@@ -523,7 +517,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Interface:
     Name: AuthenticatorAssertionResponse
     Inherits: AuthenticatorResponse
@@ -575,7 +569,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: AuthenticatorAssertionResponseJSON
     Fields:
@@ -597,13 +591,13 @@
       - Name: attestationObject
         Type:
           Name: Base64URLString
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Enum:
     Name: AuthenticatorAttachment
     Values:
       - platform
       - cross-platform
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Interface:
     Name: AuthenticatorAttestationResponse
     Inherits: AuthenticatorResponse
@@ -659,7 +653,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: AuthenticatorAttestationResponseJSON
     Fields:
@@ -688,7 +682,7 @@
         Required: true
         Type:
           Name: Base64URLString
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Interface:
     Name: AuthenticatorResponse
     ExtAttrs:
@@ -707,7 +701,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: AuthenticatorSelectionCriteria
     Fields:
@@ -725,7 +719,7 @@
         Default: '"preferred"'
         Type:
           Name: DOMString
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Enum:
     Name: AuthenticatorTransport
     Values:
@@ -735,37 +729,37 @@
       - smart-card
       - hybrid
       - internal
-- File: webvtt.idl
+- File: webref/webvtt.idl
   Enum:
     Name: AutoKeyword
     Values:
       - auto
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Enum:
     Name: AutomationRate
     Values:
       - a-rate
       - k-rate
-- File: autoplay-detection.idl
+- File: webref/autoplay-detection.idl
   Enum:
     Name: AutoplayPolicy
     Values:
       - allowed
       - allowed-muted
       - disallowed
-- File: autoplay-detection.idl
+- File: webref/autoplay-detection.idl
   Enum:
     Name: AutoplayPolicyMediaType
     Values:
       - mediaelement
       - audiocontext
-- File: webcodecs-avc-codec-registration.idl
+- File: webref/webcodecs-avc-codec-registration.idl
   Enum:
     Name: AvcBitstreamFormat
     Values:
       - annexb
       - avc
-- File: webcodecs-avc-codec-registration.idl
+- File: webref/webcodecs-avc-codec-registration.idl
   Dict:
     Name: AvcEncoderConfig
     Fields:
@@ -773,7 +767,7 @@
         Default: '"avc"'
         Type:
           Name: AvcBitstreamFormat
-- File: background-fetch.idl
+- File: webref/background-fetch.idl
   Interface:
     Name: BackgroundFetchEvent
     Inherits: ExtendableEvent
@@ -802,7 +796,7 @@
           - Name: Exposed
             Values:
               - ServiceWorker
-- File: background-fetch.idl
+- File: webref/background-fetch.idl
   Dict:
     Name: BackgroundFetchEventInit
     Inherits: ExtendableEventInit
@@ -823,7 +817,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: background-fetch.idl
+- File: webref/background-fetch.idl
   Enum:
     Name: BackgroundFetchFailureReason
     Values:
@@ -833,7 +827,7 @@
       - fetch-error
       - quota-exceeded
       - download-total-exceeded
-- File: background-fetch.idl
+- File: webref/background-fetch.idl
   Interface:
     Name: BackgroundFetchManager
     ExtAttrs:
@@ -895,7 +889,7 @@
             Values:
               - Window
               - Worker
-- File: background-fetch.idl
+- File: webref/background-fetch.idl
   Dict:
     Name: BackgroundFetchOptions
     Inherits: BackgroundFetchUIOptions
@@ -912,7 +906,7 @@
       - Name: title
         Type:
           Name: DOMString
-- File: background-fetch.idl
+- File: webref/background-fetch.idl
   Interface:
     Name: BackgroundFetchRecord
     ExtAttrs:
@@ -941,7 +935,7 @@
             Values:
               - Window
               - Worker
-- File: background-fetch.idl
+- File: webref/background-fetch.idl
   Interface:
     Name: BackgroundFetchRegistration
     Inherits: EventTarget
@@ -1083,14 +1077,14 @@
             Values:
               - Window
               - Worker
-- File: background-fetch.idl
+- File: webref/background-fetch.idl
   Enum:
     Name: BackgroundFetchResult
     Values:
       - ""
       - success
       - failure
-- File: background-fetch.idl
+- File: webref/background-fetch.idl
   Dict:
     Name: BackgroundFetchUIOptions
     Fields:
@@ -1102,7 +1096,7 @@
       - Name: title
         Type:
           Name: DOMString
-- File: background-fetch.idl
+- File: webref/background-fetch.idl
   Interface:
     Name: BackgroundFetchUpdateUIEvent
     Inherits: BackgroundFetchEvent
@@ -1138,7 +1132,7 @@
           - Name: Exposed
             Values:
               - ServiceWorker
-- File: periodic-background-sync.idl
+- File: webref/periodic-background-sync.idl
   Dict:
     Name: BackgroundSyncOptions
     Fields:
@@ -1148,7 +1142,7 @@
           Name: unsigned long long
         ExtAttrs:
           - Name: EnforceRange
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: BarProp
     ExtAttrs:
@@ -1164,7 +1158,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: shape-detection-api.idl
+- File: webref/shape-detection-api.idl
   Interface:
     Name: BarcodeDetector
     ExtAttrs:
@@ -1218,7 +1212,7 @@
               - Window
               - Worker
           - Name: SecureContext
-- File: shape-detection-api.idl
+- File: webref/shape-detection-api.idl
   Dict:
     Name: BarcodeDetectorOptions
     Fields:
@@ -1227,7 +1221,7 @@
           Name: sequence
           Params:
             - Name: BarcodeFormat
-- File: shape-detection-api.idl
+- File: webref/shape-detection-api.idl
   Enum:
     Name: BarcodeFormat
     Values:

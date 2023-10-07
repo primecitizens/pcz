@@ -1,4 +1,4 @@
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: DragEventInit
     Inherits: MouseEventInit
@@ -16,7 +16,7 @@
         Default: "0"
         Type:
           Name: double
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: DynamicsCompressorNode
     Inherits: AudioNode
@@ -87,7 +87,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: DynamicsCompressorOptions
     Inherits: AudioNodeOptions
@@ -121,7 +121,7 @@
       - Name: channelInterpretation
         Type:
           Name: ChannelInterpretation
-- File: EXT_blend_minmax.idl
+- File: webref/EXT_blend_minmax.idl
   Interface:
     Name: EXT_blend_minmax
     ExtAttrs:
@@ -139,7 +139,7 @@
         Value: "0x8008"
         Type:
           Name: GLenum
-- File: EXT_color_buffer_float.idl
+- File: webref/EXT_color_buffer_float.idl
   Interface:
     Name: EXT_color_buffer_float
     ExtAttrs:
@@ -148,7 +148,7 @@
           - Window
           - Worker
       - Name: LegacyNoInterfaceObject
-- File: EXT_color_buffer_half_float.idl
+- File: webref/EXT_color_buffer_half_float.idl
   Interface:
     Name: EXT_color_buffer_half_float
     ExtAttrs:
@@ -174,7 +174,7 @@
         Value: "0x8C17"
         Type:
           Name: GLenum
-- File: EXT_disjoint_timer_query.idl
+- File: webref/EXT_disjoint_timer_query.idl
   Interface:
     Name: EXT_disjoint_timer_query
     ExtAttrs:
@@ -329,7 +329,7 @@
               - Window
               - Worker
           - Name: LegacyNoInterfaceObject
-- File: EXT_disjoint_timer_query_webgl2.idl
+- File: webref/EXT_disjoint_timer_query_webgl2.idl
   Interface:
     Name: EXT_disjoint_timer_query_webgl2
     ExtAttrs:
@@ -372,7 +372,7 @@
               - Window
               - Worker
           - Name: LegacyNoInterfaceObject
-- File: EXT_float_blend.idl
+- File: webref/EXT_float_blend.idl
   Interface:
     Name: EXT_float_blend
     ExtAttrs:
@@ -381,7 +381,7 @@
           - Window
           - Worker
       - Name: LegacyNoInterfaceObject
-- File: EXT_frag_depth.idl
+- File: webref/EXT_frag_depth.idl
   Interface:
     Name: EXT_frag_depth
     ExtAttrs:
@@ -390,7 +390,7 @@
           - Window
           - Worker
       - Name: LegacyNoInterfaceObject
-- File: EXT_sRGB.idl
+- File: webref/EXT_sRGB.idl
   Interface:
     Name: EXT_sRGB
     ExtAttrs:
@@ -416,7 +416,7 @@
         Value: "0x8210"
         Type:
           Name: GLenum
-- File: EXT_shader_texture_lod.idl
+- File: webref/EXT_shader_texture_lod.idl
   Interface:
     Name: EXT_shader_texture_lod
     ExtAttrs:
@@ -425,7 +425,7 @@
           - Window
           - Worker
       - Name: LegacyNoInterfaceObject
-- File: EXT_texture_compression_bptc.idl
+- File: webref/EXT_texture_compression_bptc.idl
   Interface:
     Name: EXT_texture_compression_bptc
     ExtAttrs:
@@ -451,7 +451,7 @@
         Value: "0x8E8F"
         Type:
           Name: GLenum
-- File: EXT_texture_compression_rgtc.idl
+- File: webref/EXT_texture_compression_rgtc.idl
   Interface:
     Name: EXT_texture_compression_rgtc
     ExtAttrs:
@@ -477,7 +477,7 @@
         Value: "0x8DBE"
         Type:
           Name: GLenum
-- File: EXT_texture_filter_anisotropic.idl
+- File: webref/EXT_texture_filter_anisotropic.idl
   Interface:
     Name: EXT_texture_filter_anisotropic
     ExtAttrs:
@@ -495,7 +495,7 @@
         Value: "0x84FF"
         Type:
           Name: GLenum
-- File: EXT_texture_norm16.idl
+- File: webref/EXT_texture_norm16.idl
   Interface:
     Name: EXT_texture_norm16
     ExtAttrs:
@@ -537,7 +537,7 @@
         Value: "0x8F9B"
         Type:
           Name: GLenum
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: EcKeyAlgorithm
     Inherits: KeyAlgorithm
@@ -550,7 +550,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: EcKeyGenParams
     Inherits: Algorithm
@@ -563,7 +563,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: EcKeyImportParams
     Inherits: Algorithm
@@ -576,7 +576,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: EcdhKeyDeriveParams
     Inherits: Algorithm
@@ -589,7 +589,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: EcdsaParams
     Inherits: Algorithm
@@ -602,7 +602,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: webcrypto-secure-curves.idl
+- File: webref/webcrypto-secure-curves.idl
   Dict:
     Name: Ed448Params
     Inherits: Algorithm
@@ -614,7 +614,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: edit-context.idl
+- File: webref/edit-context.idl
   Interface:
     Name: EditContext
     Inherits: EventTarget
@@ -829,7 +829,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: edit-context.idl
+- File: webref/edit-context.idl
   Dict:
     Name: EditContextInit
     Fields:
@@ -842,7 +842,7 @@
       - Name: selectionEnd
         Type:
           Name: unsigned long
-- File: web-animations-2.idl
+- File: webref/web-animations-2.idl
   Callback:
     Name: EffectCallback
     Args:
@@ -860,7 +860,7 @@
           Name: Animation
     Returns:
       - Name: undefined
-- File: web-animations.idl
+- File: webref/web-animations.idl
   Dict:
     Name: EffectTiming
     Fields:
@@ -901,7 +901,7 @@
             - Name: unrestricted double
             - Name: CSSNumericValue
             - Name: DOMString
-- File: netinfo.idl
+- File: webref/netinfo.idl
   Enum:
     Name: EffectiveConnectionType
     Values:
@@ -909,7 +909,7 @@
       - 3g
       - 4g
       - slow-2g
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: Element
     Inherits: Node
@@ -2116,21 +2116,21 @@
             Params:
               - Name: Range
             Nullable: true
-- File: dom.idl
+- File: webref/dom.idl
   Dict:
     Name: ElementCreationOptions
     Fields:
       - Name: is
         Type:
           Name: DOMString
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: ElementDefinitionOptions
     Fields:
       - Name: extends
         Type:
           Name: DOMString
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: ElementInternals
     ExtAttrs:
@@ -2559,7 +2559,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Interface:
     Name: EncodedAudioChunk
     ExtAttrs:
@@ -2635,7 +2635,7 @@
               - Window
               - DedicatedWorker
           - Name: Serializable
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: EncodedAudioChunkInit
     Fields:
@@ -2658,14 +2658,14 @@
         Required: true
         Type:
           Name: BufferSource
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: EncodedAudioChunkMetadata
     Fields:
       - Name: decoderConfig
         Type:
           Name: AudioDecoderConfig
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Callback:
     Name: EncodedAudioChunkOutputCallback
     Args:
@@ -2679,13 +2679,13 @@
           Name: EncodedAudioChunkMetadata
     Returns:
       - Name: undefined
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Enum:
     Name: EncodedAudioChunkType
     Values:
       - key
       - delta
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Interface:
     Name: EncodedVideoChunk
     ExtAttrs:
@@ -2761,7 +2761,7 @@
               - Window
               - DedicatedWorker
           - Name: Serializable
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: EncodedVideoChunkInit
     Fields:
@@ -2784,7 +2784,7 @@
         Required: true
         Type:
           Name: AllowSharedBufferSource
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: EncodedVideoChunkMetadata
     Fields:
@@ -2797,7 +2797,7 @@
       - Name: alphaSideData
         Type:
           Name: BufferSource
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Callback:
     Name: EncodedVideoChunkOutputCallback
     Args:
@@ -2811,30 +2811,30 @@
           Name: EncodedVideoChunkMetadata
     Returns:
       - Name: undefined
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Enum:
     Name: EncodedVideoChunkType
     Values:
       - key
       - delta
-- File: media-source.idl
+- File: webref/media-source.idl
   Enum:
     Name: EndOfStreamError
     Values:
       - network
       - decode
-- File: FileAPI.idl
+- File: webref/FileAPI.idl
   Enum:
     Name: EndingType
     Values:
       - transparent
       - native
-- File: hr-time.idl
+- File: webref/hr-time.idl
   Typedef:
     Name: EpochTimeStamp
     Type:
       Name: unsigned long long
-- File: epub-rs.idl
+- File: webref/epub-rs.idl
   Interface:
     Name: EpubReadingSystem
     ExtAttrs:
@@ -2857,7 +2857,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: entries-api.idl
+- File: webref/entries-api.idl
   Callback:
     Name: ErrorCallback
     Args:
@@ -2866,7 +2866,7 @@
           Name: DOMException
     Returns:
       - Name: undefined
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: ErrorEvent
     Inherits: Event
@@ -2915,7 +2915,7 @@
               Name: ErrorEventInit
         ExtAttrs:
           - Name: Exposed
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: ErrorEventInit
     Inherits: EventInit
@@ -2951,7 +2951,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: Event
     ExtAttrs:
@@ -3108,7 +3108,7 @@
               Name: EventInit
         ExtAttrs:
           - Name: Exposed
-- File: event-timing.idl
+- File: webref/event-timing.idl
   Interface:
     Name: EventCounts
     ExtAttrs:

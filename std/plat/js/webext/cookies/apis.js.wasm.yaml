@@ -1,0 +1,604 @@
+- File: webext/chrome/cookies.json
+  Dict:
+    Name: Cookie
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - cookies
+    Fields:
+      - Name: domain
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: expirationDate
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: hostOnly
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: httpOnly
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: path
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: sameSite
+        Required: true
+        Type:
+          Name: SameSiteStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - cookies
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: secure
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: session
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: storeId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: value
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+- File: webext/chrome/cookies.json
+  Dict:
+    Name: CookieDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - cookies
+    Fields:
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: storeId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+- File: webext/chrome/cookies.json
+  Dict:
+    Name: CookieStore
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - cookies
+    Fields:
+      - Name: id
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: tabIds
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: long long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - cookies
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+- File: webext/chrome/cookies.json
+  Dict:
+    Name: GetAllArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - cookies
+    Fields:
+      - Name: domain
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: path
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: secure
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: session
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: storeId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: url
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+- File: webext/chrome/cookies.json
+  Dict:
+    Name: OnChangedArgChangeInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - cookies
+    Fields:
+      - Name: cause
+        Required: true
+        Type:
+          Name: OnChangedCause
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - cookies
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: cookie
+        Required: true
+        Type:
+          Name: Cookie
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - cookies
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: removed
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+- File: webext/chrome/cookies.json
+  Enum:
+    Name: OnChangedCause
+    Values:
+      - evicted
+      - expired
+      - explicit
+      - expired_overwrite
+      - overwrite
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - cookies
+- File: webext/chrome/cookies.json
+  Dict:
+    Name: RemoveReturnType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - cookies
+    Fields:
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: storeId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+- File: webext/chrome/cookies.json
+  Enum:
+    Name: SameSiteStatus
+    Values:
+      - no_restriction
+      - lax
+      - strict
+      - unspecified
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - cookies
+- File: webext/chrome/cookies.json
+  Dict:
+    Name: SetArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - cookies
+    Fields:
+      - Name: domain
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: expirationDate
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: httpOnly
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: path
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: sameSite
+        Type:
+          Name: SameSiteStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - cookies
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: secure
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: storeId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+      - Name: value
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cookies
+- File: webext/chrome/cookies.json
+  WebextFunc:
+    Name: get
+    Args:
+      - Name: details
+        Type:
+          Name: CookieDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - cookies
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Cookie
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - cookies
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - cookies
+- File: webext/chrome/cookies.json
+  WebextFunc:
+    Name: getAll
+    Args:
+      - Name: details
+        Type:
+          Name: GetAllArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - cookies
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: Cookie
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - cookies
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - cookies
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - cookies
+- File: webext/chrome/cookies.json
+  WebextFunc:
+    Name: getAllCookieStores
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: CookieStore
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - cookies
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - cookies
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - cookies
+- File: webext/chrome/cookies.json
+  WebextEvent:
+    Name: onChanged
+    Args:
+      - Name: changeInfo
+        Type:
+          Name: OnChangedArgChangeInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - cookies
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - cookies
+- File: webext/chrome/cookies.json
+  WebextFunc:
+    Name: remove
+    Args:
+      - Name: details
+        Type:
+          Name: CookieDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - cookies
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RemoveReturnType
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - cookies
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - cookies
+- File: webext/chrome/cookies.json
+  WebextFunc:
+    Name: set
+    Args:
+      - Name: details
+        Type:
+          Name: SetArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - cookies
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Cookie
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - cookies
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - cookies

@@ -1,0 +1,876 @@
+- File: webext/hid.idl
+  Callback:
+    Name: ConnectCallback
+    Args:
+      - Name: connection
+        Type:
+          Name: HidConnectInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - hid
+- File: webext/hid.idl
+  Dict:
+    Name: DeviceFilter
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - hid
+    Fields:
+      - Name: vendorId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+      - Name: productId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+      - Name: usagePage
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+      - Name: usage
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+- File: webext/hid.idl
+  Callback:
+    Name: DisconnectCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - hid
+- File: webext/hid.idl
+  Callback:
+    Name: GetDevicesCallback
+    Args:
+      - Name: devices
+        Type:
+          Name: sequence
+          Params:
+            - Name: HidDeviceInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - hid
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - hid
+- File: webext/hid.idl
+  Dict:
+    Name: GetDevicesOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - hid
+    Fields:
+      - Name: vendorId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: deprecated
+            Values:
+              - Equivalent to setting $(ref:DeviceFilter.vendorId).
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+      - Name: productId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: deprecated
+            Values:
+              - Equivalent to setting $(ref:DeviceFilter.productId).
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+      - Name: filters
+        Type:
+          Name: sequence
+          Params:
+            - Name: DeviceFilter
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - hid
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+- File: webext/hid.idl
+  Dict:
+    Name: HidCollectionInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - hid
+    Fields:
+      - Name: usagePage
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+      - Name: usage
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+      - Name: reportIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - hid
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+- File: webext/hid.idl
+  Dict:
+    Name: HidConnectInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - hid
+    Fields:
+      - Name: connectionId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+- File: webext/hid.idl
+  Dict:
+    Name: HidDeviceInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - hid
+    Fields:
+      - Name: deviceId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+      - Name: vendorId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+      - Name: productId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+      - Name: productName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+      - Name: serialNumber
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+      - Name: collections
+        Type:
+          Name: sequence
+          Params:
+            - Name: HidCollectionInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - hid
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+      - Name: maxInputReportSize
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+      - Name: maxOutputReportSize
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+      - Name: maxFeatureReportSize
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+      - Name: reportDescriptor
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+- File: webext/hid.idl
+  Callback:
+    Name: ReceiveCallback
+    Args:
+      - Name: reportId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - hid
+- File: webext/hid.idl
+  Callback:
+    Name: ReceiveFeatureReportCallback
+    Args:
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - hid
+- File: webext/hid.idl
+  Callback:
+    Name: SendCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - hid
+- File: webext/hid.idl
+  WebextFunc:
+    Name: connect
+    Modifier: static
+    Args:
+      - Name: deviceId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: HidConnectInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - hid
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - hid
+- File: webext/hid.idl
+  WebextFunc:
+    Name: disconnect
+    Modifier: static
+    Args:
+      - Name: connectionId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - hid
+- File: webext/hid.idl
+  WebextFunc:
+    Name: getDevices
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: GetDevicesOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: HidDeviceInfo
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - hid
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - hid
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - hid
+- File: webext/hid.idl
+  WebextEvent:
+    Name: onDeviceAdded
+    Modifier: static
+    Args:
+      - Name: device
+        Type:
+          Name: HidDeviceInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - hid
+- File: webext/hid.idl
+  WebextEvent:
+    Name: onDeviceRemoved
+    Modifier: static
+    Args:
+      - Name: deviceId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - hid
+- File: webext/hid.idl
+  WebextFunc:
+    Name: receive
+    Modifier: static
+    Args:
+      - Name: connectionId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+      - Name: callback
+        Type:
+          Name: ReceiveCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - hid
+- File: webext/hid.idl
+  WebextFunc:
+    Name: receiveFeatureReport
+    Modifier: static
+    Args:
+      - Name: connectionId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+      - Name: reportId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ArrayBuffer
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - hid
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - hid
+- File: webext/hid.idl
+  WebextFunc:
+    Name: send
+    Modifier: static
+    Args:
+      - Name: connectionId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+      - Name: reportId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - hid
+- File: webext/hid.idl
+  WebextFunc:
+    Name: sendFeatureReport
+    Modifier: static
+    Args:
+      - Name: connectionId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+      - Name: reportId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - hid
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - hid
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - hid

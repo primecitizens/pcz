@@ -1,0 +1,2769 @@
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: DNRInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+      - Name: nodoc
+    Fields:
+      - Name: rule_resources
+        Type:
+          Name: sequence
+          Params:
+            - Name: Ruleset
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Enum:
+    Name: DomainType
+    Values:
+      - firstParty
+      - thirdParty
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Callback:
+    Name: EmptyCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: ExtensionActionOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: displayActionCountAsBadgeText
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: tabUpdate
+        Type:
+          Name: TabActionCountUpdate
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Callback:
+    Name: GetAllowedPagesCallback
+    Args:
+      - Name: result
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Callback:
+    Name: GetAvailableStaticRuleCountCallback
+    Args:
+      - Name: count
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Callback:
+    Name: GetDisabledRuleIdsCallback
+    Args:
+      - Name: disabledRuleIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: GetDisabledRuleIdsOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: rulesetId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Callback:
+    Name: GetEnabledRulesetsCallback
+    Args:
+      - Name: rulesetIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Callback:
+    Name: GetMatchedRulesCallback
+    Args:
+      - Name: details
+        Type:
+          Name: RulesMatchedDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Callback:
+    Name: GetRulesCallback
+    Args:
+      - Name: rules
+        Type:
+          Name: sequence
+          Params:
+            - Name: Rule
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: GetRulesFilter
+    ExtAttrs:
+      - Name: noinline_doc
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: ruleIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+- File: webext/declarative_net_request.idl
+  Enum:
+    Name: HeaderOperation
+    Values:
+      - append
+      - set
+      - remove
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Callback:
+    Name: IsRegexSupportedCallback
+    Args:
+      - Name: result
+        Type:
+          Name: IsRegexSupportedResult
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: IsRegexSupportedResult
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: isSupported
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: reason
+        Type:
+          Name: UnsupportedRegexReason
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: ManifestKeys
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+      - Name: nodoc
+    Fields:
+      - Name: declarative_net_request
+        Type:
+          Name: DNRInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: MatchedRule
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: ruleId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: rulesetId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: MatchedRuleInfo
+    ExtAttrs:
+      - Name: noinline_doc
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: rule
+        Type:
+          Name: MatchedRule
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+      - Name: timeStamp
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+      - Name: tabId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: MatchedRuleInfoDebug
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: rule
+        Type:
+          Name: MatchedRule
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: request
+        Type:
+          Name: RequestDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: MatchedRulesFilter
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: tabId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: minTimeStamp
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: ModifyHeaderInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: header
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: operation
+        Type:
+          Name: HeaderOperation
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: value
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Interface:
+    Name: Properties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Operations:
+      - Name: GUARANTEED_MINIMUM_STATIC_RULES
+        Modifier: static
+        Returns:
+          - Name: long
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - declarativeNetRequest
+        ExtAttrs:
+          - Name: value
+            Values:
+              - "30000"
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: MAX_NUMBER_OF_DYNAMIC_RULES
+        Modifier: static
+        Returns:
+          - Name: long
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - declarativeNetRequest
+        ExtAttrs:
+          - Name: nodoc
+          - Name: deprecated
+            Values:
+              - Use $(ref:MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES) instead
+          - Name: value
+            Values:
+              - "5000"
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES
+        Modifier: static
+        Returns:
+          - Name: long
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - declarativeNetRequest
+        ExtAttrs:
+          - Name: value
+            Values:
+              - "5000"
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: GETMATCHEDRULES_QUOTA_INTERVAL
+        Modifier: static
+        Returns:
+          - Name: long
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - declarativeNetRequest
+        ExtAttrs:
+          - Name: value
+            Values:
+              - "10"
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: MAX_GETMATCHEDRULES_CALLS_PER_INTERVAL
+        Modifier: static
+        Returns:
+          - Name: long
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - declarativeNetRequest
+        ExtAttrs:
+          - Name: value
+            Values:
+              - "20"
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: MAX_NUMBER_OF_REGEX_RULES
+        Modifier: static
+        Returns:
+          - Name: long
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - declarativeNetRequest
+        ExtAttrs:
+          - Name: value
+            Values:
+              - "1000"
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: MAX_NUMBER_OF_STATIC_RULESETS
+        Modifier: static
+        Returns:
+          - Name: long
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - declarativeNetRequest
+        ExtAttrs:
+          - Name: value
+            Values:
+              - "50"
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: MAX_NUMBER_OF_ENABLED_STATIC_RULESETS
+        Modifier: static
+        Returns:
+          - Name: long
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - declarativeNetRequest
+        ExtAttrs:
+          - Name: value
+            Values:
+              - "10"
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: DYNAMIC_RULESET_ID
+        Modifier: static
+        Returns:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - declarativeNetRequest
+        ExtAttrs:
+          - Name: value
+            Values:
+              - _dynamic
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: SESSION_RULESET_ID
+        Modifier: static
+        Returns:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - declarativeNetRequest
+        ExtAttrs:
+          - Name: value
+            Values:
+              - _session
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: QueryKeyValue
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: key
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: value
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: replaceOnly
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: QueryTransform
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: removeParams
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: addOrReplaceParams
+        Type:
+          Name: sequence
+          Params:
+            - Name: QueryKeyValue
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: Redirect
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: extensionPath
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: transform
+        Type:
+          Name: URLTransform
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: url
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: regexSubstitution
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: RegexOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: regex
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: isCaseSensitive
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: requireCapturing
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: RequestDetails
+    ExtAttrs:
+      - Name: noinline_doc
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: requestId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+      - Name: initiator
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+      - Name: method
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+      - Name: frameId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+      - Name: documentId
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+      - Name: frameType
+        Type:
+          Name: FrameType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionTypes
+          - Name: noinline_doc
+      - Name: documentLifecycle
+        Type:
+          Name: DocumentLifecycle
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionTypes
+          - Name: noinline_doc
+      - Name: parentFrameId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+      - Name: parentDocumentId
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+      - Name: tabId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+      - Name: type
+        Type:
+          Name: ResourceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+- File: webext/declarative_net_request.idl
+  Enum:
+    Name: RequestMethod
+    Values:
+      - connect
+      - delete
+      - get
+      - head
+      - options
+      - patch
+      - post
+      - put
+      - other
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Enum:
+    Name: ResourceType
+    Values:
+      - main_frame
+      - sub_frame
+      - stylesheet
+      - script
+      - image
+      - font
+      - object
+      - xmlhttprequest
+      - ping
+      - csp_report
+      - media
+      - websocket
+      - webtransport
+      - webbundle
+      - other
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: Rule
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: id
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: priority
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: condition
+        Type:
+          Name: RuleCondition
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: action
+        Type:
+          Name: RuleAction
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: RuleAction
+    ExtAttrs:
+      - Name: noinline_doc
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: type
+        Type:
+          Name: RuleActionType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+      - Name: redirect
+        Type:
+          Name: Redirect
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+      - Name: requestHeaders
+        Type:
+          Name: sequence
+          Params:
+            - Name: ModifyHeaderInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+      - Name: responseHeaders
+        Type:
+          Name: sequence
+          Params:
+            - Name: ModifyHeaderInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+- File: webext/declarative_net_request.idl
+  Enum:
+    Name: RuleActionType
+    Values:
+      - block
+      - redirect
+      - allow
+      - upgradeScheme
+      - modifyHeaders
+      - allowAllRequests
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: RuleCondition
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: urlFilter
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: regexFilter
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: isUrlFilterCaseSensitive
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: initiatorDomains
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: excludedInitiatorDomains
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: requestDomains
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: excludedRequestDomains
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: domains
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: deprecated
+            Values:
+              - Use $(ref:initiatorDomains) instead
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: excludedDomains
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: deprecated
+            Values:
+              - Use $(ref:excludedInitiatorDomains) instead
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: resourceTypes
+        Type:
+          Name: sequence
+          Params:
+            - Name: ResourceType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: excludedResourceTypes
+        Type:
+          Name: sequence
+          Params:
+            - Name: ResourceType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: requestMethods
+        Type:
+          Name: sequence
+          Params:
+            - Name: RequestMethod
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: excludedRequestMethods
+        Type:
+          Name: sequence
+          Params:
+            - Name: RequestMethod
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: domainType
+        Type:
+          Name: DomainType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: tabIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: excludedTabIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: RulesMatchedDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: rulesMatchedInfo
+        Type:
+          Name: sequence
+          Params:
+            - Name: MatchedRuleInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: Ruleset
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: path
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: enabled
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: TabActionCountUpdate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: tabId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: increment
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Callback:
+    Name: TestMatchOutcomeCallback
+    Args:
+      - Name: result
+        Type:
+          Name: TestMatchOutcomeResult
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: TestMatchOutcomeResult
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: matchedRules
+        Type:
+          Name: sequence
+          Params:
+            - Name: MatchedRule
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: TestMatchRequestDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: initiator
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: method
+        Type:
+          Name: RequestMethod
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: type
+        Type:
+          Name: ResourceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: tabId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: URLTransform
+    ExtAttrs:
+      - Name: noinline_doc
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: scheme
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+      - Name: host
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+      - Name: port
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+      - Name: path
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+      - Name: query
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+      - Name: queryTransform
+        Type:
+          Name: QueryTransform
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+      - Name: fragment
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+      - Name: username
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+      - Name: password
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+          - Name: noinline_doc
+- File: webext/declarative_net_request.idl
+  Enum:
+    Name: UnsupportedRegexReason
+    Values:
+      - syntaxError
+      - memoryLimitExceeded
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: UpdateRuleOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: removeRuleIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: addRules
+        Type:
+          Name: sequence
+          Params:
+            - Name: Rule
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: UpdateRulesetOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: disableRulesetIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: enableRulesetIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  Dict:
+    Name: UpdateStaticRulesOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+    Fields:
+      - Name: rulesetId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: disableRuleIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+      - Name: enableRuleIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeNetRequest
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  WebextFunc:
+    Name: getAvailableStaticRuleCount
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: long
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - declarativeNetRequest
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  WebextFunc:
+    Name: getDisabledRuleIds
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: GetDisabledRuleIdsOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: long
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - declarativeNetRequest
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - declarativeNetRequest
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  WebextFunc:
+    Name: getDynamicRules
+    Modifier: static
+    Args:
+      - Name: filter
+        Optional: true
+        Type:
+          Name: GetRulesFilter
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: Rule
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - declarativeNetRequest
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - declarativeNetRequest
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  WebextFunc:
+    Name: getEnabledRulesets
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: DOMString
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - declarativeNetRequest
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - declarativeNetRequest
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  WebextFunc:
+    Name: getMatchedRules
+    Modifier: static
+    Args:
+      - Name: filter
+        Optional: true
+        Type:
+          Name: MatchedRulesFilter
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RulesMatchedDetails
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - declarativeNetRequest
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  WebextFunc:
+    Name: getSessionRules
+    Modifier: static
+    Args:
+      - Name: filter
+        Optional: true
+        Type:
+          Name: GetRulesFilter
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: Rule
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - declarativeNetRequest
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - declarativeNetRequest
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  WebextFunc:
+    Name: isRegexSupported
+    Modifier: static
+    Args:
+      - Name: regexOptions
+        Type:
+          Name: RegexOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: IsRegexSupportedResult
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - declarativeNetRequest
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  WebextEvent:
+    Name: onRuleMatchedDebug
+    Modifier: static
+    Args:
+      - Name: info
+        Type:
+          Name: MatchedRuleInfoDebug
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  WebextFunc:
+    Name: setExtensionActionOptions
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: ExtensionActionOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  WebextFunc:
+    Name: testMatchOutcome
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: TestMatchRequestDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: TestMatchOutcomeResult
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - declarativeNetRequest
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  WebextFunc:
+    Name: updateDynamicRules
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: UpdateRuleOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  WebextFunc:
+    Name: updateEnabledRulesets
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: UpdateRulesetOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  WebextFunc:
+    Name: updateSessionRules
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: UpdateRuleOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest
+- File: webext/declarative_net_request.idl
+  WebextFunc:
+    Name: updateStaticRules
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: UpdateStaticRulesOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeNetRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeNetRequest
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeNetRequest

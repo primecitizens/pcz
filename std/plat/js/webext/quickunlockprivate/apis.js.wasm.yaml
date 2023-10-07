@@ -1,0 +1,765 @@
+- File: webext/chrome/quick_unlock_private.idl
+  Callback:
+    Name: BooleanResultCallback
+    Args:
+      - Name: value
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - quickUnlockPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - quickUnlockPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/quick_unlock_private.idl
+  Dict:
+    Name: CredentialCheck
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - quickUnlockPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: errors
+        Type:
+          Name: sequence
+          Params:
+            - Name: CredentialProblem
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - quickUnlockPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - quickUnlockPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+      - Name: warnings
+        Type:
+          Name: sequence
+          Params:
+            - Name: CredentialProblem
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - quickUnlockPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - quickUnlockPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+- File: webext/chrome/quick_unlock_private.idl
+  Callback:
+    Name: CredentialCheckCallback
+    Args:
+      - Name: check
+        Type:
+          Name: CredentialCheck
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - quickUnlockPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - quickUnlockPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/quick_unlock_private.idl
+  Enum:
+    Name: CredentialProblem
+    Values:
+      - TOO_SHORT
+      - TOO_LONG
+      - TOO_WEAK
+      - CONTAINS_NONDIGIT
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - quickUnlockPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/quick_unlock_private.idl
+  Dict:
+    Name: CredentialRequirements
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - quickUnlockPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: minLength
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - quickUnlockPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+      - Name: maxLength
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - quickUnlockPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+- File: webext/chrome/quick_unlock_private.idl
+  Callback:
+    Name: CredentialRequirementsCallback
+    Args:
+      - Name: requirements
+        Type:
+          Name: CredentialRequirements
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - quickUnlockPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - quickUnlockPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/quick_unlock_private.idl
+  Callback:
+    Name: ModesCallback
+    Args:
+      - Name: modes
+        Type:
+          Name: sequence
+          Params:
+            - Name: QuickUnlockMode
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - quickUnlockPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - quickUnlockPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - quickUnlockPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/quick_unlock_private.idl
+  Enum:
+    Name: QuickUnlockMode
+    Values:
+      - PIN
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - quickUnlockPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/quick_unlock_private.idl
+  Dict:
+    Name: TokenInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - quickUnlockPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: token
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - quickUnlockPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+      - Name: lifetimeSeconds
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - quickUnlockPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+- File: webext/chrome/quick_unlock_private.idl
+  Callback:
+    Name: TokenResultCallback
+    Args:
+      - Name: result
+        Type:
+          Name: TokenInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - quickUnlockPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - quickUnlockPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/quick_unlock_private.idl
+  Callback:
+    Name: VoidResultCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - quickUnlockPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/quick_unlock_private.idl
+  WebextFunc:
+    Name: canAuthenticatePin
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - quickUnlockPrivate
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - chromeos
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - quickUnlockPrivate
+- File: webext/chrome/quick_unlock_private.idl
+  WebextFunc:
+    Name: checkCredential
+    Modifier: static
+    Args:
+      - Name: mode
+        Type:
+          Name: QuickUnlockMode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - quickUnlockPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+      - Name: credential
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - quickUnlockPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: CredentialCheck
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - quickUnlockPrivate
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - chromeos
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - quickUnlockPrivate
+- File: webext/chrome/quick_unlock_private.idl
+  WebextFunc:
+    Name: getActiveModes
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: QuickUnlockMode
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - quickUnlockPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - quickUnlockPrivate
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - chromeos
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - quickUnlockPrivate
+- File: webext/chrome/quick_unlock_private.idl
+  WebextFunc:
+    Name: getAuthToken
+    Modifier: static
+    Args:
+      - Name: accountPassword
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - quickUnlockPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: TokenInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - quickUnlockPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - quickUnlockPrivate
+- File: webext/chrome/quick_unlock_private.idl
+  WebextFunc:
+    Name: getAvailableModes
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: QuickUnlockMode
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - quickUnlockPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - quickUnlockPrivate
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - chromeos
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - quickUnlockPrivate
+- File: webext/chrome/quick_unlock_private.idl
+  WebextFunc:
+    Name: getCredentialRequirements
+    Modifier: static
+    Args:
+      - Name: mode
+        Type:
+          Name: QuickUnlockMode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - quickUnlockPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: CredentialRequirements
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - quickUnlockPrivate
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - chromeos
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - quickUnlockPrivate
+- File: webext/chrome/quick_unlock_private.idl
+  WebextEvent:
+    Name: onActiveModesChanged
+    Modifier: static
+    Args:
+      - Name: activeModes
+        Type:
+          Name: sequence
+          Params:
+            - Name: QuickUnlockMode
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - quickUnlockPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - quickUnlockPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - quickUnlockPrivate
+- File: webext/chrome/quick_unlock_private.idl
+  WebextFunc:
+    Name: setLockScreenEnabled
+    Modifier: static
+    Args:
+      - Name: token
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - quickUnlockPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+      - Name: enabled
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - quickUnlockPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - chromeos
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - quickUnlockPrivate
+- File: webext/chrome/quick_unlock_private.idl
+  WebextFunc:
+    Name: setModes
+    Modifier: static
+    Args:
+      - Name: token
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - quickUnlockPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+      - Name: modes
+        Type:
+          Name: sequence
+          Params:
+            - Name: QuickUnlockMode
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - quickUnlockPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - quickUnlockPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+      - Name: credentials
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - quickUnlockPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - quickUnlockPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - chromeos
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - quickUnlockPrivate
+- File: webext/chrome/quick_unlock_private.idl
+  WebextFunc:
+    Name: setPinAutosubmitEnabled
+    Modifier: static
+    Args:
+      - Name: token
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - quickUnlockPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+      - Name: pin
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - quickUnlockPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+      - Name: enabled
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - quickUnlockPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - quickUnlockPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - quickUnlockPrivate
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - chromeos
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - quickUnlockPrivate

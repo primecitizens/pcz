@@ -1,0 +1,739 @@
+- File: webext/webcam_private.idl
+  Enum:
+    Name: AutofocusState
+    Values:
+      - "on"
+      - "off"
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webcamPrivate
+- File: webext/webcam_private.idl
+  Enum:
+    Name: PanDirection
+    Values:
+      - stop
+      - right
+      - left
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webcamPrivate
+- File: webext/webcam_private.idl
+  Enum:
+    Name: Protocol
+    Values:
+      - visca
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webcamPrivate
+- File: webext/webcam_private.idl
+  Dict:
+    Name: ProtocolConfiguration
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webcamPrivate
+    Fields:
+      - Name: protocol
+        Type:
+          Name: Protocol
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+- File: webext/webcam_private.idl
+  Dict:
+    Name: Range
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webcamPrivate
+    Fields:
+      - Name: min
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+      - Name: max
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+- File: webext/webcam_private.idl
+  Enum:
+    Name: TiltDirection
+    Values:
+      - stop
+      - up
+      - down
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webcamPrivate
+- File: webext/webcam_private.idl
+  Dict:
+    Name: WebcamConfiguration
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webcamPrivate
+    Fields:
+      - Name: pan
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+      - Name: panSpeed
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+      - Name: panDirection
+        Type:
+          Name: PanDirection
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+      - Name: tilt
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+      - Name: tiltSpeed
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+      - Name: tiltDirection
+        Type:
+          Name: TiltDirection
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+      - Name: zoom
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+      - Name: autofocusState
+        Type:
+          Name: AutofocusState
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+      - Name: focus
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+- File: webext/webcam_private.idl
+  Callback:
+    Name: WebcamConfigurationCallback
+    Args:
+      - Name: configuration
+        Type:
+          Name: WebcamCurrentConfiguration
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webcamPrivate
+- File: webext/webcam_private.idl
+  Dict:
+    Name: WebcamCurrentConfiguration
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webcamPrivate
+    Fields:
+      - Name: pan
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+      - Name: tilt
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+      - Name: zoom
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+      - Name: focus
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+      - Name: panRange
+        Type:
+          Name: Range
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+      - Name: tiltRange
+        Type:
+          Name: Range
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+      - Name: zoomRange
+        Type:
+          Name: Range
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+      - Name: focusRange
+        Type:
+          Name: Range
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+- File: webext/webcam_private.idl
+  Callback:
+    Name: WebcamIdCallback
+    Args:
+      - Name: webcamId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webcamPrivate
+- File: webext/webcam_private.idl
+  WebextFunc:
+    Name: closeWebcam
+    Modifier: static
+    Args:
+      - Name: webcamId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webcamPrivate
+- File: webext/webcam_private.idl
+  WebextFunc:
+    Name: get
+    Modifier: static
+    Args:
+      - Name: webcamId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: WebcamCurrentConfiguration
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - webcamPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - webcamPrivate
+- File: webext/webcam_private.idl
+  WebextFunc:
+    Name: openSerialWebcam
+    Modifier: static
+    Args:
+      - Name: path
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+      - Name: protocol
+        Type:
+          Name: ProtocolConfiguration
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - webcamPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - webcamPrivate
+- File: webext/webcam_private.idl
+  WebextFunc:
+    Name: reset
+    Modifier: static
+    Args:
+      - Name: webcamId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+      - Name: config
+        Type:
+          Name: WebcamConfiguration
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: WebcamCurrentConfiguration
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - webcamPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - webcamPrivate
+- File: webext/webcam_private.idl
+  WebextFunc:
+    Name: restoreCameraPreset
+    Modifier: static
+    Args:
+      - Name: webcamId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+      - Name: presetNumber
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: WebcamCurrentConfiguration
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - webcamPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - webcamPrivate
+- File: webext/webcam_private.idl
+  WebextFunc:
+    Name: set
+    Modifier: static
+    Args:
+      - Name: webcamId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+      - Name: config
+        Type:
+          Name: WebcamConfiguration
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: WebcamCurrentConfiguration
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - webcamPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - webcamPrivate
+- File: webext/webcam_private.idl
+  WebextFunc:
+    Name: setCameraPreset
+    Modifier: static
+    Args:
+      - Name: webcamId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+      - Name: presetNumber
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: WebcamCurrentConfiguration
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - webcamPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - webcamPrivate
+- File: webext/webcam_private.idl
+  WebextFunc:
+    Name: setHome
+    Modifier: static
+    Args:
+      - Name: webcamId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webcamPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webcamPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: WebcamCurrentConfiguration
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - webcamPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - webcamPrivate

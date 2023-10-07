@@ -1,4 +1,4 @@
-- File: cssom-view.idl
+- File: webref/cssom-view.idl
   Dict:
     Name: ConvertCoordinateOptions
     Fields:
@@ -10,7 +10,7 @@
         Default: '"border"'
         Type:
           Name: CSSBoxType
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: ConvolverNode
     Inherits: AudioNode
@@ -48,7 +48,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: ConvolverOptions
     Inherits: AudioNodeOptions
@@ -70,7 +70,7 @@
       - Name: channelInterpretation
         Type:
           Name: ChannelInterpretation
-- File: cookie-store.idl
+- File: webref/cookie-store.idl
   Interface:
     Name: CookieChangeEvent
     Inherits: Event
@@ -119,7 +119,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: cookie-store.idl
+- File: webref/cookie-store.idl
   Dict:
     Name: CookieChangeEventInit
     Inherits: EventInit
@@ -142,7 +142,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: cookie-store.idl
+- File: webref/cookie-store.idl
   Dict:
     Name: CookieInit
     Fields:
@@ -176,14 +176,14 @@
         Default: "false"
         Type:
           Name: boolean
-- File: cookie-store.idl
+- File: webref/cookie-store.idl
   Typedef:
     Name: CookieList
     Type:
       Name: sequence
       Params:
         - Name: CookieListItem
-- File: cookie-store.idl
+- File: webref/cookie-store.idl
   Dict:
     Name: CookieListItem
     Fields:
@@ -213,14 +213,14 @@
       - Name: partitioned
         Type:
           Name: boolean
-- File: cookie-store.idl
+- File: webref/cookie-store.idl
   Enum:
     Name: CookieSameSite
     Values:
       - strict
       - lax
       - none
-- File: cookie-store.idl
+- File: webref/cookie-store.idl
   Interface:
     Name: CookieStore
     Inherits: EventTarget
@@ -238,7 +238,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
     Operations:
       - Name: get
         Args:
@@ -369,7 +368,7 @@
               - ServiceWorker
               - Window
           - Name: SecureContext
-- File: cookie-store.idl
+- File: webref/cookie-store.idl
   Dict:
     Name: CookieStoreDeleteOptions
     Fields:
@@ -390,7 +389,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: cookie-store.idl
+- File: webref/cookie-store.idl
   Dict:
     Name: CookieStoreGetOptions
     Fields:
@@ -400,7 +399,7 @@
       - Name: url
         Type:
           Name: USVString
-- File: cookie-store.idl
+- File: webref/cookie-store.idl
   Interface:
     Name: CookieStoreManager
     ExtAttrs:
@@ -457,7 +456,7 @@
               - ServiceWorker
               - Window
           - Name: SecureContext
-- File: streams.idl
+- File: webref/streams.idl
   Interface:
     Name: CountQueuingStrategy
     ExtAttrs:
@@ -482,7 +481,7 @@
               Name: QueuingStrategyInit
         ExtAttrs:
           - Name: Exposed
-- File: crash-reporting.idl
+- File: webref/crash-reporting.idl
   Interface:
     Name: CrashReportBody
     Inherits: ReportBody
@@ -512,7 +511,7 @@
             Values:
               - Window
               - Worker
-- File: trusted-types.idl
+- File: webref/trusted-types.idl
   Callback:
     Name: CreateHTMLCallback
     Args:
@@ -525,7 +524,7 @@
           Name: any
     Returns:
       - Name: DOMString
-- File: trusted-types.idl
+- File: webref/trusted-types.idl
   Callback:
     Name: CreateScriptCallback
     Args:
@@ -538,7 +537,7 @@
           Name: any
     Returns:
       - Name: DOMString
-- File: trusted-types.idl
+- File: webref/trusted-types.idl
   Callback:
     Name: CreateScriptURLCallback
     Args:
@@ -551,7 +550,7 @@
           Name: any
     Returns:
       - Name: USVString
-- File: credential-management.idl
+- File: webref/credential-management.idl
   Interface:
     Name: Credential
     ExtAttrs:
@@ -590,7 +589,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: credential-management.idl
+- File: webref/credential-management.idl
   Dict:
     Name: CredentialCreationOptions
     Fields:
@@ -606,7 +605,7 @@
       - Name: federated
         Type:
           Name: FederatedCredentialInit
-- File: credential-management.idl
+- File: webref/credential-management.idl
   Dict:
     Name: CredentialData
     Fields:
@@ -614,7 +613,7 @@
         Required: true
         Type:
           Name: USVString
-- File: credential-management.idl
+- File: webref/credential-management.idl
   Enum:
     Name: CredentialMediationRequirement
     Values:
@@ -622,14 +621,14 @@
       - optional
       - conditional
       - required
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: CredentialPropertiesOutput
     Fields:
       - Name: rk
         Type:
           Name: boolean
-- File: credential-management.idl
+- File: webref/credential-management.idl
   Dict:
     Name: CredentialRequestOptions
     Fields:
@@ -656,7 +655,7 @@
       - Name: federated
         Type:
           Name: FederatedCredentialRequestOptions
-- File: credential-management.idl
+- File: webref/credential-management.idl
   Interface:
     Name: CredentialsContainer
     ExtAttrs:
@@ -723,7 +722,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: mediacapture-region.idl
+- File: webref/mediacapture-region.idl
   Interface:
     Name: CropTarget
     ExtAttrs:
@@ -748,8 +747,7 @@
             Values:
               - Window
           - Name: SecureContext
-          - Name: Serializable
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Interface:
     Name: Crypto
     ExtAttrs:
@@ -790,7 +788,7 @@
             Values:
               - Window
               - Worker
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Interface:
     Name: CryptoKey
     ExtAttrs:
@@ -845,14 +843,14 @@
               - Window
               - Worker
           - Name: Serializable
-- File: webrtc-encoded-transform.idl
+- File: webref/webrtc-encoded-transform.idl
   Typedef:
     Name: CryptoKeyID
     Type:
       Union:
         - Name: SmallCryptoKeyID
         - Name: bigint
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: CryptoKeyPair
     Fields:
@@ -862,19 +860,19 @@
       - Name: privateKey
         Type:
           Name: CryptoKey
-- File: screen-capture.idl
+- File: webref/screen-capture.idl
   Enum:
     Name: CursorCaptureConstraint
     Values:
       - never
       - always
       - motion
-- File: html.idl
+- File: webref/html.idl
   Callback:
     Name: CustomElementConstructor
     Returns:
       - Name: HTMLElement
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: CustomElementRegistry
     ExtAttrs:
@@ -952,7 +950,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: CustomEvent
     Inherits: Event
@@ -1002,7 +1000,7 @@
               Name: CustomEventInit
         ExtAttrs:
           - Name: Exposed
-- File: dom.idl
+- File: webref/dom.idl
   Dict:
     Name: CustomEventInit
     Inherits: EventInit
@@ -1023,7 +1021,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: custom-state-pseudo-class.idl
+- File: webref/custom-state-pseudo-class.idl
   Interface:
     Name: CustomStateSet
     ExtAttrs:
@@ -1045,7 +1043,7 @@
     Setlike:
       TypeParams:
         - Name: DOMString
-- File: webidl.idl
+- File: webref/webidl.idl
   Interface:
     Name: DOMException
     ExtAttrs:
@@ -1189,12 +1187,12 @@
         ExtAttrs:
           - Name: Exposed
           - Name: Serializable
-- File: hr-time.idl
+- File: webref/hr-time.idl
   Typedef:
     Name: DOMHighResTimeStamp
     Type:
       Name: double
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: DOMImplementation
     ExtAttrs:
@@ -1264,7 +1262,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: geometry.idl
+- File: webref/geometry.idl
   Interface:
     Name: DOMMatrix
     Inherits: DOMMatrixReadOnly
@@ -1938,11 +1936,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: Serializable
-          - Name: LegacyWindowAlias
-            Values:
-              - SVGMatrix
-              - WebKitCSSMatrix
     Constructors:
       - Args:
           - Name: init
@@ -1963,7 +1956,7 @@
             Values:
               - SVGMatrix
               - WebKitCSSMatrix
-- File: geometry.idl
+- File: webref/geometry.idl
   Dict:
     Name: DOMMatrix2DInit
     Fields:
@@ -2003,7 +1996,7 @@
       - Name: m42
         Type:
           Name: unrestricted double
-- File: geometry.idl
+- File: webref/geometry.idl
   Dict:
     Name: DOMMatrixInit
     Inherits: DOMMatrix2DInit
@@ -2087,7 +2080,7 @@
       - Name: m42
         Type:
           Name: unrestricted double
-- File: geometry.idl
+- File: webref/geometry.idl
   Interface:
     Name: DOMMatrixReadOnly
     ExtAttrs:
@@ -2698,7 +2691,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: Serializable
       - Name: toJSON
         Returns:
           - Name: object
@@ -2725,7 +2717,7 @@
               - Window
               - Worker
           - Name: Serializable
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: DOMParser
     ExtAttrs:
@@ -2748,7 +2740,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: DOMParserSupportedType
     Values:
@@ -2757,7 +2749,7 @@
       - application/xml
       - application/xhtml+xml
       - image/svg+xml
-- File: geometry.idl
+- File: webref/geometry.idl
   Interface:
     Name: DOMPoint
     Inherits: DOMPointReadOnly
@@ -2875,7 +2867,7 @@
           - Name: LegacyWindowAlias
             Values:
               - SVGPoint
-- File: geometry.idl
+- File: webref/geometry.idl
   Dict:
     Name: DOMPointInit
     Fields:
@@ -2895,7 +2887,7 @@
         Default: "1"
         Type:
           Name: unrestricted double
-- File: geometry.idl
+- File: webref/geometry.idl
   Interface:
     Name: DOMPointReadOnly
     ExtAttrs:
@@ -3017,7 +3009,7 @@
               - Window
               - Worker
           - Name: Serializable
-- File: geometry.idl
+- File: webref/geometry.idl
   Interface:
     Name: DOMQuad
     ExtAttrs:
@@ -3154,7 +3146,7 @@
               - Window
               - Worker
           - Name: Serializable
-- File: geometry.idl
+- File: webref/geometry.idl
   Dict:
     Name: DOMQuadInit
     Fields:

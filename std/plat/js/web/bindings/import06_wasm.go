@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web constof_BiquadFilterType
 //go:noescape
@@ -85,11 +83,11 @@ func GetAudioParamMaxValue(
 
 //go:wasmimport plat/js/web has_AudioParam_SetValueAtTime
 //go:noescape
-func HasAudioParamSetValueAtTime(this js.Ref) js.Ref
+func HasFuncAudioParamSetValueAtTime(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioParam_SetValueAtTime
 //go:noescape
-func AudioParamSetValueAtTimeFunc(this js.Ref) js.Ref
+func FuncAudioParamSetValueAtTime(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioParam_SetValueAtTime
 //go:noescape
@@ -107,11 +105,11 @@ func TryAudioParamSetValueAtTime(
 
 //go:wasmimport plat/js/web has_AudioParam_LinearRampToValueAtTime
 //go:noescape
-func HasAudioParamLinearRampToValueAtTime(this js.Ref) js.Ref
+func HasFuncAudioParamLinearRampToValueAtTime(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioParam_LinearRampToValueAtTime
 //go:noescape
-func AudioParamLinearRampToValueAtTimeFunc(this js.Ref) js.Ref
+func FuncAudioParamLinearRampToValueAtTime(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioParam_LinearRampToValueAtTime
 //go:noescape
@@ -129,11 +127,11 @@ func TryAudioParamLinearRampToValueAtTime(
 
 //go:wasmimport plat/js/web has_AudioParam_ExponentialRampToValueAtTime
 //go:noescape
-func HasAudioParamExponentialRampToValueAtTime(this js.Ref) js.Ref
+func HasFuncAudioParamExponentialRampToValueAtTime(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioParam_ExponentialRampToValueAtTime
 //go:noescape
-func AudioParamExponentialRampToValueAtTimeFunc(this js.Ref) js.Ref
+func FuncAudioParamExponentialRampToValueAtTime(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioParam_ExponentialRampToValueAtTime
 //go:noescape
@@ -151,11 +149,11 @@ func TryAudioParamExponentialRampToValueAtTime(
 
 //go:wasmimport plat/js/web has_AudioParam_SetTargetAtTime
 //go:noescape
-func HasAudioParamSetTargetAtTime(this js.Ref) js.Ref
+func HasFuncAudioParamSetTargetAtTime(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioParam_SetTargetAtTime
 //go:noescape
-func AudioParamSetTargetAtTimeFunc(this js.Ref) js.Ref
+func FuncAudioParamSetTargetAtTime(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioParam_SetTargetAtTime
 //go:noescape
@@ -175,11 +173,11 @@ func TryAudioParamSetTargetAtTime(
 
 //go:wasmimport plat/js/web has_AudioParam_SetValueCurveAtTime
 //go:noescape
-func HasAudioParamSetValueCurveAtTime(this js.Ref) js.Ref
+func HasFuncAudioParamSetValueCurveAtTime(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioParam_SetValueCurveAtTime
 //go:noescape
-func AudioParamSetValueCurveAtTimeFunc(this js.Ref) js.Ref
+func FuncAudioParamSetValueCurveAtTime(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioParam_SetValueCurveAtTime
 //go:noescape
@@ -199,11 +197,11 @@ func TryAudioParamSetValueCurveAtTime(
 
 //go:wasmimport plat/js/web has_AudioParam_CancelScheduledValues
 //go:noescape
-func HasAudioParamCancelScheduledValues(this js.Ref) js.Ref
+func HasFuncAudioParamCancelScheduledValues(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioParam_CancelScheduledValues
 //go:noescape
-func AudioParamCancelScheduledValuesFunc(this js.Ref) js.Ref
+func FuncAudioParamCancelScheduledValues(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioParam_CancelScheduledValues
 //go:noescape
@@ -219,11 +217,11 @@ func TryAudioParamCancelScheduledValues(
 
 //go:wasmimport plat/js/web has_AudioParam_CancelAndHoldAtTime
 //go:noescape
-func HasAudioParamCancelAndHoldAtTime(this js.Ref) js.Ref
+func HasFuncAudioParamCancelAndHoldAtTime(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioParam_CancelAndHoldAtTime
 //go:noescape
-func AudioParamCancelAndHoldAtTimeFunc(this js.Ref) js.Ref
+func FuncAudioParamCancelAndHoldAtTime(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioParam_CancelAndHoldAtTime
 //go:noescape
@@ -282,11 +280,11 @@ func GetBiquadFilterNodeGain(
 
 //go:wasmimport plat/js/web has_BiquadFilterNode_GetFrequencyResponse
 //go:noescape
-func HasBiquadFilterNodeGetFrequencyResponse(this js.Ref) js.Ref
+func HasFuncBiquadFilterNodeGetFrequencyResponse(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BiquadFilterNode_GetFrequencyResponse
 //go:noescape
-func BiquadFilterNodeGetFrequencyResponseFunc(this js.Ref) js.Ref
+func FuncBiquadFilterNodeGetFrequencyResponse(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BiquadFilterNode_GetFrequencyResponse
 //go:noescape
@@ -341,11 +339,11 @@ func GetAudioBufferNumberOfChannels(
 
 //go:wasmimport plat/js/web has_AudioBuffer_GetChannelData
 //go:noescape
-func HasAudioBufferGetChannelData(this js.Ref) js.Ref
+func HasFuncAudioBufferGetChannelData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioBuffer_GetChannelData
 //go:noescape
-func AudioBufferGetChannelDataFunc(this js.Ref) js.Ref
+func FuncAudioBufferGetChannelData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioBuffer_GetChannelData
 //go:noescape
@@ -361,11 +359,11 @@ func TryAudioBufferGetChannelData(
 
 //go:wasmimport plat/js/web has_AudioBuffer_CopyFromChannel
 //go:noescape
-func HasAudioBufferCopyFromChannel(this js.Ref) js.Ref
+func HasFuncAudioBufferCopyFromChannel(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioBuffer_CopyFromChannel
 //go:noescape
-func AudioBufferCopyFromChannelFunc(this js.Ref) js.Ref
+func FuncAudioBufferCopyFromChannel(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioBuffer_CopyFromChannel
 //go:noescape
@@ -385,11 +383,11 @@ func TryAudioBufferCopyFromChannel(
 
 //go:wasmimport plat/js/web has_AudioBuffer_CopyFromChannel1
 //go:noescape
-func HasAudioBufferCopyFromChannel1(this js.Ref) js.Ref
+func HasFuncAudioBufferCopyFromChannel1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioBuffer_CopyFromChannel1
 //go:noescape
-func AudioBufferCopyFromChannel1Func(this js.Ref) js.Ref
+func FuncAudioBufferCopyFromChannel1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioBuffer_CopyFromChannel1
 //go:noescape
@@ -407,11 +405,11 @@ func TryAudioBufferCopyFromChannel1(
 
 //go:wasmimport plat/js/web has_AudioBuffer_CopyToChannel
 //go:noescape
-func HasAudioBufferCopyToChannel(this js.Ref) js.Ref
+func HasFuncAudioBufferCopyToChannel(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioBuffer_CopyToChannel
 //go:noescape
-func AudioBufferCopyToChannelFunc(this js.Ref) js.Ref
+func FuncAudioBufferCopyToChannel(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioBuffer_CopyToChannel
 //go:noescape
@@ -431,11 +429,11 @@ func TryAudioBufferCopyToChannel(
 
 //go:wasmimport plat/js/web has_AudioBuffer_CopyToChannel1
 //go:noescape
-func HasAudioBufferCopyToChannel1(this js.Ref) js.Ref
+func HasFuncAudioBufferCopyToChannel1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioBuffer_CopyToChannel1
 //go:noescape
-func AudioBufferCopyToChannel1Func(this js.Ref) js.Ref
+func FuncAudioBufferCopyToChannel1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioBuffer_CopyToChannel1
 //go:noescape
@@ -532,11 +530,11 @@ func SetAudioBufferSourceNodeLoopEnd(
 
 //go:wasmimport plat/js/web has_AudioBufferSourceNode_Start
 //go:noescape
-func HasAudioBufferSourceNodeStart(this js.Ref) js.Ref
+func HasFuncAudioBufferSourceNodeStart(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioBufferSourceNode_Start
 //go:noescape
-func AudioBufferSourceNodeStartFunc(this js.Ref) js.Ref
+func FuncAudioBufferSourceNodeStart(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioBufferSourceNode_Start
 //go:noescape
@@ -556,11 +554,11 @@ func TryAudioBufferSourceNodeStart(
 
 //go:wasmimport plat/js/web has_AudioBufferSourceNode_Start1
 //go:noescape
-func HasAudioBufferSourceNodeStart1(this js.Ref) js.Ref
+func HasFuncAudioBufferSourceNodeStart1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioBufferSourceNode_Start1
 //go:noescape
-func AudioBufferSourceNodeStart1Func(this js.Ref) js.Ref
+func FuncAudioBufferSourceNodeStart1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioBufferSourceNode_Start1
 //go:noescape
@@ -578,11 +576,11 @@ func TryAudioBufferSourceNodeStart1(
 
 //go:wasmimport plat/js/web has_AudioBufferSourceNode_Start2
 //go:noescape
-func HasAudioBufferSourceNodeStart2(this js.Ref) js.Ref
+func HasFuncAudioBufferSourceNodeStart2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioBufferSourceNode_Start2
 //go:noescape
-func AudioBufferSourceNodeStart2Func(this js.Ref) js.Ref
+func FuncAudioBufferSourceNodeStart2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioBufferSourceNode_Start2
 //go:noescape
@@ -598,11 +596,11 @@ func TryAudioBufferSourceNodeStart2(
 
 //go:wasmimport plat/js/web has_AudioBufferSourceNode_Start3
 //go:noescape
-func HasAudioBufferSourceNodeStart3(this js.Ref) js.Ref
+func HasFuncAudioBufferSourceNodeStart3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioBufferSourceNode_Start3
 //go:noescape
-func AudioBufferSourceNodeStart3Func(this js.Ref) js.Ref
+func FuncAudioBufferSourceNodeStart3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioBufferSourceNode_Start3
 //go:noescape
@@ -848,11 +846,11 @@ func NewIIRFilterNodeByIIRFilterNode(
 
 //go:wasmimport plat/js/web has_IIRFilterNode_GetFrequencyResponse
 //go:noescape
-func HasIIRFilterNodeGetFrequencyResponse(this js.Ref) js.Ref
+func HasFuncIIRFilterNodeGetFrequencyResponse(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IIRFilterNode_GetFrequencyResponse
 //go:noescape
-func IIRFilterNodeGetFrequencyResponseFunc(this js.Ref) js.Ref
+func FuncIIRFilterNodeGetFrequencyResponse(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IIRFilterNode_GetFrequencyResponse
 //go:noescape
@@ -940,11 +938,11 @@ func GetOscillatorNodeDetune(
 
 //go:wasmimport plat/js/web has_OscillatorNode_SetPeriodicWave
 //go:noescape
-func HasOscillatorNodeSetPeriodicWave(this js.Ref) js.Ref
+func HasFuncOscillatorNodeSetPeriodicWave(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OscillatorNode_SetPeriodicWave
 //go:noescape
-func OscillatorNodeSetPeriodicWaveFunc(this js.Ref) js.Ref
+func FuncOscillatorNodeSetPeriodicWave(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OscillatorNode_SetPeriodicWave
 //go:noescape
@@ -1115,11 +1113,11 @@ func SetPannerNodeConeOuterGain(
 
 //go:wasmimport plat/js/web has_PannerNode_SetPosition
 //go:noescape
-func HasPannerNodeSetPosition(this js.Ref) js.Ref
+func HasFuncPannerNodeSetPosition(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PannerNode_SetPosition
 //go:noescape
-func PannerNodeSetPositionFunc(this js.Ref) js.Ref
+func FuncPannerNodeSetPosition(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PannerNode_SetPosition
 //go:noescape
@@ -1139,11 +1137,11 @@ func TryPannerNodeSetPosition(
 
 //go:wasmimport plat/js/web has_PannerNode_SetOrientation
 //go:noescape
-func HasPannerNodeSetOrientation(this js.Ref) js.Ref
+func HasFuncPannerNodeSetOrientation(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PannerNode_SetOrientation
 //go:noescape
-func PannerNodeSetOrientationFunc(this js.Ref) js.Ref
+func FuncPannerNodeSetOrientation(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PannerNode_SetOrientation
 //go:noescape

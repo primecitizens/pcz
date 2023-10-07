@@ -1,0 +1,90 @@
+- File: webext/power.idl
+  Enum:
+    Name: Level
+    Values:
+      - system
+      - display
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - power
+- File: webext/power.idl
+  Callback:
+    Name: VoidCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - power
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - power
+- File: webext/power.idl
+  WebextFunc:
+    Name: releaseKeepAwake
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - power
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - power
+- File: webext/power.idl
+  WebextFunc:
+    Name: reportActivity
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - power
+- File: webext/power.idl
+  WebextFunc:
+    Name: requestKeepAwake
+    Modifier: static
+    Args:
+      - Name: level
+        Type:
+          Name: Level
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - power
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - power
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - power
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - power

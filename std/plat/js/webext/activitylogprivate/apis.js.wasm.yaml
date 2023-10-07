@@ -1,0 +1,409 @@
+- File: webext/chrome/activity_log_private.json
+  Dict:
+    Name: ActivityResultSet
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - activityLogPrivate
+    Fields:
+      - Name: activities
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: ExtensionActivity
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - activityLogPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - activityLogPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - activityLogPrivate
+- File: webext/chrome/activity_log_private.json
+  Dict:
+    Name: ExtensionActivity
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - activityLogPrivate
+    Fields:
+      - Name: activityId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - activityLogPrivate
+      - Name: activityType
+        Required: true
+        Type:
+          Name: ExtensionActivityType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - activityLogPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - activityLogPrivate
+      - Name: apiCall
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - activityLogPrivate
+      - Name: argUrl
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - activityLogPrivate
+      - Name: args
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - activityLogPrivate
+      - Name: count
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - activityLogPrivate
+      - Name: extensionId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - activityLogPrivate
+      - Name: other
+        Type:
+          Name: ExtensionActivityFieldOther
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - activityLogPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - activityLogPrivate
+      - Name: pageTitle
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - activityLogPrivate
+      - Name: pageUrl
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - activityLogPrivate
+      - Name: time
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - activityLogPrivate
+- File: webext/chrome/activity_log_private.json
+  Enum:
+    Name: ExtensionActivityDomVerb
+    Values:
+      - getter
+      - setter
+      - method
+      - inserted
+      - xhr
+      - webrequest
+      - modified
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - activityLogPrivate
+- File: webext/chrome/activity_log_private.json
+  Dict:
+    Name: ExtensionActivityFieldOther
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - activityLogPrivate
+    Fields:
+      - Name: domVerb
+        Type:
+          Name: ExtensionActivityDomVerb
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - activityLogPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - activityLogPrivate
+      - Name: extra
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - activityLogPrivate
+      - Name: prerender
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - activityLogPrivate
+      - Name: webRequest
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - activityLogPrivate
+- File: webext/chrome/activity_log_private.json
+  Enum:
+    Name: ExtensionActivityFilter
+    Values:
+      - api_call
+      - api_event
+      - content_script
+      - dom_access
+      - dom_event
+      - web_request
+      - any
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - activityLogPrivate
+- File: webext/chrome/activity_log_private.json
+  Enum:
+    Name: ExtensionActivityType
+    Values:
+      - api_call
+      - api_event
+      - content_script
+      - dom_access
+      - dom_event
+      - web_request
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - activityLogPrivate
+- File: webext/chrome/activity_log_private.json
+  Dict:
+    Name: Filter
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - activityLogPrivate
+    Fields:
+      - Name: activityType
+        Required: true
+        Type:
+          Name: ExtensionActivityFilter
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - activityLogPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - activityLogPrivate
+      - Name: apiCall
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - activityLogPrivate
+      - Name: argUrl
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - activityLogPrivate
+      - Name: daysAgo
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - activityLogPrivate
+      - Name: extensionId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - activityLogPrivate
+      - Name: pageUrl
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - activityLogPrivate
+- File: webext/chrome/activity_log_private.json
+  WebextFunc:
+    Name: deleteActivities
+    Args:
+      - Name: activityIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - activityLogPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - activityLogPrivate
+- File: webext/chrome/activity_log_private.json
+  WebextFunc:
+    Name: deleteActivitiesByExtension
+    Args:
+      - Name: extensionId
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - activityLogPrivate
+- File: webext/chrome/activity_log_private.json
+  WebextFunc:
+    Name: deleteDatabase
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - activityLogPrivate
+- File: webext/chrome/activity_log_private.json
+  WebextFunc:
+    Name: deleteUrls
+    Args:
+      - Name: urls
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - activityLogPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - activityLogPrivate
+- File: webext/chrome/activity_log_private.json
+  WebextFunc:
+    Name: getExtensionActivities
+    Args:
+      - Name: filter
+        Type:
+          Name: Filter
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - activityLogPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ActivityResultSet
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - activityLogPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - activityLogPrivate
+- File: webext/chrome/activity_log_private.json
+  WebextEvent:
+    Name: onExtensionActivity
+    Args:
+      - Name: activity
+        Type:
+          Name: ExtensionActivity
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - activityLogPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - activityLogPrivate

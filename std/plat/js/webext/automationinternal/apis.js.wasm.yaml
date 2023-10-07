@@ -1,0 +1,1120 @@
+- File: webext/automation_internal.idl
+  Dict:
+    Name: AXEventParams
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+      - Name: nocompile
+    Fields:
+      - Name: treeID
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: targetID
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: eventType
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: eventFrom
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: mouseX
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: mouseY
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: actionRequestID
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+- File: webext/automation_internal.idl
+  Dict:
+    Name: AXTextLocationParams
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+    Fields:
+      - Name: treeID
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: nodeID
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: result
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: left
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: top
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: width
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: height
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: requestID
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+- File: webext/automation_internal.idl
+  Callback:
+    Name: DisableDesktopCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+- File: webext/automation_internal.idl
+  Callback:
+    Name: EnableDesktopCallback
+    Args:
+      - Name: tree_id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+- File: webext/automation_internal.idl
+  Dict:
+    Name: GetImageDataParams
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+    Fields:
+      - Name: maxWidth
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: maxHeight
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+- File: webext/automation_internal.idl
+  Dict:
+    Name: GetTextLocationDataParams
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+    Fields:
+      - Name: startIndex
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: endIndex
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+- File: webext/automation_internal.idl
+  Dict:
+    Name: HitTestParams
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+    Fields:
+      - Name: x
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: "y"
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: eventToFire
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+- File: webext/automation_internal.idl
+  Dict:
+    Name: PerformActionRequiredParams
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+    Fields:
+      - Name: treeID
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: automationNodeID
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: actionType
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: requestID
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+- File: webext/automation_internal.idl
+  Dict:
+    Name: PerformCustomActionParams
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+    Fields:
+      - Name: customActionID
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+- File: webext/automation_internal.idl
+  Dict:
+    Name: ReplaceSelectedTextParams
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+    Fields:
+      - Name: value
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+- File: webext/automation_internal.idl
+  Dict:
+    Name: ScrollToPointParams
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+    Fields:
+      - Name: x
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: "y"
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+- File: webext/automation_internal.idl
+  Dict:
+    Name: ScrollToPositionAtRowColumnParams
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+    Fields:
+      - Name: row
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: column
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+- File: webext/automation_internal.idl
+  Dict:
+    Name: SetScrollOffsetParams
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+    Fields:
+      - Name: x
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: "y"
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+- File: webext/automation_internal.idl
+  Dict:
+    Name: SetSelectionParams
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+    Fields:
+      - Name: focusNodeID
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: anchorOffset
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: focusOffset
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+- File: webext/automation_internal.idl
+  Dict:
+    Name: SetValueParams
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+    Fields:
+      - Name: value
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+- File: webext/automation_internal.idl
+  WebextFunc:
+    Name: disableDesktop
+    Modifier: static
+    Args:
+      - Name: callback
+        Type:
+          Name: DisableDesktopCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+- File: webext/automation_internal.idl
+  WebextFunc:
+    Name: enableDesktop
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automationInternal
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+- File: webext/automation_internal.idl
+  WebextFunc:
+    Name: enableTree
+    Modifier: static
+    Args:
+      - Name: tree_id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+- File: webext/automation_internal.idl
+  WebextEvent:
+    Name: onAccessibilityEvent
+    Modifier: static
+    Args:
+      - Name: update
+        Type:
+          Name: AXEventParams
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+- File: webext/automation_internal.idl
+  WebextEvent:
+    Name: onAccessibilityTreeDestroyed
+    Modifier: static
+    Args:
+      - Name: treeID
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+- File: webext/automation_internal.idl
+  WebextEvent:
+    Name: onAccessibilityTreeSerializationError
+    Modifier: static
+    Args:
+      - Name: treeID
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+- File: webext/automation_internal.idl
+  WebextEvent:
+    Name: onActionResult
+    Modifier: static
+    Args:
+      - Name: treeID
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: requestID
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: result
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+- File: webext/automation_internal.idl
+  WebextEvent:
+    Name: onAllAutomationEventListenersRemoved
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+- File: webext/automation_internal.idl
+  WebextEvent:
+    Name: onChildTreeID
+    Modifier: static
+    Args:
+      - Name: treeID
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+- File: webext/automation_internal.idl
+  WebextEvent:
+    Name: onGetTextLocationResult
+    Modifier: static
+    Args:
+      - Name: params
+        Type:
+          Name: AXTextLocationParams
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+- File: webext/automation_internal.idl
+  WebextEvent:
+    Name: onNodesRemoved
+    Modifier: static
+    Args:
+      - Name: treeID
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: nodeIDs
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automationInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+- File: webext/automation_internal.idl
+  WebextEvent:
+    Name: onTreeChange
+    Modifier: static
+    Args:
+      - Name: observerID
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: treeID
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: nodeID
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: changeType
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal
+- File: webext/automation_internal.idl
+  WebextFunc:
+    Name: performAction
+    Modifier: static
+    Args:
+      - Name: args
+        Type:
+          Name: PerformActionRequiredParams
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+      - Name: opt_args
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automationInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automationInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automationInternal

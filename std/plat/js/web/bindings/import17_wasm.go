@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web get_GPURenderPassEncoder_Label
 //go:noescape
@@ -32,11 +30,11 @@ func SetGPURenderPassEncoderLabel(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_SetViewport
 //go:noescape
-func HasGPURenderPassEncoderSetViewport(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderSetViewport(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_SetViewport
 //go:noescape
-func GPURenderPassEncoderSetViewportFunc(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderSetViewport(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_SetViewport
 //go:noescape
@@ -62,11 +60,11 @@ func TryGPURenderPassEncoderSetViewport(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_SetScissorRect
 //go:noescape
-func HasGPURenderPassEncoderSetScissorRect(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderSetScissorRect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_SetScissorRect
 //go:noescape
-func GPURenderPassEncoderSetScissorRectFunc(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderSetScissorRect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_SetScissorRect
 //go:noescape
@@ -88,11 +86,11 @@ func TryGPURenderPassEncoderSetScissorRect(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_SetBlendConstant
 //go:noescape
-func HasGPURenderPassEncoderSetBlendConstant(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderSetBlendConstant(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_SetBlendConstant
 //go:noescape
-func GPURenderPassEncoderSetBlendConstantFunc(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderSetBlendConstant(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_SetBlendConstant
 //go:noescape
@@ -108,11 +106,11 @@ func TryGPURenderPassEncoderSetBlendConstant(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_SetStencilReference
 //go:noescape
-func HasGPURenderPassEncoderSetStencilReference(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderSetStencilReference(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_SetStencilReference
 //go:noescape
-func GPURenderPassEncoderSetStencilReferenceFunc(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderSetStencilReference(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_SetStencilReference
 //go:noescape
@@ -128,11 +126,11 @@ func TryGPURenderPassEncoderSetStencilReference(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_BeginOcclusionQuery
 //go:noescape
-func HasGPURenderPassEncoderBeginOcclusionQuery(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderBeginOcclusionQuery(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_BeginOcclusionQuery
 //go:noescape
-func GPURenderPassEncoderBeginOcclusionQueryFunc(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderBeginOcclusionQuery(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_BeginOcclusionQuery
 //go:noescape
@@ -148,11 +146,11 @@ func TryGPURenderPassEncoderBeginOcclusionQuery(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_EndOcclusionQuery
 //go:noescape
-func HasGPURenderPassEncoderEndOcclusionQuery(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderEndOcclusionQuery(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_EndOcclusionQuery
 //go:noescape
-func GPURenderPassEncoderEndOcclusionQueryFunc(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderEndOcclusionQuery(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_EndOcclusionQuery
 //go:noescape
@@ -166,11 +164,11 @@ func TryGPURenderPassEncoderEndOcclusionQuery(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_ExecuteBundles
 //go:noescape
-func HasGPURenderPassEncoderExecuteBundles(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderExecuteBundles(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_ExecuteBundles
 //go:noescape
-func GPURenderPassEncoderExecuteBundlesFunc(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderExecuteBundles(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_ExecuteBundles
 //go:noescape
@@ -186,11 +184,11 @@ func TryGPURenderPassEncoderExecuteBundles(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_End
 //go:noescape
-func HasGPURenderPassEncoderEnd(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderEnd(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_End
 //go:noescape
-func GPURenderPassEncoderEndFunc(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderEnd(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_End
 //go:noescape
@@ -204,11 +202,11 @@ func TryGPURenderPassEncoderEnd(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_SetPipeline
 //go:noescape
-func HasGPURenderPassEncoderSetPipeline(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderSetPipeline(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_SetPipeline
 //go:noescape
-func GPURenderPassEncoderSetPipelineFunc(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderSetPipeline(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_SetPipeline
 //go:noescape
@@ -224,11 +222,11 @@ func TryGPURenderPassEncoderSetPipeline(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_SetIndexBuffer
 //go:noescape
-func HasGPURenderPassEncoderSetIndexBuffer(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderSetIndexBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_SetIndexBuffer
 //go:noescape
-func GPURenderPassEncoderSetIndexBufferFunc(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderSetIndexBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_SetIndexBuffer
 //go:noescape
@@ -250,11 +248,11 @@ func TryGPURenderPassEncoderSetIndexBuffer(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_SetIndexBuffer1
 //go:noescape
-func HasGPURenderPassEncoderSetIndexBuffer1(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderSetIndexBuffer1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_SetIndexBuffer1
 //go:noescape
-func GPURenderPassEncoderSetIndexBuffer1Func(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderSetIndexBuffer1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_SetIndexBuffer1
 //go:noescape
@@ -274,11 +272,11 @@ func TryGPURenderPassEncoderSetIndexBuffer1(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_SetIndexBuffer2
 //go:noescape
-func HasGPURenderPassEncoderSetIndexBuffer2(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderSetIndexBuffer2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_SetIndexBuffer2
 //go:noescape
-func GPURenderPassEncoderSetIndexBuffer2Func(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderSetIndexBuffer2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_SetIndexBuffer2
 //go:noescape
@@ -296,11 +294,11 @@ func TryGPURenderPassEncoderSetIndexBuffer2(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_SetVertexBuffer
 //go:noescape
-func HasGPURenderPassEncoderSetVertexBuffer(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderSetVertexBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_SetVertexBuffer
 //go:noescape
-func GPURenderPassEncoderSetVertexBufferFunc(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderSetVertexBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_SetVertexBuffer
 //go:noescape
@@ -322,11 +320,11 @@ func TryGPURenderPassEncoderSetVertexBuffer(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_SetVertexBuffer1
 //go:noescape
-func HasGPURenderPassEncoderSetVertexBuffer1(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderSetVertexBuffer1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_SetVertexBuffer1
 //go:noescape
-func GPURenderPassEncoderSetVertexBuffer1Func(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderSetVertexBuffer1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_SetVertexBuffer1
 //go:noescape
@@ -346,11 +344,11 @@ func TryGPURenderPassEncoderSetVertexBuffer1(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_SetVertexBuffer2
 //go:noescape
-func HasGPURenderPassEncoderSetVertexBuffer2(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderSetVertexBuffer2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_SetVertexBuffer2
 //go:noescape
-func GPURenderPassEncoderSetVertexBuffer2Func(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderSetVertexBuffer2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_SetVertexBuffer2
 //go:noescape
@@ -368,11 +366,11 @@ func TryGPURenderPassEncoderSetVertexBuffer2(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_Draw
 //go:noescape
-func HasGPURenderPassEncoderDraw(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderDraw(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_Draw
 //go:noescape
-func GPURenderPassEncoderDrawFunc(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderDraw(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_Draw
 //go:noescape
@@ -394,11 +392,11 @@ func TryGPURenderPassEncoderDraw(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_Draw1
 //go:noescape
-func HasGPURenderPassEncoderDraw1(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderDraw1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_Draw1
 //go:noescape
-func GPURenderPassEncoderDraw1Func(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderDraw1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_Draw1
 //go:noescape
@@ -418,11 +416,11 @@ func TryGPURenderPassEncoderDraw1(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_Draw2
 //go:noescape
-func HasGPURenderPassEncoderDraw2(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderDraw2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_Draw2
 //go:noescape
-func GPURenderPassEncoderDraw2Func(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderDraw2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_Draw2
 //go:noescape
@@ -440,11 +438,11 @@ func TryGPURenderPassEncoderDraw2(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_Draw3
 //go:noescape
-func HasGPURenderPassEncoderDraw3(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderDraw3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_Draw3
 //go:noescape
-func GPURenderPassEncoderDraw3Func(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderDraw3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_Draw3
 //go:noescape
@@ -460,11 +458,11 @@ func TryGPURenderPassEncoderDraw3(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_DrawIndexed
 //go:noescape
-func HasGPURenderPassEncoderDrawIndexed(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderDrawIndexed(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_DrawIndexed
 //go:noescape
-func GPURenderPassEncoderDrawIndexedFunc(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderDrawIndexed(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_DrawIndexed
 //go:noescape
@@ -488,11 +486,11 @@ func TryGPURenderPassEncoderDrawIndexed(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_DrawIndexed1
 //go:noescape
-func HasGPURenderPassEncoderDrawIndexed1(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderDrawIndexed1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_DrawIndexed1
 //go:noescape
-func GPURenderPassEncoderDrawIndexed1Func(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderDrawIndexed1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_DrawIndexed1
 //go:noescape
@@ -514,11 +512,11 @@ func TryGPURenderPassEncoderDrawIndexed1(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_DrawIndexed2
 //go:noescape
-func HasGPURenderPassEncoderDrawIndexed2(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderDrawIndexed2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_DrawIndexed2
 //go:noescape
-func GPURenderPassEncoderDrawIndexed2Func(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderDrawIndexed2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_DrawIndexed2
 //go:noescape
@@ -538,11 +536,11 @@ func TryGPURenderPassEncoderDrawIndexed2(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_DrawIndexed3
 //go:noescape
-func HasGPURenderPassEncoderDrawIndexed3(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderDrawIndexed3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_DrawIndexed3
 //go:noescape
-func GPURenderPassEncoderDrawIndexed3Func(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderDrawIndexed3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_DrawIndexed3
 //go:noescape
@@ -560,11 +558,11 @@ func TryGPURenderPassEncoderDrawIndexed3(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_DrawIndexed4
 //go:noescape
-func HasGPURenderPassEncoderDrawIndexed4(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderDrawIndexed4(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_DrawIndexed4
 //go:noescape
-func GPURenderPassEncoderDrawIndexed4Func(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderDrawIndexed4(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_DrawIndexed4
 //go:noescape
@@ -580,11 +578,11 @@ func TryGPURenderPassEncoderDrawIndexed4(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_DrawIndirect
 //go:noescape
-func HasGPURenderPassEncoderDrawIndirect(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderDrawIndirect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_DrawIndirect
 //go:noescape
-func GPURenderPassEncoderDrawIndirectFunc(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderDrawIndirect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_DrawIndirect
 //go:noescape
@@ -602,11 +600,11 @@ func TryGPURenderPassEncoderDrawIndirect(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_DrawIndexedIndirect
 //go:noescape
-func HasGPURenderPassEncoderDrawIndexedIndirect(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderDrawIndexedIndirect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_DrawIndexedIndirect
 //go:noescape
-func GPURenderPassEncoderDrawIndexedIndirectFunc(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderDrawIndexedIndirect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_DrawIndexedIndirect
 //go:noescape
@@ -624,11 +622,11 @@ func TryGPURenderPassEncoderDrawIndexedIndirect(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_SetBindGroup
 //go:noescape
-func HasGPURenderPassEncoderSetBindGroup(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderSetBindGroup(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_SetBindGroup
 //go:noescape
-func GPURenderPassEncoderSetBindGroupFunc(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderSetBindGroup(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_SetBindGroup
 //go:noescape
@@ -648,11 +646,11 @@ func TryGPURenderPassEncoderSetBindGroup(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_SetBindGroup1
 //go:noescape
-func HasGPURenderPassEncoderSetBindGroup1(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderSetBindGroup1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_SetBindGroup1
 //go:noescape
-func GPURenderPassEncoderSetBindGroup1Func(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderSetBindGroup1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_SetBindGroup1
 //go:noescape
@@ -670,11 +668,11 @@ func TryGPURenderPassEncoderSetBindGroup1(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_SetBindGroup2
 //go:noescape
-func HasGPURenderPassEncoderSetBindGroup2(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderSetBindGroup2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_SetBindGroup2
 //go:noescape
-func GPURenderPassEncoderSetBindGroup2Func(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderSetBindGroup2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_SetBindGroup2
 //go:noescape
@@ -698,11 +696,11 @@ func TryGPURenderPassEncoderSetBindGroup2(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_PushDebugGroup
 //go:noescape
-func HasGPURenderPassEncoderPushDebugGroup(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderPushDebugGroup(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_PushDebugGroup
 //go:noescape
-func GPURenderPassEncoderPushDebugGroupFunc(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderPushDebugGroup(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_PushDebugGroup
 //go:noescape
@@ -718,11 +716,11 @@ func TryGPURenderPassEncoderPushDebugGroup(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_PopDebugGroup
 //go:noescape
-func HasGPURenderPassEncoderPopDebugGroup(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderPopDebugGroup(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_PopDebugGroup
 //go:noescape
-func GPURenderPassEncoderPopDebugGroupFunc(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderPopDebugGroup(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_PopDebugGroup
 //go:noescape
@@ -736,11 +734,11 @@ func TryGPURenderPassEncoderPopDebugGroup(
 
 //go:wasmimport plat/js/web has_GPURenderPassEncoder_InsertDebugMarker
 //go:noescape
-func HasGPURenderPassEncoderInsertDebugMarker(this js.Ref) js.Ref
+func HasFuncGPURenderPassEncoderInsertDebugMarker(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPassEncoder_InsertDebugMarker
 //go:noescape
-func GPURenderPassEncoderInsertDebugMarkerFunc(this js.Ref) js.Ref
+func FuncGPURenderPassEncoderInsertDebugMarker(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPassEncoder_InsertDebugMarker
 //go:noescape
@@ -810,11 +808,11 @@ func SetGPUQuerySetLabel(
 
 //go:wasmimport plat/js/web has_GPUQuerySet_Destroy
 //go:noescape
-func HasGPUQuerySetDestroy(this js.Ref) js.Ref
+func HasFuncGPUQuerySetDestroy(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUQuerySet_Destroy
 //go:noescape
-func GPUQuerySetDestroyFunc(this js.Ref) js.Ref
+func FuncGPUQuerySetDestroy(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUQuerySet_Destroy
 //go:noescape
@@ -860,11 +858,11 @@ func SetGPUComputePassEncoderLabel(
 
 //go:wasmimport plat/js/web has_GPUComputePassEncoder_SetPipeline
 //go:noescape
-func HasGPUComputePassEncoderSetPipeline(this js.Ref) js.Ref
+func HasFuncGPUComputePassEncoderSetPipeline(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUComputePassEncoder_SetPipeline
 //go:noescape
-func GPUComputePassEncoderSetPipelineFunc(this js.Ref) js.Ref
+func FuncGPUComputePassEncoderSetPipeline(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUComputePassEncoder_SetPipeline
 //go:noescape
@@ -880,11 +878,11 @@ func TryGPUComputePassEncoderSetPipeline(
 
 //go:wasmimport plat/js/web has_GPUComputePassEncoder_DispatchWorkgroups
 //go:noescape
-func HasGPUComputePassEncoderDispatchWorkgroups(this js.Ref) js.Ref
+func HasFuncGPUComputePassEncoderDispatchWorkgroups(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUComputePassEncoder_DispatchWorkgroups
 //go:noescape
-func GPUComputePassEncoderDispatchWorkgroupsFunc(this js.Ref) js.Ref
+func FuncGPUComputePassEncoderDispatchWorkgroups(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUComputePassEncoder_DispatchWorkgroups
 //go:noescape
@@ -904,11 +902,11 @@ func TryGPUComputePassEncoderDispatchWorkgroups(
 
 //go:wasmimport plat/js/web has_GPUComputePassEncoder_DispatchWorkgroups1
 //go:noescape
-func HasGPUComputePassEncoderDispatchWorkgroups1(this js.Ref) js.Ref
+func HasFuncGPUComputePassEncoderDispatchWorkgroups1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUComputePassEncoder_DispatchWorkgroups1
 //go:noescape
-func GPUComputePassEncoderDispatchWorkgroups1Func(this js.Ref) js.Ref
+func FuncGPUComputePassEncoderDispatchWorkgroups1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUComputePassEncoder_DispatchWorkgroups1
 //go:noescape
@@ -926,11 +924,11 @@ func TryGPUComputePassEncoderDispatchWorkgroups1(
 
 //go:wasmimport plat/js/web has_GPUComputePassEncoder_DispatchWorkgroups2
 //go:noescape
-func HasGPUComputePassEncoderDispatchWorkgroups2(this js.Ref) js.Ref
+func HasFuncGPUComputePassEncoderDispatchWorkgroups2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUComputePassEncoder_DispatchWorkgroups2
 //go:noescape
-func GPUComputePassEncoderDispatchWorkgroups2Func(this js.Ref) js.Ref
+func FuncGPUComputePassEncoderDispatchWorkgroups2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUComputePassEncoder_DispatchWorkgroups2
 //go:noescape
@@ -946,11 +944,11 @@ func TryGPUComputePassEncoderDispatchWorkgroups2(
 
 //go:wasmimport plat/js/web has_GPUComputePassEncoder_DispatchWorkgroupsIndirect
 //go:noescape
-func HasGPUComputePassEncoderDispatchWorkgroupsIndirect(this js.Ref) js.Ref
+func HasFuncGPUComputePassEncoderDispatchWorkgroupsIndirect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUComputePassEncoder_DispatchWorkgroupsIndirect
 //go:noescape
-func GPUComputePassEncoderDispatchWorkgroupsIndirectFunc(this js.Ref) js.Ref
+func FuncGPUComputePassEncoderDispatchWorkgroupsIndirect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUComputePassEncoder_DispatchWorkgroupsIndirect
 //go:noescape
@@ -968,11 +966,11 @@ func TryGPUComputePassEncoderDispatchWorkgroupsIndirect(
 
 //go:wasmimport plat/js/web has_GPUComputePassEncoder_End
 //go:noescape
-func HasGPUComputePassEncoderEnd(this js.Ref) js.Ref
+func HasFuncGPUComputePassEncoderEnd(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUComputePassEncoder_End
 //go:noescape
-func GPUComputePassEncoderEndFunc(this js.Ref) js.Ref
+func FuncGPUComputePassEncoderEnd(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUComputePassEncoder_End
 //go:noescape
@@ -986,11 +984,11 @@ func TryGPUComputePassEncoderEnd(
 
 //go:wasmimport plat/js/web has_GPUComputePassEncoder_PushDebugGroup
 //go:noescape
-func HasGPUComputePassEncoderPushDebugGroup(this js.Ref) js.Ref
+func HasFuncGPUComputePassEncoderPushDebugGroup(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUComputePassEncoder_PushDebugGroup
 //go:noescape
-func GPUComputePassEncoderPushDebugGroupFunc(this js.Ref) js.Ref
+func FuncGPUComputePassEncoderPushDebugGroup(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUComputePassEncoder_PushDebugGroup
 //go:noescape
@@ -1006,11 +1004,11 @@ func TryGPUComputePassEncoderPushDebugGroup(
 
 //go:wasmimport plat/js/web has_GPUComputePassEncoder_PopDebugGroup
 //go:noescape
-func HasGPUComputePassEncoderPopDebugGroup(this js.Ref) js.Ref
+func HasFuncGPUComputePassEncoderPopDebugGroup(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUComputePassEncoder_PopDebugGroup
 //go:noescape
-func GPUComputePassEncoderPopDebugGroupFunc(this js.Ref) js.Ref
+func FuncGPUComputePassEncoderPopDebugGroup(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUComputePassEncoder_PopDebugGroup
 //go:noescape
@@ -1024,11 +1022,11 @@ func TryGPUComputePassEncoderPopDebugGroup(
 
 //go:wasmimport plat/js/web has_GPUComputePassEncoder_InsertDebugMarker
 //go:noescape
-func HasGPUComputePassEncoderInsertDebugMarker(this js.Ref) js.Ref
+func HasFuncGPUComputePassEncoderInsertDebugMarker(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUComputePassEncoder_InsertDebugMarker
 //go:noescape
-func GPUComputePassEncoderInsertDebugMarkerFunc(this js.Ref) js.Ref
+func FuncGPUComputePassEncoderInsertDebugMarker(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUComputePassEncoder_InsertDebugMarker
 //go:noescape
@@ -1044,11 +1042,11 @@ func TryGPUComputePassEncoderInsertDebugMarker(
 
 //go:wasmimport plat/js/web has_GPUComputePassEncoder_SetBindGroup
 //go:noescape
-func HasGPUComputePassEncoderSetBindGroup(this js.Ref) js.Ref
+func HasFuncGPUComputePassEncoderSetBindGroup(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUComputePassEncoder_SetBindGroup
 //go:noescape
-func GPUComputePassEncoderSetBindGroupFunc(this js.Ref) js.Ref
+func FuncGPUComputePassEncoderSetBindGroup(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUComputePassEncoder_SetBindGroup
 //go:noescape
@@ -1068,11 +1066,11 @@ func TryGPUComputePassEncoderSetBindGroup(
 
 //go:wasmimport plat/js/web has_GPUComputePassEncoder_SetBindGroup1
 //go:noescape
-func HasGPUComputePassEncoderSetBindGroup1(this js.Ref) js.Ref
+func HasFuncGPUComputePassEncoderSetBindGroup1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUComputePassEncoder_SetBindGroup1
 //go:noescape
-func GPUComputePassEncoderSetBindGroup1Func(this js.Ref) js.Ref
+func FuncGPUComputePassEncoderSetBindGroup1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUComputePassEncoder_SetBindGroup1
 //go:noescape
@@ -1090,11 +1088,11 @@ func TryGPUComputePassEncoderSetBindGroup1(
 
 //go:wasmimport plat/js/web has_GPUComputePassEncoder_SetBindGroup2
 //go:noescape
-func HasGPUComputePassEncoderSetBindGroup2(this js.Ref) js.Ref
+func HasFuncGPUComputePassEncoderSetBindGroup2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUComputePassEncoder_SetBindGroup2
 //go:noescape
-func GPUComputePassEncoderSetBindGroup2Func(this js.Ref) js.Ref
+func FuncGPUComputePassEncoderSetBindGroup2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUComputePassEncoder_SetBindGroup2
 //go:noescape
@@ -1202,11 +1200,11 @@ func SetGPUCommandEncoderLabel(
 
 //go:wasmimport plat/js/web has_GPUCommandEncoder_BeginRenderPass
 //go:noescape
-func HasGPUCommandEncoderBeginRenderPass(this js.Ref) js.Ref
+func HasFuncGPUCommandEncoderBeginRenderPass(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUCommandEncoder_BeginRenderPass
 //go:noescape
-func GPUCommandEncoderBeginRenderPassFunc(this js.Ref) js.Ref
+func FuncGPUCommandEncoderBeginRenderPass(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUCommandEncoder_BeginRenderPass
 //go:noescape
@@ -1222,11 +1220,11 @@ func TryGPUCommandEncoderBeginRenderPass(
 
 //go:wasmimport plat/js/web has_GPUCommandEncoder_BeginComputePass
 //go:noescape
-func HasGPUCommandEncoderBeginComputePass(this js.Ref) js.Ref
+func HasFuncGPUCommandEncoderBeginComputePass(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUCommandEncoder_BeginComputePass
 //go:noescape
-func GPUCommandEncoderBeginComputePassFunc(this js.Ref) js.Ref
+func FuncGPUCommandEncoderBeginComputePass(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUCommandEncoder_BeginComputePass
 //go:noescape
@@ -1242,11 +1240,11 @@ func TryGPUCommandEncoderBeginComputePass(
 
 //go:wasmimport plat/js/web has_GPUCommandEncoder_BeginComputePass1
 //go:noescape
-func HasGPUCommandEncoderBeginComputePass1(this js.Ref) js.Ref
+func HasFuncGPUCommandEncoderBeginComputePass1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUCommandEncoder_BeginComputePass1
 //go:noescape
-func GPUCommandEncoderBeginComputePass1Func(this js.Ref) js.Ref
+func FuncGPUCommandEncoderBeginComputePass1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUCommandEncoder_BeginComputePass1
 //go:noescape
@@ -1260,11 +1258,11 @@ func TryGPUCommandEncoderBeginComputePass1(
 
 //go:wasmimport plat/js/web has_GPUCommandEncoder_CopyBufferToBuffer
 //go:noescape
-func HasGPUCommandEncoderCopyBufferToBuffer(this js.Ref) js.Ref
+func HasFuncGPUCommandEncoderCopyBufferToBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUCommandEncoder_CopyBufferToBuffer
 //go:noescape
-func GPUCommandEncoderCopyBufferToBufferFunc(this js.Ref) js.Ref
+func FuncGPUCommandEncoderCopyBufferToBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUCommandEncoder_CopyBufferToBuffer
 //go:noescape
@@ -1288,11 +1286,11 @@ func TryGPUCommandEncoderCopyBufferToBuffer(
 
 //go:wasmimport plat/js/web has_GPUCommandEncoder_CopyBufferToTexture
 //go:noescape
-func HasGPUCommandEncoderCopyBufferToTexture(this js.Ref) js.Ref
+func HasFuncGPUCommandEncoderCopyBufferToTexture(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUCommandEncoder_CopyBufferToTexture
 //go:noescape
-func GPUCommandEncoderCopyBufferToTextureFunc(this js.Ref) js.Ref
+func FuncGPUCommandEncoderCopyBufferToTexture(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUCommandEncoder_CopyBufferToTexture
 //go:noescape
@@ -1312,11 +1310,11 @@ func TryGPUCommandEncoderCopyBufferToTexture(
 
 //go:wasmimport plat/js/web has_GPUCommandEncoder_CopyTextureToBuffer
 //go:noescape
-func HasGPUCommandEncoderCopyTextureToBuffer(this js.Ref) js.Ref
+func HasFuncGPUCommandEncoderCopyTextureToBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUCommandEncoder_CopyTextureToBuffer
 //go:noescape
-func GPUCommandEncoderCopyTextureToBufferFunc(this js.Ref) js.Ref
+func FuncGPUCommandEncoderCopyTextureToBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUCommandEncoder_CopyTextureToBuffer
 //go:noescape
@@ -1336,11 +1334,11 @@ func TryGPUCommandEncoderCopyTextureToBuffer(
 
 //go:wasmimport plat/js/web has_GPUCommandEncoder_CopyTextureToTexture
 //go:noescape
-func HasGPUCommandEncoderCopyTextureToTexture(this js.Ref) js.Ref
+func HasFuncGPUCommandEncoderCopyTextureToTexture(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUCommandEncoder_CopyTextureToTexture
 //go:noescape
-func GPUCommandEncoderCopyTextureToTextureFunc(this js.Ref) js.Ref
+func FuncGPUCommandEncoderCopyTextureToTexture(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUCommandEncoder_CopyTextureToTexture
 //go:noescape
@@ -1360,11 +1358,11 @@ func TryGPUCommandEncoderCopyTextureToTexture(
 
 //go:wasmimport plat/js/web has_GPUCommandEncoder_ClearBuffer
 //go:noescape
-func HasGPUCommandEncoderClearBuffer(this js.Ref) js.Ref
+func HasFuncGPUCommandEncoderClearBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUCommandEncoder_ClearBuffer
 //go:noescape
-func GPUCommandEncoderClearBufferFunc(this js.Ref) js.Ref
+func FuncGPUCommandEncoderClearBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUCommandEncoder_ClearBuffer
 //go:noescape
@@ -1384,11 +1382,11 @@ func TryGPUCommandEncoderClearBuffer(
 
 //go:wasmimport plat/js/web has_GPUCommandEncoder_ClearBuffer1
 //go:noescape
-func HasGPUCommandEncoderClearBuffer1(this js.Ref) js.Ref
+func HasFuncGPUCommandEncoderClearBuffer1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUCommandEncoder_ClearBuffer1
 //go:noescape
-func GPUCommandEncoderClearBuffer1Func(this js.Ref) js.Ref
+func FuncGPUCommandEncoderClearBuffer1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUCommandEncoder_ClearBuffer1
 //go:noescape
@@ -1406,11 +1404,11 @@ func TryGPUCommandEncoderClearBuffer1(
 
 //go:wasmimport plat/js/web has_GPUCommandEncoder_ClearBuffer2
 //go:noescape
-func HasGPUCommandEncoderClearBuffer2(this js.Ref) js.Ref
+func HasFuncGPUCommandEncoderClearBuffer2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUCommandEncoder_ClearBuffer2
 //go:noescape
-func GPUCommandEncoderClearBuffer2Func(this js.Ref) js.Ref
+func FuncGPUCommandEncoderClearBuffer2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUCommandEncoder_ClearBuffer2
 //go:noescape
@@ -1426,11 +1424,11 @@ func TryGPUCommandEncoderClearBuffer2(
 
 //go:wasmimport plat/js/web has_GPUCommandEncoder_WriteTimestamp
 //go:noescape
-func HasGPUCommandEncoderWriteTimestamp(this js.Ref) js.Ref
+func HasFuncGPUCommandEncoderWriteTimestamp(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUCommandEncoder_WriteTimestamp
 //go:noescape
-func GPUCommandEncoderWriteTimestampFunc(this js.Ref) js.Ref
+func FuncGPUCommandEncoderWriteTimestamp(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUCommandEncoder_WriteTimestamp
 //go:noescape
@@ -1448,11 +1446,11 @@ func TryGPUCommandEncoderWriteTimestamp(
 
 //go:wasmimport plat/js/web has_GPUCommandEncoder_ResolveQuerySet
 //go:noescape
-func HasGPUCommandEncoderResolveQuerySet(this js.Ref) js.Ref
+func HasFuncGPUCommandEncoderResolveQuerySet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUCommandEncoder_ResolveQuerySet
 //go:noescape
-func GPUCommandEncoderResolveQuerySetFunc(this js.Ref) js.Ref
+func FuncGPUCommandEncoderResolveQuerySet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUCommandEncoder_ResolveQuerySet
 //go:noescape
@@ -1476,11 +1474,11 @@ func TryGPUCommandEncoderResolveQuerySet(
 
 //go:wasmimport plat/js/web has_GPUCommandEncoder_Finish
 //go:noescape
-func HasGPUCommandEncoderFinish(this js.Ref) js.Ref
+func HasFuncGPUCommandEncoderFinish(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUCommandEncoder_Finish
 //go:noescape
-func GPUCommandEncoderFinishFunc(this js.Ref) js.Ref
+func FuncGPUCommandEncoderFinish(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUCommandEncoder_Finish
 //go:noescape
@@ -1496,11 +1494,11 @@ func TryGPUCommandEncoderFinish(
 
 //go:wasmimport plat/js/web has_GPUCommandEncoder_Finish1
 //go:noescape
-func HasGPUCommandEncoderFinish1(this js.Ref) js.Ref
+func HasFuncGPUCommandEncoderFinish1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUCommandEncoder_Finish1
 //go:noescape
-func GPUCommandEncoderFinish1Func(this js.Ref) js.Ref
+func FuncGPUCommandEncoderFinish1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUCommandEncoder_Finish1
 //go:noescape
@@ -1514,11 +1512,11 @@ func TryGPUCommandEncoderFinish1(
 
 //go:wasmimport plat/js/web has_GPUCommandEncoder_PushDebugGroup
 //go:noescape
-func HasGPUCommandEncoderPushDebugGroup(this js.Ref) js.Ref
+func HasFuncGPUCommandEncoderPushDebugGroup(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUCommandEncoder_PushDebugGroup
 //go:noescape
-func GPUCommandEncoderPushDebugGroupFunc(this js.Ref) js.Ref
+func FuncGPUCommandEncoderPushDebugGroup(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUCommandEncoder_PushDebugGroup
 //go:noescape
@@ -1534,11 +1532,11 @@ func TryGPUCommandEncoderPushDebugGroup(
 
 //go:wasmimport plat/js/web has_GPUCommandEncoder_PopDebugGroup
 //go:noescape
-func HasGPUCommandEncoderPopDebugGroup(this js.Ref) js.Ref
+func HasFuncGPUCommandEncoderPopDebugGroup(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUCommandEncoder_PopDebugGroup
 //go:noescape
-func GPUCommandEncoderPopDebugGroupFunc(this js.Ref) js.Ref
+func FuncGPUCommandEncoderPopDebugGroup(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUCommandEncoder_PopDebugGroup
 //go:noescape
@@ -1552,11 +1550,11 @@ func TryGPUCommandEncoderPopDebugGroup(
 
 //go:wasmimport plat/js/web has_GPUCommandEncoder_InsertDebugMarker
 //go:noescape
-func HasGPUCommandEncoderInsertDebugMarker(this js.Ref) js.Ref
+func HasFuncGPUCommandEncoderInsertDebugMarker(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUCommandEncoder_InsertDebugMarker
 //go:noescape
-func GPUCommandEncoderInsertDebugMarkerFunc(this js.Ref) js.Ref
+func FuncGPUCommandEncoderInsertDebugMarker(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUCommandEncoder_InsertDebugMarker
 //go:noescape
@@ -1604,11 +1602,11 @@ func SetGPURenderBundleEncoderLabel(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_Finish
 //go:noescape
-func HasGPURenderBundleEncoderFinish(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderFinish(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_Finish
 //go:noescape
-func GPURenderBundleEncoderFinishFunc(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderFinish(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_Finish
 //go:noescape
@@ -1624,11 +1622,11 @@ func TryGPURenderBundleEncoderFinish(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_Finish1
 //go:noescape
-func HasGPURenderBundleEncoderFinish1(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderFinish1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_Finish1
 //go:noescape
-func GPURenderBundleEncoderFinish1Func(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderFinish1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_Finish1
 //go:noescape
@@ -1642,11 +1640,11 @@ func TryGPURenderBundleEncoderFinish1(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_SetPipeline
 //go:noescape
-func HasGPURenderBundleEncoderSetPipeline(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderSetPipeline(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_SetPipeline
 //go:noescape
-func GPURenderBundleEncoderSetPipelineFunc(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderSetPipeline(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_SetPipeline
 //go:noescape
@@ -1662,11 +1660,11 @@ func TryGPURenderBundleEncoderSetPipeline(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_SetIndexBuffer
 //go:noescape
-func HasGPURenderBundleEncoderSetIndexBuffer(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderSetIndexBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_SetIndexBuffer
 //go:noescape
-func GPURenderBundleEncoderSetIndexBufferFunc(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderSetIndexBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_SetIndexBuffer
 //go:noescape
@@ -1688,11 +1686,11 @@ func TryGPURenderBundleEncoderSetIndexBuffer(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_SetIndexBuffer1
 //go:noescape
-func HasGPURenderBundleEncoderSetIndexBuffer1(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderSetIndexBuffer1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_SetIndexBuffer1
 //go:noescape
-func GPURenderBundleEncoderSetIndexBuffer1Func(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderSetIndexBuffer1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_SetIndexBuffer1
 //go:noescape
@@ -1712,11 +1710,11 @@ func TryGPURenderBundleEncoderSetIndexBuffer1(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_SetIndexBuffer2
 //go:noescape
-func HasGPURenderBundleEncoderSetIndexBuffer2(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderSetIndexBuffer2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_SetIndexBuffer2
 //go:noescape
-func GPURenderBundleEncoderSetIndexBuffer2Func(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderSetIndexBuffer2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_SetIndexBuffer2
 //go:noescape
@@ -1734,11 +1732,11 @@ func TryGPURenderBundleEncoderSetIndexBuffer2(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_SetVertexBuffer
 //go:noescape
-func HasGPURenderBundleEncoderSetVertexBuffer(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderSetVertexBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_SetVertexBuffer
 //go:noescape
-func GPURenderBundleEncoderSetVertexBufferFunc(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderSetVertexBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_SetVertexBuffer
 //go:noescape
@@ -1760,11 +1758,11 @@ func TryGPURenderBundleEncoderSetVertexBuffer(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_SetVertexBuffer1
 //go:noescape
-func HasGPURenderBundleEncoderSetVertexBuffer1(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderSetVertexBuffer1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_SetVertexBuffer1
 //go:noescape
-func GPURenderBundleEncoderSetVertexBuffer1Func(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderSetVertexBuffer1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_SetVertexBuffer1
 //go:noescape
@@ -1784,11 +1782,11 @@ func TryGPURenderBundleEncoderSetVertexBuffer1(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_SetVertexBuffer2
 //go:noescape
-func HasGPURenderBundleEncoderSetVertexBuffer2(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderSetVertexBuffer2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_SetVertexBuffer2
 //go:noescape
-func GPURenderBundleEncoderSetVertexBuffer2Func(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderSetVertexBuffer2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_SetVertexBuffer2
 //go:noescape
@@ -1806,11 +1804,11 @@ func TryGPURenderBundleEncoderSetVertexBuffer2(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_Draw
 //go:noescape
-func HasGPURenderBundleEncoderDraw(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderDraw(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_Draw
 //go:noescape
-func GPURenderBundleEncoderDrawFunc(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderDraw(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_Draw
 //go:noescape
@@ -1832,11 +1830,11 @@ func TryGPURenderBundleEncoderDraw(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_Draw1
 //go:noescape
-func HasGPURenderBundleEncoderDraw1(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderDraw1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_Draw1
 //go:noescape
-func GPURenderBundleEncoderDraw1Func(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderDraw1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_Draw1
 //go:noescape
@@ -1856,11 +1854,11 @@ func TryGPURenderBundleEncoderDraw1(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_Draw2
 //go:noescape
-func HasGPURenderBundleEncoderDraw2(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderDraw2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_Draw2
 //go:noescape
-func GPURenderBundleEncoderDraw2Func(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderDraw2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_Draw2
 //go:noescape
@@ -1878,11 +1876,11 @@ func TryGPURenderBundleEncoderDraw2(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_Draw3
 //go:noescape
-func HasGPURenderBundleEncoderDraw3(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderDraw3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_Draw3
 //go:noescape
-func GPURenderBundleEncoderDraw3Func(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderDraw3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_Draw3
 //go:noescape
@@ -1898,11 +1896,11 @@ func TryGPURenderBundleEncoderDraw3(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_DrawIndexed
 //go:noescape
-func HasGPURenderBundleEncoderDrawIndexed(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderDrawIndexed(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_DrawIndexed
 //go:noescape
-func GPURenderBundleEncoderDrawIndexedFunc(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderDrawIndexed(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_DrawIndexed
 //go:noescape
@@ -1926,11 +1924,11 @@ func TryGPURenderBundleEncoderDrawIndexed(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_DrawIndexed1
 //go:noescape
-func HasGPURenderBundleEncoderDrawIndexed1(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderDrawIndexed1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_DrawIndexed1
 //go:noescape
-func GPURenderBundleEncoderDrawIndexed1Func(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderDrawIndexed1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_DrawIndexed1
 //go:noescape
@@ -1952,11 +1950,11 @@ func TryGPURenderBundleEncoderDrawIndexed1(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_DrawIndexed2
 //go:noescape
-func HasGPURenderBundleEncoderDrawIndexed2(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderDrawIndexed2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_DrawIndexed2
 //go:noescape
-func GPURenderBundleEncoderDrawIndexed2Func(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderDrawIndexed2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_DrawIndexed2
 //go:noescape
@@ -1976,11 +1974,11 @@ func TryGPURenderBundleEncoderDrawIndexed2(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_DrawIndexed3
 //go:noescape
-func HasGPURenderBundleEncoderDrawIndexed3(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderDrawIndexed3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_DrawIndexed3
 //go:noescape
-func GPURenderBundleEncoderDrawIndexed3Func(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderDrawIndexed3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_DrawIndexed3
 //go:noescape
@@ -1998,11 +1996,11 @@ func TryGPURenderBundleEncoderDrawIndexed3(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_DrawIndexed4
 //go:noescape
-func HasGPURenderBundleEncoderDrawIndexed4(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderDrawIndexed4(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_DrawIndexed4
 //go:noescape
-func GPURenderBundleEncoderDrawIndexed4Func(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderDrawIndexed4(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_DrawIndexed4
 //go:noescape
@@ -2018,11 +2016,11 @@ func TryGPURenderBundleEncoderDrawIndexed4(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_DrawIndirect
 //go:noescape
-func HasGPURenderBundleEncoderDrawIndirect(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderDrawIndirect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_DrawIndirect
 //go:noescape
-func GPURenderBundleEncoderDrawIndirectFunc(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderDrawIndirect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_DrawIndirect
 //go:noescape
@@ -2040,11 +2038,11 @@ func TryGPURenderBundleEncoderDrawIndirect(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_DrawIndexedIndirect
 //go:noescape
-func HasGPURenderBundleEncoderDrawIndexedIndirect(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderDrawIndexedIndirect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_DrawIndexedIndirect
 //go:noescape
-func GPURenderBundleEncoderDrawIndexedIndirectFunc(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderDrawIndexedIndirect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_DrawIndexedIndirect
 //go:noescape
@@ -2062,11 +2060,11 @@ func TryGPURenderBundleEncoderDrawIndexedIndirect(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_SetBindGroup
 //go:noescape
-func HasGPURenderBundleEncoderSetBindGroup(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderSetBindGroup(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_SetBindGroup
 //go:noescape
-func GPURenderBundleEncoderSetBindGroupFunc(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderSetBindGroup(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_SetBindGroup
 //go:noescape
@@ -2086,11 +2084,11 @@ func TryGPURenderBundleEncoderSetBindGroup(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_SetBindGroup1
 //go:noescape
-func HasGPURenderBundleEncoderSetBindGroup1(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderSetBindGroup1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_SetBindGroup1
 //go:noescape
-func GPURenderBundleEncoderSetBindGroup1Func(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderSetBindGroup1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_SetBindGroup1
 //go:noescape
@@ -2108,11 +2106,11 @@ func TryGPURenderBundleEncoderSetBindGroup1(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_SetBindGroup2
 //go:noescape
-func HasGPURenderBundleEncoderSetBindGroup2(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderSetBindGroup2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_SetBindGroup2
 //go:noescape
-func GPURenderBundleEncoderSetBindGroup2Func(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderSetBindGroup2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_SetBindGroup2
 //go:noescape
@@ -2136,11 +2134,11 @@ func TryGPURenderBundleEncoderSetBindGroup2(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_PushDebugGroup
 //go:noescape
-func HasGPURenderBundleEncoderPushDebugGroup(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderPushDebugGroup(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_PushDebugGroup
 //go:noescape
-func GPURenderBundleEncoderPushDebugGroupFunc(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderPushDebugGroup(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_PushDebugGroup
 //go:noescape
@@ -2156,11 +2154,11 @@ func TryGPURenderBundleEncoderPushDebugGroup(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_PopDebugGroup
 //go:noescape
-func HasGPURenderBundleEncoderPopDebugGroup(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderPopDebugGroup(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_PopDebugGroup
 //go:noescape
-func GPURenderBundleEncoderPopDebugGroupFunc(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderPopDebugGroup(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_PopDebugGroup
 //go:noescape
@@ -2174,11 +2172,11 @@ func TryGPURenderBundleEncoderPopDebugGroup(
 
 //go:wasmimport plat/js/web has_GPURenderBundleEncoder_InsertDebugMarker
 //go:noescape
-func HasGPURenderBundleEncoderInsertDebugMarker(this js.Ref) js.Ref
+func HasFuncGPURenderBundleEncoderInsertDebugMarker(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderBundleEncoder_InsertDebugMarker
 //go:noescape
-func GPURenderBundleEncoderInsertDebugMarkerFunc(this js.Ref) js.Ref
+func FuncGPURenderBundleEncoderInsertDebugMarker(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderBundleEncoder_InsertDebugMarker
 //go:noescape
@@ -2435,11 +2433,11 @@ func SetGPUQueueLabel(
 
 //go:wasmimport plat/js/web has_GPUQueue_Submit
 //go:noescape
-func HasGPUQueueSubmit(this js.Ref) js.Ref
+func HasFuncGPUQueueSubmit(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUQueue_Submit
 //go:noescape
-func GPUQueueSubmitFunc(this js.Ref) js.Ref
+func FuncGPUQueueSubmit(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUQueue_Submit
 //go:noescape
@@ -2455,11 +2453,11 @@ func TryGPUQueueSubmit(
 
 //go:wasmimport plat/js/web has_GPUQueue_OnSubmittedWorkDone
 //go:noescape
-func HasGPUQueueOnSubmittedWorkDone(this js.Ref) js.Ref
+func HasFuncGPUQueueOnSubmittedWorkDone(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUQueue_OnSubmittedWorkDone
 //go:noescape
-func GPUQueueOnSubmittedWorkDoneFunc(this js.Ref) js.Ref
+func FuncGPUQueueOnSubmittedWorkDone(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUQueue_OnSubmittedWorkDone
 //go:noescape
@@ -2473,11 +2471,11 @@ func TryGPUQueueOnSubmittedWorkDone(
 
 //go:wasmimport plat/js/web has_GPUQueue_WriteBuffer
 //go:noescape
-func HasGPUQueueWriteBuffer(this js.Ref) js.Ref
+func HasFuncGPUQueueWriteBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUQueue_WriteBuffer
 //go:noescape
-func GPUQueueWriteBufferFunc(this js.Ref) js.Ref
+func FuncGPUQueueWriteBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUQueue_WriteBuffer
 //go:noescape
@@ -2501,11 +2499,11 @@ func TryGPUQueueWriteBuffer(
 
 //go:wasmimport plat/js/web has_GPUQueue_WriteBuffer1
 //go:noescape
-func HasGPUQueueWriteBuffer1(this js.Ref) js.Ref
+func HasFuncGPUQueueWriteBuffer1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUQueue_WriteBuffer1
 //go:noescape
-func GPUQueueWriteBuffer1Func(this js.Ref) js.Ref
+func FuncGPUQueueWriteBuffer1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUQueue_WriteBuffer1
 //go:noescape
@@ -2527,11 +2525,11 @@ func TryGPUQueueWriteBuffer1(
 
 //go:wasmimport plat/js/web has_GPUQueue_WriteBuffer2
 //go:noescape
-func HasGPUQueueWriteBuffer2(this js.Ref) js.Ref
+func HasFuncGPUQueueWriteBuffer2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUQueue_WriteBuffer2
 //go:noescape
-func GPUQueueWriteBuffer2Func(this js.Ref) js.Ref
+func FuncGPUQueueWriteBuffer2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUQueue_WriteBuffer2
 //go:noescape
@@ -2551,11 +2549,11 @@ func TryGPUQueueWriteBuffer2(
 
 //go:wasmimport plat/js/web has_GPUQueue_WriteTexture
 //go:noescape
-func HasGPUQueueWriteTexture(this js.Ref) js.Ref
+func HasFuncGPUQueueWriteTexture(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUQueue_WriteTexture
 //go:noescape
-func GPUQueueWriteTextureFunc(this js.Ref) js.Ref
+func FuncGPUQueueWriteTexture(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUQueue_WriteTexture
 //go:noescape
@@ -2577,11 +2575,11 @@ func TryGPUQueueWriteTexture(
 
 //go:wasmimport plat/js/web has_GPUQueue_CopyExternalImageToTexture
 //go:noescape
-func HasGPUQueueCopyExternalImageToTexture(this js.Ref) js.Ref
+func HasFuncGPUQueueCopyExternalImageToTexture(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUQueue_CopyExternalImageToTexture
 //go:noescape
-func GPUQueueCopyExternalImageToTextureFunc(this js.Ref) js.Ref
+func FuncGPUQueueCopyExternalImageToTexture(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUQueue_CopyExternalImageToTexture
 //go:noescape
@@ -2647,11 +2645,11 @@ func SetGPUDeviceLabel(
 
 //go:wasmimport plat/js/web has_GPUDevice_Destroy
 //go:noescape
-func HasGPUDeviceDestroy(this js.Ref) js.Ref
+func HasFuncGPUDeviceDestroy(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUDevice_Destroy
 //go:noescape
-func GPUDeviceDestroyFunc(this js.Ref) js.Ref
+func FuncGPUDeviceDestroy(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUDevice_Destroy
 //go:noescape
@@ -2665,11 +2663,11 @@ func TryGPUDeviceDestroy(
 
 //go:wasmimport plat/js/web has_GPUDevice_CreateBuffer
 //go:noescape
-func HasGPUDeviceCreateBuffer(this js.Ref) js.Ref
+func HasFuncGPUDeviceCreateBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUDevice_CreateBuffer
 //go:noescape
-func GPUDeviceCreateBufferFunc(this js.Ref) js.Ref
+func FuncGPUDeviceCreateBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUDevice_CreateBuffer
 //go:noescape
@@ -2685,11 +2683,11 @@ func TryGPUDeviceCreateBuffer(
 
 //go:wasmimport plat/js/web has_GPUDevice_CreateTexture
 //go:noescape
-func HasGPUDeviceCreateTexture(this js.Ref) js.Ref
+func HasFuncGPUDeviceCreateTexture(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUDevice_CreateTexture
 //go:noescape
-func GPUDeviceCreateTextureFunc(this js.Ref) js.Ref
+func FuncGPUDeviceCreateTexture(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUDevice_CreateTexture
 //go:noescape
@@ -2705,11 +2703,11 @@ func TryGPUDeviceCreateTexture(
 
 //go:wasmimport plat/js/web has_GPUDevice_CreateSampler
 //go:noescape
-func HasGPUDeviceCreateSampler(this js.Ref) js.Ref
+func HasFuncGPUDeviceCreateSampler(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUDevice_CreateSampler
 //go:noescape
-func GPUDeviceCreateSamplerFunc(this js.Ref) js.Ref
+func FuncGPUDeviceCreateSampler(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUDevice_CreateSampler
 //go:noescape
@@ -2725,11 +2723,11 @@ func TryGPUDeviceCreateSampler(
 
 //go:wasmimport plat/js/web has_GPUDevice_CreateSampler1
 //go:noescape
-func HasGPUDeviceCreateSampler1(this js.Ref) js.Ref
+func HasFuncGPUDeviceCreateSampler1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUDevice_CreateSampler1
 //go:noescape
-func GPUDeviceCreateSampler1Func(this js.Ref) js.Ref
+func FuncGPUDeviceCreateSampler1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUDevice_CreateSampler1
 //go:noescape
@@ -2743,11 +2741,11 @@ func TryGPUDeviceCreateSampler1(
 
 //go:wasmimport plat/js/web has_GPUDevice_ImportExternalTexture
 //go:noescape
-func HasGPUDeviceImportExternalTexture(this js.Ref) js.Ref
+func HasFuncGPUDeviceImportExternalTexture(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUDevice_ImportExternalTexture
 //go:noescape
-func GPUDeviceImportExternalTextureFunc(this js.Ref) js.Ref
+func FuncGPUDeviceImportExternalTexture(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUDevice_ImportExternalTexture
 //go:noescape
@@ -2763,11 +2761,11 @@ func TryGPUDeviceImportExternalTexture(
 
 //go:wasmimport plat/js/web has_GPUDevice_CreateBindGroupLayout
 //go:noescape
-func HasGPUDeviceCreateBindGroupLayout(this js.Ref) js.Ref
+func HasFuncGPUDeviceCreateBindGroupLayout(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUDevice_CreateBindGroupLayout
 //go:noescape
-func GPUDeviceCreateBindGroupLayoutFunc(this js.Ref) js.Ref
+func FuncGPUDeviceCreateBindGroupLayout(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUDevice_CreateBindGroupLayout
 //go:noescape
@@ -2783,11 +2781,11 @@ func TryGPUDeviceCreateBindGroupLayout(
 
 //go:wasmimport plat/js/web has_GPUDevice_CreatePipelineLayout
 //go:noescape
-func HasGPUDeviceCreatePipelineLayout(this js.Ref) js.Ref
+func HasFuncGPUDeviceCreatePipelineLayout(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUDevice_CreatePipelineLayout
 //go:noescape
-func GPUDeviceCreatePipelineLayoutFunc(this js.Ref) js.Ref
+func FuncGPUDeviceCreatePipelineLayout(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUDevice_CreatePipelineLayout
 //go:noescape
@@ -2803,11 +2801,11 @@ func TryGPUDeviceCreatePipelineLayout(
 
 //go:wasmimport plat/js/web has_GPUDevice_CreateBindGroup
 //go:noescape
-func HasGPUDeviceCreateBindGroup(this js.Ref) js.Ref
+func HasFuncGPUDeviceCreateBindGroup(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUDevice_CreateBindGroup
 //go:noescape
-func GPUDeviceCreateBindGroupFunc(this js.Ref) js.Ref
+func FuncGPUDeviceCreateBindGroup(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUDevice_CreateBindGroup
 //go:noescape
@@ -2823,11 +2821,11 @@ func TryGPUDeviceCreateBindGroup(
 
 //go:wasmimport plat/js/web has_GPUDevice_CreateShaderModule
 //go:noescape
-func HasGPUDeviceCreateShaderModule(this js.Ref) js.Ref
+func HasFuncGPUDeviceCreateShaderModule(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUDevice_CreateShaderModule
 //go:noescape
-func GPUDeviceCreateShaderModuleFunc(this js.Ref) js.Ref
+func FuncGPUDeviceCreateShaderModule(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUDevice_CreateShaderModule
 //go:noescape
@@ -2843,11 +2841,11 @@ func TryGPUDeviceCreateShaderModule(
 
 //go:wasmimport plat/js/web has_GPUDevice_CreateComputePipeline
 //go:noescape
-func HasGPUDeviceCreateComputePipeline(this js.Ref) js.Ref
+func HasFuncGPUDeviceCreateComputePipeline(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUDevice_CreateComputePipeline
 //go:noescape
-func GPUDeviceCreateComputePipelineFunc(this js.Ref) js.Ref
+func FuncGPUDeviceCreateComputePipeline(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUDevice_CreateComputePipeline
 //go:noescape
@@ -2863,11 +2861,11 @@ func TryGPUDeviceCreateComputePipeline(
 
 //go:wasmimport plat/js/web has_GPUDevice_CreateRenderPipeline
 //go:noescape
-func HasGPUDeviceCreateRenderPipeline(this js.Ref) js.Ref
+func HasFuncGPUDeviceCreateRenderPipeline(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUDevice_CreateRenderPipeline
 //go:noescape
-func GPUDeviceCreateRenderPipelineFunc(this js.Ref) js.Ref
+func FuncGPUDeviceCreateRenderPipeline(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUDevice_CreateRenderPipeline
 //go:noescape
@@ -2883,11 +2881,11 @@ func TryGPUDeviceCreateRenderPipeline(
 
 //go:wasmimport plat/js/web has_GPUDevice_CreateComputePipelineAsync
 //go:noescape
-func HasGPUDeviceCreateComputePipelineAsync(this js.Ref) js.Ref
+func HasFuncGPUDeviceCreateComputePipelineAsync(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUDevice_CreateComputePipelineAsync
 //go:noescape
-func GPUDeviceCreateComputePipelineAsyncFunc(this js.Ref) js.Ref
+func FuncGPUDeviceCreateComputePipelineAsync(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUDevice_CreateComputePipelineAsync
 //go:noescape
@@ -2903,11 +2901,11 @@ func TryGPUDeviceCreateComputePipelineAsync(
 
 //go:wasmimport plat/js/web has_GPUDevice_CreateRenderPipelineAsync
 //go:noescape
-func HasGPUDeviceCreateRenderPipelineAsync(this js.Ref) js.Ref
+func HasFuncGPUDeviceCreateRenderPipelineAsync(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUDevice_CreateRenderPipelineAsync
 //go:noescape
-func GPUDeviceCreateRenderPipelineAsyncFunc(this js.Ref) js.Ref
+func FuncGPUDeviceCreateRenderPipelineAsync(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUDevice_CreateRenderPipelineAsync
 //go:noescape
@@ -2923,11 +2921,11 @@ func TryGPUDeviceCreateRenderPipelineAsync(
 
 //go:wasmimport plat/js/web has_GPUDevice_CreateCommandEncoder
 //go:noescape
-func HasGPUDeviceCreateCommandEncoder(this js.Ref) js.Ref
+func HasFuncGPUDeviceCreateCommandEncoder(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUDevice_CreateCommandEncoder
 //go:noescape
-func GPUDeviceCreateCommandEncoderFunc(this js.Ref) js.Ref
+func FuncGPUDeviceCreateCommandEncoder(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUDevice_CreateCommandEncoder
 //go:noescape
@@ -2943,11 +2941,11 @@ func TryGPUDeviceCreateCommandEncoder(
 
 //go:wasmimport plat/js/web has_GPUDevice_CreateCommandEncoder1
 //go:noescape
-func HasGPUDeviceCreateCommandEncoder1(this js.Ref) js.Ref
+func HasFuncGPUDeviceCreateCommandEncoder1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUDevice_CreateCommandEncoder1
 //go:noescape
-func GPUDeviceCreateCommandEncoder1Func(this js.Ref) js.Ref
+func FuncGPUDeviceCreateCommandEncoder1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUDevice_CreateCommandEncoder1
 //go:noescape
@@ -2961,11 +2959,11 @@ func TryGPUDeviceCreateCommandEncoder1(
 
 //go:wasmimport plat/js/web has_GPUDevice_CreateRenderBundleEncoder
 //go:noescape
-func HasGPUDeviceCreateRenderBundleEncoder(this js.Ref) js.Ref
+func HasFuncGPUDeviceCreateRenderBundleEncoder(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUDevice_CreateRenderBundleEncoder
 //go:noescape
-func GPUDeviceCreateRenderBundleEncoderFunc(this js.Ref) js.Ref
+func FuncGPUDeviceCreateRenderBundleEncoder(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUDevice_CreateRenderBundleEncoder
 //go:noescape
@@ -2981,11 +2979,11 @@ func TryGPUDeviceCreateRenderBundleEncoder(
 
 //go:wasmimport plat/js/web has_GPUDevice_CreateQuerySet
 //go:noescape
-func HasGPUDeviceCreateQuerySet(this js.Ref) js.Ref
+func HasFuncGPUDeviceCreateQuerySet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUDevice_CreateQuerySet
 //go:noescape
-func GPUDeviceCreateQuerySetFunc(this js.Ref) js.Ref
+func FuncGPUDeviceCreateQuerySet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUDevice_CreateQuerySet
 //go:noescape
@@ -3001,11 +2999,11 @@ func TryGPUDeviceCreateQuerySet(
 
 //go:wasmimport plat/js/web has_GPUDevice_PushErrorScope
 //go:noescape
-func HasGPUDevicePushErrorScope(this js.Ref) js.Ref
+func HasFuncGPUDevicePushErrorScope(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUDevice_PushErrorScope
 //go:noescape
-func GPUDevicePushErrorScopeFunc(this js.Ref) js.Ref
+func FuncGPUDevicePushErrorScope(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUDevice_PushErrorScope
 //go:noescape
@@ -3021,11 +3019,11 @@ func TryGPUDevicePushErrorScope(
 
 //go:wasmimport plat/js/web has_GPUDevice_PopErrorScope
 //go:noescape
-func HasGPUDevicePopErrorScope(this js.Ref) js.Ref
+func HasFuncGPUDevicePopErrorScope(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUDevice_PopErrorScope
 //go:noescape
-func GPUDevicePopErrorScopeFunc(this js.Ref) js.Ref
+func FuncGPUDevicePopErrorScope(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUDevice_PopErrorScope
 //go:noescape
@@ -3058,11 +3056,11 @@ func GetGPUCanvasContextCanvas(
 
 //go:wasmimport plat/js/web has_GPUCanvasContext_Configure
 //go:noescape
-func HasGPUCanvasContextConfigure(this js.Ref) js.Ref
+func HasFuncGPUCanvasContextConfigure(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUCanvasContext_Configure
 //go:noescape
-func GPUCanvasContextConfigureFunc(this js.Ref) js.Ref
+func FuncGPUCanvasContextConfigure(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUCanvasContext_Configure
 //go:noescape
@@ -3078,11 +3076,11 @@ func TryGPUCanvasContextConfigure(
 
 //go:wasmimport plat/js/web has_GPUCanvasContext_Unconfigure
 //go:noescape
-func HasGPUCanvasContextUnconfigure(this js.Ref) js.Ref
+func HasFuncGPUCanvasContextUnconfigure(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUCanvasContext_Unconfigure
 //go:noescape
-func GPUCanvasContextUnconfigureFunc(this js.Ref) js.Ref
+func FuncGPUCanvasContextUnconfigure(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUCanvasContext_Unconfigure
 //go:noescape
@@ -3096,11 +3094,11 @@ func TryGPUCanvasContextUnconfigure(
 
 //go:wasmimport plat/js/web has_GPUCanvasContext_GetCurrentTexture
 //go:noescape
-func HasGPUCanvasContextGetCurrentTexture(this js.Ref) js.Ref
+func HasFuncGPUCanvasContextGetCurrentTexture(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUCanvasContext_GetCurrentTexture
 //go:noescape
-func GPUCanvasContextGetCurrentTextureFunc(this js.Ref) js.Ref
+func FuncGPUCanvasContextGetCurrentTexture(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUCanvasContext_GetCurrentTexture
 //go:noescape

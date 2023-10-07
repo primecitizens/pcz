@@ -1,0 +1,166 @@
+- File: webext/clipboard.idl
+  Dict:
+    Name: AdditionalDataItem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - clipboard
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: type
+        Type:
+          Name: DataItemType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - clipboard
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - clipboard
+      - Name: data
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - clipboard
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - clipboard
+- File: webext/clipboard.idl
+  Enum:
+    Name: DataItemType
+    Values:
+      - textPlain
+      - textHtml
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - clipboard
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/clipboard.idl
+  Enum:
+    Name: ImageType
+    Values:
+      - png
+      - jpeg
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - clipboard
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/clipboard.idl
+  Callback:
+    Name: SetImageDataCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - clipboard
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - clipboard
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/clipboard.idl
+  WebextEvent:
+    Name: onClipboardDataChanged
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - clipboard
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - clipboard
+- File: webext/clipboard.idl
+  WebextFunc:
+    Name: setImageData
+    Modifier: static
+    Args:
+      - Name: imageData
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - clipboard
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - clipboard
+      - Name: type
+        Type:
+          Name: ImageType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - clipboard
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - clipboard
+      - Name: additionalItems
+        Optional: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: AdditionalDataItem
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - clipboard
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - clipboard
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - clipboard
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - clipboard

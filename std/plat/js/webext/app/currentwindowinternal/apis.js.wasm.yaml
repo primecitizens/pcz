@@ -1,0 +1,825 @@
+- File: webext/app_current_window_internal.idl
+  Dict:
+    Name: Bounds
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+    Fields:
+      - Name: left
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - currentWindowInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+      - Name: top
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - currentWindowInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+      - Name: width
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - currentWindowInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+      - Name: height
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - currentWindowInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  Dict:
+    Name: Region
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+    Fields:
+      - Name: rects
+        Type:
+          Name: sequence
+          Params:
+            - Name: RegionRect
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - app
+                    - currentWindowInternal
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - currentWindowInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  Dict:
+    Name: RegionRect
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+    Fields:
+      - Name: left
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - currentWindowInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+      - Name: top
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - currentWindowInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+      - Name: width
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - currentWindowInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+      - Name: height
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - currentWindowInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  Dict:
+    Name: SizeConstraints
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+    Fields:
+      - Name: minWidth
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - currentWindowInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+      - Name: minHeight
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - currentWindowInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+      - Name: maxWidth
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - currentWindowInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+      - Name: maxHeight
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - currentWindowInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  WebextFunc:
+    Name: clearAttention
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  WebextFunc:
+    Name: drawAttention
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  WebextFunc:
+    Name: focus
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  WebextFunc:
+    Name: fullscreen
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  WebextFunc:
+    Name: hide
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  WebextFunc:
+    Name: maximize
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  WebextFunc:
+    Name: minimize
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  WebextEvent:
+    Name: onAlphaEnabledChanged
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  WebextEvent:
+    Name: onBoundsChanged
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  WebextEvent:
+    Name: onClosed
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  WebextEvent:
+    Name: onFullscreened
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  WebextEvent:
+    Name: onMaximized
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  WebextEvent:
+    Name: onMinimized
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  WebextEvent:
+    Name: onRestored
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  WebextFunc:
+    Name: restore
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  WebextFunc:
+    Name: setActivateOnPointer
+    Modifier: static
+    Args:
+      - Name: activate_on_pointer
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - currentWindowInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  WebextFunc:
+    Name: setAlwaysOnTop
+    Modifier: static
+    Args:
+      - Name: always_on_top
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - currentWindowInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  WebextFunc:
+    Name: setBounds
+    Modifier: static
+    Args:
+      - Name: boundsType
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - currentWindowInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+      - Name: bounds
+        Type:
+          Name: Bounds
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - currentWindowInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  WebextFunc:
+    Name: setIcon
+    Modifier: static
+    Args:
+      - Name: icon_url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - currentWindowInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  WebextFunc:
+    Name: setShape
+    Modifier: static
+    Args:
+      - Name: region
+        Type:
+          Name: Region
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - currentWindowInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  WebextFunc:
+    Name: setSizeConstraints
+    Modifier: static
+    Args:
+      - Name: boundsType
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - currentWindowInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+      - Name: constraints
+        Type:
+          Name: SizeConstraints
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - currentWindowInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  WebextFunc:
+    Name: setVisibleOnAllWorkspaces
+    Modifier: static
+    Args:
+      - Name: always_visible
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - currentWindowInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal
+- File: webext/app_current_window_internal.idl
+  WebextFunc:
+    Name: show
+    Modifier: static
+    Args:
+      - Name: focused
+        Optional: true
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - currentWindowInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - currentWindowInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - currentWindowInternal

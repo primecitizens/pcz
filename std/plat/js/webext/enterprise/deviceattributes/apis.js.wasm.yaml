@@ -1,0 +1,265 @@
+- File: webext/chrome/enterprise_device_attributes.idl
+  Callback:
+    Name: GetDeviceAnnotatedLocationCallback
+    Args:
+      - Name: annotatedLocation
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - deviceAttributes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - deviceAttributes
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - deviceAttributes
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - deviceAttributes
+- File: webext/chrome/enterprise_device_attributes.idl
+  Callback:
+    Name: GetDeviceAssetIdCallback
+    Args:
+      - Name: assetId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - deviceAttributes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - deviceAttributes
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - deviceAttributes
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - deviceAttributes
+- File: webext/chrome/enterprise_device_attributes.idl
+  Callback:
+    Name: GetDeviceHostnameCallback
+    Args:
+      - Name: hostname
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - deviceAttributes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - deviceAttributes
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - deviceAttributes
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - deviceAttributes
+- File: webext/chrome/enterprise_device_attributes.idl
+  Callback:
+    Name: GetDeviceSerialNumberCallback
+    Args:
+      - Name: serialNumber
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - deviceAttributes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - deviceAttributes
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - deviceAttributes
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - deviceAttributes
+- File: webext/chrome/enterprise_device_attributes.idl
+  Callback:
+    Name: GetDirectoryDeviceIdCallback
+    Args:
+      - Name: deviceId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - deviceAttributes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - deviceAttributes
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - deviceAttributes
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - deviceAttributes
+- File: webext/chrome/enterprise_device_attributes.idl
+  WebextFunc:
+    Name: getDeviceAnnotatedLocation
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - enterprise
+                  - deviceAttributes
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - deviceAttributes
+- File: webext/chrome/enterprise_device_attributes.idl
+  WebextFunc:
+    Name: getDeviceAssetId
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - enterprise
+                  - deviceAttributes
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - deviceAttributes
+- File: webext/chrome/enterprise_device_attributes.idl
+  WebextFunc:
+    Name: getDeviceHostname
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - enterprise
+                  - deviceAttributes
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - deviceAttributes
+- File: webext/chrome/enterprise_device_attributes.idl
+  WebextFunc:
+    Name: getDeviceSerialNumber
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - enterprise
+                  - deviceAttributes
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - deviceAttributes
+- File: webext/chrome/enterprise_device_attributes.idl
+  WebextFunc:
+    Name: getDirectoryDeviceId
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - enterprise
+                  - deviceAttributes
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - deviceAttributes

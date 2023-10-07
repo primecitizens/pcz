@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web get_MediaStreamTrack_Kind
 //go:noescape
@@ -74,11 +72,11 @@ func GetMediaStreamTrackIsolated(
 
 //go:wasmimport plat/js/web has_MediaStreamTrack_Clone
 //go:noescape
-func HasMediaStreamTrackClone(this js.Ref) js.Ref
+func HasFuncMediaStreamTrackClone(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaStreamTrack_Clone
 //go:noescape
-func MediaStreamTrackCloneFunc(this js.Ref) js.Ref
+func FuncMediaStreamTrackClone(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaStreamTrack_Clone
 //go:noescape
@@ -92,11 +90,11 @@ func TryMediaStreamTrackClone(
 
 //go:wasmimport plat/js/web has_MediaStreamTrack_Stop
 //go:noescape
-func HasMediaStreamTrackStop(this js.Ref) js.Ref
+func HasFuncMediaStreamTrackStop(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaStreamTrack_Stop
 //go:noescape
-func MediaStreamTrackStopFunc(this js.Ref) js.Ref
+func FuncMediaStreamTrackStop(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaStreamTrack_Stop
 //go:noescape
@@ -110,11 +108,11 @@ func TryMediaStreamTrackStop(
 
 //go:wasmimport plat/js/web has_MediaStreamTrack_GetCapabilities
 //go:noescape
-func HasMediaStreamTrackGetCapabilities(this js.Ref) js.Ref
+func HasFuncMediaStreamTrackGetCapabilities(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaStreamTrack_GetCapabilities
 //go:noescape
-func MediaStreamTrackGetCapabilitiesFunc(this js.Ref) js.Ref
+func FuncMediaStreamTrackGetCapabilities(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaStreamTrack_GetCapabilities
 //go:noescape
@@ -128,11 +126,11 @@ func TryMediaStreamTrackGetCapabilities(
 
 //go:wasmimport plat/js/web has_MediaStreamTrack_GetConstraints
 //go:noescape
-func HasMediaStreamTrackGetConstraints(this js.Ref) js.Ref
+func HasFuncMediaStreamTrackGetConstraints(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaStreamTrack_GetConstraints
 //go:noescape
-func MediaStreamTrackGetConstraintsFunc(this js.Ref) js.Ref
+func FuncMediaStreamTrackGetConstraints(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaStreamTrack_GetConstraints
 //go:noescape
@@ -146,11 +144,11 @@ func TryMediaStreamTrackGetConstraints(
 
 //go:wasmimport plat/js/web has_MediaStreamTrack_GetSettings
 //go:noescape
-func HasMediaStreamTrackGetSettings(this js.Ref) js.Ref
+func HasFuncMediaStreamTrackGetSettings(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaStreamTrack_GetSettings
 //go:noescape
-func MediaStreamTrackGetSettingsFunc(this js.Ref) js.Ref
+func FuncMediaStreamTrackGetSettings(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaStreamTrack_GetSettings
 //go:noescape
@@ -164,11 +162,11 @@ func TryMediaStreamTrackGetSettings(
 
 //go:wasmimport plat/js/web has_MediaStreamTrack_ApplyConstraints
 //go:noescape
-func HasMediaStreamTrackApplyConstraints(this js.Ref) js.Ref
+func HasFuncMediaStreamTrackApplyConstraints(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaStreamTrack_ApplyConstraints
 //go:noescape
-func MediaStreamTrackApplyConstraintsFunc(this js.Ref) js.Ref
+func FuncMediaStreamTrackApplyConstraints(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaStreamTrack_ApplyConstraints
 //go:noescape
@@ -184,11 +182,11 @@ func TryMediaStreamTrackApplyConstraints(
 
 //go:wasmimport plat/js/web has_MediaStreamTrack_ApplyConstraints1
 //go:noescape
-func HasMediaStreamTrackApplyConstraints1(this js.Ref) js.Ref
+func HasFuncMediaStreamTrackApplyConstraints1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaStreamTrack_ApplyConstraints1
 //go:noescape
-func MediaStreamTrackApplyConstraints1Func(this js.Ref) js.Ref
+func FuncMediaStreamTrackApplyConstraints1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaStreamTrack_ApplyConstraints1
 //go:noescape
@@ -202,11 +200,11 @@ func TryMediaStreamTrackApplyConstraints1(
 
 //go:wasmimport plat/js/web has_MediaStreamTrack_GetSupportedCaptureActions
 //go:noescape
-func HasMediaStreamTrackGetSupportedCaptureActions(this js.Ref) js.Ref
+func HasFuncMediaStreamTrackGetSupportedCaptureActions(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaStreamTrack_GetSupportedCaptureActions
 //go:noescape
-func MediaStreamTrackGetSupportedCaptureActionsFunc(this js.Ref) js.Ref
+func FuncMediaStreamTrackGetSupportedCaptureActions(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaStreamTrack_GetSupportedCaptureActions
 //go:noescape
@@ -220,11 +218,11 @@ func TryMediaStreamTrackGetSupportedCaptureActions(
 
 //go:wasmimport plat/js/web has_MediaStreamTrack_SendCaptureAction
 //go:noescape
-func HasMediaStreamTrackSendCaptureAction(this js.Ref) js.Ref
+func HasFuncMediaStreamTrackSendCaptureAction(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaStreamTrack_SendCaptureAction
 //go:noescape
-func MediaStreamTrackSendCaptureActionFunc(this js.Ref) js.Ref
+func FuncMediaStreamTrackSendCaptureAction(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaStreamTrack_SendCaptureAction
 //go:noescape
@@ -240,11 +238,11 @@ func TryMediaStreamTrackSendCaptureAction(
 
 //go:wasmimport plat/js/web has_MediaStreamTrack_GetCaptureHandle
 //go:noescape
-func HasMediaStreamTrackGetCaptureHandle(this js.Ref) js.Ref
+func HasFuncMediaStreamTrackGetCaptureHandle(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaStreamTrack_GetCaptureHandle
 //go:noescape
-func MediaStreamTrackGetCaptureHandleFunc(this js.Ref) js.Ref
+func FuncMediaStreamTrackGetCaptureHandle(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaStreamTrack_GetCaptureHandle
 //go:noescape
@@ -278,11 +276,11 @@ func GetMediaStreamActive(
 
 //go:wasmimport plat/js/web has_MediaStream_GetAudioTracks
 //go:noescape
-func HasMediaStreamGetAudioTracks(this js.Ref) js.Ref
+func HasFuncMediaStreamGetAudioTracks(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaStream_GetAudioTracks
 //go:noescape
-func MediaStreamGetAudioTracksFunc(this js.Ref) js.Ref
+func FuncMediaStreamGetAudioTracks(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaStream_GetAudioTracks
 //go:noescape
@@ -296,11 +294,11 @@ func TryMediaStreamGetAudioTracks(
 
 //go:wasmimport plat/js/web has_MediaStream_GetVideoTracks
 //go:noescape
-func HasMediaStreamGetVideoTracks(this js.Ref) js.Ref
+func HasFuncMediaStreamGetVideoTracks(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaStream_GetVideoTracks
 //go:noescape
-func MediaStreamGetVideoTracksFunc(this js.Ref) js.Ref
+func FuncMediaStreamGetVideoTracks(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaStream_GetVideoTracks
 //go:noescape
@@ -314,11 +312,11 @@ func TryMediaStreamGetVideoTracks(
 
 //go:wasmimport plat/js/web has_MediaStream_GetTracks
 //go:noescape
-func HasMediaStreamGetTracks(this js.Ref) js.Ref
+func HasFuncMediaStreamGetTracks(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaStream_GetTracks
 //go:noescape
-func MediaStreamGetTracksFunc(this js.Ref) js.Ref
+func FuncMediaStreamGetTracks(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaStream_GetTracks
 //go:noescape
@@ -332,11 +330,11 @@ func TryMediaStreamGetTracks(
 
 //go:wasmimport plat/js/web has_MediaStream_GetTrackById
 //go:noescape
-func HasMediaStreamGetTrackById(this js.Ref) js.Ref
+func HasFuncMediaStreamGetTrackById(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaStream_GetTrackById
 //go:noescape
-func MediaStreamGetTrackByIdFunc(this js.Ref) js.Ref
+func FuncMediaStreamGetTrackById(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaStream_GetTrackById
 //go:noescape
@@ -352,11 +350,11 @@ func TryMediaStreamGetTrackById(
 
 //go:wasmimport plat/js/web has_MediaStream_AddTrack
 //go:noescape
-func HasMediaStreamAddTrack(this js.Ref) js.Ref
+func HasFuncMediaStreamAddTrack(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaStream_AddTrack
 //go:noescape
-func MediaStreamAddTrackFunc(this js.Ref) js.Ref
+func FuncMediaStreamAddTrack(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaStream_AddTrack
 //go:noescape
@@ -372,11 +370,11 @@ func TryMediaStreamAddTrack(
 
 //go:wasmimport plat/js/web has_MediaStream_RemoveTrack
 //go:noescape
-func HasMediaStreamRemoveTrack(this js.Ref) js.Ref
+func HasFuncMediaStreamRemoveTrack(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaStream_RemoveTrack
 //go:noescape
-func MediaStreamRemoveTrackFunc(this js.Ref) js.Ref
+func FuncMediaStreamRemoveTrack(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaStream_RemoveTrack
 //go:noescape
@@ -392,11 +390,11 @@ func TryMediaStreamRemoveTrack(
 
 //go:wasmimport plat/js/web has_MediaStream_Clone
 //go:noescape
-func HasMediaStreamClone(this js.Ref) js.Ref
+func HasFuncMediaStreamClone(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaStream_Clone
 //go:noescape
-func MediaStreamCloneFunc(this js.Ref) js.Ref
+func FuncMediaStreamClone(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaStream_Clone
 //go:noescape
@@ -429,11 +427,11 @@ func GetSourceBufferListLength(
 
 //go:wasmimport plat/js/web has_SourceBufferList_Get
 //go:noescape
-func HasSourceBufferListGet(this js.Ref) js.Ref
+func HasFuncSourceBufferListGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SourceBufferList_Get
 //go:noescape
-func SourceBufferListGetFunc(this js.Ref) js.Ref
+func FuncSourceBufferListGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SourceBufferList_Get
 //go:noescape
@@ -490,11 +488,11 @@ func GetMediaSourceCanConstructInDedicatedWorker(
 
 //go:wasmimport plat/js/web has_MediaSource_AddSourceBuffer
 //go:noescape
-func HasMediaSourceAddSourceBuffer(this js.Ref) js.Ref
+func HasFuncMediaSourceAddSourceBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaSource_AddSourceBuffer
 //go:noescape
-func MediaSourceAddSourceBufferFunc(this js.Ref) js.Ref
+func FuncMediaSourceAddSourceBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaSource_AddSourceBuffer
 //go:noescape
@@ -510,11 +508,11 @@ func TryMediaSourceAddSourceBuffer(
 
 //go:wasmimport plat/js/web has_MediaSource_RemoveSourceBuffer
 //go:noescape
-func HasMediaSourceRemoveSourceBuffer(this js.Ref) js.Ref
+func HasFuncMediaSourceRemoveSourceBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaSource_RemoveSourceBuffer
 //go:noescape
-func MediaSourceRemoveSourceBufferFunc(this js.Ref) js.Ref
+func FuncMediaSourceRemoveSourceBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaSource_RemoveSourceBuffer
 //go:noescape
@@ -530,11 +528,11 @@ func TryMediaSourceRemoveSourceBuffer(
 
 //go:wasmimport plat/js/web has_MediaSource_EndOfStream
 //go:noescape
-func HasMediaSourceEndOfStream(this js.Ref) js.Ref
+func HasFuncMediaSourceEndOfStream(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaSource_EndOfStream
 //go:noescape
-func MediaSourceEndOfStreamFunc(this js.Ref) js.Ref
+func FuncMediaSourceEndOfStream(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaSource_EndOfStream
 //go:noescape
@@ -550,11 +548,11 @@ func TryMediaSourceEndOfStream(
 
 //go:wasmimport plat/js/web has_MediaSource_EndOfStream1
 //go:noescape
-func HasMediaSourceEndOfStream1(this js.Ref) js.Ref
+func HasFuncMediaSourceEndOfStream1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaSource_EndOfStream1
 //go:noescape
-func MediaSourceEndOfStream1Func(this js.Ref) js.Ref
+func FuncMediaSourceEndOfStream1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaSource_EndOfStream1
 //go:noescape
@@ -568,11 +566,11 @@ func TryMediaSourceEndOfStream1(
 
 //go:wasmimport plat/js/web has_MediaSource_SetLiveSeekableRange
 //go:noescape
-func HasMediaSourceSetLiveSeekableRange(this js.Ref) js.Ref
+func HasFuncMediaSourceSetLiveSeekableRange(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaSource_SetLiveSeekableRange
 //go:noescape
-func MediaSourceSetLiveSeekableRangeFunc(this js.Ref) js.Ref
+func FuncMediaSourceSetLiveSeekableRange(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaSource_SetLiveSeekableRange
 //go:noescape
@@ -590,11 +588,11 @@ func TryMediaSourceSetLiveSeekableRange(
 
 //go:wasmimport plat/js/web has_MediaSource_ClearLiveSeekableRange
 //go:noescape
-func HasMediaSourceClearLiveSeekableRange(this js.Ref) js.Ref
+func HasFuncMediaSourceClearLiveSeekableRange(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaSource_ClearLiveSeekableRange
 //go:noescape
-func MediaSourceClearLiveSeekableRangeFunc(this js.Ref) js.Ref
+func FuncMediaSourceClearLiveSeekableRange(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaSource_ClearLiveSeekableRange
 //go:noescape
@@ -608,11 +606,11 @@ func TryMediaSourceClearLiveSeekableRange(
 
 //go:wasmimport plat/js/web has_MediaSource_IsTypeSupported
 //go:noescape
-func HasMediaSourceIsTypeSupported(this js.Ref) js.Ref
+func HasFuncMediaSourceIsTypeSupported(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaSource_IsTypeSupported
 //go:noescape
-func MediaSourceIsTypeSupportedFunc(this js.Ref) js.Ref
+func FuncMediaSourceIsTypeSupported(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaSource_IsTypeSupported
 //go:noescape
@@ -637,11 +635,11 @@ func GetRemotePlaybackState(
 
 //go:wasmimport plat/js/web has_RemotePlayback_WatchAvailability
 //go:noescape
-func HasRemotePlaybackWatchAvailability(this js.Ref) js.Ref
+func HasFuncRemotePlaybackWatchAvailability(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RemotePlayback_WatchAvailability
 //go:noescape
-func RemotePlaybackWatchAvailabilityFunc(this js.Ref) js.Ref
+func FuncRemotePlaybackWatchAvailability(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RemotePlayback_WatchAvailability
 //go:noescape
@@ -657,11 +655,11 @@ func TryRemotePlaybackWatchAvailability(
 
 //go:wasmimport plat/js/web has_RemotePlayback_CancelWatchAvailability
 //go:noescape
-func HasRemotePlaybackCancelWatchAvailability(this js.Ref) js.Ref
+func HasFuncRemotePlaybackCancelWatchAvailability(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RemotePlayback_CancelWatchAvailability
 //go:noescape
-func RemotePlaybackCancelWatchAvailabilityFunc(this js.Ref) js.Ref
+func FuncRemotePlaybackCancelWatchAvailability(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RemotePlayback_CancelWatchAvailability
 //go:noescape
@@ -677,11 +675,11 @@ func TryRemotePlaybackCancelWatchAvailability(
 
 //go:wasmimport plat/js/web has_RemotePlayback_CancelWatchAvailability1
 //go:noescape
-func HasRemotePlaybackCancelWatchAvailability1(this js.Ref) js.Ref
+func HasFuncRemotePlaybackCancelWatchAvailability1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RemotePlayback_CancelWatchAvailability1
 //go:noescape
-func RemotePlaybackCancelWatchAvailability1Func(this js.Ref) js.Ref
+func FuncRemotePlaybackCancelWatchAvailability1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RemotePlayback_CancelWatchAvailability1
 //go:noescape
@@ -695,11 +693,11 @@ func TryRemotePlaybackCancelWatchAvailability1(
 
 //go:wasmimport plat/js/web has_RemotePlayback_Prompt
 //go:noescape
-func HasRemotePlaybackPrompt(this js.Ref) js.Ref
+func HasFuncRemotePlaybackPrompt(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RemotePlayback_Prompt
 //go:noescape
-func RemotePlaybackPromptFunc(this js.Ref) js.Ref
+func FuncRemotePlaybackPrompt(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RemotePlayback_Prompt
 //go:noescape
@@ -978,11 +976,11 @@ func GetHTMLMediaElementSinkId(
 
 //go:wasmimport plat/js/web has_HTMLMediaElement_Load
 //go:noescape
-func HasHTMLMediaElementLoad(this js.Ref) js.Ref
+func HasFuncHTMLMediaElementLoad(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLMediaElement_Load
 //go:noescape
-func HTMLMediaElementLoadFunc(this js.Ref) js.Ref
+func FuncHTMLMediaElementLoad(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLMediaElement_Load
 //go:noescape
@@ -996,11 +994,11 @@ func TryHTMLMediaElementLoad(
 
 //go:wasmimport plat/js/web has_HTMLMediaElement_CanPlayType
 //go:noescape
-func HasHTMLMediaElementCanPlayType(this js.Ref) js.Ref
+func HasFuncHTMLMediaElementCanPlayType(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLMediaElement_CanPlayType
 //go:noescape
-func HTMLMediaElementCanPlayTypeFunc(this js.Ref) js.Ref
+func FuncHTMLMediaElementCanPlayType(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLMediaElement_CanPlayType
 //go:noescape
@@ -1016,11 +1014,11 @@ func TryHTMLMediaElementCanPlayType(
 
 //go:wasmimport plat/js/web has_HTMLMediaElement_FastSeek
 //go:noescape
-func HasHTMLMediaElementFastSeek(this js.Ref) js.Ref
+func HasFuncHTMLMediaElementFastSeek(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLMediaElement_FastSeek
 //go:noescape
-func HTMLMediaElementFastSeekFunc(this js.Ref) js.Ref
+func FuncHTMLMediaElementFastSeek(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLMediaElement_FastSeek
 //go:noescape
@@ -1036,11 +1034,11 @@ func TryHTMLMediaElementFastSeek(
 
 //go:wasmimport plat/js/web has_HTMLMediaElement_GetStartDate
 //go:noescape
-func HasHTMLMediaElementGetStartDate(this js.Ref) js.Ref
+func HasFuncHTMLMediaElementGetStartDate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLMediaElement_GetStartDate
 //go:noescape
-func HTMLMediaElementGetStartDateFunc(this js.Ref) js.Ref
+func FuncHTMLMediaElementGetStartDate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLMediaElement_GetStartDate
 //go:noescape
@@ -1054,11 +1052,11 @@ func TryHTMLMediaElementGetStartDate(
 
 //go:wasmimport plat/js/web has_HTMLMediaElement_Play
 //go:noescape
-func HasHTMLMediaElementPlay(this js.Ref) js.Ref
+func HasFuncHTMLMediaElementPlay(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLMediaElement_Play
 //go:noescape
-func HTMLMediaElementPlayFunc(this js.Ref) js.Ref
+func FuncHTMLMediaElementPlay(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLMediaElement_Play
 //go:noescape
@@ -1072,11 +1070,11 @@ func TryHTMLMediaElementPlay(
 
 //go:wasmimport plat/js/web has_HTMLMediaElement_Pause
 //go:noescape
-func HasHTMLMediaElementPause(this js.Ref) js.Ref
+func HasFuncHTMLMediaElementPause(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLMediaElement_Pause
 //go:noescape
-func HTMLMediaElementPauseFunc(this js.Ref) js.Ref
+func FuncHTMLMediaElementPause(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLMediaElement_Pause
 //go:noescape
@@ -1090,11 +1088,11 @@ func TryHTMLMediaElementPause(
 
 //go:wasmimport plat/js/web has_HTMLMediaElement_AddTextTrack
 //go:noescape
-func HasHTMLMediaElementAddTextTrack(this js.Ref) js.Ref
+func HasFuncHTMLMediaElementAddTextTrack(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLMediaElement_AddTextTrack
 //go:noescape
-func HTMLMediaElementAddTextTrackFunc(this js.Ref) js.Ref
+func FuncHTMLMediaElementAddTextTrack(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLMediaElement_AddTextTrack
 //go:noescape
@@ -1114,11 +1112,11 @@ func TryHTMLMediaElementAddTextTrack(
 
 //go:wasmimport plat/js/web has_HTMLMediaElement_AddTextTrack1
 //go:noescape
-func HasHTMLMediaElementAddTextTrack1(this js.Ref) js.Ref
+func HasFuncHTMLMediaElementAddTextTrack1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLMediaElement_AddTextTrack1
 //go:noescape
-func HTMLMediaElementAddTextTrack1Func(this js.Ref) js.Ref
+func FuncHTMLMediaElementAddTextTrack1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLMediaElement_AddTextTrack1
 //go:noescape
@@ -1136,11 +1134,11 @@ func TryHTMLMediaElementAddTextTrack1(
 
 //go:wasmimport plat/js/web has_HTMLMediaElement_AddTextTrack2
 //go:noescape
-func HasHTMLMediaElementAddTextTrack2(this js.Ref) js.Ref
+func HasFuncHTMLMediaElementAddTextTrack2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLMediaElement_AddTextTrack2
 //go:noescape
-func HTMLMediaElementAddTextTrack2Func(this js.Ref) js.Ref
+func FuncHTMLMediaElementAddTextTrack2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLMediaElement_AddTextTrack2
 //go:noescape
@@ -1156,11 +1154,11 @@ func TryHTMLMediaElementAddTextTrack2(
 
 //go:wasmimport plat/js/web has_HTMLMediaElement_SetMediaKeys
 //go:noescape
-func HasHTMLMediaElementSetMediaKeys(this js.Ref) js.Ref
+func HasFuncHTMLMediaElementSetMediaKeys(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLMediaElement_SetMediaKeys
 //go:noescape
-func HTMLMediaElementSetMediaKeysFunc(this js.Ref) js.Ref
+func FuncHTMLMediaElementSetMediaKeys(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLMediaElement_SetMediaKeys
 //go:noescape
@@ -1176,11 +1174,11 @@ func TryHTMLMediaElementSetMediaKeys(
 
 //go:wasmimport plat/js/web has_HTMLMediaElement_CaptureStream
 //go:noescape
-func HasHTMLMediaElementCaptureStream(this js.Ref) js.Ref
+func HasFuncHTMLMediaElementCaptureStream(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLMediaElement_CaptureStream
 //go:noescape
-func HTMLMediaElementCaptureStreamFunc(this js.Ref) js.Ref
+func FuncHTMLMediaElementCaptureStream(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLMediaElement_CaptureStream
 //go:noescape
@@ -1194,11 +1192,11 @@ func TryHTMLMediaElementCaptureStream(
 
 //go:wasmimport plat/js/web has_HTMLMediaElement_SetSinkId
 //go:noescape
-func HasHTMLMediaElementSetSinkId(this js.Ref) js.Ref
+func HasFuncHTMLMediaElementSetSinkId(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLMediaElement_SetSinkId
 //go:noescape
-func HTMLMediaElementSetSinkIdFunc(this js.Ref) js.Ref
+func FuncHTMLMediaElementSetSinkId(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLMediaElement_SetSinkId
 //go:noescape
@@ -1313,11 +1311,11 @@ func AudioRenderCapacityOptionsJSLoad(
 
 //go:wasmimport plat/js/web has_AudioRenderCapacity_Start
 //go:noescape
-func HasAudioRenderCapacityStart(this js.Ref) js.Ref
+func HasFuncAudioRenderCapacityStart(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioRenderCapacity_Start
 //go:noescape
-func AudioRenderCapacityStartFunc(this js.Ref) js.Ref
+func FuncAudioRenderCapacityStart(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioRenderCapacity_Start
 //go:noescape
@@ -1333,11 +1331,11 @@ func TryAudioRenderCapacityStart(
 
 //go:wasmimport plat/js/web has_AudioRenderCapacity_Start1
 //go:noescape
-func HasAudioRenderCapacityStart1(this js.Ref) js.Ref
+func HasFuncAudioRenderCapacityStart1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioRenderCapacity_Start1
 //go:noescape
-func AudioRenderCapacityStart1Func(this js.Ref) js.Ref
+func FuncAudioRenderCapacityStart1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioRenderCapacity_Start1
 //go:noescape
@@ -1351,11 +1349,11 @@ func TryAudioRenderCapacityStart1(
 
 //go:wasmimport plat/js/web has_AudioRenderCapacity_Stop
 //go:noescape
-func HasAudioRenderCapacityStop(this js.Ref) js.Ref
+func HasFuncAudioRenderCapacityStop(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioRenderCapacity_Stop
 //go:noescape
-func AudioRenderCapacityStopFunc(this js.Ref) js.Ref
+func FuncAudioRenderCapacityStop(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioRenderCapacity_Stop
 //go:noescape
@@ -1398,11 +1396,11 @@ func GetAudioContextRenderCapacity(
 
 //go:wasmimport plat/js/web has_AudioContext_GetOutputTimestamp
 //go:noescape
-func HasAudioContextGetOutputTimestamp(this js.Ref) js.Ref
+func HasFuncAudioContextGetOutputTimestamp(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioContext_GetOutputTimestamp
 //go:noescape
-func AudioContextGetOutputTimestampFunc(this js.Ref) js.Ref
+func FuncAudioContextGetOutputTimestamp(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioContext_GetOutputTimestamp
 //go:noescape
@@ -1416,11 +1414,11 @@ func TryAudioContextGetOutputTimestamp(
 
 //go:wasmimport plat/js/web has_AudioContext_Resume
 //go:noescape
-func HasAudioContextResume(this js.Ref) js.Ref
+func HasFuncAudioContextResume(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioContext_Resume
 //go:noescape
-func AudioContextResumeFunc(this js.Ref) js.Ref
+func FuncAudioContextResume(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioContext_Resume
 //go:noescape
@@ -1434,11 +1432,11 @@ func TryAudioContextResume(
 
 //go:wasmimport plat/js/web has_AudioContext_Suspend
 //go:noescape
-func HasAudioContextSuspend(this js.Ref) js.Ref
+func HasFuncAudioContextSuspend(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioContext_Suspend
 //go:noescape
-func AudioContextSuspendFunc(this js.Ref) js.Ref
+func FuncAudioContextSuspend(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioContext_Suspend
 //go:noescape
@@ -1452,11 +1450,11 @@ func TryAudioContextSuspend(
 
 //go:wasmimport plat/js/web has_AudioContext_Close
 //go:noescape
-func HasAudioContextClose(this js.Ref) js.Ref
+func HasFuncAudioContextClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioContext_Close
 //go:noescape
-func AudioContextCloseFunc(this js.Ref) js.Ref
+func FuncAudioContextClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioContext_Close
 //go:noescape
@@ -1470,11 +1468,11 @@ func TryAudioContextClose(
 
 //go:wasmimport plat/js/web has_AudioContext_SetSinkId
 //go:noescape
-func HasAudioContextSetSinkId(this js.Ref) js.Ref
+func HasFuncAudioContextSetSinkId(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioContext_SetSinkId
 //go:noescape
-func AudioContextSetSinkIdFunc(this js.Ref) js.Ref
+func FuncAudioContextSetSinkId(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioContext_SetSinkId
 //go:noescape
@@ -1490,11 +1488,11 @@ func TryAudioContextSetSinkId(
 
 //go:wasmimport plat/js/web has_AudioContext_CreateMediaElementSource
 //go:noescape
-func HasAudioContextCreateMediaElementSource(this js.Ref) js.Ref
+func HasFuncAudioContextCreateMediaElementSource(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioContext_CreateMediaElementSource
 //go:noescape
-func AudioContextCreateMediaElementSourceFunc(this js.Ref) js.Ref
+func FuncAudioContextCreateMediaElementSource(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioContext_CreateMediaElementSource
 //go:noescape
@@ -1510,11 +1508,11 @@ func TryAudioContextCreateMediaElementSource(
 
 //go:wasmimport plat/js/web has_AudioContext_CreateMediaStreamSource
 //go:noescape
-func HasAudioContextCreateMediaStreamSource(this js.Ref) js.Ref
+func HasFuncAudioContextCreateMediaStreamSource(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioContext_CreateMediaStreamSource
 //go:noescape
-func AudioContextCreateMediaStreamSourceFunc(this js.Ref) js.Ref
+func FuncAudioContextCreateMediaStreamSource(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioContext_CreateMediaStreamSource
 //go:noescape
@@ -1530,11 +1528,11 @@ func TryAudioContextCreateMediaStreamSource(
 
 //go:wasmimport plat/js/web has_AudioContext_CreateMediaStreamTrackSource
 //go:noescape
-func HasAudioContextCreateMediaStreamTrackSource(this js.Ref) js.Ref
+func HasFuncAudioContextCreateMediaStreamTrackSource(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioContext_CreateMediaStreamTrackSource
 //go:noescape
-func AudioContextCreateMediaStreamTrackSourceFunc(this js.Ref) js.Ref
+func FuncAudioContextCreateMediaStreamTrackSource(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioContext_CreateMediaStreamTrackSource
 //go:noescape
@@ -1550,11 +1548,11 @@ func TryAudioContextCreateMediaStreamTrackSource(
 
 //go:wasmimport plat/js/web has_AudioContext_CreateMediaStreamDestination
 //go:noescape
-func HasAudioContextCreateMediaStreamDestination(this js.Ref) js.Ref
+func HasFuncAudioContextCreateMediaStreamDestination(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioContext_CreateMediaStreamDestination
 //go:noescape
-func AudioContextCreateMediaStreamDestinationFunc(this js.Ref) js.Ref
+func FuncAudioContextCreateMediaStreamDestination(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioContext_CreateMediaStreamDestination
 //go:noescape
@@ -1627,11 +1625,11 @@ func GetAudioDataTimestamp(
 
 //go:wasmimport plat/js/web has_AudioData_AllocationSize
 //go:noescape
-func HasAudioDataAllocationSize(this js.Ref) js.Ref
+func HasFuncAudioDataAllocationSize(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioData_AllocationSize
 //go:noescape
-func AudioDataAllocationSizeFunc(this js.Ref) js.Ref
+func FuncAudioDataAllocationSize(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioData_AllocationSize
 //go:noescape
@@ -1647,11 +1645,11 @@ func TryAudioDataAllocationSize(
 
 //go:wasmimport plat/js/web has_AudioData_CopyTo
 //go:noescape
-func HasAudioDataCopyTo(this js.Ref) js.Ref
+func HasFuncAudioDataCopyTo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioData_CopyTo
 //go:noescape
-func AudioDataCopyToFunc(this js.Ref) js.Ref
+func FuncAudioDataCopyTo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioData_CopyTo
 //go:noescape
@@ -1669,11 +1667,11 @@ func TryAudioDataCopyTo(
 
 //go:wasmimport plat/js/web has_AudioData_Clone
 //go:noescape
-func HasAudioDataClone(this js.Ref) js.Ref
+func HasFuncAudioDataClone(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioData_Clone
 //go:noescape
-func AudioDataCloneFunc(this js.Ref) js.Ref
+func FuncAudioDataClone(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioData_Clone
 //go:noescape
@@ -1687,11 +1685,11 @@ func TryAudioDataClone(
 
 //go:wasmimport plat/js/web has_AudioData_Close
 //go:noescape
-func HasAudioDataClose(this js.Ref) js.Ref
+func HasFuncAudioDataClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioData_Close
 //go:noescape
-func AudioDataCloseFunc(this js.Ref) js.Ref
+func FuncAudioDataClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioData_Close
 //go:noescape
@@ -1764,11 +1762,11 @@ func GetEncodedAudioChunkByteLength(
 
 //go:wasmimport plat/js/web has_EncodedAudioChunk_CopyTo
 //go:noescape
-func HasEncodedAudioChunkCopyTo(this js.Ref) js.Ref
+func HasFuncEncodedAudioChunkCopyTo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_EncodedAudioChunk_CopyTo
 //go:noescape
-func EncodedAudioChunkCopyToFunc(this js.Ref) js.Ref
+func FuncEncodedAudioChunkCopyTo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_EncodedAudioChunk_CopyTo
 //go:noescape
@@ -1813,11 +1811,11 @@ func GetAudioDecoderDecodeQueueSize(
 
 //go:wasmimport plat/js/web has_AudioDecoder_Configure
 //go:noescape
-func HasAudioDecoderConfigure(this js.Ref) js.Ref
+func HasFuncAudioDecoderConfigure(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioDecoder_Configure
 //go:noescape
-func AudioDecoderConfigureFunc(this js.Ref) js.Ref
+func FuncAudioDecoderConfigure(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioDecoder_Configure
 //go:noescape
@@ -1833,11 +1831,11 @@ func TryAudioDecoderConfigure(
 
 //go:wasmimport plat/js/web has_AudioDecoder_Decode
 //go:noescape
-func HasAudioDecoderDecode(this js.Ref) js.Ref
+func HasFuncAudioDecoderDecode(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioDecoder_Decode
 //go:noescape
-func AudioDecoderDecodeFunc(this js.Ref) js.Ref
+func FuncAudioDecoderDecode(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioDecoder_Decode
 //go:noescape
@@ -1853,11 +1851,11 @@ func TryAudioDecoderDecode(
 
 //go:wasmimport plat/js/web has_AudioDecoder_Flush
 //go:noescape
-func HasAudioDecoderFlush(this js.Ref) js.Ref
+func HasFuncAudioDecoderFlush(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioDecoder_Flush
 //go:noescape
-func AudioDecoderFlushFunc(this js.Ref) js.Ref
+func FuncAudioDecoderFlush(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioDecoder_Flush
 //go:noescape
@@ -1871,11 +1869,11 @@ func TryAudioDecoderFlush(
 
 //go:wasmimport plat/js/web has_AudioDecoder_Reset
 //go:noescape
-func HasAudioDecoderReset(this js.Ref) js.Ref
+func HasFuncAudioDecoderReset(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioDecoder_Reset
 //go:noescape
-func AudioDecoderResetFunc(this js.Ref) js.Ref
+func FuncAudioDecoderReset(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioDecoder_Reset
 //go:noescape
@@ -1889,11 +1887,11 @@ func TryAudioDecoderReset(
 
 //go:wasmimport plat/js/web has_AudioDecoder_Close
 //go:noescape
-func HasAudioDecoderClose(this js.Ref) js.Ref
+func HasFuncAudioDecoderClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioDecoder_Close
 //go:noescape
-func AudioDecoderCloseFunc(this js.Ref) js.Ref
+func FuncAudioDecoderClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioDecoder_Close
 //go:noescape
@@ -1907,11 +1905,11 @@ func TryAudioDecoderClose(
 
 //go:wasmimport plat/js/web has_AudioDecoder_IsConfigSupported
 //go:noescape
-func HasAudioDecoderIsConfigSupported(this js.Ref) js.Ref
+func HasFuncAudioDecoderIsConfigSupported(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioDecoder_IsConfigSupported
 //go:noescape
-func AudioDecoderIsConfigSupportedFunc(this js.Ref) js.Ref
+func FuncAudioDecoderIsConfigSupported(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioDecoder_IsConfigSupported
 //go:noescape

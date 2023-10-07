@@ -1,0 +1,665 @@
+- File: webext/chrome/safe_browsing_private.idl
+  Dict:
+    Name: DangerousDownloadInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - safeBrowsingPrivate
+    Fields:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+      - Name: fileName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+      - Name: downloadDigestSha256
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+      - Name: userName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+- File: webext/chrome/safe_browsing_private.idl
+  Callback:
+    Name: GetReferrerChainCallback
+    Args:
+      - Name: entries
+        Type:
+          Name: sequence
+          Params:
+            - Name: ReferrerChainEntry
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - safeBrowsingPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - safeBrowsingPrivate
+- File: webext/chrome/safe_browsing_private.idl
+  Dict:
+    Name: InterstitialInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - safeBrowsingPrivate
+    Fields:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+      - Name: reason
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+      - Name: netErrorCode
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+      - Name: userName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+- File: webext/chrome/safe_browsing_private.idl
+  Enum:
+    Name: NavigationInitiation
+    Values:
+      - BROWSER_INITIATED
+      - RENDERER_INITIATED_WITHOUT_USER_GESTURE
+      - RENDERER_INITIATED_WITH_USER_GESTURE
+      - COPY_PASTE_USER_INITIATED
+      - NOTIFICATION_INITIATED
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - safeBrowsingPrivate
+- File: webext/chrome/safe_browsing_private.idl
+  Dict:
+    Name: PolicySpecifiedPasswordReuse
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - safeBrowsingPrivate
+    Fields:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+      - Name: userName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+      - Name: isPhishingUrl
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+- File: webext/chrome/safe_browsing_private.idl
+  Dict:
+    Name: ReferrerChainEntry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - safeBrowsingPrivate
+    Fields:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+      - Name: mainFrameUrl
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+      - Name: urlType
+        Type:
+          Name: URLType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+      - Name: ipAddresses
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - safeBrowsingPrivate
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+      - Name: referrerUrl
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+      - Name: referrerMainFrameUrl
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+      - Name: isRetargeting
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+      - Name: navigationTimeMs
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+      - Name: serverRedirectChain
+        Type:
+          Name: sequence
+          Params:
+            - Name: ServerRedirect
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - safeBrowsingPrivate
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+      - Name: navigationInitiation
+        Type:
+          Name: NavigationInitiation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+      - Name: maybeLaunchedByExternalApp
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+      - Name: isSubframeUrlRemoved
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+      - Name: isSubframeReferrerUrlRemoved
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+      - Name: isUrlRemovedByPolicy
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+- File: webext/chrome/safe_browsing_private.idl
+  Dict:
+    Name: ServerRedirect
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - safeBrowsingPrivate
+    Fields:
+      - Name: url
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+- File: webext/chrome/safe_browsing_private.idl
+  Enum:
+    Name: URLType
+    Values:
+      - EVENT_URL
+      - LANDING_PAGE
+      - LANDING_REFERRER
+      - CLIENT_REDIRECT
+      - RECENT_NAVIGATION
+      - REFERRER
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - safeBrowsingPrivate
+- File: webext/chrome/safe_browsing_private.idl
+  WebextFunc:
+    Name: getReferrerChain
+    Modifier: static
+    Args:
+      - Name: tabId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: ReferrerChainEntry
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - safeBrowsingPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - safeBrowsingPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - safeBrowsingPrivate
+- File: webext/chrome/safe_browsing_private.idl
+  WebextEvent:
+    Name: onDangerousDownloadOpened
+    Modifier: static
+    Args:
+      - Name: dict
+        Type:
+          Name: DangerousDownloadInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - safeBrowsingPrivate
+- File: webext/chrome/safe_browsing_private.idl
+  WebextEvent:
+    Name: onPolicySpecifiedPasswordChanged
+    Modifier: static
+    Args:
+      - Name: userName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - safeBrowsingPrivate
+- File: webext/chrome/safe_browsing_private.idl
+  WebextEvent:
+    Name: onPolicySpecifiedPasswordReuseDetected
+    Modifier: static
+    Args:
+      - Name: reuseDetails
+        Type:
+          Name: PolicySpecifiedPasswordReuse
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - safeBrowsingPrivate
+- File: webext/chrome/safe_browsing_private.idl
+  WebextEvent:
+    Name: onSecurityInterstitialProceeded
+    Modifier: static
+    Args:
+      - Name: dict
+        Type:
+          Name: InterstitialInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - safeBrowsingPrivate
+- File: webext/chrome/safe_browsing_private.idl
+  WebextEvent:
+    Name: onSecurityInterstitialShown
+    Modifier: static
+    Args:
+      - Name: dict
+        Type:
+          Name: InterstitialInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - safeBrowsingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - safeBrowsingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - safeBrowsingPrivate

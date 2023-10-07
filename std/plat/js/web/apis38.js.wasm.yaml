@@ -1,4 +1,4 @@
-- File: cssom-view.idl
+- File: webref/cssom-view.idl
   Dict:
     Name: ScrollToOptions
     Inherits: ScrollOptions
@@ -13,7 +13,7 @@
         Default: '"auto"'
         Type:
           Name: ScrollBehavior
-- File: secure-payment-confirmation.idl
+- File: webref/secure-payment-confirmation.idl
   Dict:
     Name: SecurePaymentConfirmationRequest
     Fields:
@@ -55,7 +55,7 @@
       - Name: showOptOut
         Type:
           Name: boolean
-- File: CSP.idl
+- File: webref/CSP.idl
   Interface:
     Name: SecurityPolicyViolationEvent
     Inherits: Event
@@ -188,13 +188,13 @@
             Values:
               - Window
               - Worker
-- File: CSP.idl
+- File: webref/CSP.idl
   Enum:
     Name: SecurityPolicyViolationEventDisposition
     Values:
       - enforce
       - report
-- File: CSP.idl
+- File: webref/CSP.idl
   Dict:
     Name: SecurityPolicyViolationEventInit
     Inherits: EventInit
@@ -259,7 +259,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: selection-api.idl
+- File: webref/selection-api.idl
   Interface:
     Name: Selection
     ExtAttrs:
@@ -539,7 +539,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: SelectionMode
     Values:
@@ -547,13 +547,13 @@
       - start
       - end
       - preserve
-- File: screen-capture.idl
+- File: webref/screen-capture.idl
   Enum:
     Name: SelfCapturePreferenceEnum
     Values:
       - include
       - exclude
-- File: generic-sensor.idl
+- File: webref/generic-sensor.idl
   Interface:
     Name: Sensor
     Inherits: EventTarget
@@ -641,7 +641,7 @@
             Values:
               - DedicatedWorker
               - Window
-- File: generic-sensor.idl
+- File: webref/generic-sensor.idl
   Interface:
     Name: SensorErrorEvent
     Inherits: Event
@@ -676,7 +676,7 @@
             Values:
               - DedicatedWorker
               - Window
-- File: generic-sensor.idl
+- File: webref/generic-sensor.idl
   Dict:
     Name: SensorErrorEventInit
     Inherits: EventInit
@@ -697,14 +697,14 @@
         Default: "false"
         Type:
           Name: boolean
-- File: generic-sensor.idl
+- File: webref/generic-sensor.idl
   Dict:
     Name: SensorOptions
     Fields:
       - Name: frequency
         Type:
           Name: double
-- File: web-animations-2.idl
+- File: webref/web-animations-2.idl
   Interface:
     Name: SequenceEffect
     Inherits: GroupEffect
@@ -739,7 +739,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: serial.idl
+- File: webref/serial.idl
   Interface:
     Name: Serial
     Inherits: EventTarget
@@ -797,8 +797,7 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
-- File: serial.idl
+- File: webref/serial.idl
   Dict:
     Name: SerialInputSignals
     Fields:
@@ -818,7 +817,7 @@
         Required: true
         Type:
           Name: boolean
-- File: serial.idl
+- File: webref/serial.idl
   Dict:
     Name: SerialOptions
     Fields:
@@ -854,7 +853,7 @@
         Default: '"none"'
         Type:
           Name: FlowControlType
-- File: serial.idl
+- File: webref/serial.idl
   Dict:
     Name: SerialOutputSignals
     Fields:
@@ -867,7 +866,7 @@
       - Name: break
         Type:
           Name: boolean
-- File: serial.idl
+- File: webref/serial.idl
   Interface:
     Name: SerialPort
     Inherits: EventTarget
@@ -991,7 +990,7 @@
               - DedicatedWorker
               - Window
           - Name: SecureContext
-- File: serial.idl
+- File: webref/serial.idl
   Dict:
     Name: SerialPortFilter
     Fields:
@@ -1004,7 +1003,7 @@
       - Name: bluetoothServiceClassId
         Type:
           Name: BluetoothServiceUUID
-- File: serial.idl
+- File: webref/serial.idl
   Dict:
     Name: SerialPortInfo
     Fields:
@@ -1017,7 +1016,7 @@
       - Name: bluetoothServiceClassId
         Type:
           Name: BluetoothServiceUUID
-- File: serial.idl
+- File: webref/serial.idl
   Dict:
     Name: SerialPortRequestOptions
     Fields:
@@ -1031,7 +1030,7 @@
           Name: sequence
           Params:
             - Name: BluetoothServiceUUID
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Interface:
     Name: ServiceWorker
     Inherits: EventTarget
@@ -1111,7 +1110,7 @@
             Values:
               - Window
               - Worker
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Interface:
     Name: ServiceWorkerContainer
     Inherits: EventTarget
@@ -1237,7 +1236,7 @@
             Values:
               - Window
               - Worker
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Interface:
     Name: ServiceWorkerGlobalScope
     Inherits: WorkerGlobalScope
@@ -1417,7 +1416,7 @@
           - Name: Exposed
             Values:
               - ServiceWorker
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Interface:
     Name: ServiceWorkerRegistration
     Inherits: EventTarget
@@ -1598,7 +1597,7 @@
               - Name: sequence
                 Params:
                   - Name: Notification
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Enum:
     Name: ServiceWorkerState
     Values:
@@ -1608,21 +1607,21 @@
       - activating
       - activated
       - redundant
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Enum:
     Name: ServiceWorkerUpdateViaCache
     Values:
       - imports
       - all
       - none
-- File: sanitizer-api.idl
+- File: webref/sanitizer-api.idl
   Dict:
     Name: SetHTMLOptions
     Fields:
       - Name: sanitizer
         Type:
           Name: Sanitizer
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: ShadowAnimation
     Inherits: Animation
@@ -1654,7 +1653,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: ShadowRoot
     Inherits: DocumentFragment
@@ -1746,7 +1745,7 @@
           - Name: sequence
             Params:
               - Name: Animation
-- File: dom.idl
+- File: webref/dom.idl
   Dict:
     Name: ShadowRootInit
     Fields:
@@ -1762,13 +1761,13 @@
         Default: '"named"'
         Type:
           Name: SlotAssignmentMode
-- File: dom.idl
+- File: webref/dom.idl
   Enum:
     Name: ShadowRootMode
     Values:
       - open
       - closed
-- File: web-share.idl
+- File: webref/web-share.idl
   Dict:
     Name: ShareData
     Fields:
@@ -1786,7 +1785,7 @@
       - Name: url
         Type:
           Name: USVString
-- File: shared-storage.idl
+- File: webref/shared-storage.idl
   Interface:
     Name: SharedStorage
     ExtAttrs:
@@ -1858,14 +1857,14 @@
             Values:
               - Window
               - SharedStorageWorklet
-- File: shared-storage.idl
+- File: webref/shared-storage.idl
   Interface:
     Name: SharedStorageOperation
     ExtAttrs:
       - Name: Exposed
         Values:
           - SharedStorageWorklet
-- File: shared-storage.idl
+- File: webref/shared-storage.idl
   Callback:
     Name: SharedStorageOperationConstructor
     Args:
@@ -1875,14 +1874,14 @@
           Name: SharedStorageRunOperationMethodOptions
     Returns:
       - Name: SharedStorageOperation
-- File: shared-storage.idl
+- File: webref/shared-storage.idl
   Typedef:
     Name: SharedStorageResponse
     Type:
       Union:
         - Name: USVString
         - Name: FencedFrameConfig
-- File: shared-storage.idl
+- File: webref/shared-storage.idl
   Interface:
     Name: SharedStorageRunOperation
     Inherits: SharedStorageOperation
@@ -1904,7 +1903,7 @@
           - Name: Exposed
             Values:
               - SharedStorageWorklet
-- File: shared-storage.idl
+- File: webref/shared-storage.idl
   Dict:
     Name: SharedStorageRunOperationMethodOptions
     Fields:
@@ -1919,7 +1918,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: shared-storage.idl
+- File: webref/shared-storage.idl
   Interface:
     Name: SharedStorageSelectURLOperation
     Inherits: SharedStorageOperation
@@ -1946,7 +1945,7 @@
           - Name: Exposed
             Values:
               - SharedStorageWorklet
-- File: shared-storage.idl
+- File: webref/shared-storage.idl
   Dict:
     Name: SharedStorageSetMethodOptions
     Fields:
@@ -1954,7 +1953,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: shared-storage.idl
+- File: webref/shared-storage.idl
   Dict:
     Name: SharedStorageUrlWithMetadata
     Fields:
@@ -1965,7 +1964,7 @@
       - Name: reportingMetadata
         Type:
           Name: object
-- File: shared-storage.idl
+- File: webref/shared-storage.idl
   Interface:
     Name: SharedStorageWorklet
     Inherits: Worklet
@@ -1973,8 +1972,7 @@
       - Name: Exposed
         Values:
           - Window
-      - Name: SecureContext
-- File: shared-storage.idl
+- File: webref/shared-storage.idl
   Interface:
     Name: SharedStorageWorkletGlobalScope
     Inherits: WorkletGlobalScope
@@ -1985,7 +1983,6 @@
       - Name: Global
         Values:
           - SharedStorageWorklet
-      - Name: SecureContext
     Attrs:
       - Name: sharedStorage
         Readonly: true
@@ -1998,7 +1995,6 @@
           - Name: Global
             Values:
               - SharedStorageWorklet
-          - Name: SecureContext
     Operations:
       - Name: register
         Args:
@@ -2017,8 +2013,7 @@
           - Name: Global
             Values:
               - SharedStorageWorklet
-          - Name: SecureContext
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: SharedWorker
     Inherits: EventTarget
@@ -2054,7 +2049,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: SharedWorkerGlobalScope
     Inherits: WorkerGlobalScope
@@ -2103,18 +2098,18 @@
           - Name: Exposed
             Values:
               - SharedWorker
-- File: dom.idl
+- File: webref/dom.idl
   Enum:
     Name: SlotAssignmentMode
     Values:
       - manual
       - named
-- File: webrtc-encoded-transform.idl
+- File: webref/webrtc-encoded-transform.idl
   Typedef:
     Name: SmallCryptoKeyID
     Type:
       Name: unsigned long long
-- File: media-source.idl
+- File: webref/media-source.idl
   Interface:
     Name: SourceBuffer
     Inherits: EventTarget
@@ -2289,7 +2284,7 @@
             Values:
               - Window
               - DedicatedWorker
-- File: media-source.idl
+- File: webref/media-source.idl
   Interface:
     Name: SourceBufferList
     Inherits: EventTarget

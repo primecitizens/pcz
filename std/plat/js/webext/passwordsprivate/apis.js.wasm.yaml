@@ -1,0 +1,2577 @@
+- File: webext/chrome/passwords_private.idl
+  Dict:
+    Name: AddPasswordOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+    Fields:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: username
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: password
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: note
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: useAccountStore
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Enum:
+    Name: CompromiseType
+    Values:
+      - LEAKED
+      - PHISHED
+      - REUSED
+      - WEAK
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Dict:
+    Name: CompromisedInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+    Fields:
+      - Name: compromiseTime
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: elapsedTimeSinceCompromise
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: compromiseTypes
+        Type:
+          Name: sequence
+          Params:
+            - Name: CompromiseType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - passwordsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: isMuted
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Dict:
+    Name: CredentialGroup
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+    Fields:
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: iconUrl
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: entries
+        Type:
+          Name: sequence
+          Params:
+            - Name: PasswordUiEntry
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - passwordsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Callback:
+    Name: CredentialsGroupCallback
+    Args:
+      - Name: entries
+        Type:
+          Name: sequence
+          Params:
+            - Name: CredentialGroup
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - passwordsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Callback:
+    Name: CredentialsWithReusedPasswordCallback
+    Args:
+      - Name: entries
+        Type:
+          Name: sequence
+          Params:
+            - Name: PasswordUiEntryList
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - passwordsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Dict:
+    Name: DomainInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+    Fields:
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: signonRealm
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Dict:
+    Name: ExceptionEntry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+    Fields:
+      - Name: urls
+        Type:
+          Name: UrlCollection
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: id
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Callback:
+    Name: ExceptionListCallback
+    Args:
+      - Name: exceptions
+        Type:
+          Name: sequence
+          Params:
+            - Name: ExceptionEntry
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - passwordsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Enum:
+    Name: ExportProgressStatus
+    Values:
+      - NOT_STARTED
+      - IN_PROGRESS
+      - SUCCEEDED
+      - FAILED_CANCELLED
+      - FAILED_WRITE_FAILED
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Callback:
+    Name: ExportProgressStatusCallback
+    Args:
+      - Name: status
+        Type:
+          Name: ExportProgressStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Dict:
+    Name: FamilyFetchResults
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+    Fields:
+      - Name: status
+        Type:
+          Name: FamilyFetchStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: familyMembers
+        Type:
+          Name: sequence
+          Params:
+            - Name: RecipientInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - passwordsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Enum:
+    Name: FamilyFetchStatus
+    Values:
+      - UNKNOWN_ERROR
+      - NO_MEMBERS
+      - SUCCESS
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Callback:
+    Name: FetchFamilyResultsCallback
+    Args:
+      - Name: results
+        Type:
+          Name: FamilyFetchResults
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Callback:
+    Name: GetUrlCollectionCallback
+    Args:
+      - Name: urlCollection
+        Type:
+          Name: UrlCollection
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Dict:
+    Name: ImportEntry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+    Fields:
+      - Name: status
+        Type:
+          Name: ImportEntryStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: username
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: password
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: id
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Enum:
+    Name: ImportEntryStatus
+    Values:
+      - UNKNOWN_ERROR
+      - MISSING_PASSWORD
+      - MISSING_URL
+      - INVALID_URL
+      - NON_ASCII_URL
+      - LONG_URL
+      - LONG_PASSWORD
+      - LONG_USERNAME
+      - CONFLICT_PROFILE
+      - CONFLICT_ACCOUNT
+      - LONG_NOTE
+      - LONG_CONCATENATED_NOTE
+      - VALID
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Callback:
+    Name: ImportPasswordsCallback
+    Args:
+      - Name: results
+        Type:
+          Name: ImportResults
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Dict:
+    Name: ImportResults
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+    Fields:
+      - Name: status
+        Type:
+          Name: ImportResultsStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: numberImported
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: displayedEntries
+        Type:
+          Name: sequence
+          Params:
+            - Name: ImportEntry
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - passwordsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: fileName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Enum:
+    Name: ImportResultsStatus
+    Values:
+      - UNKNOWN_ERROR
+      - SUCCESS
+      - IO_ERROR
+      - BAD_FORMAT
+      - DISMISSED
+      - MAX_FILE_SIZE
+      - IMPORT_ALREADY_ACTIVE
+      - NUM_PASSWORDS_EXCEEDED
+      - CONFLICTS
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Callback:
+    Name: IsAccountStoreDefaultCallback
+    Args:
+      - Name: isDefault
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Callback:
+    Name: OptInCallback
+    Args:
+      - Name: optedIn
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Enum:
+    Name: PasswordCheckState
+    Values:
+      - IDLE
+      - RUNNING
+      - CANCELED
+      - OFFLINE
+      - SIGNED_OUT
+      - NO_PASSWORDS
+      - QUOTA_LIMIT
+      - OTHER_ERROR
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Dict:
+    Name: PasswordCheckStatus
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+    Fields:
+      - Name: state
+        Type:
+          Name: PasswordCheckState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: totalNumberOfPasswords
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: alreadyProcessed
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: remainingInQueue
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: elapsedTimeSinceLastCheck
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Callback:
+    Name: PasswordCheckStatusCallback
+    Args:
+      - Name: status
+        Type:
+          Name: PasswordCheckStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Dict:
+    Name: PasswordExportProgress
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+    Fields:
+      - Name: status
+        Type:
+          Name: ExportProgressStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: filePath
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: folderName
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Callback:
+    Name: PasswordListCallback
+    Args:
+      - Name: entries
+        Type:
+          Name: sequence
+          Params:
+            - Name: PasswordUiEntry
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - passwordsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Enum:
+    Name: PasswordStoreSet
+    Values:
+      - DEVICE
+      - ACCOUNT
+      - DEVICE_AND_ACCOUNT
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Dict:
+    Name: PasswordUiEntry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+    Fields:
+      - Name: affiliatedDomains
+        Type:
+          Name: sequence
+          Params:
+            - Name: DomainInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - passwordsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: username
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: displayName
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: password
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: federationText
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: id
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: storedIn
+        Type:
+          Name: PasswordStoreSet
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: isPasskey
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: note
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: changePasswordUrl
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: compromisedInfo
+        Type:
+          Name: CompromisedInfo
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Dict:
+    Name: PasswordUiEntryList
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+    Fields:
+      - Name: entries
+        Type:
+          Name: sequence
+          Params:
+            - Name: PasswordUiEntry
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - passwordsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Callback:
+    Name: PlaintextPasswordCallback
+    Args:
+      - Name: password
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Enum:
+    Name: PlaintextReason
+    Values:
+      - VIEW
+      - COPY
+      - EDIT
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Dict:
+    Name: PublicKey
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+    Fields:
+      - Name: value
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: version
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Dict:
+    Name: RecipientInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+    Fields:
+      - Name: userId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: email
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: displayName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: profileImageUrl
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: isEligible
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: publicKey
+        Type:
+          Name: PublicKey
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Dict:
+    Name: UrlCollection
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+    Fields:
+      - Name: signonRealm
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: shown
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: link
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  Callback:
+    Name: VoidCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: addPassword
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: AddPasswordOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: changeCredential
+    Modifier: static
+    Args:
+      - Name: credential
+        Type:
+          Name: PasswordUiEntry
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: continueImport
+    Modifier: static
+    Args:
+      - Name: selectedIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - passwordsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ImportResults
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - passwordsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: exportPasswords
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: extendAuthValidity
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: fetchFamilyMembers
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: FamilyFetchResults
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - passwordsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: getCredentialGroups
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: CredentialGroup
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - passwordsPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - passwordsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: getCredentialsWithReusedPassword
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: PasswordUiEntryList
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - passwordsPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - passwordsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: getInsecureCredentials
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: PasswordUiEntry
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - passwordsPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - passwordsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: getPasswordCheckStatus
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: PasswordCheckStatus
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - passwordsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: getPasswordExceptionList
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: ExceptionEntry
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - passwordsPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - passwordsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: getSavedPasswordList
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: PasswordUiEntry
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - passwordsPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - passwordsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: getUrlCollection
+    Modifier: static
+    Args:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: UrlCollection
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - passwordsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: importPasswords
+    Modifier: static
+    Args:
+      - Name: toStore
+        Type:
+          Name: PasswordStoreSet
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ImportResults
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - passwordsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: isAccountStoreDefault
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - passwordsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: isOptedInForAccountStorage
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - passwordsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: movePasswordsToAccount
+    Modifier: static
+    Args:
+      - Name: ids
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - passwordsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: muteInsecureCredential
+    Modifier: static
+    Args:
+      - Name: credential
+        Type:
+          Name: PasswordUiEntry
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextEvent:
+    Name: onAccountStorageOptInStateChanged
+    Modifier: static
+    Args:
+      - Name: optedIn
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextEvent:
+    Name: onInsecureCredentialsChanged
+    Modifier: static
+    Args:
+      - Name: insecureCredentials
+        Type:
+          Name: sequence
+          Params:
+            - Name: PasswordUiEntry
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - passwordsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextEvent:
+    Name: onPasswordCheckStatusChanged
+    Modifier: static
+    Args:
+      - Name: status
+        Type:
+          Name: PasswordCheckStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextEvent:
+    Name: onPasswordExceptionsListChanged
+    Modifier: static
+    Args:
+      - Name: exceptions
+        Type:
+          Name: sequence
+          Params:
+            - Name: ExceptionEntry
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - passwordsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextEvent:
+    Name: onPasswordManagerAuthTimeout
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextEvent:
+    Name: onPasswordsFileExportProgress
+    Modifier: static
+    Args:
+      - Name: status
+        Type:
+          Name: PasswordExportProgress
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextEvent:
+    Name: onSavedPasswordsListChanged
+    Modifier: static
+    Args:
+      - Name: entries
+        Type:
+          Name: sequence
+          Params:
+            - Name: PasswordUiEntry
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - passwordsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: optInForAccountStorage
+    Modifier: static
+    Args:
+      - Name: optIn
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: recordPasswordsPageAccessInSettings
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: removeCredential
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: fromStores
+        Type:
+          Name: PasswordStoreSet
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: removePasswordException
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: requestCredentialsDetails
+    Modifier: static
+    Args:
+      - Name: ids
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - passwordsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: PasswordUiEntry
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - passwordsPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - passwordsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: requestExportProgressStatus
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ExportProgressStatus
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - passwordsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: requestPlaintextPassword
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: reason
+        Type:
+          Name: PlaintextReason
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - passwordsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: resetImporter
+    Modifier: static
+    Args:
+      - Name: deleteFile
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: sharePassword
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+      - Name: recipients
+        Type:
+          Name: sequence
+          Params:
+            - Name: RecipientInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - passwordsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: showAddShortcutDialog
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: showExportedFileInShell
+    Modifier: static
+    Args:
+      - Name: file_path
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: startPasswordCheck
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: switchBiometricAuthBeforeFillingState
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+          - mac
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: undoRemoveSavedPasswordOrException
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate
+- File: webext/chrome/passwords_private.idl
+  WebextFunc:
+    Name: unmuteInsecureCredential
+    Modifier: static
+    Args:
+      - Name: credential
+        Type:
+          Name: PasswordUiEntry
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - passwordsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - passwordsPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - passwordsPrivate

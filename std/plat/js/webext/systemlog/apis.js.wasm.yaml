@@ -1,0 +1,73 @@
+- File: webext/chrome/system_log.idl
+  Dict:
+    Name: MessageOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - systemLog
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: message
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - systemLog
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - systemLog
+- File: webext/chrome/system_log.idl
+  Callback:
+    Name: VoidCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - systemLog
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - systemLog
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/system_log.idl
+  WebextFunc:
+    Name: add
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: MessageOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - systemLog
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - systemLog
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - systemLog

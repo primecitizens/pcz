@@ -1,0 +1,2748 @@
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: AddFileWatchCallback
+    Args:
+      - Name: success
+        Optional: true
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: BooleanCallback
+    Args:
+      - Name: result
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: ComputeChecksumCallback
+    Args:
+      - Name: checksum
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Dict:
+    Name: EntryDescription
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: fileSystemName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: fileSystemRoot
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: fileFullPath
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: fileIsDirectory
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: ExecuteTaskCallback
+    Args:
+      - Name: result
+        Type:
+          Name: TaskResult
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: GetContentMetadataCallback
+    Args:
+      - Name: result
+        Type:
+          Name: MediaMetadata
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: GetContentMimeTypeCallback
+    Args:
+      - Name: result
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: GetCrostiniSharedPathsCallback
+    Args:
+      - Name: entries
+        Type:
+          Name: sequence
+          Params:
+            - Name: EntryDescription
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivateInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: firstForSession
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: GetCustomActionsCallback
+    Args:
+      - Name: actions
+        Type:
+          Name: sequence
+          Params:
+            - Name: Action
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileSystemProvider
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: GetDirectorySizeCallback
+    Args:
+      - Name: size
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: GetDisallowedTransfersCallback
+    Args:
+      - Name: entries
+        Type:
+          Name: sequence
+          Params:
+            - Name: EntryDescription
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivateInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: GetDlpMetadataCallback
+    Args:
+      - Name: entries
+        Type:
+          Name: sequence
+          Params:
+            - Name: DlpMetadata
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: GetDriveQuotaMetadataCallback
+    Args:
+      - Name: driveQuotaMetadata
+        Optional: true
+        Type:
+          Name: DriveQuotaMetadata
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: GetEntryPropertiesCallback
+    Args:
+      - Name: entryProperties
+        Type:
+          Name: sequence
+          Params:
+            - Name: EntryProperties
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: GetFileTasksCallback
+    Args:
+      - Name: resultingTasks
+        Type:
+          Name: ResultingTasks
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: GetLinuxPackageInfoCallback
+    Args:
+      - Name: linux_package_info
+        Type:
+          Name: LinuxPackageInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: GetMimeTypeCallback
+    Args:
+      - Name: result
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: GetRecentFilesCallback
+    Args:
+      - Name: entries
+        Type:
+          Name: sequence
+          Params:
+            - Name: EntryDescription
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivateInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: GetThumbnailCallback
+    Args:
+      - Name: ThumbnailDataUrl
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: GetVolumeRootCallback
+    Args:
+      - Name: rootDir
+        Type:
+          Name: EntryDescription
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: IOTaskIdCallback
+    Args:
+      - Name: taskId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Dict:
+    Name: IOTaskParams
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: destinationFolderUrl
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: password
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: showNotification
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: InstallLinuxPackageCallback
+    Args:
+      - Name: response
+        Type:
+          Name: InstallLinuxPackageResponse
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: ParseTrashInfoFilesCallback
+    Args:
+      - Name: files
+        Type:
+          Name: sequence
+          Params:
+            - Name: ParsedTrashInfoFile
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivateInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Dict:
+    Name: ParsedTrashInfoFile
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: restoreEntry
+        Type:
+          Name: EntryDescription
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: trashInfoFileName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: deletionDate
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: RemoveFileWatchCallback
+    Args:
+      - Name: success
+        Optional: true
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: ResolveIsolatedEntriesCallback
+    Args:
+      - Name: entries
+        Type:
+          Name: sequence
+          Params:
+            - Name: EntryDescription
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivateInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: SearchFilesCallback
+    Args:
+      - Name: entries
+        Type:
+          Name: sequence
+          Params:
+            - Name: EntryDescription
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivateInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Dict:
+    Name: SearchFilesParams
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: rootUrl
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: query
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: types
+        Type:
+          Name: SearchType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivate
+      - Name: maxResults
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: modifiedTimestamp
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: category
+        Type:
+          Name: FileCategory
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivate
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: SimpleCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  Callback:
+    Name: ValidatePathNameLengthCallback
+    Args:
+      - Name: result
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: addFileWatch
+    Modifier: static
+    Args:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: computeChecksum
+    Modifier: static
+    Args:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: executeCustomAction
+    Modifier: static
+    Args:
+      - Name: urls
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivateInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: actionId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: executeTask
+    Modifier: static
+    Args:
+      - Name: descriptor
+        Type:
+          Name: FileTaskDescriptor
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivate
+      - Name: urls
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivateInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: TaskResult
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileManagerPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: getContentMetadata
+    Modifier: static
+    Args:
+      - Name: blobUUID
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: mimeType
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: includeImages
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: MediaMetadata
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileManagerPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: getContentMimeType
+    Modifier: static
+    Args:
+      - Name: blobUUID
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: getCrostiniSharedPaths
+    Modifier: static
+    Args:
+      - Name: observeFirstForSession
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: vmName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: callback
+        Type:
+          Name: GetCrostiniSharedPathsCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: getCustomActions
+    Modifier: static
+    Args:
+      - Name: urls
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivateInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: Action
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - fileSystemProvider
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileSystemProvider
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: getDirectorySize
+    Modifier: static
+    Args:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: double
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: getDisallowedTransfers
+    Modifier: static
+    Args:
+      - Name: entries
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivateInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: destinationEntry
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: isMove
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: EntryDescription
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - fileManagerPrivateInternal
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: getDlpMetadata
+    Modifier: static
+    Args:
+      - Name: entries
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivateInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: DlpMetadata
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - fileManagerPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileManagerPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: getDriveQuotaMetadata
+    Modifier: static
+    Args:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DriveQuotaMetadata
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileManagerPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: getEntryProperties
+    Modifier: static
+    Args:
+      - Name: urls
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivateInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: names
+        Type:
+          Name: sequence
+          Params:
+            - Name: EntryPropertyName
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: EntryProperties
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - fileManagerPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileManagerPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: getFileTasks
+    Modifier: static
+    Args:
+      - Name: urls
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivateInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: dlpSourceUrls
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivateInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ResultingTasks
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileManagerPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: getLinuxPackageInfo
+    Modifier: static
+    Args:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: LinuxPackageInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileManagerPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: getMimeType
+    Modifier: static
+    Args:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: getRecentFiles
+    Modifier: static
+    Args:
+      - Name: restriction
+        Type:
+          Name: SourceRestriction
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivate
+      - Name: file_category
+        Type:
+          Name: FileCategory
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivate
+      - Name: invalidate_cache
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: EntryDescription
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - fileManagerPrivateInternal
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: getVolumeRoot
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: GetVolumeRootOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: EntryDescription
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: importCrostiniImage
+    Modifier: static
+    Args:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: installLinuxPackage
+    Modifier: static
+    Args:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: callback
+        Type:
+          Name: InstallLinuxPackageCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: invokeSharesheet
+    Modifier: static
+    Args:
+      - Name: urls
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivateInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: launchSource
+        Type:
+          Name: SharesheetLaunchSource
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivate
+      - Name: dlpSourceUrls
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivateInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: parseTrashInfoFiles
+    Modifier: static
+    Args:
+      - Name: urls
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivateInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: ParsedTrashInfoFile
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - fileManagerPrivateInternal
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: pinDriveFile
+    Modifier: static
+    Args:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: pin
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: removeFileWatch
+    Modifier: static
+    Args:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: resolveIsolatedEntries
+    Modifier: static
+    Args:
+      - Name: urls
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivateInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: EntryDescription
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - fileManagerPrivateInternal
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: searchFiles
+    Modifier: static
+    Args:
+      - Name: searchParams
+        Type:
+          Name: SearchFilesParams
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: EntryDescription
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - fileManagerPrivateInternal
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: setDefaultTask
+    Modifier: static
+    Args:
+      - Name: descriptor
+        Type:
+          Name: FileTaskDescriptor
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivate
+      - Name: urls
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivateInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: mimeTypes
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivateInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: sharePathsWithCrostini
+    Modifier: static
+    Args:
+      - Name: vmName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: urls
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivateInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: persist
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: sharesheetHasTargets
+    Modifier: static
+    Args:
+      - Name: urls
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivateInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: startIOTask
+    Modifier: static
+    Args:
+      - Name: type
+        Type:
+          Name: IOTaskType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivate
+      - Name: urls
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivateInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: params
+        Type:
+          Name: IOTaskParams
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: long
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: toggleAddedToHoldingSpace
+    Modifier: static
+    Args:
+      - Name: urls
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileManagerPrivateInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: add
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: unsharePathWithCrostini
+    Modifier: static
+    Args:
+      - Name: vmName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal
+- File: webext/chrome/file_manager_private_internal.idl
+  WebextFunc:
+    Name: validatePathNameLength
+    Modifier: static
+    Args:
+      - Name: parentUrl
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileManagerPrivateInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileManagerPrivateInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileManagerPrivateInternal
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileManagerPrivateInternal

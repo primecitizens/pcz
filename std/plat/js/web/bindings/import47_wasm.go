@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web store_RTCAudioPlayoutStats
 //go:noescape
@@ -59,11 +57,11 @@ func GetRTCCertificateExpires(
 
 //go:wasmimport plat/js/web has_RTCCertificate_GetFingerprints
 //go:noescape
-func HasRTCCertificateGetFingerprints(this js.Ref) js.Ref
+func HasFuncRTCCertificateGetFingerprints(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCCertificate_GetFingerprints
 //go:noescape
-func RTCCertificateGetFingerprintsFunc(this js.Ref) js.Ref
+func FuncRTCCertificateGetFingerprints(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCCertificate_GetFingerprints
 //go:noescape
@@ -145,11 +143,11 @@ func GetRTCDTMFSenderToneBuffer(
 
 //go:wasmimport plat/js/web has_RTCDTMFSender_InsertDTMF
 //go:noescape
-func HasRTCDTMFSenderInsertDTMF(this js.Ref) js.Ref
+func HasFuncRTCDTMFSenderInsertDTMF(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCDTMFSender_InsertDTMF
 //go:noescape
-func RTCDTMFSenderInsertDTMFFunc(this js.Ref) js.Ref
+func FuncRTCDTMFSenderInsertDTMF(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCDTMFSender_InsertDTMF
 //go:noescape
@@ -169,11 +167,11 @@ func TryRTCDTMFSenderInsertDTMF(
 
 //go:wasmimport plat/js/web has_RTCDTMFSender_InsertDTMF1
 //go:noescape
-func HasRTCDTMFSenderInsertDTMF1(this js.Ref) js.Ref
+func HasFuncRTCDTMFSenderInsertDTMF1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCDTMFSender_InsertDTMF1
 //go:noescape
-func RTCDTMFSenderInsertDTMF1Func(this js.Ref) js.Ref
+func FuncRTCDTMFSenderInsertDTMF1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCDTMFSender_InsertDTMF1
 //go:noescape
@@ -191,11 +189,11 @@ func TryRTCDTMFSenderInsertDTMF1(
 
 //go:wasmimport plat/js/web has_RTCDTMFSender_InsertDTMF2
 //go:noescape
-func HasRTCDTMFSenderInsertDTMF2(this js.Ref) js.Ref
+func HasFuncRTCDTMFSenderInsertDTMF2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCDTMFSender_InsertDTMF2
 //go:noescape
-func RTCDTMFSenderInsertDTMF2Func(this js.Ref) js.Ref
+func FuncRTCDTMFSenderInsertDTMF2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCDTMFSender_InsertDTMF2
 //go:noescape
@@ -319,11 +317,11 @@ func GetRTCDataChannelPriority(
 
 //go:wasmimport plat/js/web has_RTCDataChannel_Close
 //go:noescape
-func HasRTCDataChannelClose(this js.Ref) js.Ref
+func HasFuncRTCDataChannelClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCDataChannel_Close
 //go:noescape
-func RTCDataChannelCloseFunc(this js.Ref) js.Ref
+func FuncRTCDataChannelClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCDataChannel_Close
 //go:noescape
@@ -337,11 +335,11 @@ func TryRTCDataChannelClose(
 
 //go:wasmimport plat/js/web has_RTCDataChannel_Send
 //go:noescape
-func HasRTCDataChannelSend(this js.Ref) js.Ref
+func HasFuncRTCDataChannelSend(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCDataChannel_Send
 //go:noescape
-func RTCDataChannelSendFunc(this js.Ref) js.Ref
+func FuncRTCDataChannelSend(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCDataChannel_Send
 //go:noescape
@@ -357,11 +355,11 @@ func TryRTCDataChannelSend(
 
 //go:wasmimport plat/js/web has_RTCDataChannel_Send1
 //go:noescape
-func HasRTCDataChannelSend1(this js.Ref) js.Ref
+func HasFuncRTCDataChannelSend1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCDataChannel_Send1
 //go:noescape
-func RTCDataChannelSend1Func(this js.Ref) js.Ref
+func FuncRTCDataChannelSend1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCDataChannel_Send1
 //go:noescape
@@ -377,11 +375,11 @@ func TryRTCDataChannelSend1(
 
 //go:wasmimport plat/js/web has_RTCDataChannel_Send2
 //go:noescape
-func HasRTCDataChannelSend2(this js.Ref) js.Ref
+func HasFuncRTCDataChannelSend2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCDataChannel_Send2
 //go:noescape
-func RTCDataChannelSend2Func(this js.Ref) js.Ref
+func FuncRTCDataChannelSend2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCDataChannel_Send2
 //go:noescape
@@ -397,11 +395,11 @@ func TryRTCDataChannelSend2(
 
 //go:wasmimport plat/js/web has_RTCDataChannel_Send3
 //go:noescape
-func HasRTCDataChannelSend3(this js.Ref) js.Ref
+func HasFuncRTCDataChannelSend3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCDataChannel_Send3
 //go:noescape
-func RTCDataChannelSend3Func(this js.Ref) js.Ref
+func FuncRTCDataChannelSend3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCDataChannel_Send3
 //go:noescape
@@ -585,11 +583,11 @@ func GetRTCIceCandidateUrl(
 
 //go:wasmimport plat/js/web has_RTCIceCandidate_ToJSON
 //go:noescape
-func HasRTCIceCandidateToJSON(this js.Ref) js.Ref
+func HasFuncRTCIceCandidateToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCIceCandidate_ToJSON
 //go:noescape
-func RTCIceCandidateToJSONFunc(this js.Ref) js.Ref
+func FuncRTCIceCandidateToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCIceCandidate_ToJSON
 //go:noescape

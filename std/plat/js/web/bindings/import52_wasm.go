@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web get_SVGFETileElement_In1
 //go:noescape
@@ -165,11 +163,11 @@ func GetSVGGeometryElementPathLength(
 
 //go:wasmimport plat/js/web has_SVGGeometryElement_IsPointInFill
 //go:noescape
-func HasSVGGeometryElementIsPointInFill(this js.Ref) js.Ref
+func HasFuncSVGGeometryElementIsPointInFill(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGGeometryElement_IsPointInFill
 //go:noescape
-func SVGGeometryElementIsPointInFillFunc(this js.Ref) js.Ref
+func FuncSVGGeometryElementIsPointInFill(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGGeometryElement_IsPointInFill
 //go:noescape
@@ -185,11 +183,11 @@ func TrySVGGeometryElementIsPointInFill(
 
 //go:wasmimport plat/js/web has_SVGGeometryElement_IsPointInFill1
 //go:noescape
-func HasSVGGeometryElementIsPointInFill1(this js.Ref) js.Ref
+func HasFuncSVGGeometryElementIsPointInFill1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGGeometryElement_IsPointInFill1
 //go:noescape
-func SVGGeometryElementIsPointInFill1Func(this js.Ref) js.Ref
+func FuncSVGGeometryElementIsPointInFill1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGGeometryElement_IsPointInFill1
 //go:noescape
@@ -203,11 +201,11 @@ func TrySVGGeometryElementIsPointInFill1(
 
 //go:wasmimport plat/js/web has_SVGGeometryElement_IsPointInStroke
 //go:noescape
-func HasSVGGeometryElementIsPointInStroke(this js.Ref) js.Ref
+func HasFuncSVGGeometryElementIsPointInStroke(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGGeometryElement_IsPointInStroke
 //go:noescape
-func SVGGeometryElementIsPointInStrokeFunc(this js.Ref) js.Ref
+func FuncSVGGeometryElementIsPointInStroke(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGGeometryElement_IsPointInStroke
 //go:noescape
@@ -223,11 +221,11 @@ func TrySVGGeometryElementIsPointInStroke(
 
 //go:wasmimport plat/js/web has_SVGGeometryElement_IsPointInStroke1
 //go:noescape
-func HasSVGGeometryElementIsPointInStroke1(this js.Ref) js.Ref
+func HasFuncSVGGeometryElementIsPointInStroke1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGGeometryElement_IsPointInStroke1
 //go:noescape
-func SVGGeometryElementIsPointInStroke1Func(this js.Ref) js.Ref
+func FuncSVGGeometryElementIsPointInStroke1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGGeometryElement_IsPointInStroke1
 //go:noescape
@@ -241,11 +239,11 @@ func TrySVGGeometryElementIsPointInStroke1(
 
 //go:wasmimport plat/js/web has_SVGGeometryElement_GetTotalLength
 //go:noescape
-func HasSVGGeometryElementGetTotalLength(this js.Ref) js.Ref
+func HasFuncSVGGeometryElementGetTotalLength(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGGeometryElement_GetTotalLength
 //go:noescape
-func SVGGeometryElementGetTotalLengthFunc(this js.Ref) js.Ref
+func FuncSVGGeometryElementGetTotalLength(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGGeometryElement_GetTotalLength
 //go:noescape
@@ -259,11 +257,11 @@ func TrySVGGeometryElementGetTotalLength(
 
 //go:wasmimport plat/js/web has_SVGGeometryElement_GetPointAtLength
 //go:noescape
-func HasSVGGeometryElementGetPointAtLength(this js.Ref) js.Ref
+func HasFuncSVGGeometryElementGetPointAtLength(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGGeometryElement_GetPointAtLength
 //go:noescape
-func SVGGeometryElementGetPointAtLengthFunc(this js.Ref) js.Ref
+func FuncSVGGeometryElementGetPointAtLength(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGGeometryElement_GetPointAtLength
 //go:noescape
@@ -314,11 +312,11 @@ func GetSVGGraphicsElementSystemLanguage(
 
 //go:wasmimport plat/js/web has_SVGGraphicsElement_GetBBox
 //go:noescape
-func HasSVGGraphicsElementGetBBox(this js.Ref) js.Ref
+func HasFuncSVGGraphicsElementGetBBox(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGGraphicsElement_GetBBox
 //go:noescape
-func SVGGraphicsElementGetBBoxFunc(this js.Ref) js.Ref
+func FuncSVGGraphicsElementGetBBox(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGGraphicsElement_GetBBox
 //go:noescape
@@ -334,11 +332,11 @@ func TrySVGGraphicsElementGetBBox(
 
 //go:wasmimport plat/js/web has_SVGGraphicsElement_GetBBox1
 //go:noescape
-func HasSVGGraphicsElementGetBBox1(this js.Ref) js.Ref
+func HasFuncSVGGraphicsElementGetBBox1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGGraphicsElement_GetBBox1
 //go:noescape
-func SVGGraphicsElementGetBBox1Func(this js.Ref) js.Ref
+func FuncSVGGraphicsElementGetBBox1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGGraphicsElement_GetBBox1
 //go:noescape
@@ -352,11 +350,11 @@ func TrySVGGraphicsElementGetBBox1(
 
 //go:wasmimport plat/js/web has_SVGGraphicsElement_GetCTM
 //go:noescape
-func HasSVGGraphicsElementGetCTM(this js.Ref) js.Ref
+func HasFuncSVGGraphicsElementGetCTM(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGGraphicsElement_GetCTM
 //go:noescape
-func SVGGraphicsElementGetCTMFunc(this js.Ref) js.Ref
+func FuncSVGGraphicsElementGetCTM(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGGraphicsElement_GetCTM
 //go:noescape
@@ -370,11 +368,11 @@ func TrySVGGraphicsElementGetCTM(
 
 //go:wasmimport plat/js/web has_SVGGraphicsElement_GetScreenCTM
 //go:noescape
-func HasSVGGraphicsElementGetScreenCTM(this js.Ref) js.Ref
+func HasFuncSVGGraphicsElementGetScreenCTM(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGGraphicsElement_GetScreenCTM
 //go:noescape
-func SVGGraphicsElementGetScreenCTMFunc(this js.Ref) js.Ref
+func FuncSVGGraphicsElementGetScreenCTM(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGGraphicsElement_GetScreenCTM
 //go:noescape
@@ -490,11 +488,11 @@ func GetSVGMarkerElementPreserveAspectRatio(
 
 //go:wasmimport plat/js/web has_SVGMarkerElement_SetOrientToAuto
 //go:noescape
-func HasSVGMarkerElementSetOrientToAuto(this js.Ref) js.Ref
+func HasFuncSVGMarkerElementSetOrientToAuto(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGMarkerElement_SetOrientToAuto
 //go:noescape
-func SVGMarkerElementSetOrientToAutoFunc(this js.Ref) js.Ref
+func FuncSVGMarkerElementSetOrientToAuto(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGMarkerElement_SetOrientToAuto
 //go:noescape
@@ -508,11 +506,11 @@ func TrySVGMarkerElementSetOrientToAuto(
 
 //go:wasmimport plat/js/web has_SVGMarkerElement_SetOrientToAngle
 //go:noescape
-func HasSVGMarkerElementSetOrientToAngle(this js.Ref) js.Ref
+func HasFuncSVGMarkerElementSetOrientToAngle(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGMarkerElement_SetOrientToAngle
 //go:noescape
-func SVGMarkerElementSetOrientToAngleFunc(this js.Ref) js.Ref
+func FuncSVGMarkerElementSetOrientToAngle(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGMarkerElement_SetOrientToAngle
 //go:noescape
@@ -618,11 +616,11 @@ func GetSVGPointListNumberOfItems(
 
 //go:wasmimport plat/js/web has_SVGPointList_Clear
 //go:noescape
-func HasSVGPointListClear(this js.Ref) js.Ref
+func HasFuncSVGPointListClear(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGPointList_Clear
 //go:noescape
-func SVGPointListClearFunc(this js.Ref) js.Ref
+func FuncSVGPointListClear(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGPointList_Clear
 //go:noescape
@@ -636,11 +634,11 @@ func TrySVGPointListClear(
 
 //go:wasmimport plat/js/web has_SVGPointList_Initialize
 //go:noescape
-func HasSVGPointListInitialize(this js.Ref) js.Ref
+func HasFuncSVGPointListInitialize(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGPointList_Initialize
 //go:noescape
-func SVGPointListInitializeFunc(this js.Ref) js.Ref
+func FuncSVGPointListInitialize(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGPointList_Initialize
 //go:noescape
@@ -656,11 +654,11 @@ func TrySVGPointListInitialize(
 
 //go:wasmimport plat/js/web has_SVGPointList_GetItem
 //go:noescape
-func HasSVGPointListGetItem(this js.Ref) js.Ref
+func HasFuncSVGPointListGetItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGPointList_GetItem
 //go:noescape
-func SVGPointListGetItemFunc(this js.Ref) js.Ref
+func FuncSVGPointListGetItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGPointList_GetItem
 //go:noescape
@@ -676,11 +674,11 @@ func TrySVGPointListGetItem(
 
 //go:wasmimport plat/js/web has_SVGPointList_InsertItemBefore
 //go:noescape
-func HasSVGPointListInsertItemBefore(this js.Ref) js.Ref
+func HasFuncSVGPointListInsertItemBefore(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGPointList_InsertItemBefore
 //go:noescape
-func SVGPointListInsertItemBeforeFunc(this js.Ref) js.Ref
+func FuncSVGPointListInsertItemBefore(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGPointList_InsertItemBefore
 //go:noescape
@@ -698,11 +696,11 @@ func TrySVGPointListInsertItemBefore(
 
 //go:wasmimport plat/js/web has_SVGPointList_ReplaceItem
 //go:noescape
-func HasSVGPointListReplaceItem(this js.Ref) js.Ref
+func HasFuncSVGPointListReplaceItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGPointList_ReplaceItem
 //go:noescape
-func SVGPointListReplaceItemFunc(this js.Ref) js.Ref
+func FuncSVGPointListReplaceItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGPointList_ReplaceItem
 //go:noescape
@@ -720,11 +718,11 @@ func TrySVGPointListReplaceItem(
 
 //go:wasmimport plat/js/web has_SVGPointList_RemoveItem
 //go:noescape
-func HasSVGPointListRemoveItem(this js.Ref) js.Ref
+func HasFuncSVGPointListRemoveItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGPointList_RemoveItem
 //go:noescape
-func SVGPointListRemoveItemFunc(this js.Ref) js.Ref
+func FuncSVGPointListRemoveItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGPointList_RemoveItem
 //go:noescape
@@ -740,11 +738,11 @@ func TrySVGPointListRemoveItem(
 
 //go:wasmimport plat/js/web has_SVGPointList_AppendItem
 //go:noescape
-func HasSVGPointListAppendItem(this js.Ref) js.Ref
+func HasFuncSVGPointListAppendItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGPointList_AppendItem
 //go:noescape
-func SVGPointListAppendItemFunc(this js.Ref) js.Ref
+func FuncSVGPointListAppendItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGPointList_AppendItem
 //go:noescape
@@ -760,11 +758,11 @@ func TrySVGPointListAppendItem(
 
 //go:wasmimport plat/js/web has_SVGPointList_Set
 //go:noescape
-func HasSVGPointListSet(this js.Ref) js.Ref
+func HasFuncSVGPointListSet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGPointList_Set
 //go:noescape
-func SVGPointListSetFunc(this js.Ref) js.Ref
+func FuncSVGPointListSet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGPointList_Set
 //go:noescape
@@ -928,11 +926,11 @@ func GetSVGTextContentElementLengthAdjust(
 
 //go:wasmimport plat/js/web has_SVGTextContentElement_GetNumberOfChars
 //go:noescape
-func HasSVGTextContentElementGetNumberOfChars(this js.Ref) js.Ref
+func HasFuncSVGTextContentElementGetNumberOfChars(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTextContentElement_GetNumberOfChars
 //go:noescape
-func SVGTextContentElementGetNumberOfCharsFunc(this js.Ref) js.Ref
+func FuncSVGTextContentElementGetNumberOfChars(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTextContentElement_GetNumberOfChars
 //go:noescape
@@ -946,11 +944,11 @@ func TrySVGTextContentElementGetNumberOfChars(
 
 //go:wasmimport plat/js/web has_SVGTextContentElement_GetComputedTextLength
 //go:noescape
-func HasSVGTextContentElementGetComputedTextLength(this js.Ref) js.Ref
+func HasFuncSVGTextContentElementGetComputedTextLength(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTextContentElement_GetComputedTextLength
 //go:noescape
-func SVGTextContentElementGetComputedTextLengthFunc(this js.Ref) js.Ref
+func FuncSVGTextContentElementGetComputedTextLength(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTextContentElement_GetComputedTextLength
 //go:noescape
@@ -964,11 +962,11 @@ func TrySVGTextContentElementGetComputedTextLength(
 
 //go:wasmimport plat/js/web has_SVGTextContentElement_GetSubStringLength
 //go:noescape
-func HasSVGTextContentElementGetSubStringLength(this js.Ref) js.Ref
+func HasFuncSVGTextContentElementGetSubStringLength(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTextContentElement_GetSubStringLength
 //go:noescape
-func SVGTextContentElementGetSubStringLengthFunc(this js.Ref) js.Ref
+func FuncSVGTextContentElementGetSubStringLength(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTextContentElement_GetSubStringLength
 //go:noescape
@@ -986,11 +984,11 @@ func TrySVGTextContentElementGetSubStringLength(
 
 //go:wasmimport plat/js/web has_SVGTextContentElement_GetStartPositionOfChar
 //go:noescape
-func HasSVGTextContentElementGetStartPositionOfChar(this js.Ref) js.Ref
+func HasFuncSVGTextContentElementGetStartPositionOfChar(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTextContentElement_GetStartPositionOfChar
 //go:noescape
-func SVGTextContentElementGetStartPositionOfCharFunc(this js.Ref) js.Ref
+func FuncSVGTextContentElementGetStartPositionOfChar(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTextContentElement_GetStartPositionOfChar
 //go:noescape
@@ -1006,11 +1004,11 @@ func TrySVGTextContentElementGetStartPositionOfChar(
 
 //go:wasmimport plat/js/web has_SVGTextContentElement_GetEndPositionOfChar
 //go:noescape
-func HasSVGTextContentElementGetEndPositionOfChar(this js.Ref) js.Ref
+func HasFuncSVGTextContentElementGetEndPositionOfChar(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTextContentElement_GetEndPositionOfChar
 //go:noescape
-func SVGTextContentElementGetEndPositionOfCharFunc(this js.Ref) js.Ref
+func FuncSVGTextContentElementGetEndPositionOfChar(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTextContentElement_GetEndPositionOfChar
 //go:noescape
@@ -1026,11 +1024,11 @@ func TrySVGTextContentElementGetEndPositionOfChar(
 
 //go:wasmimport plat/js/web has_SVGTextContentElement_GetExtentOfChar
 //go:noescape
-func HasSVGTextContentElementGetExtentOfChar(this js.Ref) js.Ref
+func HasFuncSVGTextContentElementGetExtentOfChar(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTextContentElement_GetExtentOfChar
 //go:noescape
-func SVGTextContentElementGetExtentOfCharFunc(this js.Ref) js.Ref
+func FuncSVGTextContentElementGetExtentOfChar(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTextContentElement_GetExtentOfChar
 //go:noescape
@@ -1046,11 +1044,11 @@ func TrySVGTextContentElementGetExtentOfChar(
 
 //go:wasmimport plat/js/web has_SVGTextContentElement_GetRotationOfChar
 //go:noescape
-func HasSVGTextContentElementGetRotationOfChar(this js.Ref) js.Ref
+func HasFuncSVGTextContentElementGetRotationOfChar(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTextContentElement_GetRotationOfChar
 //go:noescape
-func SVGTextContentElementGetRotationOfCharFunc(this js.Ref) js.Ref
+func FuncSVGTextContentElementGetRotationOfChar(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTextContentElement_GetRotationOfChar
 //go:noescape
@@ -1066,11 +1064,11 @@ func TrySVGTextContentElementGetRotationOfChar(
 
 //go:wasmimport plat/js/web has_SVGTextContentElement_GetCharNumAtPosition
 //go:noescape
-func HasSVGTextContentElementGetCharNumAtPosition(this js.Ref) js.Ref
+func HasFuncSVGTextContentElementGetCharNumAtPosition(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTextContentElement_GetCharNumAtPosition
 //go:noescape
-func SVGTextContentElementGetCharNumAtPositionFunc(this js.Ref) js.Ref
+func FuncSVGTextContentElementGetCharNumAtPosition(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTextContentElement_GetCharNumAtPosition
 //go:noescape
@@ -1086,11 +1084,11 @@ func TrySVGTextContentElementGetCharNumAtPosition(
 
 //go:wasmimport plat/js/web has_SVGTextContentElement_GetCharNumAtPosition1
 //go:noescape
-func HasSVGTextContentElementGetCharNumAtPosition1(this js.Ref) js.Ref
+func HasFuncSVGTextContentElementGetCharNumAtPosition1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTextContentElement_GetCharNumAtPosition1
 //go:noescape
-func SVGTextContentElementGetCharNumAtPosition1Func(this js.Ref) js.Ref
+func FuncSVGTextContentElementGetCharNumAtPosition1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTextContentElement_GetCharNumAtPosition1
 //go:noescape
@@ -1104,11 +1102,11 @@ func TrySVGTextContentElementGetCharNumAtPosition1(
 
 //go:wasmimport plat/js/web has_SVGTextContentElement_SelectSubString
 //go:noescape
-func HasSVGTextContentElementSelectSubString(this js.Ref) js.Ref
+func HasFuncSVGTextContentElementSelectSubString(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTextContentElement_SelectSubString
 //go:noescape
-func SVGTextContentElementSelectSubStringFunc(this js.Ref) js.Ref
+func FuncSVGTextContentElementSelectSubString(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTextContentElement_SelectSubString
 //go:noescape
@@ -1226,11 +1224,11 @@ func GetScriptingPolicyReportBodyColno(
 
 //go:wasmimport plat/js/web has_ScriptingPolicyReportBody_ToJSON
 //go:noescape
-func HasScriptingPolicyReportBodyToJSON(this js.Ref) js.Ref
+func HasFuncScriptingPolicyReportBodyToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ScriptingPolicyReportBody_ToJSON
 //go:noescape
-func ScriptingPolicyReportBodyToJSONFunc(this js.Ref) js.Ref
+func FuncScriptingPolicyReportBodyToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ScriptingPolicyReportBody_ToJSON
 //go:noescape

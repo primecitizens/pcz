@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web store_DeviceOrientationEventInit
 //go:noescape
@@ -61,11 +59,11 @@ func GetDeviceOrientationEventAbsolute(
 
 //go:wasmimport plat/js/web has_DeviceOrientationEvent_RequestPermission
 //go:noescape
-func HasDeviceOrientationEventRequestPermission(this js.Ref) js.Ref
+func HasFuncDeviceOrientationEventRequestPermission(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DeviceOrientationEvent_RequestPermission
 //go:noescape
-func DeviceOrientationEventRequestPermissionFunc(this js.Ref) js.Ref
+func FuncDeviceOrientationEventRequestPermission(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DeviceOrientationEvent_RequestPermission
 //go:noescape
@@ -134,11 +132,11 @@ func GetDragEventDataTransfer(
 
 //go:wasmimport plat/js/web has_EXT_disjoint_timer_query_CreateQueryEXT
 //go:noescape
-func HasEXT_disjoint_timer_queryCreateQueryEXT(this js.Ref) js.Ref
+func HasFuncEXT_disjoint_timer_queryCreateQueryEXT(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_EXT_disjoint_timer_query_CreateQueryEXT
 //go:noescape
-func EXT_disjoint_timer_queryCreateQueryEXTFunc(this js.Ref) js.Ref
+func FuncEXT_disjoint_timer_queryCreateQueryEXT(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_EXT_disjoint_timer_query_CreateQueryEXT
 //go:noescape
@@ -152,11 +150,11 @@ func TryEXT_disjoint_timer_queryCreateQueryEXT(
 
 //go:wasmimport plat/js/web has_EXT_disjoint_timer_query_DeleteQueryEXT
 //go:noescape
-func HasEXT_disjoint_timer_queryDeleteQueryEXT(this js.Ref) js.Ref
+func HasFuncEXT_disjoint_timer_queryDeleteQueryEXT(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_EXT_disjoint_timer_query_DeleteQueryEXT
 //go:noescape
-func EXT_disjoint_timer_queryDeleteQueryEXTFunc(this js.Ref) js.Ref
+func FuncEXT_disjoint_timer_queryDeleteQueryEXT(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_EXT_disjoint_timer_query_DeleteQueryEXT
 //go:noescape
@@ -172,11 +170,11 @@ func TryEXT_disjoint_timer_queryDeleteQueryEXT(
 
 //go:wasmimport plat/js/web has_EXT_disjoint_timer_query_IsQueryEXT
 //go:noescape
-func HasEXT_disjoint_timer_queryIsQueryEXT(this js.Ref) js.Ref
+func HasFuncEXT_disjoint_timer_queryIsQueryEXT(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_EXT_disjoint_timer_query_IsQueryEXT
 //go:noescape
-func EXT_disjoint_timer_queryIsQueryEXTFunc(this js.Ref) js.Ref
+func FuncEXT_disjoint_timer_queryIsQueryEXT(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_EXT_disjoint_timer_query_IsQueryEXT
 //go:noescape
@@ -192,11 +190,11 @@ func TryEXT_disjoint_timer_queryIsQueryEXT(
 
 //go:wasmimport plat/js/web has_EXT_disjoint_timer_query_BeginQueryEXT
 //go:noescape
-func HasEXT_disjoint_timer_queryBeginQueryEXT(this js.Ref) js.Ref
+func HasFuncEXT_disjoint_timer_queryBeginQueryEXT(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_EXT_disjoint_timer_query_BeginQueryEXT
 //go:noescape
-func EXT_disjoint_timer_queryBeginQueryEXTFunc(this js.Ref) js.Ref
+func FuncEXT_disjoint_timer_queryBeginQueryEXT(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_EXT_disjoint_timer_query_BeginQueryEXT
 //go:noescape
@@ -214,11 +212,11 @@ func TryEXT_disjoint_timer_queryBeginQueryEXT(
 
 //go:wasmimport plat/js/web has_EXT_disjoint_timer_query_EndQueryEXT
 //go:noescape
-func HasEXT_disjoint_timer_queryEndQueryEXT(this js.Ref) js.Ref
+func HasFuncEXT_disjoint_timer_queryEndQueryEXT(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_EXT_disjoint_timer_query_EndQueryEXT
 //go:noescape
-func EXT_disjoint_timer_queryEndQueryEXTFunc(this js.Ref) js.Ref
+func FuncEXT_disjoint_timer_queryEndQueryEXT(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_EXT_disjoint_timer_query_EndQueryEXT
 //go:noescape
@@ -234,11 +232,11 @@ func TryEXT_disjoint_timer_queryEndQueryEXT(
 
 //go:wasmimport plat/js/web has_EXT_disjoint_timer_query_QueryCounterEXT
 //go:noescape
-func HasEXT_disjoint_timer_queryQueryCounterEXT(this js.Ref) js.Ref
+func HasFuncEXT_disjoint_timer_queryQueryCounterEXT(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_EXT_disjoint_timer_query_QueryCounterEXT
 //go:noescape
-func EXT_disjoint_timer_queryQueryCounterEXTFunc(this js.Ref) js.Ref
+func FuncEXT_disjoint_timer_queryQueryCounterEXT(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_EXT_disjoint_timer_query_QueryCounterEXT
 //go:noescape
@@ -256,11 +254,11 @@ func TryEXT_disjoint_timer_queryQueryCounterEXT(
 
 //go:wasmimport plat/js/web has_EXT_disjoint_timer_query_GetQueryEXT
 //go:noescape
-func HasEXT_disjoint_timer_queryGetQueryEXT(this js.Ref) js.Ref
+func HasFuncEXT_disjoint_timer_queryGetQueryEXT(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_EXT_disjoint_timer_query_GetQueryEXT
 //go:noescape
-func EXT_disjoint_timer_queryGetQueryEXTFunc(this js.Ref) js.Ref
+func FuncEXT_disjoint_timer_queryGetQueryEXT(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_EXT_disjoint_timer_query_GetQueryEXT
 //go:noescape
@@ -278,11 +276,11 @@ func TryEXT_disjoint_timer_queryGetQueryEXT(
 
 //go:wasmimport plat/js/web has_EXT_disjoint_timer_query_GetQueryObjectEXT
 //go:noescape
-func HasEXT_disjoint_timer_queryGetQueryObjectEXT(this js.Ref) js.Ref
+func HasFuncEXT_disjoint_timer_queryGetQueryObjectEXT(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_EXT_disjoint_timer_query_GetQueryObjectEXT
 //go:noescape
-func EXT_disjoint_timer_queryGetQueryObjectEXTFunc(this js.Ref) js.Ref
+func FuncEXT_disjoint_timer_queryGetQueryObjectEXT(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_EXT_disjoint_timer_query_GetQueryObjectEXT
 //go:noescape
@@ -300,11 +298,11 @@ func TryEXT_disjoint_timer_queryGetQueryObjectEXT(
 
 //go:wasmimport plat/js/web has_EXT_disjoint_timer_query_webgl2_QueryCounterEXT
 //go:noescape
-func HasEXT_disjoint_timer_query_webgl2QueryCounterEXT(this js.Ref) js.Ref
+func HasFuncEXT_disjoint_timer_query_webgl2QueryCounterEXT(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_EXT_disjoint_timer_query_webgl2_QueryCounterEXT
 //go:noescape
-func EXT_disjoint_timer_query_webgl2QueryCounterEXTFunc(this js.Ref) js.Ref
+func FuncEXT_disjoint_timer_query_webgl2QueryCounterEXT(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_EXT_disjoint_timer_query_webgl2_QueryCounterEXT
 //go:noescape
@@ -421,11 +419,11 @@ func GetEncodedVideoChunkByteLength(
 
 //go:wasmimport plat/js/web has_EncodedVideoChunk_CopyTo
 //go:noescape
-func HasEncodedVideoChunkCopyTo(this js.Ref) js.Ref
+func HasFuncEncodedVideoChunkCopyTo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_EncodedVideoChunk_CopyTo
 //go:noescape
-func EncodedVideoChunkCopyToFunc(this js.Ref) js.Ref
+func FuncEncodedVideoChunkCopyTo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_EncodedVideoChunk_CopyTo
 //go:noescape

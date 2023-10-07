@@ -1,0 +1,387 @@
+- File: webext/chrome/side_panel.idl
+  Dict:
+    Name: GetPanelOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sidePanel
+    Fields:
+      - Name: tabId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sidePanel
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sidePanel
+- File: webext/chrome/side_panel.idl
+  Dict:
+    Name: ManifestKeys
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sidePanel
+    Fields:
+      - Name: side_panel
+        Type:
+          Name: SidePanel
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sidePanel
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sidePanel
+- File: webext/chrome/side_panel.idl
+  Dict:
+    Name: OpenOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sidePanel
+    Fields:
+      - Name: windowId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sidePanel
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sidePanel
+      - Name: tabId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sidePanel
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sidePanel
+- File: webext/chrome/side_panel.idl
+  Dict:
+    Name: PanelBehavior
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sidePanel
+    Fields:
+      - Name: openPanelOnActionClick
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sidePanel
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sidePanel
+- File: webext/chrome/side_panel.idl
+  Callback:
+    Name: PanelBehaviorCallback
+    Args:
+      - Name: behavior
+        Type:
+          Name: PanelBehavior
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sidePanel
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sidePanel
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sidePanel
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sidePanel
+- File: webext/chrome/side_panel.idl
+  Dict:
+    Name: PanelOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sidePanel
+    Fields:
+      - Name: tabId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sidePanel
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sidePanel
+      - Name: path
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sidePanel
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sidePanel
+      - Name: enabled
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sidePanel
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sidePanel
+- File: webext/chrome/side_panel.idl
+  Callback:
+    Name: PanelOptionsCallback
+    Args:
+      - Name: options
+        Type:
+          Name: PanelOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sidePanel
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sidePanel
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sidePanel
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sidePanel
+- File: webext/chrome/side_panel.idl
+  Dict:
+    Name: SidePanel
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sidePanel
+    Fields:
+      - Name: default_path
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sidePanel
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sidePanel
+- File: webext/chrome/side_panel.idl
+  Callback:
+    Name: VoidCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sidePanel
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sidePanel
+- File: webext/chrome/side_panel.idl
+  WebextFunc:
+    Name: getOptions
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: GetPanelOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sidePanel
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sidePanel
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: PanelOptions
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - sidePanel
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - sidePanel
+- File: webext/chrome/side_panel.idl
+  WebextFunc:
+    Name: getPanelBehavior
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: PanelBehavior
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - sidePanel
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - sidePanel
+- File: webext/chrome/side_panel.idl
+  WebextFunc:
+    Name: open
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: OpenOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sidePanel
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sidePanel
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - sidePanel
+- File: webext/chrome/side_panel.idl
+  WebextFunc:
+    Name: setOptions
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: PanelOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sidePanel
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sidePanel
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - sidePanel
+- File: webext/chrome/side_panel.idl
+  WebextFunc:
+    Name: setPanelBehavior
+    Modifier: static
+    Args:
+      - Name: behavior
+        Type:
+          Name: PanelBehavior
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sidePanel
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sidePanel
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - sidePanel

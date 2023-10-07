@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web constof_XRLayerLayout
 //go:noescape
@@ -91,11 +89,11 @@ func GetXRCompositionLayerNeedsRedraw(
 
 //go:wasmimport plat/js/web has_XRCompositionLayer_Destroy
 //go:noescape
-func HasXRCompositionLayerDestroy(this js.Ref) js.Ref
+func HasFuncXRCompositionLayerDestroy(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRCompositionLayer_Destroy
 //go:noescape
-func XRCompositionLayerDestroyFunc(this js.Ref) js.Ref
+func FuncXRCompositionLayerDestroy(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRCompositionLayer_Destroy
 //go:noescape
@@ -490,11 +488,11 @@ func NewXRMediaBindingByXRMediaBinding(
 
 //go:wasmimport plat/js/web has_XRMediaBinding_CreateQuadLayer
 //go:noescape
-func HasXRMediaBindingCreateQuadLayer(this js.Ref) js.Ref
+func HasFuncXRMediaBindingCreateQuadLayer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRMediaBinding_CreateQuadLayer
 //go:noescape
-func XRMediaBindingCreateQuadLayerFunc(this js.Ref) js.Ref
+func FuncXRMediaBindingCreateQuadLayer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRMediaBinding_CreateQuadLayer
 //go:noescape
@@ -512,11 +510,11 @@ func TryXRMediaBindingCreateQuadLayer(
 
 //go:wasmimport plat/js/web has_XRMediaBinding_CreateQuadLayer1
 //go:noescape
-func HasXRMediaBindingCreateQuadLayer1(this js.Ref) js.Ref
+func HasFuncXRMediaBindingCreateQuadLayer1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRMediaBinding_CreateQuadLayer1
 //go:noescape
-func XRMediaBindingCreateQuadLayer1Func(this js.Ref) js.Ref
+func FuncXRMediaBindingCreateQuadLayer1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRMediaBinding_CreateQuadLayer1
 //go:noescape
@@ -532,11 +530,11 @@ func TryXRMediaBindingCreateQuadLayer1(
 
 //go:wasmimport plat/js/web has_XRMediaBinding_CreateCylinderLayer
 //go:noescape
-func HasXRMediaBindingCreateCylinderLayer(this js.Ref) js.Ref
+func HasFuncXRMediaBindingCreateCylinderLayer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRMediaBinding_CreateCylinderLayer
 //go:noescape
-func XRMediaBindingCreateCylinderLayerFunc(this js.Ref) js.Ref
+func FuncXRMediaBindingCreateCylinderLayer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRMediaBinding_CreateCylinderLayer
 //go:noescape
@@ -554,11 +552,11 @@ func TryXRMediaBindingCreateCylinderLayer(
 
 //go:wasmimport plat/js/web has_XRMediaBinding_CreateCylinderLayer1
 //go:noescape
-func HasXRMediaBindingCreateCylinderLayer1(this js.Ref) js.Ref
+func HasFuncXRMediaBindingCreateCylinderLayer1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRMediaBinding_CreateCylinderLayer1
 //go:noescape
-func XRMediaBindingCreateCylinderLayer1Func(this js.Ref) js.Ref
+func FuncXRMediaBindingCreateCylinderLayer1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRMediaBinding_CreateCylinderLayer1
 //go:noescape
@@ -574,11 +572,11 @@ func TryXRMediaBindingCreateCylinderLayer1(
 
 //go:wasmimport plat/js/web has_XRMediaBinding_CreateEquirectLayer
 //go:noescape
-func HasXRMediaBindingCreateEquirectLayer(this js.Ref) js.Ref
+func HasFuncXRMediaBindingCreateEquirectLayer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRMediaBinding_CreateEquirectLayer
 //go:noescape
-func XRMediaBindingCreateEquirectLayerFunc(this js.Ref) js.Ref
+func FuncXRMediaBindingCreateEquirectLayer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRMediaBinding_CreateEquirectLayer
 //go:noescape
@@ -596,11 +594,11 @@ func TryXRMediaBindingCreateEquirectLayer(
 
 //go:wasmimport plat/js/web has_XRMediaBinding_CreateEquirectLayer1
 //go:noescape
-func HasXRMediaBindingCreateEquirectLayer1(this js.Ref) js.Ref
+func HasFuncXRMediaBindingCreateEquirectLayer1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRMediaBinding_CreateEquirectLayer1
 //go:noescape
-func XRMediaBindingCreateEquirectLayer1Func(this js.Ref) js.Ref
+func FuncXRMediaBindingCreateEquirectLayer1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRMediaBinding_CreateEquirectLayer1
 //go:noescape
@@ -870,11 +868,11 @@ func GetXRWebGLBindingUsesDepthValues(
 
 //go:wasmimport plat/js/web has_XRWebGLBinding_CreateProjectionLayer
 //go:noescape
-func HasXRWebGLBindingCreateProjectionLayer(this js.Ref) js.Ref
+func HasFuncXRWebGLBindingCreateProjectionLayer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRWebGLBinding_CreateProjectionLayer
 //go:noescape
-func XRWebGLBindingCreateProjectionLayerFunc(this js.Ref) js.Ref
+func FuncXRWebGLBindingCreateProjectionLayer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRWebGLBinding_CreateProjectionLayer
 //go:noescape
@@ -890,11 +888,11 @@ func TryXRWebGLBindingCreateProjectionLayer(
 
 //go:wasmimport plat/js/web has_XRWebGLBinding_CreateProjectionLayer1
 //go:noescape
-func HasXRWebGLBindingCreateProjectionLayer1(this js.Ref) js.Ref
+func HasFuncXRWebGLBindingCreateProjectionLayer1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRWebGLBinding_CreateProjectionLayer1
 //go:noescape
-func XRWebGLBindingCreateProjectionLayer1Func(this js.Ref) js.Ref
+func FuncXRWebGLBindingCreateProjectionLayer1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRWebGLBinding_CreateProjectionLayer1
 //go:noescape
@@ -908,11 +906,11 @@ func TryXRWebGLBindingCreateProjectionLayer1(
 
 //go:wasmimport plat/js/web has_XRWebGLBinding_CreateQuadLayer
 //go:noescape
-func HasXRWebGLBindingCreateQuadLayer(this js.Ref) js.Ref
+func HasFuncXRWebGLBindingCreateQuadLayer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRWebGLBinding_CreateQuadLayer
 //go:noescape
-func XRWebGLBindingCreateQuadLayerFunc(this js.Ref) js.Ref
+func FuncXRWebGLBindingCreateQuadLayer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRWebGLBinding_CreateQuadLayer
 //go:noescape
@@ -928,11 +926,11 @@ func TryXRWebGLBindingCreateQuadLayer(
 
 //go:wasmimport plat/js/web has_XRWebGLBinding_CreateQuadLayer1
 //go:noescape
-func HasXRWebGLBindingCreateQuadLayer1(this js.Ref) js.Ref
+func HasFuncXRWebGLBindingCreateQuadLayer1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRWebGLBinding_CreateQuadLayer1
 //go:noescape
-func XRWebGLBindingCreateQuadLayer1Func(this js.Ref) js.Ref
+func FuncXRWebGLBindingCreateQuadLayer1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRWebGLBinding_CreateQuadLayer1
 //go:noescape
@@ -946,11 +944,11 @@ func TryXRWebGLBindingCreateQuadLayer1(
 
 //go:wasmimport plat/js/web has_XRWebGLBinding_CreateCylinderLayer
 //go:noescape
-func HasXRWebGLBindingCreateCylinderLayer(this js.Ref) js.Ref
+func HasFuncXRWebGLBindingCreateCylinderLayer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRWebGLBinding_CreateCylinderLayer
 //go:noescape
-func XRWebGLBindingCreateCylinderLayerFunc(this js.Ref) js.Ref
+func FuncXRWebGLBindingCreateCylinderLayer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRWebGLBinding_CreateCylinderLayer
 //go:noescape
@@ -966,11 +964,11 @@ func TryXRWebGLBindingCreateCylinderLayer(
 
 //go:wasmimport plat/js/web has_XRWebGLBinding_CreateCylinderLayer1
 //go:noescape
-func HasXRWebGLBindingCreateCylinderLayer1(this js.Ref) js.Ref
+func HasFuncXRWebGLBindingCreateCylinderLayer1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRWebGLBinding_CreateCylinderLayer1
 //go:noescape
-func XRWebGLBindingCreateCylinderLayer1Func(this js.Ref) js.Ref
+func FuncXRWebGLBindingCreateCylinderLayer1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRWebGLBinding_CreateCylinderLayer1
 //go:noescape
@@ -984,11 +982,11 @@ func TryXRWebGLBindingCreateCylinderLayer1(
 
 //go:wasmimport plat/js/web has_XRWebGLBinding_CreateEquirectLayer
 //go:noescape
-func HasXRWebGLBindingCreateEquirectLayer(this js.Ref) js.Ref
+func HasFuncXRWebGLBindingCreateEquirectLayer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRWebGLBinding_CreateEquirectLayer
 //go:noescape
-func XRWebGLBindingCreateEquirectLayerFunc(this js.Ref) js.Ref
+func FuncXRWebGLBindingCreateEquirectLayer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRWebGLBinding_CreateEquirectLayer
 //go:noescape
@@ -1004,11 +1002,11 @@ func TryXRWebGLBindingCreateEquirectLayer(
 
 //go:wasmimport plat/js/web has_XRWebGLBinding_CreateEquirectLayer1
 //go:noescape
-func HasXRWebGLBindingCreateEquirectLayer1(this js.Ref) js.Ref
+func HasFuncXRWebGLBindingCreateEquirectLayer1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRWebGLBinding_CreateEquirectLayer1
 //go:noescape
-func XRWebGLBindingCreateEquirectLayer1Func(this js.Ref) js.Ref
+func FuncXRWebGLBindingCreateEquirectLayer1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRWebGLBinding_CreateEquirectLayer1
 //go:noescape
@@ -1022,11 +1020,11 @@ func TryXRWebGLBindingCreateEquirectLayer1(
 
 //go:wasmimport plat/js/web has_XRWebGLBinding_CreateCubeLayer
 //go:noescape
-func HasXRWebGLBindingCreateCubeLayer(this js.Ref) js.Ref
+func HasFuncXRWebGLBindingCreateCubeLayer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRWebGLBinding_CreateCubeLayer
 //go:noescape
-func XRWebGLBindingCreateCubeLayerFunc(this js.Ref) js.Ref
+func FuncXRWebGLBindingCreateCubeLayer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRWebGLBinding_CreateCubeLayer
 //go:noescape
@@ -1042,11 +1040,11 @@ func TryXRWebGLBindingCreateCubeLayer(
 
 //go:wasmimport plat/js/web has_XRWebGLBinding_CreateCubeLayer1
 //go:noescape
-func HasXRWebGLBindingCreateCubeLayer1(this js.Ref) js.Ref
+func HasFuncXRWebGLBindingCreateCubeLayer1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRWebGLBinding_CreateCubeLayer1
 //go:noescape
-func XRWebGLBindingCreateCubeLayer1Func(this js.Ref) js.Ref
+func FuncXRWebGLBindingCreateCubeLayer1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRWebGLBinding_CreateCubeLayer1
 //go:noescape
@@ -1060,11 +1058,11 @@ func TryXRWebGLBindingCreateCubeLayer1(
 
 //go:wasmimport plat/js/web has_XRWebGLBinding_GetSubImage
 //go:noescape
-func HasXRWebGLBindingGetSubImage(this js.Ref) js.Ref
+func HasFuncXRWebGLBindingGetSubImage(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRWebGLBinding_GetSubImage
 //go:noescape
-func XRWebGLBindingGetSubImageFunc(this js.Ref) js.Ref
+func FuncXRWebGLBindingGetSubImage(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRWebGLBinding_GetSubImage
 //go:noescape
@@ -1084,11 +1082,11 @@ func TryXRWebGLBindingGetSubImage(
 
 //go:wasmimport plat/js/web has_XRWebGLBinding_GetSubImage1
 //go:noescape
-func HasXRWebGLBindingGetSubImage1(this js.Ref) js.Ref
+func HasFuncXRWebGLBindingGetSubImage1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRWebGLBinding_GetSubImage1
 //go:noescape
-func XRWebGLBindingGetSubImage1Func(this js.Ref) js.Ref
+func FuncXRWebGLBindingGetSubImage1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRWebGLBinding_GetSubImage1
 //go:noescape
@@ -1106,11 +1104,11 @@ func TryXRWebGLBindingGetSubImage1(
 
 //go:wasmimport plat/js/web has_XRWebGLBinding_GetViewSubImage
 //go:noescape
-func HasXRWebGLBindingGetViewSubImage(this js.Ref) js.Ref
+func HasFuncXRWebGLBindingGetViewSubImage(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRWebGLBinding_GetViewSubImage
 //go:noescape
-func XRWebGLBindingGetViewSubImageFunc(this js.Ref) js.Ref
+func FuncXRWebGLBindingGetViewSubImage(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRWebGLBinding_GetViewSubImage
 //go:noescape
@@ -1128,11 +1126,11 @@ func TryXRWebGLBindingGetViewSubImage(
 
 //go:wasmimport plat/js/web has_XRWebGLBinding_GetCameraImage
 //go:noescape
-func HasXRWebGLBindingGetCameraImage(this js.Ref) js.Ref
+func HasFuncXRWebGLBindingGetCameraImage(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRWebGLBinding_GetCameraImage
 //go:noescape
-func XRWebGLBindingGetCameraImageFunc(this js.Ref) js.Ref
+func FuncXRWebGLBindingGetCameraImage(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRWebGLBinding_GetCameraImage
 //go:noescape
@@ -1148,11 +1146,11 @@ func TryXRWebGLBindingGetCameraImage(
 
 //go:wasmimport plat/js/web has_XRWebGLBinding_GetDepthInformation
 //go:noescape
-func HasXRWebGLBindingGetDepthInformation(this js.Ref) js.Ref
+func HasFuncXRWebGLBindingGetDepthInformation(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRWebGLBinding_GetDepthInformation
 //go:noescape
-func XRWebGLBindingGetDepthInformationFunc(this js.Ref) js.Ref
+func FuncXRWebGLBindingGetDepthInformation(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRWebGLBinding_GetDepthInformation
 //go:noescape
@@ -1168,11 +1166,11 @@ func TryXRWebGLBindingGetDepthInformation(
 
 //go:wasmimport plat/js/web has_XRWebGLBinding_GetReflectionCubeMap
 //go:noescape
-func HasXRWebGLBindingGetReflectionCubeMap(this js.Ref) js.Ref
+func HasFuncXRWebGLBindingGetReflectionCubeMap(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRWebGLBinding_GetReflectionCubeMap
 //go:noescape
-func XRWebGLBindingGetReflectionCubeMapFunc(this js.Ref) js.Ref
+func FuncXRWebGLBindingGetReflectionCubeMap(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRWebGLBinding_GetReflectionCubeMap
 //go:noescape
@@ -1188,11 +1186,11 @@ func TryXRWebGLBindingGetReflectionCubeMap(
 
 //go:wasmimport plat/js/web has_XSLTProcessor_ImportStylesheet
 //go:noescape
-func HasXSLTProcessorImportStylesheet(this js.Ref) js.Ref
+func HasFuncXSLTProcessorImportStylesheet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XSLTProcessor_ImportStylesheet
 //go:noescape
-func XSLTProcessorImportStylesheetFunc(this js.Ref) js.Ref
+func FuncXSLTProcessorImportStylesheet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XSLTProcessor_ImportStylesheet
 //go:noescape
@@ -1208,11 +1206,11 @@ func TryXSLTProcessorImportStylesheet(
 
 //go:wasmimport plat/js/web has_XSLTProcessor_TransformToFragment
 //go:noescape
-func HasXSLTProcessorTransformToFragment(this js.Ref) js.Ref
+func HasFuncXSLTProcessorTransformToFragment(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XSLTProcessor_TransformToFragment
 //go:noescape
-func XSLTProcessorTransformToFragmentFunc(this js.Ref) js.Ref
+func FuncXSLTProcessorTransformToFragment(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XSLTProcessor_TransformToFragment
 //go:noescape
@@ -1230,11 +1228,11 @@ func TryXSLTProcessorTransformToFragment(
 
 //go:wasmimport plat/js/web has_XSLTProcessor_TransformToDocument
 //go:noescape
-func HasXSLTProcessorTransformToDocument(this js.Ref) js.Ref
+func HasFuncXSLTProcessorTransformToDocument(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XSLTProcessor_TransformToDocument
 //go:noescape
-func XSLTProcessorTransformToDocumentFunc(this js.Ref) js.Ref
+func FuncXSLTProcessorTransformToDocument(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XSLTProcessor_TransformToDocument
 //go:noescape
@@ -1250,11 +1248,11 @@ func TryXSLTProcessorTransformToDocument(
 
 //go:wasmimport plat/js/web has_XSLTProcessor_SetParameter
 //go:noescape
-func HasXSLTProcessorSetParameter(this js.Ref) js.Ref
+func HasFuncXSLTProcessorSetParameter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XSLTProcessor_SetParameter
 //go:noescape
-func XSLTProcessorSetParameterFunc(this js.Ref) js.Ref
+func FuncXSLTProcessorSetParameter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XSLTProcessor_SetParameter
 //go:noescape
@@ -1274,11 +1272,11 @@ func TryXSLTProcessorSetParameter(
 
 //go:wasmimport plat/js/web has_XSLTProcessor_GetParameter
 //go:noescape
-func HasXSLTProcessorGetParameter(this js.Ref) js.Ref
+func HasFuncXSLTProcessorGetParameter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XSLTProcessor_GetParameter
 //go:noescape
-func XSLTProcessorGetParameterFunc(this js.Ref) js.Ref
+func FuncXSLTProcessorGetParameter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XSLTProcessor_GetParameter
 //go:noescape
@@ -1296,11 +1294,11 @@ func TryXSLTProcessorGetParameter(
 
 //go:wasmimport plat/js/web has_XSLTProcessor_RemoveParameter
 //go:noescape
-func HasXSLTProcessorRemoveParameter(this js.Ref) js.Ref
+func HasFuncXSLTProcessorRemoveParameter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XSLTProcessor_RemoveParameter
 //go:noescape
-func XSLTProcessorRemoveParameterFunc(this js.Ref) js.Ref
+func FuncXSLTProcessorRemoveParameter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XSLTProcessor_RemoveParameter
 //go:noescape
@@ -1318,11 +1316,11 @@ func TryXSLTProcessorRemoveParameter(
 
 //go:wasmimport plat/js/web has_XSLTProcessor_ClearParameters
 //go:noescape
-func HasXSLTProcessorClearParameters(this js.Ref) js.Ref
+func HasFuncXSLTProcessorClearParameters(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XSLTProcessor_ClearParameters
 //go:noescape
-func XSLTProcessorClearParametersFunc(this js.Ref) js.Ref
+func FuncXSLTProcessorClearParameters(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XSLTProcessor_ClearParameters
 //go:noescape
@@ -1336,11 +1334,11 @@ func TryXSLTProcessorClearParameters(
 
 //go:wasmimport plat/js/web has_XSLTProcessor_Reset
 //go:noescape
-func HasXSLTProcessorReset(this js.Ref) js.Ref
+func HasFuncXSLTProcessorReset(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XSLTProcessor_Reset
 //go:noescape
-func XSLTProcessorResetFunc(this js.Ref) js.Ref
+func FuncXSLTProcessorReset(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XSLTProcessor_Reset
 //go:noescape
@@ -1354,11 +1352,11 @@ func TryXSLTProcessorReset(
 
 //go:wasmimport plat/js/web has_Console_Assert
 //go:noescape
-func HasConsoleAssert() js.Ref
+func HasFuncConsoleAssert() js.Ref
 
 //go:wasmimport plat/js/web func_Console_Assert
 //go:noescape
-func ConsoleAssertFunc() js.Ref
+func FuncConsoleAssert(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_Assert
 //go:noescape
@@ -1374,15 +1372,15 @@ func TryConsoleAssert(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	condition js.Ref,
 	dataPtr unsafe.Pointer,
-	dataCount uint32) (ok js.Ref)
+	dataCount uint32) js.Ref
 
 //go:wasmimport plat/js/web has_Console_Assert1
 //go:noescape
-func HasConsoleAssert1() js.Ref
+func HasFuncConsoleAssert1() js.Ref
 
 //go:wasmimport plat/js/web func_Console_Assert1
 //go:noescape
-func ConsoleAssert1Func() js.Ref
+func FuncConsoleAssert1(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_Assert1
 //go:noescape
@@ -1392,15 +1390,15 @@ func CallConsoleAssert1(
 //go:wasmimport plat/js/web try_Console_Assert1
 //go:noescape
 func TryConsoleAssert1(
-	retPtr unsafe.Pointer, errPtr unsafe.Pointer) (ok js.Ref)
+	retPtr unsafe.Pointer, errPtr unsafe.Pointer) js.Ref
 
 //go:wasmimport plat/js/web has_Console_Clear
 //go:noescape
-func HasConsoleClear() js.Ref
+func HasFuncConsoleClear() js.Ref
 
 //go:wasmimport plat/js/web func_Console_Clear
 //go:noescape
-func ConsoleClearFunc() js.Ref
+func FuncConsoleClear(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_Clear
 //go:noescape
@@ -1410,15 +1408,15 @@ func CallConsoleClear(
 //go:wasmimport plat/js/web try_Console_Clear
 //go:noescape
 func TryConsoleClear(
-	retPtr unsafe.Pointer, errPtr unsafe.Pointer) (ok js.Ref)
+	retPtr unsafe.Pointer, errPtr unsafe.Pointer) js.Ref
 
 //go:wasmimport plat/js/web has_Console_Debug
 //go:noescape
-func HasConsoleDebug() js.Ref
+func HasFuncConsoleDebug() js.Ref
 
 //go:wasmimport plat/js/web func_Console_Debug
 //go:noescape
-func ConsoleDebugFunc() js.Ref
+func FuncConsoleDebug(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_Debug
 //go:noescape
@@ -1432,15 +1430,15 @@ func CallConsoleDebug(
 func TryConsoleDebug(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	dataPtr unsafe.Pointer,
-	dataCount uint32) (ok js.Ref)
+	dataCount uint32) js.Ref
 
 //go:wasmimport plat/js/web has_Console_Error
 //go:noescape
-func HasConsoleError() js.Ref
+func HasFuncConsoleError() js.Ref
 
 //go:wasmimport plat/js/web func_Console_Error
 //go:noescape
-func ConsoleErrorFunc() js.Ref
+func FuncConsoleError(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_Error
 //go:noescape
@@ -1454,15 +1452,15 @@ func CallConsoleError(
 func TryConsoleError(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	dataPtr unsafe.Pointer,
-	dataCount uint32) (ok js.Ref)
+	dataCount uint32) js.Ref
 
 //go:wasmimport plat/js/web has_Console_Info
 //go:noescape
-func HasConsoleInfo() js.Ref
+func HasFuncConsoleInfo() js.Ref
 
 //go:wasmimport plat/js/web func_Console_Info
 //go:noescape
-func ConsoleInfoFunc() js.Ref
+func FuncConsoleInfo(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_Info
 //go:noescape
@@ -1476,15 +1474,15 @@ func CallConsoleInfo(
 func TryConsoleInfo(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	dataPtr unsafe.Pointer,
-	dataCount uint32) (ok js.Ref)
+	dataCount uint32) js.Ref
 
 //go:wasmimport plat/js/web has_Console_Log
 //go:noescape
-func HasConsoleLog() js.Ref
+func HasFuncConsoleLog() js.Ref
 
 //go:wasmimport plat/js/web func_Console_Log
 //go:noescape
-func ConsoleLogFunc() js.Ref
+func FuncConsoleLog(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_Log
 //go:noescape
@@ -1498,15 +1496,15 @@ func CallConsoleLog(
 func TryConsoleLog(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	dataPtr unsafe.Pointer,
-	dataCount uint32) (ok js.Ref)
+	dataCount uint32) js.Ref
 
 //go:wasmimport plat/js/web has_Console_Table
 //go:noescape
-func HasConsoleTable() js.Ref
+func HasFuncConsoleTable() js.Ref
 
 //go:wasmimport plat/js/web func_Console_Table
 //go:noescape
-func ConsoleTableFunc() js.Ref
+func FuncConsoleTable(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_Table
 //go:noescape
@@ -1520,15 +1518,15 @@ func CallConsoleTable(
 func TryConsoleTable(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	tabularData js.Ref,
-	properties js.Ref) (ok js.Ref)
+	properties js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_Console_Table1
 //go:noescape
-func HasConsoleTable1() js.Ref
+func HasFuncConsoleTable1() js.Ref
 
 //go:wasmimport plat/js/web func_Console_Table1
 //go:noescape
-func ConsoleTable1Func() js.Ref
+func FuncConsoleTable1(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_Table1
 //go:noescape
@@ -1540,15 +1538,15 @@ func CallConsoleTable1(
 //go:noescape
 func TryConsoleTable1(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	tabularData js.Ref) (ok js.Ref)
+	tabularData js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_Console_Table2
 //go:noescape
-func HasConsoleTable2() js.Ref
+func HasFuncConsoleTable2() js.Ref
 
 //go:wasmimport plat/js/web func_Console_Table2
 //go:noescape
-func ConsoleTable2Func() js.Ref
+func FuncConsoleTable2(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_Table2
 //go:noescape
@@ -1558,15 +1556,15 @@ func CallConsoleTable2(
 //go:wasmimport plat/js/web try_Console_Table2
 //go:noescape
 func TryConsoleTable2(
-	retPtr unsafe.Pointer, errPtr unsafe.Pointer) (ok js.Ref)
+	retPtr unsafe.Pointer, errPtr unsafe.Pointer) js.Ref
 
 //go:wasmimport plat/js/web has_Console_Trace
 //go:noescape
-func HasConsoleTrace() js.Ref
+func HasFuncConsoleTrace() js.Ref
 
 //go:wasmimport plat/js/web func_Console_Trace
 //go:noescape
-func ConsoleTraceFunc() js.Ref
+func FuncConsoleTrace(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_Trace
 //go:noescape
@@ -1580,15 +1578,15 @@ func CallConsoleTrace(
 func TryConsoleTrace(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	dataPtr unsafe.Pointer,
-	dataCount uint32) (ok js.Ref)
+	dataCount uint32) js.Ref
 
 //go:wasmimport plat/js/web has_Console_Warn
 //go:noescape
-func HasConsoleWarn() js.Ref
+func HasFuncConsoleWarn() js.Ref
 
 //go:wasmimport plat/js/web func_Console_Warn
 //go:noescape
-func ConsoleWarnFunc() js.Ref
+func FuncConsoleWarn(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_Warn
 //go:noescape
@@ -1602,15 +1600,15 @@ func CallConsoleWarn(
 func TryConsoleWarn(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	dataPtr unsafe.Pointer,
-	dataCount uint32) (ok js.Ref)
+	dataCount uint32) js.Ref
 
 //go:wasmimport plat/js/web has_Console_Dir
 //go:noescape
-func HasConsoleDir() js.Ref
+func HasFuncConsoleDir() js.Ref
 
 //go:wasmimport plat/js/web func_Console_Dir
 //go:noescape
-func ConsoleDirFunc() js.Ref
+func FuncConsoleDir(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_Dir
 //go:noescape
@@ -1624,15 +1622,15 @@ func CallConsoleDir(
 func TryConsoleDir(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	item js.Ref,
-	options js.Ref) (ok js.Ref)
+	options js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_Console_Dir1
 //go:noescape
-func HasConsoleDir1() js.Ref
+func HasFuncConsoleDir1() js.Ref
 
 //go:wasmimport plat/js/web func_Console_Dir1
 //go:noescape
-func ConsoleDir1Func() js.Ref
+func FuncConsoleDir1(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_Dir1
 //go:noescape
@@ -1644,15 +1642,15 @@ func CallConsoleDir1(
 //go:noescape
 func TryConsoleDir1(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	item js.Ref) (ok js.Ref)
+	item js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_Console_Dir2
 //go:noescape
-func HasConsoleDir2() js.Ref
+func HasFuncConsoleDir2() js.Ref
 
 //go:wasmimport plat/js/web func_Console_Dir2
 //go:noescape
-func ConsoleDir2Func() js.Ref
+func FuncConsoleDir2(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_Dir2
 //go:noescape
@@ -1662,15 +1660,15 @@ func CallConsoleDir2(
 //go:wasmimport plat/js/web try_Console_Dir2
 //go:noescape
 func TryConsoleDir2(
-	retPtr unsafe.Pointer, errPtr unsafe.Pointer) (ok js.Ref)
+	retPtr unsafe.Pointer, errPtr unsafe.Pointer) js.Ref
 
 //go:wasmimport plat/js/web has_Console_Dirxml
 //go:noescape
-func HasConsoleDirxml() js.Ref
+func HasFuncConsoleDirxml() js.Ref
 
 //go:wasmimport plat/js/web func_Console_Dirxml
 //go:noescape
-func ConsoleDirxmlFunc() js.Ref
+func FuncConsoleDirxml(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_Dirxml
 //go:noescape
@@ -1684,15 +1682,15 @@ func CallConsoleDirxml(
 func TryConsoleDirxml(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	dataPtr unsafe.Pointer,
-	dataCount uint32) (ok js.Ref)
+	dataCount uint32) js.Ref
 
 //go:wasmimport plat/js/web has_Console_Count
 //go:noescape
-func HasConsoleCount() js.Ref
+func HasFuncConsoleCount() js.Ref
 
 //go:wasmimport plat/js/web func_Console_Count
 //go:noescape
-func ConsoleCountFunc() js.Ref
+func FuncConsoleCount(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_Count
 //go:noescape
@@ -1704,15 +1702,15 @@ func CallConsoleCount(
 //go:noescape
 func TryConsoleCount(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	label js.Ref) (ok js.Ref)
+	label js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_Console_Count1
 //go:noescape
-func HasConsoleCount1() js.Ref
+func HasFuncConsoleCount1() js.Ref
 
 //go:wasmimport plat/js/web func_Console_Count1
 //go:noescape
-func ConsoleCount1Func() js.Ref
+func FuncConsoleCount1(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_Count1
 //go:noescape
@@ -1722,15 +1720,15 @@ func CallConsoleCount1(
 //go:wasmimport plat/js/web try_Console_Count1
 //go:noescape
 func TryConsoleCount1(
-	retPtr unsafe.Pointer, errPtr unsafe.Pointer) (ok js.Ref)
+	retPtr unsafe.Pointer, errPtr unsafe.Pointer) js.Ref
 
 //go:wasmimport plat/js/web has_Console_CountReset
 //go:noescape
-func HasConsoleCountReset() js.Ref
+func HasFuncConsoleCountReset() js.Ref
 
 //go:wasmimport plat/js/web func_Console_CountReset
 //go:noescape
-func ConsoleCountResetFunc() js.Ref
+func FuncConsoleCountReset(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_CountReset
 //go:noescape
@@ -1742,15 +1740,15 @@ func CallConsoleCountReset(
 //go:noescape
 func TryConsoleCountReset(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	label js.Ref) (ok js.Ref)
+	label js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_Console_CountReset1
 //go:noescape
-func HasConsoleCountReset1() js.Ref
+func HasFuncConsoleCountReset1() js.Ref
 
 //go:wasmimport plat/js/web func_Console_CountReset1
 //go:noescape
-func ConsoleCountReset1Func() js.Ref
+func FuncConsoleCountReset1(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_CountReset1
 //go:noescape
@@ -1760,15 +1758,15 @@ func CallConsoleCountReset1(
 //go:wasmimport plat/js/web try_Console_CountReset1
 //go:noescape
 func TryConsoleCountReset1(
-	retPtr unsafe.Pointer, errPtr unsafe.Pointer) (ok js.Ref)
+	retPtr unsafe.Pointer, errPtr unsafe.Pointer) js.Ref
 
 //go:wasmimport plat/js/web has_Console_Group
 //go:noescape
-func HasConsoleGroup() js.Ref
+func HasFuncConsoleGroup() js.Ref
 
 //go:wasmimport plat/js/web func_Console_Group
 //go:noescape
-func ConsoleGroupFunc() js.Ref
+func FuncConsoleGroup(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_Group
 //go:noescape
@@ -1782,15 +1780,15 @@ func CallConsoleGroup(
 func TryConsoleGroup(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	dataPtr unsafe.Pointer,
-	dataCount uint32) (ok js.Ref)
+	dataCount uint32) js.Ref
 
 //go:wasmimport plat/js/web has_Console_GroupCollapsed
 //go:noescape
-func HasConsoleGroupCollapsed() js.Ref
+func HasFuncConsoleGroupCollapsed() js.Ref
 
 //go:wasmimport plat/js/web func_Console_GroupCollapsed
 //go:noescape
-func ConsoleGroupCollapsedFunc() js.Ref
+func FuncConsoleGroupCollapsed(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_GroupCollapsed
 //go:noescape
@@ -1804,15 +1802,15 @@ func CallConsoleGroupCollapsed(
 func TryConsoleGroupCollapsed(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	dataPtr unsafe.Pointer,
-	dataCount uint32) (ok js.Ref)
+	dataCount uint32) js.Ref
 
 //go:wasmimport plat/js/web has_Console_GroupEnd
 //go:noescape
-func HasConsoleGroupEnd() js.Ref
+func HasFuncConsoleGroupEnd() js.Ref
 
 //go:wasmimport plat/js/web func_Console_GroupEnd
 //go:noescape
-func ConsoleGroupEndFunc() js.Ref
+func FuncConsoleGroupEnd(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_GroupEnd
 //go:noescape
@@ -1822,15 +1820,15 @@ func CallConsoleGroupEnd(
 //go:wasmimport plat/js/web try_Console_GroupEnd
 //go:noescape
 func TryConsoleGroupEnd(
-	retPtr unsafe.Pointer, errPtr unsafe.Pointer) (ok js.Ref)
+	retPtr unsafe.Pointer, errPtr unsafe.Pointer) js.Ref
 
 //go:wasmimport plat/js/web has_Console_Time
 //go:noescape
-func HasConsoleTime() js.Ref
+func HasFuncConsoleTime() js.Ref
 
 //go:wasmimport plat/js/web func_Console_Time
 //go:noescape
-func ConsoleTimeFunc() js.Ref
+func FuncConsoleTime(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_Time
 //go:noescape
@@ -1842,15 +1840,15 @@ func CallConsoleTime(
 //go:noescape
 func TryConsoleTime(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	label js.Ref) (ok js.Ref)
+	label js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_Console_Time1
 //go:noescape
-func HasConsoleTime1() js.Ref
+func HasFuncConsoleTime1() js.Ref
 
 //go:wasmimport plat/js/web func_Console_Time1
 //go:noescape
-func ConsoleTime1Func() js.Ref
+func FuncConsoleTime1(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_Time1
 //go:noescape
@@ -1860,15 +1858,15 @@ func CallConsoleTime1(
 //go:wasmimport plat/js/web try_Console_Time1
 //go:noescape
 func TryConsoleTime1(
-	retPtr unsafe.Pointer, errPtr unsafe.Pointer) (ok js.Ref)
+	retPtr unsafe.Pointer, errPtr unsafe.Pointer) js.Ref
 
 //go:wasmimport plat/js/web has_Console_TimeLog
 //go:noescape
-func HasConsoleTimeLog() js.Ref
+func HasFuncConsoleTimeLog() js.Ref
 
 //go:wasmimport plat/js/web func_Console_TimeLog
 //go:noescape
-func ConsoleTimeLogFunc() js.Ref
+func FuncConsoleTimeLog(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_TimeLog
 //go:noescape
@@ -1884,15 +1882,15 @@ func TryConsoleTimeLog(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	label js.Ref,
 	dataPtr unsafe.Pointer,
-	dataCount uint32) (ok js.Ref)
+	dataCount uint32) js.Ref
 
 //go:wasmimport plat/js/web has_Console_TimeLog1
 //go:noescape
-func HasConsoleTimeLog1() js.Ref
+func HasFuncConsoleTimeLog1() js.Ref
 
 //go:wasmimport plat/js/web func_Console_TimeLog1
 //go:noescape
-func ConsoleTimeLog1Func() js.Ref
+func FuncConsoleTimeLog1(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_TimeLog1
 //go:noescape
@@ -1902,15 +1900,15 @@ func CallConsoleTimeLog1(
 //go:wasmimport plat/js/web try_Console_TimeLog1
 //go:noescape
 func TryConsoleTimeLog1(
-	retPtr unsafe.Pointer, errPtr unsafe.Pointer) (ok js.Ref)
+	retPtr unsafe.Pointer, errPtr unsafe.Pointer) js.Ref
 
 //go:wasmimport plat/js/web has_Console_TimeEnd
 //go:noescape
-func HasConsoleTimeEnd() js.Ref
+func HasFuncConsoleTimeEnd() js.Ref
 
 //go:wasmimport plat/js/web func_Console_TimeEnd
 //go:noescape
-func ConsoleTimeEndFunc() js.Ref
+func FuncConsoleTimeEnd(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_TimeEnd
 //go:noescape
@@ -1922,15 +1920,15 @@ func CallConsoleTimeEnd(
 //go:noescape
 func TryConsoleTimeEnd(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	label js.Ref) (ok js.Ref)
+	label js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_Console_TimeEnd1
 //go:noescape
-func HasConsoleTimeEnd1() js.Ref
+func HasFuncConsoleTimeEnd1() js.Ref
 
 //go:wasmimport plat/js/web func_Console_TimeEnd1
 //go:noescape
-func ConsoleTimeEnd1Func() js.Ref
+func FuncConsoleTimeEnd1(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Console_TimeEnd1
 //go:noescape
@@ -1940,4 +1938,4 @@ func CallConsoleTimeEnd1(
 //go:wasmimport plat/js/web try_Console_TimeEnd1
 //go:noescape
 func TryConsoleTimeEnd1(
-	retPtr unsafe.Pointer, errPtr unsafe.Pointer) (ok js.Ref)
+	retPtr unsafe.Pointer, errPtr unsafe.Pointer) js.Ref

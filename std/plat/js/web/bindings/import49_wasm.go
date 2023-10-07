@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web store_RTCRtpEncodingParameters
 //go:noescape
@@ -113,11 +111,11 @@ func GetSFrameTransformWritable(
 
 //go:wasmimport plat/js/web has_SFrameTransform_SetEncryptionKey
 //go:noescape
-func HasSFrameTransformSetEncryptionKey(this js.Ref) js.Ref
+func HasFuncSFrameTransformSetEncryptionKey(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SFrameTransform_SetEncryptionKey
 //go:noescape
-func SFrameTransformSetEncryptionKeyFunc(this js.Ref) js.Ref
+func FuncSFrameTransformSetEncryptionKey(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SFrameTransform_SetEncryptionKey
 //go:noescape
@@ -135,11 +133,11 @@ func TrySFrameTransformSetEncryptionKey(
 
 //go:wasmimport plat/js/web has_SFrameTransform_SetEncryptionKey1
 //go:noescape
-func HasSFrameTransformSetEncryptionKey1(this js.Ref) js.Ref
+func HasFuncSFrameTransformSetEncryptionKey1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SFrameTransform_SetEncryptionKey1
 //go:noescape
-func SFrameTransformSetEncryptionKey1Func(this js.Ref) js.Ref
+func FuncSFrameTransformSetEncryptionKey1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SFrameTransform_SetEncryptionKey1
 //go:noescape
@@ -176,11 +174,11 @@ func NewWorkerByWorker1(
 
 //go:wasmimport plat/js/web has_Worker_Terminate
 //go:noescape
-func HasWorkerTerminate(this js.Ref) js.Ref
+func HasFuncWorkerTerminate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Worker_Terminate
 //go:noescape
-func WorkerTerminateFunc(this js.Ref) js.Ref
+func FuncWorkerTerminate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Worker_Terminate
 //go:noescape
@@ -194,11 +192,11 @@ func TryWorkerTerminate(
 
 //go:wasmimport plat/js/web has_Worker_PostMessage
 //go:noescape
-func HasWorkerPostMessage(this js.Ref) js.Ref
+func HasFuncWorkerPostMessage(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Worker_PostMessage
 //go:noescape
-func WorkerPostMessageFunc(this js.Ref) js.Ref
+func FuncWorkerPostMessage(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Worker_PostMessage
 //go:noescape
@@ -216,11 +214,11 @@ func TryWorkerPostMessage(
 
 //go:wasmimport plat/js/web has_Worker_PostMessage1
 //go:noescape
-func HasWorkerPostMessage1(this js.Ref) js.Ref
+func HasFuncWorkerPostMessage1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Worker_PostMessage1
 //go:noescape
-func WorkerPostMessage1Func(this js.Ref) js.Ref
+func FuncWorkerPostMessage1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Worker_PostMessage1
 //go:noescape
@@ -238,11 +236,11 @@ func TryWorkerPostMessage1(
 
 //go:wasmimport plat/js/web has_Worker_PostMessage2
 //go:noescape
-func HasWorkerPostMessage2(this js.Ref) js.Ref
+func HasFuncWorkerPostMessage2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Worker_PostMessage2
 //go:noescape
-func WorkerPostMessage2Func(this js.Ref) js.Ref
+func FuncWorkerPostMessage2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Worker_PostMessage2
 //go:noescape
@@ -303,11 +301,11 @@ func SetRTCRtpSenderTransform(
 
 //go:wasmimport plat/js/web has_RTCRtpSender_GetCapabilities
 //go:noescape
-func HasRTCRtpSenderGetCapabilities(this js.Ref) js.Ref
+func HasFuncRTCRtpSenderGetCapabilities(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCRtpSender_GetCapabilities
 //go:noescape
-func RTCRtpSenderGetCapabilitiesFunc(this js.Ref) js.Ref
+func FuncRTCRtpSenderGetCapabilities(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCRtpSender_GetCapabilities
 //go:noescape
@@ -323,11 +321,11 @@ func TryRTCRtpSenderGetCapabilities(
 
 //go:wasmimport plat/js/web has_RTCRtpSender_SetParameters
 //go:noescape
-func HasRTCRtpSenderSetParameters(this js.Ref) js.Ref
+func HasFuncRTCRtpSenderSetParameters(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCRtpSender_SetParameters
 //go:noescape
-func RTCRtpSenderSetParametersFunc(this js.Ref) js.Ref
+func FuncRTCRtpSenderSetParameters(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCRtpSender_SetParameters
 //go:noescape
@@ -345,11 +343,11 @@ func TryRTCRtpSenderSetParameters(
 
 //go:wasmimport plat/js/web has_RTCRtpSender_SetParameters1
 //go:noescape
-func HasRTCRtpSenderSetParameters1(this js.Ref) js.Ref
+func HasFuncRTCRtpSenderSetParameters1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCRtpSender_SetParameters1
 //go:noescape
-func RTCRtpSenderSetParameters1Func(this js.Ref) js.Ref
+func FuncRTCRtpSenderSetParameters1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCRtpSender_SetParameters1
 //go:noescape
@@ -365,11 +363,11 @@ func TryRTCRtpSenderSetParameters1(
 
 //go:wasmimport plat/js/web has_RTCRtpSender_GetParameters
 //go:noescape
-func HasRTCRtpSenderGetParameters(this js.Ref) js.Ref
+func HasFuncRTCRtpSenderGetParameters(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCRtpSender_GetParameters
 //go:noescape
-func RTCRtpSenderGetParametersFunc(this js.Ref) js.Ref
+func FuncRTCRtpSenderGetParameters(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCRtpSender_GetParameters
 //go:noescape
@@ -383,11 +381,11 @@ func TryRTCRtpSenderGetParameters(
 
 //go:wasmimport plat/js/web has_RTCRtpSender_ReplaceTrack
 //go:noescape
-func HasRTCRtpSenderReplaceTrack(this js.Ref) js.Ref
+func HasFuncRTCRtpSenderReplaceTrack(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCRtpSender_ReplaceTrack
 //go:noescape
-func RTCRtpSenderReplaceTrackFunc(this js.Ref) js.Ref
+func FuncRTCRtpSenderReplaceTrack(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCRtpSender_ReplaceTrack
 //go:noescape
@@ -403,11 +401,11 @@ func TryRTCRtpSenderReplaceTrack(
 
 //go:wasmimport plat/js/web has_RTCRtpSender_SetStreams
 //go:noescape
-func HasRTCRtpSenderSetStreams(this js.Ref) js.Ref
+func HasFuncRTCRtpSenderSetStreams(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCRtpSender_SetStreams
 //go:noescape
-func RTCRtpSenderSetStreamsFunc(this js.Ref) js.Ref
+func FuncRTCRtpSenderSetStreams(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCRtpSender_SetStreams
 //go:noescape
@@ -425,11 +423,11 @@ func TryRTCRtpSenderSetStreams(
 
 //go:wasmimport plat/js/web has_RTCRtpSender_GetStats
 //go:noescape
-func HasRTCRtpSenderGetStats(this js.Ref) js.Ref
+func HasFuncRTCRtpSenderGetStats(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCRtpSender_GetStats
 //go:noescape
-func RTCRtpSenderGetStatsFunc(this js.Ref) js.Ref
+func FuncRTCRtpSenderGetStats(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCRtpSender_GetStats
 //go:noescape
@@ -443,11 +441,11 @@ func TryRTCRtpSenderGetStats(
 
 //go:wasmimport plat/js/web has_RTCRtpSender_GenerateKeyFrame
 //go:noescape
-func HasRTCRtpSenderGenerateKeyFrame(this js.Ref) js.Ref
+func HasFuncRTCRtpSenderGenerateKeyFrame(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCRtpSender_GenerateKeyFrame
 //go:noescape
-func RTCRtpSenderGenerateKeyFrameFunc(this js.Ref) js.Ref
+func FuncRTCRtpSenderGenerateKeyFrame(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCRtpSender_GenerateKeyFrame
 //go:noescape
@@ -463,11 +461,11 @@ func TryRTCRtpSenderGenerateKeyFrame(
 
 //go:wasmimport plat/js/web has_RTCRtpSender_GenerateKeyFrame1
 //go:noescape
-func HasRTCRtpSenderGenerateKeyFrame1(this js.Ref) js.Ref
+func HasFuncRTCRtpSenderGenerateKeyFrame1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCRtpSender_GenerateKeyFrame1
 //go:noescape
-func RTCRtpSenderGenerateKeyFrame1Func(this js.Ref) js.Ref
+func FuncRTCRtpSenderGenerateKeyFrame1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCRtpSender_GenerateKeyFrame1
 //go:noescape
@@ -533,11 +531,11 @@ func SetRTCRtpReceiverTransform(
 
 //go:wasmimport plat/js/web has_RTCRtpReceiver_GetCapabilities
 //go:noescape
-func HasRTCRtpReceiverGetCapabilities(this js.Ref) js.Ref
+func HasFuncRTCRtpReceiverGetCapabilities(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCRtpReceiver_GetCapabilities
 //go:noescape
-func RTCRtpReceiverGetCapabilitiesFunc(this js.Ref) js.Ref
+func FuncRTCRtpReceiverGetCapabilities(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCRtpReceiver_GetCapabilities
 //go:noescape
@@ -553,11 +551,11 @@ func TryRTCRtpReceiverGetCapabilities(
 
 //go:wasmimport plat/js/web has_RTCRtpReceiver_GetParameters
 //go:noescape
-func HasRTCRtpReceiverGetParameters(this js.Ref) js.Ref
+func HasFuncRTCRtpReceiverGetParameters(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCRtpReceiver_GetParameters
 //go:noescape
-func RTCRtpReceiverGetParametersFunc(this js.Ref) js.Ref
+func FuncRTCRtpReceiverGetParameters(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCRtpReceiver_GetParameters
 //go:noescape
@@ -571,11 +569,11 @@ func TryRTCRtpReceiverGetParameters(
 
 //go:wasmimport plat/js/web has_RTCRtpReceiver_GetContributingSources
 //go:noescape
-func HasRTCRtpReceiverGetContributingSources(this js.Ref) js.Ref
+func HasFuncRTCRtpReceiverGetContributingSources(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCRtpReceiver_GetContributingSources
 //go:noescape
-func RTCRtpReceiverGetContributingSourcesFunc(this js.Ref) js.Ref
+func FuncRTCRtpReceiverGetContributingSources(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCRtpReceiver_GetContributingSources
 //go:noescape
@@ -589,11 +587,11 @@ func TryRTCRtpReceiverGetContributingSources(
 
 //go:wasmimport plat/js/web has_RTCRtpReceiver_GetSynchronizationSources
 //go:noescape
-func HasRTCRtpReceiverGetSynchronizationSources(this js.Ref) js.Ref
+func HasFuncRTCRtpReceiverGetSynchronizationSources(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCRtpReceiver_GetSynchronizationSources
 //go:noescape
-func RTCRtpReceiverGetSynchronizationSourcesFunc(this js.Ref) js.Ref
+func FuncRTCRtpReceiverGetSynchronizationSources(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCRtpReceiver_GetSynchronizationSources
 //go:noescape
@@ -607,11 +605,11 @@ func TryRTCRtpReceiverGetSynchronizationSources(
 
 //go:wasmimport plat/js/web has_RTCRtpReceiver_GetStats
 //go:noescape
-func HasRTCRtpReceiverGetStats(this js.Ref) js.Ref
+func HasFuncRTCRtpReceiverGetStats(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCRtpReceiver_GetStats
 //go:noescape
-func RTCRtpReceiverGetStatsFunc(this js.Ref) js.Ref
+func FuncRTCRtpReceiverGetStats(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCRtpReceiver_GetStats
 //go:noescape
@@ -661,11 +659,11 @@ func GetRTCRtpTransceiverCurrentDirection(
 
 //go:wasmimport plat/js/web has_RTCRtpTransceiver_Stop
 //go:noescape
-func HasRTCRtpTransceiverStop(this js.Ref) js.Ref
+func HasFuncRTCRtpTransceiverStop(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCRtpTransceiver_Stop
 //go:noescape
-func RTCRtpTransceiverStopFunc(this js.Ref) js.Ref
+func FuncRTCRtpTransceiverStop(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCRtpTransceiver_Stop
 //go:noescape
@@ -679,11 +677,11 @@ func TryRTCRtpTransceiverStop(
 
 //go:wasmimport plat/js/web has_RTCRtpTransceiver_SetCodecPreferences
 //go:noescape
-func HasRTCRtpTransceiverSetCodecPreferences(this js.Ref) js.Ref
+func HasFuncRTCRtpTransceiverSetCodecPreferences(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCRtpTransceiver_SetCodecPreferences
 //go:noescape
-func RTCRtpTransceiverSetCodecPreferencesFunc(this js.Ref) js.Ref
+func FuncRTCRtpTransceiverSetCodecPreferences(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCRtpTransceiver_SetCodecPreferences
 //go:noescape
@@ -724,11 +722,11 @@ func GetRTCSessionDescriptionSdp(
 
 //go:wasmimport plat/js/web has_RTCSessionDescription_ToJSON
 //go:noescape
-func HasRTCSessionDescriptionToJSON(this js.Ref) js.Ref
+func HasFuncRTCSessionDescriptionToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCSessionDescription_ToJSON
 //go:noescape
-func RTCSessionDescriptionToJSONFunc(this js.Ref) js.Ref
+func FuncRTCSessionDescriptionToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCSessionDescription_ToJSON
 //go:noescape
@@ -858,11 +856,11 @@ func GetRTCPeerConnectionIdpErrorInfo(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_CreateOffer
 //go:noescape
-func HasRTCPeerConnectionCreateOffer(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionCreateOffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_CreateOffer
 //go:noescape
-func RTCPeerConnectionCreateOfferFunc(this js.Ref) js.Ref
+func FuncRTCPeerConnectionCreateOffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_CreateOffer
 //go:noescape
@@ -878,11 +876,11 @@ func TryRTCPeerConnectionCreateOffer(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_CreateOffer1
 //go:noescape
-func HasRTCPeerConnectionCreateOffer1(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionCreateOffer1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_CreateOffer1
 //go:noescape
-func RTCPeerConnectionCreateOffer1Func(this js.Ref) js.Ref
+func FuncRTCPeerConnectionCreateOffer1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_CreateOffer1
 //go:noescape
@@ -896,11 +894,11 @@ func TryRTCPeerConnectionCreateOffer1(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_CreateAnswer
 //go:noescape
-func HasRTCPeerConnectionCreateAnswer(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionCreateAnswer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_CreateAnswer
 //go:noescape
-func RTCPeerConnectionCreateAnswerFunc(this js.Ref) js.Ref
+func FuncRTCPeerConnectionCreateAnswer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_CreateAnswer
 //go:noescape
@@ -916,11 +914,11 @@ func TryRTCPeerConnectionCreateAnswer(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_CreateAnswer1
 //go:noescape
-func HasRTCPeerConnectionCreateAnswer1(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionCreateAnswer1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_CreateAnswer1
 //go:noescape
-func RTCPeerConnectionCreateAnswer1Func(this js.Ref) js.Ref
+func FuncRTCPeerConnectionCreateAnswer1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_CreateAnswer1
 //go:noescape
@@ -934,11 +932,11 @@ func TryRTCPeerConnectionCreateAnswer1(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_SetLocalDescription
 //go:noescape
-func HasRTCPeerConnectionSetLocalDescription(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionSetLocalDescription(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_SetLocalDescription
 //go:noescape
-func RTCPeerConnectionSetLocalDescriptionFunc(this js.Ref) js.Ref
+func FuncRTCPeerConnectionSetLocalDescription(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_SetLocalDescription
 //go:noescape
@@ -954,11 +952,11 @@ func TryRTCPeerConnectionSetLocalDescription(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_SetLocalDescription1
 //go:noescape
-func HasRTCPeerConnectionSetLocalDescription1(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionSetLocalDescription1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_SetLocalDescription1
 //go:noescape
-func RTCPeerConnectionSetLocalDescription1Func(this js.Ref) js.Ref
+func FuncRTCPeerConnectionSetLocalDescription1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_SetLocalDescription1
 //go:noescape
@@ -972,11 +970,11 @@ func TryRTCPeerConnectionSetLocalDescription1(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_SetRemoteDescription
 //go:noescape
-func HasRTCPeerConnectionSetRemoteDescription(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionSetRemoteDescription(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_SetRemoteDescription
 //go:noescape
-func RTCPeerConnectionSetRemoteDescriptionFunc(this js.Ref) js.Ref
+func FuncRTCPeerConnectionSetRemoteDescription(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_SetRemoteDescription
 //go:noescape
@@ -992,11 +990,11 @@ func TryRTCPeerConnectionSetRemoteDescription(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_AddIceCandidate
 //go:noescape
-func HasRTCPeerConnectionAddIceCandidate(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionAddIceCandidate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_AddIceCandidate
 //go:noescape
-func RTCPeerConnectionAddIceCandidateFunc(this js.Ref) js.Ref
+func FuncRTCPeerConnectionAddIceCandidate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_AddIceCandidate
 //go:noescape
@@ -1012,11 +1010,11 @@ func TryRTCPeerConnectionAddIceCandidate(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_AddIceCandidate1
 //go:noescape
-func HasRTCPeerConnectionAddIceCandidate1(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionAddIceCandidate1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_AddIceCandidate1
 //go:noescape
-func RTCPeerConnectionAddIceCandidate1Func(this js.Ref) js.Ref
+func FuncRTCPeerConnectionAddIceCandidate1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_AddIceCandidate1
 //go:noescape
@@ -1030,11 +1028,11 @@ func TryRTCPeerConnectionAddIceCandidate1(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_RestartIce
 //go:noescape
-func HasRTCPeerConnectionRestartIce(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionRestartIce(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_RestartIce
 //go:noescape
-func RTCPeerConnectionRestartIceFunc(this js.Ref) js.Ref
+func FuncRTCPeerConnectionRestartIce(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_RestartIce
 //go:noescape
@@ -1048,11 +1046,11 @@ func TryRTCPeerConnectionRestartIce(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_GetConfiguration
 //go:noescape
-func HasRTCPeerConnectionGetConfiguration(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionGetConfiguration(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_GetConfiguration
 //go:noescape
-func RTCPeerConnectionGetConfigurationFunc(this js.Ref) js.Ref
+func FuncRTCPeerConnectionGetConfiguration(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_GetConfiguration
 //go:noescape
@@ -1066,11 +1064,11 @@ func TryRTCPeerConnectionGetConfiguration(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_SetConfiguration
 //go:noescape
-func HasRTCPeerConnectionSetConfiguration(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionSetConfiguration(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_SetConfiguration
 //go:noescape
-func RTCPeerConnectionSetConfigurationFunc(this js.Ref) js.Ref
+func FuncRTCPeerConnectionSetConfiguration(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_SetConfiguration
 //go:noescape
@@ -1086,11 +1084,11 @@ func TryRTCPeerConnectionSetConfiguration(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_SetConfiguration1
 //go:noescape
-func HasRTCPeerConnectionSetConfiguration1(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionSetConfiguration1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_SetConfiguration1
 //go:noescape
-func RTCPeerConnectionSetConfiguration1Func(this js.Ref) js.Ref
+func FuncRTCPeerConnectionSetConfiguration1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_SetConfiguration1
 //go:noescape
@@ -1104,11 +1102,11 @@ func TryRTCPeerConnectionSetConfiguration1(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_Close
 //go:noescape
-func HasRTCPeerConnectionClose(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_Close
 //go:noescape
-func RTCPeerConnectionCloseFunc(this js.Ref) js.Ref
+func FuncRTCPeerConnectionClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_Close
 //go:noescape
@@ -1122,11 +1120,11 @@ func TryRTCPeerConnectionClose(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_CreateOffer2
 //go:noescape
-func HasRTCPeerConnectionCreateOffer2(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionCreateOffer2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_CreateOffer2
 //go:noescape
-func RTCPeerConnectionCreateOffer2Func(this js.Ref) js.Ref
+func FuncRTCPeerConnectionCreateOffer2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_CreateOffer2
 //go:noescape
@@ -1146,11 +1144,11 @@ func TryRTCPeerConnectionCreateOffer2(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_CreateOffer3
 //go:noescape
-func HasRTCPeerConnectionCreateOffer3(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionCreateOffer3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_CreateOffer3
 //go:noescape
-func RTCPeerConnectionCreateOffer3Func(this js.Ref) js.Ref
+func FuncRTCPeerConnectionCreateOffer3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_CreateOffer3
 //go:noescape
@@ -1168,11 +1166,11 @@ func TryRTCPeerConnectionCreateOffer3(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_SetLocalDescription2
 //go:noescape
-func HasRTCPeerConnectionSetLocalDescription2(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionSetLocalDescription2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_SetLocalDescription2
 //go:noescape
-func RTCPeerConnectionSetLocalDescription2Func(this js.Ref) js.Ref
+func FuncRTCPeerConnectionSetLocalDescription2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_SetLocalDescription2
 //go:noescape
@@ -1192,11 +1190,11 @@ func TryRTCPeerConnectionSetLocalDescription2(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_CreateAnswer2
 //go:noescape
-func HasRTCPeerConnectionCreateAnswer2(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionCreateAnswer2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_CreateAnswer2
 //go:noescape
-func RTCPeerConnectionCreateAnswer2Func(this js.Ref) js.Ref
+func FuncRTCPeerConnectionCreateAnswer2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_CreateAnswer2
 //go:noescape
@@ -1214,11 +1212,11 @@ func TryRTCPeerConnectionCreateAnswer2(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_SetRemoteDescription1
 //go:noescape
-func HasRTCPeerConnectionSetRemoteDescription1(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionSetRemoteDescription1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_SetRemoteDescription1
 //go:noescape
-func RTCPeerConnectionSetRemoteDescription1Func(this js.Ref) js.Ref
+func FuncRTCPeerConnectionSetRemoteDescription1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_SetRemoteDescription1
 //go:noescape
@@ -1238,11 +1236,11 @@ func TryRTCPeerConnectionSetRemoteDescription1(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_AddIceCandidate2
 //go:noescape
-func HasRTCPeerConnectionAddIceCandidate2(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionAddIceCandidate2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_AddIceCandidate2
 //go:noescape
-func RTCPeerConnectionAddIceCandidate2Func(this js.Ref) js.Ref
+func FuncRTCPeerConnectionAddIceCandidate2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_AddIceCandidate2
 //go:noescape
@@ -1262,11 +1260,11 @@ func TryRTCPeerConnectionAddIceCandidate2(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_CreateDataChannel
 //go:noescape
-func HasRTCPeerConnectionCreateDataChannel(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionCreateDataChannel(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_CreateDataChannel
 //go:noescape
-func RTCPeerConnectionCreateDataChannelFunc(this js.Ref) js.Ref
+func FuncRTCPeerConnectionCreateDataChannel(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_CreateDataChannel
 //go:noescape
@@ -1284,11 +1282,11 @@ func TryRTCPeerConnectionCreateDataChannel(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_CreateDataChannel1
 //go:noescape
-func HasRTCPeerConnectionCreateDataChannel1(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionCreateDataChannel1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_CreateDataChannel1
 //go:noescape
-func RTCPeerConnectionCreateDataChannel1Func(this js.Ref) js.Ref
+func FuncRTCPeerConnectionCreateDataChannel1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_CreateDataChannel1
 //go:noescape
@@ -1304,11 +1302,11 @@ func TryRTCPeerConnectionCreateDataChannel1(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_GetSenders
 //go:noescape
-func HasRTCPeerConnectionGetSenders(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionGetSenders(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_GetSenders
 //go:noescape
-func RTCPeerConnectionGetSendersFunc(this js.Ref) js.Ref
+func FuncRTCPeerConnectionGetSenders(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_GetSenders
 //go:noescape
@@ -1322,11 +1320,11 @@ func TryRTCPeerConnectionGetSenders(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_GetReceivers
 //go:noescape
-func HasRTCPeerConnectionGetReceivers(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionGetReceivers(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_GetReceivers
 //go:noescape
-func RTCPeerConnectionGetReceiversFunc(this js.Ref) js.Ref
+func FuncRTCPeerConnectionGetReceivers(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_GetReceivers
 //go:noescape
@@ -1340,11 +1338,11 @@ func TryRTCPeerConnectionGetReceivers(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_GetTransceivers
 //go:noescape
-func HasRTCPeerConnectionGetTransceivers(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionGetTransceivers(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_GetTransceivers
 //go:noescape
-func RTCPeerConnectionGetTransceiversFunc(this js.Ref) js.Ref
+func FuncRTCPeerConnectionGetTransceivers(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_GetTransceivers
 //go:noescape
@@ -1358,11 +1356,11 @@ func TryRTCPeerConnectionGetTransceivers(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_AddTrack
 //go:noescape
-func HasRTCPeerConnectionAddTrack(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionAddTrack(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_AddTrack
 //go:noescape
-func RTCPeerConnectionAddTrackFunc(this js.Ref) js.Ref
+func FuncRTCPeerConnectionAddTrack(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_AddTrack
 //go:noescape
@@ -1382,11 +1380,11 @@ func TryRTCPeerConnectionAddTrack(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_RemoveTrack
 //go:noescape
-func HasRTCPeerConnectionRemoveTrack(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionRemoveTrack(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_RemoveTrack
 //go:noescape
-func RTCPeerConnectionRemoveTrackFunc(this js.Ref) js.Ref
+func FuncRTCPeerConnectionRemoveTrack(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_RemoveTrack
 //go:noescape
@@ -1402,11 +1400,11 @@ func TryRTCPeerConnectionRemoveTrack(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_AddTransceiver
 //go:noescape
-func HasRTCPeerConnectionAddTransceiver(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionAddTransceiver(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_AddTransceiver
 //go:noescape
-func RTCPeerConnectionAddTransceiverFunc(this js.Ref) js.Ref
+func FuncRTCPeerConnectionAddTransceiver(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_AddTransceiver
 //go:noescape
@@ -1424,11 +1422,11 @@ func TryRTCPeerConnectionAddTransceiver(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_AddTransceiver1
 //go:noescape
-func HasRTCPeerConnectionAddTransceiver1(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionAddTransceiver1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_AddTransceiver1
 //go:noescape
-func RTCPeerConnectionAddTransceiver1Func(this js.Ref) js.Ref
+func FuncRTCPeerConnectionAddTransceiver1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_AddTransceiver1
 //go:noescape
@@ -1444,11 +1442,11 @@ func TryRTCPeerConnectionAddTransceiver1(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_GetStats
 //go:noescape
-func HasRTCPeerConnectionGetStats(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionGetStats(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_GetStats
 //go:noescape
-func RTCPeerConnectionGetStatsFunc(this js.Ref) js.Ref
+func FuncRTCPeerConnectionGetStats(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_GetStats
 //go:noescape
@@ -1464,11 +1462,11 @@ func TryRTCPeerConnectionGetStats(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_GetStats1
 //go:noescape
-func HasRTCPeerConnectionGetStats1(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionGetStats1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_GetStats1
 //go:noescape
-func RTCPeerConnectionGetStats1Func(this js.Ref) js.Ref
+func FuncRTCPeerConnectionGetStats1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_GetStats1
 //go:noescape
@@ -1482,11 +1480,11 @@ func TryRTCPeerConnectionGetStats1(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_GenerateCertificate
 //go:noescape
-func HasRTCPeerConnectionGenerateCertificate(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionGenerateCertificate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_GenerateCertificate
 //go:noescape
-func RTCPeerConnectionGenerateCertificateFunc(this js.Ref) js.Ref
+func FuncRTCPeerConnectionGenerateCertificate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_GenerateCertificate
 //go:noescape
@@ -1502,11 +1500,11 @@ func TryRTCPeerConnectionGenerateCertificate(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_SetIdentityProvider
 //go:noescape
-func HasRTCPeerConnectionSetIdentityProvider(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionSetIdentityProvider(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_SetIdentityProvider
 //go:noescape
-func RTCPeerConnectionSetIdentityProviderFunc(this js.Ref) js.Ref
+func FuncRTCPeerConnectionSetIdentityProvider(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_SetIdentityProvider
 //go:noescape
@@ -1524,11 +1522,11 @@ func TryRTCPeerConnectionSetIdentityProvider(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_SetIdentityProvider1
 //go:noescape
-func HasRTCPeerConnectionSetIdentityProvider1(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionSetIdentityProvider1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_SetIdentityProvider1
 //go:noescape
-func RTCPeerConnectionSetIdentityProvider1Func(this js.Ref) js.Ref
+func FuncRTCPeerConnectionSetIdentityProvider1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_SetIdentityProvider1
 //go:noescape
@@ -1544,11 +1542,11 @@ func TryRTCPeerConnectionSetIdentityProvider1(
 
 //go:wasmimport plat/js/web has_RTCPeerConnection_GetIdentityAssertion
 //go:noescape
-func HasRTCPeerConnectionGetIdentityAssertion(this js.Ref) js.Ref
+func HasFuncRTCPeerConnectionGetIdentityAssertion(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCPeerConnection_GetIdentityAssertion
 //go:noescape
-func RTCPeerConnectionGetIdentityAssertionFunc(this js.Ref) js.Ref
+func FuncRTCPeerConnectionGetIdentityAssertion(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCPeerConnection_GetIdentityAssertion
 //go:noescape
@@ -1719,11 +1717,11 @@ func GetRTCRtpScriptTransformerOptions(
 
 //go:wasmimport plat/js/web has_RTCRtpScriptTransformer_GenerateKeyFrame
 //go:noescape
-func HasRTCRtpScriptTransformerGenerateKeyFrame(this js.Ref) js.Ref
+func HasFuncRTCRtpScriptTransformerGenerateKeyFrame(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCRtpScriptTransformer_GenerateKeyFrame
 //go:noescape
-func RTCRtpScriptTransformerGenerateKeyFrameFunc(this js.Ref) js.Ref
+func FuncRTCRtpScriptTransformerGenerateKeyFrame(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCRtpScriptTransformer_GenerateKeyFrame
 //go:noescape
@@ -1739,11 +1737,11 @@ func TryRTCRtpScriptTransformerGenerateKeyFrame(
 
 //go:wasmimport plat/js/web has_RTCRtpScriptTransformer_GenerateKeyFrame1
 //go:noescape
-func HasRTCRtpScriptTransformerGenerateKeyFrame1(this js.Ref) js.Ref
+func HasFuncRTCRtpScriptTransformerGenerateKeyFrame1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCRtpScriptTransformer_GenerateKeyFrame1
 //go:noescape
-func RTCRtpScriptTransformerGenerateKeyFrame1Func(this js.Ref) js.Ref
+func FuncRTCRtpScriptTransformerGenerateKeyFrame1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCRtpScriptTransformer_GenerateKeyFrame1
 //go:noescape
@@ -1757,11 +1755,11 @@ func TryRTCRtpScriptTransformerGenerateKeyFrame1(
 
 //go:wasmimport plat/js/web has_RTCRtpScriptTransformer_SendKeyFrameRequest
 //go:noescape
-func HasRTCRtpScriptTransformerSendKeyFrameRequest(this js.Ref) js.Ref
+func HasFuncRTCRtpScriptTransformerSendKeyFrameRequest(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCRtpScriptTransformer_SendKeyFrameRequest
 //go:noescape
-func RTCRtpScriptTransformerSendKeyFrameRequestFunc(this js.Ref) js.Ref
+func FuncRTCRtpScriptTransformerSendKeyFrameRequest(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCRtpScriptTransformer_SendKeyFrameRequest
 //go:noescape

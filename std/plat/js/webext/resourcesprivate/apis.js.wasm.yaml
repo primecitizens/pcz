@@ -1,0 +1,73 @@
+- File: webext/chrome/resources_private.idl
+  Enum:
+    Name: Component
+    Values:
+      - identity
+      - pdf
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - resourcesPrivate
+- File: webext/chrome/resources_private.idl
+  Callback:
+    Name: GetStringsCallback
+    Args:
+      - Name: result
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - resourcesPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - resourcesPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - resourcesPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - resourcesPrivate
+- File: webext/chrome/resources_private.idl
+  WebextFunc:
+    Name: getStrings
+    Modifier: static
+    Args:
+      - Name: component
+        Type:
+          Name: Component
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - resourcesPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - resourcesPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: object
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - resourcesPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - resourcesPrivate

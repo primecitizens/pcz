@@ -1,0 +1,2194 @@
+- File: webext/chrome/tabs.json
+  Dict:
+    Name: ConnectArgConnectInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+    Fields:
+      - Name: documentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: frameId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+- File: webext/chrome/tabs.json
+  Dict:
+    Name: CreateArgCreateProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+    Fields:
+      - Name: active
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: index
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: openerTabId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: pinned
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: selected
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: url
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: windowId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+- File: webext/chrome/tabs.json
+  Dict:
+    Name: GroupArgOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+    Fields:
+      - Name: createProperties
+        Type:
+          Name: GroupArgOptionsFieldCreateProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: groupId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: tabIds
+        Required: true
+        Type:
+          Union:
+            - Name: long long
+            - Name: sequence
+              Params:
+                - Name: long long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - tabs
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+- File: webext/chrome/tabs.json
+  Dict:
+    Name: GroupArgOptionsFieldCreateProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+    Fields:
+      - Name: windowId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+- File: webext/chrome/tabs.json
+  Dict:
+    Name: HighlightArgHighlightInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+    Fields:
+      - Name: tabs
+        Required: true
+        Type:
+          Union:
+            - Name: sequence
+              Params:
+                - Name: long long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - tabs
+            - Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: windowId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+- File: webext/chrome/tabs.json
+  WebextProp:
+    Name: MAX_CAPTURE_VISIBLE_TAB_CALLS_PER_SECOND
+    Type:
+      Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  Dict:
+    Name: MoveArgMoveProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+    Fields:
+      - Name: index
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: windowId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+- File: webext/chrome/tabs.json
+  Dict:
+    Name: MutedInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+    Fields:
+      - Name: extensionId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: muted
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: reason
+        Type:
+          Name: MutedInfoReason
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+- File: webext/chrome/tabs.json
+  Enum:
+    Name: MutedInfoReason
+    Values:
+      - user
+      - capture
+      - extension
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  Dict:
+    Name: OnActivatedArgActiveInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+    Fields:
+      - Name: tabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: windowId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+- File: webext/chrome/tabs.json
+  Dict:
+    Name: OnActiveChangedArgSelectInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+    Fields:
+      - Name: windowId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+- File: webext/chrome/tabs.json
+  Dict:
+    Name: OnAttachedArgAttachInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+    Fields:
+      - Name: newPosition
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: newWindowId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+- File: webext/chrome/tabs.json
+  Dict:
+    Name: OnDetachedArgDetachInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+    Fields:
+      - Name: oldPosition
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: oldWindowId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+- File: webext/chrome/tabs.json
+  Dict:
+    Name: OnHighlightChangedArgSelectInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+    Fields:
+      - Name: tabIds
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: long long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: windowId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+- File: webext/chrome/tabs.json
+  Dict:
+    Name: OnHighlightedArgHighlightInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+    Fields:
+      - Name: tabIds
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: long long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: windowId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+- File: webext/chrome/tabs.json
+  Dict:
+    Name: OnMovedArgMoveInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+    Fields:
+      - Name: fromIndex
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: toIndex
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: windowId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+- File: webext/chrome/tabs.json
+  Dict:
+    Name: OnRemovedArgRemoveInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+    Fields:
+      - Name: isWindowClosing
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: windowId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+- File: webext/chrome/tabs.json
+  Dict:
+    Name: OnSelectionChangedArgSelectInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+    Fields:
+      - Name: windowId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+- File: webext/chrome/tabs.json
+  Dict:
+    Name: OnUpdatedArgChangeInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+    Fields:
+      - Name: audible
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: autoDiscardable
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: discarded
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: favIconUrl
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: groupId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: mutedInfo
+        Type:
+          Name: MutedInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: pinned
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: status
+        Type:
+          Name: TabStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: title
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: url
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+- File: webext/chrome/tabs.json
+  Dict:
+    Name: OnZoomChangeArgZoomChangeInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+    Fields:
+      - Name: newZoomFactor
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: oldZoomFactor
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: tabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: zoomSettings
+        Required: true
+        Type:
+          Name: ZoomSettings
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+- File: webext/chrome/tabs.json
+  Dict:
+    Name: QueryArgQueryInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+    Fields:
+      - Name: active
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: audible
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: autoDiscardable
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: currentWindow
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: discarded
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: groupId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: highlighted
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: index
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: lastFocusedWindow
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: muted
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: pinned
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: status
+        Type:
+          Name: TabStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: title
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: url
+        Type:
+          Union:
+            - Name: DOMString
+            - Name: sequence
+              Params:
+                - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - tabs
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: windowId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: windowType
+        Type:
+          Name: WindowType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+- File: webext/chrome/tabs.json
+  Dict:
+    Name: ReloadArgReloadProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+    Fields:
+      - Name: bypassCache
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+- File: webext/chrome/tabs.json
+  Dict:
+    Name: SendMessageArgOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+    Fields:
+      - Name: documentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: frameId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+- File: webext/chrome/tabs.json
+  WebextProp:
+    Name: TAB_ID_NONE
+    Type:
+      Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  Dict:
+    Name: Tab
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+    Fields:
+      - Name: active
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: audible
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: autoDiscardable
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: discarded
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: favIconUrl
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: groupId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: height
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: highlighted
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: id
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: incognito
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: index
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: mutedInfo
+        Type:
+          Name: MutedInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: openerTabId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: pendingUrl
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: pinned
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: selected
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: sessionId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: status
+        Type:
+          Name: TabStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: title
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: url
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: width
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: windowId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+- File: webext/chrome/tabs.json
+  Enum:
+    Name: TabStatus
+    Values:
+      - unloaded
+      - loading
+      - complete
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  Dict:
+    Name: UpdateArgUpdateProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+    Fields:
+      - Name: active
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: autoDiscardable
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: highlighted
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: muted
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: openerTabId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: pinned
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: selected
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: url
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+- File: webext/chrome/tabs.json
+  Enum:
+    Name: WindowType
+    Values:
+      - normal
+      - popup
+      - panel
+      - app
+      - devtools
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  Dict:
+    Name: ZoomSettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+    Fields:
+      - Name: defaultZoomFactor
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: mode
+        Type:
+          Name: ZoomSettingsMode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+      - Name: scope
+        Type:
+          Name: ZoomSettingsScope
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabs
+- File: webext/chrome/tabs.json
+  Enum:
+    Name: ZoomSettingsMode
+    Values:
+      - automatic
+      - manual
+      - disabled
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  Enum:
+    Name: ZoomSettingsScope
+    Values:
+      - per-origin
+      - per-tab
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: captureVisibleTab
+    Args:
+      - Name: windowId
+        Optional: true
+        Type:
+          Name: long long
+      - Name: options
+        Optional: true
+        Type:
+          Name: ImageDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: create
+    Args:
+      - Name: createProperties
+        Type:
+          Name: CreateArgCreateProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Tab
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - tabs
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: detectLanguage
+    Args:
+      - Name: tabId
+        Optional: true
+        Type:
+          Name: long long
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: discard
+    Args:
+      - Name: tabId
+        Optional: true
+        Type:
+          Name: long long
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Tab
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - tabs
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: duplicate
+    Args:
+      - Name: tabId
+        Type:
+          Name: long long
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Tab
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - tabs
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: executeScript
+    Args:
+      - Name: tabId
+        Optional: true
+        Type:
+          Name: long long
+      - Name: details
+        Type:
+          Name: InjectDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: any
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - tabs
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: get
+    Args:
+      - Name: tabId
+        Type:
+          Name: long long
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Tab
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - tabs
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: getAllInWindow
+    Args:
+      - Name: windowId
+        Optional: true
+        Type:
+          Name: long long
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: Tab
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - tabs
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - tabs
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: getCurrent
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Tab
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - tabs
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: getSelected
+    Args:
+      - Name: windowId
+        Optional: true
+        Type:
+          Name: long long
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Tab
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - tabs
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: getZoom
+    Args:
+      - Name: tabId
+        Optional: true
+        Type:
+          Name: long long
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: double
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: getZoomSettings
+    Args:
+      - Name: tabId
+        Optional: true
+        Type:
+          Name: long long
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ZoomSettings
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - tabs
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: goBack
+    Args:
+      - Name: tabId
+        Optional: true
+        Type:
+          Name: long long
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: goForward
+    Args:
+      - Name: tabId
+        Optional: true
+        Type:
+          Name: long long
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: group
+    Args:
+      - Name: options
+        Type:
+          Name: GroupArgOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: long long
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: insertCSS
+    Args:
+      - Name: tabId
+        Optional: true
+        Type:
+          Name: long long
+      - Name: details
+        Type:
+          Name: InjectDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: move
+    Args:
+      - Name: tabIds
+        Type:
+          Union:
+            - Name: long long
+            - Name: sequence
+              Params:
+                - Name: long long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - tabs
+      - Name: moveProperties
+        Type:
+          Name: MoveArgMoveProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: Promise
+        Params:
+          - Union:
+              - Name: Tab
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - tabs
+              - Name: sequence
+                Params:
+                  - Name: Tab
+                    ExtAttrs:
+                      - Name: Namespace
+                        Values:
+                          - chrome
+                          - tabs
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - tabs
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextEvent:
+    Name: onActivated
+    Args:
+      - Name: activeInfo
+        Type:
+          Name: OnActivatedArgActiveInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextEvent:
+    Name: onActiveChanged
+    Args:
+      - Name: tabId
+        Type:
+          Name: long long
+      - Name: selectInfo
+        Type:
+          Name: OnActiveChangedArgSelectInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextEvent:
+    Name: onAttached
+    Args:
+      - Name: tabId
+        Type:
+          Name: long long
+      - Name: attachInfo
+        Type:
+          Name: OnAttachedArgAttachInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextEvent:
+    Name: onCreated
+    Args:
+      - Name: tab
+        Type:
+          Name: Tab
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextEvent:
+    Name: onDetached
+    Args:
+      - Name: tabId
+        Type:
+          Name: long long
+      - Name: detachInfo
+        Type:
+          Name: OnDetachedArgDetachInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextEvent:
+    Name: onHighlightChanged
+    Args:
+      - Name: selectInfo
+        Type:
+          Name: OnHighlightChangedArgSelectInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextEvent:
+    Name: onHighlighted
+    Args:
+      - Name: highlightInfo
+        Type:
+          Name: OnHighlightedArgHighlightInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextEvent:
+    Name: onMoved
+    Args:
+      - Name: tabId
+        Type:
+          Name: long long
+      - Name: moveInfo
+        Type:
+          Name: OnMovedArgMoveInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextEvent:
+    Name: onRemoved
+    Args:
+      - Name: tabId
+        Type:
+          Name: long long
+      - Name: removeInfo
+        Type:
+          Name: OnRemovedArgRemoveInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextEvent:
+    Name: onReplaced
+    Args:
+      - Name: addedTabId
+        Type:
+          Name: long long
+      - Name: removedTabId
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextEvent:
+    Name: onSelectionChanged
+    Args:
+      - Name: tabId
+        Type:
+          Name: long long
+      - Name: selectInfo
+        Type:
+          Name: OnSelectionChangedArgSelectInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextEvent:
+    Name: onUpdated
+    Args:
+      - Name: tabId
+        Type:
+          Name: long long
+      - Name: changeInfo
+        Type:
+          Name: OnUpdatedArgChangeInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+      - Name: tab
+        Type:
+          Name: Tab
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextEvent:
+    Name: onZoomChange
+    Args:
+      - Name: ZoomChangeInfo
+        Type:
+          Name: OnZoomChangeArgZoomChangeInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: query
+    Args:
+      - Name: queryInfo
+        Type:
+          Name: QueryArgQueryInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: Tab
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - tabs
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - tabs
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: reload
+    Args:
+      - Name: tabId
+        Optional: true
+        Type:
+          Name: long long
+      - Name: reloadProperties
+        Optional: true
+        Type:
+          Name: ReloadArgReloadProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: remove
+    Args:
+      - Name: tabIds
+        Type:
+          Union:
+            - Name: long long
+            - Name: sequence
+              Params:
+                - Name: long long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - tabs
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: removeCSS
+    Args:
+      - Name: tabId
+        Optional: true
+        Type:
+          Name: long long
+      - Name: details
+        Type:
+          Name: DeleteInjectionDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: sendMessage
+    Args:
+      - Name: tabId
+        Type:
+          Name: long long
+      - Name: message
+        Type:
+          Name: any
+      - Name: options
+        Optional: true
+        Type:
+          Name: SendMessageArgOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: any
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: sendRequest
+    Args:
+      - Name: tabId
+        Type:
+          Name: long long
+      - Name: request
+        Type:
+          Name: any
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: any
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: setZoom
+    Args:
+      - Name: tabId
+        Optional: true
+        Type:
+          Name: long long
+      - Name: zoomFactor
+        Type:
+          Name: double
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: setZoomSettings
+    Args:
+      - Name: tabId
+        Optional: true
+        Type:
+          Name: long long
+      - Name: zoomSettings
+        Type:
+          Name: ZoomSettings
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: ungroup
+    Args:
+      - Name: tabIds
+        Type:
+          Union:
+            - Name: long long
+            - Name: sequence
+              Params:
+                - Name: long long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - tabs
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: update
+    Args:
+      - Name: tabId
+        Optional: true
+        Type:
+          Name: long long
+      - Name: updateProperties
+        Type:
+          Name: UpdateArgUpdateProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Tab
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - tabs
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs

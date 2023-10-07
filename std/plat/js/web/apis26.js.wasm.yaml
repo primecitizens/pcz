@@ -1,4 +1,4 @@
-- File: web-nfc.idl
+- File: webref/web-nfc.idl
   Dict:
     Name: NDEFMessageInit
     Fields:
@@ -8,7 +8,7 @@
           Name: sequence
           Params:
             - Name: NDEFRecordInit
-- File: web-nfc.idl
+- File: webref/web-nfc.idl
   Typedef:
     Name: NDEFMessageSource
     Type:
@@ -16,7 +16,7 @@
         - Name: DOMString
         - Name: BufferSource
         - Name: NDEFMessageInit
-- File: web-nfc.idl
+- File: webref/web-nfc.idl
   Interface:
     Name: NDEFReader
     Inherits: EventTarget
@@ -94,7 +94,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: web-nfc.idl
+- File: webref/web-nfc.idl
   Interface:
     Name: NDEFReadingEvent
     Inherits: Event
@@ -136,7 +136,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: web-nfc.idl
+- File: webref/web-nfc.idl
   Dict:
     Name: NDEFReadingEventInit
     Inherits: EventInit
@@ -162,7 +162,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: web-nfc.idl
+- File: webref/web-nfc.idl
   Interface:
     Name: NDEFRecord
     ExtAttrs:
@@ -252,7 +252,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: web-nfc.idl
+- File: webref/web-nfc.idl
   Dict:
     Name: NDEFRecordInit
     Fields:
@@ -275,14 +275,14 @@
       - Name: data
         Type:
           Name: any
-- File: web-nfc.idl
+- File: webref/web-nfc.idl
   Dict:
     Name: NDEFScanOptions
     Fields:
       - Name: signal
         Type:
           Name: AbortSignal
-- File: web-nfc.idl
+- File: webref/web-nfc.idl
   Dict:
     Name: NDEFWriteOptions
     Fields:
@@ -294,12 +294,12 @@
         Type:
           Name: AbortSignal
           Nullable: true
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Typedef:
     Name: NamedCurve
     Type:
       Name: DOMString
-- File: css-regions.idl
+- File: webref/css-regions.idl
   Interface:
     Name: NamedFlow
     Inherits: EventTarget
@@ -364,7 +364,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-regions.idl
+- File: webref/css-regions.idl
   Interface:
     Name: NamedFlowMap
     ExtAttrs:
@@ -375,7 +375,7 @@
       TypeParams:
         - Name: CSSOMString
         - Name: NamedFlow
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: NamedNodeMap
     ExtAttrs:
@@ -497,7 +497,7 @@
             Values:
               - Window
           - Name: LegacyUnenumerableNamedProperties
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: NavigateEvent
     Inherits: Event
@@ -621,7 +621,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: NavigateEventInit
     Inherits: EventInit
@@ -679,7 +679,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: Navigation
     Inherits: EventTarget
@@ -842,7 +842,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: NavigationCurrentEntryChangeEvent
     Inherits: Event
@@ -880,7 +880,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: NavigationCurrentEntryChangeEventInit
     Inherits: EventInit
@@ -906,7 +906,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: NavigationDestination
     ExtAttrs:
@@ -962,7 +962,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-nav.idl
+- File: webref/css-nav.idl
   Interface:
     Name: NavigationEvent
     Inherits: UIEvent
@@ -1002,7 +1002,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-nav.idl
+- File: webref/css-nav.idl
   Dict:
     Name: NavigationEventInit
     Inherits: UIEventInit
@@ -1036,20 +1036,20 @@
         Default: "false"
         Type:
           Name: boolean
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: NavigationFocusReset
     Values:
       - after-transition
       - manual
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: NavigationHistoryBehavior
     Values:
       - auto
       - push
       - replace
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: NavigationHistoryEntry
     Inherits: EventTarget
@@ -1114,14 +1114,14 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Callback:
     Name: NavigationInterceptHandler
     Returns:
       - Name: Promise
         Params:
           - Name: undefined
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: NavigationInterceptOptions
     Fields:
@@ -1134,7 +1134,7 @@
       - Name: scroll
         Type:
           Name: NavigationScrollBehavior
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: NavigationNavigateOptions
     Inherits: NavigationOptions
@@ -1149,14 +1149,14 @@
       - Name: info
         Type:
           Name: any
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: NavigationOptions
     Fields:
       - Name: info
         Type:
           Name: any
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Interface:
     Name: NavigationPreloadManager
     ExtAttrs:
@@ -1214,7 +1214,7 @@
             Values:
               - Window
               - Worker
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Dict:
     Name: NavigationPreloadState
     Fields:
@@ -1225,7 +1225,7 @@
       - Name: headerValue
         Type:
           Name: ByteString
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: NavigationReloadOptions
     Inherits: NavigationOptions
@@ -1236,7 +1236,7 @@
       - Name: info
         Type:
           Name: any
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: NavigationResult
     Fields:
@@ -1250,13 +1250,13 @@
           Name: Promise
           Params:
             - Name: NavigationHistoryEntry
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: NavigationScrollBehavior
     Values:
       - after-transition
       - manual
-- File: navigation-timing.idl
+- File: webref/navigation-timing.idl
   Enum:
     Name: NavigationTimingType
     Values:
@@ -1264,7 +1264,7 @@
       - reload
       - back_forward
       - prerender
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: NavigationTransition
     ExtAttrs:
@@ -1298,7 +1298,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: NavigationType
     Values:
@@ -1306,7 +1306,7 @@
       - replace
       - reload
       - traverse
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: NavigationUpdateCurrentEntryOptions
     Fields:
@@ -1314,7 +1314,7 @@
         Required: true
         Type:
           Name: any
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: Navigator
     ExtAttrs:
@@ -1916,7 +1916,7 @@
               - Name: undefined
         ExtAttrs:
           - Name: SecureContext
-- File: ua-client-hints.idl
+- File: webref/ua-client-hints.idl
   Dict:
     Name: NavigatorUABrandVersion
     Fields:
@@ -1926,7 +1926,7 @@
       - Name: version
         Type:
           Name: DOMString
-- File: ua-client-hints.idl
+- File: webref/ua-client-hints.idl
   Interface:
     Name: NavigatorUAData
     ExtAttrs:
@@ -1989,7 +1989,7 @@
             Values:
               - Window
               - Worker
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Callback:
     Name: NavigatorUserMediaErrorCallback
     Args:
@@ -1998,7 +1998,7 @@
           Name: DOMException
     Returns:
       - Name: undefined
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Callback:
     Name: NavigatorUserMediaSuccessCallback
     Args:
@@ -2007,7 +2007,7 @@
           Name: MediaStream
     Returns:
       - Name: undefined
-- File: netinfo.idl
+- File: webref/netinfo.idl
   Interface:
     Name: NetworkInformation
     Inherits: EventTarget
@@ -2076,7 +2076,7 @@
           Name: boolean
         ExtAttrs:
           - Name: SameObject
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: Node
     Inherits: EventTarget
@@ -2464,7 +2464,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: dom.idl
+- File: webref/dom.idl
   CallbackInterface:
     Name: NodeFilter
     ExtAttrs:
@@ -2548,7 +2548,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: NodeIterator
     ExtAttrs:
@@ -2622,7 +2622,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: NodeList
     ExtAttrs:
@@ -2655,7 +2655,7 @@
     Iterable:
       TypeParams:
         - Name: Node
-- File: notifications.idl
+- File: webref/notifications.idl
   Interface:
     Name: Notification
     Inherits: EventTarget
@@ -2899,7 +2899,7 @@
             Values:
               - Window
               - Worker
-- File: notifications.idl
+- File: webref/notifications.idl
   Dict:
     Name: NotificationAction
     Fields:
@@ -2914,7 +2914,7 @@
       - Name: icon
         Type:
           Name: USVString
-- File: notifications.idl
+- File: webref/notifications.idl
   Enum:
     Name: NotificationDirection
     Values:

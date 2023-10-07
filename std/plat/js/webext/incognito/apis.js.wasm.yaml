@@ -1,0 +1,12 @@
+- File: webext/incognito.json
+  Enum:
+    Name: IncognitoMode
+    Values:
+      - split
+      - spanning
+      - not_allowed
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - incognito

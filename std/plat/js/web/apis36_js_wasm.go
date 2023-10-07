@@ -5,17 +5,10 @@ package web
 
 import (
 	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/mark"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 func NewGPUInternalError(message js.String) (ret GPUInternalError) {
 	ret.ref = bindings.NewGPUInternalErrorByGPUInternalError(
@@ -28,7 +21,7 @@ type GPUInternalError struct {
 }
 
 func (this GPUInternalError) Once() GPUInternalError {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -42,7 +35,7 @@ func (this GPUInternalError) FromRef(ref js.Ref) GPUInternalError {
 }
 
 func (this GPUInternalError) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 const (
@@ -75,17 +68,26 @@ func (p GPUObjectDescriptorBase) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUObjectDescriptorBase) UpdateFrom(ref js.Ref) {
+func (p *GPUObjectDescriptorBase) UpdateFrom(ref js.Ref) {
 	bindings.GPUObjectDescriptorBaseJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUObjectDescriptorBase) Update(ref js.Ref) {
+func (p *GPUObjectDescriptorBase) Update(ref js.Ref) {
 	bindings.GPUObjectDescriptorBaseJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUObjectDescriptorBase) FreeMembers(recursive bool) {
+	js.Free(
+		p.Label.Ref(),
+	)
+	p.Label = p.Label.FromRef(js.Undefined)
 }
 
 func NewGPUOutOfMemoryError(message js.String) (ret GPUOutOfMemoryError) {
@@ -99,7 +101,7 @@ type GPUOutOfMemoryError struct {
 }
 
 func (this GPUOutOfMemoryError) Once() GPUOutOfMemoryError {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -113,7 +115,7 @@ func (this GPUOutOfMemoryError) FromRef(ref js.Ref) GPUOutOfMemoryError {
 }
 
 func (this GPUOutOfMemoryError) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type GPUPipelineDescriptorBase struct {
@@ -143,17 +145,28 @@ func (p GPUPipelineDescriptorBase) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUPipelineDescriptorBase) UpdateFrom(ref js.Ref) {
+func (p *GPUPipelineDescriptorBase) UpdateFrom(ref js.Ref) {
 	bindings.GPUPipelineDescriptorBaseJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUPipelineDescriptorBase) Update(ref js.Ref) {
+func (p *GPUPipelineDescriptorBase) Update(ref js.Ref) {
 	bindings.GPUPipelineDescriptorBaseJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUPipelineDescriptorBase) FreeMembers(recursive bool) {
+	js.Free(
+		p.Layout.Ref(),
+		p.Label.Ref(),
+	)
+	p.Layout = p.Layout.FromRef(js.Undefined)
+	p.Label = p.Label.FromRef(js.Undefined)
 }
 
 type GPUPipelineErrorReason uint32
@@ -203,17 +216,22 @@ func (p GPUPipelineErrorInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUPipelineErrorInit) UpdateFrom(ref js.Ref) {
+func (p *GPUPipelineErrorInit) UpdateFrom(ref js.Ref) {
 	bindings.GPUPipelineErrorInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUPipelineErrorInit) Update(ref js.Ref) {
+func (p *GPUPipelineErrorInit) Update(ref js.Ref) {
 	bindings.GPUPipelineErrorInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUPipelineErrorInit) FreeMembers(recursive bool) {
 }
 
 func NewGPUPipelineError(message js.String, options GPUPipelineErrorInit) (ret GPUPipelineError) {
@@ -233,7 +251,7 @@ type GPUPipelineError struct {
 }
 
 func (this GPUPipelineError) Once() GPUPipelineError {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -247,7 +265,7 @@ func (this GPUPipelineError) FromRef(ref js.Ref) GPUPipelineError {
 }
 
 func (this GPUPipelineError) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Reason returns the value of property "GPUPipelineError.reason".
@@ -255,7 +273,7 @@ func (this GPUPipelineError) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUPipelineError) Reason() (ret GPUPipelineErrorReason, ok bool) {
 	ok = js.True == bindings.GetGPUPipelineErrorReason(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -299,17 +317,28 @@ func (p GPURenderPassLayout) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPURenderPassLayout) UpdateFrom(ref js.Ref) {
+func (p *GPURenderPassLayout) UpdateFrom(ref js.Ref) {
 	bindings.GPURenderPassLayoutJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPURenderPassLayout) Update(ref js.Ref) {
+func (p *GPURenderPassLayout) Update(ref js.Ref) {
 	bindings.GPURenderPassLayoutJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPURenderPassLayout) FreeMembers(recursive bool) {
+	js.Free(
+		p.ColorFormats.Ref(),
+		p.Label.Ref(),
+	)
+	p.ColorFormats = p.ColorFormats.FromRef(js.Undefined)
+	p.Label = p.Label.FromRef(js.Undefined)
 }
 
 const (
@@ -375,17 +404,26 @@ func (p GPUUncapturedErrorEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUUncapturedErrorEventInit) UpdateFrom(ref js.Ref) {
+func (p *GPUUncapturedErrorEventInit) UpdateFrom(ref js.Ref) {
 	bindings.GPUUncapturedErrorEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUUncapturedErrorEventInit) Update(ref js.Ref) {
+func (p *GPUUncapturedErrorEventInit) Update(ref js.Ref) {
 	bindings.GPUUncapturedErrorEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUUncapturedErrorEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Error.Ref(),
+	)
+	p.Error = p.Error.FromRef(js.Undefined)
 }
 
 func NewGPUUncapturedErrorEvent(typ js.String, gpuUncapturedErrorEventInitDict GPUUncapturedErrorEventInit) (ret GPUUncapturedErrorEvent) {
@@ -400,7 +438,7 @@ type GPUUncapturedErrorEvent struct {
 }
 
 func (this GPUUncapturedErrorEvent) Once() GPUUncapturedErrorEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -414,7 +452,7 @@ func (this GPUUncapturedErrorEvent) FromRef(ref js.Ref) GPUUncapturedErrorEvent 
 }
 
 func (this GPUUncapturedErrorEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Error returns the value of property "GPUUncapturedErrorEvent.error".
@@ -422,7 +460,7 @@ func (this GPUUncapturedErrorEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUUncapturedErrorEvent) Error() (ret GPUError, ok bool) {
 	ok = js.True == bindings.GetGPUUncapturedErrorEventError(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -438,7 +476,7 @@ type GPUValidationError struct {
 }
 
 func (this GPUValidationError) Once() GPUValidationError {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -452,7 +490,7 @@ func (this GPUValidationError) FromRef(ref js.Ref) GPUValidationError {
 }
 
 func (this GPUValidationError) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type GamepadEventInit struct {
@@ -500,17 +538,26 @@ func (p GamepadEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GamepadEventInit) UpdateFrom(ref js.Ref) {
+func (p *GamepadEventInit) UpdateFrom(ref js.Ref) {
 	bindings.GamepadEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GamepadEventInit) Update(ref js.Ref) {
+func (p *GamepadEventInit) Update(ref js.Ref) {
 	bindings.GamepadEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GamepadEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Gamepad.Ref(),
+	)
+	p.Gamepad = p.Gamepad.FromRef(js.Undefined)
 }
 
 func NewGamepadEvent(typ js.String, eventInitDict GamepadEventInit) (ret GamepadEvent) {
@@ -525,7 +572,7 @@ type GamepadEvent struct {
 }
 
 func (this GamepadEvent) Once() GamepadEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -539,7 +586,7 @@ func (this GamepadEvent) FromRef(ref js.Ref) GamepadEvent {
 }
 
 func (this GamepadEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Gamepad returns the value of property "GamepadEvent.gamepad".
@@ -547,15 +594,15 @@ func (this GamepadEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this GamepadEvent) Gamepad() (ret Gamepad, ok bool) {
 	ok = js.True == bindings.GetGamepadEventGamepad(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-type GenerateAssertionCallbackFunc func(this js.Ref, contents js.String, origin js.String, options RTCIdentityProviderOptions) js.Ref
+type GenerateAssertionCallbackFunc func(this js.Ref, contents js.String, origin js.String, options *RTCIdentityProviderOptions) js.Ref
 
-func (fn GenerateAssertionCallbackFunc) Register() js.Func[func(contents js.String, origin js.String, options RTCIdentityProviderOptions) js.Promise[RTCIdentityAssertionResult]] {
-	return js.RegisterCallback[func(contents js.String, origin js.String, options RTCIdentityProviderOptions) js.Promise[RTCIdentityAssertionResult]](
+func (fn GenerateAssertionCallbackFunc) Register() js.Func[func(contents js.String, origin js.String, options *RTCIdentityProviderOptions) js.Promise[RTCIdentityAssertionResult]] {
+	return js.RegisterCallback[func(contents js.String, origin js.String, options *RTCIdentityProviderOptions) js.Promise[RTCIdentityAssertionResult]](
 		fn, abi.FuncPCABIInternal(fn),
 	)
 }
@@ -568,13 +615,16 @@ func (fn GenerateAssertionCallbackFunc) DispatchCallback(
 		targetPC != uintptr(abi.FuncPCABIInternal(fn)) {
 		js.ThrowInvalidCallbackInvocation()
 	}
+	var arg2 RTCIdentityProviderOptions
+	arg2.UpdateFrom(args[2+1])
+	defer arg2.FreeMembers(true)
 
 	if ctx.Return(fn(
 		args[0],
 
 		js.String{}.FromRef(args[0+1]),
 		js.String{}.FromRef(args[1+1]),
-		RTCIdentityProviderOptions{}.FromRef(args[2+1]),
+		mark.NoEscape(&arg2),
 	)) {
 		return
 	}
@@ -583,12 +633,12 @@ func (fn GenerateAssertionCallbackFunc) DispatchCallback(
 }
 
 type GenerateAssertionCallback[T any] struct {
-	Fn  func(arg T, this js.Ref, contents js.String, origin js.String, options RTCIdentityProviderOptions) js.Ref
+	Fn  func(arg T, this js.Ref, contents js.String, origin js.String, options *RTCIdentityProviderOptions) js.Ref
 	Arg T
 }
 
-func (cb *GenerateAssertionCallback[T]) Register() js.Func[func(contents js.String, origin js.String, options RTCIdentityProviderOptions) js.Promise[RTCIdentityAssertionResult]] {
-	return js.RegisterCallback[func(contents js.String, origin js.String, options RTCIdentityProviderOptions) js.Promise[RTCIdentityAssertionResult]](
+func (cb *GenerateAssertionCallback[T]) Register() js.Func[func(contents js.String, origin js.String, options *RTCIdentityProviderOptions) js.Promise[RTCIdentityAssertionResult]] {
+	return js.RegisterCallback[func(contents js.String, origin js.String, options *RTCIdentityProviderOptions) js.Promise[RTCIdentityAssertionResult]](
 		cb, abi.FuncPCABIInternal(cb.Fn),
 	)
 }
@@ -599,8 +649,11 @@ func (cb *GenerateAssertionCallback[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 3+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
+	var arg2 RTCIdentityProviderOptions
+	arg2.UpdateFrom(args[2+1])
+	defer arg2.FreeMembers(true)
 
 	if ctx.Return(cb.Fn(
 		cb.Arg,
@@ -608,7 +661,7 @@ func (cb *GenerateAssertionCallback[T]) DispatchCallback(
 
 		js.String{}.FromRef(args[0+1]),
 		js.String{}.FromRef(args[1+1]),
-		RTCIdentityProviderOptions{}.FromRef(args[2+1]),
+		mark.NoEscape(&arg2),
 	)) {
 		return
 	}
@@ -643,17 +696,28 @@ func (p RTCIdentityProviderDetails) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCIdentityProviderDetails) UpdateFrom(ref js.Ref) {
+func (p *RTCIdentityProviderDetails) UpdateFrom(ref js.Ref) {
 	bindings.RTCIdentityProviderDetailsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCIdentityProviderDetails) Update(ref js.Ref) {
+func (p *RTCIdentityProviderDetails) Update(ref js.Ref) {
 	bindings.RTCIdentityProviderDetailsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCIdentityProviderDetails) FreeMembers(recursive bool) {
+	js.Free(
+		p.Domain.Ref(),
+		p.Protocol.Ref(),
+	)
+	p.Domain = p.Domain.FromRef(js.Undefined)
+	p.Protocol = p.Protocol.FromRef(js.Undefined)
 }
 
 type RTCIdentityAssertionResult struct {
@@ -685,17 +749,29 @@ func (p RTCIdentityAssertionResult) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCIdentityAssertionResult) UpdateFrom(ref js.Ref) {
+func (p *RTCIdentityAssertionResult) UpdateFrom(ref js.Ref) {
 	bindings.RTCIdentityAssertionResultJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCIdentityAssertionResult) Update(ref js.Ref) {
+func (p *RTCIdentityAssertionResult) Update(ref js.Ref) {
 	bindings.RTCIdentityAssertionResultJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCIdentityAssertionResult) FreeMembers(recursive bool) {
+	js.Free(
+		p.Assertion.Ref(),
+	)
+	p.Assertion = p.Assertion.FromRef(js.Undefined)
+	if recursive {
+		p.Idp.FreeMembers(true)
+	}
 }
 
 type RTCIdentityProviderOptions struct {
@@ -729,17 +805,30 @@ func (p RTCIdentityProviderOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCIdentityProviderOptions) UpdateFrom(ref js.Ref) {
+func (p *RTCIdentityProviderOptions) UpdateFrom(ref js.Ref) {
 	bindings.RTCIdentityProviderOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCIdentityProviderOptions) Update(ref js.Ref) {
+func (p *RTCIdentityProviderOptions) Update(ref js.Ref) {
 	bindings.RTCIdentityProviderOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCIdentityProviderOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Protocol.Ref(),
+		p.UsernameHint.Ref(),
+		p.PeerIdentity.Ref(),
+	)
+	p.Protocol = p.Protocol.FromRef(js.Undefined)
+	p.UsernameHint = p.UsernameHint.FromRef(js.Undefined)
+	p.PeerIdentity = p.PeerIdentity.FromRef(js.Undefined)
 }
 
 type GenerateBidInterestGroup struct {
@@ -821,17 +910,48 @@ func (p GenerateBidInterestGroup) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GenerateBidInterestGroup) UpdateFrom(ref js.Ref) {
+func (p *GenerateBidInterestGroup) UpdateFrom(ref js.Ref) {
 	bindings.GenerateBidInterestGroupJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GenerateBidInterestGroup) Update(ref js.Ref) {
+func (p *GenerateBidInterestGroup) Update(ref js.Ref) {
 	bindings.GenerateBidInterestGroupJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GenerateBidInterestGroup) FreeMembers(recursive bool) {
+	js.Free(
+		p.Owner.Ref(),
+		p.Name.Ref(),
+		p.PriorityVector.Ref(),
+		p.ExecutionMode.Ref(),
+		p.BiddingLogicURL.Ref(),
+		p.BiddingWasmHelperURL.Ref(),
+		p.UpdateURL.Ref(),
+		p.TrustedBiddingSignalsURL.Ref(),
+		p.TrustedBiddingSignalsKeys.Ref(),
+		p.UserBiddingSignals.Ref(),
+		p.Ads.Ref(),
+		p.AdComponents.Ref(),
+	)
+	p.Owner = p.Owner.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
+	p.PriorityVector = p.PriorityVector.FromRef(js.Undefined)
+	p.ExecutionMode = p.ExecutionMode.FromRef(js.Undefined)
+	p.BiddingLogicURL = p.BiddingLogicURL.FromRef(js.Undefined)
+	p.BiddingWasmHelperURL = p.BiddingWasmHelperURL.FromRef(js.Undefined)
+	p.UpdateURL = p.UpdateURL.FromRef(js.Undefined)
+	p.TrustedBiddingSignalsURL = p.TrustedBiddingSignalsURL.FromRef(js.Undefined)
+	p.TrustedBiddingSignalsKeys = p.TrustedBiddingSignalsKeys.FromRef(js.Undefined)
+	p.UserBiddingSignals = p.UserBiddingSignals.FromRef(js.Undefined)
+	p.Ads = p.Ads.FromRef(js.Undefined)
+	p.AdComponents = p.AdComponents.FromRef(js.Undefined)
 }
 
 type OneOf_String_AdRender struct {
@@ -926,17 +1046,32 @@ func (p GenerateBidOutput) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GenerateBidOutput) UpdateFrom(ref js.Ref) {
+func (p *GenerateBidOutput) UpdateFrom(ref js.Ref) {
 	bindings.GenerateBidOutputJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GenerateBidOutput) Update(ref js.Ref) {
+func (p *GenerateBidOutput) Update(ref js.Ref) {
 	bindings.GenerateBidOutputJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GenerateBidOutput) FreeMembers(recursive bool) {
+	js.Free(
+		p.BidCurrency.Ref(),
+		p.Render.Ref(),
+		p.Ad.Ref(),
+		p.AdComponents.Ref(),
+	)
+	p.BidCurrency = p.BidCurrency.FromRef(js.Undefined)
+	p.Render = p.Render.FromRef(js.Undefined)
+	p.Ad = p.Ad.FromRef(js.Undefined)
+	p.AdComponents = p.AdComponents.FromRef(js.Undefined)
 }
 
 type GenerateTestReportParameters struct {
@@ -966,17 +1101,28 @@ func (p GenerateTestReportParameters) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GenerateTestReportParameters) UpdateFrom(ref js.Ref) {
+func (p *GenerateTestReportParameters) UpdateFrom(ref js.Ref) {
 	bindings.GenerateTestReportParametersJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GenerateTestReportParameters) Update(ref js.Ref) {
+func (p *GenerateTestReportParameters) Update(ref js.Ref) {
 	bindings.GenerateTestReportParametersJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GenerateTestReportParameters) FreeMembers(recursive bool) {
+	js.Free(
+		p.Message.Ref(),
+		p.Group.Ref(),
+	)
+	p.Message = p.Message.FromRef(js.Undefined)
+	p.Group = p.Group.FromRef(js.Undefined)
 }
 
 type GeolocationReadingValues struct {
@@ -1026,17 +1172,22 @@ func (p GeolocationReadingValues) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GeolocationReadingValues) UpdateFrom(ref js.Ref) {
+func (p *GeolocationReadingValues) UpdateFrom(ref js.Ref) {
 	bindings.GeolocationReadingValuesJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GeolocationReadingValues) Update(ref js.Ref) {
+func (p *GeolocationReadingValues) Update(ref js.Ref) {
 	bindings.GeolocationReadingValuesJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GeolocationReadingValues) FreeMembers(recursive bool) {
 }
 
 type GeolocationSensorOptions struct {
@@ -1066,17 +1217,22 @@ func (p GeolocationSensorOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GeolocationSensorOptions) UpdateFrom(ref js.Ref) {
+func (p *GeolocationSensorOptions) UpdateFrom(ref js.Ref) {
 	bindings.GeolocationSensorOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GeolocationSensorOptions) Update(ref js.Ref) {
+func (p *GeolocationSensorOptions) Update(ref js.Ref) {
 	bindings.GeolocationSensorOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GeolocationSensorOptions) FreeMembers(recursive bool) {
 }
 
 type GeolocationSensorReading struct {
@@ -1155,17 +1311,22 @@ func (p GeolocationSensorReading) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GeolocationSensorReading) UpdateFrom(ref js.Ref) {
+func (p *GeolocationSensorReading) UpdateFrom(ref js.Ref) {
 	bindings.GeolocationSensorReadingJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GeolocationSensorReading) Update(ref js.Ref) {
+func (p *GeolocationSensorReading) Update(ref js.Ref) {
 	bindings.GeolocationSensorReadingJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GeolocationSensorReading) FreeMembers(recursive bool) {
 }
 
 type ReadOptions struct {
@@ -1199,17 +1360,26 @@ func (p ReadOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ReadOptions) UpdateFrom(ref js.Ref) {
+func (p *ReadOptions) UpdateFrom(ref js.Ref) {
 	bindings.ReadOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ReadOptions) Update(ref js.Ref) {
+func (p *ReadOptions) Update(ref js.Ref) {
 	bindings.ReadOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ReadOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Signal.Ref(),
+	)
+	p.Signal = p.Signal.FromRef(js.Undefined)
 }
 
 func NewGeolocationSensor(options GeolocationSensorOptions) (ret GeolocationSensor) {
@@ -1228,7 +1398,7 @@ type GeolocationSensor struct {
 }
 
 func (this GeolocationSensor) Once() GeolocationSensor {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1242,7 +1412,7 @@ func (this GeolocationSensor) FromRef(ref js.Ref) GeolocationSensor {
 }
 
 func (this GeolocationSensor) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Latitude returns the value of property "GeolocationSensor.latitude".
@@ -1250,7 +1420,7 @@ func (this GeolocationSensor) Free() {
 // It returns ok=false if there is no such property.
 func (this GeolocationSensor) Latitude() (ret float64, ok bool) {
 	ok = js.True == bindings.GetGeolocationSensorLatitude(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1260,7 +1430,7 @@ func (this GeolocationSensor) Latitude() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GeolocationSensor) Longitude() (ret float64, ok bool) {
 	ok = js.True == bindings.GetGeolocationSensorLongitude(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1270,7 +1440,7 @@ func (this GeolocationSensor) Longitude() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GeolocationSensor) Altitude() (ret float64, ok bool) {
 	ok = js.True == bindings.GetGeolocationSensorAltitude(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1280,7 +1450,7 @@ func (this GeolocationSensor) Altitude() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GeolocationSensor) Accuracy() (ret float64, ok bool) {
 	ok = js.True == bindings.GetGeolocationSensorAccuracy(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1290,7 +1460,7 @@ func (this GeolocationSensor) Accuracy() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GeolocationSensor) AltitudeAccuracy() (ret float64, ok bool) {
 	ok = js.True == bindings.GetGeolocationSensorAltitudeAccuracy(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1300,7 +1470,7 @@ func (this GeolocationSensor) AltitudeAccuracy() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GeolocationSensor) Heading() (ret float64, ok bool) {
 	ok = js.True == bindings.GetGeolocationSensorHeading(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1310,80 +1480,78 @@ func (this GeolocationSensor) Heading() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GeolocationSensor) Speed() (ret float64, ok bool) {
 	ok = js.True == bindings.GetGeolocationSensorSpeed(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasRead returns true if the staticmethod "GeolocationSensor.read" exists.
-func (this GeolocationSensor) HasRead() bool {
-	return js.True == bindings.HasGeolocationSensorRead(
-		this.Ref(),
+// HasFuncRead returns true if the static method "GeolocationSensor.read" exists.
+func (this GeolocationSensor) HasFuncRead() bool {
+	return js.True == bindings.HasFuncGeolocationSensorRead(
+		this.ref,
 	)
 }
 
-// ReadFunc returns the staticmethod "GeolocationSensor.read".
-func (this GeolocationSensor) ReadFunc() (fn js.Func[func(readOptions ReadOptions) js.Promise[GeolocationSensorReading]]) {
-	return fn.FromRef(
-		bindings.GeolocationSensorReadFunc(
-			this.Ref(),
-		),
+// FuncRead returns the static method "GeolocationSensor.read".
+func (this GeolocationSensor) FuncRead() (fn js.Func[func(readOptions ReadOptions) js.Promise[GeolocationSensorReading]]) {
+	bindings.FuncGeolocationSensorRead(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// Read calls the staticmethod "GeolocationSensor.read".
+// Read calls the static method "GeolocationSensor.read".
 func (this GeolocationSensor) Read(readOptions ReadOptions) (ret js.Promise[GeolocationSensorReading]) {
 	bindings.CallGeolocationSensorRead(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&readOptions),
 	)
 
 	return
 }
 
-// TryRead calls the staticmethod "GeolocationSensor.read"
+// TryRead calls the static method "GeolocationSensor.read"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GeolocationSensor) TryRead(readOptions ReadOptions) (ret js.Promise[GeolocationSensorReading], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGeolocationSensorRead(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&readOptions),
 	)
 
 	return
 }
 
-// HasRead1 returns true if the staticmethod "GeolocationSensor.read" exists.
-func (this GeolocationSensor) HasRead1() bool {
-	return js.True == bindings.HasGeolocationSensorRead1(
-		this.Ref(),
+// HasFuncRead1 returns true if the static method "GeolocationSensor.read" exists.
+func (this GeolocationSensor) HasFuncRead1() bool {
+	return js.True == bindings.HasFuncGeolocationSensorRead1(
+		this.ref,
 	)
 }
 
-// Read1Func returns the staticmethod "GeolocationSensor.read".
-func (this GeolocationSensor) Read1Func() (fn js.Func[func() js.Promise[GeolocationSensorReading]]) {
-	return fn.FromRef(
-		bindings.GeolocationSensorRead1Func(
-			this.Ref(),
-		),
+// FuncRead1 returns the static method "GeolocationSensor.read".
+func (this GeolocationSensor) FuncRead1() (fn js.Func[func() js.Promise[GeolocationSensorReading]]) {
+	bindings.FuncGeolocationSensorRead1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// Read1 calls the staticmethod "GeolocationSensor.read".
+// Read1 calls the static method "GeolocationSensor.read".
 func (this GeolocationSensor) Read1() (ret js.Promise[GeolocationSensorReading]) {
 	bindings.CallGeolocationSensorRead1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
 }
 
-// TryRead1 calls the staticmethod "GeolocationSensor.read"
+// TryRead1 calls the static method "GeolocationSensor.read"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GeolocationSensor) TryRead1() (ret js.Promise[GeolocationSensorReading], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGeolocationSensorRead1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1459,17 +1627,22 @@ func (p GlobalDescriptor) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GlobalDescriptor) UpdateFrom(ref js.Ref) {
+func (p *GlobalDescriptor) UpdateFrom(ref js.Ref) {
 	bindings.GlobalDescriptorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GlobalDescriptor) Update(ref js.Ref) {
+func (p *GlobalDescriptor) Update(ref js.Ref) {
 	bindings.GlobalDescriptorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GlobalDescriptor) FreeMembers(recursive bool) {
 }
 
 func NewGlobal(descriptor GlobalDescriptor, v js.Any) (ret Global) {
@@ -1490,7 +1663,7 @@ type Global struct {
 }
 
 func (this Global) Once() Global {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1504,7 +1677,7 @@ func (this Global) FromRef(ref js.Ref) Global {
 }
 
 func (this Global) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Value returns the value of property "Global.value".
@@ -1512,7 +1685,7 @@ func (this Global) Free() {
 // It returns ok=false if there is no such property.
 func (this Global) Value() (ret js.Any, ok bool) {
 	ok = js.True == bindings.GetGlobalValue(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1522,31 +1695,30 @@ func (this Global) Value() (ret js.Any, ok bool) {
 // It returns false if the property cannot be set.
 func (this Global) SetValue(val js.Any) bool {
 	return js.True == bindings.SetGlobalValue(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
 
-// HasValueOf returns true if the method "Global.valueOf" exists.
-func (this Global) HasValueOf() bool {
-	return js.True == bindings.HasGlobalValueOf(
-		this.Ref(),
+// HasFuncValueOf returns true if the method "Global.valueOf" exists.
+func (this Global) HasFuncValueOf() bool {
+	return js.True == bindings.HasFuncGlobalValueOf(
+		this.ref,
 	)
 }
 
-// ValueOfFunc returns the method "Global.valueOf".
-func (this Global) ValueOfFunc() (fn js.Func[func() js.Any]) {
-	return fn.FromRef(
-		bindings.GlobalValueOfFunc(
-			this.Ref(),
-		),
+// FuncValueOf returns the method "Global.valueOf".
+func (this Global) FuncValueOf() (fn js.Func[func() js.Any]) {
+	bindings.FuncGlobalValueOf(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ValueOf calls the method "Global.valueOf".
 func (this Global) ValueOf() (ret js.Any) {
 	bindings.CallGlobalValueOf(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1557,7 +1729,7 @@ func (this Global) ValueOf() (ret js.Any) {
 // the catch clause.
 func (this Global) TryValueOf() (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGlobalValueOf(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1594,17 +1766,22 @@ func (p GravityReadingValues) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GravityReadingValues) UpdateFrom(ref js.Ref) {
+func (p *GravityReadingValues) UpdateFrom(ref js.Ref) {
 	bindings.GravityReadingValuesJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GravityReadingValues) Update(ref js.Ref) {
+func (p *GravityReadingValues) Update(ref js.Ref) {
 	bindings.GravityReadingValuesJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GravityReadingValues) FreeMembers(recursive bool) {
 }
 
 func NewGravitySensor(options AccelerometerSensorOptions) (ret GravitySensor) {
@@ -1623,7 +1800,7 @@ type GravitySensor struct {
 }
 
 func (this GravitySensor) Once() GravitySensor {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1637,7 +1814,7 @@ func (this GravitySensor) FromRef(ref js.Ref) GravitySensor {
 }
 
 func (this GravitySensor) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type GyroscopeLocalCoordinateSystem uint32
@@ -1695,17 +1872,22 @@ func (p GyroscopeSensorOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GyroscopeSensorOptions) UpdateFrom(ref js.Ref) {
+func (p *GyroscopeSensorOptions) UpdateFrom(ref js.Ref) {
 	bindings.GyroscopeSensorOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GyroscopeSensorOptions) Update(ref js.Ref) {
+func (p *GyroscopeSensorOptions) Update(ref js.Ref) {
 	bindings.GyroscopeSensorOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GyroscopeSensorOptions) FreeMembers(recursive bool) {
 }
 
 func NewGyroscope(sensorOptions GyroscopeSensorOptions) (ret Gyroscope) {
@@ -1724,7 +1906,7 @@ type Gyroscope struct {
 }
 
 func (this Gyroscope) Once() Gyroscope {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1738,7 +1920,7 @@ func (this Gyroscope) FromRef(ref js.Ref) Gyroscope {
 }
 
 func (this Gyroscope) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // X returns the value of property "Gyroscope.x".
@@ -1746,7 +1928,7 @@ func (this Gyroscope) Free() {
 // It returns ok=false if there is no such property.
 func (this Gyroscope) X() (ret float64, ok bool) {
 	ok = js.True == bindings.GetGyroscopeX(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1756,7 +1938,7 @@ func (this Gyroscope) X() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Gyroscope) Y() (ret float64, ok bool) {
 	ok = js.True == bindings.GetGyroscopeY(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1766,7 +1948,7 @@ func (this Gyroscope) Y() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Gyroscope) Z() (ret float64, ok bool) {
 	ok = js.True == bindings.GetGyroscopeZ(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1802,17 +1984,22 @@ func (p GyroscopeReadingValues) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GyroscopeReadingValues) UpdateFrom(ref js.Ref) {
+func (p *GyroscopeReadingValues) UpdateFrom(ref js.Ref) {
 	bindings.GyroscopeReadingValuesJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GyroscopeReadingValues) Update(ref js.Ref) {
+func (p *GyroscopeReadingValues) Update(ref js.Ref) {
 	bindings.GyroscopeReadingValuesJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GyroscopeReadingValues) FreeMembers(recursive bool) {
 }
 
 type HIDConnectionEventInit struct {
@@ -1860,17 +2047,26 @@ func (p HIDConnectionEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p HIDConnectionEventInit) UpdateFrom(ref js.Ref) {
+func (p *HIDConnectionEventInit) UpdateFrom(ref js.Ref) {
 	bindings.HIDConnectionEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p HIDConnectionEventInit) Update(ref js.Ref) {
+func (p *HIDConnectionEventInit) Update(ref js.Ref) {
 	bindings.HIDConnectionEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *HIDConnectionEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Device.Ref(),
+	)
+	p.Device = p.Device.FromRef(js.Undefined)
 }
 
 func NewHIDConnectionEvent(typ js.String, eventInitDict HIDConnectionEventInit) (ret HIDConnectionEvent) {
@@ -1885,7 +2081,7 @@ type HIDConnectionEvent struct {
 }
 
 func (this HIDConnectionEvent) Once() HIDConnectionEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1899,7 +2095,7 @@ func (this HIDConnectionEvent) FromRef(ref js.Ref) HIDConnectionEvent {
 }
 
 func (this HIDConnectionEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Device returns the value of property "HIDConnectionEvent.device".
@@ -1907,7 +2103,7 @@ func (this HIDConnectionEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this HIDConnectionEvent) Device() (ret HIDDevice, ok bool) {
 	ok = js.True == bindings.GetHIDConnectionEventDevice(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1965,17 +2161,28 @@ func (p HIDInputReportEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p HIDInputReportEventInit) UpdateFrom(ref js.Ref) {
+func (p *HIDInputReportEventInit) UpdateFrom(ref js.Ref) {
 	bindings.HIDInputReportEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p HIDInputReportEventInit) Update(ref js.Ref) {
+func (p *HIDInputReportEventInit) Update(ref js.Ref) {
 	bindings.HIDInputReportEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *HIDInputReportEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Device.Ref(),
+		p.Data.Ref(),
+	)
+	p.Device = p.Device.FromRef(js.Undefined)
+	p.Data = p.Data.FromRef(js.Undefined)
 }
 
 func NewHIDInputReportEvent(typ js.String, eventInitDict HIDInputReportEventInit) (ret HIDInputReportEvent) {
@@ -1990,7 +2197,7 @@ type HIDInputReportEvent struct {
 }
 
 func (this HIDInputReportEvent) Once() HIDInputReportEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2004,7 +2211,7 @@ func (this HIDInputReportEvent) FromRef(ref js.Ref) HIDInputReportEvent {
 }
 
 func (this HIDInputReportEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Device returns the value of property "HIDInputReportEvent.device".
@@ -2012,7 +2219,7 @@ func (this HIDInputReportEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this HIDInputReportEvent) Device() (ret HIDDevice, ok bool) {
 	ok = js.True == bindings.GetHIDInputReportEventDevice(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2022,7 +2229,7 @@ func (this HIDInputReportEvent) Device() (ret HIDDevice, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HIDInputReportEvent) ReportId() (ret uint8, ok bool) {
 	ok = js.True == bindings.GetHIDInputReportEventReportId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2032,13 +2239,8 @@ func (this HIDInputReportEvent) ReportId() (ret uint8, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HIDInputReportEvent) Data() (ret js.DataView, ok bool) {
 	ok = js.True == bindings.GetHIDInputReportEventData(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
-	return
-}
-
-func NewHTMLAnchorElement() (ret HTMLAnchorElement) {
-	ret.ref = bindings.NewHTMLAnchorElementByHTMLAnchorElement()
 	return
 }
 
@@ -2047,7 +2249,7 @@ type HTMLAnchorElement struct {
 }
 
 func (this HTMLAnchorElement) Once() HTMLAnchorElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2061,7 +2263,7 @@ func (this HTMLAnchorElement) FromRef(ref js.Ref) HTMLAnchorElement {
 }
 
 func (this HTMLAnchorElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Target returns the value of property "HTMLAnchorElement.target".
@@ -2069,7 +2271,7 @@ func (this HTMLAnchorElement) Free() {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) Target() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementTarget(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2079,7 +2281,7 @@ func (this HTMLAnchorElement) Target() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetTarget(val js.String) bool {
 	return js.True == bindings.SetHTMLAnchorElementTarget(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2089,7 +2291,7 @@ func (this HTMLAnchorElement) SetTarget(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) Download() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementDownload(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2099,7 +2301,7 @@ func (this HTMLAnchorElement) Download() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetDownload(val js.String) bool {
 	return js.True == bindings.SetHTMLAnchorElementDownload(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2109,7 +2311,7 @@ func (this HTMLAnchorElement) SetDownload(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) Ping() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementPing(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2119,7 +2321,7 @@ func (this HTMLAnchorElement) Ping() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetPing(val js.String) bool {
 	return js.True == bindings.SetHTMLAnchorElementPing(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2129,7 +2331,7 @@ func (this HTMLAnchorElement) SetPing(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) Rel() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementRel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2139,7 +2341,7 @@ func (this HTMLAnchorElement) Rel() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetRel(val js.String) bool {
 	return js.True == bindings.SetHTMLAnchorElementRel(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2149,7 +2351,7 @@ func (this HTMLAnchorElement) SetRel(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) RelList() (ret DOMTokenList, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementRelList(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2159,7 +2361,7 @@ func (this HTMLAnchorElement) RelList() (ret DOMTokenList, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) Hreflang() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementHreflang(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2169,7 +2371,7 @@ func (this HTMLAnchorElement) Hreflang() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetHreflang(val js.String) bool {
 	return js.True == bindings.SetHTMLAnchorElementHreflang(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2179,7 +2381,7 @@ func (this HTMLAnchorElement) SetHreflang(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) Type() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2189,7 +2391,7 @@ func (this HTMLAnchorElement) Type() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetType(val js.String) bool {
 	return js.True == bindings.SetHTMLAnchorElementType(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2199,7 +2401,7 @@ func (this HTMLAnchorElement) SetType(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) Text() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementText(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2209,7 +2411,7 @@ func (this HTMLAnchorElement) Text() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetText(val js.String) bool {
 	return js.True == bindings.SetHTMLAnchorElementText(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2219,7 +2421,7 @@ func (this HTMLAnchorElement) SetText(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) ReferrerPolicy() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementReferrerPolicy(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2229,7 +2431,7 @@ func (this HTMLAnchorElement) ReferrerPolicy() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetReferrerPolicy(val js.String) bool {
 	return js.True == bindings.SetHTMLAnchorElementReferrerPolicy(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2239,7 +2441,7 @@ func (this HTMLAnchorElement) SetReferrerPolicy(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) AttributionSourceId() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementAttributionSourceId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2249,7 +2451,7 @@ func (this HTMLAnchorElement) AttributionSourceId() (ret uint32, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetAttributionSourceId(val uint32) bool {
 	return js.True == bindings.SetHTMLAnchorElementAttributionSourceId(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
@@ -2259,7 +2461,7 @@ func (this HTMLAnchorElement) SetAttributionSourceId(val uint32) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) Coords() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementCoords(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2269,7 +2471,7 @@ func (this HTMLAnchorElement) Coords() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetCoords(val js.String) bool {
 	return js.True == bindings.SetHTMLAnchorElementCoords(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2279,7 +2481,7 @@ func (this HTMLAnchorElement) SetCoords(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) Charset() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementCharset(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2289,7 +2491,7 @@ func (this HTMLAnchorElement) Charset() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetCharset(val js.String) bool {
 	return js.True == bindings.SetHTMLAnchorElementCharset(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2299,7 +2501,7 @@ func (this HTMLAnchorElement) SetCharset(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) Name() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2309,7 +2511,7 @@ func (this HTMLAnchorElement) Name() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetName(val js.String) bool {
 	return js.True == bindings.SetHTMLAnchorElementName(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2319,7 +2521,7 @@ func (this HTMLAnchorElement) SetName(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) Rev() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementRev(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2329,7 +2531,7 @@ func (this HTMLAnchorElement) Rev() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetRev(val js.String) bool {
 	return js.True == bindings.SetHTMLAnchorElementRev(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2339,7 +2541,7 @@ func (this HTMLAnchorElement) SetRev(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) Shape() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementShape(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2349,7 +2551,7 @@ func (this HTMLAnchorElement) Shape() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetShape(val js.String) bool {
 	return js.True == bindings.SetHTMLAnchorElementShape(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2359,7 +2561,7 @@ func (this HTMLAnchorElement) SetShape(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) Href() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementHref(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2369,7 +2571,7 @@ func (this HTMLAnchorElement) Href() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetHref(val js.String) bool {
 	return js.True == bindings.SetHTMLAnchorElementHref(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2379,7 +2581,7 @@ func (this HTMLAnchorElement) SetHref(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) Origin() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementOrigin(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2389,7 +2591,7 @@ func (this HTMLAnchorElement) Origin() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) Protocol() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementProtocol(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2399,7 +2601,7 @@ func (this HTMLAnchorElement) Protocol() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetProtocol(val js.String) bool {
 	return js.True == bindings.SetHTMLAnchorElementProtocol(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2409,7 +2611,7 @@ func (this HTMLAnchorElement) SetProtocol(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) Username() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementUsername(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2419,7 +2621,7 @@ func (this HTMLAnchorElement) Username() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetUsername(val js.String) bool {
 	return js.True == bindings.SetHTMLAnchorElementUsername(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2429,7 +2631,7 @@ func (this HTMLAnchorElement) SetUsername(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) Password() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementPassword(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2439,7 +2641,7 @@ func (this HTMLAnchorElement) Password() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetPassword(val js.String) bool {
 	return js.True == bindings.SetHTMLAnchorElementPassword(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2449,7 +2651,7 @@ func (this HTMLAnchorElement) SetPassword(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) Host() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementHost(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2459,7 +2661,7 @@ func (this HTMLAnchorElement) Host() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetHost(val js.String) bool {
 	return js.True == bindings.SetHTMLAnchorElementHost(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2469,7 +2671,7 @@ func (this HTMLAnchorElement) SetHost(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) Hostname() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementHostname(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2479,7 +2681,7 @@ func (this HTMLAnchorElement) Hostname() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetHostname(val js.String) bool {
 	return js.True == bindings.SetHTMLAnchorElementHostname(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2489,7 +2691,7 @@ func (this HTMLAnchorElement) SetHostname(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) Port() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementPort(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2499,7 +2701,7 @@ func (this HTMLAnchorElement) Port() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetPort(val js.String) bool {
 	return js.True == bindings.SetHTMLAnchorElementPort(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2509,7 +2711,7 @@ func (this HTMLAnchorElement) SetPort(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) Pathname() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementPathname(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2519,7 +2721,7 @@ func (this HTMLAnchorElement) Pathname() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetPathname(val js.String) bool {
 	return js.True == bindings.SetHTMLAnchorElementPathname(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2529,7 +2731,7 @@ func (this HTMLAnchorElement) SetPathname(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) Search() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementSearch(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2539,7 +2741,7 @@ func (this HTMLAnchorElement) Search() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetSearch(val js.String) bool {
 	return js.True == bindings.SetHTMLAnchorElementSearch(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2549,7 +2751,7 @@ func (this HTMLAnchorElement) SetSearch(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) Hash() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementHash(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2559,7 +2761,7 @@ func (this HTMLAnchorElement) Hash() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetHash(val js.String) bool {
 	return js.True == bindings.SetHTMLAnchorElementHash(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2569,7 +2771,7 @@ func (this HTMLAnchorElement) SetHash(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAnchorElement) AttributionSrc() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAnchorElementAttributionSrc(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2579,14 +2781,9 @@ func (this HTMLAnchorElement) AttributionSrc() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetAttributionSrc(val js.String) bool {
 	return js.True == bindings.SetHTMLAnchorElementAttributionSrc(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
-}
-
-func NewHTMLAreaElement() (ret HTMLAreaElement) {
-	ret.ref = bindings.NewHTMLAreaElementByHTMLAreaElement()
-	return
 }
 
 type HTMLAreaElement struct {
@@ -2594,7 +2791,7 @@ type HTMLAreaElement struct {
 }
 
 func (this HTMLAreaElement) Once() HTMLAreaElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2608,7 +2805,7 @@ func (this HTMLAreaElement) FromRef(ref js.Ref) HTMLAreaElement {
 }
 
 func (this HTMLAreaElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Alt returns the value of property "HTMLAreaElement.alt".
@@ -2616,7 +2813,7 @@ func (this HTMLAreaElement) Free() {
 // It returns ok=false if there is no such property.
 func (this HTMLAreaElement) Alt() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAreaElementAlt(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2626,7 +2823,7 @@ func (this HTMLAreaElement) Alt() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetAlt(val js.String) bool {
 	return js.True == bindings.SetHTMLAreaElementAlt(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2636,7 +2833,7 @@ func (this HTMLAreaElement) SetAlt(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAreaElement) Coords() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAreaElementCoords(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2646,7 +2843,7 @@ func (this HTMLAreaElement) Coords() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetCoords(val js.String) bool {
 	return js.True == bindings.SetHTMLAreaElementCoords(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2656,7 +2853,7 @@ func (this HTMLAreaElement) SetCoords(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAreaElement) Shape() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAreaElementShape(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2666,7 +2863,7 @@ func (this HTMLAreaElement) Shape() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetShape(val js.String) bool {
 	return js.True == bindings.SetHTMLAreaElementShape(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2676,7 +2873,7 @@ func (this HTMLAreaElement) SetShape(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAreaElement) Target() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAreaElementTarget(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2686,7 +2883,7 @@ func (this HTMLAreaElement) Target() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetTarget(val js.String) bool {
 	return js.True == bindings.SetHTMLAreaElementTarget(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2696,7 +2893,7 @@ func (this HTMLAreaElement) SetTarget(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAreaElement) Download() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAreaElementDownload(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2706,7 +2903,7 @@ func (this HTMLAreaElement) Download() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetDownload(val js.String) bool {
 	return js.True == bindings.SetHTMLAreaElementDownload(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2716,7 +2913,7 @@ func (this HTMLAreaElement) SetDownload(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAreaElement) Ping() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAreaElementPing(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2726,7 +2923,7 @@ func (this HTMLAreaElement) Ping() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetPing(val js.String) bool {
 	return js.True == bindings.SetHTMLAreaElementPing(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2736,7 +2933,7 @@ func (this HTMLAreaElement) SetPing(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAreaElement) Rel() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAreaElementRel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2746,7 +2943,7 @@ func (this HTMLAreaElement) Rel() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetRel(val js.String) bool {
 	return js.True == bindings.SetHTMLAreaElementRel(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2756,7 +2953,7 @@ func (this HTMLAreaElement) SetRel(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAreaElement) RelList() (ret DOMTokenList, ok bool) {
 	ok = js.True == bindings.GetHTMLAreaElementRelList(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2766,7 +2963,7 @@ func (this HTMLAreaElement) RelList() (ret DOMTokenList, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLAreaElement) ReferrerPolicy() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAreaElementReferrerPolicy(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2776,7 +2973,7 @@ func (this HTMLAreaElement) ReferrerPolicy() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetReferrerPolicy(val js.String) bool {
 	return js.True == bindings.SetHTMLAreaElementReferrerPolicy(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2786,7 +2983,7 @@ func (this HTMLAreaElement) SetReferrerPolicy(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAreaElement) NoHref() (ret bool, ok bool) {
 	ok = js.True == bindings.GetHTMLAreaElementNoHref(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2796,7 +2993,7 @@ func (this HTMLAreaElement) NoHref() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetNoHref(val bool) bool {
 	return js.True == bindings.SetHTMLAreaElementNoHref(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -2806,7 +3003,7 @@ func (this HTMLAreaElement) SetNoHref(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAreaElement) Href() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAreaElementHref(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2816,7 +3013,7 @@ func (this HTMLAreaElement) Href() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetHref(val js.String) bool {
 	return js.True == bindings.SetHTMLAreaElementHref(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2826,7 +3023,7 @@ func (this HTMLAreaElement) SetHref(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAreaElement) Origin() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAreaElementOrigin(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2836,7 +3033,7 @@ func (this HTMLAreaElement) Origin() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this HTMLAreaElement) Protocol() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAreaElementProtocol(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2846,7 +3043,7 @@ func (this HTMLAreaElement) Protocol() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetProtocol(val js.String) bool {
 	return js.True == bindings.SetHTMLAreaElementProtocol(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2856,7 +3053,7 @@ func (this HTMLAreaElement) SetProtocol(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAreaElement) Username() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAreaElementUsername(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2866,7 +3063,7 @@ func (this HTMLAreaElement) Username() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetUsername(val js.String) bool {
 	return js.True == bindings.SetHTMLAreaElementUsername(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2876,7 +3073,7 @@ func (this HTMLAreaElement) SetUsername(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAreaElement) Password() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAreaElementPassword(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2886,7 +3083,7 @@ func (this HTMLAreaElement) Password() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetPassword(val js.String) bool {
 	return js.True == bindings.SetHTMLAreaElementPassword(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2896,7 +3093,7 @@ func (this HTMLAreaElement) SetPassword(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAreaElement) Host() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAreaElementHost(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2906,7 +3103,7 @@ func (this HTMLAreaElement) Host() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetHost(val js.String) bool {
 	return js.True == bindings.SetHTMLAreaElementHost(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2916,7 +3113,7 @@ func (this HTMLAreaElement) SetHost(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAreaElement) Hostname() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAreaElementHostname(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2926,7 +3123,7 @@ func (this HTMLAreaElement) Hostname() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetHostname(val js.String) bool {
 	return js.True == bindings.SetHTMLAreaElementHostname(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2936,7 +3133,7 @@ func (this HTMLAreaElement) SetHostname(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAreaElement) Port() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAreaElementPort(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2946,7 +3143,7 @@ func (this HTMLAreaElement) Port() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetPort(val js.String) bool {
 	return js.True == bindings.SetHTMLAreaElementPort(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2956,7 +3153,7 @@ func (this HTMLAreaElement) SetPort(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAreaElement) Pathname() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAreaElementPathname(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2966,7 +3163,7 @@ func (this HTMLAreaElement) Pathname() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetPathname(val js.String) bool {
 	return js.True == bindings.SetHTMLAreaElementPathname(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2976,7 +3173,7 @@ func (this HTMLAreaElement) SetPathname(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAreaElement) Search() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAreaElementSearch(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2986,7 +3183,7 @@ func (this HTMLAreaElement) Search() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetSearch(val js.String) bool {
 	return js.True == bindings.SetHTMLAreaElementSearch(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2996,7 +3193,7 @@ func (this HTMLAreaElement) SetSearch(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this HTMLAreaElement) Hash() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetHTMLAreaElementHash(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3006,7 +3203,7 @@ func (this HTMLAreaElement) Hash() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetHash(val js.String) bool {
 	return js.True == bindings.SetHTMLAreaElementHash(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }

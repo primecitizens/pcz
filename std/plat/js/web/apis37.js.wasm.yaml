@@ -1,4 +1,4 @@
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGRadialGradientElement
     Inherits: SVGGradientElement
@@ -61,7 +61,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGRectElement
     Inherits: SVGGeometryElement
@@ -124,7 +124,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGSVGElement
     Inherits: SVGGraphicsElement
@@ -448,7 +448,7 @@
               Name: float
         Returns:
           - Name: undefined
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGScriptElement
     Inherits: SVGElement
@@ -478,7 +478,7 @@
           Name: SVGAnimatedString
         ExtAttrs:
           - Name: SameObject
-- File: svg-animations.idl
+- File: webref/svg-animations.idl
   Interface:
     Name: SVGSetElement
     Inherits: SVGAnimationElement
@@ -486,7 +486,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGStopElement
     Inherits: SVGElement
@@ -504,7 +504,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGStringList
     ExtAttrs:
@@ -623,7 +623,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGStyleElement
     Inherits: SVGElement
@@ -658,7 +658,7 @@
         Type:
           Name: CSSStyleSheet
           Nullable: true
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGSwitchElement
     Inherits: SVGGraphicsElement
@@ -666,7 +666,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGSymbolElement
     Inherits: SVGGraphicsElement
@@ -687,7 +687,7 @@
           Name: SVGAnimatedPreserveAspectRatio
         ExtAttrs:
           - Name: SameObject
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGTSpanElement
     Inherits: SVGTextPositioningElement
@@ -695,7 +695,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGTextContentElement
     Inherits: SVGGraphicsElement
@@ -835,7 +835,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGTextElement
     Inherits: SVGTextPositioningElement
@@ -843,7 +843,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGTextPathElement
     Inherits: SVGTextContentElement
@@ -910,7 +910,7 @@
           Name: SVGAnimatedString
         ExtAttrs:
           - Name: SameObject
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGTextPositioningElement
     Inherits: SVGTextContentElement
@@ -964,7 +964,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGTitleElement
     Inherits: SVGElement
@@ -972,7 +972,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGTransform
     ExtAttrs:
@@ -1115,7 +1115,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGTransformList
     ExtAttrs:
@@ -1255,7 +1255,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGUnitTypes
     ExtAttrs:
@@ -1275,7 +1275,7 @@
         Value: "2"
         Type:
           Name: unsigned short
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGUseElement
     Inherits: SVGGraphicsElement
@@ -1346,7 +1346,7 @@
           Name: SVGAnimatedString
         ExtAttrs:
           - Name: SameObject
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGUseElementShadowRoot
     Inherits: ShadowRoot
@@ -1354,7 +1354,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGViewElement
     Inherits: SVGElement
@@ -1375,7 +1375,7 @@
           Name: SVGAnimatedPreserveAspectRatio
         ExtAttrs:
           - Name: SameObject
-- File: sanitizer-api.idl
+- File: webref/sanitizer-api.idl
   Interface:
     Name: Sanitizer
     ExtAttrs:
@@ -1443,7 +1443,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: sanitizer-api.idl
+- File: webref/sanitizer-api.idl
   Dict:
     Name: SanitizerConfig
     Fields:
@@ -1477,7 +1477,7 @@
       - Name: allowComments
         Type:
           Name: boolean
-- File: file-system-access.idl
+- File: webref/file-system-access.idl
   Dict:
     Name: SaveFilePickerOptions
     Inherits: FilePickerOptions
@@ -1501,7 +1501,7 @@
       - Name: startIn
         Type:
           Name: StartInDirectory
-- File: scheduling-apis.idl
+- File: webref/scheduling-apis.idl
   Interface:
     Name: Scheduler
     ExtAttrs:
@@ -1529,12 +1529,12 @@
             Values:
               - Window
               - Worker
-- File: scheduling-apis.idl
+- File: webref/scheduling-apis.idl
   Callback:
     Name: SchedulerPostTaskCallback
     Returns:
       - Name: any
-- File: scheduling-apis.idl
+- File: webref/scheduling-apis.idl
   Dict:
     Name: SchedulerPostTaskOptions
     Fields:
@@ -1550,7 +1550,7 @@
           Name: unsigned long long
         ExtAttrs:
           - Name: EnforceRange
-- File: is-input-pending.idl
+- File: webref/is-input-pending.idl
   Interface:
     Name: Scheduling
     ExtAttrs:
@@ -1571,7 +1571,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: turtledove.idl
+- File: webref/turtledove.idl
   Dict:
     Name: ScoreAdOutput
     Fields:
@@ -1592,7 +1592,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: turtledove.idl
+- File: webref/turtledove.idl
   Dict:
     Name: ScoringBrowserSignals
     Fields:
@@ -1624,7 +1624,7 @@
           Name: sequence
           Params:
             - Name: USVString
-- File: cssom-view.idl
+- File: webref/cssom-view.idl
   Interface:
     Name: Screen
     ExtAttrs:
@@ -1697,7 +1697,7 @@
           Name: ScreenOrientation
         ExtAttrs:
           - Name: SameObject
-- File: window-management.idl
+- File: webref/window-management.idl
   Interface:
     Name: ScreenDetailed
     Inherits: Screen
@@ -1779,7 +1779,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: window-management.idl
+- File: webref/window-management.idl
   Interface:
     Name: ScreenDetails
     Inherits: EventTarget
@@ -1825,13 +1825,13 @@
             Values:
               - Window
           - Name: SecureContext
-- File: idle-detection.idl
+- File: webref/idle-detection.idl
   Enum:
     Name: ScreenIdleState
     Values:
       - locked
       - unlocked
-- File: screen-orientation.idl
+- File: webref/screen-orientation.idl
   Interface:
     Name: ScreenOrientation
     Inherits: EventTarget
@@ -1884,7 +1884,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: ScriptProcessorNode
     Inherits: AudioNode
@@ -1908,17 +1908,17 @@
           - Name: Exposed
             Values:
               - Window
-- File: trusted-types.idl
+- File: webref/trusted-types.idl
   Typedef:
     Name: ScriptString
     Type:
       Name: DOMString
-- File: trusted-types.idl
+- File: webref/trusted-types.idl
   Typedef:
     Name: ScriptURLString
     Type:
       Name: USVString
-- File: csp-next.idl
+- File: webref/csp-next.idl
   Interface:
     Name: ScriptingPolicyReportBody
     Inherits: ReportBody
@@ -1992,7 +1992,7 @@
               - Window
               - Worker
           - Name: SecureContext
-- File: csp-next.idl
+- File: webref/csp-next.idl
   Enum:
     Name: ScriptingPolicyViolationType
     Values:
@@ -2000,7 +2000,7 @@
       - inlineScript
       - inlineEventHandler
       - eval
-- File: scroll-animations.idl
+- File: webref/scroll-animations.idl
   Enum:
     Name: ScrollAxis
     Values:
@@ -2008,14 +2008,14 @@
       - inline
       - x
       - "y"
-- File: cssom-view.idl
+- File: webref/cssom-view.idl
   Enum:
     Name: ScrollBehavior
     Values:
       - auto
       - instant
       - smooth
-- File: cssom-view.idl
+- File: webref/cssom-view.idl
   Dict:
     Name: ScrollIntoViewOptions
     Inherits: ScrollOptions
@@ -2032,7 +2032,7 @@
         Default: '"auto"'
         Type:
           Name: ScrollBehavior
-- File: cssom-view.idl
+- File: webref/cssom-view.idl
   Enum:
     Name: ScrollLogicalPosition
     Values:
@@ -2040,7 +2040,7 @@
       - center
       - end
       - nearest
-- File: cssom-view.idl
+- File: webref/cssom-view.idl
   Dict:
     Name: ScrollOptions
     Fields:
@@ -2048,19 +2048,19 @@
         Default: '"auto"'
         Type:
           Name: ScrollBehavior
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: ScrollRestoration
     Values:
       - auto
       - manual
-- File: webvtt.idl
+- File: webref/webvtt.idl
   Enum:
     Name: ScrollSetting
     Values:
       - ""
       - up
-- File: scroll-animations.idl
+- File: webref/scroll-animations.idl
   Interface:
     Name: ScrollTimeline
     Inherits: AnimationTimeline
@@ -2097,7 +2097,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: scroll-animations.idl
+- File: webref/scroll-animations.idl
   Dict:
     Name: ScrollTimelineOptions
     Fields:

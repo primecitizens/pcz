@@ -5,17 +5,9 @@ package web
 
 import (
 	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 type NavigationHistoryBehavior uint32
 
@@ -75,17 +67,28 @@ func (p NavigationNavigateOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p NavigationNavigateOptions) UpdateFrom(ref js.Ref) {
+func (p *NavigationNavigateOptions) UpdateFrom(ref js.Ref) {
 	bindings.NavigationNavigateOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p NavigationNavigateOptions) Update(ref js.Ref) {
+func (p *NavigationNavigateOptions) Update(ref js.Ref) {
 	bindings.NavigationNavigateOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *NavigationNavigateOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.State.Ref(),
+		p.Info.Ref(),
+	)
+	p.State = p.State.FromRef(js.Undefined)
+	p.Info = p.Info.FromRef(js.Undefined)
 }
 
 type NavigationReloadOptions struct {
@@ -115,17 +118,28 @@ func (p NavigationReloadOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p NavigationReloadOptions) UpdateFrom(ref js.Ref) {
+func (p *NavigationReloadOptions) UpdateFrom(ref js.Ref) {
 	bindings.NavigationReloadOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p NavigationReloadOptions) Update(ref js.Ref) {
+func (p *NavigationReloadOptions) Update(ref js.Ref) {
 	bindings.NavigationReloadOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *NavigationReloadOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.State.Ref(),
+		p.Info.Ref(),
+	)
+	p.State = p.State.FromRef(js.Undefined)
+	p.Info = p.Info.FromRef(js.Undefined)
 }
 
 type NavigationOptions struct {
@@ -151,17 +165,26 @@ func (p NavigationOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p NavigationOptions) UpdateFrom(ref js.Ref) {
+func (p *NavigationOptions) UpdateFrom(ref js.Ref) {
 	bindings.NavigationOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p NavigationOptions) Update(ref js.Ref) {
+func (p *NavigationOptions) Update(ref js.Ref) {
 	bindings.NavigationOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *NavigationOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Info.Ref(),
+	)
+	p.Info = p.Info.FromRef(js.Undefined)
 }
 
 type NavigationType uint32
@@ -199,7 +222,7 @@ type NavigationTransition struct {
 }
 
 func (this NavigationTransition) Once() NavigationTransition {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -213,7 +236,7 @@ func (this NavigationTransition) FromRef(ref js.Ref) NavigationTransition {
 }
 
 func (this NavigationTransition) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // NavigationType returns the value of property "NavigationTransition.navigationType".
@@ -221,7 +244,7 @@ func (this NavigationTransition) Free() {
 // It returns ok=false if there is no such property.
 func (this NavigationTransition) NavigationType() (ret NavigationType, ok bool) {
 	ok = js.True == bindings.GetNavigationTransitionNavigationType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -231,7 +254,7 @@ func (this NavigationTransition) NavigationType() (ret NavigationType, ok bool) 
 // It returns ok=false if there is no such property.
 func (this NavigationTransition) From() (ret NavigationHistoryEntry, ok bool) {
 	ok = js.True == bindings.GetNavigationTransitionFrom(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -241,7 +264,7 @@ func (this NavigationTransition) From() (ret NavigationHistoryEntry, ok bool) {
 // It returns ok=false if there is no such property.
 func (this NavigationTransition) Finished() (ret js.Promise[js.Void], ok bool) {
 	ok = js.True == bindings.GetNavigationTransitionFinished(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -251,7 +274,7 @@ type Navigation struct {
 }
 
 func (this Navigation) Once() Navigation {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -265,7 +288,7 @@ func (this Navigation) FromRef(ref js.Ref) Navigation {
 }
 
 func (this Navigation) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // CurrentEntry returns the value of property "Navigation.currentEntry".
@@ -273,7 +296,7 @@ func (this Navigation) Free() {
 // It returns ok=false if there is no such property.
 func (this Navigation) CurrentEntry() (ret NavigationHistoryEntry, ok bool) {
 	ok = js.True == bindings.GetNavigationCurrentEntry(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -283,7 +306,7 @@ func (this Navigation) CurrentEntry() (ret NavigationHistoryEntry, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigation) Transition() (ret NavigationTransition, ok bool) {
 	ok = js.True == bindings.GetNavigationTransition(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -293,7 +316,7 @@ func (this Navigation) Transition() (ret NavigationTransition, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigation) CanGoBack() (ret bool, ok bool) {
 	ok = js.True == bindings.GetNavigationCanGoBack(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -303,31 +326,30 @@ func (this Navigation) CanGoBack() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Navigation) CanGoForward() (ret bool, ok bool) {
 	ok = js.True == bindings.GetNavigationCanGoForward(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasEntries returns true if the method "Navigation.entries" exists.
-func (this Navigation) HasEntries() bool {
-	return js.True == bindings.HasNavigationEntries(
-		this.Ref(),
+// HasFuncEntries returns true if the method "Navigation.entries" exists.
+func (this Navigation) HasFuncEntries() bool {
+	return js.True == bindings.HasFuncNavigationEntries(
+		this.ref,
 	)
 }
 
-// EntriesFunc returns the method "Navigation.entries".
-func (this Navigation) EntriesFunc() (fn js.Func[func() js.Array[NavigationHistoryEntry]]) {
-	return fn.FromRef(
-		bindings.NavigationEntriesFunc(
-			this.Ref(),
-		),
+// FuncEntries returns the method "Navigation.entries".
+func (this Navigation) FuncEntries() (fn js.Func[func() js.Array[NavigationHistoryEntry]]) {
+	bindings.FuncNavigationEntries(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Entries calls the method "Navigation.entries".
 func (this Navigation) Entries() (ret js.Array[NavigationHistoryEntry]) {
 	bindings.CallNavigationEntries(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -338,32 +360,31 @@ func (this Navigation) Entries() (ret js.Array[NavigationHistoryEntry]) {
 // the catch clause.
 func (this Navigation) TryEntries() (ret js.Array[NavigationHistoryEntry], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationEntries(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasUpdateCurrentEntry returns true if the method "Navigation.updateCurrentEntry" exists.
-func (this Navigation) HasUpdateCurrentEntry() bool {
-	return js.True == bindings.HasNavigationUpdateCurrentEntry(
-		this.Ref(),
+// HasFuncUpdateCurrentEntry returns true if the method "Navigation.updateCurrentEntry" exists.
+func (this Navigation) HasFuncUpdateCurrentEntry() bool {
+	return js.True == bindings.HasFuncNavigationUpdateCurrentEntry(
+		this.ref,
 	)
 }
 
-// UpdateCurrentEntryFunc returns the method "Navigation.updateCurrentEntry".
-func (this Navigation) UpdateCurrentEntryFunc() (fn js.Func[func(options NavigationUpdateCurrentEntryOptions)]) {
-	return fn.FromRef(
-		bindings.NavigationUpdateCurrentEntryFunc(
-			this.Ref(),
-		),
+// FuncUpdateCurrentEntry returns the method "Navigation.updateCurrentEntry".
+func (this Navigation) FuncUpdateCurrentEntry() (fn js.Func[func(options NavigationUpdateCurrentEntryOptions)]) {
+	bindings.FuncNavigationUpdateCurrentEntry(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UpdateCurrentEntry calls the method "Navigation.updateCurrentEntry".
 func (this Navigation) UpdateCurrentEntry(options NavigationUpdateCurrentEntryOptions) (ret js.Void) {
 	bindings.CallNavigationUpdateCurrentEntry(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -375,33 +396,32 @@ func (this Navigation) UpdateCurrentEntry(options NavigationUpdateCurrentEntryOp
 // the catch clause.
 func (this Navigation) TryUpdateCurrentEntry(options NavigationUpdateCurrentEntryOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationUpdateCurrentEntry(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasNavigate returns true if the method "Navigation.navigate" exists.
-func (this Navigation) HasNavigate() bool {
-	return js.True == bindings.HasNavigationNavigate(
-		this.Ref(),
+// HasFuncNavigate returns true if the method "Navigation.navigate" exists.
+func (this Navigation) HasFuncNavigate() bool {
+	return js.True == bindings.HasFuncNavigationNavigate(
+		this.ref,
 	)
 }
 
-// NavigateFunc returns the method "Navigation.navigate".
-func (this Navigation) NavigateFunc() (fn js.Func[func(url js.String, options NavigationNavigateOptions) NavigationResult]) {
-	return fn.FromRef(
-		bindings.NavigationNavigateFunc(
-			this.Ref(),
-		),
+// FuncNavigate returns the method "Navigation.navigate".
+func (this Navigation) FuncNavigate() (fn js.Func[func(url js.String, options NavigationNavigateOptions) NavigationResult]) {
+	bindings.FuncNavigationNavigate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Navigate calls the method "Navigation.navigate".
 func (this Navigation) Navigate(url js.String, options NavigationNavigateOptions) (ret NavigationResult) {
 	bindings.CallNavigationNavigate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		url.Ref(),
 		js.Pointer(&options),
 	)
@@ -414,7 +434,7 @@ func (this Navigation) Navigate(url js.String, options NavigationNavigateOptions
 // the catch clause.
 func (this Navigation) TryNavigate(url js.String, options NavigationNavigateOptions) (ret NavigationResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationNavigate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		url.Ref(),
 		js.Pointer(&options),
 	)
@@ -422,26 +442,25 @@ func (this Navigation) TryNavigate(url js.String, options NavigationNavigateOpti
 	return
 }
 
-// HasNavigate1 returns true if the method "Navigation.navigate" exists.
-func (this Navigation) HasNavigate1() bool {
-	return js.True == bindings.HasNavigationNavigate1(
-		this.Ref(),
+// HasFuncNavigate1 returns true if the method "Navigation.navigate" exists.
+func (this Navigation) HasFuncNavigate1() bool {
+	return js.True == bindings.HasFuncNavigationNavigate1(
+		this.ref,
 	)
 }
 
-// Navigate1Func returns the method "Navigation.navigate".
-func (this Navigation) Navigate1Func() (fn js.Func[func(url js.String) NavigationResult]) {
-	return fn.FromRef(
-		bindings.NavigationNavigate1Func(
-			this.Ref(),
-		),
+// FuncNavigate1 returns the method "Navigation.navigate".
+func (this Navigation) FuncNavigate1() (fn js.Func[func(url js.String) NavigationResult]) {
+	bindings.FuncNavigationNavigate1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Navigate1 calls the method "Navigation.navigate".
 func (this Navigation) Navigate1(url js.String) (ret NavigationResult) {
 	bindings.CallNavigationNavigate1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		url.Ref(),
 	)
 
@@ -453,33 +472,32 @@ func (this Navigation) Navigate1(url js.String) (ret NavigationResult) {
 // the catch clause.
 func (this Navigation) TryNavigate1(url js.String) (ret NavigationResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationNavigate1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		url.Ref(),
 	)
 
 	return
 }
 
-// HasReload returns true if the method "Navigation.reload" exists.
-func (this Navigation) HasReload() bool {
-	return js.True == bindings.HasNavigationReload(
-		this.Ref(),
+// HasFuncReload returns true if the method "Navigation.reload" exists.
+func (this Navigation) HasFuncReload() bool {
+	return js.True == bindings.HasFuncNavigationReload(
+		this.ref,
 	)
 }
 
-// ReloadFunc returns the method "Navigation.reload".
-func (this Navigation) ReloadFunc() (fn js.Func[func(options NavigationReloadOptions) NavigationResult]) {
-	return fn.FromRef(
-		bindings.NavigationReloadFunc(
-			this.Ref(),
-		),
+// FuncReload returns the method "Navigation.reload".
+func (this Navigation) FuncReload() (fn js.Func[func(options NavigationReloadOptions) NavigationResult]) {
+	bindings.FuncNavigationReload(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Reload calls the method "Navigation.reload".
 func (this Navigation) Reload(options NavigationReloadOptions) (ret NavigationResult) {
 	bindings.CallNavigationReload(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -491,33 +509,32 @@ func (this Navigation) Reload(options NavigationReloadOptions) (ret NavigationRe
 // the catch clause.
 func (this Navigation) TryReload(options NavigationReloadOptions) (ret NavigationResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationReload(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasReload1 returns true if the method "Navigation.reload" exists.
-func (this Navigation) HasReload1() bool {
-	return js.True == bindings.HasNavigationReload1(
-		this.Ref(),
+// HasFuncReload1 returns true if the method "Navigation.reload" exists.
+func (this Navigation) HasFuncReload1() bool {
+	return js.True == bindings.HasFuncNavigationReload1(
+		this.ref,
 	)
 }
 
-// Reload1Func returns the method "Navigation.reload".
-func (this Navigation) Reload1Func() (fn js.Func[func() NavigationResult]) {
-	return fn.FromRef(
-		bindings.NavigationReload1Func(
-			this.Ref(),
-		),
+// FuncReload1 returns the method "Navigation.reload".
+func (this Navigation) FuncReload1() (fn js.Func[func() NavigationResult]) {
+	bindings.FuncNavigationReload1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Reload1 calls the method "Navigation.reload".
 func (this Navigation) Reload1() (ret NavigationResult) {
 	bindings.CallNavigationReload1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -528,32 +545,31 @@ func (this Navigation) Reload1() (ret NavigationResult) {
 // the catch clause.
 func (this Navigation) TryReload1() (ret NavigationResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationReload1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasTraverseTo returns true if the method "Navigation.traverseTo" exists.
-func (this Navigation) HasTraverseTo() bool {
-	return js.True == bindings.HasNavigationTraverseTo(
-		this.Ref(),
+// HasFuncTraverseTo returns true if the method "Navigation.traverseTo" exists.
+func (this Navigation) HasFuncTraverseTo() bool {
+	return js.True == bindings.HasFuncNavigationTraverseTo(
+		this.ref,
 	)
 }
 
-// TraverseToFunc returns the method "Navigation.traverseTo".
-func (this Navigation) TraverseToFunc() (fn js.Func[func(key js.String, options NavigationOptions) NavigationResult]) {
-	return fn.FromRef(
-		bindings.NavigationTraverseToFunc(
-			this.Ref(),
-		),
+// FuncTraverseTo returns the method "Navigation.traverseTo".
+func (this Navigation) FuncTraverseTo() (fn js.Func[func(key js.String, options NavigationOptions) NavigationResult]) {
+	bindings.FuncNavigationTraverseTo(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TraverseTo calls the method "Navigation.traverseTo".
 func (this Navigation) TraverseTo(key js.String, options NavigationOptions) (ret NavigationResult) {
 	bindings.CallNavigationTraverseTo(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		key.Ref(),
 		js.Pointer(&options),
 	)
@@ -566,7 +582,7 @@ func (this Navigation) TraverseTo(key js.String, options NavigationOptions) (ret
 // the catch clause.
 func (this Navigation) TryTraverseTo(key js.String, options NavigationOptions) (ret NavigationResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationTraverseTo(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		key.Ref(),
 		js.Pointer(&options),
 	)
@@ -574,26 +590,25 @@ func (this Navigation) TryTraverseTo(key js.String, options NavigationOptions) (
 	return
 }
 
-// HasTraverseTo1 returns true if the method "Navigation.traverseTo" exists.
-func (this Navigation) HasTraverseTo1() bool {
-	return js.True == bindings.HasNavigationTraverseTo1(
-		this.Ref(),
+// HasFuncTraverseTo1 returns true if the method "Navigation.traverseTo" exists.
+func (this Navigation) HasFuncTraverseTo1() bool {
+	return js.True == bindings.HasFuncNavigationTraverseTo1(
+		this.ref,
 	)
 }
 
-// TraverseTo1Func returns the method "Navigation.traverseTo".
-func (this Navigation) TraverseTo1Func() (fn js.Func[func(key js.String) NavigationResult]) {
-	return fn.FromRef(
-		bindings.NavigationTraverseTo1Func(
-			this.Ref(),
-		),
+// FuncTraverseTo1 returns the method "Navigation.traverseTo".
+func (this Navigation) FuncTraverseTo1() (fn js.Func[func(key js.String) NavigationResult]) {
+	bindings.FuncNavigationTraverseTo1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TraverseTo1 calls the method "Navigation.traverseTo".
 func (this Navigation) TraverseTo1(key js.String) (ret NavigationResult) {
 	bindings.CallNavigationTraverseTo1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		key.Ref(),
 	)
 
@@ -605,33 +620,32 @@ func (this Navigation) TraverseTo1(key js.String) (ret NavigationResult) {
 // the catch clause.
 func (this Navigation) TryTraverseTo1(key js.String) (ret NavigationResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationTraverseTo1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		key.Ref(),
 	)
 
 	return
 }
 
-// HasBack returns true if the method "Navigation.back" exists.
-func (this Navigation) HasBack() bool {
-	return js.True == bindings.HasNavigationBack(
-		this.Ref(),
+// HasFuncBack returns true if the method "Navigation.back" exists.
+func (this Navigation) HasFuncBack() bool {
+	return js.True == bindings.HasFuncNavigationBack(
+		this.ref,
 	)
 }
 
-// BackFunc returns the method "Navigation.back".
-func (this Navigation) BackFunc() (fn js.Func[func(options NavigationOptions) NavigationResult]) {
-	return fn.FromRef(
-		bindings.NavigationBackFunc(
-			this.Ref(),
-		),
+// FuncBack returns the method "Navigation.back".
+func (this Navigation) FuncBack() (fn js.Func[func(options NavigationOptions) NavigationResult]) {
+	bindings.FuncNavigationBack(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Back calls the method "Navigation.back".
 func (this Navigation) Back(options NavigationOptions) (ret NavigationResult) {
 	bindings.CallNavigationBack(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -643,33 +657,32 @@ func (this Navigation) Back(options NavigationOptions) (ret NavigationResult) {
 // the catch clause.
 func (this Navigation) TryBack(options NavigationOptions) (ret NavigationResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationBack(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasBack1 returns true if the method "Navigation.back" exists.
-func (this Navigation) HasBack1() bool {
-	return js.True == bindings.HasNavigationBack1(
-		this.Ref(),
+// HasFuncBack1 returns true if the method "Navigation.back" exists.
+func (this Navigation) HasFuncBack1() bool {
+	return js.True == bindings.HasFuncNavigationBack1(
+		this.ref,
 	)
 }
 
-// Back1Func returns the method "Navigation.back".
-func (this Navigation) Back1Func() (fn js.Func[func() NavigationResult]) {
-	return fn.FromRef(
-		bindings.NavigationBack1Func(
-			this.Ref(),
-		),
+// FuncBack1 returns the method "Navigation.back".
+func (this Navigation) FuncBack1() (fn js.Func[func() NavigationResult]) {
+	bindings.FuncNavigationBack1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Back1 calls the method "Navigation.back".
 func (this Navigation) Back1() (ret NavigationResult) {
 	bindings.CallNavigationBack1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -680,32 +693,31 @@ func (this Navigation) Back1() (ret NavigationResult) {
 // the catch clause.
 func (this Navigation) TryBack1() (ret NavigationResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationBack1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasForward returns true if the method "Navigation.forward" exists.
-func (this Navigation) HasForward() bool {
-	return js.True == bindings.HasNavigationForward(
-		this.Ref(),
+// HasFuncForward returns true if the method "Navigation.forward" exists.
+func (this Navigation) HasFuncForward() bool {
+	return js.True == bindings.HasFuncNavigationForward(
+		this.ref,
 	)
 }
 
-// ForwardFunc returns the method "Navigation.forward".
-func (this Navigation) ForwardFunc() (fn js.Func[func(options NavigationOptions) NavigationResult]) {
-	return fn.FromRef(
-		bindings.NavigationForwardFunc(
-			this.Ref(),
-		),
+// FuncForward returns the method "Navigation.forward".
+func (this Navigation) FuncForward() (fn js.Func[func(options NavigationOptions) NavigationResult]) {
+	bindings.FuncNavigationForward(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Forward calls the method "Navigation.forward".
 func (this Navigation) Forward(options NavigationOptions) (ret NavigationResult) {
 	bindings.CallNavigationForward(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -717,33 +729,32 @@ func (this Navigation) Forward(options NavigationOptions) (ret NavigationResult)
 // the catch clause.
 func (this Navigation) TryForward(options NavigationOptions) (ret NavigationResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationForward(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasForward1 returns true if the method "Navigation.forward" exists.
-func (this Navigation) HasForward1() bool {
-	return js.True == bindings.HasNavigationForward1(
-		this.Ref(),
+// HasFuncForward1 returns true if the method "Navigation.forward" exists.
+func (this Navigation) HasFuncForward1() bool {
+	return js.True == bindings.HasFuncNavigationForward1(
+		this.ref,
 	)
 }
 
-// Forward1Func returns the method "Navigation.forward".
-func (this Navigation) Forward1Func() (fn js.Func[func() NavigationResult]) {
-	return fn.FromRef(
-		bindings.NavigationForward1Func(
-			this.Ref(),
-		),
+// FuncForward1 returns the method "Navigation.forward".
+func (this Navigation) FuncForward1() (fn js.Func[func() NavigationResult]) {
+	bindings.FuncNavigationForward1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Forward1 calls the method "Navigation.forward".
 func (this Navigation) Forward1() (ret NavigationResult) {
 	bindings.CallNavigationForward1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -754,7 +765,7 @@ func (this Navigation) Forward1() (ret NavigationResult) {
 // the catch clause.
 func (this Navigation) TryForward1() (ret NavigationResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationForward1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -803,7 +814,7 @@ func (cb *CustomElementConstructor[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 0+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
 
 	if ctx.Return(cb.Fn(
@@ -839,17 +850,26 @@ func (p ElementDefinitionOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ElementDefinitionOptions) UpdateFrom(ref js.Ref) {
+func (p *ElementDefinitionOptions) UpdateFrom(ref js.Ref) {
 	bindings.ElementDefinitionOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ElementDefinitionOptions) Update(ref js.Ref) {
+func (p *ElementDefinitionOptions) Update(ref js.Ref) {
 	bindings.ElementDefinitionOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ElementDefinitionOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Extends.Ref(),
+	)
+	p.Extends = p.Extends.FromRef(js.Undefined)
 }
 
 type OneOf_FuncCustomElementConstructor_undefined struct {
@@ -883,7 +903,7 @@ type CustomElementRegistry struct {
 }
 
 func (this CustomElementRegistry) Once() CustomElementRegistry {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -897,29 +917,28 @@ func (this CustomElementRegistry) FromRef(ref js.Ref) CustomElementRegistry {
 }
 
 func (this CustomElementRegistry) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasDefine returns true if the method "CustomElementRegistry.define" exists.
-func (this CustomElementRegistry) HasDefine() bool {
-	return js.True == bindings.HasCustomElementRegistryDefine(
-		this.Ref(),
+// HasFuncDefine returns true if the method "CustomElementRegistry.define" exists.
+func (this CustomElementRegistry) HasFuncDefine() bool {
+	return js.True == bindings.HasFuncCustomElementRegistryDefine(
+		this.ref,
 	)
 }
 
-// DefineFunc returns the method "CustomElementRegistry.define".
-func (this CustomElementRegistry) DefineFunc() (fn js.Func[func(name js.String, constructor js.Func[func() HTMLElement], options ElementDefinitionOptions)]) {
-	return fn.FromRef(
-		bindings.CustomElementRegistryDefineFunc(
-			this.Ref(),
-		),
+// FuncDefine returns the method "CustomElementRegistry.define".
+func (this CustomElementRegistry) FuncDefine() (fn js.Func[func(name js.String, constructor js.Func[func() HTMLElement], options ElementDefinitionOptions)]) {
+	bindings.FuncCustomElementRegistryDefine(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Define calls the method "CustomElementRegistry.define".
 func (this CustomElementRegistry) Define(name js.String, constructor js.Func[func() HTMLElement], options ElementDefinitionOptions) (ret js.Void) {
 	bindings.CallCustomElementRegistryDefine(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 		constructor.Ref(),
 		js.Pointer(&options),
@@ -933,7 +952,7 @@ func (this CustomElementRegistry) Define(name js.String, constructor js.Func[fun
 // the catch clause.
 func (this CustomElementRegistry) TryDefine(name js.String, constructor js.Func[func() HTMLElement], options ElementDefinitionOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCustomElementRegistryDefine(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 		constructor.Ref(),
 		js.Pointer(&options),
@@ -942,26 +961,25 @@ func (this CustomElementRegistry) TryDefine(name js.String, constructor js.Func[
 	return
 }
 
-// HasDefine1 returns true if the method "CustomElementRegistry.define" exists.
-func (this CustomElementRegistry) HasDefine1() bool {
-	return js.True == bindings.HasCustomElementRegistryDefine1(
-		this.Ref(),
+// HasFuncDefine1 returns true if the method "CustomElementRegistry.define" exists.
+func (this CustomElementRegistry) HasFuncDefine1() bool {
+	return js.True == bindings.HasFuncCustomElementRegistryDefine1(
+		this.ref,
 	)
 }
 
-// Define1Func returns the method "CustomElementRegistry.define".
-func (this CustomElementRegistry) Define1Func() (fn js.Func[func(name js.String, constructor js.Func[func() HTMLElement])]) {
-	return fn.FromRef(
-		bindings.CustomElementRegistryDefine1Func(
-			this.Ref(),
-		),
+// FuncDefine1 returns the method "CustomElementRegistry.define".
+func (this CustomElementRegistry) FuncDefine1() (fn js.Func[func(name js.String, constructor js.Func[func() HTMLElement])]) {
+	bindings.FuncCustomElementRegistryDefine1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Define1 calls the method "CustomElementRegistry.define".
 func (this CustomElementRegistry) Define1(name js.String, constructor js.Func[func() HTMLElement]) (ret js.Void) {
 	bindings.CallCustomElementRegistryDefine1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 		constructor.Ref(),
 	)
@@ -974,7 +992,7 @@ func (this CustomElementRegistry) Define1(name js.String, constructor js.Func[fu
 // the catch clause.
 func (this CustomElementRegistry) TryDefine1(name js.String, constructor js.Func[func() HTMLElement]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCustomElementRegistryDefine1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 		constructor.Ref(),
 	)
@@ -982,26 +1000,25 @@ func (this CustomElementRegistry) TryDefine1(name js.String, constructor js.Func
 	return
 }
 
-// HasGet returns true if the method "CustomElementRegistry.get" exists.
-func (this CustomElementRegistry) HasGet() bool {
-	return js.True == bindings.HasCustomElementRegistryGet(
-		this.Ref(),
+// HasFuncGet returns true if the method "CustomElementRegistry.get" exists.
+func (this CustomElementRegistry) HasFuncGet() bool {
+	return js.True == bindings.HasFuncCustomElementRegistryGet(
+		this.ref,
 	)
 }
 
-// GetFunc returns the method "CustomElementRegistry.get".
-func (this CustomElementRegistry) GetFunc() (fn js.Func[func(name js.String) OneOf_FuncCustomElementConstructor_undefined]) {
-	return fn.FromRef(
-		bindings.CustomElementRegistryGetFunc(
-			this.Ref(),
-		),
+// FuncGet returns the method "CustomElementRegistry.get".
+func (this CustomElementRegistry) FuncGet() (fn js.Func[func(name js.String) OneOf_FuncCustomElementConstructor_undefined]) {
+	bindings.FuncCustomElementRegistryGet(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Get calls the method "CustomElementRegistry.get".
 func (this CustomElementRegistry) Get(name js.String) (ret OneOf_FuncCustomElementConstructor_undefined) {
 	bindings.CallCustomElementRegistryGet(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 	)
 
@@ -1013,33 +1030,32 @@ func (this CustomElementRegistry) Get(name js.String) (ret OneOf_FuncCustomEleme
 // the catch clause.
 func (this CustomElementRegistry) TryGet(name js.String) (ret OneOf_FuncCustomElementConstructor_undefined, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCustomElementRegistryGet(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 	)
 
 	return
 }
 
-// HasGetName returns true if the method "CustomElementRegistry.getName" exists.
-func (this CustomElementRegistry) HasGetName() bool {
-	return js.True == bindings.HasCustomElementRegistryGetName(
-		this.Ref(),
+// HasFuncGetName returns true if the method "CustomElementRegistry.getName" exists.
+func (this CustomElementRegistry) HasFuncGetName() bool {
+	return js.True == bindings.HasFuncCustomElementRegistryGetName(
+		this.ref,
 	)
 }
 
-// GetNameFunc returns the method "CustomElementRegistry.getName".
-func (this CustomElementRegistry) GetNameFunc() (fn js.Func[func(constructor js.Func[func() HTMLElement]) js.String]) {
-	return fn.FromRef(
-		bindings.CustomElementRegistryGetNameFunc(
-			this.Ref(),
-		),
+// FuncGetName returns the method "CustomElementRegistry.getName".
+func (this CustomElementRegistry) FuncGetName() (fn js.Func[func(constructor js.Func[func() HTMLElement]) js.String]) {
+	bindings.FuncCustomElementRegistryGetName(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetName calls the method "CustomElementRegistry.getName".
 func (this CustomElementRegistry) GetName(constructor js.Func[func() HTMLElement]) (ret js.String) {
 	bindings.CallCustomElementRegistryGetName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		constructor.Ref(),
 	)
 
@@ -1051,33 +1067,32 @@ func (this CustomElementRegistry) GetName(constructor js.Func[func() HTMLElement
 // the catch clause.
 func (this CustomElementRegistry) TryGetName(constructor js.Func[func() HTMLElement]) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCustomElementRegistryGetName(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		constructor.Ref(),
 	)
 
 	return
 }
 
-// HasWhenDefined returns true if the method "CustomElementRegistry.whenDefined" exists.
-func (this CustomElementRegistry) HasWhenDefined() bool {
-	return js.True == bindings.HasCustomElementRegistryWhenDefined(
-		this.Ref(),
+// HasFuncWhenDefined returns true if the method "CustomElementRegistry.whenDefined" exists.
+func (this CustomElementRegistry) HasFuncWhenDefined() bool {
+	return js.True == bindings.HasFuncCustomElementRegistryWhenDefined(
+		this.ref,
 	)
 }
 
-// WhenDefinedFunc returns the method "CustomElementRegistry.whenDefined".
-func (this CustomElementRegistry) WhenDefinedFunc() (fn js.Func[func(name js.String) js.Promise[js.Func[func() HTMLElement]]]) {
-	return fn.FromRef(
-		bindings.CustomElementRegistryWhenDefinedFunc(
-			this.Ref(),
-		),
+// FuncWhenDefined returns the method "CustomElementRegistry.whenDefined".
+func (this CustomElementRegistry) FuncWhenDefined() (fn js.Func[func(name js.String) js.Promise[js.Func[func() HTMLElement]]]) {
+	bindings.FuncCustomElementRegistryWhenDefined(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // WhenDefined calls the method "CustomElementRegistry.whenDefined".
 func (this CustomElementRegistry) WhenDefined(name js.String) (ret js.Promise[js.Func[func() HTMLElement]]) {
 	bindings.CallCustomElementRegistryWhenDefined(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 	)
 
@@ -1089,33 +1104,32 @@ func (this CustomElementRegistry) WhenDefined(name js.String) (ret js.Promise[js
 // the catch clause.
 func (this CustomElementRegistry) TryWhenDefined(name js.String) (ret js.Promise[js.Func[func() HTMLElement]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCustomElementRegistryWhenDefined(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 	)
 
 	return
 }
 
-// HasUpgrade returns true if the method "CustomElementRegistry.upgrade" exists.
-func (this CustomElementRegistry) HasUpgrade() bool {
-	return js.True == bindings.HasCustomElementRegistryUpgrade(
-		this.Ref(),
+// HasFuncUpgrade returns true if the method "CustomElementRegistry.upgrade" exists.
+func (this CustomElementRegistry) HasFuncUpgrade() bool {
+	return js.True == bindings.HasFuncCustomElementRegistryUpgrade(
+		this.ref,
 	)
 }
 
-// UpgradeFunc returns the method "CustomElementRegistry.upgrade".
-func (this CustomElementRegistry) UpgradeFunc() (fn js.Func[func(root Node)]) {
-	return fn.FromRef(
-		bindings.CustomElementRegistryUpgradeFunc(
-			this.Ref(),
-		),
+// FuncUpgrade returns the method "CustomElementRegistry.upgrade".
+func (this CustomElementRegistry) FuncUpgrade() (fn js.Func[func(root Node)]) {
+	bindings.FuncCustomElementRegistryUpgrade(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Upgrade calls the method "CustomElementRegistry.upgrade".
 func (this CustomElementRegistry) Upgrade(root Node) (ret js.Void) {
 	bindings.CallCustomElementRegistryUpgrade(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		root.Ref(),
 	)
 
@@ -1127,7 +1141,7 @@ func (this CustomElementRegistry) Upgrade(root Node) (ret js.Void) {
 // the catch clause.
 func (this CustomElementRegistry) TryUpgrade(root Node) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCustomElementRegistryUpgrade(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		root.Ref(),
 	)
 
@@ -1168,7 +1182,7 @@ type GamepadButton struct {
 }
 
 func (this GamepadButton) Once() GamepadButton {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1182,7 +1196,7 @@ func (this GamepadButton) FromRef(ref js.Ref) GamepadButton {
 }
 
 func (this GamepadButton) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Pressed returns the value of property "GamepadButton.pressed".
@@ -1190,7 +1204,7 @@ func (this GamepadButton) Free() {
 // It returns ok=false if there is no such property.
 func (this GamepadButton) Pressed() (ret bool, ok bool) {
 	ok = js.True == bindings.GetGamepadButtonPressed(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1200,7 +1214,7 @@ func (this GamepadButton) Pressed() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GamepadButton) Touched() (ret bool, ok bool) {
 	ok = js.True == bindings.GetGamepadButtonTouched(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1210,7 +1224,7 @@ func (this GamepadButton) Touched() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GamepadButton) Value() (ret float64, ok bool) {
 	ok = js.True == bindings.GetGamepadButtonValue(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1335,17 +1349,22 @@ func (p GamepadEffectParameters) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GamepadEffectParameters) UpdateFrom(ref js.Ref) {
+func (p *GamepadEffectParameters) UpdateFrom(ref js.Ref) {
 	bindings.GamepadEffectParametersJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GamepadEffectParameters) Update(ref js.Ref) {
+func (p *GamepadEffectParameters) Update(ref js.Ref) {
 	bindings.GamepadEffectParametersJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GamepadEffectParameters) FreeMembers(recursive bool) {
 }
 
 type GamepadHapticActuatorType uint32
@@ -1377,7 +1396,7 @@ type GamepadHapticActuator struct {
 }
 
 func (this GamepadHapticActuator) Once() GamepadHapticActuator {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1391,7 +1410,7 @@ func (this GamepadHapticActuator) FromRef(ref js.Ref) GamepadHapticActuator {
 }
 
 func (this GamepadHapticActuator) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Type returns the value of property "GamepadHapticActuator.type".
@@ -1399,31 +1418,30 @@ func (this GamepadHapticActuator) Free() {
 // It returns ok=false if there is no such property.
 func (this GamepadHapticActuator) Type() (ret GamepadHapticActuatorType, ok bool) {
 	ok = js.True == bindings.GetGamepadHapticActuatorType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasCanPlayEffectType returns true if the method "GamepadHapticActuator.canPlayEffectType" exists.
-func (this GamepadHapticActuator) HasCanPlayEffectType() bool {
-	return js.True == bindings.HasGamepadHapticActuatorCanPlayEffectType(
-		this.Ref(),
+// HasFuncCanPlayEffectType returns true if the method "GamepadHapticActuator.canPlayEffectType" exists.
+func (this GamepadHapticActuator) HasFuncCanPlayEffectType() bool {
+	return js.True == bindings.HasFuncGamepadHapticActuatorCanPlayEffectType(
+		this.ref,
 	)
 }
 
-// CanPlayEffectTypeFunc returns the method "GamepadHapticActuator.canPlayEffectType".
-func (this GamepadHapticActuator) CanPlayEffectTypeFunc() (fn js.Func[func(typ GamepadHapticEffectType) bool]) {
-	return fn.FromRef(
-		bindings.GamepadHapticActuatorCanPlayEffectTypeFunc(
-			this.Ref(),
-		),
+// FuncCanPlayEffectType returns the method "GamepadHapticActuator.canPlayEffectType".
+func (this GamepadHapticActuator) FuncCanPlayEffectType() (fn js.Func[func(typ GamepadHapticEffectType) bool]) {
+	bindings.FuncGamepadHapticActuatorCanPlayEffectType(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CanPlayEffectType calls the method "GamepadHapticActuator.canPlayEffectType".
 func (this GamepadHapticActuator) CanPlayEffectType(typ GamepadHapticEffectType) (ret bool) {
 	bindings.CallGamepadHapticActuatorCanPlayEffectType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(typ),
 	)
 
@@ -1435,33 +1453,32 @@ func (this GamepadHapticActuator) CanPlayEffectType(typ GamepadHapticEffectType)
 // the catch clause.
 func (this GamepadHapticActuator) TryCanPlayEffectType(typ GamepadHapticEffectType) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGamepadHapticActuatorCanPlayEffectType(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(typ),
 	)
 
 	return
 }
 
-// HasPlayEffect returns true if the method "GamepadHapticActuator.playEffect" exists.
-func (this GamepadHapticActuator) HasPlayEffect() bool {
-	return js.True == bindings.HasGamepadHapticActuatorPlayEffect(
-		this.Ref(),
+// HasFuncPlayEffect returns true if the method "GamepadHapticActuator.playEffect" exists.
+func (this GamepadHapticActuator) HasFuncPlayEffect() bool {
+	return js.True == bindings.HasFuncGamepadHapticActuatorPlayEffect(
+		this.ref,
 	)
 }
 
-// PlayEffectFunc returns the method "GamepadHapticActuator.playEffect".
-func (this GamepadHapticActuator) PlayEffectFunc() (fn js.Func[func(typ GamepadHapticEffectType, params GamepadEffectParameters) js.Promise[GamepadHapticsResult]]) {
-	return fn.FromRef(
-		bindings.GamepadHapticActuatorPlayEffectFunc(
-			this.Ref(),
-		),
+// FuncPlayEffect returns the method "GamepadHapticActuator.playEffect".
+func (this GamepadHapticActuator) FuncPlayEffect() (fn js.Func[func(typ GamepadHapticEffectType, params GamepadEffectParameters) js.Promise[GamepadHapticsResult]]) {
+	bindings.FuncGamepadHapticActuatorPlayEffect(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PlayEffect calls the method "GamepadHapticActuator.playEffect".
 func (this GamepadHapticActuator) PlayEffect(typ GamepadHapticEffectType, params GamepadEffectParameters) (ret js.Promise[GamepadHapticsResult]) {
 	bindings.CallGamepadHapticActuatorPlayEffect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(typ),
 		js.Pointer(&params),
 	)
@@ -1474,7 +1491,7 @@ func (this GamepadHapticActuator) PlayEffect(typ GamepadHapticEffectType, params
 // the catch clause.
 func (this GamepadHapticActuator) TryPlayEffect(typ GamepadHapticEffectType, params GamepadEffectParameters) (ret js.Promise[GamepadHapticsResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGamepadHapticActuatorPlayEffect(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(typ),
 		js.Pointer(&params),
 	)
@@ -1482,26 +1499,25 @@ func (this GamepadHapticActuator) TryPlayEffect(typ GamepadHapticEffectType, par
 	return
 }
 
-// HasPlayEffect1 returns true if the method "GamepadHapticActuator.playEffect" exists.
-func (this GamepadHapticActuator) HasPlayEffect1() bool {
-	return js.True == bindings.HasGamepadHapticActuatorPlayEffect1(
-		this.Ref(),
+// HasFuncPlayEffect1 returns true if the method "GamepadHapticActuator.playEffect" exists.
+func (this GamepadHapticActuator) HasFuncPlayEffect1() bool {
+	return js.True == bindings.HasFuncGamepadHapticActuatorPlayEffect1(
+		this.ref,
 	)
 }
 
-// PlayEffect1Func returns the method "GamepadHapticActuator.playEffect".
-func (this GamepadHapticActuator) PlayEffect1Func() (fn js.Func[func(typ GamepadHapticEffectType) js.Promise[GamepadHapticsResult]]) {
-	return fn.FromRef(
-		bindings.GamepadHapticActuatorPlayEffect1Func(
-			this.Ref(),
-		),
+// FuncPlayEffect1 returns the method "GamepadHapticActuator.playEffect".
+func (this GamepadHapticActuator) FuncPlayEffect1() (fn js.Func[func(typ GamepadHapticEffectType) js.Promise[GamepadHapticsResult]]) {
+	bindings.FuncGamepadHapticActuatorPlayEffect1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PlayEffect1 calls the method "GamepadHapticActuator.playEffect".
 func (this GamepadHapticActuator) PlayEffect1(typ GamepadHapticEffectType) (ret js.Promise[GamepadHapticsResult]) {
 	bindings.CallGamepadHapticActuatorPlayEffect1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(typ),
 	)
 
@@ -1513,33 +1529,32 @@ func (this GamepadHapticActuator) PlayEffect1(typ GamepadHapticEffectType) (ret 
 // the catch clause.
 func (this GamepadHapticActuator) TryPlayEffect1(typ GamepadHapticEffectType) (ret js.Promise[GamepadHapticsResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGamepadHapticActuatorPlayEffect1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(typ),
 	)
 
 	return
 }
 
-// HasPulse returns true if the method "GamepadHapticActuator.pulse" exists.
-func (this GamepadHapticActuator) HasPulse() bool {
-	return js.True == bindings.HasGamepadHapticActuatorPulse(
-		this.Ref(),
+// HasFuncPulse returns true if the method "GamepadHapticActuator.pulse" exists.
+func (this GamepadHapticActuator) HasFuncPulse() bool {
+	return js.True == bindings.HasFuncGamepadHapticActuatorPulse(
+		this.ref,
 	)
 }
 
-// PulseFunc returns the method "GamepadHapticActuator.pulse".
-func (this GamepadHapticActuator) PulseFunc() (fn js.Func[func(value float64, duration float64) js.Promise[js.Boolean]]) {
-	return fn.FromRef(
-		bindings.GamepadHapticActuatorPulseFunc(
-			this.Ref(),
-		),
+// FuncPulse returns the method "GamepadHapticActuator.pulse".
+func (this GamepadHapticActuator) FuncPulse() (fn js.Func[func(value float64, duration float64) js.Promise[js.Boolean]]) {
+	bindings.FuncGamepadHapticActuatorPulse(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Pulse calls the method "GamepadHapticActuator.pulse".
 func (this GamepadHapticActuator) Pulse(value float64, duration float64) (ret js.Promise[js.Boolean]) {
 	bindings.CallGamepadHapticActuatorPulse(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(value),
 		float64(duration),
 	)
@@ -1552,7 +1567,7 @@ func (this GamepadHapticActuator) Pulse(value float64, duration float64) (ret js
 // the catch clause.
 func (this GamepadHapticActuator) TryPulse(value float64, duration float64) (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGamepadHapticActuatorPulse(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(value),
 		float64(duration),
 	)
@@ -1560,26 +1575,25 @@ func (this GamepadHapticActuator) TryPulse(value float64, duration float64) (ret
 	return
 }
 
-// HasReset returns true if the method "GamepadHapticActuator.reset" exists.
-func (this GamepadHapticActuator) HasReset() bool {
-	return js.True == bindings.HasGamepadHapticActuatorReset(
-		this.Ref(),
+// HasFuncReset returns true if the method "GamepadHapticActuator.reset" exists.
+func (this GamepadHapticActuator) HasFuncReset() bool {
+	return js.True == bindings.HasFuncGamepadHapticActuatorReset(
+		this.ref,
 	)
 }
 
-// ResetFunc returns the method "GamepadHapticActuator.reset".
-func (this GamepadHapticActuator) ResetFunc() (fn js.Func[func() js.Promise[GamepadHapticsResult]]) {
-	return fn.FromRef(
-		bindings.GamepadHapticActuatorResetFunc(
-			this.Ref(),
-		),
+// FuncReset returns the method "GamepadHapticActuator.reset".
+func (this GamepadHapticActuator) FuncReset() (fn js.Func[func() js.Promise[GamepadHapticsResult]]) {
+	bindings.FuncGamepadHapticActuatorReset(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Reset calls the method "GamepadHapticActuator.reset".
 func (this GamepadHapticActuator) Reset() (ret js.Promise[GamepadHapticsResult]) {
 	bindings.CallGamepadHapticActuatorReset(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1590,7 +1604,7 @@ func (this GamepadHapticActuator) Reset() (ret js.Promise[GamepadHapticsResult])
 // the catch clause.
 func (this GamepadHapticActuator) TryReset() (ret js.Promise[GamepadHapticsResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGamepadHapticActuatorReset(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1601,7 +1615,7 @@ type GamepadPose struct {
 }
 
 func (this GamepadPose) Once() GamepadPose {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1615,7 +1629,7 @@ func (this GamepadPose) FromRef(ref js.Ref) GamepadPose {
 }
 
 func (this GamepadPose) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // HasOrientation returns the value of property "GamepadPose.hasOrientation".
@@ -1623,7 +1637,7 @@ func (this GamepadPose) Free() {
 // It returns ok=false if there is no such property.
 func (this GamepadPose) HasOrientation() (ret bool, ok bool) {
 	ok = js.True == bindings.GetGamepadPoseHasOrientation(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1633,7 +1647,7 @@ func (this GamepadPose) HasOrientation() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GamepadPose) HasPosition() (ret bool, ok bool) {
 	ok = js.True == bindings.GetGamepadPoseHasPosition(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1643,7 +1657,7 @@ func (this GamepadPose) HasPosition() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GamepadPose) Position() (ret js.TypedArray[float32], ok bool) {
 	ok = js.True == bindings.GetGamepadPosePosition(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1653,7 +1667,7 @@ func (this GamepadPose) Position() (ret js.TypedArray[float32], ok bool) {
 // It returns ok=false if there is no such property.
 func (this GamepadPose) LinearVelocity() (ret js.TypedArray[float32], ok bool) {
 	ok = js.True == bindings.GetGamepadPoseLinearVelocity(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1663,7 +1677,7 @@ func (this GamepadPose) LinearVelocity() (ret js.TypedArray[float32], ok bool) {
 // It returns ok=false if there is no such property.
 func (this GamepadPose) LinearAcceleration() (ret js.TypedArray[float32], ok bool) {
 	ok = js.True == bindings.GetGamepadPoseLinearAcceleration(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1673,7 +1687,7 @@ func (this GamepadPose) LinearAcceleration() (ret js.TypedArray[float32], ok boo
 // It returns ok=false if there is no such property.
 func (this GamepadPose) Orientation() (ret js.TypedArray[float32], ok bool) {
 	ok = js.True == bindings.GetGamepadPoseOrientation(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1683,7 +1697,7 @@ func (this GamepadPose) Orientation() (ret js.TypedArray[float32], ok bool) {
 // It returns ok=false if there is no such property.
 func (this GamepadPose) AngularVelocity() (ret js.TypedArray[float32], ok bool) {
 	ok = js.True == bindings.GetGamepadPoseAngularVelocity(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1693,7 +1707,7 @@ func (this GamepadPose) AngularVelocity() (ret js.TypedArray[float32], ok bool) 
 // It returns ok=false if there is no such property.
 func (this GamepadPose) AngularAcceleration() (ret js.TypedArray[float32], ok bool) {
 	ok = js.True == bindings.GetGamepadPoseAngularAcceleration(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1703,7 +1717,7 @@ type GamepadTouch struct {
 }
 
 func (this GamepadTouch) Once() GamepadTouch {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1717,7 +1731,7 @@ func (this GamepadTouch) FromRef(ref js.Ref) GamepadTouch {
 }
 
 func (this GamepadTouch) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // TouchId returns the value of property "GamepadTouch.touchId".
@@ -1725,7 +1739,7 @@ func (this GamepadTouch) Free() {
 // It returns ok=false if there is no such property.
 func (this GamepadTouch) TouchId() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGamepadTouchTouchId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1735,7 +1749,7 @@ func (this GamepadTouch) TouchId() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GamepadTouch) SurfaceId() (ret uint8, ok bool) {
 	ok = js.True == bindings.GetGamepadTouchSurfaceId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1745,7 +1759,7 @@ func (this GamepadTouch) SurfaceId() (ret uint8, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GamepadTouch) Position() (ret js.TypedArray[float32], ok bool) {
 	ok = js.True == bindings.GetGamepadTouchPosition(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1755,7 +1769,7 @@ func (this GamepadTouch) Position() (ret js.TypedArray[float32], ok bool) {
 // It returns ok=false if there is no such property.
 func (this GamepadTouch) SurfaceDimensions() (ret js.TypedArray[uint32], ok bool) {
 	ok = js.True == bindings.GetGamepadTouchSurfaceDimensions(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1765,7 +1779,7 @@ type Gamepad struct {
 }
 
 func (this Gamepad) Once() Gamepad {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1779,7 +1793,7 @@ func (this Gamepad) FromRef(ref js.Ref) Gamepad {
 }
 
 func (this Gamepad) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Id returns the value of property "Gamepad.id".
@@ -1787,7 +1801,7 @@ func (this Gamepad) Free() {
 // It returns ok=false if there is no such property.
 func (this Gamepad) Id() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGamepadId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1797,7 +1811,7 @@ func (this Gamepad) Id() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Gamepad) Index() (ret int32, ok bool) {
 	ok = js.True == bindings.GetGamepadIndex(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1807,7 +1821,7 @@ func (this Gamepad) Index() (ret int32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Gamepad) Connected() (ret bool, ok bool) {
 	ok = js.True == bindings.GetGamepadConnected(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1817,7 +1831,7 @@ func (this Gamepad) Connected() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Gamepad) Timestamp() (ret DOMHighResTimeStamp, ok bool) {
 	ok = js.True == bindings.GetGamepadTimestamp(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1827,7 +1841,7 @@ func (this Gamepad) Timestamp() (ret DOMHighResTimeStamp, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Gamepad) Mapping() (ret GamepadMappingType, ok bool) {
 	ok = js.True == bindings.GetGamepadMapping(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1837,7 +1851,7 @@ func (this Gamepad) Mapping() (ret GamepadMappingType, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Gamepad) Axes() (ret js.FrozenArray[float64], ok bool) {
 	ok = js.True == bindings.GetGamepadAxes(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1847,7 +1861,7 @@ func (this Gamepad) Axes() (ret js.FrozenArray[float64], ok bool) {
 // It returns ok=false if there is no such property.
 func (this Gamepad) Buttons() (ret js.FrozenArray[GamepadButton], ok bool) {
 	ok = js.True == bindings.GetGamepadButtons(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1857,7 +1871,7 @@ func (this Gamepad) Buttons() (ret js.FrozenArray[GamepadButton], ok bool) {
 // It returns ok=false if there is no such property.
 func (this Gamepad) Hand() (ret GamepadHand, ok bool) {
 	ok = js.True == bindings.GetGamepadHand(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1867,7 +1881,7 @@ func (this Gamepad) Hand() (ret GamepadHand, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Gamepad) HapticActuators() (ret js.FrozenArray[GamepadHapticActuator], ok bool) {
 	ok = js.True == bindings.GetGamepadHapticActuators(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1877,7 +1891,7 @@ func (this Gamepad) HapticActuators() (ret js.FrozenArray[GamepadHapticActuator]
 // It returns ok=false if there is no such property.
 func (this Gamepad) Pose() (ret GamepadPose, ok bool) {
 	ok = js.True == bindings.GetGamepadPose(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1887,7 +1901,7 @@ func (this Gamepad) Pose() (ret GamepadPose, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Gamepad) TouchEvents() (ret js.FrozenArray[GamepadTouch], ok bool) {
 	ok = js.True == bindings.GetGamepadTouchEvents(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1897,7 +1911,7 @@ func (this Gamepad) TouchEvents() (ret js.FrozenArray[GamepadTouch], ok bool) {
 // It returns ok=false if there is no such property.
 func (this Gamepad) VibrationActuator() (ret GamepadHapticActuator, ok bool) {
 	ok = js.True == bindings.GetGamepadVibrationActuator(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1937,17 +1951,32 @@ func (p RelatedApplication) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RelatedApplication) UpdateFrom(ref js.Ref) {
+func (p *RelatedApplication) UpdateFrom(ref js.Ref) {
 	bindings.RelatedApplicationJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RelatedApplication) Update(ref js.Ref) {
+func (p *RelatedApplication) Update(ref js.Ref) {
 	bindings.RelatedApplicationJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RelatedApplication) FreeMembers(recursive bool) {
+	js.Free(
+		p.Platform.Ref(),
+		p.Url.Ref(),
+		p.Id.Ref(),
+		p.Version.Ref(),
+	)
+	p.Platform = p.Platform.FromRef(js.Undefined)
+	p.Url = p.Url.FromRef(js.Undefined)
+	p.Id = p.Id.FromRef(js.Undefined)
+	p.Version = p.Version.FromRef(js.Undefined)
 }
 
 type MediaKeySystemMediaCapability struct {
@@ -1981,17 +2010,30 @@ func (p MediaKeySystemMediaCapability) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MediaKeySystemMediaCapability) UpdateFrom(ref js.Ref) {
+func (p *MediaKeySystemMediaCapability) UpdateFrom(ref js.Ref) {
 	bindings.MediaKeySystemMediaCapabilityJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MediaKeySystemMediaCapability) Update(ref js.Ref) {
+func (p *MediaKeySystemMediaCapability) Update(ref js.Ref) {
 	bindings.MediaKeySystemMediaCapabilityJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MediaKeySystemMediaCapability) FreeMembers(recursive bool) {
+	js.Free(
+		p.ContentType.Ref(),
+		p.EncryptionScheme.Ref(),
+		p.Robustness.Ref(),
+	)
+	p.ContentType = p.ContentType.FromRef(js.Undefined)
+	p.EncryptionScheme = p.EncryptionScheme.FromRef(js.Undefined)
+	p.Robustness = p.Robustness.FromRef(js.Undefined)
 }
 
 type MediaKeysRequirement uint32
@@ -2068,17 +2110,34 @@ func (p MediaKeySystemConfiguration) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MediaKeySystemConfiguration) UpdateFrom(ref js.Ref) {
+func (p *MediaKeySystemConfiguration) UpdateFrom(ref js.Ref) {
 	bindings.MediaKeySystemConfigurationJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MediaKeySystemConfiguration) Update(ref js.Ref) {
+func (p *MediaKeySystemConfiguration) Update(ref js.Ref) {
 	bindings.MediaKeySystemConfigurationJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MediaKeySystemConfiguration) FreeMembers(recursive bool) {
+	js.Free(
+		p.Label.Ref(),
+		p.InitDataTypes.Ref(),
+		p.AudioCapabilities.Ref(),
+		p.VideoCapabilities.Ref(),
+		p.SessionTypes.Ref(),
+	)
+	p.Label = p.Label.FromRef(js.Undefined)
+	p.InitDataTypes = p.InitDataTypes.FromRef(js.Undefined)
+	p.AudioCapabilities = p.AudioCapabilities.FromRef(js.Undefined)
+	p.VideoCapabilities = p.VideoCapabilities.FromRef(js.Undefined)
+	p.SessionTypes = p.SessionTypes.FromRef(js.Undefined)
 }
 
 type MediaKeySystemAccess struct {
@@ -2086,7 +2145,7 @@ type MediaKeySystemAccess struct {
 }
 
 func (this MediaKeySystemAccess) Once() MediaKeySystemAccess {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2100,7 +2159,7 @@ func (this MediaKeySystemAccess) FromRef(ref js.Ref) MediaKeySystemAccess {
 }
 
 func (this MediaKeySystemAccess) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // KeySystem returns the value of property "MediaKeySystemAccess.keySystem".
@@ -2108,31 +2167,30 @@ func (this MediaKeySystemAccess) Free() {
 // It returns ok=false if there is no such property.
 func (this MediaKeySystemAccess) KeySystem() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetMediaKeySystemAccessKeySystem(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGetConfiguration returns true if the method "MediaKeySystemAccess.getConfiguration" exists.
-func (this MediaKeySystemAccess) HasGetConfiguration() bool {
-	return js.True == bindings.HasMediaKeySystemAccessGetConfiguration(
-		this.Ref(),
+// HasFuncGetConfiguration returns true if the method "MediaKeySystemAccess.getConfiguration" exists.
+func (this MediaKeySystemAccess) HasFuncGetConfiguration() bool {
+	return js.True == bindings.HasFuncMediaKeySystemAccessGetConfiguration(
+		this.ref,
 	)
 }
 
-// GetConfigurationFunc returns the method "MediaKeySystemAccess.getConfiguration".
-func (this MediaKeySystemAccess) GetConfigurationFunc() (fn js.Func[func() MediaKeySystemConfiguration]) {
-	return fn.FromRef(
-		bindings.MediaKeySystemAccessGetConfigurationFunc(
-			this.Ref(),
-		),
+// FuncGetConfiguration returns the method "MediaKeySystemAccess.getConfiguration".
+func (this MediaKeySystemAccess) FuncGetConfiguration() (fn js.Func[func() MediaKeySystemConfiguration]) {
+	bindings.FuncMediaKeySystemAccessGetConfiguration(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetConfiguration calls the method "MediaKeySystemAccess.getConfiguration".
 func (this MediaKeySystemAccess) GetConfiguration() (ret MediaKeySystemConfiguration) {
 	bindings.CallMediaKeySystemAccessGetConfiguration(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2143,32 +2201,31 @@ func (this MediaKeySystemAccess) GetConfiguration() (ret MediaKeySystemConfigura
 // the catch clause.
 func (this MediaKeySystemAccess) TryGetConfiguration() (ret MediaKeySystemConfiguration, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaKeySystemAccessGetConfiguration(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCreateMediaKeys returns true if the method "MediaKeySystemAccess.createMediaKeys" exists.
-func (this MediaKeySystemAccess) HasCreateMediaKeys() bool {
-	return js.True == bindings.HasMediaKeySystemAccessCreateMediaKeys(
-		this.Ref(),
+// HasFuncCreateMediaKeys returns true if the method "MediaKeySystemAccess.createMediaKeys" exists.
+func (this MediaKeySystemAccess) HasFuncCreateMediaKeys() bool {
+	return js.True == bindings.HasFuncMediaKeySystemAccessCreateMediaKeys(
+		this.ref,
 	)
 }
 
-// CreateMediaKeysFunc returns the method "MediaKeySystemAccess.createMediaKeys".
-func (this MediaKeySystemAccess) CreateMediaKeysFunc() (fn js.Func[func() js.Promise[MediaKeys]]) {
-	return fn.FromRef(
-		bindings.MediaKeySystemAccessCreateMediaKeysFunc(
-			this.Ref(),
-		),
+// FuncCreateMediaKeys returns the method "MediaKeySystemAccess.createMediaKeys".
+func (this MediaKeySystemAccess) FuncCreateMediaKeys() (fn js.Func[func() js.Promise[MediaKeys]]) {
+	bindings.FuncMediaKeySystemAccessCreateMediaKeys(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateMediaKeys calls the method "MediaKeySystemAccess.createMediaKeys".
 func (this MediaKeySystemAccess) CreateMediaKeys() (ret js.Promise[MediaKeys]) {
 	bindings.CallMediaKeySystemAccessCreateMediaKeys(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2179,7 +2236,7 @@ func (this MediaKeySystemAccess) CreateMediaKeys() (ret js.Promise[MediaKeys]) {
 // the catch clause.
 func (this MediaKeySystemAccess) TryCreateMediaKeys() (ret js.Promise[MediaKeys], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaKeySystemAccessCreateMediaKeys(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -2252,17 +2309,30 @@ func (p MediaStreamConstraints) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MediaStreamConstraints) UpdateFrom(ref js.Ref) {
+func (p *MediaStreamConstraints) UpdateFrom(ref js.Ref) {
 	bindings.MediaStreamConstraintsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MediaStreamConstraints) Update(ref js.Ref) {
+func (p *MediaStreamConstraints) Update(ref js.Ref) {
 	bindings.MediaStreamConstraintsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MediaStreamConstraints) FreeMembers(recursive bool) {
+	js.Free(
+		p.Video.Ref(),
+		p.Audio.Ref(),
+		p.PeerIdentity.Ref(),
+	)
+	p.Video = p.Video.FromRef(js.Undefined)
+	p.Audio = p.Audio.FromRef(js.Undefined)
+	p.PeerIdentity = p.PeerIdentity.FromRef(js.Undefined)
 }
 
 type NavigatorUserMediaSuccessCallbackFunc func(this js.Ref, stream MediaStream) js.Ref
@@ -2310,7 +2380,7 @@ func (cb *NavigatorUserMediaSuccessCallback[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 1+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
 
 	if ctx.Return(cb.Fn(
@@ -2370,7 +2440,7 @@ func (cb *NavigatorUserMediaErrorCallback[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 1+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
 
 	if ctx.Return(cb.Fn(
@@ -2439,7 +2509,7 @@ type FencedFrameConfig struct {
 }
 
 func (this FencedFrameConfig) Once() FencedFrameConfig {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2453,7 +2523,7 @@ func (this FencedFrameConfig) FromRef(ref js.Ref) FencedFrameConfig {
 }
 
 func (this FencedFrameConfig) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // ContainerWidth returns the value of property "FencedFrameConfig.containerWidth".
@@ -2461,7 +2531,7 @@ func (this FencedFrameConfig) Free() {
 // It returns ok=false if there is no such property.
 func (this FencedFrameConfig) ContainerWidth() (ret FencedFrameConfigSize, ok bool) {
 	ok = js.True == bindings.GetFencedFrameConfigContainerWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2471,7 +2541,7 @@ func (this FencedFrameConfig) ContainerWidth() (ret FencedFrameConfigSize, ok bo
 // It returns ok=false if there is no such property.
 func (this FencedFrameConfig) ContainerHeight() (ret FencedFrameConfigSize, ok bool) {
 	ok = js.True == bindings.GetFencedFrameConfigContainerHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2481,7 +2551,7 @@ func (this FencedFrameConfig) ContainerHeight() (ret FencedFrameConfigSize, ok b
 // It returns ok=false if there is no such property.
 func (this FencedFrameConfig) ContentWidth() (ret FencedFrameConfigSize, ok bool) {
 	ok = js.True == bindings.GetFencedFrameConfigContentWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2491,31 +2561,30 @@ func (this FencedFrameConfig) ContentWidth() (ret FencedFrameConfigSize, ok bool
 // It returns ok=false if there is no such property.
 func (this FencedFrameConfig) ContentHeight() (ret FencedFrameConfigSize, ok bool) {
 	ok = js.True == bindings.GetFencedFrameConfigContentHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasSetSharedStorageContext returns true if the method "FencedFrameConfig.setSharedStorageContext" exists.
-func (this FencedFrameConfig) HasSetSharedStorageContext() bool {
-	return js.True == bindings.HasFencedFrameConfigSetSharedStorageContext(
-		this.Ref(),
+// HasFuncSetSharedStorageContext returns true if the method "FencedFrameConfig.setSharedStorageContext" exists.
+func (this FencedFrameConfig) HasFuncSetSharedStorageContext() bool {
+	return js.True == bindings.HasFuncFencedFrameConfigSetSharedStorageContext(
+		this.ref,
 	)
 }
 
-// SetSharedStorageContextFunc returns the method "FencedFrameConfig.setSharedStorageContext".
-func (this FencedFrameConfig) SetSharedStorageContextFunc() (fn js.Func[func(contextString js.String)]) {
-	return fn.FromRef(
-		bindings.FencedFrameConfigSetSharedStorageContextFunc(
-			this.Ref(),
-		),
+// FuncSetSharedStorageContext returns the method "FencedFrameConfig.setSharedStorageContext".
+func (this FencedFrameConfig) FuncSetSharedStorageContext() (fn js.Func[func(contextString js.String)]) {
+	bindings.FuncFencedFrameConfigSetSharedStorageContext(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetSharedStorageContext calls the method "FencedFrameConfig.setSharedStorageContext".
 func (this FencedFrameConfig) SetSharedStorageContext(contextString js.String) (ret js.Void) {
 	bindings.CallFencedFrameConfigSetSharedStorageContext(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		contextString.Ref(),
 	)
 
@@ -2527,7 +2596,7 @@ func (this FencedFrameConfig) SetSharedStorageContext(contextString js.String) (
 // the catch clause.
 func (this FencedFrameConfig) TrySetSharedStorageContext(contextString js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFencedFrameConfigSetSharedStorageContext(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		contextString.Ref(),
 	)
 
@@ -2595,17 +2664,32 @@ func (p ShareData) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ShareData) UpdateFrom(ref js.Ref) {
+func (p *ShareData) UpdateFrom(ref js.Ref) {
 	bindings.ShareDataJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ShareData) Update(ref js.Ref) {
+func (p *ShareData) Update(ref js.Ref) {
 	bindings.ShareDataJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ShareData) FreeMembers(recursive bool) {
+	js.Free(
+		p.Files.Ref(),
+		p.Title.Ref(),
+		p.Text.Ref(),
+		p.Url.Ref(),
+	)
+	p.Files = p.Files.FromRef(js.Undefined)
+	p.Title = p.Title.FromRef(js.Undefined)
+	p.Text = p.Text.FromRef(js.Undefined)
+	p.Url = p.Url.FromRef(js.Undefined)
 }
 
 type MIDIInputMap struct {
@@ -2613,7 +2697,7 @@ type MIDIInputMap struct {
 }
 
 func (this MIDIInputMap) Once() MIDIInputMap {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2627,7 +2711,7 @@ func (this MIDIInputMap) FromRef(ref js.Ref) MIDIInputMap {
 }
 
 func (this MIDIInputMap) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type MIDIOutputMap struct {
@@ -2635,7 +2719,7 @@ type MIDIOutputMap struct {
 }
 
 func (this MIDIOutputMap) Once() MIDIOutputMap {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2649,7 +2733,7 @@ func (this MIDIOutputMap) FromRef(ref js.Ref) MIDIOutputMap {
 }
 
 func (this MIDIOutputMap) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type MIDIAccess struct {
@@ -2657,7 +2741,7 @@ type MIDIAccess struct {
 }
 
 func (this MIDIAccess) Once() MIDIAccess {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2671,7 +2755,7 @@ func (this MIDIAccess) FromRef(ref js.Ref) MIDIAccess {
 }
 
 func (this MIDIAccess) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Inputs returns the value of property "MIDIAccess.inputs".
@@ -2679,7 +2763,7 @@ func (this MIDIAccess) Free() {
 // It returns ok=false if there is no such property.
 func (this MIDIAccess) Inputs() (ret MIDIInputMap, ok bool) {
 	ok = js.True == bindings.GetMIDIAccessInputs(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2689,7 +2773,7 @@ func (this MIDIAccess) Inputs() (ret MIDIInputMap, ok bool) {
 // It returns ok=false if there is no such property.
 func (this MIDIAccess) Outputs() (ret MIDIOutputMap, ok bool) {
 	ok = js.True == bindings.GetMIDIAccessOutputs(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2699,7 +2783,7 @@ func (this MIDIAccess) Outputs() (ret MIDIOutputMap, ok bool) {
 // It returns ok=false if there is no such property.
 func (this MIDIAccess) SysexEnabled() (ret bool, ok bool) {
 	ok = js.True == bindings.GetMIDIAccessSysexEnabled(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }

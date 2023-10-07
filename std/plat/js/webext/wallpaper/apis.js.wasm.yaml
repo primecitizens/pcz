@@ -1,0 +1,89 @@
+- File: webext/chrome/wallpaper.json
+  Dict:
+    Name: SetWallpaperArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - wallpaper
+    Fields:
+      - Name: data
+        Type:
+          Name: Uint8Array
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wallpaper
+      - Name: filename
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wallpaper
+      - Name: layout
+        Required: true
+        Type:
+          Name: WallpaperLayout
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wallpaper
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wallpaper
+      - Name: thumbnail
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wallpaper
+      - Name: url
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wallpaper
+- File: webext/chrome/wallpaper.json
+  Enum:
+    Name: WallpaperLayout
+    Values:
+      - STRETCH
+      - CENTER
+      - CENTER_CROPPED
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - wallpaper
+- File: webext/chrome/wallpaper.json
+  WebextFunc:
+    Name: setWallpaper
+    Args:
+      - Name: details
+        Type:
+          Name: SetWallpaperArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wallpaper
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Uint8Array
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - wallpaper

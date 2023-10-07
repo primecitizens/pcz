@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web store_SyncEventInit
 //go:noescape
@@ -76,11 +74,11 @@ func GetTableLength(
 
 //go:wasmimport plat/js/web has_Table_Grow
 //go:noescape
-func HasTableGrow(this js.Ref) js.Ref
+func HasFuncTableGrow(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Table_Grow
 //go:noescape
-func TableGrowFunc(this js.Ref) js.Ref
+func FuncTableGrow(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Table_Grow
 //go:noescape
@@ -98,11 +96,11 @@ func TryTableGrow(
 
 //go:wasmimport plat/js/web has_Table_Grow1
 //go:noescape
-func HasTableGrow1(this js.Ref) js.Ref
+func HasFuncTableGrow1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Table_Grow1
 //go:noescape
-func TableGrow1Func(this js.Ref) js.Ref
+func FuncTableGrow1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Table_Grow1
 //go:noescape
@@ -118,11 +116,11 @@ func TryTableGrow1(
 
 //go:wasmimport plat/js/web has_Table_Get
 //go:noescape
-func HasTableGet(this js.Ref) js.Ref
+func HasFuncTableGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Table_Get
 //go:noescape
-func TableGetFunc(this js.Ref) js.Ref
+func FuncTableGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Table_Get
 //go:noescape
@@ -138,11 +136,11 @@ func TryTableGet(
 
 //go:wasmimport plat/js/web has_Table_Set
 //go:noescape
-func HasTableSet(this js.Ref) js.Ref
+func HasFuncTableSet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Table_Set
 //go:noescape
-func TableSetFunc(this js.Ref) js.Ref
+func FuncTableSet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Table_Set
 //go:noescape
@@ -160,11 +158,11 @@ func TryTableSet(
 
 //go:wasmimport plat/js/web has_Table_Set1
 //go:noescape
-func HasTableSet1(this js.Ref) js.Ref
+func HasFuncTableSet1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Table_Set1
 //go:noescape
-func TableSet1Func(this js.Ref) js.Ref
+func FuncTableSet1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Table_Set1
 //go:noescape
@@ -199,11 +197,11 @@ func NewTaskControllerByTaskController1() js.Ref
 
 //go:wasmimport plat/js/web has_TaskController_SetPriority
 //go:noescape
-func HasTaskControllerSetPriority(this js.Ref) js.Ref
+func HasFuncTaskControllerSetPriority(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TaskController_SetPriority
 //go:noescape
-func TaskControllerSetPriorityFunc(this js.Ref) js.Ref
+func FuncTaskControllerSetPriority(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TaskController_SetPriority
 //go:noescape
@@ -255,11 +253,11 @@ func GetTaskSignalPriority(
 
 //go:wasmimport plat/js/web has_TaskSignal_Any
 //go:noescape
-func HasTaskSignalAny(this js.Ref) js.Ref
+func HasFuncTaskSignalAny(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TaskSignal_Any
 //go:noescape
-func TaskSignalAnyFunc(this js.Ref) js.Ref
+func FuncTaskSignalAny(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TaskSignal_Any
 //go:noescape
@@ -277,11 +275,11 @@ func TryTaskSignalAny(
 
 //go:wasmimport plat/js/web has_TaskSignal_Any1
 //go:noescape
-func HasTaskSignalAny1(this js.Ref) js.Ref
+func HasFuncTaskSignalAny1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TaskSignal_Any1
 //go:noescape
-func TaskSignalAny1Func(this js.Ref) js.Ref
+func FuncTaskSignalAny1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TaskSignal_Any1
 //go:noescape
@@ -297,11 +295,11 @@ func TryTaskSignalAny1(
 
 //go:wasmimport plat/js/web has_TestUtils_Gc
 //go:noescape
-func HasTestUtilsGc() js.Ref
+func HasFuncTestUtilsGc() js.Ref
 
 //go:wasmimport plat/js/web func_TestUtils_Gc
 //go:noescape
-func TestUtilsGcFunc() js.Ref
+func FuncTestUtilsGc(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TestUtils_Gc
 //go:noescape
@@ -311,7 +309,7 @@ func CallTestUtilsGc(
 //go:wasmimport plat/js/web try_TestUtils_Gc
 //go:noescape
 func TryTestUtilsGc(
-	retPtr unsafe.Pointer, errPtr unsafe.Pointer) (ok js.Ref)
+	retPtr unsafe.Pointer, errPtr unsafe.Pointer) js.Ref
 
 //go:wasmimport plat/js/web store_TextDecodeOptions
 //go:noescape
@@ -365,11 +363,11 @@ func GetTextDecoderIgnoreBOM(
 
 //go:wasmimport plat/js/web has_TextDecoder_Decode
 //go:noescape
-func HasTextDecoderDecode(this js.Ref) js.Ref
+func HasFuncTextDecoderDecode(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TextDecoder_Decode
 //go:noescape
-func TextDecoderDecodeFunc(this js.Ref) js.Ref
+func FuncTextDecoderDecode(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TextDecoder_Decode
 //go:noescape
@@ -387,11 +385,11 @@ func TryTextDecoderDecode(
 
 //go:wasmimport plat/js/web has_TextDecoder_Decode1
 //go:noescape
-func HasTextDecoderDecode1(this js.Ref) js.Ref
+func HasFuncTextDecoderDecode1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TextDecoder_Decode1
 //go:noescape
-func TextDecoderDecode1Func(this js.Ref) js.Ref
+func FuncTextDecoderDecode1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TextDecoder_Decode1
 //go:noescape
@@ -407,11 +405,11 @@ func TryTextDecoderDecode1(
 
 //go:wasmimport plat/js/web has_TextDecoder_Decode2
 //go:noescape
-func HasTextDecoderDecode2(this js.Ref) js.Ref
+func HasFuncTextDecoderDecode2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TextDecoder_Decode2
 //go:noescape
-func TextDecoderDecode2Func(this js.Ref) js.Ref
+func FuncTextDecoderDecode2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TextDecoder_Decode2
 //go:noescape
@@ -465,11 +463,11 @@ func GetTextDecoderStreamWritable(
 
 //go:wasmimport plat/js/web has_TextDetector_Detect
 //go:noescape
-func HasTextDetectorDetect(this js.Ref) js.Ref
+func HasFuncTextDetectorDetect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TextDetector_Detect
 //go:noescape
-func TextDetectorDetectFunc(this js.Ref) js.Ref
+func FuncTextDetectorDetect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TextDetector_Detect
 //go:noescape
@@ -500,11 +498,11 @@ func GetTextEncoderEncoding(
 
 //go:wasmimport plat/js/web has_TextEncoder_Encode
 //go:noescape
-func HasTextEncoderEncode(this js.Ref) js.Ref
+func HasFuncTextEncoderEncode(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TextEncoder_Encode
 //go:noescape
-func TextEncoderEncodeFunc(this js.Ref) js.Ref
+func FuncTextEncoderEncode(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TextEncoder_Encode
 //go:noescape
@@ -520,11 +518,11 @@ func TryTextEncoderEncode(
 
 //go:wasmimport plat/js/web has_TextEncoder_Encode1
 //go:noescape
-func HasTextEncoderEncode1(this js.Ref) js.Ref
+func HasFuncTextEncoderEncode1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TextEncoder_Encode1
 //go:noescape
-func TextEncoderEncode1Func(this js.Ref) js.Ref
+func FuncTextEncoderEncode1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TextEncoder_Encode1
 //go:noescape
@@ -538,11 +536,11 @@ func TryTextEncoderEncode1(
 
 //go:wasmimport plat/js/web has_TextEncoder_EncodeInto
 //go:noescape
-func HasTextEncoderEncodeInto(this js.Ref) js.Ref
+func HasFuncTextEncoderEncodeInto(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TextEncoder_EncodeInto
 //go:noescape
-func TextEncoderEncodeIntoFunc(this js.Ref) js.Ref
+func FuncTextEncoderEncodeInto(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TextEncoder_EncodeInto
 //go:noescape
@@ -635,11 +633,11 @@ func NewTextFormatUpdateEventByTextFormatUpdateEvent1(
 
 //go:wasmimport plat/js/web has_TextFormatUpdateEvent_GetTextFormats
 //go:noescape
-func HasTextFormatUpdateEventGetTextFormats(this js.Ref) js.Ref
+func HasFuncTextFormatUpdateEventGetTextFormats(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TextFormatUpdateEvent_GetTextFormats
 //go:noescape
-func TextFormatUpdateEventGetTextFormatsFunc(this js.Ref) js.Ref
+func FuncTextFormatUpdateEventGetTextFormats(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TextFormatUpdateEvent_GetTextFormats
 //go:noescape
@@ -730,11 +728,11 @@ func GetTimeEventDetail(
 
 //go:wasmimport plat/js/web has_TimeEvent_InitTimeEvent
 //go:noescape
-func HasTimeEventInitTimeEvent(this js.Ref) js.Ref
+func HasFuncTimeEventInitTimeEvent(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TimeEvent_InitTimeEvent
 //go:noescape
-func TimeEventInitTimeEventFunc(this js.Ref) js.Ref
+func FuncTimeEventInitTimeEvent(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TimeEvent_InitTimeEvent
 //go:noescape
@@ -918,11 +916,11 @@ func GetTouchListLength(
 
 //go:wasmimport plat/js/web has_TouchList_Item
 //go:noescape
-func HasTouchListItem(this js.Ref) js.Ref
+func HasFuncTouchListItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TouchList_Item
 //go:noescape
-func TouchListItemFunc(this js.Ref) js.Ref
+func FuncTouchListItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TouchList_Item
 //go:noescape
@@ -984,11 +982,11 @@ func GetTouchEventShiftKey(
 
 //go:wasmimport plat/js/web has_TouchEvent_GetModifierState
 //go:noescape
-func HasTouchEventGetModifierState(this js.Ref) js.Ref
+func HasFuncTouchEventGetModifierState(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TouchEvent_GetModifierState
 //go:noescape
-func TouchEventGetModifierStateFunc(this js.Ref) js.Ref
+func FuncTouchEventGetModifierState(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TouchEvent_GetModifierState
 //go:noescape
@@ -1067,11 +1065,11 @@ func GetTransformStreamDefaultControllerDesiredSize(
 
 //go:wasmimport plat/js/web has_TransformStreamDefaultController_Enqueue
 //go:noescape
-func HasTransformStreamDefaultControllerEnqueue(this js.Ref) js.Ref
+func HasFuncTransformStreamDefaultControllerEnqueue(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TransformStreamDefaultController_Enqueue
 //go:noescape
-func TransformStreamDefaultControllerEnqueueFunc(this js.Ref) js.Ref
+func FuncTransformStreamDefaultControllerEnqueue(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TransformStreamDefaultController_Enqueue
 //go:noescape
@@ -1087,11 +1085,11 @@ func TryTransformStreamDefaultControllerEnqueue(
 
 //go:wasmimport plat/js/web has_TransformStreamDefaultController_Enqueue1
 //go:noescape
-func HasTransformStreamDefaultControllerEnqueue1(this js.Ref) js.Ref
+func HasFuncTransformStreamDefaultControllerEnqueue1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TransformStreamDefaultController_Enqueue1
 //go:noescape
-func TransformStreamDefaultControllerEnqueue1Func(this js.Ref) js.Ref
+func FuncTransformStreamDefaultControllerEnqueue1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TransformStreamDefaultController_Enqueue1
 //go:noescape
@@ -1105,11 +1103,11 @@ func TryTransformStreamDefaultControllerEnqueue1(
 
 //go:wasmimport plat/js/web has_TransformStreamDefaultController_Error
 //go:noescape
-func HasTransformStreamDefaultControllerError(this js.Ref) js.Ref
+func HasFuncTransformStreamDefaultControllerError(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TransformStreamDefaultController_Error
 //go:noescape
-func TransformStreamDefaultControllerErrorFunc(this js.Ref) js.Ref
+func FuncTransformStreamDefaultControllerError(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TransformStreamDefaultController_Error
 //go:noescape
@@ -1125,11 +1123,11 @@ func TryTransformStreamDefaultControllerError(
 
 //go:wasmimport plat/js/web has_TransformStreamDefaultController_Error1
 //go:noescape
-func HasTransformStreamDefaultControllerError1(this js.Ref) js.Ref
+func HasFuncTransformStreamDefaultControllerError1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TransformStreamDefaultController_Error1
 //go:noescape
-func TransformStreamDefaultControllerError1Func(this js.Ref) js.Ref
+func FuncTransformStreamDefaultControllerError1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TransformStreamDefaultController_Error1
 //go:noescape
@@ -1143,11 +1141,11 @@ func TryTransformStreamDefaultControllerError1(
 
 //go:wasmimport plat/js/web has_TransformStreamDefaultController_Terminate
 //go:noescape
-func HasTransformStreamDefaultControllerTerminate(this js.Ref) js.Ref
+func HasFuncTransformStreamDefaultControllerTerminate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TransformStreamDefaultController_Terminate
 //go:noescape
-func TransformStreamDefaultControllerTerminateFunc(this js.Ref) js.Ref
+func FuncTransformStreamDefaultControllerTerminate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TransformStreamDefaultController_Terminate
 //go:noescape

@@ -1,4 +1,4 @@
-- File: notifications.idl
+- File: webref/notifications.idl
   Interface:
     Name: NotificationEvent
     Inherits: ExtendableEvent
@@ -35,7 +35,7 @@
           - Name: Exposed
             Values:
               - ServiceWorker
-- File: notifications.idl
+- File: webref/notifications.idl
   Dict:
     Name: NotificationEventInit
     Inherits: ExtendableEventInit
@@ -60,7 +60,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: notifications.idl
+- File: webref/notifications.idl
   Dict:
     Name: NotificationOptions
     Fields:
@@ -118,14 +118,14 @@
           Name: sequence
           Params:
             - Name: NotificationAction
-- File: notifications.idl
+- File: webref/notifications.idl
   Enum:
     Name: NotificationPermission
     Values:
       - default
       - denied
       - granted
-- File: notifications.idl
+- File: webref/notifications.idl
   Callback:
     Name: NotificationPermissionCallback
     Args:
@@ -134,7 +134,7 @@
           Name: NotificationPermission
     Returns:
       - Name: undefined
-- File: OES_draw_buffers_indexed.idl
+- File: webref/OES_draw_buffers_indexed.idl
   Interface:
     Name: OES_draw_buffers_indexed
     ExtAttrs:
@@ -280,7 +280,7 @@
               - Window
               - Worker
           - Name: LegacyNoInterfaceObject
-- File: OES_element_index_uint.idl
+- File: webref/OES_element_index_uint.idl
   Interface:
     Name: OES_element_index_uint
     ExtAttrs:
@@ -289,7 +289,7 @@
           - Window
           - Worker
       - Name: LegacyNoInterfaceObject
-- File: OES_fbo_render_mipmap.idl
+- File: webref/OES_fbo_render_mipmap.idl
   Interface:
     Name: OES_fbo_render_mipmap
     ExtAttrs:
@@ -298,7 +298,7 @@
           - Window
           - Worker
       - Name: LegacyNoInterfaceObject
-- File: OES_standard_derivatives.idl
+- File: webref/OES_standard_derivatives.idl
   Interface:
     Name: OES_standard_derivatives
     ExtAttrs:
@@ -312,7 +312,7 @@
         Value: "0x8B8B"
         Type:
           Name: GLenum
-- File: OES_texture_float.idl
+- File: webref/OES_texture_float.idl
   Interface:
     Name: OES_texture_float
     ExtAttrs:
@@ -321,7 +321,7 @@
           - Window
           - Worker
       - Name: LegacyNoInterfaceObject
-- File: OES_texture_float_linear.idl
+- File: webref/OES_texture_float_linear.idl
   Interface:
     Name: OES_texture_float_linear
     ExtAttrs:
@@ -330,7 +330,7 @@
           - Window
           - Worker
       - Name: LegacyNoInterfaceObject
-- File: OES_texture_half_float.idl
+- File: webref/OES_texture_half_float.idl
   Interface:
     Name: OES_texture_half_float
     ExtAttrs:
@@ -344,7 +344,7 @@
         Value: "0x8D61"
         Type:
           Name: GLenum
-- File: OES_texture_half_float_linear.idl
+- File: webref/OES_texture_half_float_linear.idl
   Interface:
     Name: OES_texture_half_float_linear
     ExtAttrs:
@@ -353,7 +353,7 @@
           - Window
           - Worker
       - Name: LegacyNoInterfaceObject
-- File: OES_vertex_array_object.idl
+- File: webref/OES_vertex_array_object.idl
   Interface:
     Name: OES_vertex_array_object
     ExtAttrs:
@@ -421,7 +421,7 @@
               - Window
               - Worker
           - Name: LegacyNoInterfaceObject
-- File: web-otp.idl
+- File: webref/web-otp.idl
   Interface:
     Name: OTPCredential
     Inherits: Credential
@@ -440,7 +440,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: web-otp.idl
+- File: webref/web-otp.idl
   Dict:
     Name: OTPCredentialRequestOptions
     Fields:
@@ -450,12 +450,12 @@
           Name: sequence
           Params:
             - Name: OTPCredentialTransportType
-- File: web-otp.idl
+- File: webref/web-otp.idl
   Enum:
     Name: OTPCredentialTransportType
     Values:
       - sms
-- File: OVR_multiview2.idl
+- File: webref/OVR_multiview2.idl
   Interface:
     Name: OVR_multiview2
     ExtAttrs:
@@ -511,7 +511,7 @@
               - Window
               - Worker
           - Name: LegacyNoInterfaceObject
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: OfflineAudioCompletionEvent
     Inherits: Event
@@ -540,7 +540,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: OfflineAudioCompletionEventInit
     Inherits: EventInit
@@ -561,7 +561,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: OfflineAudioContext
     Inherits: BaseAudioContext
@@ -640,7 +640,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: OfflineAudioContextOptions
     Fields:
@@ -656,7 +656,7 @@
         Required: true
         Type:
           Name: float
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: OffscreenCanvas
     Inherits: EventTarget
@@ -767,7 +767,7 @@
               - Window
               - Worker
           - Name: Transferable
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: OffscreenCanvasRenderingContext2D
     ExtAttrs:
@@ -1606,7 +1606,7 @@
       - Name: isContextLost
         Returns:
           - Name: boolean
-- File: html.idl
+- File: webref/html.idl
   Typedef:
     Name: OffscreenRenderingContext
     Type:
@@ -1616,7 +1616,7 @@
         - Name: WebGLRenderingContext
         - Name: WebGL2RenderingContext
         - Name: GPUCanvasContext
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: OffscreenRenderingContextId
     Values:
@@ -1625,13 +1625,13 @@
       - webgl
       - webgl2
       - webgpu
-- File: html.idl
+- File: webref/html.idl
   Typedef:
     Name: OnBeforeUnloadEventHandler
     Type:
       Name: OnBeforeUnloadEventHandlerNonNull
       Nullable: true
-- File: html.idl
+- File: webref/html.idl
   Callback:
     Name: OnBeforeUnloadEventHandlerNonNull
     Args:
@@ -1643,13 +1643,13 @@
         Nullable: true
     ExtAttrs:
       - Name: LegacyTreatNonObjectAsNull
-- File: html.idl
+- File: webref/html.idl
   Typedef:
     Name: OnErrorEventHandler
     Type:
       Name: OnErrorEventHandlerNonNull
       Nullable: true
-- File: html.idl
+- File: webref/html.idl
   Callback:
     Name: OnErrorEventHandlerNonNull
     Args:
@@ -1678,12 +1678,12 @@
       - Name: any
     ExtAttrs:
       - Name: LegacyTreatNonObjectAsNull
-- File: fenced-frame.idl
+- File: webref/fenced-frame.idl
   Enum:
     Name: OpaqueProperty
     Values:
       - opaque
-- File: file-system-access.idl
+- File: webref/file-system-access.idl
   Dict:
     Name: OpenFilePickerOptions
     Inherits: FilePickerOptions
@@ -1707,14 +1707,14 @@
       - Name: startIn
         Type:
           Name: StartInDirectory
-- File: trust-token-api.idl
+- File: webref/trust-token-api.idl
   Enum:
     Name: OperationType
     Values:
       - token-request
       - send-redemption-record
       - token-redemption
-- File: web-animations.idl
+- File: webref/web-animations.idl
   Dict:
     Name: OptionalEffectTiming
     Fields:
@@ -1747,13 +1747,13 @@
       - Name: playbackRate
         Type:
           Name: double
-- File: webcodecs-opus-codec-registration.idl
+- File: webref/webcodecs-opus-codec-registration.idl
   Enum:
     Name: OpusBitstreamFormat
     Values:
       - opus
       - ogg
-- File: webcodecs-opus-codec-registration.idl
+- File: webref/webcodecs-opus-codec-registration.idl
   Dict:
     Name: OpusEncoderConfig
     Fields:
@@ -1786,7 +1786,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: screen-orientation.idl
+- File: webref/screen-orientation.idl
   Enum:
     Name: OrientationLockType
     Values:
@@ -1798,7 +1798,7 @@
       - portrait-secondary
       - landscape-primary
       - landscape-secondary
-- File: orientation-sensor.idl
+- File: webref/orientation-sensor.idl
   Interface:
     Name: OrientationSensor
     Inherits: Sensor
@@ -1833,13 +1833,13 @@
           - Name: Exposed
             Values:
               - Window
-- File: orientation-sensor.idl
+- File: webref/orientation-sensor.idl
   Enum:
     Name: OrientationSensorLocalCoordinateSystem
     Values:
       - device
       - screen
-- File: orientation-sensor.idl
+- File: webref/orientation-sensor.idl
   Dict:
     Name: OrientationSensorOptions
     Inherits: SensorOptions
@@ -1851,7 +1851,7 @@
       - Name: frequency
         Type:
           Name: double
-- File: screen-orientation.idl
+- File: webref/screen-orientation.idl
   Enum:
     Name: OrientationType
     Values:
@@ -1859,7 +1859,7 @@
       - portrait-secondary
       - landscape-primary
       - landscape-secondary
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: OscillatorNode
     Inherits: AudioScheduledSourceNode
@@ -1917,7 +1917,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: OscillatorOptions
     Inherits: AudioNodeOptions
@@ -1946,7 +1946,7 @@
       - Name: channelInterpretation
         Type:
           Name: ChannelInterpretation
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Enum:
     Name: OscillatorType
     Values:
@@ -1955,14 +1955,14 @@
       - sawtooth
       - triangle
       - custom
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Enum:
     Name: OverSampleType
     Values:
       - none
       - 2x
       - 4x
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Interface:
     Name: OverconstrainedError
     Inherits: DOMException
@@ -1970,7 +1970,6 @@
       - Name: Exposed
         Values:
           - Window
-      - Name: Serializable
     Attrs:
       - Name: constraint
         Readonly: true
@@ -1980,7 +1979,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: Serializable
     Constructors:
       - Args:
           - Name: constraint
@@ -1995,8 +1993,7 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: Serializable
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: PageTransitionEvent
     Inherits: Event
@@ -2027,7 +2024,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: PageTransitionEventInit
     Inherits: EventInit
@@ -2048,7 +2045,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: css-paint-api.idl
+- File: webref/css-paint-api.idl
   Interface:
     Name: PaintRenderingContext2D
     ExtAttrs:
@@ -2686,7 +2683,7 @@
       - Name: isContextLost
         Returns:
           - Name: boolean
-- File: css-paint-api.idl
+- File: webref/css-paint-api.idl
   Dict:
     Name: PaintRenderingContext2DSettings
     Fields:

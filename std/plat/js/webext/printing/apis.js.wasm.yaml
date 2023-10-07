@@ -1,0 +1,633 @@
+- File: webext/chrome/printing.idl
+  Callback:
+    Name: CancelJobCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printing
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/printing.idl
+  Callback:
+    Name: GetPrinterInfoCallback
+    Args:
+      - Name: response
+        Type:
+          Name: GetPrinterInfoResponse
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printing
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printing
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/printing.idl
+  Dict:
+    Name: GetPrinterInfoResponse
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printing
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: capabilities
+        Type:
+          Name: object
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printing
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+      - Name: status
+        Type:
+          Name: PrinterStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printing
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+- File: webext/chrome/printing.idl
+  Callback:
+    Name: GetPrintersCallback
+    Args:
+      - Name: printers
+        Type:
+          Name: sequence
+          Params:
+            - Name: Printer
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - printing
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printing
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printing
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/printing.idl
+  Enum:
+    Name: JobStatus
+    Values:
+      - PENDING
+      - IN_PROGRESS
+      - FAILED
+      - CANCELED
+      - PRINTED
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printing
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/printing.idl
+  Dict:
+    Name: Printer
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printing
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printing
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printing
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+      - Name: description
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printing
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+      - Name: uri
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printing
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+      - Name: source
+        Type:
+          Name: PrinterSource
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printing
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+      - Name: isDefault
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printing
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+      - Name: recentlyUsedRank
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printing
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+- File: webext/chrome/printing.idl
+  Enum:
+    Name: PrinterSource
+    Values:
+      - USER
+      - POLICY
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printing
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/printing.idl
+  Enum:
+    Name: PrinterStatus
+    Values:
+      - DOOR_OPEN
+      - TRAY_MISSING
+      - OUT_OF_INK
+      - OUT_OF_PAPER
+      - OUTPUT_FULL
+      - PAPER_JAM
+      - GENERIC_ISSUE
+      - STOPPED
+      - UNREACHABLE
+      - EXPIRED_CERTIFICATE
+      - AVAILABLE
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printing
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/printing.idl
+  Interface:
+    Name: Properties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printing
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Operations:
+      - Name: MAX_SUBMIT_JOB_CALLS_PER_MINUTE
+        Modifier: static
+        Returns:
+          - Name: long
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - printing
+        ExtAttrs:
+          - Name: value
+            Values:
+              - "40"
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+      - Name: MAX_GET_PRINTER_INFO_CALLS_PER_MINUTE
+        Modifier: static
+        Returns:
+          - Name: long
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - printing
+        ExtAttrs:
+          - Name: value
+            Values:
+              - "20"
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+- File: webext/chrome/printing.idl
+  Callback:
+    Name: SubmitJobCallback
+    Args:
+      - Name: response
+        Type:
+          Name: SubmitJobResponse
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printing
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printing
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/printing.idl
+  Dict:
+    Name: SubmitJobRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printing
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: job
+        Type:
+          Name: PrintJob
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+      - Name: documentBlobUuid
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printing
+        ExtAttrs:
+          - Name: nodoc
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+- File: webext/chrome/printing.idl
+  Dict:
+    Name: SubmitJobResponse
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printing
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: status
+        Type:
+          Name: SubmitJobStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printing
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+      - Name: jobId
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printing
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+- File: webext/chrome/printing.idl
+  Enum:
+    Name: SubmitJobStatus
+    Values:
+      - OK
+      - USER_REJECTED
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printing
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/printing.idl
+  WebextFunc:
+    Name: cancelJob
+    Modifier: static
+    Args:
+      - Name: jobId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printing
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - printing
+- File: webext/chrome/printing.idl
+  WebextFunc:
+    Name: getPrinterInfo
+    Modifier: static
+    Args:
+      - Name: printerId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printing
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: GetPrinterInfoResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - printing
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - printing
+- File: webext/chrome/printing.idl
+  WebextFunc:
+    Name: getPrinters
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: Printer
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - printing
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - printing
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - printing
+- File: webext/chrome/printing.idl
+  WebextEvent:
+    Name: onJobStatusChanged
+    Modifier: static
+    Args:
+      - Name: jobId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printing
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+      - Name: status
+        Type:
+          Name: JobStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printing
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printing
+- File: webext/chrome/printing.idl
+  WebextFunc:
+    Name: submitJob
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: SubmitJobRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printing
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printing
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: SubmitJobResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - printing
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - printing

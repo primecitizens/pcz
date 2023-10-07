@@ -1,0 +1,148 @@
+- File: webext/virtual_keyboard.idl
+  Dict:
+    Name: FeatureRestrictions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboard
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: autoCompleteEnabled
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboard
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboard
+      - Name: autoCorrectEnabled
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboard
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboard
+      - Name: handwritingEnabled
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboard
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboard
+      - Name: spellCheckEnabled
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboard
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboard
+      - Name: voiceInputEnabled
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboard
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboard
+- File: webext/virtual_keyboard.idl
+  Callback:
+    Name: RestrictFeaturesCallback
+    Args:
+      - Name: update
+        Type:
+          Name: FeatureRestrictions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboard
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboard
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboard
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboard
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/virtual_keyboard.idl
+  WebextFunc:
+    Name: restrictFeatures
+    Args:
+      - Name: restrictions
+        Type:
+          Name: FeatureRestrictions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboard
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboard
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: FeatureRestrictions
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - virtualKeyboard
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboard

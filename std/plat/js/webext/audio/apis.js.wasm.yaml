@@ -1,0 +1,699 @@
+- File: webext/audio.idl
+  Dict:
+    Name: AudioDeviceInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - audio
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+      - Name: streamType
+        Type:
+          Name: StreamType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+      - Name: deviceType
+        Type:
+          Name: DeviceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+      - Name: displayName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+      - Name: deviceName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+      - Name: isActive
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+      - Name: level
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+      - Name: stableDeviceId
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+- File: webext/audio.idl
+  Dict:
+    Name: DeviceFilter
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - audio
+    Fields:
+      - Name: streamTypes
+        Type:
+          Name: sequence
+          Params:
+            - Name: StreamType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - audio
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+      - Name: isActive
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+- File: webext/audio.idl
+  Dict:
+    Name: DeviceIdLists
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - audio
+    Fields:
+      - Name: input
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - audio
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+      - Name: output
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - audio
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+- File: webext/audio.idl
+  Dict:
+    Name: DeviceProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - audio
+    Fields:
+      - Name: level
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+- File: webext/audio.idl
+  Enum:
+    Name: DeviceType
+    Values:
+      - HEADPHONE
+      - MIC
+      - USB
+      - BLUETOOTH
+      - HDMI
+      - INTERNAL_SPEAKER
+      - INTERNAL_MIC
+      - FRONT_MIC
+      - REAR_MIC
+      - KEYBOARD_MIC
+      - HOTWORD
+      - LINEOUT
+      - POST_MIX_LOOPBACK
+      - POST_DSP_LOOPBACK
+      - ALSA_LOOPBACK
+      - OTHER
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - audio
+- File: webext/audio.idl
+  Callback:
+    Name: EmptyCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - audio
+- File: webext/audio.idl
+  Callback:
+    Name: GetDevicesCallback
+    Args:
+      - Name: devices
+        Type:
+          Name: sequence
+          Params:
+            - Name: AudioDeviceInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - audio
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - audio
+- File: webext/audio.idl
+  Callback:
+    Name: GetMuteCallback
+    Args:
+      - Name: value
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - audio
+- File: webext/audio.idl
+  Dict:
+    Name: LevelChangedEvent
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - audio
+    Fields:
+      - Name: deviceId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+      - Name: level
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+- File: webext/audio.idl
+  Dict:
+    Name: MuteChangedEvent
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - audio
+    Fields:
+      - Name: streamType
+        Type:
+          Name: StreamType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+      - Name: isMuted
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+- File: webext/audio.idl
+  Enum:
+    Name: StreamType
+    Values:
+      - INPUT
+      - OUTPUT
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - audio
+- File: webext/audio.idl
+  WebextFunc:
+    Name: getDevices
+    Modifier: static
+    Args:
+      - Name: filter
+        Optional: true
+        Type:
+          Name: DeviceFilter
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: AudioDeviceInfo
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - audio
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - audio
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - audio
+- File: webext/audio.idl
+  WebextFunc:
+    Name: getMute
+    Modifier: static
+    Args:
+      - Name: streamType
+        Type:
+          Name: StreamType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - audio
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - audio
+- File: webext/audio.idl
+  WebextEvent:
+    Name: onDeviceListChanged
+    Modifier: static
+    Args:
+      - Name: devices
+        Type:
+          Name: sequence
+          Params:
+            - Name: AudioDeviceInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - audio
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - audio
+- File: webext/audio.idl
+  WebextEvent:
+    Name: onLevelChanged
+    Modifier: static
+    Args:
+      - Name: event
+        Type:
+          Name: LevelChangedEvent
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - audio
+- File: webext/audio.idl
+  WebextEvent:
+    Name: onMuteChanged
+    Modifier: static
+    Args:
+      - Name: event
+        Type:
+          Name: MuteChangedEvent
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - audio
+- File: webext/audio.idl
+  WebextFunc:
+    Name: setActiveDevices
+    Modifier: static
+    Args:
+      - Name: ids
+        Type:
+          Name: DeviceIdLists
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - audio
+- File: webext/audio.idl
+  WebextFunc:
+    Name: setMute
+    Modifier: static
+    Args:
+      - Name: streamType
+        Type:
+          Name: StreamType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+      - Name: isMuted
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - audio
+- File: webext/audio.idl
+  WebextFunc:
+    Name: setProperties
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+      - Name: properties
+        Type:
+          Name: DeviceProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - audio
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - audio
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - audio

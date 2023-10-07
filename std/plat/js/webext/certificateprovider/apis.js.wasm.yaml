@@ -1,0 +1,976 @@
+- File: webext/chrome/certificate_provider.idl
+  Enum:
+    Name: Algorithm
+    Values:
+      - RSASSA_PKCS1_v1_5_MD5_SHA1
+      - RSASSA_PKCS1_v1_5_SHA1
+      - RSASSA_PKCS1_v1_5_SHA256
+      - RSASSA_PKCS1_v1_5_SHA384
+      - RSASSA_PKCS1_v1_5_SHA512
+      - RSASSA_PSS_SHA256
+      - RSASSA_PSS_SHA384
+      - RSASSA_PSS_SHA512
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  Dict:
+    Name: CertificateInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+    Fields:
+      - Name: certificate
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+      - Name: supportedHashes
+        Type:
+          Name: sequence
+          Params:
+            - Name: Hash
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - certificateProvider
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  Callback:
+    Name: CertificatesCallback
+    Args:
+      - Name: certificates
+        Type:
+          Name: sequence
+          Params:
+            - Name: CertificateInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - certificateProvider
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+      - Name: callback
+        Type:
+          Name: ResultCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  Dict:
+    Name: CertificatesUpdateRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+    Fields:
+      - Name: certificatesRequestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  Dict:
+    Name: ClientCertificateInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+    Fields:
+      - Name: certificateChain
+        Type:
+          Name: sequence
+          Params:
+            - Name: ArrayBuffer
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - certificateProvider
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+      - Name: supportedAlgorithms
+        Type:
+          Name: sequence
+          Params:
+            - Name: Algorithm
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - certificateProvider
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  Enum:
+    Name: Error
+    Values:
+      - GENERAL_ERROR
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  Enum:
+    Name: Hash
+    Values:
+      - MD5_SHA1
+      - SHA1
+      - SHA256
+      - SHA384
+      - SHA512
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  Enum:
+    Name: PinRequestErrorType
+    Values:
+      - INVALID_PIN
+      - INVALID_PUK
+      - MAX_ATTEMPTS_EXCEEDED
+      - UNKNOWN_ERROR
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  Enum:
+    Name: PinRequestType
+    Values:
+      - PIN
+      - PUK
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  Dict:
+    Name: PinResponseDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+    Fields:
+      - Name: userInput
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  Callback:
+    Name: ReportSignatureCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  Dict:
+    Name: ReportSignatureDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+    Fields:
+      - Name: signRequestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+      - Name: error
+        Type:
+          Name: Error
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+      - Name: signature
+        Type:
+          Name: ArrayBuffer
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  Callback:
+    Name: RequestPinCallback
+    Args:
+      - Name: details
+        Optional: true
+        Type:
+          Name: PinResponseDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  Dict:
+    Name: RequestPinDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+    Fields:
+      - Name: signRequestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+      - Name: requestType
+        Type:
+          Name: PinRequestType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+      - Name: errorType
+        Type:
+          Name: PinRequestErrorType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+      - Name: attemptsLeft
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  Callback:
+    Name: ResultCallback
+    Args:
+      - Name: rejectedCertificates
+        Type:
+          Name: sequence
+          Params:
+            - Name: ArrayBuffer
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - certificateProvider
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  Callback:
+    Name: SetCertificatesCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  Dict:
+    Name: SetCertificatesDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+    Fields:
+      - Name: certificatesRequestId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+      - Name: error
+        Type:
+          Name: Error
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+      - Name: clientCertificates
+        Type:
+          Name: sequence
+          Params:
+            - Name: ClientCertificateInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - certificateProvider
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  Callback:
+    Name: SignCallback
+    Args:
+      - Name: signature
+        Optional: true
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  Dict:
+    Name: SignRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+    Fields:
+      - Name: signRequestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+      - Name: digest
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+      - Name: hash
+        Type:
+          Name: Hash
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+      - Name: certificate
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  Dict:
+    Name: SignatureRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+    Fields:
+      - Name: signRequestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+      - Name: input
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+      - Name: algorithm
+        Type:
+          Name: Algorithm
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+      - Name: certificate
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  Callback:
+    Name: StopPinRequestCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  Dict:
+    Name: StopPinRequestDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+    Fields:
+      - Name: signRequestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+      - Name: errorType
+        Type:
+          Name: PinRequestErrorType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  WebextEvent:
+    Name: onCertificatesRequested
+    Modifier: static
+    Args:
+      - Name: reportCallback
+        Type:
+          Name: CertificatesCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+    ExtAttrs:
+      - Name: deprecated
+        Values:
+          - Use $(ref:onCertificatesUpdateRequested) instead.
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  WebextEvent:
+    Name: onCertificatesUpdateRequested
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: CertificatesUpdateRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  WebextEvent:
+    Name: onSignDigestRequested
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: SignRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+      - Name: reportCallback
+        Type:
+          Name: SignCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+    ExtAttrs:
+      - Name: deprecated
+        Values:
+          - Use $(ref:onSignatureRequested) instead.
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  WebextEvent:
+    Name: onSignatureRequested
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: SignatureRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  WebextFunc:
+    Name: reportSignature
+    Modifier: static
+    Args:
+      - Name: details
+        Type:
+          Name: ReportSignatureDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  WebextFunc:
+    Name: requestPin
+    Modifier: static
+    Args:
+      - Name: details
+        Type:
+          Name: RequestPinDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: PinResponseDetails
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - certificateProvider
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  WebextFunc:
+    Name: setCertificates
+    Modifier: static
+    Args:
+      - Name: details
+        Type:
+          Name: SetCertificatesDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider
+- File: webext/chrome/certificate_provider.idl
+  WebextFunc:
+    Name: stopPinRequest
+    Modifier: static
+    Args:
+      - Name: details
+        Type:
+          Name: StopPinRequestDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - certificateProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - certificateProvider
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - certificateProvider

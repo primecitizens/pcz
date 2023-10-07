@@ -1,0 +1,6638 @@
+- File: webext/networking_onc.idl
+  Enum:
+    Name: ActivationStateType
+    Values:
+      - Activated
+      - Activating
+      - NotActivated
+      - PartiallyActivated
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  Callback:
+    Name: BooleanCallback
+    Args:
+      - Name: result
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  Enum:
+    Name: CaptivePortalStatus
+    Values:
+      - Unknown
+      - Offline
+      - Online
+      - Portal
+      - ProxyAuthRequired
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  Callback:
+    Name: CaptivePortalStatusCallback
+    Args:
+      - Name: result
+        Type:
+          Name: CaptivePortalStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: CellularProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: AutoConnect
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: ActivationType
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: ActivationState
+        Type:
+          Name: ActivationStateType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: AllowRoaming
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Family
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: FirmwareRevision
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: FoundNetworks
+        Type:
+          Name: sequence
+          Params:
+            - Name: FoundNetworkProperties
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: HardwareRevision
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: HomeProvider
+        Type:
+          Name: CellularProviderProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Manufacturer
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: ModelID
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: NetworkTechnology
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: PaymentPortal
+        Type:
+          Name: PaymentPortal
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: RoamingState
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Scanning
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: ServingOperator
+        Type:
+          Name: CellularProviderProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SIMLockStatus
+        Type:
+          Name: SIMLockStatus
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SIMPresent
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SignalStrength
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SupportNetworkScan
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: CellularProviderProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: Name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Code
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Country
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: CellularStateProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: ActivationState
+        Type:
+          Name: ActivationStateType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: NetworkTechnology
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: RoamingState
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SIMPresent
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SignalStrength
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: CertificatePattern
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: EnrollmentURI
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Issuer
+        Type:
+          Name: IssuerSubjectPattern
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: IssuerCARef
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Subject
+        Type:
+          Name: IssuerSubjectPattern
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Enum:
+    Name: ClientCertificateType
+    Values:
+      - Ref
+      - Pattern
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  Enum:
+    Name: ConnectionStateType
+    Values:
+      - Connected
+      - Connecting
+      - NotConnected
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: DeviceStateProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: Scanning
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SIMLockStatus
+        Type:
+          Name: SIMLockStatus
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SIMPresent
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: State
+        Type:
+          Name: DeviceStateType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Type
+        Type:
+          Name: NetworkType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Enum:
+    Name: DeviceStateType
+    Values:
+      - Uninitialized
+      - Disabled
+      - Enabling
+      - Enabled
+      - Prohibited
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: EAPProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: AnonymousIdentity
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: ClientCertPattern
+        Type:
+          Name: CertificatePattern
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: ClientCertPKCS11Id
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: ClientCertProvisioningProfileId
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: ClientCertRef
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: ClientCertType
+        Type:
+          Name: ClientCertificateType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Identity
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Inner
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Outer
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Password
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SaveCredentials
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: ServerCAPEMs
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: ServerCARefs
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SubjectMatch
+        Type:
+          Name: ManagedDOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: UseProactiveKeyCaching
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: UseSystemCAs
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: EthernetProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: AutoConnect
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Authentication
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: EAP
+        Type:
+          Name: EAPProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: EthernetStateProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: Authentication
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: FoundNetworkProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: Status
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: NetworkId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Technology
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: ShortName
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: LongName
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Callback:
+    Name: GetDeviceStatesCallback
+    Args:
+      - Name: result
+        Type:
+          Name: sequence
+          Params:
+            - Name: DeviceStateProperties
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  Callback:
+    Name: GetEnabledNetworkTypesCallback
+    Args:
+      - Name: result
+        Type:
+          Name: sequence
+          Params:
+            - Name: NetworkType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  Callback:
+    Name: GetGlobalPolicyCallback
+    Args:
+      - Name: result
+        Type:
+          Name: GlobalPolicy
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  Callback:
+    Name: GetManagedPropertiesCallback
+    Args:
+      - Name: result
+        Type:
+          Name: ManagedProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  Callback:
+    Name: GetNetworksCallback
+    Args:
+      - Name: result
+        Type:
+          Name: sequence
+          Params:
+            - Name: NetworkStateProperties
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  Callback:
+    Name: GetPropertiesCallback
+    Args:
+      - Name: result
+        Type:
+          Name: NetworkProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  Callback:
+    Name: GetStatePropertiesCallback
+    Args:
+      - Name: result
+        Type:
+          Name: NetworkStateProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: GlobalPolicy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: AllowOnlyPolicyNetworksToAutoconnect
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: AllowOnlyPolicyNetworksToConnect
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: AllowOnlyPolicyNetworksToConnectIfAvailable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: BlockedHexSSIDs
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: IPConfigProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: Gateway
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: IPAddress
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: ExcludedRoutes
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: IncludedRoutes
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: NameServers
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SearchDomains
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: RoutingPrefix
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Type
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: WebProxyAutoDiscoveryUrl
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Enum:
+    Name: IPConfigType
+    Values:
+      - DHCP
+      - Static
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: IssuerSubjectPattern
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: CommonName
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Locality
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Organization
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: OrganizationalUnit
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: ManagedBoolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: Active
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Effective
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: UserPolicy
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: DevicePolicy
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: UserSetting
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SharedSetting
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: UserEditable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: DeviceEditable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: ManagedCellularProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: AutoConnect
+        Type:
+          Name: ManagedBoolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: ActivationType
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: ActivationState
+        Type:
+          Name: ActivationStateType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: AllowRoaming
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Family
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: FirmwareRevision
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: FoundNetworks
+        Type:
+          Name: sequence
+          Params:
+            - Name: FoundNetworkProperties
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: HardwareRevision
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: HomeProvider
+        Type:
+          Name: sequence
+          Params:
+            - Name: CellularProviderProperties
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Manufacturer
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: ModelID
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: NetworkTechnology
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: PaymentPortal
+        Type:
+          Name: PaymentPortal
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: RoamingState
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Scanning
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: ServingOperator
+        Type:
+          Name: CellularProviderProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SIMLockStatus
+        Type:
+          Name: SIMLockStatus
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SIMPresent
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SignalStrength
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SupportNetworkScan
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: ManagedDOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: Active
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Effective
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: UserPolicy
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: DevicePolicy
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: UserSetting
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SharedSetting
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: UserEditable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: DeviceEditable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: ManagedDOMStringList
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: Active
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Effective
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: UserPolicy
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: DevicePolicy
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: UserSetting
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SharedSetting
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: UserEditable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: DeviceEditable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: ManagedEthernetProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: AutoConnect
+        Type:
+          Name: ManagedBoolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Authentication
+        Type:
+          Name: ManagedDOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: ManagedIPConfigProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: Gateway
+        Type:
+          Name: ManagedDOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: IPAddress
+        Type:
+          Name: ManagedDOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: NameServers
+        Type:
+          Name: ManagedDOMStringList
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: RoutingPrefix
+        Type:
+          Name: ManagedLong
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Type
+        Type:
+          Name: ManagedDOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: WebProxyAutoDiscoveryUrl
+        Type:
+          Name: ManagedDOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: ManagedIPConfigType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: Active
+        Type:
+          Name: IPConfigType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Effective
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: UserPolicy
+        Type:
+          Name: IPConfigType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: DevicePolicy
+        Type:
+          Name: IPConfigType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: UserSetting
+        Type:
+          Name: IPConfigType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SharedSetting
+        Type:
+          Name: IPConfigType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: UserEditable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: DeviceEditable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: ManagedLong
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: Active
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Effective
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: UserPolicy
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: DevicePolicy
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: UserSetting
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SharedSetting
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: UserEditable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: DeviceEditable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: ManagedManualProxySettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: HTTPProxy
+        Type:
+          Name: ManagedProxyLocation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SecureHTTPProxy
+        Type:
+          Name: ManagedProxyLocation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: FTPProxy
+        Type:
+          Name: ManagedProxyLocation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SOCKS
+        Type:
+          Name: ManagedProxyLocation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: ManagedProperties
+    ExtAttrs:
+      - Name: noinline_doc
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: Cellular
+        Type:
+          Name: ManagedCellularProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: Connectable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: ConnectionState
+        Type:
+          Name: ConnectionStateType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: ErrorState
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: Ethernet
+        Type:
+          Name: ManagedEthernetProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: GUID
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: IPAddressConfigType
+        Type:
+          Name: ManagedIPConfigType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: IPConfigs
+        Type:
+          Name: sequence
+          Params:
+            - Name: IPConfigProperties
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: MacAddress
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: Metered
+        Type:
+          Name: ManagedBoolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: Name
+        Type:
+          Name: ManagedDOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: NameServersConfigType
+        Type:
+          Name: ManagedIPConfigType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: Priority
+        Type:
+          Name: ManagedLong
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: ProxySettings
+        Type:
+          Name: ManagedProxySettings
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: RestrictedConnectivity
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: StaticIPConfig
+        Type:
+          Name: ManagedIPConfigProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: SavedIPConfig
+        Type:
+          Name: IPConfigProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: Source
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: Type
+        Type:
+          Name: NetworkType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: VPN
+        Type:
+          Name: ManagedVPNProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: WiFi
+        Type:
+          Name: ManagedWiFiProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: ManagedProxyLocation
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: Host
+        Type:
+          Name: ManagedDOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Port
+        Type:
+          Name: ManagedLong
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: ManagedProxySettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: Type
+        Type:
+          Name: ManagedProxySettingsType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Manual
+        Type:
+          Name: ManagedManualProxySettings
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: ExcludeDomains
+        Type:
+          Name: ManagedDOMStringList
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: PAC
+        Type:
+          Name: ManagedDOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: ManagedProxySettingsType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: Active
+        Type:
+          Name: ProxySettingsType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Effective
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: UserPolicy
+        Type:
+          Name: ProxySettingsType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: DevicePolicy
+        Type:
+          Name: ProxySettingsType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: UserSetting
+        Type:
+          Name: ProxySettingsType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SharedSetting
+        Type:
+          Name: ProxySettingsType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: UserEditable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: DeviceEditable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: ManagedThirdPartyVPNProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: ExtensionID
+        Type:
+          Name: ManagedDOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: ProviderName
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: ManagedVPNProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: AutoConnect
+        Type:
+          Name: ManagedBoolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Host
+        Type:
+          Name: ManagedDOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Type
+        Type:
+          Name: ManagedDOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: ManagedWiFiProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: AllowGatewayARPPolling
+        Type:
+          Name: ManagedBoolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: AutoConnect
+        Type:
+          Name: ManagedBoolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: BSSID
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Frequency
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: FrequencyList
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: HexSSID
+        Type:
+          Name: ManagedDOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: HiddenSSID
+        Type:
+          Name: ManagedBoolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: RoamThreshold
+        Type:
+          Name: ManagedLong
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SSID
+        Type:
+          Name: ManagedDOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Security
+        Type:
+          Name: ManagedDOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SignalStrength
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: ManualProxySettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: HTTPProxy
+        Type:
+          Name: ProxyLocation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SecureHTTPProxy
+        Type:
+          Name: ProxyLocation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: FTPProxy
+        Type:
+          Name: ProxyLocation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SOCKS
+        Type:
+          Name: ProxyLocation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: NetworkConfigProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: Cellular
+        Type:
+          Name: CellularProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Ethernet
+        Type:
+          Name: EthernetProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: GUID
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: IPAddressConfigType
+        Type:
+          Name: IPConfigType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Name
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: NameServersConfigType
+        Type:
+          Name: IPConfigType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Priority
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Type
+        Type:
+          Name: NetworkType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: VPN
+        Type:
+          Name: VPNProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: WiFi
+        Type:
+          Name: WiFiProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: WiMAX
+        Type:
+          Name: WiMAXProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: NetworkFilter
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: networkType
+        Type:
+          Name: NetworkType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: visible
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: configured
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: limit
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: NetworkProperties
+    ExtAttrs:
+      - Name: noinline_doc
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: Cellular
+        Type:
+          Name: CellularProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: Connectable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: ConnectionState
+        Type:
+          Name: ConnectionStateType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: ErrorState
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: Ethernet
+        Type:
+          Name: EthernetProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: GUID
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: IPAddressConfigType
+        Type:
+          Name: IPConfigType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: IPConfigs
+        Type:
+          Name: sequence
+          Params:
+            - Name: IPConfigProperties
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: MacAddress
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: Metered
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: Name
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: NameServersConfigType
+        Type:
+          Name: IPConfigType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: Priority
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: ProxySettings
+        Type:
+          Name: ProxySettings
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: RestrictedConnectivity
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: StaticIPConfig
+        Type:
+          Name: IPConfigProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: SavedIPConfig
+        Type:
+          Name: IPConfigProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: Source
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: Type
+        Type:
+          Name: NetworkType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: VPN
+        Type:
+          Name: VPNProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+      - Name: WiFi
+        Type:
+          Name: WiFiProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+          - Name: noinline_doc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: NetworkStateProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: Cellular
+        Type:
+          Name: CellularStateProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Connectable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: ConnectionState
+        Type:
+          Name: ConnectionStateType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Ethernet
+        Type:
+          Name: EthernetStateProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: ErrorState
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: GUID
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Name
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Priority
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Source
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Type
+        Type:
+          Name: NetworkType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: VPN
+        Type:
+          Name: VPNStateProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: WiFi
+        Type:
+          Name: WiFiStateProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Enum:
+    Name: NetworkType
+    Values:
+      - All
+      - Cellular
+      - Ethernet
+      - Tether
+      - VPN
+      - Wireless
+      - WiFi
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: PaymentPortal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: Method
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: PostData
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Url
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: ProxyLocation
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: Host
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Port
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: ProxySettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: Type
+        Type:
+          Name: ProxySettingsType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Manual
+        Type:
+          Name: ManualProxySettings
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: ExcludeDomains
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: PAC
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Enum:
+    Name: ProxySettingsType
+    Values:
+      - Direct
+      - Manual
+      - PAC
+      - WPAD
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: SIMLockStatus
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: LockType
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: LockEnabled
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: RetriesLeft
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Callback:
+    Name: StringCallback
+    Args:
+      - Name: result
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: ThirdPartyVPNProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: ExtensionID
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: ProviderName
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: VPNProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: AutoConnect
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Host
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Type
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: VPNStateProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: Type
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Callback:
+    Name: VoidCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: WiFiProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: AllowGatewayARPPolling
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: AutoConnect
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: BSSID
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: EAP
+        Type:
+          Name: EAPProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Frequency
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: FrequencyList
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: HexSSID
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: HiddenSSID
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Passphrase
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: RoamThreshold
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SSID
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Security
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SignalStrength
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: WiFiStateProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: BSSID
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Frequency
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: HexSSID
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: Security
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SignalStrength
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: SSID
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  Dict:
+    Name: WiMAXProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+    Fields:
+      - Name: AutoConnect
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: EAP
+        Type:
+          Name: EAPProperties
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+- File: webext/networking_onc.idl
+  WebextFunc:
+    Name: createNetwork
+    Modifier: static
+    Args:
+      - Name: shared
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: properties
+        Type:
+          Name: NetworkConfigProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: callback
+        Optional: true
+        Type:
+          Name: StringCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  WebextFunc:
+    Name: disableNetworkType
+    Modifier: static
+    Args:
+      - Name: networkType
+        Type:
+          Name: NetworkType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  WebextFunc:
+    Name: enableNetworkType
+    Modifier: static
+    Args:
+      - Name: networkType
+        Type:
+          Name: NetworkType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  WebextFunc:
+    Name: forgetNetwork
+    Modifier: static
+    Args:
+      - Name: networkGuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: callback
+        Optional: true
+        Type:
+          Name: VoidCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  WebextFunc:
+    Name: getCaptivePortalStatus
+    Modifier: static
+    Args:
+      - Name: networkGuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: callback
+        Type:
+          Name: CaptivePortalStatusCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  WebextFunc:
+    Name: getDeviceStates
+    Modifier: static
+    Args:
+      - Name: callback
+        Type:
+          Name: GetDeviceStatesCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  WebextFunc:
+    Name: getGlobalPolicy
+    Modifier: static
+    Args:
+      - Name: callback
+        Type:
+          Name: GetGlobalPolicyCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  WebextFunc:
+    Name: getManagedProperties
+    Modifier: static
+    Args:
+      - Name: networkGuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: callback
+        Type:
+          Name: GetManagedPropertiesCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  WebextFunc:
+    Name: getNetworks
+    Modifier: static
+    Args:
+      - Name: filter
+        Type:
+          Name: NetworkFilter
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: callback
+        Type:
+          Name: GetNetworksCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  WebextFunc:
+    Name: getProperties
+    Modifier: static
+    Args:
+      - Name: networkGuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: callback
+        Type:
+          Name: GetPropertiesCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  WebextFunc:
+    Name: getState
+    Modifier: static
+    Args:
+      - Name: networkGuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: callback
+        Type:
+          Name: GetStatePropertiesCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  WebextEvent:
+    Name: onDeviceStateListChanged
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  WebextEvent:
+    Name: onNetworkListChanged
+    Modifier: static
+    Args:
+      - Name: changes
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  WebextEvent:
+    Name: onNetworksChanged
+    Modifier: static
+    Args:
+      - Name: changes
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - networking
+                    - onc
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  WebextEvent:
+    Name: onPortalDetectionCompleted
+    Modifier: static
+    Args:
+      - Name: networkGuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: status
+        Type:
+          Name: CaptivePortalStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  WebextFunc:
+    Name: requestNetworkScan
+    Modifier: static
+    Args:
+      - Name: networkType
+        Optional: true
+        Type:
+          Name: NetworkType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  WebextFunc:
+    Name: setProperties
+    Modifier: static
+    Args:
+      - Name: networkGuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: properties
+        Type:
+          Name: NetworkConfigProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: callback
+        Optional: true
+        Type:
+          Name: VoidCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  WebextFunc:
+    Name: startConnect
+    Modifier: static
+    Args:
+      - Name: networkGuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: callback
+        Optional: true
+        Type:
+          Name: VoidCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc
+- File: webext/networking_onc.idl
+  WebextFunc:
+    Name: startDisconnect
+    Modifier: static
+    Args:
+      - Name: networkGuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+      - Name: callback
+        Optional: true
+        Type:
+          Name: VoidCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - networking
+                - onc
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - networking
+              - onc
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - networking
+          - onc

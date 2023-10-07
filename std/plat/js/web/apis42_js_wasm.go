@@ -4,18 +4,9 @@
 package web
 
 import (
-	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 const (
 	_ MLOperandType = iota
@@ -78,17 +69,26 @@ func (p MLOperandDescriptor) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLOperandDescriptor) UpdateFrom(ref js.Ref) {
+func (p *MLOperandDescriptor) UpdateFrom(ref js.Ref) {
 	bindings.MLOperandDescriptorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLOperandDescriptor) Update(ref js.Ref) {
+func (p *MLOperandDescriptor) Update(ref js.Ref) {
 	bindings.MLOperandDescriptorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLOperandDescriptor) FreeMembers(recursive bool) {
+	js.Free(
+		p.Dimensions.Ref(),
+	)
+	p.Dimensions = p.Dimensions.FromRef(js.Undefined)
 }
 
 type MLNamedOperands = js.Record[MLOperand]
@@ -127,17 +127,22 @@ func (p MLHardSigmoidOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLHardSigmoidOptions) UpdateFrom(ref js.Ref) {
+func (p *MLHardSigmoidOptions) UpdateFrom(ref js.Ref) {
 	bindings.MLHardSigmoidOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLHardSigmoidOptions) Update(ref js.Ref) {
+func (p *MLHardSigmoidOptions) Update(ref js.Ref) {
 	bindings.MLHardSigmoidOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLHardSigmoidOptions) FreeMembers(recursive bool) {
 }
 
 type MLGruWeightLayout uint32
@@ -207,17 +212,30 @@ func (p MLGruCellOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLGruCellOptions) UpdateFrom(ref js.Ref) {
+func (p *MLGruCellOptions) UpdateFrom(ref js.Ref) {
 	bindings.MLGruCellOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLGruCellOptions) Update(ref js.Ref) {
+func (p *MLGruCellOptions) Update(ref js.Ref) {
 	bindings.MLGruCellOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLGruCellOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Bias.Ref(),
+		p.RecurrentBias.Ref(),
+		p.Activations.Ref(),
+	)
+	p.Bias = p.Bias.FromRef(js.Undefined)
+	p.RecurrentBias = p.RecurrentBias.FromRef(js.Undefined)
+	p.Activations = p.Activations.FromRef(js.Undefined)
 }
 
 type MLRoundingType uint32
@@ -295,17 +313,34 @@ func (p MLPool2dOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLPool2dOptions) UpdateFrom(ref js.Ref) {
+func (p *MLPool2dOptions) UpdateFrom(ref js.Ref) {
 	bindings.MLPool2dOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLPool2dOptions) Update(ref js.Ref) {
+func (p *MLPool2dOptions) Update(ref js.Ref) {
 	bindings.MLPool2dOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLPool2dOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.WindowDimensions.Ref(),
+		p.Padding.Ref(),
+		p.Strides.Ref(),
+		p.Dilations.Ref(),
+		p.OutputSizes.Ref(),
+	)
+	p.WindowDimensions = p.WindowDimensions.FromRef(js.Undefined)
+	p.Padding = p.Padding.FromRef(js.Undefined)
+	p.Strides = p.Strides.FromRef(js.Undefined)
+	p.Dilations = p.Dilations.FromRef(js.Undefined)
+	p.OutputSizes = p.OutputSizes.FromRef(js.Undefined)
 }
 
 type MLLinearOptions struct {
@@ -342,17 +377,22 @@ func (p MLLinearOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLLinearOptions) UpdateFrom(ref js.Ref) {
+func (p *MLLinearOptions) UpdateFrom(ref js.Ref) {
 	bindings.MLLinearOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLLinearOptions) Update(ref js.Ref) {
+func (p *MLLinearOptions) Update(ref js.Ref) {
 	bindings.MLLinearOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLLinearOptions) FreeMembers(recursive bool) {
 }
 
 type MLLeakyReluOptions struct {
@@ -382,17 +422,22 @@ func (p MLLeakyReluOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLLeakyReluOptions) UpdateFrom(ref js.Ref) {
+func (p *MLLeakyReluOptions) UpdateFrom(ref js.Ref) {
 	bindings.MLLeakyReluOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLLeakyReluOptions) Update(ref js.Ref) {
+func (p *MLLeakyReluOptions) Update(ref js.Ref) {
 	bindings.MLLeakyReluOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLLeakyReluOptions) FreeMembers(recursive bool) {
 }
 
 type MLPaddingMode uint32
@@ -456,17 +501,22 @@ func (p MLPadOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLPadOptions) UpdateFrom(ref js.Ref) {
+func (p *MLPadOptions) UpdateFrom(ref js.Ref) {
 	bindings.MLPadOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLPadOptions) Update(ref js.Ref) {
+func (p *MLPadOptions) Update(ref js.Ref) {
 	bindings.MLPadOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLPadOptions) FreeMembers(recursive bool) {
 }
 
 type MLInstanceNormalizationOptions struct {
@@ -508,17 +558,28 @@ func (p MLInstanceNormalizationOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLInstanceNormalizationOptions) UpdateFrom(ref js.Ref) {
+func (p *MLInstanceNormalizationOptions) UpdateFrom(ref js.Ref) {
 	bindings.MLInstanceNormalizationOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLInstanceNormalizationOptions) Update(ref js.Ref) {
+func (p *MLInstanceNormalizationOptions) Update(ref js.Ref) {
 	bindings.MLInstanceNormalizationOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLInstanceNormalizationOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Scale.Ref(),
+		p.Bias.Ref(),
+	)
+	p.Scale = p.Scale.FromRef(js.Undefined)
+	p.Bias = p.Bias.FromRef(js.Undefined)
 }
 
 type MLSoftplusOptions struct {
@@ -548,17 +609,22 @@ func (p MLSoftplusOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLSoftplusOptions) UpdateFrom(ref js.Ref) {
+func (p *MLSoftplusOptions) UpdateFrom(ref js.Ref) {
 	bindings.MLSoftplusOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLSoftplusOptions) Update(ref js.Ref) {
+func (p *MLSoftplusOptions) Update(ref js.Ref) {
 	bindings.MLSoftplusOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLSoftplusOptions) FreeMembers(recursive bool) {
 }
 
 type MLSplitOptions struct {
@@ -588,17 +654,22 @@ func (p MLSplitOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLSplitOptions) UpdateFrom(ref js.Ref) {
+func (p *MLSplitOptions) UpdateFrom(ref js.Ref) {
 	bindings.MLSplitOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLSplitOptions) Update(ref js.Ref) {
+func (p *MLSplitOptions) Update(ref js.Ref) {
 	bindings.MLSplitOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLSplitOptions) FreeMembers(recursive bool) {
 }
 
 type MLInterpolationMode uint32
@@ -660,17 +731,30 @@ func (p MLResample2dOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLResample2dOptions) UpdateFrom(ref js.Ref) {
+func (p *MLResample2dOptions) UpdateFrom(ref js.Ref) {
 	bindings.MLResample2dOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLResample2dOptions) Update(ref js.Ref) {
+func (p *MLResample2dOptions) Update(ref js.Ref) {
 	bindings.MLResample2dOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLResample2dOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Scales.Ref(),
+		p.Sizes.Ref(),
+		p.Axes.Ref(),
+	)
+	p.Scales = p.Scales.FromRef(js.Undefined)
+	p.Sizes = p.Sizes.FromRef(js.Undefined)
+	p.Axes = p.Axes.FromRef(js.Undefined)
 }
 
 type MLReduceOptions struct {
@@ -704,17 +788,26 @@ func (p MLReduceOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLReduceOptions) UpdateFrom(ref js.Ref) {
+func (p *MLReduceOptions) UpdateFrom(ref js.Ref) {
 	bindings.MLReduceOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLReduceOptions) Update(ref js.Ref) {
+func (p *MLReduceOptions) Update(ref js.Ref) {
 	bindings.MLReduceOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLReduceOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Axes.Ref(),
+	)
+	p.Axes = p.Axes.FromRef(js.Undefined)
 }
 
 type MLRecurrentNetworkDirection uint32
@@ -827,17 +920,36 @@ func (p MLLstmOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLLstmOptions) UpdateFrom(ref js.Ref) {
+func (p *MLLstmOptions) UpdateFrom(ref js.Ref) {
 	bindings.MLLstmOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLLstmOptions) Update(ref js.Ref) {
+func (p *MLLstmOptions) Update(ref js.Ref) {
 	bindings.MLLstmOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLLstmOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Bias.Ref(),
+		p.RecurrentBias.Ref(),
+		p.PeepholeWeight.Ref(),
+		p.InitialHiddenState.Ref(),
+		p.InitialCellState.Ref(),
+		p.Activations.Ref(),
+	)
+	p.Bias = p.Bias.FromRef(js.Undefined)
+	p.RecurrentBias = p.RecurrentBias.FromRef(js.Undefined)
+	p.PeepholeWeight = p.PeepholeWeight.FromRef(js.Undefined)
+	p.InitialHiddenState = p.InitialHiddenState.FromRef(js.Undefined)
+	p.InitialCellState = p.InitialCellState.FromRef(js.Undefined)
+	p.Activations = p.Activations.FromRef(js.Undefined)
 }
 
 type MLSqueezeOptions struct {
@@ -863,17 +975,26 @@ func (p MLSqueezeOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLSqueezeOptions) UpdateFrom(ref js.Ref) {
+func (p *MLSqueezeOptions) UpdateFrom(ref js.Ref) {
 	bindings.MLSqueezeOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLSqueezeOptions) Update(ref js.Ref) {
+func (p *MLSqueezeOptions) Update(ref js.Ref) {
 	bindings.MLSqueezeOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLSqueezeOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Axes.Ref(),
+	)
+	p.Axes = p.Axes.FromRef(js.Undefined)
 }
 
 type MLGruOptions struct {
@@ -934,17 +1055,32 @@ func (p MLGruOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLGruOptions) UpdateFrom(ref js.Ref) {
+func (p *MLGruOptions) UpdateFrom(ref js.Ref) {
 	bindings.MLGruOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLGruOptions) Update(ref js.Ref) {
+func (p *MLGruOptions) Update(ref js.Ref) {
 	bindings.MLGruOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLGruOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Bias.Ref(),
+		p.RecurrentBias.Ref(),
+		p.InitialHiddenState.Ref(),
+		p.Activations.Ref(),
+	)
+	p.Bias = p.Bias.FromRef(js.Undefined)
+	p.RecurrentBias = p.RecurrentBias.FromRef(js.Undefined)
+	p.InitialHiddenState = p.InitialHiddenState.FromRef(js.Undefined)
+	p.Activations = p.Activations.FromRef(js.Undefined)
 }
 
 type MLTransposeOptions struct {
@@ -970,17 +1106,26 @@ func (p MLTransposeOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLTransposeOptions) UpdateFrom(ref js.Ref) {
+func (p *MLTransposeOptions) UpdateFrom(ref js.Ref) {
 	bindings.MLTransposeOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLTransposeOptions) Update(ref js.Ref) {
+func (p *MLTransposeOptions) Update(ref js.Ref) {
 	bindings.MLTransposeOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLTransposeOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Permutation.Ref(),
+	)
+	p.Permutation = p.Permutation.FromRef(js.Undefined)
 }
 
 type MLLstmCellOptions struct {
@@ -1022,17 +1167,32 @@ func (p MLLstmCellOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLLstmCellOptions) UpdateFrom(ref js.Ref) {
+func (p *MLLstmCellOptions) UpdateFrom(ref js.Ref) {
 	bindings.MLLstmCellOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLLstmCellOptions) Update(ref js.Ref) {
+func (p *MLLstmCellOptions) Update(ref js.Ref) {
 	bindings.MLLstmCellOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLLstmCellOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Bias.Ref(),
+		p.RecurrentBias.Ref(),
+		p.PeepholeWeight.Ref(),
+		p.Activations.Ref(),
+	)
+	p.Bias = p.Bias.FromRef(js.Undefined)
+	p.RecurrentBias = p.RecurrentBias.FromRef(js.Undefined)
+	p.PeepholeWeight = p.PeepholeWeight.FromRef(js.Undefined)
+	p.Activations = p.Activations.FromRef(js.Undefined)
 }
 
 func NewMLGraphBuilder(context MLContext) (ret MLGraphBuilder) {
@@ -1046,7 +1206,7 @@ type MLGraphBuilder struct {
 }
 
 func (this MLGraphBuilder) Once() MLGraphBuilder {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1060,29 +1220,28 @@ func (this MLGraphBuilder) FromRef(ref js.Ref) MLGraphBuilder {
 }
 
 func (this MLGraphBuilder) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasInput returns true if the method "MLGraphBuilder.input" exists.
-func (this MLGraphBuilder) HasInput() bool {
-	return js.True == bindings.HasMLGraphBuilderInput(
-		this.Ref(),
+// HasFuncInput returns true if the method "MLGraphBuilder.input" exists.
+func (this MLGraphBuilder) HasFuncInput() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderInput(
+		this.ref,
 	)
 }
 
-// InputFunc returns the method "MLGraphBuilder.input".
-func (this MLGraphBuilder) InputFunc() (fn js.Func[func(name js.String, descriptor MLOperandDescriptor) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderInputFunc(
-			this.Ref(),
-		),
+// FuncInput returns the method "MLGraphBuilder.input".
+func (this MLGraphBuilder) FuncInput() (fn js.Func[func(name js.String, descriptor MLOperandDescriptor) MLOperand]) {
+	bindings.FuncMLGraphBuilderInput(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Input calls the method "MLGraphBuilder.input".
 func (this MLGraphBuilder) Input(name js.String, descriptor MLOperandDescriptor) (ret MLOperand) {
 	bindings.CallMLGraphBuilderInput(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 		js.Pointer(&descriptor),
 	)
@@ -1095,7 +1254,7 @@ func (this MLGraphBuilder) Input(name js.String, descriptor MLOperandDescriptor)
 // the catch clause.
 func (this MLGraphBuilder) TryInput(name js.String, descriptor MLOperandDescriptor) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderInput(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 		js.Pointer(&descriptor),
 	)
@@ -1103,26 +1262,25 @@ func (this MLGraphBuilder) TryInput(name js.String, descriptor MLOperandDescript
 	return
 }
 
-// HasConstant returns true if the method "MLGraphBuilder.constant" exists.
-func (this MLGraphBuilder) HasConstant() bool {
-	return js.True == bindings.HasMLGraphBuilderConstant(
-		this.Ref(),
+// HasFuncConstant returns true if the method "MLGraphBuilder.constant" exists.
+func (this MLGraphBuilder) HasFuncConstant() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderConstant(
+		this.ref,
 	)
 }
 
-// ConstantFunc returns the method "MLGraphBuilder.constant".
-func (this MLGraphBuilder) ConstantFunc() (fn js.Func[func(descriptor MLOperandDescriptor, bufferView MLBufferView) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderConstantFunc(
-			this.Ref(),
-		),
+// FuncConstant returns the method "MLGraphBuilder.constant".
+func (this MLGraphBuilder) FuncConstant() (fn js.Func[func(descriptor MLOperandDescriptor, bufferView MLBufferView) MLOperand]) {
+	bindings.FuncMLGraphBuilderConstant(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Constant calls the method "MLGraphBuilder.constant".
 func (this MLGraphBuilder) Constant(descriptor MLOperandDescriptor, bufferView MLBufferView) (ret MLOperand) {
 	bindings.CallMLGraphBuilderConstant(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&descriptor),
 		bufferView.Ref(),
 	)
@@ -1135,7 +1293,7 @@ func (this MLGraphBuilder) Constant(descriptor MLOperandDescriptor, bufferView M
 // the catch clause.
 func (this MLGraphBuilder) TryConstant(descriptor MLOperandDescriptor, bufferView MLBufferView) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderConstant(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&descriptor),
 		bufferView.Ref(),
 	)
@@ -1143,26 +1301,25 @@ func (this MLGraphBuilder) TryConstant(descriptor MLOperandDescriptor, bufferVie
 	return
 }
 
-// HasConstant1 returns true if the method "MLGraphBuilder.constant" exists.
-func (this MLGraphBuilder) HasConstant1() bool {
-	return js.True == bindings.HasMLGraphBuilderConstant1(
-		this.Ref(),
+// HasFuncConstant1 returns true if the method "MLGraphBuilder.constant" exists.
+func (this MLGraphBuilder) HasFuncConstant1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderConstant1(
+		this.ref,
 	)
 }
 
-// Constant1Func returns the method "MLGraphBuilder.constant".
-func (this MLGraphBuilder) Constant1Func() (fn js.Func[func(value float64, typ MLOperandType) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderConstant1Func(
-			this.Ref(),
-		),
+// FuncConstant1 returns the method "MLGraphBuilder.constant".
+func (this MLGraphBuilder) FuncConstant1() (fn js.Func[func(value float64, typ MLOperandType) MLOperand]) {
+	bindings.FuncMLGraphBuilderConstant1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Constant1 calls the method "MLGraphBuilder.constant".
 func (this MLGraphBuilder) Constant1(value float64, typ MLOperandType) (ret MLOperand) {
 	bindings.CallMLGraphBuilderConstant1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(value),
 		uint32(typ),
 	)
@@ -1175,7 +1332,7 @@ func (this MLGraphBuilder) Constant1(value float64, typ MLOperandType) (ret MLOp
 // the catch clause.
 func (this MLGraphBuilder) TryConstant1(value float64, typ MLOperandType) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderConstant1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(value),
 		uint32(typ),
 	)
@@ -1183,26 +1340,25 @@ func (this MLGraphBuilder) TryConstant1(value float64, typ MLOperandType) (ret M
 	return
 }
 
-// HasConstant2 returns true if the method "MLGraphBuilder.constant" exists.
-func (this MLGraphBuilder) HasConstant2() bool {
-	return js.True == bindings.HasMLGraphBuilderConstant2(
-		this.Ref(),
+// HasFuncConstant2 returns true if the method "MLGraphBuilder.constant" exists.
+func (this MLGraphBuilder) HasFuncConstant2() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderConstant2(
+		this.ref,
 	)
 }
 
-// Constant2Func returns the method "MLGraphBuilder.constant".
-func (this MLGraphBuilder) Constant2Func() (fn js.Func[func(value float64) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderConstant2Func(
-			this.Ref(),
-		),
+// FuncConstant2 returns the method "MLGraphBuilder.constant".
+func (this MLGraphBuilder) FuncConstant2() (fn js.Func[func(value float64) MLOperand]) {
+	bindings.FuncMLGraphBuilderConstant2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Constant2 calls the method "MLGraphBuilder.constant".
 func (this MLGraphBuilder) Constant2(value float64) (ret MLOperand) {
 	bindings.CallMLGraphBuilderConstant2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(value),
 	)
 
@@ -1214,33 +1370,32 @@ func (this MLGraphBuilder) Constant2(value float64) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryConstant2(value float64) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderConstant2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(value),
 	)
 
 	return
 }
 
-// HasBuild returns true if the method "MLGraphBuilder.build" exists.
-func (this MLGraphBuilder) HasBuild() bool {
-	return js.True == bindings.HasMLGraphBuilderBuild(
-		this.Ref(),
+// HasFuncBuild returns true if the method "MLGraphBuilder.build" exists.
+func (this MLGraphBuilder) HasFuncBuild() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderBuild(
+		this.ref,
 	)
 }
 
-// BuildFunc returns the method "MLGraphBuilder.build".
-func (this MLGraphBuilder) BuildFunc() (fn js.Func[func(outputs MLNamedOperands) js.Promise[MLGraph]]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderBuildFunc(
-			this.Ref(),
-		),
+// FuncBuild returns the method "MLGraphBuilder.build".
+func (this MLGraphBuilder) FuncBuild() (fn js.Func[func(outputs MLNamedOperands) js.Promise[MLGraph]]) {
+	bindings.FuncMLGraphBuilderBuild(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Build calls the method "MLGraphBuilder.build".
 func (this MLGraphBuilder) Build(outputs MLNamedOperands) (ret js.Promise[MLGraph]) {
 	bindings.CallMLGraphBuilderBuild(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		outputs.Ref(),
 	)
 
@@ -1252,33 +1407,32 @@ func (this MLGraphBuilder) Build(outputs MLNamedOperands) (ret js.Promise[MLGrap
 // the catch clause.
 func (this MLGraphBuilder) TryBuild(outputs MLNamedOperands) (ret js.Promise[MLGraph], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderBuild(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		outputs.Ref(),
 	)
 
 	return
 }
 
-// HasBuildSync returns true if the method "MLGraphBuilder.buildSync" exists.
-func (this MLGraphBuilder) HasBuildSync() bool {
-	return js.True == bindings.HasMLGraphBuilderBuildSync(
-		this.Ref(),
+// HasFuncBuildSync returns true if the method "MLGraphBuilder.buildSync" exists.
+func (this MLGraphBuilder) HasFuncBuildSync() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderBuildSync(
+		this.ref,
 	)
 }
 
-// BuildSyncFunc returns the method "MLGraphBuilder.buildSync".
-func (this MLGraphBuilder) BuildSyncFunc() (fn js.Func[func(outputs MLNamedOperands) MLGraph]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderBuildSyncFunc(
-			this.Ref(),
-		),
+// FuncBuildSync returns the method "MLGraphBuilder.buildSync".
+func (this MLGraphBuilder) FuncBuildSync() (fn js.Func[func(outputs MLNamedOperands) MLGraph]) {
+	bindings.FuncMLGraphBuilderBuildSync(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BuildSync calls the method "MLGraphBuilder.buildSync".
 func (this MLGraphBuilder) BuildSync(outputs MLNamedOperands) (ret MLGraph) {
 	bindings.CallMLGraphBuilderBuildSync(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		outputs.Ref(),
 	)
 
@@ -1290,33 +1444,32 @@ func (this MLGraphBuilder) BuildSync(outputs MLNamedOperands) (ret MLGraph) {
 // the catch clause.
 func (this MLGraphBuilder) TryBuildSync(outputs MLNamedOperands) (ret MLGraph, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderBuildSync(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		outputs.Ref(),
 	)
 
 	return
 }
 
-// HasHardSigmoid returns true if the method "MLGraphBuilder.hardSigmoid" exists.
-func (this MLGraphBuilder) HasHardSigmoid() bool {
-	return js.True == bindings.HasMLGraphBuilderHardSigmoid(
-		this.Ref(),
+// HasFuncHardSigmoid returns true if the method "MLGraphBuilder.hardSigmoid" exists.
+func (this MLGraphBuilder) HasFuncHardSigmoid() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderHardSigmoid(
+		this.ref,
 	)
 }
 
-// HardSigmoidFunc returns the method "MLGraphBuilder.hardSigmoid".
-func (this MLGraphBuilder) HardSigmoidFunc() (fn js.Func[func(input MLOperand, options MLHardSigmoidOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderHardSigmoidFunc(
-			this.Ref(),
-		),
+// FuncHardSigmoid returns the method "MLGraphBuilder.hardSigmoid".
+func (this MLGraphBuilder) FuncHardSigmoid() (fn js.Func[func(input MLOperand, options MLHardSigmoidOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderHardSigmoid(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // HardSigmoid calls the method "MLGraphBuilder.hardSigmoid".
 func (this MLGraphBuilder) HardSigmoid(input MLOperand, options MLHardSigmoidOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderHardSigmoid(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -1329,7 +1482,7 @@ func (this MLGraphBuilder) HardSigmoid(input MLOperand, options MLHardSigmoidOpt
 // the catch clause.
 func (this MLGraphBuilder) TryHardSigmoid(input MLOperand, options MLHardSigmoidOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderHardSigmoid(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -1337,26 +1490,25 @@ func (this MLGraphBuilder) TryHardSigmoid(input MLOperand, options MLHardSigmoid
 	return
 }
 
-// HasHardSigmoid1 returns true if the method "MLGraphBuilder.hardSigmoid" exists.
-func (this MLGraphBuilder) HasHardSigmoid1() bool {
-	return js.True == bindings.HasMLGraphBuilderHardSigmoid1(
-		this.Ref(),
+// HasFuncHardSigmoid1 returns true if the method "MLGraphBuilder.hardSigmoid" exists.
+func (this MLGraphBuilder) HasFuncHardSigmoid1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderHardSigmoid1(
+		this.ref,
 	)
 }
 
-// HardSigmoid1Func returns the method "MLGraphBuilder.hardSigmoid".
-func (this MLGraphBuilder) HardSigmoid1Func() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderHardSigmoid1Func(
-			this.Ref(),
-		),
+// FuncHardSigmoid1 returns the method "MLGraphBuilder.hardSigmoid".
+func (this MLGraphBuilder) FuncHardSigmoid1() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderHardSigmoid1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // HardSigmoid1 calls the method "MLGraphBuilder.hardSigmoid".
 func (this MLGraphBuilder) HardSigmoid1(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderHardSigmoid1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -1368,33 +1520,32 @@ func (this MLGraphBuilder) HardSigmoid1(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryHardSigmoid1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderHardSigmoid1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasHardSigmoid2 returns true if the method "MLGraphBuilder.hardSigmoid" exists.
-func (this MLGraphBuilder) HasHardSigmoid2() bool {
-	return js.True == bindings.HasMLGraphBuilderHardSigmoid2(
-		this.Ref(),
+// HasFuncHardSigmoid2 returns true if the method "MLGraphBuilder.hardSigmoid" exists.
+func (this MLGraphBuilder) HasFuncHardSigmoid2() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderHardSigmoid2(
+		this.ref,
 	)
 }
 
-// HardSigmoid2Func returns the method "MLGraphBuilder.hardSigmoid".
-func (this MLGraphBuilder) HardSigmoid2Func() (fn js.Func[func(options MLHardSigmoidOptions) MLActivation]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderHardSigmoid2Func(
-			this.Ref(),
-		),
+// FuncHardSigmoid2 returns the method "MLGraphBuilder.hardSigmoid".
+func (this MLGraphBuilder) FuncHardSigmoid2() (fn js.Func[func(options MLHardSigmoidOptions) MLActivation]) {
+	bindings.FuncMLGraphBuilderHardSigmoid2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // HardSigmoid2 calls the method "MLGraphBuilder.hardSigmoid".
 func (this MLGraphBuilder) HardSigmoid2(options MLHardSigmoidOptions) (ret MLActivation) {
 	bindings.CallMLGraphBuilderHardSigmoid2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -1406,33 +1557,32 @@ func (this MLGraphBuilder) HardSigmoid2(options MLHardSigmoidOptions) (ret MLAct
 // the catch clause.
 func (this MLGraphBuilder) TryHardSigmoid2(options MLHardSigmoidOptions) (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderHardSigmoid2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasHardSigmoid3 returns true if the method "MLGraphBuilder.hardSigmoid" exists.
-func (this MLGraphBuilder) HasHardSigmoid3() bool {
-	return js.True == bindings.HasMLGraphBuilderHardSigmoid3(
-		this.Ref(),
+// HasFuncHardSigmoid3 returns true if the method "MLGraphBuilder.hardSigmoid" exists.
+func (this MLGraphBuilder) HasFuncHardSigmoid3() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderHardSigmoid3(
+		this.ref,
 	)
 }
 
-// HardSigmoid3Func returns the method "MLGraphBuilder.hardSigmoid".
-func (this MLGraphBuilder) HardSigmoid3Func() (fn js.Func[func() MLActivation]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderHardSigmoid3Func(
-			this.Ref(),
-		),
+// FuncHardSigmoid3 returns the method "MLGraphBuilder.hardSigmoid".
+func (this MLGraphBuilder) FuncHardSigmoid3() (fn js.Func[func() MLActivation]) {
+	bindings.FuncMLGraphBuilderHardSigmoid3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // HardSigmoid3 calls the method "MLGraphBuilder.hardSigmoid".
 func (this MLGraphBuilder) HardSigmoid3() (ret MLActivation) {
 	bindings.CallMLGraphBuilderHardSigmoid3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1443,32 +1593,31 @@ func (this MLGraphBuilder) HardSigmoid3() (ret MLActivation) {
 // the catch clause.
 func (this MLGraphBuilder) TryHardSigmoid3() (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderHardSigmoid3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGruCell returns true if the method "MLGraphBuilder.gruCell" exists.
-func (this MLGraphBuilder) HasGruCell() bool {
-	return js.True == bindings.HasMLGraphBuilderGruCell(
-		this.Ref(),
+// HasFuncGruCell returns true if the method "MLGraphBuilder.gruCell" exists.
+func (this MLGraphBuilder) HasFuncGruCell() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderGruCell(
+		this.ref,
 	)
 }
 
-// GruCellFunc returns the method "MLGraphBuilder.gruCell".
-func (this MLGraphBuilder) GruCellFunc() (fn js.Func[func(input MLOperand, weight MLOperand, recurrentWeight MLOperand, hiddenState MLOperand, hiddenSize uint32, options MLGruCellOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderGruCellFunc(
-			this.Ref(),
-		),
+// FuncGruCell returns the method "MLGraphBuilder.gruCell".
+func (this MLGraphBuilder) FuncGruCell() (fn js.Func[func(input MLOperand, weight MLOperand, recurrentWeight MLOperand, hiddenState MLOperand, hiddenSize uint32, options MLGruCellOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderGruCell(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GruCell calls the method "MLGraphBuilder.gruCell".
 func (this MLGraphBuilder) GruCell(input MLOperand, weight MLOperand, recurrentWeight MLOperand, hiddenState MLOperand, hiddenSize uint32, options MLGruCellOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderGruCell(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		weight.Ref(),
 		recurrentWeight.Ref(),
@@ -1485,7 +1634,7 @@ func (this MLGraphBuilder) GruCell(input MLOperand, weight MLOperand, recurrentW
 // the catch clause.
 func (this MLGraphBuilder) TryGruCell(input MLOperand, weight MLOperand, recurrentWeight MLOperand, hiddenState MLOperand, hiddenSize uint32, options MLGruCellOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderGruCell(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		weight.Ref(),
 		recurrentWeight.Ref(),
@@ -1497,26 +1646,25 @@ func (this MLGraphBuilder) TryGruCell(input MLOperand, weight MLOperand, recurre
 	return
 }
 
-// HasGruCell1 returns true if the method "MLGraphBuilder.gruCell" exists.
-func (this MLGraphBuilder) HasGruCell1() bool {
-	return js.True == bindings.HasMLGraphBuilderGruCell1(
-		this.Ref(),
+// HasFuncGruCell1 returns true if the method "MLGraphBuilder.gruCell" exists.
+func (this MLGraphBuilder) HasFuncGruCell1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderGruCell1(
+		this.ref,
 	)
 }
 
-// GruCell1Func returns the method "MLGraphBuilder.gruCell".
-func (this MLGraphBuilder) GruCell1Func() (fn js.Func[func(input MLOperand, weight MLOperand, recurrentWeight MLOperand, hiddenState MLOperand, hiddenSize uint32) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderGruCell1Func(
-			this.Ref(),
-		),
+// FuncGruCell1 returns the method "MLGraphBuilder.gruCell".
+func (this MLGraphBuilder) FuncGruCell1() (fn js.Func[func(input MLOperand, weight MLOperand, recurrentWeight MLOperand, hiddenState MLOperand, hiddenSize uint32) MLOperand]) {
+	bindings.FuncMLGraphBuilderGruCell1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GruCell1 calls the method "MLGraphBuilder.gruCell".
 func (this MLGraphBuilder) GruCell1(input MLOperand, weight MLOperand, recurrentWeight MLOperand, hiddenState MLOperand, hiddenSize uint32) (ret MLOperand) {
 	bindings.CallMLGraphBuilderGruCell1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		weight.Ref(),
 		recurrentWeight.Ref(),
@@ -1532,7 +1680,7 @@ func (this MLGraphBuilder) GruCell1(input MLOperand, weight MLOperand, recurrent
 // the catch clause.
 func (this MLGraphBuilder) TryGruCell1(input MLOperand, weight MLOperand, recurrentWeight MLOperand, hiddenState MLOperand, hiddenSize uint32) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderGruCell1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		weight.Ref(),
 		recurrentWeight.Ref(),
@@ -1543,26 +1691,25 @@ func (this MLGraphBuilder) TryGruCell1(input MLOperand, weight MLOperand, recurr
 	return
 }
 
-// HasSlice returns true if the method "MLGraphBuilder.slice" exists.
-func (this MLGraphBuilder) HasSlice() bool {
-	return js.True == bindings.HasMLGraphBuilderSlice(
-		this.Ref(),
+// HasFuncSlice returns true if the method "MLGraphBuilder.slice" exists.
+func (this MLGraphBuilder) HasFuncSlice() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderSlice(
+		this.ref,
 	)
 }
 
-// SliceFunc returns the method "MLGraphBuilder.slice".
-func (this MLGraphBuilder) SliceFunc() (fn js.Func[func(input MLOperand, starts js.Array[uint32], sizes js.Array[uint32]) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderSliceFunc(
-			this.Ref(),
-		),
+// FuncSlice returns the method "MLGraphBuilder.slice".
+func (this MLGraphBuilder) FuncSlice() (fn js.Func[func(input MLOperand, starts js.Array[uint32], sizes js.Array[uint32]) MLOperand]) {
+	bindings.FuncMLGraphBuilderSlice(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Slice calls the method "MLGraphBuilder.slice".
 func (this MLGraphBuilder) Slice(input MLOperand, starts js.Array[uint32], sizes js.Array[uint32]) (ret MLOperand) {
 	bindings.CallMLGraphBuilderSlice(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		starts.Ref(),
 		sizes.Ref(),
@@ -1576,7 +1723,7 @@ func (this MLGraphBuilder) Slice(input MLOperand, starts js.Array[uint32], sizes
 // the catch clause.
 func (this MLGraphBuilder) TrySlice(input MLOperand, starts js.Array[uint32], sizes js.Array[uint32]) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSlice(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		starts.Ref(),
 		sizes.Ref(),
@@ -1585,26 +1732,25 @@ func (this MLGraphBuilder) TrySlice(input MLOperand, starts js.Array[uint32], si
 	return
 }
 
-// HasAveragePool2d returns true if the method "MLGraphBuilder.averagePool2d" exists.
-func (this MLGraphBuilder) HasAveragePool2d() bool {
-	return js.True == bindings.HasMLGraphBuilderAveragePool2d(
-		this.Ref(),
+// HasFuncAveragePool2d returns true if the method "MLGraphBuilder.averagePool2d" exists.
+func (this MLGraphBuilder) HasFuncAveragePool2d() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderAveragePool2d(
+		this.ref,
 	)
 }
 
-// AveragePool2dFunc returns the method "MLGraphBuilder.averagePool2d".
-func (this MLGraphBuilder) AveragePool2dFunc() (fn js.Func[func(input MLOperand, options MLPool2dOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderAveragePool2dFunc(
-			this.Ref(),
-		),
+// FuncAveragePool2d returns the method "MLGraphBuilder.averagePool2d".
+func (this MLGraphBuilder) FuncAveragePool2d() (fn js.Func[func(input MLOperand, options MLPool2dOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderAveragePool2d(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AveragePool2d calls the method "MLGraphBuilder.averagePool2d".
 func (this MLGraphBuilder) AveragePool2d(input MLOperand, options MLPool2dOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderAveragePool2d(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -1617,7 +1763,7 @@ func (this MLGraphBuilder) AveragePool2d(input MLOperand, options MLPool2dOption
 // the catch clause.
 func (this MLGraphBuilder) TryAveragePool2d(input MLOperand, options MLPool2dOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderAveragePool2d(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -1625,26 +1771,25 @@ func (this MLGraphBuilder) TryAveragePool2d(input MLOperand, options MLPool2dOpt
 	return
 }
 
-// HasAveragePool2d1 returns true if the method "MLGraphBuilder.averagePool2d" exists.
-func (this MLGraphBuilder) HasAveragePool2d1() bool {
-	return js.True == bindings.HasMLGraphBuilderAveragePool2d1(
-		this.Ref(),
+// HasFuncAveragePool2d1 returns true if the method "MLGraphBuilder.averagePool2d" exists.
+func (this MLGraphBuilder) HasFuncAveragePool2d1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderAveragePool2d1(
+		this.ref,
 	)
 }
 
-// AveragePool2d1Func returns the method "MLGraphBuilder.averagePool2d".
-func (this MLGraphBuilder) AveragePool2d1Func() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderAveragePool2d1Func(
-			this.Ref(),
-		),
+// FuncAveragePool2d1 returns the method "MLGraphBuilder.averagePool2d".
+func (this MLGraphBuilder) FuncAveragePool2d1() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderAveragePool2d1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AveragePool2d1 calls the method "MLGraphBuilder.averagePool2d".
 func (this MLGraphBuilder) AveragePool2d1(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderAveragePool2d1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -1656,33 +1801,32 @@ func (this MLGraphBuilder) AveragePool2d1(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryAveragePool2d1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderAveragePool2d1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasL2Pool2d returns true if the method "MLGraphBuilder.l2Pool2d" exists.
-func (this MLGraphBuilder) HasL2Pool2d() bool {
-	return js.True == bindings.HasMLGraphBuilderL2Pool2d(
-		this.Ref(),
+// HasFuncL2Pool2d returns true if the method "MLGraphBuilder.l2Pool2d" exists.
+func (this MLGraphBuilder) HasFuncL2Pool2d() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderL2Pool2d(
+		this.ref,
 	)
 }
 
-// L2Pool2dFunc returns the method "MLGraphBuilder.l2Pool2d".
-func (this MLGraphBuilder) L2Pool2dFunc() (fn js.Func[func(input MLOperand, options MLPool2dOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderL2Pool2dFunc(
-			this.Ref(),
-		),
+// FuncL2Pool2d returns the method "MLGraphBuilder.l2Pool2d".
+func (this MLGraphBuilder) FuncL2Pool2d() (fn js.Func[func(input MLOperand, options MLPool2dOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderL2Pool2d(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // L2Pool2d calls the method "MLGraphBuilder.l2Pool2d".
 func (this MLGraphBuilder) L2Pool2d(input MLOperand, options MLPool2dOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderL2Pool2d(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -1695,7 +1839,7 @@ func (this MLGraphBuilder) L2Pool2d(input MLOperand, options MLPool2dOptions) (r
 // the catch clause.
 func (this MLGraphBuilder) TryL2Pool2d(input MLOperand, options MLPool2dOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderL2Pool2d(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -1703,26 +1847,25 @@ func (this MLGraphBuilder) TryL2Pool2d(input MLOperand, options MLPool2dOptions)
 	return
 }
 
-// HasL2Pool2d1 returns true if the method "MLGraphBuilder.l2Pool2d" exists.
-func (this MLGraphBuilder) HasL2Pool2d1() bool {
-	return js.True == bindings.HasMLGraphBuilderL2Pool2d1(
-		this.Ref(),
+// HasFuncL2Pool2d1 returns true if the method "MLGraphBuilder.l2Pool2d" exists.
+func (this MLGraphBuilder) HasFuncL2Pool2d1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderL2Pool2d1(
+		this.ref,
 	)
 }
 
-// L2Pool2d1Func returns the method "MLGraphBuilder.l2Pool2d".
-func (this MLGraphBuilder) L2Pool2d1Func() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderL2Pool2d1Func(
-			this.Ref(),
-		),
+// FuncL2Pool2d1 returns the method "MLGraphBuilder.l2Pool2d".
+func (this MLGraphBuilder) FuncL2Pool2d1() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderL2Pool2d1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // L2Pool2d1 calls the method "MLGraphBuilder.l2Pool2d".
 func (this MLGraphBuilder) L2Pool2d1(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderL2Pool2d1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -1734,33 +1877,32 @@ func (this MLGraphBuilder) L2Pool2d1(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryL2Pool2d1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderL2Pool2d1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasMaxPool2d returns true if the method "MLGraphBuilder.maxPool2d" exists.
-func (this MLGraphBuilder) HasMaxPool2d() bool {
-	return js.True == bindings.HasMLGraphBuilderMaxPool2d(
-		this.Ref(),
+// HasFuncMaxPool2d returns true if the method "MLGraphBuilder.maxPool2d" exists.
+func (this MLGraphBuilder) HasFuncMaxPool2d() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderMaxPool2d(
+		this.ref,
 	)
 }
 
-// MaxPool2dFunc returns the method "MLGraphBuilder.maxPool2d".
-func (this MLGraphBuilder) MaxPool2dFunc() (fn js.Func[func(input MLOperand, options MLPool2dOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderMaxPool2dFunc(
-			this.Ref(),
-		),
+// FuncMaxPool2d returns the method "MLGraphBuilder.maxPool2d".
+func (this MLGraphBuilder) FuncMaxPool2d() (fn js.Func[func(input MLOperand, options MLPool2dOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderMaxPool2d(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // MaxPool2d calls the method "MLGraphBuilder.maxPool2d".
 func (this MLGraphBuilder) MaxPool2d(input MLOperand, options MLPool2dOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderMaxPool2d(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -1773,7 +1915,7 @@ func (this MLGraphBuilder) MaxPool2d(input MLOperand, options MLPool2dOptions) (
 // the catch clause.
 func (this MLGraphBuilder) TryMaxPool2d(input MLOperand, options MLPool2dOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderMaxPool2d(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -1781,26 +1923,25 @@ func (this MLGraphBuilder) TryMaxPool2d(input MLOperand, options MLPool2dOptions
 	return
 }
 
-// HasMaxPool2d1 returns true if the method "MLGraphBuilder.maxPool2d" exists.
-func (this MLGraphBuilder) HasMaxPool2d1() bool {
-	return js.True == bindings.HasMLGraphBuilderMaxPool2d1(
-		this.Ref(),
+// HasFuncMaxPool2d1 returns true if the method "MLGraphBuilder.maxPool2d" exists.
+func (this MLGraphBuilder) HasFuncMaxPool2d1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderMaxPool2d1(
+		this.ref,
 	)
 }
 
-// MaxPool2d1Func returns the method "MLGraphBuilder.maxPool2d".
-func (this MLGraphBuilder) MaxPool2d1Func() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderMaxPool2d1Func(
-			this.Ref(),
-		),
+// FuncMaxPool2d1 returns the method "MLGraphBuilder.maxPool2d".
+func (this MLGraphBuilder) FuncMaxPool2d1() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderMaxPool2d1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // MaxPool2d1 calls the method "MLGraphBuilder.maxPool2d".
 func (this MLGraphBuilder) MaxPool2d1(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderMaxPool2d1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -1812,33 +1953,32 @@ func (this MLGraphBuilder) MaxPool2d1(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryMaxPool2d1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderMaxPool2d1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasLinear returns true if the method "MLGraphBuilder.linear" exists.
-func (this MLGraphBuilder) HasLinear() bool {
-	return js.True == bindings.HasMLGraphBuilderLinear(
-		this.Ref(),
+// HasFuncLinear returns true if the method "MLGraphBuilder.linear" exists.
+func (this MLGraphBuilder) HasFuncLinear() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderLinear(
+		this.ref,
 	)
 }
 
-// LinearFunc returns the method "MLGraphBuilder.linear".
-func (this MLGraphBuilder) LinearFunc() (fn js.Func[func(input MLOperand, options MLLinearOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderLinearFunc(
-			this.Ref(),
-		),
+// FuncLinear returns the method "MLGraphBuilder.linear".
+func (this MLGraphBuilder) FuncLinear() (fn js.Func[func(input MLOperand, options MLLinearOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderLinear(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Linear calls the method "MLGraphBuilder.linear".
 func (this MLGraphBuilder) Linear(input MLOperand, options MLLinearOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderLinear(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -1851,7 +1991,7 @@ func (this MLGraphBuilder) Linear(input MLOperand, options MLLinearOptions) (ret
 // the catch clause.
 func (this MLGraphBuilder) TryLinear(input MLOperand, options MLLinearOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLinear(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -1859,26 +1999,25 @@ func (this MLGraphBuilder) TryLinear(input MLOperand, options MLLinearOptions) (
 	return
 }
 
-// HasLinear1 returns true if the method "MLGraphBuilder.linear" exists.
-func (this MLGraphBuilder) HasLinear1() bool {
-	return js.True == bindings.HasMLGraphBuilderLinear1(
-		this.Ref(),
+// HasFuncLinear1 returns true if the method "MLGraphBuilder.linear" exists.
+func (this MLGraphBuilder) HasFuncLinear1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderLinear1(
+		this.ref,
 	)
 }
 
-// Linear1Func returns the method "MLGraphBuilder.linear".
-func (this MLGraphBuilder) Linear1Func() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderLinear1Func(
-			this.Ref(),
-		),
+// FuncLinear1 returns the method "MLGraphBuilder.linear".
+func (this MLGraphBuilder) FuncLinear1() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderLinear1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Linear1 calls the method "MLGraphBuilder.linear".
 func (this MLGraphBuilder) Linear1(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderLinear1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -1890,33 +2029,32 @@ func (this MLGraphBuilder) Linear1(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryLinear1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLinear1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasLinear2 returns true if the method "MLGraphBuilder.linear" exists.
-func (this MLGraphBuilder) HasLinear2() bool {
-	return js.True == bindings.HasMLGraphBuilderLinear2(
-		this.Ref(),
+// HasFuncLinear2 returns true if the method "MLGraphBuilder.linear" exists.
+func (this MLGraphBuilder) HasFuncLinear2() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderLinear2(
+		this.ref,
 	)
 }
 
-// Linear2Func returns the method "MLGraphBuilder.linear".
-func (this MLGraphBuilder) Linear2Func() (fn js.Func[func(options MLLinearOptions) MLActivation]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderLinear2Func(
-			this.Ref(),
-		),
+// FuncLinear2 returns the method "MLGraphBuilder.linear".
+func (this MLGraphBuilder) FuncLinear2() (fn js.Func[func(options MLLinearOptions) MLActivation]) {
+	bindings.FuncMLGraphBuilderLinear2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Linear2 calls the method "MLGraphBuilder.linear".
 func (this MLGraphBuilder) Linear2(options MLLinearOptions) (ret MLActivation) {
 	bindings.CallMLGraphBuilderLinear2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -1928,33 +2066,32 @@ func (this MLGraphBuilder) Linear2(options MLLinearOptions) (ret MLActivation) {
 // the catch clause.
 func (this MLGraphBuilder) TryLinear2(options MLLinearOptions) (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLinear2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasLinear3 returns true if the method "MLGraphBuilder.linear" exists.
-func (this MLGraphBuilder) HasLinear3() bool {
-	return js.True == bindings.HasMLGraphBuilderLinear3(
-		this.Ref(),
+// HasFuncLinear3 returns true if the method "MLGraphBuilder.linear" exists.
+func (this MLGraphBuilder) HasFuncLinear3() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderLinear3(
+		this.ref,
 	)
 }
 
-// Linear3Func returns the method "MLGraphBuilder.linear".
-func (this MLGraphBuilder) Linear3Func() (fn js.Func[func() MLActivation]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderLinear3Func(
-			this.Ref(),
-		),
+// FuncLinear3 returns the method "MLGraphBuilder.linear".
+func (this MLGraphBuilder) FuncLinear3() (fn js.Func[func() MLActivation]) {
+	bindings.FuncMLGraphBuilderLinear3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Linear3 calls the method "MLGraphBuilder.linear".
 func (this MLGraphBuilder) Linear3() (ret MLActivation) {
 	bindings.CallMLGraphBuilderLinear3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1965,32 +2102,31 @@ func (this MLGraphBuilder) Linear3() (ret MLActivation) {
 // the catch clause.
 func (this MLGraphBuilder) TryLinear3() (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLinear3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasLeakyRelu returns true if the method "MLGraphBuilder.leakyRelu" exists.
-func (this MLGraphBuilder) HasLeakyRelu() bool {
-	return js.True == bindings.HasMLGraphBuilderLeakyRelu(
-		this.Ref(),
+// HasFuncLeakyRelu returns true if the method "MLGraphBuilder.leakyRelu" exists.
+func (this MLGraphBuilder) HasFuncLeakyRelu() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderLeakyRelu(
+		this.ref,
 	)
 }
 
-// LeakyReluFunc returns the method "MLGraphBuilder.leakyRelu".
-func (this MLGraphBuilder) LeakyReluFunc() (fn js.Func[func(input MLOperand, options MLLeakyReluOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderLeakyReluFunc(
-			this.Ref(),
-		),
+// FuncLeakyRelu returns the method "MLGraphBuilder.leakyRelu".
+func (this MLGraphBuilder) FuncLeakyRelu() (fn js.Func[func(input MLOperand, options MLLeakyReluOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderLeakyRelu(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // LeakyRelu calls the method "MLGraphBuilder.leakyRelu".
 func (this MLGraphBuilder) LeakyRelu(input MLOperand, options MLLeakyReluOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderLeakyRelu(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -2003,7 +2139,7 @@ func (this MLGraphBuilder) LeakyRelu(input MLOperand, options MLLeakyReluOptions
 // the catch clause.
 func (this MLGraphBuilder) TryLeakyRelu(input MLOperand, options MLLeakyReluOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLeakyRelu(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -2011,26 +2147,25 @@ func (this MLGraphBuilder) TryLeakyRelu(input MLOperand, options MLLeakyReluOpti
 	return
 }
 
-// HasLeakyRelu1 returns true if the method "MLGraphBuilder.leakyRelu" exists.
-func (this MLGraphBuilder) HasLeakyRelu1() bool {
-	return js.True == bindings.HasMLGraphBuilderLeakyRelu1(
-		this.Ref(),
+// HasFuncLeakyRelu1 returns true if the method "MLGraphBuilder.leakyRelu" exists.
+func (this MLGraphBuilder) HasFuncLeakyRelu1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderLeakyRelu1(
+		this.ref,
 	)
 }
 
-// LeakyRelu1Func returns the method "MLGraphBuilder.leakyRelu".
-func (this MLGraphBuilder) LeakyRelu1Func() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderLeakyRelu1Func(
-			this.Ref(),
-		),
+// FuncLeakyRelu1 returns the method "MLGraphBuilder.leakyRelu".
+func (this MLGraphBuilder) FuncLeakyRelu1() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderLeakyRelu1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // LeakyRelu1 calls the method "MLGraphBuilder.leakyRelu".
 func (this MLGraphBuilder) LeakyRelu1(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderLeakyRelu1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -2042,33 +2177,32 @@ func (this MLGraphBuilder) LeakyRelu1(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryLeakyRelu1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLeakyRelu1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasLeakyRelu2 returns true if the method "MLGraphBuilder.leakyRelu" exists.
-func (this MLGraphBuilder) HasLeakyRelu2() bool {
-	return js.True == bindings.HasMLGraphBuilderLeakyRelu2(
-		this.Ref(),
+// HasFuncLeakyRelu2 returns true if the method "MLGraphBuilder.leakyRelu" exists.
+func (this MLGraphBuilder) HasFuncLeakyRelu2() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderLeakyRelu2(
+		this.ref,
 	)
 }
 
-// LeakyRelu2Func returns the method "MLGraphBuilder.leakyRelu".
-func (this MLGraphBuilder) LeakyRelu2Func() (fn js.Func[func(options MLLeakyReluOptions) MLActivation]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderLeakyRelu2Func(
-			this.Ref(),
-		),
+// FuncLeakyRelu2 returns the method "MLGraphBuilder.leakyRelu".
+func (this MLGraphBuilder) FuncLeakyRelu2() (fn js.Func[func(options MLLeakyReluOptions) MLActivation]) {
+	bindings.FuncMLGraphBuilderLeakyRelu2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // LeakyRelu2 calls the method "MLGraphBuilder.leakyRelu".
 func (this MLGraphBuilder) LeakyRelu2(options MLLeakyReluOptions) (ret MLActivation) {
 	bindings.CallMLGraphBuilderLeakyRelu2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -2080,33 +2214,32 @@ func (this MLGraphBuilder) LeakyRelu2(options MLLeakyReluOptions) (ret MLActivat
 // the catch clause.
 func (this MLGraphBuilder) TryLeakyRelu2(options MLLeakyReluOptions) (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLeakyRelu2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasLeakyRelu3 returns true if the method "MLGraphBuilder.leakyRelu" exists.
-func (this MLGraphBuilder) HasLeakyRelu3() bool {
-	return js.True == bindings.HasMLGraphBuilderLeakyRelu3(
-		this.Ref(),
+// HasFuncLeakyRelu3 returns true if the method "MLGraphBuilder.leakyRelu" exists.
+func (this MLGraphBuilder) HasFuncLeakyRelu3() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderLeakyRelu3(
+		this.ref,
 	)
 }
 
-// LeakyRelu3Func returns the method "MLGraphBuilder.leakyRelu".
-func (this MLGraphBuilder) LeakyRelu3Func() (fn js.Func[func() MLActivation]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderLeakyRelu3Func(
-			this.Ref(),
-		),
+// FuncLeakyRelu3 returns the method "MLGraphBuilder.leakyRelu".
+func (this MLGraphBuilder) FuncLeakyRelu3() (fn js.Func[func() MLActivation]) {
+	bindings.FuncMLGraphBuilderLeakyRelu3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // LeakyRelu3 calls the method "MLGraphBuilder.leakyRelu".
 func (this MLGraphBuilder) LeakyRelu3() (ret MLActivation) {
 	bindings.CallMLGraphBuilderLeakyRelu3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2117,32 +2250,31 @@ func (this MLGraphBuilder) LeakyRelu3() (ret MLActivation) {
 // the catch clause.
 func (this MLGraphBuilder) TryLeakyRelu3() (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLeakyRelu3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasPad returns true if the method "MLGraphBuilder.pad" exists.
-func (this MLGraphBuilder) HasPad() bool {
-	return js.True == bindings.HasMLGraphBuilderPad(
-		this.Ref(),
+// HasFuncPad returns true if the method "MLGraphBuilder.pad" exists.
+func (this MLGraphBuilder) HasFuncPad() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderPad(
+		this.ref,
 	)
 }
 
-// PadFunc returns the method "MLGraphBuilder.pad".
-func (this MLGraphBuilder) PadFunc() (fn js.Func[func(input MLOperand, beginningPadding js.Array[uint32], endingPadding js.Array[uint32], options MLPadOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderPadFunc(
-			this.Ref(),
-		),
+// FuncPad returns the method "MLGraphBuilder.pad".
+func (this MLGraphBuilder) FuncPad() (fn js.Func[func(input MLOperand, beginningPadding js.Array[uint32], endingPadding js.Array[uint32], options MLPadOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderPad(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Pad calls the method "MLGraphBuilder.pad".
 func (this MLGraphBuilder) Pad(input MLOperand, beginningPadding js.Array[uint32], endingPadding js.Array[uint32], options MLPadOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderPad(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		beginningPadding.Ref(),
 		endingPadding.Ref(),
@@ -2157,7 +2289,7 @@ func (this MLGraphBuilder) Pad(input MLOperand, beginningPadding js.Array[uint32
 // the catch clause.
 func (this MLGraphBuilder) TryPad(input MLOperand, beginningPadding js.Array[uint32], endingPadding js.Array[uint32], options MLPadOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderPad(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		beginningPadding.Ref(),
 		endingPadding.Ref(),
@@ -2167,26 +2299,25 @@ func (this MLGraphBuilder) TryPad(input MLOperand, beginningPadding js.Array[uin
 	return
 }
 
-// HasPad1 returns true if the method "MLGraphBuilder.pad" exists.
-func (this MLGraphBuilder) HasPad1() bool {
-	return js.True == bindings.HasMLGraphBuilderPad1(
-		this.Ref(),
+// HasFuncPad1 returns true if the method "MLGraphBuilder.pad" exists.
+func (this MLGraphBuilder) HasFuncPad1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderPad1(
+		this.ref,
 	)
 }
 
-// Pad1Func returns the method "MLGraphBuilder.pad".
-func (this MLGraphBuilder) Pad1Func() (fn js.Func[func(input MLOperand, beginningPadding js.Array[uint32], endingPadding js.Array[uint32]) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderPad1Func(
-			this.Ref(),
-		),
+// FuncPad1 returns the method "MLGraphBuilder.pad".
+func (this MLGraphBuilder) FuncPad1() (fn js.Func[func(input MLOperand, beginningPadding js.Array[uint32], endingPadding js.Array[uint32]) MLOperand]) {
+	bindings.FuncMLGraphBuilderPad1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Pad1 calls the method "MLGraphBuilder.pad".
 func (this MLGraphBuilder) Pad1(input MLOperand, beginningPadding js.Array[uint32], endingPadding js.Array[uint32]) (ret MLOperand) {
 	bindings.CallMLGraphBuilderPad1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		beginningPadding.Ref(),
 		endingPadding.Ref(),
@@ -2200,7 +2331,7 @@ func (this MLGraphBuilder) Pad1(input MLOperand, beginningPadding js.Array[uint3
 // the catch clause.
 func (this MLGraphBuilder) TryPad1(input MLOperand, beginningPadding js.Array[uint32], endingPadding js.Array[uint32]) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderPad1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		beginningPadding.Ref(),
 		endingPadding.Ref(),
@@ -2209,26 +2340,25 @@ func (this MLGraphBuilder) TryPad1(input MLOperand, beginningPadding js.Array[ui
 	return
 }
 
-// HasInstanceNormalization returns true if the method "MLGraphBuilder.instanceNormalization" exists.
-func (this MLGraphBuilder) HasInstanceNormalization() bool {
-	return js.True == bindings.HasMLGraphBuilderInstanceNormalization(
-		this.Ref(),
+// HasFuncInstanceNormalization returns true if the method "MLGraphBuilder.instanceNormalization" exists.
+func (this MLGraphBuilder) HasFuncInstanceNormalization() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderInstanceNormalization(
+		this.ref,
 	)
 }
 
-// InstanceNormalizationFunc returns the method "MLGraphBuilder.instanceNormalization".
-func (this MLGraphBuilder) InstanceNormalizationFunc() (fn js.Func[func(input MLOperand, options MLInstanceNormalizationOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderInstanceNormalizationFunc(
-			this.Ref(),
-		),
+// FuncInstanceNormalization returns the method "MLGraphBuilder.instanceNormalization".
+func (this MLGraphBuilder) FuncInstanceNormalization() (fn js.Func[func(input MLOperand, options MLInstanceNormalizationOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderInstanceNormalization(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InstanceNormalization calls the method "MLGraphBuilder.instanceNormalization".
 func (this MLGraphBuilder) InstanceNormalization(input MLOperand, options MLInstanceNormalizationOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderInstanceNormalization(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -2241,7 +2371,7 @@ func (this MLGraphBuilder) InstanceNormalization(input MLOperand, options MLInst
 // the catch clause.
 func (this MLGraphBuilder) TryInstanceNormalization(input MLOperand, options MLInstanceNormalizationOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderInstanceNormalization(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -2249,26 +2379,25 @@ func (this MLGraphBuilder) TryInstanceNormalization(input MLOperand, options MLI
 	return
 }
 
-// HasInstanceNormalization1 returns true if the method "MLGraphBuilder.instanceNormalization" exists.
-func (this MLGraphBuilder) HasInstanceNormalization1() bool {
-	return js.True == bindings.HasMLGraphBuilderInstanceNormalization1(
-		this.Ref(),
+// HasFuncInstanceNormalization1 returns true if the method "MLGraphBuilder.instanceNormalization" exists.
+func (this MLGraphBuilder) HasFuncInstanceNormalization1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderInstanceNormalization1(
+		this.ref,
 	)
 }
 
-// InstanceNormalization1Func returns the method "MLGraphBuilder.instanceNormalization".
-func (this MLGraphBuilder) InstanceNormalization1Func() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderInstanceNormalization1Func(
-			this.Ref(),
-		),
+// FuncInstanceNormalization1 returns the method "MLGraphBuilder.instanceNormalization".
+func (this MLGraphBuilder) FuncInstanceNormalization1() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderInstanceNormalization1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InstanceNormalization1 calls the method "MLGraphBuilder.instanceNormalization".
 func (this MLGraphBuilder) InstanceNormalization1(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderInstanceNormalization1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -2280,33 +2409,32 @@ func (this MLGraphBuilder) InstanceNormalization1(input MLOperand) (ret MLOperan
 // the catch clause.
 func (this MLGraphBuilder) TryInstanceNormalization1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderInstanceNormalization1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasSoftplus returns true if the method "MLGraphBuilder.softplus" exists.
-func (this MLGraphBuilder) HasSoftplus() bool {
-	return js.True == bindings.HasMLGraphBuilderSoftplus(
-		this.Ref(),
+// HasFuncSoftplus returns true if the method "MLGraphBuilder.softplus" exists.
+func (this MLGraphBuilder) HasFuncSoftplus() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderSoftplus(
+		this.ref,
 	)
 }
 
-// SoftplusFunc returns the method "MLGraphBuilder.softplus".
-func (this MLGraphBuilder) SoftplusFunc() (fn js.Func[func(input MLOperand, options MLSoftplusOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderSoftplusFunc(
-			this.Ref(),
-		),
+// FuncSoftplus returns the method "MLGraphBuilder.softplus".
+func (this MLGraphBuilder) FuncSoftplus() (fn js.Func[func(input MLOperand, options MLSoftplusOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderSoftplus(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Softplus calls the method "MLGraphBuilder.softplus".
 func (this MLGraphBuilder) Softplus(input MLOperand, options MLSoftplusOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderSoftplus(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -2319,7 +2447,7 @@ func (this MLGraphBuilder) Softplus(input MLOperand, options MLSoftplusOptions) 
 // the catch clause.
 func (this MLGraphBuilder) TrySoftplus(input MLOperand, options MLSoftplusOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSoftplus(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -2327,26 +2455,25 @@ func (this MLGraphBuilder) TrySoftplus(input MLOperand, options MLSoftplusOption
 	return
 }
 
-// HasSoftplus1 returns true if the method "MLGraphBuilder.softplus" exists.
-func (this MLGraphBuilder) HasSoftplus1() bool {
-	return js.True == bindings.HasMLGraphBuilderSoftplus1(
-		this.Ref(),
+// HasFuncSoftplus1 returns true if the method "MLGraphBuilder.softplus" exists.
+func (this MLGraphBuilder) HasFuncSoftplus1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderSoftplus1(
+		this.ref,
 	)
 }
 
-// Softplus1Func returns the method "MLGraphBuilder.softplus".
-func (this MLGraphBuilder) Softplus1Func() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderSoftplus1Func(
-			this.Ref(),
-		),
+// FuncSoftplus1 returns the method "MLGraphBuilder.softplus".
+func (this MLGraphBuilder) FuncSoftplus1() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderSoftplus1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Softplus1 calls the method "MLGraphBuilder.softplus".
 func (this MLGraphBuilder) Softplus1(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderSoftplus1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -2358,33 +2485,32 @@ func (this MLGraphBuilder) Softplus1(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TrySoftplus1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSoftplus1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasSoftplus2 returns true if the method "MLGraphBuilder.softplus" exists.
-func (this MLGraphBuilder) HasSoftplus2() bool {
-	return js.True == bindings.HasMLGraphBuilderSoftplus2(
-		this.Ref(),
+// HasFuncSoftplus2 returns true if the method "MLGraphBuilder.softplus" exists.
+func (this MLGraphBuilder) HasFuncSoftplus2() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderSoftplus2(
+		this.ref,
 	)
 }
 
-// Softplus2Func returns the method "MLGraphBuilder.softplus".
-func (this MLGraphBuilder) Softplus2Func() (fn js.Func[func(options MLSoftplusOptions) MLActivation]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderSoftplus2Func(
-			this.Ref(),
-		),
+// FuncSoftplus2 returns the method "MLGraphBuilder.softplus".
+func (this MLGraphBuilder) FuncSoftplus2() (fn js.Func[func(options MLSoftplusOptions) MLActivation]) {
+	bindings.FuncMLGraphBuilderSoftplus2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Softplus2 calls the method "MLGraphBuilder.softplus".
 func (this MLGraphBuilder) Softplus2(options MLSoftplusOptions) (ret MLActivation) {
 	bindings.CallMLGraphBuilderSoftplus2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -2396,33 +2522,32 @@ func (this MLGraphBuilder) Softplus2(options MLSoftplusOptions) (ret MLActivatio
 // the catch clause.
 func (this MLGraphBuilder) TrySoftplus2(options MLSoftplusOptions) (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSoftplus2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasSoftplus3 returns true if the method "MLGraphBuilder.softplus" exists.
-func (this MLGraphBuilder) HasSoftplus3() bool {
-	return js.True == bindings.HasMLGraphBuilderSoftplus3(
-		this.Ref(),
+// HasFuncSoftplus3 returns true if the method "MLGraphBuilder.softplus" exists.
+func (this MLGraphBuilder) HasFuncSoftplus3() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderSoftplus3(
+		this.ref,
 	)
 }
 
-// Softplus3Func returns the method "MLGraphBuilder.softplus".
-func (this MLGraphBuilder) Softplus3Func() (fn js.Func[func() MLActivation]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderSoftplus3Func(
-			this.Ref(),
-		),
+// FuncSoftplus3 returns the method "MLGraphBuilder.softplus".
+func (this MLGraphBuilder) FuncSoftplus3() (fn js.Func[func() MLActivation]) {
+	bindings.FuncMLGraphBuilderSoftplus3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Softplus3 calls the method "MLGraphBuilder.softplus".
 func (this MLGraphBuilder) Softplus3() (ret MLActivation) {
 	bindings.CallMLGraphBuilderSoftplus3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2433,32 +2558,31 @@ func (this MLGraphBuilder) Softplus3() (ret MLActivation) {
 // the catch clause.
 func (this MLGraphBuilder) TrySoftplus3() (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSoftplus3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSoftsign returns true if the method "MLGraphBuilder.softsign" exists.
-func (this MLGraphBuilder) HasSoftsign() bool {
-	return js.True == bindings.HasMLGraphBuilderSoftsign(
-		this.Ref(),
+// HasFuncSoftsign returns true if the method "MLGraphBuilder.softsign" exists.
+func (this MLGraphBuilder) HasFuncSoftsign() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderSoftsign(
+		this.ref,
 	)
 }
 
-// SoftsignFunc returns the method "MLGraphBuilder.softsign".
-func (this MLGraphBuilder) SoftsignFunc() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderSoftsignFunc(
-			this.Ref(),
-		),
+// FuncSoftsign returns the method "MLGraphBuilder.softsign".
+func (this MLGraphBuilder) FuncSoftsign() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderSoftsign(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Softsign calls the method "MLGraphBuilder.softsign".
 func (this MLGraphBuilder) Softsign(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderSoftsign(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -2470,33 +2594,32 @@ func (this MLGraphBuilder) Softsign(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TrySoftsign(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSoftsign(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasSoftsign1 returns true if the method "MLGraphBuilder.softsign" exists.
-func (this MLGraphBuilder) HasSoftsign1() bool {
-	return js.True == bindings.HasMLGraphBuilderSoftsign1(
-		this.Ref(),
+// HasFuncSoftsign1 returns true if the method "MLGraphBuilder.softsign" exists.
+func (this MLGraphBuilder) HasFuncSoftsign1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderSoftsign1(
+		this.ref,
 	)
 }
 
-// Softsign1Func returns the method "MLGraphBuilder.softsign".
-func (this MLGraphBuilder) Softsign1Func() (fn js.Func[func() MLActivation]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderSoftsign1Func(
-			this.Ref(),
-		),
+// FuncSoftsign1 returns the method "MLGraphBuilder.softsign".
+func (this MLGraphBuilder) FuncSoftsign1() (fn js.Func[func() MLActivation]) {
+	bindings.FuncMLGraphBuilderSoftsign1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Softsign1 calls the method "MLGraphBuilder.softsign".
 func (this MLGraphBuilder) Softsign1() (ret MLActivation) {
 	bindings.CallMLGraphBuilderSoftsign1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2507,32 +2630,31 @@ func (this MLGraphBuilder) Softsign1() (ret MLActivation) {
 // the catch clause.
 func (this MLGraphBuilder) TrySoftsign1() (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSoftsign1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSigmoid returns true if the method "MLGraphBuilder.sigmoid" exists.
-func (this MLGraphBuilder) HasSigmoid() bool {
-	return js.True == bindings.HasMLGraphBuilderSigmoid(
-		this.Ref(),
+// HasFuncSigmoid returns true if the method "MLGraphBuilder.sigmoid" exists.
+func (this MLGraphBuilder) HasFuncSigmoid() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderSigmoid(
+		this.ref,
 	)
 }
 
-// SigmoidFunc returns the method "MLGraphBuilder.sigmoid".
-func (this MLGraphBuilder) SigmoidFunc() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderSigmoidFunc(
-			this.Ref(),
-		),
+// FuncSigmoid returns the method "MLGraphBuilder.sigmoid".
+func (this MLGraphBuilder) FuncSigmoid() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderSigmoid(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Sigmoid calls the method "MLGraphBuilder.sigmoid".
 func (this MLGraphBuilder) Sigmoid(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderSigmoid(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -2544,33 +2666,32 @@ func (this MLGraphBuilder) Sigmoid(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TrySigmoid(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSigmoid(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasSigmoid1 returns true if the method "MLGraphBuilder.sigmoid" exists.
-func (this MLGraphBuilder) HasSigmoid1() bool {
-	return js.True == bindings.HasMLGraphBuilderSigmoid1(
-		this.Ref(),
+// HasFuncSigmoid1 returns true if the method "MLGraphBuilder.sigmoid" exists.
+func (this MLGraphBuilder) HasFuncSigmoid1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderSigmoid1(
+		this.ref,
 	)
 }
 
-// Sigmoid1Func returns the method "MLGraphBuilder.sigmoid".
-func (this MLGraphBuilder) Sigmoid1Func() (fn js.Func[func() MLActivation]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderSigmoid1Func(
-			this.Ref(),
-		),
+// FuncSigmoid1 returns the method "MLGraphBuilder.sigmoid".
+func (this MLGraphBuilder) FuncSigmoid1() (fn js.Func[func() MLActivation]) {
+	bindings.FuncMLGraphBuilderSigmoid1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Sigmoid1 calls the method "MLGraphBuilder.sigmoid".
 func (this MLGraphBuilder) Sigmoid1() (ret MLActivation) {
 	bindings.CallMLGraphBuilderSigmoid1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2581,32 +2702,31 @@ func (this MLGraphBuilder) Sigmoid1() (ret MLActivation) {
 // the catch clause.
 func (this MLGraphBuilder) TrySigmoid1() (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSigmoid1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasReshape returns true if the method "MLGraphBuilder.reshape" exists.
-func (this MLGraphBuilder) HasReshape() bool {
-	return js.True == bindings.HasMLGraphBuilderReshape(
-		this.Ref(),
+// HasFuncReshape returns true if the method "MLGraphBuilder.reshape" exists.
+func (this MLGraphBuilder) HasFuncReshape() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderReshape(
+		this.ref,
 	)
 }
 
-// ReshapeFunc returns the method "MLGraphBuilder.reshape".
-func (this MLGraphBuilder) ReshapeFunc() (fn js.Func[func(input MLOperand, newShape js.Array[uint32]) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderReshapeFunc(
-			this.Ref(),
-		),
+// FuncReshape returns the method "MLGraphBuilder.reshape".
+func (this MLGraphBuilder) FuncReshape() (fn js.Func[func(input MLOperand, newShape js.Array[uint32]) MLOperand]) {
+	bindings.FuncMLGraphBuilderReshape(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Reshape calls the method "MLGraphBuilder.reshape".
 func (this MLGraphBuilder) Reshape(input MLOperand, newShape js.Array[uint32]) (ret MLOperand) {
 	bindings.CallMLGraphBuilderReshape(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		newShape.Ref(),
 	)
@@ -2619,7 +2739,7 @@ func (this MLGraphBuilder) Reshape(input MLOperand, newShape js.Array[uint32]) (
 // the catch clause.
 func (this MLGraphBuilder) TryReshape(input MLOperand, newShape js.Array[uint32]) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReshape(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		newShape.Ref(),
 	)
@@ -2627,26 +2747,25 @@ func (this MLGraphBuilder) TryReshape(input MLOperand, newShape js.Array[uint32]
 	return
 }
 
-// HasConv2d returns true if the method "MLGraphBuilder.conv2d" exists.
-func (this MLGraphBuilder) HasConv2d() bool {
-	return js.True == bindings.HasMLGraphBuilderConv2d(
-		this.Ref(),
+// HasFuncConv2d returns true if the method "MLGraphBuilder.conv2d" exists.
+func (this MLGraphBuilder) HasFuncConv2d() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderConv2d(
+		this.ref,
 	)
 }
 
-// Conv2dFunc returns the method "MLGraphBuilder.conv2d".
-func (this MLGraphBuilder) Conv2dFunc() (fn js.Func[func(input MLOperand, filter MLOperand, options MLConv2dOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderConv2dFunc(
-			this.Ref(),
-		),
+// FuncConv2d returns the method "MLGraphBuilder.conv2d".
+func (this MLGraphBuilder) FuncConv2d() (fn js.Func[func(input MLOperand, filter MLOperand, options MLConv2dOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderConv2d(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Conv2d calls the method "MLGraphBuilder.conv2d".
 func (this MLGraphBuilder) Conv2d(input MLOperand, filter MLOperand, options MLConv2dOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderConv2d(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		filter.Ref(),
 		js.Pointer(&options),
@@ -2660,7 +2779,7 @@ func (this MLGraphBuilder) Conv2d(input MLOperand, filter MLOperand, options MLC
 // the catch clause.
 func (this MLGraphBuilder) TryConv2d(input MLOperand, filter MLOperand, options MLConv2dOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderConv2d(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		filter.Ref(),
 		js.Pointer(&options),
@@ -2669,26 +2788,25 @@ func (this MLGraphBuilder) TryConv2d(input MLOperand, filter MLOperand, options 
 	return
 }
 
-// HasConv2d1 returns true if the method "MLGraphBuilder.conv2d" exists.
-func (this MLGraphBuilder) HasConv2d1() bool {
-	return js.True == bindings.HasMLGraphBuilderConv2d1(
-		this.Ref(),
+// HasFuncConv2d1 returns true if the method "MLGraphBuilder.conv2d" exists.
+func (this MLGraphBuilder) HasFuncConv2d1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderConv2d1(
+		this.ref,
 	)
 }
 
-// Conv2d1Func returns the method "MLGraphBuilder.conv2d".
-func (this MLGraphBuilder) Conv2d1Func() (fn js.Func[func(input MLOperand, filter MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderConv2d1Func(
-			this.Ref(),
-		),
+// FuncConv2d1 returns the method "MLGraphBuilder.conv2d".
+func (this MLGraphBuilder) FuncConv2d1() (fn js.Func[func(input MLOperand, filter MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderConv2d1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Conv2d1 calls the method "MLGraphBuilder.conv2d".
 func (this MLGraphBuilder) Conv2d1(input MLOperand, filter MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderConv2d1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		filter.Ref(),
 	)
@@ -2701,7 +2819,7 @@ func (this MLGraphBuilder) Conv2d1(input MLOperand, filter MLOperand) (ret MLOpe
 // the catch clause.
 func (this MLGraphBuilder) TryConv2d1(input MLOperand, filter MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderConv2d1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		filter.Ref(),
 	)
@@ -2709,26 +2827,25 @@ func (this MLGraphBuilder) TryConv2d1(input MLOperand, filter MLOperand) (ret ML
 	return
 }
 
-// HasSplit returns true if the method "MLGraphBuilder.split" exists.
-func (this MLGraphBuilder) HasSplit() bool {
-	return js.True == bindings.HasMLGraphBuilderSplit(
-		this.Ref(),
+// HasFuncSplit returns true if the method "MLGraphBuilder.split" exists.
+func (this MLGraphBuilder) HasFuncSplit() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderSplit(
+		this.ref,
 	)
 }
 
-// SplitFunc returns the method "MLGraphBuilder.split".
-func (this MLGraphBuilder) SplitFunc() (fn js.Func[func(input MLOperand, splits OneOf_Uint32_ArrayUint32, options MLSplitOptions) js.Array[MLOperand]]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderSplitFunc(
-			this.Ref(),
-		),
+// FuncSplit returns the method "MLGraphBuilder.split".
+func (this MLGraphBuilder) FuncSplit() (fn js.Func[func(input MLOperand, splits OneOf_Uint32_ArrayUint32, options MLSplitOptions) js.Array[MLOperand]]) {
+	bindings.FuncMLGraphBuilderSplit(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Split calls the method "MLGraphBuilder.split".
 func (this MLGraphBuilder) Split(input MLOperand, splits OneOf_Uint32_ArrayUint32, options MLSplitOptions) (ret js.Array[MLOperand]) {
 	bindings.CallMLGraphBuilderSplit(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		splits.Ref(),
 		js.Pointer(&options),
@@ -2742,7 +2859,7 @@ func (this MLGraphBuilder) Split(input MLOperand, splits OneOf_Uint32_ArrayUint3
 // the catch clause.
 func (this MLGraphBuilder) TrySplit(input MLOperand, splits OneOf_Uint32_ArrayUint32, options MLSplitOptions) (ret js.Array[MLOperand], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSplit(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		splits.Ref(),
 		js.Pointer(&options),
@@ -2751,26 +2868,25 @@ func (this MLGraphBuilder) TrySplit(input MLOperand, splits OneOf_Uint32_ArrayUi
 	return
 }
 
-// HasSplit1 returns true if the method "MLGraphBuilder.split" exists.
-func (this MLGraphBuilder) HasSplit1() bool {
-	return js.True == bindings.HasMLGraphBuilderSplit1(
-		this.Ref(),
+// HasFuncSplit1 returns true if the method "MLGraphBuilder.split" exists.
+func (this MLGraphBuilder) HasFuncSplit1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderSplit1(
+		this.ref,
 	)
 }
 
-// Split1Func returns the method "MLGraphBuilder.split".
-func (this MLGraphBuilder) Split1Func() (fn js.Func[func(input MLOperand, splits OneOf_Uint32_ArrayUint32) js.Array[MLOperand]]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderSplit1Func(
-			this.Ref(),
-		),
+// FuncSplit1 returns the method "MLGraphBuilder.split".
+func (this MLGraphBuilder) FuncSplit1() (fn js.Func[func(input MLOperand, splits OneOf_Uint32_ArrayUint32) js.Array[MLOperand]]) {
+	bindings.FuncMLGraphBuilderSplit1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Split1 calls the method "MLGraphBuilder.split".
 func (this MLGraphBuilder) Split1(input MLOperand, splits OneOf_Uint32_ArrayUint32) (ret js.Array[MLOperand]) {
 	bindings.CallMLGraphBuilderSplit1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		splits.Ref(),
 	)
@@ -2783,7 +2899,7 @@ func (this MLGraphBuilder) Split1(input MLOperand, splits OneOf_Uint32_ArrayUint
 // the catch clause.
 func (this MLGraphBuilder) TrySplit1(input MLOperand, splits OneOf_Uint32_ArrayUint32) (ret js.Array[MLOperand], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSplit1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		splits.Ref(),
 	)
@@ -2791,26 +2907,25 @@ func (this MLGraphBuilder) TrySplit1(input MLOperand, splits OneOf_Uint32_ArrayU
 	return
 }
 
-// HasResample2d returns true if the method "MLGraphBuilder.resample2d" exists.
-func (this MLGraphBuilder) HasResample2d() bool {
-	return js.True == bindings.HasMLGraphBuilderResample2d(
-		this.Ref(),
+// HasFuncResample2d returns true if the method "MLGraphBuilder.resample2d" exists.
+func (this MLGraphBuilder) HasFuncResample2d() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderResample2d(
+		this.ref,
 	)
 }
 
-// Resample2dFunc returns the method "MLGraphBuilder.resample2d".
-func (this MLGraphBuilder) Resample2dFunc() (fn js.Func[func(input MLOperand, options MLResample2dOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderResample2dFunc(
-			this.Ref(),
-		),
+// FuncResample2d returns the method "MLGraphBuilder.resample2d".
+func (this MLGraphBuilder) FuncResample2d() (fn js.Func[func(input MLOperand, options MLResample2dOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderResample2d(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Resample2d calls the method "MLGraphBuilder.resample2d".
 func (this MLGraphBuilder) Resample2d(input MLOperand, options MLResample2dOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderResample2d(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -2823,7 +2938,7 @@ func (this MLGraphBuilder) Resample2d(input MLOperand, options MLResample2dOptio
 // the catch clause.
 func (this MLGraphBuilder) TryResample2d(input MLOperand, options MLResample2dOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderResample2d(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -2831,26 +2946,25 @@ func (this MLGraphBuilder) TryResample2d(input MLOperand, options MLResample2dOp
 	return
 }
 
-// HasResample2d1 returns true if the method "MLGraphBuilder.resample2d" exists.
-func (this MLGraphBuilder) HasResample2d1() bool {
-	return js.True == bindings.HasMLGraphBuilderResample2d1(
-		this.Ref(),
+// HasFuncResample2d1 returns true if the method "MLGraphBuilder.resample2d" exists.
+func (this MLGraphBuilder) HasFuncResample2d1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderResample2d1(
+		this.ref,
 	)
 }
 
-// Resample2d1Func returns the method "MLGraphBuilder.resample2d".
-func (this MLGraphBuilder) Resample2d1Func() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderResample2d1Func(
-			this.Ref(),
-		),
+// FuncResample2d1 returns the method "MLGraphBuilder.resample2d".
+func (this MLGraphBuilder) FuncResample2d1() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderResample2d1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Resample2d1 calls the method "MLGraphBuilder.resample2d".
 func (this MLGraphBuilder) Resample2d1(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderResample2d1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -2862,33 +2976,32 @@ func (this MLGraphBuilder) Resample2d1(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryResample2d1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderResample2d1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasHardSwish returns true if the method "MLGraphBuilder.hardSwish" exists.
-func (this MLGraphBuilder) HasHardSwish() bool {
-	return js.True == bindings.HasMLGraphBuilderHardSwish(
-		this.Ref(),
+// HasFuncHardSwish returns true if the method "MLGraphBuilder.hardSwish" exists.
+func (this MLGraphBuilder) HasFuncHardSwish() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderHardSwish(
+		this.ref,
 	)
 }
 
-// HardSwishFunc returns the method "MLGraphBuilder.hardSwish".
-func (this MLGraphBuilder) HardSwishFunc() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderHardSwishFunc(
-			this.Ref(),
-		),
+// FuncHardSwish returns the method "MLGraphBuilder.hardSwish".
+func (this MLGraphBuilder) FuncHardSwish() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderHardSwish(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // HardSwish calls the method "MLGraphBuilder.hardSwish".
 func (this MLGraphBuilder) HardSwish(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderHardSwish(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -2900,33 +3013,32 @@ func (this MLGraphBuilder) HardSwish(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryHardSwish(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderHardSwish(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasHardSwish1 returns true if the method "MLGraphBuilder.hardSwish" exists.
-func (this MLGraphBuilder) HasHardSwish1() bool {
-	return js.True == bindings.HasMLGraphBuilderHardSwish1(
-		this.Ref(),
+// HasFuncHardSwish1 returns true if the method "MLGraphBuilder.hardSwish" exists.
+func (this MLGraphBuilder) HasFuncHardSwish1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderHardSwish1(
+		this.ref,
 	)
 }
 
-// HardSwish1Func returns the method "MLGraphBuilder.hardSwish".
-func (this MLGraphBuilder) HardSwish1Func() (fn js.Func[func() MLActivation]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderHardSwish1Func(
-			this.Ref(),
-		),
+// FuncHardSwish1 returns the method "MLGraphBuilder.hardSwish".
+func (this MLGraphBuilder) FuncHardSwish1() (fn js.Func[func() MLActivation]) {
+	bindings.FuncMLGraphBuilderHardSwish1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // HardSwish1 calls the method "MLGraphBuilder.hardSwish".
 func (this MLGraphBuilder) HardSwish1() (ret MLActivation) {
 	bindings.CallMLGraphBuilderHardSwish1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2937,32 +3049,31 @@ func (this MLGraphBuilder) HardSwish1() (ret MLActivation) {
 // the catch clause.
 func (this MLGraphBuilder) TryHardSwish1() (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderHardSwish1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSoftmax returns true if the method "MLGraphBuilder.softmax" exists.
-func (this MLGraphBuilder) HasSoftmax() bool {
-	return js.True == bindings.HasMLGraphBuilderSoftmax(
-		this.Ref(),
+// HasFuncSoftmax returns true if the method "MLGraphBuilder.softmax" exists.
+func (this MLGraphBuilder) HasFuncSoftmax() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderSoftmax(
+		this.ref,
 	)
 }
 
-// SoftmaxFunc returns the method "MLGraphBuilder.softmax".
-func (this MLGraphBuilder) SoftmaxFunc() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderSoftmaxFunc(
-			this.Ref(),
-		),
+// FuncSoftmax returns the method "MLGraphBuilder.softmax".
+func (this MLGraphBuilder) FuncSoftmax() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderSoftmax(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Softmax calls the method "MLGraphBuilder.softmax".
 func (this MLGraphBuilder) Softmax(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderSoftmax(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -2974,33 +3085,32 @@ func (this MLGraphBuilder) Softmax(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TrySoftmax(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSoftmax(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasSoftmax1 returns true if the method "MLGraphBuilder.softmax" exists.
-func (this MLGraphBuilder) HasSoftmax1() bool {
-	return js.True == bindings.HasMLGraphBuilderSoftmax1(
-		this.Ref(),
+// HasFuncSoftmax1 returns true if the method "MLGraphBuilder.softmax" exists.
+func (this MLGraphBuilder) HasFuncSoftmax1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderSoftmax1(
+		this.ref,
 	)
 }
 
-// Softmax1Func returns the method "MLGraphBuilder.softmax".
-func (this MLGraphBuilder) Softmax1Func() (fn js.Func[func() MLActivation]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderSoftmax1Func(
-			this.Ref(),
-		),
+// FuncSoftmax1 returns the method "MLGraphBuilder.softmax".
+func (this MLGraphBuilder) FuncSoftmax1() (fn js.Func[func() MLActivation]) {
+	bindings.FuncMLGraphBuilderSoftmax1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Softmax1 calls the method "MLGraphBuilder.softmax".
 func (this MLGraphBuilder) Softmax1() (ret MLActivation) {
 	bindings.CallMLGraphBuilderSoftmax1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3011,32 +3121,31 @@ func (this MLGraphBuilder) Softmax1() (ret MLActivation) {
 // the catch clause.
 func (this MLGraphBuilder) TrySoftmax1() (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSoftmax1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasConvTranspose2d returns true if the method "MLGraphBuilder.convTranspose2d" exists.
-func (this MLGraphBuilder) HasConvTranspose2d() bool {
-	return js.True == bindings.HasMLGraphBuilderConvTranspose2d(
-		this.Ref(),
+// HasFuncConvTranspose2d returns true if the method "MLGraphBuilder.convTranspose2d" exists.
+func (this MLGraphBuilder) HasFuncConvTranspose2d() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderConvTranspose2d(
+		this.ref,
 	)
 }
 
-// ConvTranspose2dFunc returns the method "MLGraphBuilder.convTranspose2d".
-func (this MLGraphBuilder) ConvTranspose2dFunc() (fn js.Func[func(input MLOperand, filter MLOperand, options MLConvTranspose2dOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderConvTranspose2dFunc(
-			this.Ref(),
-		),
+// FuncConvTranspose2d returns the method "MLGraphBuilder.convTranspose2d".
+func (this MLGraphBuilder) FuncConvTranspose2d() (fn js.Func[func(input MLOperand, filter MLOperand, options MLConvTranspose2dOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderConvTranspose2d(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ConvTranspose2d calls the method "MLGraphBuilder.convTranspose2d".
 func (this MLGraphBuilder) ConvTranspose2d(input MLOperand, filter MLOperand, options MLConvTranspose2dOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderConvTranspose2d(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		filter.Ref(),
 		js.Pointer(&options),
@@ -3050,7 +3159,7 @@ func (this MLGraphBuilder) ConvTranspose2d(input MLOperand, filter MLOperand, op
 // the catch clause.
 func (this MLGraphBuilder) TryConvTranspose2d(input MLOperand, filter MLOperand, options MLConvTranspose2dOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderConvTranspose2d(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		filter.Ref(),
 		js.Pointer(&options),
@@ -3059,26 +3168,25 @@ func (this MLGraphBuilder) TryConvTranspose2d(input MLOperand, filter MLOperand,
 	return
 }
 
-// HasConvTranspose2d1 returns true if the method "MLGraphBuilder.convTranspose2d" exists.
-func (this MLGraphBuilder) HasConvTranspose2d1() bool {
-	return js.True == bindings.HasMLGraphBuilderConvTranspose2d1(
-		this.Ref(),
+// HasFuncConvTranspose2d1 returns true if the method "MLGraphBuilder.convTranspose2d" exists.
+func (this MLGraphBuilder) HasFuncConvTranspose2d1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderConvTranspose2d1(
+		this.ref,
 	)
 }
 
-// ConvTranspose2d1Func returns the method "MLGraphBuilder.convTranspose2d".
-func (this MLGraphBuilder) ConvTranspose2d1Func() (fn js.Func[func(input MLOperand, filter MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderConvTranspose2d1Func(
-			this.Ref(),
-		),
+// FuncConvTranspose2d1 returns the method "MLGraphBuilder.convTranspose2d".
+func (this MLGraphBuilder) FuncConvTranspose2d1() (fn js.Func[func(input MLOperand, filter MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderConvTranspose2d1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ConvTranspose2d1 calls the method "MLGraphBuilder.convTranspose2d".
 func (this MLGraphBuilder) ConvTranspose2d1(input MLOperand, filter MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderConvTranspose2d1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		filter.Ref(),
 	)
@@ -3091,7 +3199,7 @@ func (this MLGraphBuilder) ConvTranspose2d1(input MLOperand, filter MLOperand) (
 // the catch clause.
 func (this MLGraphBuilder) TryConvTranspose2d1(input MLOperand, filter MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderConvTranspose2d1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		filter.Ref(),
 	)
@@ -3099,26 +3207,25 @@ func (this MLGraphBuilder) TryConvTranspose2d1(input MLOperand, filter MLOperand
 	return
 }
 
-// HasRelu returns true if the method "MLGraphBuilder.relu" exists.
-func (this MLGraphBuilder) HasRelu() bool {
-	return js.True == bindings.HasMLGraphBuilderRelu(
-		this.Ref(),
+// HasFuncRelu returns true if the method "MLGraphBuilder.relu" exists.
+func (this MLGraphBuilder) HasFuncRelu() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderRelu(
+		this.ref,
 	)
 }
 
-// ReluFunc returns the method "MLGraphBuilder.relu".
-func (this MLGraphBuilder) ReluFunc() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderReluFunc(
-			this.Ref(),
-		),
+// FuncRelu returns the method "MLGraphBuilder.relu".
+func (this MLGraphBuilder) FuncRelu() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderRelu(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Relu calls the method "MLGraphBuilder.relu".
 func (this MLGraphBuilder) Relu(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderRelu(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -3130,33 +3237,32 @@ func (this MLGraphBuilder) Relu(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryRelu(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderRelu(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasRelu1 returns true if the method "MLGraphBuilder.relu" exists.
-func (this MLGraphBuilder) HasRelu1() bool {
-	return js.True == bindings.HasMLGraphBuilderRelu1(
-		this.Ref(),
+// HasFuncRelu1 returns true if the method "MLGraphBuilder.relu" exists.
+func (this MLGraphBuilder) HasFuncRelu1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderRelu1(
+		this.ref,
 	)
 }
 
-// Relu1Func returns the method "MLGraphBuilder.relu".
-func (this MLGraphBuilder) Relu1Func() (fn js.Func[func() MLActivation]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderRelu1Func(
-			this.Ref(),
-		),
+// FuncRelu1 returns the method "MLGraphBuilder.relu".
+func (this MLGraphBuilder) FuncRelu1() (fn js.Func[func() MLActivation]) {
+	bindings.FuncMLGraphBuilderRelu1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Relu1 calls the method "MLGraphBuilder.relu".
 func (this MLGraphBuilder) Relu1() (ret MLActivation) {
 	bindings.CallMLGraphBuilderRelu1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3167,32 +3273,31 @@ func (this MLGraphBuilder) Relu1() (ret MLActivation) {
 // the catch clause.
 func (this MLGraphBuilder) TryRelu1() (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderRelu1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasAdd returns true if the method "MLGraphBuilder.add" exists.
-func (this MLGraphBuilder) HasAdd() bool {
-	return js.True == bindings.HasMLGraphBuilderAdd(
-		this.Ref(),
+// HasFuncAdd returns true if the method "MLGraphBuilder.add" exists.
+func (this MLGraphBuilder) HasFuncAdd() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderAdd(
+		this.ref,
 	)
 }
 
-// AddFunc returns the method "MLGraphBuilder.add".
-func (this MLGraphBuilder) AddFunc() (fn js.Func[func(a MLOperand, b MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderAddFunc(
-			this.Ref(),
-		),
+// FuncAdd returns the method "MLGraphBuilder.add".
+func (this MLGraphBuilder) FuncAdd() (fn js.Func[func(a MLOperand, b MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderAdd(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Add calls the method "MLGraphBuilder.add".
 func (this MLGraphBuilder) Add(a MLOperand, b MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderAdd(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		a.Ref(),
 		b.Ref(),
 	)
@@ -3205,7 +3310,7 @@ func (this MLGraphBuilder) Add(a MLOperand, b MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryAdd(a MLOperand, b MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderAdd(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		a.Ref(),
 		b.Ref(),
 	)
@@ -3213,26 +3318,25 @@ func (this MLGraphBuilder) TryAdd(a MLOperand, b MLOperand) (ret MLOperand, exce
 	return
 }
 
-// HasSub returns true if the method "MLGraphBuilder.sub" exists.
-func (this MLGraphBuilder) HasSub() bool {
-	return js.True == bindings.HasMLGraphBuilderSub(
-		this.Ref(),
+// HasFuncSub returns true if the method "MLGraphBuilder.sub" exists.
+func (this MLGraphBuilder) HasFuncSub() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderSub(
+		this.ref,
 	)
 }
 
-// SubFunc returns the method "MLGraphBuilder.sub".
-func (this MLGraphBuilder) SubFunc() (fn js.Func[func(a MLOperand, b MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderSubFunc(
-			this.Ref(),
-		),
+// FuncSub returns the method "MLGraphBuilder.sub".
+func (this MLGraphBuilder) FuncSub() (fn js.Func[func(a MLOperand, b MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderSub(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Sub calls the method "MLGraphBuilder.sub".
 func (this MLGraphBuilder) Sub(a MLOperand, b MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderSub(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		a.Ref(),
 		b.Ref(),
 	)
@@ -3245,7 +3349,7 @@ func (this MLGraphBuilder) Sub(a MLOperand, b MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TrySub(a MLOperand, b MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSub(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		a.Ref(),
 		b.Ref(),
 	)
@@ -3253,26 +3357,25 @@ func (this MLGraphBuilder) TrySub(a MLOperand, b MLOperand) (ret MLOperand, exce
 	return
 }
 
-// HasMul returns true if the method "MLGraphBuilder.mul" exists.
-func (this MLGraphBuilder) HasMul() bool {
-	return js.True == bindings.HasMLGraphBuilderMul(
-		this.Ref(),
+// HasFuncMul returns true if the method "MLGraphBuilder.mul" exists.
+func (this MLGraphBuilder) HasFuncMul() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderMul(
+		this.ref,
 	)
 }
 
-// MulFunc returns the method "MLGraphBuilder.mul".
-func (this MLGraphBuilder) MulFunc() (fn js.Func[func(a MLOperand, b MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderMulFunc(
-			this.Ref(),
-		),
+// FuncMul returns the method "MLGraphBuilder.mul".
+func (this MLGraphBuilder) FuncMul() (fn js.Func[func(a MLOperand, b MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderMul(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Mul calls the method "MLGraphBuilder.mul".
 func (this MLGraphBuilder) Mul(a MLOperand, b MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderMul(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		a.Ref(),
 		b.Ref(),
 	)
@@ -3285,7 +3388,7 @@ func (this MLGraphBuilder) Mul(a MLOperand, b MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryMul(a MLOperand, b MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderMul(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		a.Ref(),
 		b.Ref(),
 	)
@@ -3293,26 +3396,25 @@ func (this MLGraphBuilder) TryMul(a MLOperand, b MLOperand) (ret MLOperand, exce
 	return
 }
 
-// HasDiv returns true if the method "MLGraphBuilder.div" exists.
-func (this MLGraphBuilder) HasDiv() bool {
-	return js.True == bindings.HasMLGraphBuilderDiv(
-		this.Ref(),
+// HasFuncDiv returns true if the method "MLGraphBuilder.div" exists.
+func (this MLGraphBuilder) HasFuncDiv() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderDiv(
+		this.ref,
 	)
 }
 
-// DivFunc returns the method "MLGraphBuilder.div".
-func (this MLGraphBuilder) DivFunc() (fn js.Func[func(a MLOperand, b MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderDivFunc(
-			this.Ref(),
-		),
+// FuncDiv returns the method "MLGraphBuilder.div".
+func (this MLGraphBuilder) FuncDiv() (fn js.Func[func(a MLOperand, b MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderDiv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Div calls the method "MLGraphBuilder.div".
 func (this MLGraphBuilder) Div(a MLOperand, b MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderDiv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		a.Ref(),
 		b.Ref(),
 	)
@@ -3325,7 +3427,7 @@ func (this MLGraphBuilder) Div(a MLOperand, b MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryDiv(a MLOperand, b MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderDiv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		a.Ref(),
 		b.Ref(),
 	)
@@ -3333,26 +3435,25 @@ func (this MLGraphBuilder) TryDiv(a MLOperand, b MLOperand) (ret MLOperand, exce
 	return
 }
 
-// HasMax returns true if the method "MLGraphBuilder.max" exists.
-func (this MLGraphBuilder) HasMax() bool {
-	return js.True == bindings.HasMLGraphBuilderMax(
-		this.Ref(),
+// HasFuncMax returns true if the method "MLGraphBuilder.max" exists.
+func (this MLGraphBuilder) HasFuncMax() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderMax(
+		this.ref,
 	)
 }
 
-// MaxFunc returns the method "MLGraphBuilder.max".
-func (this MLGraphBuilder) MaxFunc() (fn js.Func[func(a MLOperand, b MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderMaxFunc(
-			this.Ref(),
-		),
+// FuncMax returns the method "MLGraphBuilder.max".
+func (this MLGraphBuilder) FuncMax() (fn js.Func[func(a MLOperand, b MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderMax(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Max calls the method "MLGraphBuilder.max".
 func (this MLGraphBuilder) Max(a MLOperand, b MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderMax(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		a.Ref(),
 		b.Ref(),
 	)
@@ -3365,7 +3466,7 @@ func (this MLGraphBuilder) Max(a MLOperand, b MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryMax(a MLOperand, b MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderMax(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		a.Ref(),
 		b.Ref(),
 	)
@@ -3373,26 +3474,25 @@ func (this MLGraphBuilder) TryMax(a MLOperand, b MLOperand) (ret MLOperand, exce
 	return
 }
 
-// HasMin returns true if the method "MLGraphBuilder.min" exists.
-func (this MLGraphBuilder) HasMin() bool {
-	return js.True == bindings.HasMLGraphBuilderMin(
-		this.Ref(),
+// HasFuncMin returns true if the method "MLGraphBuilder.min" exists.
+func (this MLGraphBuilder) HasFuncMin() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderMin(
+		this.ref,
 	)
 }
 
-// MinFunc returns the method "MLGraphBuilder.min".
-func (this MLGraphBuilder) MinFunc() (fn js.Func[func(a MLOperand, b MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderMinFunc(
-			this.Ref(),
-		),
+// FuncMin returns the method "MLGraphBuilder.min".
+func (this MLGraphBuilder) FuncMin() (fn js.Func[func(a MLOperand, b MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderMin(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Min calls the method "MLGraphBuilder.min".
 func (this MLGraphBuilder) Min(a MLOperand, b MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderMin(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		a.Ref(),
 		b.Ref(),
 	)
@@ -3405,7 +3505,7 @@ func (this MLGraphBuilder) Min(a MLOperand, b MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryMin(a MLOperand, b MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderMin(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		a.Ref(),
 		b.Ref(),
 	)
@@ -3413,26 +3513,25 @@ func (this MLGraphBuilder) TryMin(a MLOperand, b MLOperand) (ret MLOperand, exce
 	return
 }
 
-// HasPow returns true if the method "MLGraphBuilder.pow" exists.
-func (this MLGraphBuilder) HasPow() bool {
-	return js.True == bindings.HasMLGraphBuilderPow(
-		this.Ref(),
+// HasFuncPow returns true if the method "MLGraphBuilder.pow" exists.
+func (this MLGraphBuilder) HasFuncPow() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderPow(
+		this.ref,
 	)
 }
 
-// PowFunc returns the method "MLGraphBuilder.pow".
-func (this MLGraphBuilder) PowFunc() (fn js.Func[func(a MLOperand, b MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderPowFunc(
-			this.Ref(),
-		),
+// FuncPow returns the method "MLGraphBuilder.pow".
+func (this MLGraphBuilder) FuncPow() (fn js.Func[func(a MLOperand, b MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderPow(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Pow calls the method "MLGraphBuilder.pow".
 func (this MLGraphBuilder) Pow(a MLOperand, b MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderPow(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		a.Ref(),
 		b.Ref(),
 	)
@@ -3445,7 +3544,7 @@ func (this MLGraphBuilder) Pow(a MLOperand, b MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryPow(a MLOperand, b MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderPow(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		a.Ref(),
 		b.Ref(),
 	)
@@ -3453,26 +3552,25 @@ func (this MLGraphBuilder) TryPow(a MLOperand, b MLOperand) (ret MLOperand, exce
 	return
 }
 
-// HasReduceL1 returns true if the method "MLGraphBuilder.reduceL1" exists.
-func (this MLGraphBuilder) HasReduceL1() bool {
-	return js.True == bindings.HasMLGraphBuilderReduceL1(
-		this.Ref(),
+// HasFuncReduceL1 returns true if the method "MLGraphBuilder.reduceL1" exists.
+func (this MLGraphBuilder) HasFuncReduceL1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderReduceL1(
+		this.ref,
 	)
 }
 
-// ReduceL1Func returns the method "MLGraphBuilder.reduceL1".
-func (this MLGraphBuilder) ReduceL1Func() (fn js.Func[func(input MLOperand, options MLReduceOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderReduceL1Func(
-			this.Ref(),
-		),
+// FuncReduceL1 returns the method "MLGraphBuilder.reduceL1".
+func (this MLGraphBuilder) FuncReduceL1() (fn js.Func[func(input MLOperand, options MLReduceOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderReduceL1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReduceL1 calls the method "MLGraphBuilder.reduceL1".
 func (this MLGraphBuilder) ReduceL1(input MLOperand, options MLReduceOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderReduceL1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -3485,7 +3583,7 @@ func (this MLGraphBuilder) ReduceL1(input MLOperand, options MLReduceOptions) (r
 // the catch clause.
 func (this MLGraphBuilder) TryReduceL1(input MLOperand, options MLReduceOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceL1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -3493,26 +3591,25 @@ func (this MLGraphBuilder) TryReduceL1(input MLOperand, options MLReduceOptions)
 	return
 }
 
-// HasReduceL11 returns true if the method "MLGraphBuilder.reduceL1" exists.
-func (this MLGraphBuilder) HasReduceL11() bool {
-	return js.True == bindings.HasMLGraphBuilderReduceL11(
-		this.Ref(),
+// HasFuncReduceL11 returns true if the method "MLGraphBuilder.reduceL1" exists.
+func (this MLGraphBuilder) HasFuncReduceL11() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderReduceL11(
+		this.ref,
 	)
 }
 
-// ReduceL11Func returns the method "MLGraphBuilder.reduceL1".
-func (this MLGraphBuilder) ReduceL11Func() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderReduceL11Func(
-			this.Ref(),
-		),
+// FuncReduceL11 returns the method "MLGraphBuilder.reduceL1".
+func (this MLGraphBuilder) FuncReduceL11() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderReduceL11(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReduceL11 calls the method "MLGraphBuilder.reduceL1".
 func (this MLGraphBuilder) ReduceL11(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderReduceL11(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -3524,33 +3621,32 @@ func (this MLGraphBuilder) ReduceL11(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryReduceL11(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceL11(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasReduceL2 returns true if the method "MLGraphBuilder.reduceL2" exists.
-func (this MLGraphBuilder) HasReduceL2() bool {
-	return js.True == bindings.HasMLGraphBuilderReduceL2(
-		this.Ref(),
+// HasFuncReduceL2 returns true if the method "MLGraphBuilder.reduceL2" exists.
+func (this MLGraphBuilder) HasFuncReduceL2() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderReduceL2(
+		this.ref,
 	)
 }
 
-// ReduceL2Func returns the method "MLGraphBuilder.reduceL2".
-func (this MLGraphBuilder) ReduceL2Func() (fn js.Func[func(input MLOperand, options MLReduceOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderReduceL2Func(
-			this.Ref(),
-		),
+// FuncReduceL2 returns the method "MLGraphBuilder.reduceL2".
+func (this MLGraphBuilder) FuncReduceL2() (fn js.Func[func(input MLOperand, options MLReduceOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderReduceL2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReduceL2 calls the method "MLGraphBuilder.reduceL2".
 func (this MLGraphBuilder) ReduceL2(input MLOperand, options MLReduceOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderReduceL2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -3563,7 +3659,7 @@ func (this MLGraphBuilder) ReduceL2(input MLOperand, options MLReduceOptions) (r
 // the catch clause.
 func (this MLGraphBuilder) TryReduceL2(input MLOperand, options MLReduceOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceL2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -3571,26 +3667,25 @@ func (this MLGraphBuilder) TryReduceL2(input MLOperand, options MLReduceOptions)
 	return
 }
 
-// HasReduceL21 returns true if the method "MLGraphBuilder.reduceL2" exists.
-func (this MLGraphBuilder) HasReduceL21() bool {
-	return js.True == bindings.HasMLGraphBuilderReduceL21(
-		this.Ref(),
+// HasFuncReduceL21 returns true if the method "MLGraphBuilder.reduceL2" exists.
+func (this MLGraphBuilder) HasFuncReduceL21() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderReduceL21(
+		this.ref,
 	)
 }
 
-// ReduceL21Func returns the method "MLGraphBuilder.reduceL2".
-func (this MLGraphBuilder) ReduceL21Func() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderReduceL21Func(
-			this.Ref(),
-		),
+// FuncReduceL21 returns the method "MLGraphBuilder.reduceL2".
+func (this MLGraphBuilder) FuncReduceL21() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderReduceL21(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReduceL21 calls the method "MLGraphBuilder.reduceL2".
 func (this MLGraphBuilder) ReduceL21(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderReduceL21(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -3602,33 +3697,32 @@ func (this MLGraphBuilder) ReduceL21(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryReduceL21(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceL21(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasReduceLogSum returns true if the method "MLGraphBuilder.reduceLogSum" exists.
-func (this MLGraphBuilder) HasReduceLogSum() bool {
-	return js.True == bindings.HasMLGraphBuilderReduceLogSum(
-		this.Ref(),
+// HasFuncReduceLogSum returns true if the method "MLGraphBuilder.reduceLogSum" exists.
+func (this MLGraphBuilder) HasFuncReduceLogSum() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderReduceLogSum(
+		this.ref,
 	)
 }
 
-// ReduceLogSumFunc returns the method "MLGraphBuilder.reduceLogSum".
-func (this MLGraphBuilder) ReduceLogSumFunc() (fn js.Func[func(input MLOperand, options MLReduceOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderReduceLogSumFunc(
-			this.Ref(),
-		),
+// FuncReduceLogSum returns the method "MLGraphBuilder.reduceLogSum".
+func (this MLGraphBuilder) FuncReduceLogSum() (fn js.Func[func(input MLOperand, options MLReduceOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderReduceLogSum(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReduceLogSum calls the method "MLGraphBuilder.reduceLogSum".
 func (this MLGraphBuilder) ReduceLogSum(input MLOperand, options MLReduceOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderReduceLogSum(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -3641,7 +3735,7 @@ func (this MLGraphBuilder) ReduceLogSum(input MLOperand, options MLReduceOptions
 // the catch clause.
 func (this MLGraphBuilder) TryReduceLogSum(input MLOperand, options MLReduceOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceLogSum(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -3649,26 +3743,25 @@ func (this MLGraphBuilder) TryReduceLogSum(input MLOperand, options MLReduceOpti
 	return
 }
 
-// HasReduceLogSum1 returns true if the method "MLGraphBuilder.reduceLogSum" exists.
-func (this MLGraphBuilder) HasReduceLogSum1() bool {
-	return js.True == bindings.HasMLGraphBuilderReduceLogSum1(
-		this.Ref(),
+// HasFuncReduceLogSum1 returns true if the method "MLGraphBuilder.reduceLogSum" exists.
+func (this MLGraphBuilder) HasFuncReduceLogSum1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderReduceLogSum1(
+		this.ref,
 	)
 }
 
-// ReduceLogSum1Func returns the method "MLGraphBuilder.reduceLogSum".
-func (this MLGraphBuilder) ReduceLogSum1Func() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderReduceLogSum1Func(
-			this.Ref(),
-		),
+// FuncReduceLogSum1 returns the method "MLGraphBuilder.reduceLogSum".
+func (this MLGraphBuilder) FuncReduceLogSum1() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderReduceLogSum1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReduceLogSum1 calls the method "MLGraphBuilder.reduceLogSum".
 func (this MLGraphBuilder) ReduceLogSum1(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderReduceLogSum1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -3680,33 +3773,32 @@ func (this MLGraphBuilder) ReduceLogSum1(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryReduceLogSum1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceLogSum1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasReduceLogSumExp returns true if the method "MLGraphBuilder.reduceLogSumExp" exists.
-func (this MLGraphBuilder) HasReduceLogSumExp() bool {
-	return js.True == bindings.HasMLGraphBuilderReduceLogSumExp(
-		this.Ref(),
+// HasFuncReduceLogSumExp returns true if the method "MLGraphBuilder.reduceLogSumExp" exists.
+func (this MLGraphBuilder) HasFuncReduceLogSumExp() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderReduceLogSumExp(
+		this.ref,
 	)
 }
 
-// ReduceLogSumExpFunc returns the method "MLGraphBuilder.reduceLogSumExp".
-func (this MLGraphBuilder) ReduceLogSumExpFunc() (fn js.Func[func(input MLOperand, options MLReduceOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderReduceLogSumExpFunc(
-			this.Ref(),
-		),
+// FuncReduceLogSumExp returns the method "MLGraphBuilder.reduceLogSumExp".
+func (this MLGraphBuilder) FuncReduceLogSumExp() (fn js.Func[func(input MLOperand, options MLReduceOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderReduceLogSumExp(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReduceLogSumExp calls the method "MLGraphBuilder.reduceLogSumExp".
 func (this MLGraphBuilder) ReduceLogSumExp(input MLOperand, options MLReduceOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderReduceLogSumExp(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -3719,7 +3811,7 @@ func (this MLGraphBuilder) ReduceLogSumExp(input MLOperand, options MLReduceOpti
 // the catch clause.
 func (this MLGraphBuilder) TryReduceLogSumExp(input MLOperand, options MLReduceOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceLogSumExp(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -3727,26 +3819,25 @@ func (this MLGraphBuilder) TryReduceLogSumExp(input MLOperand, options MLReduceO
 	return
 }
 
-// HasReduceLogSumExp1 returns true if the method "MLGraphBuilder.reduceLogSumExp" exists.
-func (this MLGraphBuilder) HasReduceLogSumExp1() bool {
-	return js.True == bindings.HasMLGraphBuilderReduceLogSumExp1(
-		this.Ref(),
+// HasFuncReduceLogSumExp1 returns true if the method "MLGraphBuilder.reduceLogSumExp" exists.
+func (this MLGraphBuilder) HasFuncReduceLogSumExp1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderReduceLogSumExp1(
+		this.ref,
 	)
 }
 
-// ReduceLogSumExp1Func returns the method "MLGraphBuilder.reduceLogSumExp".
-func (this MLGraphBuilder) ReduceLogSumExp1Func() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderReduceLogSumExp1Func(
-			this.Ref(),
-		),
+// FuncReduceLogSumExp1 returns the method "MLGraphBuilder.reduceLogSumExp".
+func (this MLGraphBuilder) FuncReduceLogSumExp1() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderReduceLogSumExp1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReduceLogSumExp1 calls the method "MLGraphBuilder.reduceLogSumExp".
 func (this MLGraphBuilder) ReduceLogSumExp1(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderReduceLogSumExp1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -3758,33 +3849,32 @@ func (this MLGraphBuilder) ReduceLogSumExp1(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryReduceLogSumExp1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceLogSumExp1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasReduceMax returns true if the method "MLGraphBuilder.reduceMax" exists.
-func (this MLGraphBuilder) HasReduceMax() bool {
-	return js.True == bindings.HasMLGraphBuilderReduceMax(
-		this.Ref(),
+// HasFuncReduceMax returns true if the method "MLGraphBuilder.reduceMax" exists.
+func (this MLGraphBuilder) HasFuncReduceMax() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderReduceMax(
+		this.ref,
 	)
 }
 
-// ReduceMaxFunc returns the method "MLGraphBuilder.reduceMax".
-func (this MLGraphBuilder) ReduceMaxFunc() (fn js.Func[func(input MLOperand, options MLReduceOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderReduceMaxFunc(
-			this.Ref(),
-		),
+// FuncReduceMax returns the method "MLGraphBuilder.reduceMax".
+func (this MLGraphBuilder) FuncReduceMax() (fn js.Func[func(input MLOperand, options MLReduceOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderReduceMax(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReduceMax calls the method "MLGraphBuilder.reduceMax".
 func (this MLGraphBuilder) ReduceMax(input MLOperand, options MLReduceOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderReduceMax(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -3797,7 +3887,7 @@ func (this MLGraphBuilder) ReduceMax(input MLOperand, options MLReduceOptions) (
 // the catch clause.
 func (this MLGraphBuilder) TryReduceMax(input MLOperand, options MLReduceOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceMax(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -3805,26 +3895,25 @@ func (this MLGraphBuilder) TryReduceMax(input MLOperand, options MLReduceOptions
 	return
 }
 
-// HasReduceMax1 returns true if the method "MLGraphBuilder.reduceMax" exists.
-func (this MLGraphBuilder) HasReduceMax1() bool {
-	return js.True == bindings.HasMLGraphBuilderReduceMax1(
-		this.Ref(),
+// HasFuncReduceMax1 returns true if the method "MLGraphBuilder.reduceMax" exists.
+func (this MLGraphBuilder) HasFuncReduceMax1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderReduceMax1(
+		this.ref,
 	)
 }
 
-// ReduceMax1Func returns the method "MLGraphBuilder.reduceMax".
-func (this MLGraphBuilder) ReduceMax1Func() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderReduceMax1Func(
-			this.Ref(),
-		),
+// FuncReduceMax1 returns the method "MLGraphBuilder.reduceMax".
+func (this MLGraphBuilder) FuncReduceMax1() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderReduceMax1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReduceMax1 calls the method "MLGraphBuilder.reduceMax".
 func (this MLGraphBuilder) ReduceMax1(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderReduceMax1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -3836,33 +3925,32 @@ func (this MLGraphBuilder) ReduceMax1(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryReduceMax1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceMax1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasReduceMean returns true if the method "MLGraphBuilder.reduceMean" exists.
-func (this MLGraphBuilder) HasReduceMean() bool {
-	return js.True == bindings.HasMLGraphBuilderReduceMean(
-		this.Ref(),
+// HasFuncReduceMean returns true if the method "MLGraphBuilder.reduceMean" exists.
+func (this MLGraphBuilder) HasFuncReduceMean() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderReduceMean(
+		this.ref,
 	)
 }
 
-// ReduceMeanFunc returns the method "MLGraphBuilder.reduceMean".
-func (this MLGraphBuilder) ReduceMeanFunc() (fn js.Func[func(input MLOperand, options MLReduceOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderReduceMeanFunc(
-			this.Ref(),
-		),
+// FuncReduceMean returns the method "MLGraphBuilder.reduceMean".
+func (this MLGraphBuilder) FuncReduceMean() (fn js.Func[func(input MLOperand, options MLReduceOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderReduceMean(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReduceMean calls the method "MLGraphBuilder.reduceMean".
 func (this MLGraphBuilder) ReduceMean(input MLOperand, options MLReduceOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderReduceMean(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -3875,7 +3963,7 @@ func (this MLGraphBuilder) ReduceMean(input MLOperand, options MLReduceOptions) 
 // the catch clause.
 func (this MLGraphBuilder) TryReduceMean(input MLOperand, options MLReduceOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceMean(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -3883,26 +3971,25 @@ func (this MLGraphBuilder) TryReduceMean(input MLOperand, options MLReduceOption
 	return
 }
 
-// HasReduceMean1 returns true if the method "MLGraphBuilder.reduceMean" exists.
-func (this MLGraphBuilder) HasReduceMean1() bool {
-	return js.True == bindings.HasMLGraphBuilderReduceMean1(
-		this.Ref(),
+// HasFuncReduceMean1 returns true if the method "MLGraphBuilder.reduceMean" exists.
+func (this MLGraphBuilder) HasFuncReduceMean1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderReduceMean1(
+		this.ref,
 	)
 }
 
-// ReduceMean1Func returns the method "MLGraphBuilder.reduceMean".
-func (this MLGraphBuilder) ReduceMean1Func() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderReduceMean1Func(
-			this.Ref(),
-		),
+// FuncReduceMean1 returns the method "MLGraphBuilder.reduceMean".
+func (this MLGraphBuilder) FuncReduceMean1() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderReduceMean1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReduceMean1 calls the method "MLGraphBuilder.reduceMean".
 func (this MLGraphBuilder) ReduceMean1(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderReduceMean1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -3914,33 +4001,32 @@ func (this MLGraphBuilder) ReduceMean1(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryReduceMean1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceMean1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasReduceMin returns true if the method "MLGraphBuilder.reduceMin" exists.
-func (this MLGraphBuilder) HasReduceMin() bool {
-	return js.True == bindings.HasMLGraphBuilderReduceMin(
-		this.Ref(),
+// HasFuncReduceMin returns true if the method "MLGraphBuilder.reduceMin" exists.
+func (this MLGraphBuilder) HasFuncReduceMin() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderReduceMin(
+		this.ref,
 	)
 }
 
-// ReduceMinFunc returns the method "MLGraphBuilder.reduceMin".
-func (this MLGraphBuilder) ReduceMinFunc() (fn js.Func[func(input MLOperand, options MLReduceOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderReduceMinFunc(
-			this.Ref(),
-		),
+// FuncReduceMin returns the method "MLGraphBuilder.reduceMin".
+func (this MLGraphBuilder) FuncReduceMin() (fn js.Func[func(input MLOperand, options MLReduceOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderReduceMin(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReduceMin calls the method "MLGraphBuilder.reduceMin".
 func (this MLGraphBuilder) ReduceMin(input MLOperand, options MLReduceOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderReduceMin(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -3953,7 +4039,7 @@ func (this MLGraphBuilder) ReduceMin(input MLOperand, options MLReduceOptions) (
 // the catch clause.
 func (this MLGraphBuilder) TryReduceMin(input MLOperand, options MLReduceOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceMin(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -3961,26 +4047,25 @@ func (this MLGraphBuilder) TryReduceMin(input MLOperand, options MLReduceOptions
 	return
 }
 
-// HasReduceMin1 returns true if the method "MLGraphBuilder.reduceMin" exists.
-func (this MLGraphBuilder) HasReduceMin1() bool {
-	return js.True == bindings.HasMLGraphBuilderReduceMin1(
-		this.Ref(),
+// HasFuncReduceMin1 returns true if the method "MLGraphBuilder.reduceMin" exists.
+func (this MLGraphBuilder) HasFuncReduceMin1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderReduceMin1(
+		this.ref,
 	)
 }
 
-// ReduceMin1Func returns the method "MLGraphBuilder.reduceMin".
-func (this MLGraphBuilder) ReduceMin1Func() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderReduceMin1Func(
-			this.Ref(),
-		),
+// FuncReduceMin1 returns the method "MLGraphBuilder.reduceMin".
+func (this MLGraphBuilder) FuncReduceMin1() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderReduceMin1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReduceMin1 calls the method "MLGraphBuilder.reduceMin".
 func (this MLGraphBuilder) ReduceMin1(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderReduceMin1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -3992,33 +4077,32 @@ func (this MLGraphBuilder) ReduceMin1(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryReduceMin1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceMin1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasReduceProduct returns true if the method "MLGraphBuilder.reduceProduct" exists.
-func (this MLGraphBuilder) HasReduceProduct() bool {
-	return js.True == bindings.HasMLGraphBuilderReduceProduct(
-		this.Ref(),
+// HasFuncReduceProduct returns true if the method "MLGraphBuilder.reduceProduct" exists.
+func (this MLGraphBuilder) HasFuncReduceProduct() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderReduceProduct(
+		this.ref,
 	)
 }
 
-// ReduceProductFunc returns the method "MLGraphBuilder.reduceProduct".
-func (this MLGraphBuilder) ReduceProductFunc() (fn js.Func[func(input MLOperand, options MLReduceOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderReduceProductFunc(
-			this.Ref(),
-		),
+// FuncReduceProduct returns the method "MLGraphBuilder.reduceProduct".
+func (this MLGraphBuilder) FuncReduceProduct() (fn js.Func[func(input MLOperand, options MLReduceOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderReduceProduct(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReduceProduct calls the method "MLGraphBuilder.reduceProduct".
 func (this MLGraphBuilder) ReduceProduct(input MLOperand, options MLReduceOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderReduceProduct(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -4031,7 +4115,7 @@ func (this MLGraphBuilder) ReduceProduct(input MLOperand, options MLReduceOption
 // the catch clause.
 func (this MLGraphBuilder) TryReduceProduct(input MLOperand, options MLReduceOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceProduct(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -4039,26 +4123,25 @@ func (this MLGraphBuilder) TryReduceProduct(input MLOperand, options MLReduceOpt
 	return
 }
 
-// HasReduceProduct1 returns true if the method "MLGraphBuilder.reduceProduct" exists.
-func (this MLGraphBuilder) HasReduceProduct1() bool {
-	return js.True == bindings.HasMLGraphBuilderReduceProduct1(
-		this.Ref(),
+// HasFuncReduceProduct1 returns true if the method "MLGraphBuilder.reduceProduct" exists.
+func (this MLGraphBuilder) HasFuncReduceProduct1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderReduceProduct1(
+		this.ref,
 	)
 }
 
-// ReduceProduct1Func returns the method "MLGraphBuilder.reduceProduct".
-func (this MLGraphBuilder) ReduceProduct1Func() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderReduceProduct1Func(
-			this.Ref(),
-		),
+// FuncReduceProduct1 returns the method "MLGraphBuilder.reduceProduct".
+func (this MLGraphBuilder) FuncReduceProduct1() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderReduceProduct1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReduceProduct1 calls the method "MLGraphBuilder.reduceProduct".
 func (this MLGraphBuilder) ReduceProduct1(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderReduceProduct1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -4070,33 +4153,32 @@ func (this MLGraphBuilder) ReduceProduct1(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryReduceProduct1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceProduct1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasReduceSum returns true if the method "MLGraphBuilder.reduceSum" exists.
-func (this MLGraphBuilder) HasReduceSum() bool {
-	return js.True == bindings.HasMLGraphBuilderReduceSum(
-		this.Ref(),
+// HasFuncReduceSum returns true if the method "MLGraphBuilder.reduceSum" exists.
+func (this MLGraphBuilder) HasFuncReduceSum() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderReduceSum(
+		this.ref,
 	)
 }
 
-// ReduceSumFunc returns the method "MLGraphBuilder.reduceSum".
-func (this MLGraphBuilder) ReduceSumFunc() (fn js.Func[func(input MLOperand, options MLReduceOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderReduceSumFunc(
-			this.Ref(),
-		),
+// FuncReduceSum returns the method "MLGraphBuilder.reduceSum".
+func (this MLGraphBuilder) FuncReduceSum() (fn js.Func[func(input MLOperand, options MLReduceOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderReduceSum(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReduceSum calls the method "MLGraphBuilder.reduceSum".
 func (this MLGraphBuilder) ReduceSum(input MLOperand, options MLReduceOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderReduceSum(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -4109,7 +4191,7 @@ func (this MLGraphBuilder) ReduceSum(input MLOperand, options MLReduceOptions) (
 // the catch clause.
 func (this MLGraphBuilder) TryReduceSum(input MLOperand, options MLReduceOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceSum(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -4117,26 +4199,25 @@ func (this MLGraphBuilder) TryReduceSum(input MLOperand, options MLReduceOptions
 	return
 }
 
-// HasReduceSum1 returns true if the method "MLGraphBuilder.reduceSum" exists.
-func (this MLGraphBuilder) HasReduceSum1() bool {
-	return js.True == bindings.HasMLGraphBuilderReduceSum1(
-		this.Ref(),
+// HasFuncReduceSum1 returns true if the method "MLGraphBuilder.reduceSum" exists.
+func (this MLGraphBuilder) HasFuncReduceSum1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderReduceSum1(
+		this.ref,
 	)
 }
 
-// ReduceSum1Func returns the method "MLGraphBuilder.reduceSum".
-func (this MLGraphBuilder) ReduceSum1Func() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderReduceSum1Func(
-			this.Ref(),
-		),
+// FuncReduceSum1 returns the method "MLGraphBuilder.reduceSum".
+func (this MLGraphBuilder) FuncReduceSum1() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderReduceSum1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReduceSum1 calls the method "MLGraphBuilder.reduceSum".
 func (this MLGraphBuilder) ReduceSum1(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderReduceSum1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -4148,33 +4229,32 @@ func (this MLGraphBuilder) ReduceSum1(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryReduceSum1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceSum1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasReduceSumSquare returns true if the method "MLGraphBuilder.reduceSumSquare" exists.
-func (this MLGraphBuilder) HasReduceSumSquare() bool {
-	return js.True == bindings.HasMLGraphBuilderReduceSumSquare(
-		this.Ref(),
+// HasFuncReduceSumSquare returns true if the method "MLGraphBuilder.reduceSumSquare" exists.
+func (this MLGraphBuilder) HasFuncReduceSumSquare() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderReduceSumSquare(
+		this.ref,
 	)
 }
 
-// ReduceSumSquareFunc returns the method "MLGraphBuilder.reduceSumSquare".
-func (this MLGraphBuilder) ReduceSumSquareFunc() (fn js.Func[func(input MLOperand, options MLReduceOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderReduceSumSquareFunc(
-			this.Ref(),
-		),
+// FuncReduceSumSquare returns the method "MLGraphBuilder.reduceSumSquare".
+func (this MLGraphBuilder) FuncReduceSumSquare() (fn js.Func[func(input MLOperand, options MLReduceOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderReduceSumSquare(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReduceSumSquare calls the method "MLGraphBuilder.reduceSumSquare".
 func (this MLGraphBuilder) ReduceSumSquare(input MLOperand, options MLReduceOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderReduceSumSquare(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -4187,7 +4267,7 @@ func (this MLGraphBuilder) ReduceSumSquare(input MLOperand, options MLReduceOpti
 // the catch clause.
 func (this MLGraphBuilder) TryReduceSumSquare(input MLOperand, options MLReduceOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceSumSquare(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -4195,26 +4275,25 @@ func (this MLGraphBuilder) TryReduceSumSquare(input MLOperand, options MLReduceO
 	return
 }
 
-// HasReduceSumSquare1 returns true if the method "MLGraphBuilder.reduceSumSquare" exists.
-func (this MLGraphBuilder) HasReduceSumSquare1() bool {
-	return js.True == bindings.HasMLGraphBuilderReduceSumSquare1(
-		this.Ref(),
+// HasFuncReduceSumSquare1 returns true if the method "MLGraphBuilder.reduceSumSquare" exists.
+func (this MLGraphBuilder) HasFuncReduceSumSquare1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderReduceSumSquare1(
+		this.ref,
 	)
 }
 
-// ReduceSumSquare1Func returns the method "MLGraphBuilder.reduceSumSquare".
-func (this MLGraphBuilder) ReduceSumSquare1Func() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderReduceSumSquare1Func(
-			this.Ref(),
-		),
+// FuncReduceSumSquare1 returns the method "MLGraphBuilder.reduceSumSquare".
+func (this MLGraphBuilder) FuncReduceSumSquare1() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderReduceSumSquare1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReduceSumSquare1 calls the method "MLGraphBuilder.reduceSumSquare".
 func (this MLGraphBuilder) ReduceSumSquare1(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderReduceSumSquare1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -4226,33 +4305,32 @@ func (this MLGraphBuilder) ReduceSumSquare1(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryReduceSumSquare1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceSumSquare1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasLstm returns true if the method "MLGraphBuilder.lstm" exists.
-func (this MLGraphBuilder) HasLstm() bool {
-	return js.True == bindings.HasMLGraphBuilderLstm(
-		this.Ref(),
+// HasFuncLstm returns true if the method "MLGraphBuilder.lstm" exists.
+func (this MLGraphBuilder) HasFuncLstm() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderLstm(
+		this.ref,
 	)
 }
 
-// LstmFunc returns the method "MLGraphBuilder.lstm".
-func (this MLGraphBuilder) LstmFunc() (fn js.Func[func(input MLOperand, weight MLOperand, recurrentWeight MLOperand, steps uint32, hiddenSize uint32, options MLLstmOptions) js.Array[MLOperand]]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderLstmFunc(
-			this.Ref(),
-		),
+// FuncLstm returns the method "MLGraphBuilder.lstm".
+func (this MLGraphBuilder) FuncLstm() (fn js.Func[func(input MLOperand, weight MLOperand, recurrentWeight MLOperand, steps uint32, hiddenSize uint32, options MLLstmOptions) js.Array[MLOperand]]) {
+	bindings.FuncMLGraphBuilderLstm(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Lstm calls the method "MLGraphBuilder.lstm".
 func (this MLGraphBuilder) Lstm(input MLOperand, weight MLOperand, recurrentWeight MLOperand, steps uint32, hiddenSize uint32, options MLLstmOptions) (ret js.Array[MLOperand]) {
 	bindings.CallMLGraphBuilderLstm(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		weight.Ref(),
 		recurrentWeight.Ref(),
@@ -4269,7 +4347,7 @@ func (this MLGraphBuilder) Lstm(input MLOperand, weight MLOperand, recurrentWeig
 // the catch clause.
 func (this MLGraphBuilder) TryLstm(input MLOperand, weight MLOperand, recurrentWeight MLOperand, steps uint32, hiddenSize uint32, options MLLstmOptions) (ret js.Array[MLOperand], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLstm(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		weight.Ref(),
 		recurrentWeight.Ref(),
@@ -4281,26 +4359,25 @@ func (this MLGraphBuilder) TryLstm(input MLOperand, weight MLOperand, recurrentW
 	return
 }
 
-// HasLstm1 returns true if the method "MLGraphBuilder.lstm" exists.
-func (this MLGraphBuilder) HasLstm1() bool {
-	return js.True == bindings.HasMLGraphBuilderLstm1(
-		this.Ref(),
+// HasFuncLstm1 returns true if the method "MLGraphBuilder.lstm" exists.
+func (this MLGraphBuilder) HasFuncLstm1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderLstm1(
+		this.ref,
 	)
 }
 
-// Lstm1Func returns the method "MLGraphBuilder.lstm".
-func (this MLGraphBuilder) Lstm1Func() (fn js.Func[func(input MLOperand, weight MLOperand, recurrentWeight MLOperand, steps uint32, hiddenSize uint32) js.Array[MLOperand]]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderLstm1Func(
-			this.Ref(),
-		),
+// FuncLstm1 returns the method "MLGraphBuilder.lstm".
+func (this MLGraphBuilder) FuncLstm1() (fn js.Func[func(input MLOperand, weight MLOperand, recurrentWeight MLOperand, steps uint32, hiddenSize uint32) js.Array[MLOperand]]) {
+	bindings.FuncMLGraphBuilderLstm1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Lstm1 calls the method "MLGraphBuilder.lstm".
 func (this MLGraphBuilder) Lstm1(input MLOperand, weight MLOperand, recurrentWeight MLOperand, steps uint32, hiddenSize uint32) (ret js.Array[MLOperand]) {
 	bindings.CallMLGraphBuilderLstm1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		weight.Ref(),
 		recurrentWeight.Ref(),
@@ -4316,7 +4393,7 @@ func (this MLGraphBuilder) Lstm1(input MLOperand, weight MLOperand, recurrentWei
 // the catch clause.
 func (this MLGraphBuilder) TryLstm1(input MLOperand, weight MLOperand, recurrentWeight MLOperand, steps uint32, hiddenSize uint32) (ret js.Array[MLOperand], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLstm1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		weight.Ref(),
 		recurrentWeight.Ref(),
@@ -4327,26 +4404,25 @@ func (this MLGraphBuilder) TryLstm1(input MLOperand, weight MLOperand, recurrent
 	return
 }
 
-// HasMatmul returns true if the method "MLGraphBuilder.matmul" exists.
-func (this MLGraphBuilder) HasMatmul() bool {
-	return js.True == bindings.HasMLGraphBuilderMatmul(
-		this.Ref(),
+// HasFuncMatmul returns true if the method "MLGraphBuilder.matmul" exists.
+func (this MLGraphBuilder) HasFuncMatmul() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderMatmul(
+		this.ref,
 	)
 }
 
-// MatmulFunc returns the method "MLGraphBuilder.matmul".
-func (this MLGraphBuilder) MatmulFunc() (fn js.Func[func(a MLOperand, b MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderMatmulFunc(
-			this.Ref(),
-		),
+// FuncMatmul returns the method "MLGraphBuilder.matmul".
+func (this MLGraphBuilder) FuncMatmul() (fn js.Func[func(a MLOperand, b MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderMatmul(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Matmul calls the method "MLGraphBuilder.matmul".
 func (this MLGraphBuilder) Matmul(a MLOperand, b MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderMatmul(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		a.Ref(),
 		b.Ref(),
 	)
@@ -4359,7 +4435,7 @@ func (this MLGraphBuilder) Matmul(a MLOperand, b MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryMatmul(a MLOperand, b MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderMatmul(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		a.Ref(),
 		b.Ref(),
 	)
@@ -4367,26 +4443,25 @@ func (this MLGraphBuilder) TryMatmul(a MLOperand, b MLOperand) (ret MLOperand, e
 	return
 }
 
-// HasSqueeze returns true if the method "MLGraphBuilder.squeeze" exists.
-func (this MLGraphBuilder) HasSqueeze() bool {
-	return js.True == bindings.HasMLGraphBuilderSqueeze(
-		this.Ref(),
+// HasFuncSqueeze returns true if the method "MLGraphBuilder.squeeze" exists.
+func (this MLGraphBuilder) HasFuncSqueeze() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderSqueeze(
+		this.ref,
 	)
 }
 
-// SqueezeFunc returns the method "MLGraphBuilder.squeeze".
-func (this MLGraphBuilder) SqueezeFunc() (fn js.Func[func(input MLOperand, options MLSqueezeOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderSqueezeFunc(
-			this.Ref(),
-		),
+// FuncSqueeze returns the method "MLGraphBuilder.squeeze".
+func (this MLGraphBuilder) FuncSqueeze() (fn js.Func[func(input MLOperand, options MLSqueezeOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderSqueeze(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Squeeze calls the method "MLGraphBuilder.squeeze".
 func (this MLGraphBuilder) Squeeze(input MLOperand, options MLSqueezeOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderSqueeze(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -4399,7 +4474,7 @@ func (this MLGraphBuilder) Squeeze(input MLOperand, options MLSqueezeOptions) (r
 // the catch clause.
 func (this MLGraphBuilder) TrySqueeze(input MLOperand, options MLSqueezeOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSqueeze(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -4407,26 +4482,25 @@ func (this MLGraphBuilder) TrySqueeze(input MLOperand, options MLSqueezeOptions)
 	return
 }
 
-// HasSqueeze1 returns true if the method "MLGraphBuilder.squeeze" exists.
-func (this MLGraphBuilder) HasSqueeze1() bool {
-	return js.True == bindings.HasMLGraphBuilderSqueeze1(
-		this.Ref(),
+// HasFuncSqueeze1 returns true if the method "MLGraphBuilder.squeeze" exists.
+func (this MLGraphBuilder) HasFuncSqueeze1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderSqueeze1(
+		this.ref,
 	)
 }
 
-// Squeeze1Func returns the method "MLGraphBuilder.squeeze".
-func (this MLGraphBuilder) Squeeze1Func() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderSqueeze1Func(
-			this.Ref(),
-		),
+// FuncSqueeze1 returns the method "MLGraphBuilder.squeeze".
+func (this MLGraphBuilder) FuncSqueeze1() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderSqueeze1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Squeeze1 calls the method "MLGraphBuilder.squeeze".
 func (this MLGraphBuilder) Squeeze1(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderSqueeze1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -4438,33 +4512,32 @@ func (this MLGraphBuilder) Squeeze1(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TrySqueeze1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSqueeze1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasTanh returns true if the method "MLGraphBuilder.tanh" exists.
-func (this MLGraphBuilder) HasTanh() bool {
-	return js.True == bindings.HasMLGraphBuilderTanh(
-		this.Ref(),
+// HasFuncTanh returns true if the method "MLGraphBuilder.tanh" exists.
+func (this MLGraphBuilder) HasFuncTanh() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderTanh(
+		this.ref,
 	)
 }
 
-// TanhFunc returns the method "MLGraphBuilder.tanh".
-func (this MLGraphBuilder) TanhFunc() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderTanhFunc(
-			this.Ref(),
-		),
+// FuncTanh returns the method "MLGraphBuilder.tanh".
+func (this MLGraphBuilder) FuncTanh() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderTanh(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Tanh calls the method "MLGraphBuilder.tanh".
 func (this MLGraphBuilder) Tanh(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderTanh(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -4476,33 +4549,32 @@ func (this MLGraphBuilder) Tanh(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryTanh(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderTanh(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasTanh1 returns true if the method "MLGraphBuilder.tanh" exists.
-func (this MLGraphBuilder) HasTanh1() bool {
-	return js.True == bindings.HasMLGraphBuilderTanh1(
-		this.Ref(),
+// HasFuncTanh1 returns true if the method "MLGraphBuilder.tanh" exists.
+func (this MLGraphBuilder) HasFuncTanh1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderTanh1(
+		this.ref,
 	)
 }
 
-// Tanh1Func returns the method "MLGraphBuilder.tanh".
-func (this MLGraphBuilder) Tanh1Func() (fn js.Func[func() MLActivation]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderTanh1Func(
-			this.Ref(),
-		),
+// FuncTanh1 returns the method "MLGraphBuilder.tanh".
+func (this MLGraphBuilder) FuncTanh1() (fn js.Func[func() MLActivation]) {
+	bindings.FuncMLGraphBuilderTanh1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Tanh1 calls the method "MLGraphBuilder.tanh".
 func (this MLGraphBuilder) Tanh1() (ret MLActivation) {
 	bindings.CallMLGraphBuilderTanh1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -4513,32 +4585,31 @@ func (this MLGraphBuilder) Tanh1() (ret MLActivation) {
 // the catch clause.
 func (this MLGraphBuilder) TryTanh1() (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderTanh1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGru returns true if the method "MLGraphBuilder.gru" exists.
-func (this MLGraphBuilder) HasGru() bool {
-	return js.True == bindings.HasMLGraphBuilderGru(
-		this.Ref(),
+// HasFuncGru returns true if the method "MLGraphBuilder.gru" exists.
+func (this MLGraphBuilder) HasFuncGru() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderGru(
+		this.ref,
 	)
 }
 
-// GruFunc returns the method "MLGraphBuilder.gru".
-func (this MLGraphBuilder) GruFunc() (fn js.Func[func(input MLOperand, weight MLOperand, recurrentWeight MLOperand, steps uint32, hiddenSize uint32, options MLGruOptions) js.Array[MLOperand]]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderGruFunc(
-			this.Ref(),
-		),
+// FuncGru returns the method "MLGraphBuilder.gru".
+func (this MLGraphBuilder) FuncGru() (fn js.Func[func(input MLOperand, weight MLOperand, recurrentWeight MLOperand, steps uint32, hiddenSize uint32, options MLGruOptions) js.Array[MLOperand]]) {
+	bindings.FuncMLGraphBuilderGru(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Gru calls the method "MLGraphBuilder.gru".
 func (this MLGraphBuilder) Gru(input MLOperand, weight MLOperand, recurrentWeight MLOperand, steps uint32, hiddenSize uint32, options MLGruOptions) (ret js.Array[MLOperand]) {
 	bindings.CallMLGraphBuilderGru(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		weight.Ref(),
 		recurrentWeight.Ref(),
@@ -4555,7 +4626,7 @@ func (this MLGraphBuilder) Gru(input MLOperand, weight MLOperand, recurrentWeigh
 // the catch clause.
 func (this MLGraphBuilder) TryGru(input MLOperand, weight MLOperand, recurrentWeight MLOperand, steps uint32, hiddenSize uint32, options MLGruOptions) (ret js.Array[MLOperand], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderGru(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		weight.Ref(),
 		recurrentWeight.Ref(),
@@ -4567,26 +4638,25 @@ func (this MLGraphBuilder) TryGru(input MLOperand, weight MLOperand, recurrentWe
 	return
 }
 
-// HasGru1 returns true if the method "MLGraphBuilder.gru" exists.
-func (this MLGraphBuilder) HasGru1() bool {
-	return js.True == bindings.HasMLGraphBuilderGru1(
-		this.Ref(),
+// HasFuncGru1 returns true if the method "MLGraphBuilder.gru" exists.
+func (this MLGraphBuilder) HasFuncGru1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderGru1(
+		this.ref,
 	)
 }
 
-// Gru1Func returns the method "MLGraphBuilder.gru".
-func (this MLGraphBuilder) Gru1Func() (fn js.Func[func(input MLOperand, weight MLOperand, recurrentWeight MLOperand, steps uint32, hiddenSize uint32) js.Array[MLOperand]]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderGru1Func(
-			this.Ref(),
-		),
+// FuncGru1 returns the method "MLGraphBuilder.gru".
+func (this MLGraphBuilder) FuncGru1() (fn js.Func[func(input MLOperand, weight MLOperand, recurrentWeight MLOperand, steps uint32, hiddenSize uint32) js.Array[MLOperand]]) {
+	bindings.FuncMLGraphBuilderGru1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Gru1 calls the method "MLGraphBuilder.gru".
 func (this MLGraphBuilder) Gru1(input MLOperand, weight MLOperand, recurrentWeight MLOperand, steps uint32, hiddenSize uint32) (ret js.Array[MLOperand]) {
 	bindings.CallMLGraphBuilderGru1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		weight.Ref(),
 		recurrentWeight.Ref(),
@@ -4602,7 +4672,7 @@ func (this MLGraphBuilder) Gru1(input MLOperand, weight MLOperand, recurrentWeig
 // the catch clause.
 func (this MLGraphBuilder) TryGru1(input MLOperand, weight MLOperand, recurrentWeight MLOperand, steps uint32, hiddenSize uint32) (ret js.Array[MLOperand], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderGru1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		weight.Ref(),
 		recurrentWeight.Ref(),
@@ -4613,26 +4683,25 @@ func (this MLGraphBuilder) TryGru1(input MLOperand, weight MLOperand, recurrentW
 	return
 }
 
-// HasAbs returns true if the method "MLGraphBuilder.abs" exists.
-func (this MLGraphBuilder) HasAbs() bool {
-	return js.True == bindings.HasMLGraphBuilderAbs(
-		this.Ref(),
+// HasFuncAbs returns true if the method "MLGraphBuilder.abs" exists.
+func (this MLGraphBuilder) HasFuncAbs() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderAbs(
+		this.ref,
 	)
 }
 
-// AbsFunc returns the method "MLGraphBuilder.abs".
-func (this MLGraphBuilder) AbsFunc() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderAbsFunc(
-			this.Ref(),
-		),
+// FuncAbs returns the method "MLGraphBuilder.abs".
+func (this MLGraphBuilder) FuncAbs() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderAbs(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Abs calls the method "MLGraphBuilder.abs".
 func (this MLGraphBuilder) Abs(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderAbs(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -4644,33 +4713,32 @@ func (this MLGraphBuilder) Abs(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryAbs(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderAbs(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasCeil returns true if the method "MLGraphBuilder.ceil" exists.
-func (this MLGraphBuilder) HasCeil() bool {
-	return js.True == bindings.HasMLGraphBuilderCeil(
-		this.Ref(),
+// HasFuncCeil returns true if the method "MLGraphBuilder.ceil" exists.
+func (this MLGraphBuilder) HasFuncCeil() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderCeil(
+		this.ref,
 	)
 }
 
-// CeilFunc returns the method "MLGraphBuilder.ceil".
-func (this MLGraphBuilder) CeilFunc() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderCeilFunc(
-			this.Ref(),
-		),
+// FuncCeil returns the method "MLGraphBuilder.ceil".
+func (this MLGraphBuilder) FuncCeil() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderCeil(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Ceil calls the method "MLGraphBuilder.ceil".
 func (this MLGraphBuilder) Ceil(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderCeil(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -4682,33 +4750,32 @@ func (this MLGraphBuilder) Ceil(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryCeil(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderCeil(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasCos returns true if the method "MLGraphBuilder.cos" exists.
-func (this MLGraphBuilder) HasCos() bool {
-	return js.True == bindings.HasMLGraphBuilderCos(
-		this.Ref(),
+// HasFuncCos returns true if the method "MLGraphBuilder.cos" exists.
+func (this MLGraphBuilder) HasFuncCos() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderCos(
+		this.ref,
 	)
 }
 
-// CosFunc returns the method "MLGraphBuilder.cos".
-func (this MLGraphBuilder) CosFunc() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderCosFunc(
-			this.Ref(),
-		),
+// FuncCos returns the method "MLGraphBuilder.cos".
+func (this MLGraphBuilder) FuncCos() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderCos(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Cos calls the method "MLGraphBuilder.cos".
 func (this MLGraphBuilder) Cos(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderCos(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -4720,33 +4787,32 @@ func (this MLGraphBuilder) Cos(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryCos(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderCos(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasExp returns true if the method "MLGraphBuilder.exp" exists.
-func (this MLGraphBuilder) HasExp() bool {
-	return js.True == bindings.HasMLGraphBuilderExp(
-		this.Ref(),
+// HasFuncExp returns true if the method "MLGraphBuilder.exp" exists.
+func (this MLGraphBuilder) HasFuncExp() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderExp(
+		this.ref,
 	)
 }
 
-// ExpFunc returns the method "MLGraphBuilder.exp".
-func (this MLGraphBuilder) ExpFunc() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderExpFunc(
-			this.Ref(),
-		),
+// FuncExp returns the method "MLGraphBuilder.exp".
+func (this MLGraphBuilder) FuncExp() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderExp(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Exp calls the method "MLGraphBuilder.exp".
 func (this MLGraphBuilder) Exp(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderExp(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -4758,33 +4824,32 @@ func (this MLGraphBuilder) Exp(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryExp(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderExp(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasFloor returns true if the method "MLGraphBuilder.floor" exists.
-func (this MLGraphBuilder) HasFloor() bool {
-	return js.True == bindings.HasMLGraphBuilderFloor(
-		this.Ref(),
+// HasFuncFloor returns true if the method "MLGraphBuilder.floor" exists.
+func (this MLGraphBuilder) HasFuncFloor() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderFloor(
+		this.ref,
 	)
 }
 
-// FloorFunc returns the method "MLGraphBuilder.floor".
-func (this MLGraphBuilder) FloorFunc() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderFloorFunc(
-			this.Ref(),
-		),
+// FuncFloor returns the method "MLGraphBuilder.floor".
+func (this MLGraphBuilder) FuncFloor() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderFloor(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Floor calls the method "MLGraphBuilder.floor".
 func (this MLGraphBuilder) Floor(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderFloor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -4796,33 +4861,32 @@ func (this MLGraphBuilder) Floor(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryFloor(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderFloor(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasLog returns true if the method "MLGraphBuilder.log" exists.
-func (this MLGraphBuilder) HasLog() bool {
-	return js.True == bindings.HasMLGraphBuilderLog(
-		this.Ref(),
+// HasFuncLog returns true if the method "MLGraphBuilder.log" exists.
+func (this MLGraphBuilder) HasFuncLog() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderLog(
+		this.ref,
 	)
 }
 
-// LogFunc returns the method "MLGraphBuilder.log".
-func (this MLGraphBuilder) LogFunc() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderLogFunc(
-			this.Ref(),
-		),
+// FuncLog returns the method "MLGraphBuilder.log".
+func (this MLGraphBuilder) FuncLog() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderLog(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Log calls the method "MLGraphBuilder.log".
 func (this MLGraphBuilder) Log(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderLog(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -4834,33 +4898,32 @@ func (this MLGraphBuilder) Log(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryLog(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLog(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasNeg returns true if the method "MLGraphBuilder.neg" exists.
-func (this MLGraphBuilder) HasNeg() bool {
-	return js.True == bindings.HasMLGraphBuilderNeg(
-		this.Ref(),
+// HasFuncNeg returns true if the method "MLGraphBuilder.neg" exists.
+func (this MLGraphBuilder) HasFuncNeg() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderNeg(
+		this.ref,
 	)
 }
 
-// NegFunc returns the method "MLGraphBuilder.neg".
-func (this MLGraphBuilder) NegFunc() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderNegFunc(
-			this.Ref(),
-		),
+// FuncNeg returns the method "MLGraphBuilder.neg".
+func (this MLGraphBuilder) FuncNeg() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderNeg(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Neg calls the method "MLGraphBuilder.neg".
 func (this MLGraphBuilder) Neg(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderNeg(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -4872,33 +4935,32 @@ func (this MLGraphBuilder) Neg(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryNeg(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderNeg(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasSin returns true if the method "MLGraphBuilder.sin" exists.
-func (this MLGraphBuilder) HasSin() bool {
-	return js.True == bindings.HasMLGraphBuilderSin(
-		this.Ref(),
+// HasFuncSin returns true if the method "MLGraphBuilder.sin" exists.
+func (this MLGraphBuilder) HasFuncSin() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderSin(
+		this.ref,
 	)
 }
 
-// SinFunc returns the method "MLGraphBuilder.sin".
-func (this MLGraphBuilder) SinFunc() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderSinFunc(
-			this.Ref(),
-		),
+// FuncSin returns the method "MLGraphBuilder.sin".
+func (this MLGraphBuilder) FuncSin() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderSin(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Sin calls the method "MLGraphBuilder.sin".
 func (this MLGraphBuilder) Sin(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderSin(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -4910,33 +4972,32 @@ func (this MLGraphBuilder) Sin(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TrySin(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSin(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasTan returns true if the method "MLGraphBuilder.tan" exists.
-func (this MLGraphBuilder) HasTan() bool {
-	return js.True == bindings.HasMLGraphBuilderTan(
-		this.Ref(),
+// HasFuncTan returns true if the method "MLGraphBuilder.tan" exists.
+func (this MLGraphBuilder) HasFuncTan() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderTan(
+		this.ref,
 	)
 }
 
-// TanFunc returns the method "MLGraphBuilder.tan".
-func (this MLGraphBuilder) TanFunc() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderTanFunc(
-			this.Ref(),
-		),
+// FuncTan returns the method "MLGraphBuilder.tan".
+func (this MLGraphBuilder) FuncTan() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderTan(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Tan calls the method "MLGraphBuilder.tan".
 func (this MLGraphBuilder) Tan(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderTan(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -4948,33 +5009,32 @@ func (this MLGraphBuilder) Tan(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryTan(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderTan(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasTranspose returns true if the method "MLGraphBuilder.transpose" exists.
-func (this MLGraphBuilder) HasTranspose() bool {
-	return js.True == bindings.HasMLGraphBuilderTranspose(
-		this.Ref(),
+// HasFuncTranspose returns true if the method "MLGraphBuilder.transpose" exists.
+func (this MLGraphBuilder) HasFuncTranspose() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderTranspose(
+		this.ref,
 	)
 }
 
-// TransposeFunc returns the method "MLGraphBuilder.transpose".
-func (this MLGraphBuilder) TransposeFunc() (fn js.Func[func(input MLOperand, options MLTransposeOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderTransposeFunc(
-			this.Ref(),
-		),
+// FuncTranspose returns the method "MLGraphBuilder.transpose".
+func (this MLGraphBuilder) FuncTranspose() (fn js.Func[func(input MLOperand, options MLTransposeOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderTranspose(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Transpose calls the method "MLGraphBuilder.transpose".
 func (this MLGraphBuilder) Transpose(input MLOperand, options MLTransposeOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderTranspose(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -4987,7 +5047,7 @@ func (this MLGraphBuilder) Transpose(input MLOperand, options MLTransposeOptions
 // the catch clause.
 func (this MLGraphBuilder) TryTranspose(input MLOperand, options MLTransposeOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderTranspose(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -4995,26 +5055,25 @@ func (this MLGraphBuilder) TryTranspose(input MLOperand, options MLTransposeOpti
 	return
 }
 
-// HasTranspose1 returns true if the method "MLGraphBuilder.transpose" exists.
-func (this MLGraphBuilder) HasTranspose1() bool {
-	return js.True == bindings.HasMLGraphBuilderTranspose1(
-		this.Ref(),
+// HasFuncTranspose1 returns true if the method "MLGraphBuilder.transpose" exists.
+func (this MLGraphBuilder) HasFuncTranspose1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderTranspose1(
+		this.ref,
 	)
 }
 
-// Transpose1Func returns the method "MLGraphBuilder.transpose".
-func (this MLGraphBuilder) Transpose1Func() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderTranspose1Func(
-			this.Ref(),
-		),
+// FuncTranspose1 returns the method "MLGraphBuilder.transpose".
+func (this MLGraphBuilder) FuncTranspose1() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderTranspose1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Transpose1 calls the method "MLGraphBuilder.transpose".
 func (this MLGraphBuilder) Transpose1(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderTranspose1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -5026,33 +5085,32 @@ func (this MLGraphBuilder) Transpose1(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryTranspose1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderTranspose1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasPrelu returns true if the method "MLGraphBuilder.prelu" exists.
-func (this MLGraphBuilder) HasPrelu() bool {
-	return js.True == bindings.HasMLGraphBuilderPrelu(
-		this.Ref(),
+// HasFuncPrelu returns true if the method "MLGraphBuilder.prelu" exists.
+func (this MLGraphBuilder) HasFuncPrelu() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderPrelu(
+		this.ref,
 	)
 }
 
-// PreluFunc returns the method "MLGraphBuilder.prelu".
-func (this MLGraphBuilder) PreluFunc() (fn js.Func[func(input MLOperand, slope MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderPreluFunc(
-			this.Ref(),
-		),
+// FuncPrelu returns the method "MLGraphBuilder.prelu".
+func (this MLGraphBuilder) FuncPrelu() (fn js.Func[func(input MLOperand, slope MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderPrelu(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Prelu calls the method "MLGraphBuilder.prelu".
 func (this MLGraphBuilder) Prelu(input MLOperand, slope MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderPrelu(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		slope.Ref(),
 	)
@@ -5065,7 +5123,7 @@ func (this MLGraphBuilder) Prelu(input MLOperand, slope MLOperand) (ret MLOperan
 // the catch clause.
 func (this MLGraphBuilder) TryPrelu(input MLOperand, slope MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderPrelu(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		slope.Ref(),
 	)
@@ -5073,26 +5131,25 @@ func (this MLGraphBuilder) TryPrelu(input MLOperand, slope MLOperand) (ret MLOpe
 	return
 }
 
-// HasConcat returns true if the method "MLGraphBuilder.concat" exists.
-func (this MLGraphBuilder) HasConcat() bool {
-	return js.True == bindings.HasMLGraphBuilderConcat(
-		this.Ref(),
+// HasFuncConcat returns true if the method "MLGraphBuilder.concat" exists.
+func (this MLGraphBuilder) HasFuncConcat() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderConcat(
+		this.ref,
 	)
 }
 
-// ConcatFunc returns the method "MLGraphBuilder.concat".
-func (this MLGraphBuilder) ConcatFunc() (fn js.Func[func(inputs js.Array[MLOperand], axis uint32) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderConcatFunc(
-			this.Ref(),
-		),
+// FuncConcat returns the method "MLGraphBuilder.concat".
+func (this MLGraphBuilder) FuncConcat() (fn js.Func[func(inputs js.Array[MLOperand], axis uint32) MLOperand]) {
+	bindings.FuncMLGraphBuilderConcat(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Concat calls the method "MLGraphBuilder.concat".
 func (this MLGraphBuilder) Concat(inputs js.Array[MLOperand], axis uint32) (ret MLOperand) {
 	bindings.CallMLGraphBuilderConcat(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		inputs.Ref(),
 		uint32(axis),
 	)
@@ -5105,7 +5162,7 @@ func (this MLGraphBuilder) Concat(inputs js.Array[MLOperand], axis uint32) (ret 
 // the catch clause.
 func (this MLGraphBuilder) TryConcat(inputs js.Array[MLOperand], axis uint32) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderConcat(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		inputs.Ref(),
 		uint32(axis),
 	)
@@ -5113,26 +5170,25 @@ func (this MLGraphBuilder) TryConcat(inputs js.Array[MLOperand], axis uint32) (r
 	return
 }
 
-// HasGemm returns true if the method "MLGraphBuilder.gemm" exists.
-func (this MLGraphBuilder) HasGemm() bool {
-	return js.True == bindings.HasMLGraphBuilderGemm(
-		this.Ref(),
+// HasFuncGemm returns true if the method "MLGraphBuilder.gemm" exists.
+func (this MLGraphBuilder) HasFuncGemm() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderGemm(
+		this.ref,
 	)
 }
 
-// GemmFunc returns the method "MLGraphBuilder.gemm".
-func (this MLGraphBuilder) GemmFunc() (fn js.Func[func(a MLOperand, b MLOperand, options MLGemmOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderGemmFunc(
-			this.Ref(),
-		),
+// FuncGemm returns the method "MLGraphBuilder.gemm".
+func (this MLGraphBuilder) FuncGemm() (fn js.Func[func(a MLOperand, b MLOperand, options MLGemmOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderGemm(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Gemm calls the method "MLGraphBuilder.gemm".
 func (this MLGraphBuilder) Gemm(a MLOperand, b MLOperand, options MLGemmOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderGemm(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		a.Ref(),
 		b.Ref(),
 		js.Pointer(&options),
@@ -5146,7 +5202,7 @@ func (this MLGraphBuilder) Gemm(a MLOperand, b MLOperand, options MLGemmOptions)
 // the catch clause.
 func (this MLGraphBuilder) TryGemm(a MLOperand, b MLOperand, options MLGemmOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderGemm(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		a.Ref(),
 		b.Ref(),
 		js.Pointer(&options),
@@ -5155,26 +5211,25 @@ func (this MLGraphBuilder) TryGemm(a MLOperand, b MLOperand, options MLGemmOptio
 	return
 }
 
-// HasGemm1 returns true if the method "MLGraphBuilder.gemm" exists.
-func (this MLGraphBuilder) HasGemm1() bool {
-	return js.True == bindings.HasMLGraphBuilderGemm1(
-		this.Ref(),
+// HasFuncGemm1 returns true if the method "MLGraphBuilder.gemm" exists.
+func (this MLGraphBuilder) HasFuncGemm1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderGemm1(
+		this.ref,
 	)
 }
 
-// Gemm1Func returns the method "MLGraphBuilder.gemm".
-func (this MLGraphBuilder) Gemm1Func() (fn js.Func[func(a MLOperand, b MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderGemm1Func(
-			this.Ref(),
-		),
+// FuncGemm1 returns the method "MLGraphBuilder.gemm".
+func (this MLGraphBuilder) FuncGemm1() (fn js.Func[func(a MLOperand, b MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderGemm1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Gemm1 calls the method "MLGraphBuilder.gemm".
 func (this MLGraphBuilder) Gemm1(a MLOperand, b MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderGemm1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		a.Ref(),
 		b.Ref(),
 	)
@@ -5187,7 +5242,7 @@ func (this MLGraphBuilder) Gemm1(a MLOperand, b MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryGemm1(a MLOperand, b MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderGemm1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		a.Ref(),
 		b.Ref(),
 	)
@@ -5195,26 +5250,25 @@ func (this MLGraphBuilder) TryGemm1(a MLOperand, b MLOperand) (ret MLOperand, ex
 	return
 }
 
-// HasLstmCell returns true if the method "MLGraphBuilder.lstmCell" exists.
-func (this MLGraphBuilder) HasLstmCell() bool {
-	return js.True == bindings.HasMLGraphBuilderLstmCell(
-		this.Ref(),
+// HasFuncLstmCell returns true if the method "MLGraphBuilder.lstmCell" exists.
+func (this MLGraphBuilder) HasFuncLstmCell() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderLstmCell(
+		this.ref,
 	)
 }
 
-// LstmCellFunc returns the method "MLGraphBuilder.lstmCell".
-func (this MLGraphBuilder) LstmCellFunc() (fn js.Func[func(input MLOperand, weight MLOperand, recurrentWeight MLOperand, hiddenState MLOperand, cellState MLOperand, hiddenSize uint32, options MLLstmCellOptions) js.Array[MLOperand]]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderLstmCellFunc(
-			this.Ref(),
-		),
+// FuncLstmCell returns the method "MLGraphBuilder.lstmCell".
+func (this MLGraphBuilder) FuncLstmCell() (fn js.Func[func(input MLOperand, weight MLOperand, recurrentWeight MLOperand, hiddenState MLOperand, cellState MLOperand, hiddenSize uint32, options MLLstmCellOptions) js.Array[MLOperand]]) {
+	bindings.FuncMLGraphBuilderLstmCell(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // LstmCell calls the method "MLGraphBuilder.lstmCell".
 func (this MLGraphBuilder) LstmCell(input MLOperand, weight MLOperand, recurrentWeight MLOperand, hiddenState MLOperand, cellState MLOperand, hiddenSize uint32, options MLLstmCellOptions) (ret js.Array[MLOperand]) {
 	bindings.CallMLGraphBuilderLstmCell(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		weight.Ref(),
 		recurrentWeight.Ref(),
@@ -5232,7 +5286,7 @@ func (this MLGraphBuilder) LstmCell(input MLOperand, weight MLOperand, recurrent
 // the catch clause.
 func (this MLGraphBuilder) TryLstmCell(input MLOperand, weight MLOperand, recurrentWeight MLOperand, hiddenState MLOperand, cellState MLOperand, hiddenSize uint32, options MLLstmCellOptions) (ret js.Array[MLOperand], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLstmCell(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		weight.Ref(),
 		recurrentWeight.Ref(),
@@ -5245,26 +5299,25 @@ func (this MLGraphBuilder) TryLstmCell(input MLOperand, weight MLOperand, recurr
 	return
 }
 
-// HasLstmCell1 returns true if the method "MLGraphBuilder.lstmCell" exists.
-func (this MLGraphBuilder) HasLstmCell1() bool {
-	return js.True == bindings.HasMLGraphBuilderLstmCell1(
-		this.Ref(),
+// HasFuncLstmCell1 returns true if the method "MLGraphBuilder.lstmCell" exists.
+func (this MLGraphBuilder) HasFuncLstmCell1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderLstmCell1(
+		this.ref,
 	)
 }
 
-// LstmCell1Func returns the method "MLGraphBuilder.lstmCell".
-func (this MLGraphBuilder) LstmCell1Func() (fn js.Func[func(input MLOperand, weight MLOperand, recurrentWeight MLOperand, hiddenState MLOperand, cellState MLOperand, hiddenSize uint32) js.Array[MLOperand]]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderLstmCell1Func(
-			this.Ref(),
-		),
+// FuncLstmCell1 returns the method "MLGraphBuilder.lstmCell".
+func (this MLGraphBuilder) FuncLstmCell1() (fn js.Func[func(input MLOperand, weight MLOperand, recurrentWeight MLOperand, hiddenState MLOperand, cellState MLOperand, hiddenSize uint32) js.Array[MLOperand]]) {
+	bindings.FuncMLGraphBuilderLstmCell1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // LstmCell1 calls the method "MLGraphBuilder.lstmCell".
 func (this MLGraphBuilder) LstmCell1(input MLOperand, weight MLOperand, recurrentWeight MLOperand, hiddenState MLOperand, cellState MLOperand, hiddenSize uint32) (ret js.Array[MLOperand]) {
 	bindings.CallMLGraphBuilderLstmCell1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		weight.Ref(),
 		recurrentWeight.Ref(),
@@ -5281,7 +5334,7 @@ func (this MLGraphBuilder) LstmCell1(input MLOperand, weight MLOperand, recurren
 // the catch clause.
 func (this MLGraphBuilder) TryLstmCell1(input MLOperand, weight MLOperand, recurrentWeight MLOperand, hiddenState MLOperand, cellState MLOperand, hiddenSize uint32) (ret js.Array[MLOperand], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLstmCell1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		weight.Ref(),
 		recurrentWeight.Ref(),
@@ -5293,26 +5346,25 @@ func (this MLGraphBuilder) TryLstmCell1(input MLOperand, weight MLOperand, recur
 	return
 }
 
-// HasBatchNormalization returns true if the method "MLGraphBuilder.batchNormalization" exists.
-func (this MLGraphBuilder) HasBatchNormalization() bool {
-	return js.True == bindings.HasMLGraphBuilderBatchNormalization(
-		this.Ref(),
+// HasFuncBatchNormalization returns true if the method "MLGraphBuilder.batchNormalization" exists.
+func (this MLGraphBuilder) HasFuncBatchNormalization() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderBatchNormalization(
+		this.ref,
 	)
 }
 
-// BatchNormalizationFunc returns the method "MLGraphBuilder.batchNormalization".
-func (this MLGraphBuilder) BatchNormalizationFunc() (fn js.Func[func(input MLOperand, mean MLOperand, variance MLOperand, options MLBatchNormalizationOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderBatchNormalizationFunc(
-			this.Ref(),
-		),
+// FuncBatchNormalization returns the method "MLGraphBuilder.batchNormalization".
+func (this MLGraphBuilder) FuncBatchNormalization() (fn js.Func[func(input MLOperand, mean MLOperand, variance MLOperand, options MLBatchNormalizationOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderBatchNormalization(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BatchNormalization calls the method "MLGraphBuilder.batchNormalization".
 func (this MLGraphBuilder) BatchNormalization(input MLOperand, mean MLOperand, variance MLOperand, options MLBatchNormalizationOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderBatchNormalization(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		mean.Ref(),
 		variance.Ref(),
@@ -5327,7 +5379,7 @@ func (this MLGraphBuilder) BatchNormalization(input MLOperand, mean MLOperand, v
 // the catch clause.
 func (this MLGraphBuilder) TryBatchNormalization(input MLOperand, mean MLOperand, variance MLOperand, options MLBatchNormalizationOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderBatchNormalization(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		mean.Ref(),
 		variance.Ref(),
@@ -5337,26 +5389,25 @@ func (this MLGraphBuilder) TryBatchNormalization(input MLOperand, mean MLOperand
 	return
 }
 
-// HasBatchNormalization1 returns true if the method "MLGraphBuilder.batchNormalization" exists.
-func (this MLGraphBuilder) HasBatchNormalization1() bool {
-	return js.True == bindings.HasMLGraphBuilderBatchNormalization1(
-		this.Ref(),
+// HasFuncBatchNormalization1 returns true if the method "MLGraphBuilder.batchNormalization" exists.
+func (this MLGraphBuilder) HasFuncBatchNormalization1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderBatchNormalization1(
+		this.ref,
 	)
 }
 
-// BatchNormalization1Func returns the method "MLGraphBuilder.batchNormalization".
-func (this MLGraphBuilder) BatchNormalization1Func() (fn js.Func[func(input MLOperand, mean MLOperand, variance MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderBatchNormalization1Func(
-			this.Ref(),
-		),
+// FuncBatchNormalization1 returns the method "MLGraphBuilder.batchNormalization".
+func (this MLGraphBuilder) FuncBatchNormalization1() (fn js.Func[func(input MLOperand, mean MLOperand, variance MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderBatchNormalization1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BatchNormalization1 calls the method "MLGraphBuilder.batchNormalization".
 func (this MLGraphBuilder) BatchNormalization1(input MLOperand, mean MLOperand, variance MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderBatchNormalization1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		mean.Ref(),
 		variance.Ref(),
@@ -5370,7 +5421,7 @@ func (this MLGraphBuilder) BatchNormalization1(input MLOperand, mean MLOperand, 
 // the catch clause.
 func (this MLGraphBuilder) TryBatchNormalization1(input MLOperand, mean MLOperand, variance MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderBatchNormalization1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		mean.Ref(),
 		variance.Ref(),
@@ -5379,26 +5430,25 @@ func (this MLGraphBuilder) TryBatchNormalization1(input MLOperand, mean MLOperan
 	return
 }
 
-// HasElu returns true if the method "MLGraphBuilder.elu" exists.
-func (this MLGraphBuilder) HasElu() bool {
-	return js.True == bindings.HasMLGraphBuilderElu(
-		this.Ref(),
+// HasFuncElu returns true if the method "MLGraphBuilder.elu" exists.
+func (this MLGraphBuilder) HasFuncElu() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderElu(
+		this.ref,
 	)
 }
 
-// EluFunc returns the method "MLGraphBuilder.elu".
-func (this MLGraphBuilder) EluFunc() (fn js.Func[func(input MLOperand, options MLEluOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderEluFunc(
-			this.Ref(),
-		),
+// FuncElu returns the method "MLGraphBuilder.elu".
+func (this MLGraphBuilder) FuncElu() (fn js.Func[func(input MLOperand, options MLEluOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderElu(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Elu calls the method "MLGraphBuilder.elu".
 func (this MLGraphBuilder) Elu(input MLOperand, options MLEluOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderElu(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -5411,7 +5461,7 @@ func (this MLGraphBuilder) Elu(input MLOperand, options MLEluOptions) (ret MLOpe
 // the catch clause.
 func (this MLGraphBuilder) TryElu(input MLOperand, options MLEluOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderElu(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -5419,26 +5469,25 @@ func (this MLGraphBuilder) TryElu(input MLOperand, options MLEluOptions) (ret ML
 	return
 }
 
-// HasElu1 returns true if the method "MLGraphBuilder.elu" exists.
-func (this MLGraphBuilder) HasElu1() bool {
-	return js.True == bindings.HasMLGraphBuilderElu1(
-		this.Ref(),
+// HasFuncElu1 returns true if the method "MLGraphBuilder.elu" exists.
+func (this MLGraphBuilder) HasFuncElu1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderElu1(
+		this.ref,
 	)
 }
 
-// Elu1Func returns the method "MLGraphBuilder.elu".
-func (this MLGraphBuilder) Elu1Func() (fn js.Func[func(input MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderElu1Func(
-			this.Ref(),
-		),
+// FuncElu1 returns the method "MLGraphBuilder.elu".
+func (this MLGraphBuilder) FuncElu1() (fn js.Func[func(input MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderElu1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Elu1 calls the method "MLGraphBuilder.elu".
 func (this MLGraphBuilder) Elu1(input MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderElu1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
@@ -5450,33 +5499,32 @@ func (this MLGraphBuilder) Elu1(input MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryElu1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderElu1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasElu2 returns true if the method "MLGraphBuilder.elu" exists.
-func (this MLGraphBuilder) HasElu2() bool {
-	return js.True == bindings.HasMLGraphBuilderElu2(
-		this.Ref(),
+// HasFuncElu2 returns true if the method "MLGraphBuilder.elu" exists.
+func (this MLGraphBuilder) HasFuncElu2() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderElu2(
+		this.ref,
 	)
 }
 
-// Elu2Func returns the method "MLGraphBuilder.elu".
-func (this MLGraphBuilder) Elu2Func() (fn js.Func[func(options MLEluOptions) MLActivation]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderElu2Func(
-			this.Ref(),
-		),
+// FuncElu2 returns the method "MLGraphBuilder.elu".
+func (this MLGraphBuilder) FuncElu2() (fn js.Func[func(options MLEluOptions) MLActivation]) {
+	bindings.FuncMLGraphBuilderElu2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Elu2 calls the method "MLGraphBuilder.elu".
 func (this MLGraphBuilder) Elu2(options MLEluOptions) (ret MLActivation) {
 	bindings.CallMLGraphBuilderElu2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -5488,33 +5536,32 @@ func (this MLGraphBuilder) Elu2(options MLEluOptions) (ret MLActivation) {
 // the catch clause.
 func (this MLGraphBuilder) TryElu2(options MLEluOptions) (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderElu2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasElu3 returns true if the method "MLGraphBuilder.elu" exists.
-func (this MLGraphBuilder) HasElu3() bool {
-	return js.True == bindings.HasMLGraphBuilderElu3(
-		this.Ref(),
+// HasFuncElu3 returns true if the method "MLGraphBuilder.elu" exists.
+func (this MLGraphBuilder) HasFuncElu3() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderElu3(
+		this.ref,
 	)
 }
 
-// Elu3Func returns the method "MLGraphBuilder.elu".
-func (this MLGraphBuilder) Elu3Func() (fn js.Func[func() MLActivation]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderElu3Func(
-			this.Ref(),
-		),
+// FuncElu3 returns the method "MLGraphBuilder.elu".
+func (this MLGraphBuilder) FuncElu3() (fn js.Func[func() MLActivation]) {
+	bindings.FuncMLGraphBuilderElu3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Elu3 calls the method "MLGraphBuilder.elu".
 func (this MLGraphBuilder) Elu3() (ret MLActivation) {
 	bindings.CallMLGraphBuilderElu3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -5525,32 +5572,31 @@ func (this MLGraphBuilder) Elu3() (ret MLActivation) {
 // the catch clause.
 func (this MLGraphBuilder) TryElu3() (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderElu3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasClamp returns true if the method "MLGraphBuilder.clamp" exists.
-func (this MLGraphBuilder) HasClamp() bool {
-	return js.True == bindings.HasMLGraphBuilderClamp(
-		this.Ref(),
+// HasFuncClamp returns true if the method "MLGraphBuilder.clamp" exists.
+func (this MLGraphBuilder) HasFuncClamp() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderClamp(
+		this.ref,
 	)
 }
 
-// ClampFunc returns the method "MLGraphBuilder.clamp".
-func (this MLGraphBuilder) ClampFunc() (fn js.Func[func(operand MLOperand, options MLClampOptions) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderClampFunc(
-			this.Ref(),
-		),
+// FuncClamp returns the method "MLGraphBuilder.clamp".
+func (this MLGraphBuilder) FuncClamp() (fn js.Func[func(operand MLOperand, options MLClampOptions) MLOperand]) {
+	bindings.FuncMLGraphBuilderClamp(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Clamp calls the method "MLGraphBuilder.clamp".
 func (this MLGraphBuilder) Clamp(operand MLOperand, options MLClampOptions) (ret MLOperand) {
 	bindings.CallMLGraphBuilderClamp(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		operand.Ref(),
 		js.Pointer(&options),
 	)
@@ -5563,7 +5609,7 @@ func (this MLGraphBuilder) Clamp(operand MLOperand, options MLClampOptions) (ret
 // the catch clause.
 func (this MLGraphBuilder) TryClamp(operand MLOperand, options MLClampOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderClamp(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		operand.Ref(),
 		js.Pointer(&options),
 	)
@@ -5571,26 +5617,25 @@ func (this MLGraphBuilder) TryClamp(operand MLOperand, options MLClampOptions) (
 	return
 }
 
-// HasClamp1 returns true if the method "MLGraphBuilder.clamp" exists.
-func (this MLGraphBuilder) HasClamp1() bool {
-	return js.True == bindings.HasMLGraphBuilderClamp1(
-		this.Ref(),
+// HasFuncClamp1 returns true if the method "MLGraphBuilder.clamp" exists.
+func (this MLGraphBuilder) HasFuncClamp1() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderClamp1(
+		this.ref,
 	)
 }
 
-// Clamp1Func returns the method "MLGraphBuilder.clamp".
-func (this MLGraphBuilder) Clamp1Func() (fn js.Func[func(operand MLOperand) MLOperand]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderClamp1Func(
-			this.Ref(),
-		),
+// FuncClamp1 returns the method "MLGraphBuilder.clamp".
+func (this MLGraphBuilder) FuncClamp1() (fn js.Func[func(operand MLOperand) MLOperand]) {
+	bindings.FuncMLGraphBuilderClamp1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Clamp1 calls the method "MLGraphBuilder.clamp".
 func (this MLGraphBuilder) Clamp1(operand MLOperand) (ret MLOperand) {
 	bindings.CallMLGraphBuilderClamp1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		operand.Ref(),
 	)
 
@@ -5602,33 +5647,32 @@ func (this MLGraphBuilder) Clamp1(operand MLOperand) (ret MLOperand) {
 // the catch clause.
 func (this MLGraphBuilder) TryClamp1(operand MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderClamp1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		operand.Ref(),
 	)
 
 	return
 }
 
-// HasClamp2 returns true if the method "MLGraphBuilder.clamp" exists.
-func (this MLGraphBuilder) HasClamp2() bool {
-	return js.True == bindings.HasMLGraphBuilderClamp2(
-		this.Ref(),
+// HasFuncClamp2 returns true if the method "MLGraphBuilder.clamp" exists.
+func (this MLGraphBuilder) HasFuncClamp2() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderClamp2(
+		this.ref,
 	)
 }
 
-// Clamp2Func returns the method "MLGraphBuilder.clamp".
-func (this MLGraphBuilder) Clamp2Func() (fn js.Func[func(options MLClampOptions) MLActivation]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderClamp2Func(
-			this.Ref(),
-		),
+// FuncClamp2 returns the method "MLGraphBuilder.clamp".
+func (this MLGraphBuilder) FuncClamp2() (fn js.Func[func(options MLClampOptions) MLActivation]) {
+	bindings.FuncMLGraphBuilderClamp2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Clamp2 calls the method "MLGraphBuilder.clamp".
 func (this MLGraphBuilder) Clamp2(options MLClampOptions) (ret MLActivation) {
 	bindings.CallMLGraphBuilderClamp2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -5640,33 +5684,32 @@ func (this MLGraphBuilder) Clamp2(options MLClampOptions) (ret MLActivation) {
 // the catch clause.
 func (this MLGraphBuilder) TryClamp2(options MLClampOptions) (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderClamp2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasClamp3 returns true if the method "MLGraphBuilder.clamp" exists.
-func (this MLGraphBuilder) HasClamp3() bool {
-	return js.True == bindings.HasMLGraphBuilderClamp3(
-		this.Ref(),
+// HasFuncClamp3 returns true if the method "MLGraphBuilder.clamp" exists.
+func (this MLGraphBuilder) HasFuncClamp3() bool {
+	return js.True == bindings.HasFuncMLGraphBuilderClamp3(
+		this.ref,
 	)
 }
 
-// Clamp3Func returns the method "MLGraphBuilder.clamp".
-func (this MLGraphBuilder) Clamp3Func() (fn js.Func[func() MLActivation]) {
-	return fn.FromRef(
-		bindings.MLGraphBuilderClamp3Func(
-			this.Ref(),
-		),
+// FuncClamp3 returns the method "MLGraphBuilder.clamp".
+func (this MLGraphBuilder) FuncClamp3() (fn js.Func[func() MLActivation]) {
+	bindings.FuncMLGraphBuilderClamp3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Clamp3 calls the method "MLGraphBuilder.clamp".
 func (this MLGraphBuilder) Clamp3() (ret MLActivation) {
 	bindings.CallMLGraphBuilderClamp3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -5677,7 +5720,7 @@ func (this MLGraphBuilder) Clamp3() (ret MLActivation) {
 // the catch clause.
 func (this MLGraphBuilder) TryClamp3() (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderClamp3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -5738,17 +5781,22 @@ func (p MagnetometerSensorOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MagnetometerSensorOptions) UpdateFrom(ref js.Ref) {
+func (p *MagnetometerSensorOptions) UpdateFrom(ref js.Ref) {
 	bindings.MagnetometerSensorOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MagnetometerSensorOptions) Update(ref js.Ref) {
+func (p *MagnetometerSensorOptions) Update(ref js.Ref) {
 	bindings.MagnetometerSensorOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MagnetometerSensorOptions) FreeMembers(recursive bool) {
 }
 
 func NewMagnetometer(sensorOptions MagnetometerSensorOptions) (ret Magnetometer) {
@@ -5767,7 +5815,7 @@ type Magnetometer struct {
 }
 
 func (this Magnetometer) Once() Magnetometer {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -5781,7 +5829,7 @@ func (this Magnetometer) FromRef(ref js.Ref) Magnetometer {
 }
 
 func (this Magnetometer) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // X returns the value of property "Magnetometer.x".
@@ -5789,7 +5837,7 @@ func (this Magnetometer) Free() {
 // It returns ok=false if there is no such property.
 func (this Magnetometer) X() (ret float64, ok bool) {
 	ok = js.True == bindings.GetMagnetometerX(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5799,7 +5847,7 @@ func (this Magnetometer) X() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Magnetometer) Y() (ret float64, ok bool) {
 	ok = js.True == bindings.GetMagnetometerY(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5809,7 +5857,7 @@ func (this Magnetometer) Y() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Magnetometer) Z() (ret float64, ok bool) {
 	ok = js.True == bindings.GetMagnetometerZ(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5845,17 +5893,22 @@ func (p MagnetometerReadingValues) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MagnetometerReadingValues) UpdateFrom(ref js.Ref) {
+func (p *MagnetometerReadingValues) UpdateFrom(ref js.Ref) {
 	bindings.MagnetometerReadingValuesJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MagnetometerReadingValues) Update(ref js.Ref) {
+func (p *MagnetometerReadingValues) Update(ref js.Ref) {
 	bindings.MagnetometerReadingValuesJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MagnetometerReadingValues) FreeMembers(recursive bool) {
 }
 
 type MathMLElement struct {
@@ -5863,7 +5916,7 @@ type MathMLElement struct {
 }
 
 func (this MathMLElement) Once() MathMLElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -5877,7 +5930,7 @@ func (this MathMLElement) FromRef(ref js.Ref) MathMLElement {
 }
 
 func (this MathMLElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Style returns the value of property "MathMLElement.style".
@@ -5885,7 +5938,7 @@ func (this MathMLElement) Free() {
 // It returns ok=false if there is no such property.
 func (this MathMLElement) Style() (ret CSSStyleDeclaration, ok bool) {
 	ok = js.True == bindings.GetMathMLElementStyle(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5895,7 +5948,7 @@ func (this MathMLElement) Style() (ret CSSStyleDeclaration, ok bool) {
 // It returns ok=false if there is no such property.
 func (this MathMLElement) AttributeStyleMap() (ret StylePropertyMap, ok bool) {
 	ok = js.True == bindings.GetMathMLElementAttributeStyleMap(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5905,7 +5958,7 @@ func (this MathMLElement) AttributeStyleMap() (ret StylePropertyMap, ok bool) {
 // It returns ok=false if there is no such property.
 func (this MathMLElement) Dataset() (ret DOMStringMap, ok bool) {
 	ok = js.True == bindings.GetMathMLElementDataset(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5915,7 +5968,7 @@ func (this MathMLElement) Dataset() (ret DOMStringMap, ok bool) {
 // It returns ok=false if there is no such property.
 func (this MathMLElement) Nonce() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetMathMLElementNonce(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5925,7 +5978,7 @@ func (this MathMLElement) Nonce() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this MathMLElement) SetNonce(val js.String) bool {
 	return js.True == bindings.SetMathMLElementNonce(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -5935,7 +5988,7 @@ func (this MathMLElement) SetNonce(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this MathMLElement) Autofocus() (ret bool, ok bool) {
 	ok = js.True == bindings.GetMathMLElementAutofocus(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5945,7 +5998,7 @@ func (this MathMLElement) Autofocus() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this MathMLElement) SetAutofocus(val bool) bool {
 	return js.True == bindings.SetMathMLElementAutofocus(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -5955,7 +6008,7 @@ func (this MathMLElement) SetAutofocus(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this MathMLElement) TabIndex() (ret int32, ok bool) {
 	ok = js.True == bindings.GetMathMLElementTabIndex(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5965,31 +6018,30 @@ func (this MathMLElement) TabIndex() (ret int32, ok bool) {
 // It returns false if the property cannot be set.
 func (this MathMLElement) SetTabIndex(val int32) bool {
 	return js.True == bindings.SetMathMLElementTabIndex(
-		this.Ref(),
+		this.ref,
 		int32(val),
 	)
 }
 
-// HasFocus returns true if the method "MathMLElement.focus" exists.
-func (this MathMLElement) HasFocus() bool {
-	return js.True == bindings.HasMathMLElementFocus(
-		this.Ref(),
+// HasFuncFocus returns true if the method "MathMLElement.focus" exists.
+func (this MathMLElement) HasFuncFocus() bool {
+	return js.True == bindings.HasFuncMathMLElementFocus(
+		this.ref,
 	)
 }
 
-// FocusFunc returns the method "MathMLElement.focus".
-func (this MathMLElement) FocusFunc() (fn js.Func[func(options FocusOptions)]) {
-	return fn.FromRef(
-		bindings.MathMLElementFocusFunc(
-			this.Ref(),
-		),
+// FuncFocus returns the method "MathMLElement.focus".
+func (this MathMLElement) FuncFocus() (fn js.Func[func(options FocusOptions)]) {
+	bindings.FuncMathMLElementFocus(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Focus calls the method "MathMLElement.focus".
 func (this MathMLElement) Focus(options FocusOptions) (ret js.Void) {
 	bindings.CallMathMLElementFocus(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -6001,33 +6053,32 @@ func (this MathMLElement) Focus(options FocusOptions) (ret js.Void) {
 // the catch clause.
 func (this MathMLElement) TryFocus(options FocusOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMathMLElementFocus(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasFocus1 returns true if the method "MathMLElement.focus" exists.
-func (this MathMLElement) HasFocus1() bool {
-	return js.True == bindings.HasMathMLElementFocus1(
-		this.Ref(),
+// HasFuncFocus1 returns true if the method "MathMLElement.focus" exists.
+func (this MathMLElement) HasFuncFocus1() bool {
+	return js.True == bindings.HasFuncMathMLElementFocus1(
+		this.ref,
 	)
 }
 
-// Focus1Func returns the method "MathMLElement.focus".
-func (this MathMLElement) Focus1Func() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.MathMLElementFocus1Func(
-			this.Ref(),
-		),
+// FuncFocus1 returns the method "MathMLElement.focus".
+func (this MathMLElement) FuncFocus1() (fn js.Func[func()]) {
+	bindings.FuncMathMLElementFocus1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Focus1 calls the method "MathMLElement.focus".
 func (this MathMLElement) Focus1() (ret js.Void) {
 	bindings.CallMathMLElementFocus1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -6038,32 +6089,31 @@ func (this MathMLElement) Focus1() (ret js.Void) {
 // the catch clause.
 func (this MathMLElement) TryFocus1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMathMLElementFocus1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasBlur returns true if the method "MathMLElement.blur" exists.
-func (this MathMLElement) HasBlur() bool {
-	return js.True == bindings.HasMathMLElementBlur(
-		this.Ref(),
+// HasFuncBlur returns true if the method "MathMLElement.blur" exists.
+func (this MathMLElement) HasFuncBlur() bool {
+	return js.True == bindings.HasFuncMathMLElementBlur(
+		this.ref,
 	)
 }
 
-// BlurFunc returns the method "MathMLElement.blur".
-func (this MathMLElement) BlurFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.MathMLElementBlurFunc(
-			this.Ref(),
-		),
+// FuncBlur returns the method "MathMLElement.blur".
+func (this MathMLElement) FuncBlur() (fn js.Func[func()]) {
+	bindings.FuncMathMLElementBlur(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Blur calls the method "MathMLElement.blur".
 func (this MathMLElement) Blur() (ret js.Void) {
 	bindings.CallMathMLElementBlur(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -6074,7 +6124,7 @@ func (this MathMLElement) Blur() (ret js.Void) {
 // the catch clause.
 func (this MathMLElement) TryBlur() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMathMLElementBlur(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -6111,17 +6161,22 @@ func (p MediaCapabilitiesInfo) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MediaCapabilitiesInfo) UpdateFrom(ref js.Ref) {
+func (p *MediaCapabilitiesInfo) UpdateFrom(ref js.Ref) {
 	bindings.MediaCapabilitiesInfoJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MediaCapabilitiesInfo) Update(ref js.Ref) {
+func (p *MediaCapabilitiesInfo) Update(ref js.Ref) {
 	bindings.MediaCapabilitiesInfoJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MediaCapabilitiesInfo) FreeMembers(recursive bool) {
 }
 
 type MediaConfiguration struct {
@@ -6155,17 +6210,26 @@ func (p MediaConfiguration) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MediaConfiguration) UpdateFrom(ref js.Ref) {
+func (p *MediaConfiguration) UpdateFrom(ref js.Ref) {
 	bindings.MediaConfigurationJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MediaConfiguration) Update(ref js.Ref) {
+func (p *MediaConfiguration) Update(ref js.Ref) {
 	bindings.MediaConfigurationJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MediaConfiguration) FreeMembers(recursive bool) {
+	if recursive {
+		p.Video.FreeMembers(true)
+		p.Audio.FreeMembers(true)
+	}
 }
 
 type MediaEncryptedEventInit struct {
@@ -6217,17 +6281,28 @@ func (p MediaEncryptedEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MediaEncryptedEventInit) UpdateFrom(ref js.Ref) {
+func (p *MediaEncryptedEventInit) UpdateFrom(ref js.Ref) {
 	bindings.MediaEncryptedEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MediaEncryptedEventInit) Update(ref js.Ref) {
+func (p *MediaEncryptedEventInit) Update(ref js.Ref) {
 	bindings.MediaEncryptedEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MediaEncryptedEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.InitDataType.Ref(),
+		p.InitData.Ref(),
+	)
+	p.InitDataType = p.InitDataType.FromRef(js.Undefined)
+	p.InitData = p.InitData.FromRef(js.Undefined)
 }
 
 func NewMediaEncryptedEvent(typ js.String, eventInitDict MediaEncryptedEventInit) (ret MediaEncryptedEvent) {
@@ -6248,7 +6323,7 @@ type MediaEncryptedEvent struct {
 }
 
 func (this MediaEncryptedEvent) Once() MediaEncryptedEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -6262,7 +6337,7 @@ func (this MediaEncryptedEvent) FromRef(ref js.Ref) MediaEncryptedEvent {
 }
 
 func (this MediaEncryptedEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // InitDataType returns the value of property "MediaEncryptedEvent.initDataType".
@@ -6270,7 +6345,7 @@ func (this MediaEncryptedEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this MediaEncryptedEvent) InitDataType() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetMediaEncryptedEventInitDataType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -6280,7 +6355,7 @@ func (this MediaEncryptedEvent) InitDataType() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this MediaEncryptedEvent) InitData() (ret js.ArrayBuffer, ok bool) {
 	ok = js.True == bindings.GetMediaEncryptedEventInitData(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -6364,17 +6439,26 @@ func (p MediaKeyMessageEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MediaKeyMessageEventInit) UpdateFrom(ref js.Ref) {
+func (p *MediaKeyMessageEventInit) UpdateFrom(ref js.Ref) {
 	bindings.MediaKeyMessageEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MediaKeyMessageEventInit) Update(ref js.Ref) {
+func (p *MediaKeyMessageEventInit) Update(ref js.Ref) {
 	bindings.MediaKeyMessageEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MediaKeyMessageEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Message.Ref(),
+	)
+	p.Message = p.Message.FromRef(js.Undefined)
 }
 
 func NewMediaKeyMessageEvent(typ js.String, eventInitDict MediaKeyMessageEventInit) (ret MediaKeyMessageEvent) {
@@ -6389,7 +6473,7 @@ type MediaKeyMessageEvent struct {
 }
 
 func (this MediaKeyMessageEvent) Once() MediaKeyMessageEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -6403,7 +6487,7 @@ func (this MediaKeyMessageEvent) FromRef(ref js.Ref) MediaKeyMessageEvent {
 }
 
 func (this MediaKeyMessageEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // MessageType returns the value of property "MediaKeyMessageEvent.messageType".
@@ -6411,7 +6495,7 @@ func (this MediaKeyMessageEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this MediaKeyMessageEvent) MessageType() (ret MediaKeyMessageType, ok bool) {
 	ok = js.True == bindings.GetMediaKeyMessageEventMessageType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -6421,7 +6505,7 @@ func (this MediaKeyMessageEvent) MessageType() (ret MediaKeyMessageType, ok bool
 // It returns ok=false if there is no such property.
 func (this MediaKeyMessageEvent) Message() (ret js.ArrayBuffer, ok bool) {
 	ok = js.True == bindings.GetMediaKeyMessageEventMessage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -6478,17 +6562,26 @@ func (p MediaQueryListEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MediaQueryListEventInit) UpdateFrom(ref js.Ref) {
+func (p *MediaQueryListEventInit) UpdateFrom(ref js.Ref) {
 	bindings.MediaQueryListEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MediaQueryListEventInit) Update(ref js.Ref) {
+func (p *MediaQueryListEventInit) Update(ref js.Ref) {
 	bindings.MediaQueryListEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MediaQueryListEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Media.Ref(),
+	)
+	p.Media = p.Media.FromRef(js.Undefined)
 }
 
 func NewMediaQueryListEvent(typ js.String, eventInitDict MediaQueryListEventInit) (ret MediaQueryListEvent) {
@@ -6509,7 +6602,7 @@ type MediaQueryListEvent struct {
 }
 
 func (this MediaQueryListEvent) Once() MediaQueryListEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -6523,7 +6616,7 @@ func (this MediaQueryListEvent) FromRef(ref js.Ref) MediaQueryListEvent {
 }
 
 func (this MediaQueryListEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Media returns the value of property "MediaQueryListEvent.media".
@@ -6531,7 +6624,7 @@ func (this MediaQueryListEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this MediaQueryListEvent) Media() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetMediaQueryListEventMedia(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -6541,7 +6634,7 @@ func (this MediaQueryListEvent) Media() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this MediaQueryListEvent) Matches() (ret bool, ok bool) {
 	ok = js.True == bindings.GetMediaQueryListEventMatches(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -6609,17 +6702,26 @@ func (p MediaRecorderOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MediaRecorderOptions) UpdateFrom(ref js.Ref) {
+func (p *MediaRecorderOptions) UpdateFrom(ref js.Ref) {
 	bindings.MediaRecorderOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MediaRecorderOptions) Update(ref js.Ref) {
+func (p *MediaRecorderOptions) Update(ref js.Ref) {
 	bindings.MediaRecorderOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MediaRecorderOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.MimeType.Ref(),
+	)
+	p.MimeType = p.MimeType.FromRef(js.Undefined)
 }
 
 type RecordingState uint32

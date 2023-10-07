@@ -1,0 +1,290 @@
+- File: webext/chrome/debugger.json
+  Dict:
+    Name: Debuggee
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - debugger
+    Fields:
+      - Name: extensionId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - debugger
+      - Name: tabId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - debugger
+      - Name: targetId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - debugger
+- File: webext/chrome/debugger.json
+  Enum:
+    Name: DetachReason
+    Values:
+      - target_closed
+      - canceled_by_user
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - debugger
+- File: webext/chrome/debugger.json
+  Dict:
+    Name: TargetInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - debugger
+    Fields:
+      - Name: attached
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - debugger
+      - Name: extensionId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - debugger
+      - Name: faviconUrl
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - debugger
+      - Name: id
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - debugger
+      - Name: tabId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - debugger
+      - Name: title
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - debugger
+      - Name: type
+        Required: true
+        Type:
+          Name: TargetInfoType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - debugger
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - debugger
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - debugger
+- File: webext/chrome/debugger.json
+  Enum:
+    Name: TargetInfoType
+    Values:
+      - page
+      - background_page
+      - worker
+      - other
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - debugger
+- File: webext/chrome/debugger.json
+  WebextFunc:
+    Name: attach
+    Args:
+      - Name: target
+        Type:
+          Name: Debuggee
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - debugger
+      - Name: requiredVersion
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - debugger
+- File: webext/chrome/debugger.json
+  WebextFunc:
+    Name: detach
+    Args:
+      - Name: target
+        Type:
+          Name: Debuggee
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - debugger
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - debugger
+- File: webext/chrome/debugger.json
+  WebextFunc:
+    Name: getTargets
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: TargetInfo
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - debugger
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - debugger
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - debugger
+- File: webext/chrome/debugger.json
+  WebextEvent:
+    Name: onDetach
+    Args:
+      - Name: source
+        Type:
+          Name: Debuggee
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - debugger
+      - Name: reason
+        Type:
+          Name: DetachReason
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - debugger
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - debugger
+- File: webext/chrome/debugger.json
+  WebextEvent:
+    Name: onEvent
+    Args:
+      - Name: source
+        Type:
+          Name: Debuggee
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - debugger
+      - Name: method
+        Type:
+          Name: DOMString
+      - Name: params
+        Optional: true
+        Type:
+          Name: any
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - debugger
+- File: webext/chrome/debugger.json
+  WebextFunc:
+    Name: sendCommand
+    Args:
+      - Name: target
+        Type:
+          Name: Debuggee
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - debugger
+      - Name: method
+        Type:
+          Name: DOMString
+      - Name: commandParams
+        Optional: true
+        Type:
+          Name: any
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: any
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - debugger

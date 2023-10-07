@@ -1,0 +1,185 @@
+- File: webext/offscreen.idl
+  Callback:
+    Name: BooleanCallback
+    Args:
+      - Name: result
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - offscreen
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - offscreen
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - offscreen
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - offscreen
+- File: webext/offscreen.idl
+  Dict:
+    Name: CreateParameters
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - offscreen
+    Fields:
+      - Name: reasons
+        Type:
+          Name: sequence
+          Params:
+            - Name: Reason
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - offscreen
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - offscreen
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - offscreen
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - offscreen
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - offscreen
+      - Name: justification
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - offscreen
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - offscreen
+- File: webext/offscreen.idl
+  Enum:
+    Name: Reason
+    Values:
+      - TESTING
+      - AUDIO_PLAYBACK
+      - IFRAME_SCRIPTING
+      - DOM_SCRAPING
+      - BLOBS
+      - DOM_PARSER
+      - USER_MEDIA
+      - DISPLAY_MEDIA
+      - WEB_RTC
+      - CLIPBOARD
+      - LOCAL_STORAGE
+      - WORKERS
+      - BATTERY_STATUS
+      - MATCH_MEDIA
+      - GEOLOCATION
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - offscreen
+- File: webext/offscreen.idl
+  Callback:
+    Name: VoidCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - offscreen
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - offscreen
+- File: webext/offscreen.idl
+  WebextFunc:
+    Name: closeDocument
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - offscreen
+- File: webext/offscreen.idl
+  WebextFunc:
+    Name: createDocument
+    Modifier: static
+    Args:
+      - Name: parameters
+        Type:
+          Name: CreateParameters
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - offscreen
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - offscreen
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - offscreen
+- File: webext/offscreen.idl
+  WebextFunc:
+    Name: hasDocument
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - offscreen
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: nodoc
+      - Name: Namespace
+        Values:
+          - chrome
+          - offscreen

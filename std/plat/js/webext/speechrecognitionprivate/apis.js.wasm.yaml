@@ -1,0 +1,412 @@
+- File: webext/chrome/speech_recognition_private.idl
+  Callback:
+    Name: OnStartCallback
+    Args:
+      - Name: type
+        Type:
+          Name: SpeechRecognitionType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - speechRecognitionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - speechRecognitionPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - speechRecognitionPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - speechRecognitionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/speech_recognition_private.idl
+  Callback:
+    Name: OnStopCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - speechRecognitionPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - speechRecognitionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/speech_recognition_private.idl
+  Dict:
+    Name: SpeechRecognitionErrorEvent
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - speechRecognitionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: clientId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - speechRecognitionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - speechRecognitionPrivate
+      - Name: message
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - speechRecognitionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - speechRecognitionPrivate
+- File: webext/chrome/speech_recognition_private.idl
+  Dict:
+    Name: SpeechRecognitionResultEvent
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - speechRecognitionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: clientId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - speechRecognitionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - speechRecognitionPrivate
+      - Name: transcript
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - speechRecognitionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - speechRecognitionPrivate
+      - Name: isFinal
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - speechRecognitionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - speechRecognitionPrivate
+- File: webext/chrome/speech_recognition_private.idl
+  Dict:
+    Name: SpeechRecognitionStopEvent
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - speechRecognitionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: clientId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - speechRecognitionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - speechRecognitionPrivate
+- File: webext/chrome/speech_recognition_private.idl
+  Enum:
+    Name: SpeechRecognitionType
+    Values:
+      - onDevice
+      - network
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - speechRecognitionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/speech_recognition_private.idl
+  Dict:
+    Name: StartOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - speechRecognitionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: clientId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - speechRecognitionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - speechRecognitionPrivate
+      - Name: locale
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - speechRecognitionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - speechRecognitionPrivate
+      - Name: interimResults
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - speechRecognitionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - speechRecognitionPrivate
+- File: webext/chrome/speech_recognition_private.idl
+  Dict:
+    Name: StopOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - speechRecognitionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: clientId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - speechRecognitionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - speechRecognitionPrivate
+- File: webext/chrome/speech_recognition_private.idl
+  WebextEvent:
+    Name: onError
+    Modifier: static
+    Args:
+      - Name: event
+        Type:
+          Name: SpeechRecognitionErrorEvent
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - speechRecognitionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - speechRecognitionPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - speechRecognitionPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - speechRecognitionPrivate
+- File: webext/chrome/speech_recognition_private.idl
+  WebextEvent:
+    Name: onResult
+    Modifier: static
+    Args:
+      - Name: event
+        Type:
+          Name: SpeechRecognitionResultEvent
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - speechRecognitionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - speechRecognitionPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - speechRecognitionPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - speechRecognitionPrivate
+- File: webext/chrome/speech_recognition_private.idl
+  WebextEvent:
+    Name: onStop
+    Modifier: static
+    Args:
+      - Name: event
+        Type:
+          Name: SpeechRecognitionStopEvent
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - speechRecognitionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - speechRecognitionPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - speechRecognitionPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - speechRecognitionPrivate
+- File: webext/chrome/speech_recognition_private.idl
+  WebextFunc:
+    Name: start
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: StartOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - speechRecognitionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - speechRecognitionPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: SpeechRecognitionType
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - speechRecognitionPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - speechRecognitionPrivate
+- File: webext/chrome/speech_recognition_private.idl
+  WebextFunc:
+    Name: stop
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: StopOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - speechRecognitionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - speechRecognitionPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - speechRecognitionPrivate

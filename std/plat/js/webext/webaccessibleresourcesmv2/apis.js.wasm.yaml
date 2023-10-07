@@ -1,0 +1,29 @@
+- File: webext/web_accessible_resources_mv2.idl
+  Dict:
+    Name: ManifestKeys
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webAccessibleResourcesMv2
+    Fields:
+      - Name: web_accessible_resources
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webAccessibleResourcesMv2
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAccessibleResourcesMv2
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAccessibleResourcesMv2

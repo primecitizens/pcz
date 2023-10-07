@@ -1,0 +1,118 @@
+- File: webext/chrome/enterprise_networking_attributes.idl
+  Callback:
+    Name: GetNetworkDetailsCallback
+    Args:
+      - Name: networkAddresses
+        Type:
+          Name: NetworkDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - networkingAttributes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - networkingAttributes
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - networkingAttributes
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - networkingAttributes
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/enterprise_networking_attributes.idl
+  Dict:
+    Name: NetworkDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - networkingAttributes
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: macAddress
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - networkingAttributes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - networkingAttributes
+      - Name: ipv4
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - networkingAttributes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - networkingAttributes
+      - Name: ipv6
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - networkingAttributes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - networkingAttributes
+- File: webext/chrome/enterprise_networking_attributes.idl
+  WebextFunc:
+    Name: getNetworkDetails
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: NetworkDetails
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - enterprise
+                  - networkingAttributes
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - networkingAttributes

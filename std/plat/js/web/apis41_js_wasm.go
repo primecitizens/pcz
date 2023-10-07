@@ -4,25 +4,16 @@
 package web
 
 import (
-	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 type LargestContentfulPaint struct {
 	PerformanceEntry
 }
 
 func (this LargestContentfulPaint) Once() LargestContentfulPaint {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -36,7 +27,7 @@ func (this LargestContentfulPaint) FromRef(ref js.Ref) LargestContentfulPaint {
 }
 
 func (this LargestContentfulPaint) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // RenderTime returns the value of property "LargestContentfulPaint.renderTime".
@@ -44,7 +35,7 @@ func (this LargestContentfulPaint) Free() {
 // It returns ok=false if there is no such property.
 func (this LargestContentfulPaint) RenderTime() (ret DOMHighResTimeStamp, ok bool) {
 	ok = js.True == bindings.GetLargestContentfulPaintRenderTime(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -54,7 +45,7 @@ func (this LargestContentfulPaint) RenderTime() (ret DOMHighResTimeStamp, ok boo
 // It returns ok=false if there is no such property.
 func (this LargestContentfulPaint) LoadTime() (ret DOMHighResTimeStamp, ok bool) {
 	ok = js.True == bindings.GetLargestContentfulPaintLoadTime(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -64,7 +55,7 @@ func (this LargestContentfulPaint) LoadTime() (ret DOMHighResTimeStamp, ok bool)
 // It returns ok=false if there is no such property.
 func (this LargestContentfulPaint) Size() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetLargestContentfulPaintSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -74,7 +65,7 @@ func (this LargestContentfulPaint) Size() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this LargestContentfulPaint) Id() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetLargestContentfulPaintId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -84,7 +75,7 @@ func (this LargestContentfulPaint) Id() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this LargestContentfulPaint) Url() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetLargestContentfulPaintUrl(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -94,31 +85,30 @@ func (this LargestContentfulPaint) Url() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this LargestContentfulPaint) Element() (ret Element, ok bool) {
 	ok = js.True == bindings.GetLargestContentfulPaintElement(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasToJSON returns true if the method "LargestContentfulPaint.toJSON" exists.
-func (this LargestContentfulPaint) HasToJSON() bool {
-	return js.True == bindings.HasLargestContentfulPaintToJSON(
-		this.Ref(),
+// HasFuncToJSON returns true if the method "LargestContentfulPaint.toJSON" exists.
+func (this LargestContentfulPaint) HasFuncToJSON() bool {
+	return js.True == bindings.HasFuncLargestContentfulPaintToJSON(
+		this.ref,
 	)
 }
 
-// ToJSONFunc returns the method "LargestContentfulPaint.toJSON".
-func (this LargestContentfulPaint) ToJSONFunc() (fn js.Func[func() js.Object]) {
-	return fn.FromRef(
-		bindings.LargestContentfulPaintToJSONFunc(
-			this.Ref(),
-		),
+// FuncToJSON returns the method "LargestContentfulPaint.toJSON".
+func (this LargestContentfulPaint) FuncToJSON() (fn js.Func[func() js.Object]) {
+	bindings.FuncLargestContentfulPaintToJSON(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ToJSON calls the method "LargestContentfulPaint.toJSON".
 func (this LargestContentfulPaint) ToJSON() (ret js.Object) {
 	bindings.CallLargestContentfulPaintToJSON(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -129,7 +119,7 @@ func (this LargestContentfulPaint) ToJSON() (ret js.Object) {
 // the catch clause.
 func (this LargestContentfulPaint) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryLargestContentfulPaintToJSON(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -164,7 +154,7 @@ type LayoutConstraints struct {
 }
 
 func (this LayoutConstraints) Once() LayoutConstraints {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -178,7 +168,7 @@ func (this LayoutConstraints) FromRef(ref js.Ref) LayoutConstraints {
 }
 
 func (this LayoutConstraints) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // AvailableInlineSize returns the value of property "LayoutConstraints.availableInlineSize".
@@ -186,7 +176,7 @@ func (this LayoutConstraints) Free() {
 // It returns ok=false if there is no such property.
 func (this LayoutConstraints) AvailableInlineSize() (ret float64, ok bool) {
 	ok = js.True == bindings.GetLayoutConstraintsAvailableInlineSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -196,7 +186,7 @@ func (this LayoutConstraints) AvailableInlineSize() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this LayoutConstraints) AvailableBlockSize() (ret float64, ok bool) {
 	ok = js.True == bindings.GetLayoutConstraintsAvailableBlockSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -206,7 +196,7 @@ func (this LayoutConstraints) AvailableBlockSize() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this LayoutConstraints) FixedInlineSize() (ret float64, ok bool) {
 	ok = js.True == bindings.GetLayoutConstraintsFixedInlineSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -216,7 +206,7 @@ func (this LayoutConstraints) FixedInlineSize() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this LayoutConstraints) FixedBlockSize() (ret float64, ok bool) {
 	ok = js.True == bindings.GetLayoutConstraintsFixedBlockSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -226,7 +216,7 @@ func (this LayoutConstraints) FixedBlockSize() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this LayoutConstraints) PercentageInlineSize() (ret float64, ok bool) {
 	ok = js.True == bindings.GetLayoutConstraintsPercentageInlineSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -236,7 +226,7 @@ func (this LayoutConstraints) PercentageInlineSize() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this LayoutConstraints) PercentageBlockSize() (ret float64, ok bool) {
 	ok = js.True == bindings.GetLayoutConstraintsPercentageBlockSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -246,7 +236,7 @@ func (this LayoutConstraints) PercentageBlockSize() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this LayoutConstraints) BlockFragmentationOffset() (ret float64, ok bool) {
 	ok = js.True == bindings.GetLayoutConstraintsBlockFragmentationOffset(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -256,7 +246,7 @@ func (this LayoutConstraints) BlockFragmentationOffset() (ret float64, ok bool) 
 // It returns ok=false if there is no such property.
 func (this LayoutConstraints) BlockFragmentationType() (ret BlockFragmentationType, ok bool) {
 	ok = js.True == bindings.GetLayoutConstraintsBlockFragmentationType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -266,7 +256,7 @@ func (this LayoutConstraints) BlockFragmentationType() (ret BlockFragmentationTy
 // It returns ok=false if there is no such property.
 func (this LayoutConstraints) Data() (ret js.Any, ok bool) {
 	ok = js.True == bindings.GetLayoutConstraintsData(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -276,7 +266,7 @@ type LayoutEdges struct {
 }
 
 func (this LayoutEdges) Once() LayoutEdges {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -290,7 +280,7 @@ func (this LayoutEdges) FromRef(ref js.Ref) LayoutEdges {
 }
 
 func (this LayoutEdges) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // InlineStart returns the value of property "LayoutEdges.inlineStart".
@@ -298,7 +288,7 @@ func (this LayoutEdges) Free() {
 // It returns ok=false if there is no such property.
 func (this LayoutEdges) InlineStart() (ret float64, ok bool) {
 	ok = js.True == bindings.GetLayoutEdgesInlineStart(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -308,7 +298,7 @@ func (this LayoutEdges) InlineStart() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this LayoutEdges) InlineEnd() (ret float64, ok bool) {
 	ok = js.True == bindings.GetLayoutEdgesInlineEnd(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -318,7 +308,7 @@ func (this LayoutEdges) InlineEnd() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this LayoutEdges) BlockStart() (ret float64, ok bool) {
 	ok = js.True == bindings.GetLayoutEdgesBlockStart(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -328,7 +318,7 @@ func (this LayoutEdges) BlockStart() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this LayoutEdges) BlockEnd() (ret float64, ok bool) {
 	ok = js.True == bindings.GetLayoutEdgesBlockEnd(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -338,7 +328,7 @@ func (this LayoutEdges) BlockEnd() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this LayoutEdges) Inline() (ret float64, ok bool) {
 	ok = js.True == bindings.GetLayoutEdgesInline(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -348,7 +338,7 @@ func (this LayoutEdges) Inline() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this LayoutEdges) Block() (ret float64, ok bool) {
 	ok = js.True == bindings.GetLayoutEdgesBlock(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -404,17 +394,22 @@ func (p LayoutOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p LayoutOptions) UpdateFrom(ref js.Ref) {
+func (p *LayoutOptions) UpdateFrom(ref js.Ref) {
 	bindings.LayoutOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p LayoutOptions) Update(ref js.Ref) {
+func (p *LayoutOptions) Update(ref js.Ref) {
 	bindings.LayoutOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *LayoutOptions) FreeMembers(recursive bool) {
 }
 
 type LayoutShiftAttribution struct {
@@ -422,7 +417,7 @@ type LayoutShiftAttribution struct {
 }
 
 func (this LayoutShiftAttribution) Once() LayoutShiftAttribution {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -436,7 +431,7 @@ func (this LayoutShiftAttribution) FromRef(ref js.Ref) LayoutShiftAttribution {
 }
 
 func (this LayoutShiftAttribution) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Node returns the value of property "LayoutShiftAttribution.node".
@@ -444,7 +439,7 @@ func (this LayoutShiftAttribution) Free() {
 // It returns ok=false if there is no such property.
 func (this LayoutShiftAttribution) Node() (ret Node, ok bool) {
 	ok = js.True == bindings.GetLayoutShiftAttributionNode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -454,7 +449,7 @@ func (this LayoutShiftAttribution) Node() (ret Node, ok bool) {
 // It returns ok=false if there is no such property.
 func (this LayoutShiftAttribution) PreviousRect() (ret DOMRectReadOnly, ok bool) {
 	ok = js.True == bindings.GetLayoutShiftAttributionPreviousRect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -464,7 +459,7 @@ func (this LayoutShiftAttribution) PreviousRect() (ret DOMRectReadOnly, ok bool)
 // It returns ok=false if there is no such property.
 func (this LayoutShiftAttribution) CurrentRect() (ret DOMRectReadOnly, ok bool) {
 	ok = js.True == bindings.GetLayoutShiftAttributionCurrentRect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -474,7 +469,7 @@ type LayoutShift struct {
 }
 
 func (this LayoutShift) Once() LayoutShift {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -488,7 +483,7 @@ func (this LayoutShift) FromRef(ref js.Ref) LayoutShift {
 }
 
 func (this LayoutShift) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Value returns the value of property "LayoutShift.value".
@@ -496,7 +491,7 @@ func (this LayoutShift) Free() {
 // It returns ok=false if there is no such property.
 func (this LayoutShift) Value() (ret float64, ok bool) {
 	ok = js.True == bindings.GetLayoutShiftValue(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -506,7 +501,7 @@ func (this LayoutShift) Value() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this LayoutShift) HadRecentInput() (ret bool, ok bool) {
 	ok = js.True == bindings.GetLayoutShiftHadRecentInput(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -516,7 +511,7 @@ func (this LayoutShift) HadRecentInput() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this LayoutShift) LastInputTime() (ret DOMHighResTimeStamp, ok bool) {
 	ok = js.True == bindings.GetLayoutShiftLastInputTime(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -526,31 +521,30 @@ func (this LayoutShift) LastInputTime() (ret DOMHighResTimeStamp, ok bool) {
 // It returns ok=false if there is no such property.
 func (this LayoutShift) Sources() (ret js.FrozenArray[LayoutShiftAttribution], ok bool) {
 	ok = js.True == bindings.GetLayoutShiftSources(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasToJSON returns true if the method "LayoutShift.toJSON" exists.
-func (this LayoutShift) HasToJSON() bool {
-	return js.True == bindings.HasLayoutShiftToJSON(
-		this.Ref(),
+// HasFuncToJSON returns true if the method "LayoutShift.toJSON" exists.
+func (this LayoutShift) HasFuncToJSON() bool {
+	return js.True == bindings.HasFuncLayoutShiftToJSON(
+		this.ref,
 	)
 }
 
-// ToJSONFunc returns the method "LayoutShift.toJSON".
-func (this LayoutShift) ToJSONFunc() (fn js.Func[func() js.Object]) {
-	return fn.FromRef(
-		bindings.LayoutShiftToJSONFunc(
-			this.Ref(),
-		),
+// FuncToJSON returns the method "LayoutShift.toJSON".
+func (this LayoutShift) FuncToJSON() (fn js.Func[func() js.Object]) {
+	bindings.FuncLayoutShiftToJSON(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ToJSON calls the method "LayoutShift.toJSON".
 func (this LayoutShift) ToJSON() (ret js.Object) {
 	bindings.CallLayoutShiftToJSON(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -561,7 +555,7 @@ func (this LayoutShift) ToJSON() (ret js.Object) {
 // the catch clause.
 func (this LayoutShift) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryLayoutShiftToJSON(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -572,7 +566,7 @@ type LayoutWorkletGlobalScope struct {
 }
 
 func (this LayoutWorkletGlobalScope) Once() LayoutWorkletGlobalScope {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -586,29 +580,28 @@ func (this LayoutWorkletGlobalScope) FromRef(ref js.Ref) LayoutWorkletGlobalScop
 }
 
 func (this LayoutWorkletGlobalScope) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasRegisterLayout returns true if the method "LayoutWorkletGlobalScope.registerLayout" exists.
-func (this LayoutWorkletGlobalScope) HasRegisterLayout() bool {
-	return js.True == bindings.HasLayoutWorkletGlobalScopeRegisterLayout(
-		this.Ref(),
+// HasFuncRegisterLayout returns true if the method "LayoutWorkletGlobalScope.registerLayout" exists.
+func (this LayoutWorkletGlobalScope) HasFuncRegisterLayout() bool {
+	return js.True == bindings.HasFuncLayoutWorkletGlobalScopeRegisterLayout(
+		this.ref,
 	)
 }
 
-// RegisterLayoutFunc returns the method "LayoutWorkletGlobalScope.registerLayout".
-func (this LayoutWorkletGlobalScope) RegisterLayoutFunc() (fn js.Func[func(name js.String, layoutCtor js.Func[func()])]) {
-	return fn.FromRef(
-		bindings.LayoutWorkletGlobalScopeRegisterLayoutFunc(
-			this.Ref(),
-		),
+// FuncRegisterLayout returns the method "LayoutWorkletGlobalScope.registerLayout".
+func (this LayoutWorkletGlobalScope) FuncRegisterLayout() (fn js.Func[func(name js.String, layoutCtor js.Func[func()])]) {
+	bindings.FuncLayoutWorkletGlobalScopeRegisterLayout(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RegisterLayout calls the method "LayoutWorkletGlobalScope.registerLayout".
 func (this LayoutWorkletGlobalScope) RegisterLayout(name js.String, layoutCtor js.Func[func()]) (ret js.Void) {
 	bindings.CallLayoutWorkletGlobalScopeRegisterLayout(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 		layoutCtor.Ref(),
 	)
@@ -621,7 +614,7 @@ func (this LayoutWorkletGlobalScope) RegisterLayout(name js.String, layoutCtor j
 // the catch clause.
 func (this LayoutWorkletGlobalScope) TryRegisterLayout(name js.String, layoutCtor js.Func[func()]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryLayoutWorkletGlobalScopeRegisterLayout(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 		layoutCtor.Ref(),
 	)
@@ -715,17 +708,22 @@ func (p LinearAccelerationReadingValues) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p LinearAccelerationReadingValues) UpdateFrom(ref js.Ref) {
+func (p *LinearAccelerationReadingValues) UpdateFrom(ref js.Ref) {
 	bindings.LinearAccelerationReadingValuesJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p LinearAccelerationReadingValues) Update(ref js.Ref) {
+func (p *LinearAccelerationReadingValues) Update(ref js.Ref) {
 	bindings.LinearAccelerationReadingValuesJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *LinearAccelerationReadingValues) FreeMembers(recursive bool) {
 }
 
 func NewLinearAccelerationSensor(options AccelerometerSensorOptions) (ret LinearAccelerationSensor) {
@@ -744,7 +742,7 @@ type LinearAccelerationSensor struct {
 }
 
 func (this LinearAccelerationSensor) Once() LinearAccelerationSensor {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -758,7 +756,7 @@ func (this LinearAccelerationSensor) FromRef(ref js.Ref) LinearAccelerationSenso
 }
 
 func (this LinearAccelerationSensor) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type MIDIPortType uint32
@@ -841,7 +839,7 @@ type MIDIPort struct {
 }
 
 func (this MIDIPort) Once() MIDIPort {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -855,7 +853,7 @@ func (this MIDIPort) FromRef(ref js.Ref) MIDIPort {
 }
 
 func (this MIDIPort) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Id returns the value of property "MIDIPort.id".
@@ -863,7 +861,7 @@ func (this MIDIPort) Free() {
 // It returns ok=false if there is no such property.
 func (this MIDIPort) Id() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetMIDIPortId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -873,7 +871,7 @@ func (this MIDIPort) Id() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this MIDIPort) Manufacturer() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetMIDIPortManufacturer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -883,7 +881,7 @@ func (this MIDIPort) Manufacturer() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this MIDIPort) Name() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetMIDIPortName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -893,7 +891,7 @@ func (this MIDIPort) Name() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this MIDIPort) Type() (ret MIDIPortType, ok bool) {
 	ok = js.True == bindings.GetMIDIPortType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -903,7 +901,7 @@ func (this MIDIPort) Type() (ret MIDIPortType, ok bool) {
 // It returns ok=false if there is no such property.
 func (this MIDIPort) Version() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetMIDIPortVersion(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -913,7 +911,7 @@ func (this MIDIPort) Version() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this MIDIPort) State() (ret MIDIPortDeviceState, ok bool) {
 	ok = js.True == bindings.GetMIDIPortState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -923,31 +921,30 @@ func (this MIDIPort) State() (ret MIDIPortDeviceState, ok bool) {
 // It returns ok=false if there is no such property.
 func (this MIDIPort) Connection() (ret MIDIPortConnectionState, ok bool) {
 	ok = js.True == bindings.GetMIDIPortConnection(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasOpen returns true if the method "MIDIPort.open" exists.
-func (this MIDIPort) HasOpen() bool {
-	return js.True == bindings.HasMIDIPortOpen(
-		this.Ref(),
+// HasFuncOpen returns true if the method "MIDIPort.open" exists.
+func (this MIDIPort) HasFuncOpen() bool {
+	return js.True == bindings.HasFuncMIDIPortOpen(
+		this.ref,
 	)
 }
 
-// OpenFunc returns the method "MIDIPort.open".
-func (this MIDIPort) OpenFunc() (fn js.Func[func() js.Promise[MIDIPort]]) {
-	return fn.FromRef(
-		bindings.MIDIPortOpenFunc(
-			this.Ref(),
-		),
+// FuncOpen returns the method "MIDIPort.open".
+func (this MIDIPort) FuncOpen() (fn js.Func[func() js.Promise[MIDIPort]]) {
+	bindings.FuncMIDIPortOpen(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Open calls the method "MIDIPort.open".
 func (this MIDIPort) Open() (ret js.Promise[MIDIPort]) {
 	bindings.CallMIDIPortOpen(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -958,32 +955,31 @@ func (this MIDIPort) Open() (ret js.Promise[MIDIPort]) {
 // the catch clause.
 func (this MIDIPort) TryOpen() (ret js.Promise[MIDIPort], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMIDIPortOpen(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasClose returns true if the method "MIDIPort.close" exists.
-func (this MIDIPort) HasClose() bool {
-	return js.True == bindings.HasMIDIPortClose(
-		this.Ref(),
+// HasFuncClose returns true if the method "MIDIPort.close" exists.
+func (this MIDIPort) HasFuncClose() bool {
+	return js.True == bindings.HasFuncMIDIPortClose(
+		this.ref,
 	)
 }
 
-// CloseFunc returns the method "MIDIPort.close".
-func (this MIDIPort) CloseFunc() (fn js.Func[func() js.Promise[MIDIPort]]) {
-	return fn.FromRef(
-		bindings.MIDIPortCloseFunc(
-			this.Ref(),
-		),
+// FuncClose returns the method "MIDIPort.close".
+func (this MIDIPort) FuncClose() (fn js.Func[func() js.Promise[MIDIPort]]) {
+	bindings.FuncMIDIPortClose(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Close calls the method "MIDIPort.close".
 func (this MIDIPort) Close() (ret js.Promise[MIDIPort]) {
 	bindings.CallMIDIPortClose(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -994,7 +990,7 @@ func (this MIDIPort) Close() (ret js.Promise[MIDIPort]) {
 // the catch clause.
 func (this MIDIPort) TryClose() (ret js.Promise[MIDIPort], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMIDIPortClose(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1045,17 +1041,26 @@ func (p MIDIConnectionEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MIDIConnectionEventInit) UpdateFrom(ref js.Ref) {
+func (p *MIDIConnectionEventInit) UpdateFrom(ref js.Ref) {
 	bindings.MIDIConnectionEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MIDIConnectionEventInit) Update(ref js.Ref) {
+func (p *MIDIConnectionEventInit) Update(ref js.Ref) {
 	bindings.MIDIConnectionEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MIDIConnectionEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Port.Ref(),
+	)
+	p.Port = p.Port.FromRef(js.Undefined)
 }
 
 func NewMIDIConnectionEvent(typ js.String, eventInitDict MIDIConnectionEventInit) (ret MIDIConnectionEvent) {
@@ -1076,7 +1081,7 @@ type MIDIConnectionEvent struct {
 }
 
 func (this MIDIConnectionEvent) Once() MIDIConnectionEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1090,7 +1095,7 @@ func (this MIDIConnectionEvent) FromRef(ref js.Ref) MIDIConnectionEvent {
 }
 
 func (this MIDIConnectionEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Port returns the value of property "MIDIConnectionEvent.port".
@@ -1098,7 +1103,7 @@ func (this MIDIConnectionEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this MIDIConnectionEvent) Port() (ret MIDIPort, ok bool) {
 	ok = js.True == bindings.GetMIDIConnectionEventPort(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1108,7 +1113,7 @@ type MIDIInput struct {
 }
 
 func (this MIDIInput) Once() MIDIInput {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1122,7 +1127,7 @@ func (this MIDIInput) FromRef(ref js.Ref) MIDIInput {
 }
 
 func (this MIDIInput) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type MIDIMessageEventInit struct {
@@ -1170,17 +1175,26 @@ func (p MIDIMessageEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MIDIMessageEventInit) UpdateFrom(ref js.Ref) {
+func (p *MIDIMessageEventInit) UpdateFrom(ref js.Ref) {
 	bindings.MIDIMessageEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MIDIMessageEventInit) Update(ref js.Ref) {
+func (p *MIDIMessageEventInit) Update(ref js.Ref) {
 	bindings.MIDIMessageEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MIDIMessageEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Data.Ref(),
+	)
+	p.Data = p.Data.FromRef(js.Undefined)
 }
 
 func NewMIDIMessageEvent(typ js.String, eventInitDict MIDIMessageEventInit) (ret MIDIMessageEvent) {
@@ -1201,7 +1215,7 @@ type MIDIMessageEvent struct {
 }
 
 func (this MIDIMessageEvent) Once() MIDIMessageEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1215,7 +1229,7 @@ func (this MIDIMessageEvent) FromRef(ref js.Ref) MIDIMessageEvent {
 }
 
 func (this MIDIMessageEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Data returns the value of property "MIDIMessageEvent.data".
@@ -1223,7 +1237,7 @@ func (this MIDIMessageEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this MIDIMessageEvent) Data() (ret js.TypedArray[uint8], ok bool) {
 	ok = js.True == bindings.GetMIDIMessageEventData(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1233,7 +1247,7 @@ type MIDIOutput struct {
 }
 
 func (this MIDIOutput) Once() MIDIOutput {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1247,29 +1261,28 @@ func (this MIDIOutput) FromRef(ref js.Ref) MIDIOutput {
 }
 
 func (this MIDIOutput) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasSend returns true if the method "MIDIOutput.send" exists.
-func (this MIDIOutput) HasSend() bool {
-	return js.True == bindings.HasMIDIOutputSend(
-		this.Ref(),
+// HasFuncSend returns true if the method "MIDIOutput.send" exists.
+func (this MIDIOutput) HasFuncSend() bool {
+	return js.True == bindings.HasFuncMIDIOutputSend(
+		this.ref,
 	)
 }
 
-// SendFunc returns the method "MIDIOutput.send".
-func (this MIDIOutput) SendFunc() (fn js.Func[func(data js.Array[uint8], timestamp DOMHighResTimeStamp)]) {
-	return fn.FromRef(
-		bindings.MIDIOutputSendFunc(
-			this.Ref(),
-		),
+// FuncSend returns the method "MIDIOutput.send".
+func (this MIDIOutput) FuncSend() (fn js.Func[func(data js.Array[uint8], timestamp DOMHighResTimeStamp)]) {
+	bindings.FuncMIDIOutputSend(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Send calls the method "MIDIOutput.send".
 func (this MIDIOutput) Send(data js.Array[uint8], timestamp DOMHighResTimeStamp) (ret js.Void) {
 	bindings.CallMIDIOutputSend(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		data.Ref(),
 		float64(timestamp),
 	)
@@ -1282,7 +1295,7 @@ func (this MIDIOutput) Send(data js.Array[uint8], timestamp DOMHighResTimeStamp)
 // the catch clause.
 func (this MIDIOutput) TrySend(data js.Array[uint8], timestamp DOMHighResTimeStamp) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMIDIOutputSend(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		data.Ref(),
 		float64(timestamp),
 	)
@@ -1290,26 +1303,25 @@ func (this MIDIOutput) TrySend(data js.Array[uint8], timestamp DOMHighResTimeSta
 	return
 }
 
-// HasSend1 returns true if the method "MIDIOutput.send" exists.
-func (this MIDIOutput) HasSend1() bool {
-	return js.True == bindings.HasMIDIOutputSend1(
-		this.Ref(),
+// HasFuncSend1 returns true if the method "MIDIOutput.send" exists.
+func (this MIDIOutput) HasFuncSend1() bool {
+	return js.True == bindings.HasFuncMIDIOutputSend1(
+		this.ref,
 	)
 }
 
-// Send1Func returns the method "MIDIOutput.send".
-func (this MIDIOutput) Send1Func() (fn js.Func[func(data js.Array[uint8])]) {
-	return fn.FromRef(
-		bindings.MIDIOutputSend1Func(
-			this.Ref(),
-		),
+// FuncSend1 returns the method "MIDIOutput.send".
+func (this MIDIOutput) FuncSend1() (fn js.Func[func(data js.Array[uint8])]) {
+	bindings.FuncMIDIOutputSend1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Send1 calls the method "MIDIOutput.send".
 func (this MIDIOutput) Send1(data js.Array[uint8]) (ret js.Void) {
 	bindings.CallMIDIOutputSend1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		data.Ref(),
 	)
 
@@ -1321,33 +1333,32 @@ func (this MIDIOutput) Send1(data js.Array[uint8]) (ret js.Void) {
 // the catch clause.
 func (this MIDIOutput) TrySend1(data js.Array[uint8]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMIDIOutputSend1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		data.Ref(),
 	)
 
 	return
 }
 
-// HasClear returns true if the method "MIDIOutput.clear" exists.
-func (this MIDIOutput) HasClear() bool {
-	return js.True == bindings.HasMIDIOutputClear(
-		this.Ref(),
+// HasFuncClear returns true if the method "MIDIOutput.clear" exists.
+func (this MIDIOutput) HasFuncClear() bool {
+	return js.True == bindings.HasFuncMIDIOutputClear(
+		this.ref,
 	)
 }
 
-// ClearFunc returns the method "MIDIOutput.clear".
-func (this MIDIOutput) ClearFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.MIDIOutputClearFunc(
-			this.Ref(),
-		),
+// FuncClear returns the method "MIDIOutput.clear".
+func (this MIDIOutput) FuncClear() (fn js.Func[func()]) {
+	bindings.FuncMIDIOutputClear(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Clear calls the method "MIDIOutput.clear".
 func (this MIDIOutput) Clear() (ret js.Void) {
 	bindings.CallMIDIOutputClear(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1358,7 +1369,7 @@ func (this MIDIOutput) Clear() (ret js.Void) {
 // the catch clause.
 func (this MIDIOutput) TryClear() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMIDIOutputClear(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1369,7 +1380,7 @@ type MLActivation struct {
 }
 
 func (this MLActivation) Once() MLActivation {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1383,7 +1394,7 @@ func (this MLActivation) FromRef(ref js.Ref) MLActivation {
 }
 
 func (this MLActivation) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type MLAutoPad uint32
@@ -1418,7 +1429,7 @@ type MLOperand struct {
 }
 
 func (this MLOperand) Once() MLOperand {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1432,7 +1443,7 @@ func (this MLOperand) FromRef(ref js.Ref) MLOperand {
 }
 
 func (this MLOperand) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type MLBatchNormalizationOptions struct {
@@ -1481,17 +1492,30 @@ func (p MLBatchNormalizationOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLBatchNormalizationOptions) UpdateFrom(ref js.Ref) {
+func (p *MLBatchNormalizationOptions) UpdateFrom(ref js.Ref) {
 	bindings.MLBatchNormalizationOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLBatchNormalizationOptions) Update(ref js.Ref) {
+func (p *MLBatchNormalizationOptions) Update(ref js.Ref) {
 	bindings.MLBatchNormalizationOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLBatchNormalizationOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Scale.Ref(),
+		p.Bias.Ref(),
+		p.Activation.Ref(),
+	)
+	p.Scale = p.Scale.FromRef(js.Undefined)
+	p.Bias = p.Bias.FromRef(js.Undefined)
+	p.Activation = p.Activation.FromRef(js.Undefined)
 }
 
 type MLBufferResourceView struct {
@@ -1532,17 +1556,26 @@ func (p MLBufferResourceView) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLBufferResourceView) UpdateFrom(ref js.Ref) {
+func (p *MLBufferResourceView) UpdateFrom(ref js.Ref) {
 	bindings.MLBufferResourceViewJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLBufferResourceView) Update(ref js.Ref) {
+func (p *MLBufferResourceView) Update(ref js.Ref) {
 	bindings.MLBufferResourceViewJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLBufferResourceView) FreeMembers(recursive bool) {
+	js.Free(
+		p.Resource.Ref(),
+	)
+	p.Resource = p.Resource.FromRef(js.Undefined)
 }
 
 type OneOf_TypedArrayInt8_TypedArrayInt16_TypedArrayInt32_TypedArrayUint8_TypedArrayUint16_TypedArrayUint32_TypedArrayInt64_TypedArrayUint64_TypedArrayFloat32_TypedArrayFloat64_DataView_MLBufferResourceView struct {
@@ -1649,17 +1682,22 @@ func (p MLClampOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLClampOptions) UpdateFrom(ref js.Ref) {
+func (p *MLClampOptions) UpdateFrom(ref js.Ref) {
 	bindings.MLClampOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLClampOptions) Update(ref js.Ref) {
+func (p *MLClampOptions) Update(ref js.Ref) {
 	bindings.MLClampOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLClampOptions) FreeMembers(recursive bool) {
 }
 
 type MLConv2dFilterOperandLayout uint32
@@ -1775,17 +1813,34 @@ func (p MLConv2dOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLConv2dOptions) UpdateFrom(ref js.Ref) {
+func (p *MLConv2dOptions) UpdateFrom(ref js.Ref) {
 	bindings.MLConv2dOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLConv2dOptions) Update(ref js.Ref) {
+func (p *MLConv2dOptions) Update(ref js.Ref) {
 	bindings.MLConv2dOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLConv2dOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Padding.Ref(),
+		p.Strides.Ref(),
+		p.Dilations.Ref(),
+		p.Bias.Ref(),
+		p.Activation.Ref(),
+	)
+	p.Padding = p.Padding.FromRef(js.Undefined)
+	p.Strides = p.Strides.FromRef(js.Undefined)
+	p.Dilations = p.Dilations.FromRef(js.Undefined)
+	p.Bias = p.Bias.FromRef(js.Undefined)
+	p.Activation = p.Activation.FromRef(js.Undefined)
 }
 
 type MLConvTranspose2dFilterOperandLayout uint32
@@ -1882,17 +1937,38 @@ func (p MLConvTranspose2dOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLConvTranspose2dOptions) UpdateFrom(ref js.Ref) {
+func (p *MLConvTranspose2dOptions) UpdateFrom(ref js.Ref) {
 	bindings.MLConvTranspose2dOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLConvTranspose2dOptions) Update(ref js.Ref) {
+func (p *MLConvTranspose2dOptions) Update(ref js.Ref) {
 	bindings.MLConvTranspose2dOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLConvTranspose2dOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Padding.Ref(),
+		p.Strides.Ref(),
+		p.Dilations.Ref(),
+		p.OutputPadding.Ref(),
+		p.OutputSizes.Ref(),
+		p.Bias.Ref(),
+		p.Activation.Ref(),
+	)
+	p.Padding = p.Padding.FromRef(js.Undefined)
+	p.Strides = p.Strides.FromRef(js.Undefined)
+	p.Dilations = p.Dilations.FromRef(js.Undefined)
+	p.OutputPadding = p.OutputPadding.FromRef(js.Undefined)
+	p.OutputSizes = p.OutputSizes.FromRef(js.Undefined)
+	p.Bias = p.Bias.FromRef(js.Undefined)
+	p.Activation = p.Activation.FromRef(js.Undefined)
 }
 
 type MLEluOptions struct {
@@ -1922,17 +1998,22 @@ func (p MLEluOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLEluOptions) UpdateFrom(ref js.Ref) {
+func (p *MLEluOptions) UpdateFrom(ref js.Ref) {
 	bindings.MLEluOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLEluOptions) Update(ref js.Ref) {
+func (p *MLEluOptions) Update(ref js.Ref) {
 	bindings.MLEluOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLEluOptions) FreeMembers(recursive bool) {
 }
 
 type MLGemmOptions struct {
@@ -1987,17 +2068,26 @@ func (p MLGemmOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p MLGemmOptions) UpdateFrom(ref js.Ref) {
+func (p *MLGemmOptions) UpdateFrom(ref js.Ref) {
 	bindings.MLGemmOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p MLGemmOptions) Update(ref js.Ref) {
+func (p *MLGemmOptions) Update(ref js.Ref) {
 	bindings.MLGemmOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *MLGemmOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.C.Ref(),
+	)
+	p.C = p.C.FromRef(js.Undefined)
 }
 
 type MLOperandType uint32

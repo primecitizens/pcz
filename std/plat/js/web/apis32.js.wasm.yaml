@@ -1,4 +1,4 @@
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Interface:
     Name: RTCIceCandidate
     ExtAttrs:
@@ -168,7 +168,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCIceCandidateInit
     Fields:
@@ -191,7 +191,7 @@
         Type:
           Name: DOMString
           Nullable: true
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCIceCandidatePair
     Fields:
@@ -201,7 +201,7 @@
       - Name: remote
         Type:
           Name: RTCIceCandidate
-- File: webrtc-stats.idl
+- File: webref/webrtc-stats.idl
   Dict:
     Name: RTCIceCandidatePairStats
     Inherits: RTCStats
@@ -288,7 +288,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: webrtc-stats.idl
+- File: webref/webrtc-stats.idl
   Dict:
     Name: RTCIceCandidateStats
     Inherits: RTCStats
@@ -347,7 +347,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Enum:
     Name: RTCIceCandidateType
     Values:
@@ -355,13 +355,13 @@
       - srflx
       - prflx
       - relay
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Enum:
     Name: RTCIceComponent
     Values:
       - rtp
       - rtcp
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Enum:
     Name: RTCIceConnectionState
     Values:
@@ -372,7 +372,7 @@
       - checking
       - completed
       - connected
-- File: webrtc-ice.idl
+- File: webref/webrtc-ice.idl
   Dict:
     Name: RTCIceGatherOptions
     Fields:
@@ -385,21 +385,21 @@
           Name: sequence
           Params:
             - Name: RTCIceServer
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Enum:
     Name: RTCIceGathererState
     Values:
       - new
       - gathering
       - complete
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Enum:
     Name: RTCIceGatheringState
     Values:
       - new
       - gathering
       - complete
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCIceParameters
     Fields:
@@ -412,20 +412,20 @@
       - Name: iceLite
         Type:
           Name: boolean
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Enum:
     Name: RTCIceProtocol
     Values:
       - udp
       - tcp
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Enum:
     Name: RTCIceRole
     Values:
       - unknown
       - controlling
       - controlled
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCIceServer
     Fields:
@@ -443,21 +443,21 @@
       - Name: credential
         Type:
           Name: DOMString
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Enum:
     Name: RTCIceServerTransportProtocol
     Values:
       - udp
       - tcp
       - tls
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Enum:
     Name: RTCIceTcpCandidateType
     Values:
       - active
       - passive
       - so
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Interface:
     Name: RTCIceTransport
     Inherits: EventTarget
@@ -627,13 +627,13 @@
           - Name: Exposed
             Values:
               - Window
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Enum:
     Name: RTCIceTransportPolicy
     Values:
       - relay
       - all
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Enum:
     Name: RTCIceTransportState
     Values:
@@ -644,7 +644,7 @@
       - checking
       - completed
       - connected
-- File: webrtc-identity.idl
+- File: webref/webrtc-identity.idl
   Interface:
     Name: RTCIdentityAssertion
     ExtAttrs:
@@ -678,7 +678,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webrtc-identity.idl
+- File: webref/webrtc-identity.idl
   Dict:
     Name: RTCIdentityAssertionResult
     Fields:
@@ -690,7 +690,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: webrtc-identity.idl
+- File: webref/webrtc-identity.idl
   Dict:
     Name: RTCIdentityProvider
     Fields:
@@ -702,7 +702,7 @@
         Required: true
         Type:
           Name: ValidateAssertionCallback
-- File: webrtc-identity.idl
+- File: webref/webrtc-identity.idl
   Dict:
     Name: RTCIdentityProviderDetails
     Fields:
@@ -714,7 +714,7 @@
         Default: '"default"'
         Type:
           Name: DOMString
-- File: webrtc-identity.idl
+- File: webref/webrtc-identity.idl
   Interface:
     Name: RTCIdentityProviderGlobalScope
     Inherits: WorkerGlobalScope
@@ -739,7 +739,7 @@
           - Name: Exposed
             Values:
               - RTCIdentityProvider
-- File: webrtc-identity.idl
+- File: webref/webrtc-identity.idl
   Dict:
     Name: RTCIdentityProviderOptions
     Fields:
@@ -753,7 +753,7 @@
       - Name: peerIdentity
         Type:
           Name: DOMString
-- File: webrtc-identity.idl
+- File: webref/webrtc-identity.idl
   Interface:
     Name: RTCIdentityProviderRegistrar
     ExtAttrs:
@@ -772,7 +772,7 @@
           - Name: Exposed
             Values:
               - RTCIdentityProvider
-- File: webrtc-identity.idl
+- File: webref/webrtc-identity.idl
   Dict:
     Name: RTCIdentityValidationResult
     Fields:
@@ -784,7 +784,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: webrtc-stats.idl
+- File: webref/webrtc-stats.idl
   Dict:
     Name: RTCInboundRtpStreamStats
     Inherits: RTCReceivedRtpStreamStats
@@ -984,7 +984,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCLocalSessionDescriptionInit
     Fields:
@@ -995,7 +995,7 @@
         Default: '""'
         Type:
           Name: DOMString
-- File: webrtc-stats.idl
+- File: webref/webrtc-stats.idl
   Dict:
     Name: RTCMediaSourceStats
     Inherits: RTCStats
@@ -1020,10 +1020,10 @@
         Required: true
         Type:
           Name: DOMString
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCOfferAnswerOptions
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCOfferOptions
     Inherits: RTCOfferAnswerOptions
@@ -1038,7 +1038,7 @@
       - Name: offerToReceiveVideo
         Type:
           Name: boolean
-- File: webrtc-stats.idl
+- File: webref/webrtc-stats.idl
   Dict:
     Name: RTCOutboundRtpStreamStats
     Inherits: RTCSentRtpStreamStats
@@ -1168,7 +1168,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Interface:
     Name: RTCPeerConnection
     Inherits: EventTarget
@@ -1659,7 +1659,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Callback:
     Name: RTCPeerConnectionErrorCallback
     Args:
@@ -1668,7 +1668,7 @@
           Name: DOMException
     Returns:
       - Name: undefined
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Interface:
     Name: RTCPeerConnectionIceErrorEvent
     Inherits: Event
@@ -1731,7 +1731,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCPeerConnectionIceErrorEventInit
     Inherits: EventInit
@@ -1766,7 +1766,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Interface:
     Name: RTCPeerConnectionIceEvent
     Inherits: Event
@@ -1807,7 +1807,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCPeerConnectionIceEventInit
     Inherits: EventInit
@@ -1832,7 +1832,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Enum:
     Name: RTCPeerConnectionState
     Values:
@@ -1842,7 +1842,7 @@
       - new
       - connecting
       - connected
-- File: webrtc-stats.idl
+- File: webref/webrtc-stats.idl
   Dict:
     Name: RTCPeerConnectionStats
     Inherits: RTCStats
@@ -1865,7 +1865,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: webrtc-priority.idl
+- File: webref/webrtc-priority.idl
   Enum:
     Name: RTCPriorityType
     Values:
@@ -1873,7 +1873,7 @@
       - low
       - medium
       - high
-- File: webrtc-stats.idl
+- File: webref/webrtc-stats.idl
   Enum:
     Name: RTCQualityLimitationReason
     Values:
@@ -1881,7 +1881,7 @@
       - cpu
       - bandwidth
       - other
-- File: webrtc-stats.idl
+- File: webref/webrtc-stats.idl
   Dict:
     Name: RTCReceivedRtpStreamStats
     Inherits: RTCRtpStreamStats
@@ -1921,7 +1921,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: webrtc-stats.idl
+- File: webref/webrtc-stats.idl
   Dict:
     Name: RTCRemoteInboundRtpStreamStats
     Inherits: RTCReceivedRtpStreamStats
@@ -1976,7 +1976,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: webrtc-stats.idl
+- File: webref/webrtc-stats.idl
   Dict:
     Name: RTCRemoteOutboundRtpStreamStats
     Inherits: RTCSentRtpStreamStats
@@ -2031,12 +2031,12 @@
         Required: true
         Type:
           Name: DOMString
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Enum:
     Name: RTCRtcpMuxPolicy
     Values:
       - require
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCRtcpParameters
     Fields:
@@ -2046,7 +2046,7 @@
       - Name: reducedSize
         Type:
           Name: boolean
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCRtpCapabilities
     Fields:

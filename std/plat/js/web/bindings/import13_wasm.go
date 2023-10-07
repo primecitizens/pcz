@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web constof_ImageSmoothingQuality
 //go:noescape
@@ -377,11 +375,11 @@ func SetOffscreenCanvasRenderingContext2DWordSpacing(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_Commit
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DCommit(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DCommit(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_Commit
 //go:noescape
-func OffscreenCanvasRenderingContext2DCommitFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DCommit(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_Commit
 //go:noescape
@@ -395,11 +393,11 @@ func TryOffscreenCanvasRenderingContext2DCommit(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_Scale
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DScale(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DScale(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_Scale
 //go:noescape
-func OffscreenCanvasRenderingContext2DScaleFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DScale(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_Scale
 //go:noescape
@@ -417,11 +415,11 @@ func TryOffscreenCanvasRenderingContext2DScale(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_Rotate
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DRotate(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DRotate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_Rotate
 //go:noescape
-func OffscreenCanvasRenderingContext2DRotateFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DRotate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_Rotate
 //go:noescape
@@ -437,11 +435,11 @@ func TryOffscreenCanvasRenderingContext2DRotate(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_Translate
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DTranslate(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DTranslate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_Translate
 //go:noescape
-func OffscreenCanvasRenderingContext2DTranslateFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DTranslate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_Translate
 //go:noescape
@@ -459,11 +457,11 @@ func TryOffscreenCanvasRenderingContext2DTranslate(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_Transform
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DTransform(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DTransform(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_Transform
 //go:noescape
-func OffscreenCanvasRenderingContext2DTransformFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DTransform(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_Transform
 //go:noescape
@@ -489,11 +487,11 @@ func TryOffscreenCanvasRenderingContext2DTransform(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_GetTransform
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DGetTransform(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DGetTransform(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_GetTransform
 //go:noescape
-func OffscreenCanvasRenderingContext2DGetTransformFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DGetTransform(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_GetTransform
 //go:noescape
@@ -507,11 +505,11 @@ func TryOffscreenCanvasRenderingContext2DGetTransform(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_SetTransform
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DSetTransform(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DSetTransform(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_SetTransform
 //go:noescape
-func OffscreenCanvasRenderingContext2DSetTransformFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DSetTransform(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_SetTransform
 //go:noescape
@@ -537,11 +535,11 @@ func TryOffscreenCanvasRenderingContext2DSetTransform(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_SetTransform1
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DSetTransform1(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DSetTransform1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_SetTransform1
 //go:noescape
-func OffscreenCanvasRenderingContext2DSetTransform1Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DSetTransform1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_SetTransform1
 //go:noescape
@@ -557,11 +555,11 @@ func TryOffscreenCanvasRenderingContext2DSetTransform1(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_SetTransform2
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DSetTransform2(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DSetTransform2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_SetTransform2
 //go:noescape
-func OffscreenCanvasRenderingContext2DSetTransform2Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DSetTransform2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_SetTransform2
 //go:noescape
@@ -575,11 +573,11 @@ func TryOffscreenCanvasRenderingContext2DSetTransform2(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_ResetTransform
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DResetTransform(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DResetTransform(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_ResetTransform
 //go:noescape
-func OffscreenCanvasRenderingContext2DResetTransformFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DResetTransform(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_ResetTransform
 //go:noescape
@@ -593,11 +591,11 @@ func TryOffscreenCanvasRenderingContext2DResetTransform(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_CreateLinearGradient
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DCreateLinearGradient(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DCreateLinearGradient(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_CreateLinearGradient
 //go:noescape
-func OffscreenCanvasRenderingContext2DCreateLinearGradientFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DCreateLinearGradient(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_CreateLinearGradient
 //go:noescape
@@ -619,11 +617,11 @@ func TryOffscreenCanvasRenderingContext2DCreateLinearGradient(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_CreateRadialGradient
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DCreateRadialGradient(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DCreateRadialGradient(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_CreateRadialGradient
 //go:noescape
-func OffscreenCanvasRenderingContext2DCreateRadialGradientFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DCreateRadialGradient(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_CreateRadialGradient
 //go:noescape
@@ -649,11 +647,11 @@ func TryOffscreenCanvasRenderingContext2DCreateRadialGradient(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_CreateConicGradient
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DCreateConicGradient(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DCreateConicGradient(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_CreateConicGradient
 //go:noescape
-func OffscreenCanvasRenderingContext2DCreateConicGradientFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DCreateConicGradient(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_CreateConicGradient
 //go:noescape
@@ -673,11 +671,11 @@ func TryOffscreenCanvasRenderingContext2DCreateConicGradient(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_CreatePattern
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DCreatePattern(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DCreatePattern(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_CreatePattern
 //go:noescape
-func OffscreenCanvasRenderingContext2DCreatePatternFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DCreatePattern(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_CreatePattern
 //go:noescape
@@ -695,11 +693,11 @@ func TryOffscreenCanvasRenderingContext2DCreatePattern(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_ClearRect
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DClearRect(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DClearRect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_ClearRect
 //go:noescape
-func OffscreenCanvasRenderingContext2DClearRectFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DClearRect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_ClearRect
 //go:noescape
@@ -721,11 +719,11 @@ func TryOffscreenCanvasRenderingContext2DClearRect(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_FillRect
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DFillRect(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DFillRect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_FillRect
 //go:noescape
-func OffscreenCanvasRenderingContext2DFillRectFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DFillRect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_FillRect
 //go:noescape
@@ -747,11 +745,11 @@ func TryOffscreenCanvasRenderingContext2DFillRect(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_StrokeRect
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DStrokeRect(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DStrokeRect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_StrokeRect
 //go:noescape
-func OffscreenCanvasRenderingContext2DStrokeRectFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DStrokeRect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_StrokeRect
 //go:noescape
@@ -773,11 +771,11 @@ func TryOffscreenCanvasRenderingContext2DStrokeRect(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_BeginPath
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DBeginPath(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DBeginPath(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_BeginPath
 //go:noescape
-func OffscreenCanvasRenderingContext2DBeginPathFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DBeginPath(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_BeginPath
 //go:noescape
@@ -791,11 +789,11 @@ func TryOffscreenCanvasRenderingContext2DBeginPath(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_Fill
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DFill(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DFill(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_Fill
 //go:noescape
-func OffscreenCanvasRenderingContext2DFillFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DFill(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_Fill
 //go:noescape
@@ -811,11 +809,11 @@ func TryOffscreenCanvasRenderingContext2DFill(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_Fill1
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DFill1(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DFill1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_Fill1
 //go:noescape
-func OffscreenCanvasRenderingContext2DFill1Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DFill1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_Fill1
 //go:noescape
@@ -829,11 +827,11 @@ func TryOffscreenCanvasRenderingContext2DFill1(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_Fill2
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DFill2(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DFill2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_Fill2
 //go:noescape
-func OffscreenCanvasRenderingContext2DFill2Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DFill2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_Fill2
 //go:noescape
@@ -851,11 +849,11 @@ func TryOffscreenCanvasRenderingContext2DFill2(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_Fill3
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DFill3(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DFill3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_Fill3
 //go:noescape
-func OffscreenCanvasRenderingContext2DFill3Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DFill3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_Fill3
 //go:noescape
@@ -871,11 +869,11 @@ func TryOffscreenCanvasRenderingContext2DFill3(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_Stroke
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DStroke(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DStroke(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_Stroke
 //go:noescape
-func OffscreenCanvasRenderingContext2DStrokeFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DStroke(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_Stroke
 //go:noescape
@@ -889,11 +887,11 @@ func TryOffscreenCanvasRenderingContext2DStroke(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_Stroke1
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DStroke1(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DStroke1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_Stroke1
 //go:noescape
-func OffscreenCanvasRenderingContext2DStroke1Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DStroke1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_Stroke1
 //go:noescape
@@ -909,11 +907,11 @@ func TryOffscreenCanvasRenderingContext2DStroke1(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_Clip
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DClip(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DClip(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_Clip
 //go:noescape
-func OffscreenCanvasRenderingContext2DClipFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DClip(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_Clip
 //go:noescape
@@ -929,11 +927,11 @@ func TryOffscreenCanvasRenderingContext2DClip(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_Clip1
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DClip1(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DClip1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_Clip1
 //go:noescape
-func OffscreenCanvasRenderingContext2DClip1Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DClip1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_Clip1
 //go:noescape
@@ -947,11 +945,11 @@ func TryOffscreenCanvasRenderingContext2DClip1(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_Clip2
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DClip2(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DClip2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_Clip2
 //go:noescape
-func OffscreenCanvasRenderingContext2DClip2Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DClip2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_Clip2
 //go:noescape
@@ -969,11 +967,11 @@ func TryOffscreenCanvasRenderingContext2DClip2(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_Clip3
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DClip3(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DClip3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_Clip3
 //go:noescape
-func OffscreenCanvasRenderingContext2DClip3Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DClip3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_Clip3
 //go:noescape
@@ -989,11 +987,11 @@ func TryOffscreenCanvasRenderingContext2DClip3(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_IsPointInPath
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DIsPointInPath(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DIsPointInPath(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_IsPointInPath
 //go:noescape
-func OffscreenCanvasRenderingContext2DIsPointInPathFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DIsPointInPath(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_IsPointInPath
 //go:noescape
@@ -1013,11 +1011,11 @@ func TryOffscreenCanvasRenderingContext2DIsPointInPath(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_IsPointInPath1
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DIsPointInPath1(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DIsPointInPath1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_IsPointInPath1
 //go:noescape
-func OffscreenCanvasRenderingContext2DIsPointInPath1Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DIsPointInPath1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_IsPointInPath1
 //go:noescape
@@ -1035,11 +1033,11 @@ func TryOffscreenCanvasRenderingContext2DIsPointInPath1(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_IsPointInPath2
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DIsPointInPath2(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DIsPointInPath2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_IsPointInPath2
 //go:noescape
-func OffscreenCanvasRenderingContext2DIsPointInPath2Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DIsPointInPath2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_IsPointInPath2
 //go:noescape
@@ -1061,11 +1059,11 @@ func TryOffscreenCanvasRenderingContext2DIsPointInPath2(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_IsPointInPath3
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DIsPointInPath3(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DIsPointInPath3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_IsPointInPath3
 //go:noescape
-func OffscreenCanvasRenderingContext2DIsPointInPath3Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DIsPointInPath3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_IsPointInPath3
 //go:noescape
@@ -1085,11 +1083,11 @@ func TryOffscreenCanvasRenderingContext2DIsPointInPath3(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_IsPointInStroke
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DIsPointInStroke(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DIsPointInStroke(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_IsPointInStroke
 //go:noescape
-func OffscreenCanvasRenderingContext2DIsPointInStrokeFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DIsPointInStroke(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_IsPointInStroke
 //go:noescape
@@ -1107,11 +1105,11 @@ func TryOffscreenCanvasRenderingContext2DIsPointInStroke(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_IsPointInStroke1
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DIsPointInStroke1(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DIsPointInStroke1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_IsPointInStroke1
 //go:noescape
-func OffscreenCanvasRenderingContext2DIsPointInStroke1Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DIsPointInStroke1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_IsPointInStroke1
 //go:noescape
@@ -1131,11 +1129,11 @@ func TryOffscreenCanvasRenderingContext2DIsPointInStroke1(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_FillText
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DFillText(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DFillText(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_FillText
 //go:noescape
-func OffscreenCanvasRenderingContext2DFillTextFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DFillText(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_FillText
 //go:noescape
@@ -1157,11 +1155,11 @@ func TryOffscreenCanvasRenderingContext2DFillText(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_FillText1
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DFillText1(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DFillText1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_FillText1
 //go:noescape
-func OffscreenCanvasRenderingContext2DFillText1Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DFillText1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_FillText1
 //go:noescape
@@ -1181,11 +1179,11 @@ func TryOffscreenCanvasRenderingContext2DFillText1(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_StrokeText
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DStrokeText(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DStrokeText(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_StrokeText
 //go:noescape
-func OffscreenCanvasRenderingContext2DStrokeTextFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DStrokeText(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_StrokeText
 //go:noescape
@@ -1207,11 +1205,11 @@ func TryOffscreenCanvasRenderingContext2DStrokeText(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_StrokeText1
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DStrokeText1(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DStrokeText1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_StrokeText1
 //go:noescape
-func OffscreenCanvasRenderingContext2DStrokeText1Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DStrokeText1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_StrokeText1
 //go:noescape
@@ -1231,11 +1229,11 @@ func TryOffscreenCanvasRenderingContext2DStrokeText1(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_MeasureText
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DMeasureText(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DMeasureText(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_MeasureText
 //go:noescape
-func OffscreenCanvasRenderingContext2DMeasureTextFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DMeasureText(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_MeasureText
 //go:noescape
@@ -1251,11 +1249,11 @@ func TryOffscreenCanvasRenderingContext2DMeasureText(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_DrawImage
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DDrawImage(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DDrawImage(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_DrawImage
 //go:noescape
-func OffscreenCanvasRenderingContext2DDrawImageFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DDrawImage(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_DrawImage
 //go:noescape
@@ -1275,11 +1273,11 @@ func TryOffscreenCanvasRenderingContext2DDrawImage(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_DrawImage1
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DDrawImage1(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DDrawImage1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_DrawImage1
 //go:noescape
-func OffscreenCanvasRenderingContext2DDrawImage1Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DDrawImage1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_DrawImage1
 //go:noescape
@@ -1303,11 +1301,11 @@ func TryOffscreenCanvasRenderingContext2DDrawImage1(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_DrawImage2
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DDrawImage2(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DDrawImage2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_DrawImage2
 //go:noescape
-func OffscreenCanvasRenderingContext2DDrawImage2Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DDrawImage2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_DrawImage2
 //go:noescape
@@ -1339,11 +1337,11 @@ func TryOffscreenCanvasRenderingContext2DDrawImage2(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_CreateImageData
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DCreateImageData(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DCreateImageData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_CreateImageData
 //go:noescape
-func OffscreenCanvasRenderingContext2DCreateImageDataFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DCreateImageData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_CreateImageData
 //go:noescape
@@ -1363,11 +1361,11 @@ func TryOffscreenCanvasRenderingContext2DCreateImageData(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_CreateImageData1
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DCreateImageData1(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DCreateImageData1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_CreateImageData1
 //go:noescape
-func OffscreenCanvasRenderingContext2DCreateImageData1Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DCreateImageData1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_CreateImageData1
 //go:noescape
@@ -1385,11 +1383,11 @@ func TryOffscreenCanvasRenderingContext2DCreateImageData1(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_CreateImageData2
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DCreateImageData2(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DCreateImageData2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_CreateImageData2
 //go:noescape
-func OffscreenCanvasRenderingContext2DCreateImageData2Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DCreateImageData2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_CreateImageData2
 //go:noescape
@@ -1405,11 +1403,11 @@ func TryOffscreenCanvasRenderingContext2DCreateImageData2(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_GetImageData
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DGetImageData(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DGetImageData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_GetImageData
 //go:noescape
-func OffscreenCanvasRenderingContext2DGetImageDataFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DGetImageData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_GetImageData
 //go:noescape
@@ -1433,11 +1431,11 @@ func TryOffscreenCanvasRenderingContext2DGetImageData(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_GetImageData1
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DGetImageData1(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DGetImageData1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_GetImageData1
 //go:noescape
-func OffscreenCanvasRenderingContext2DGetImageData1Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DGetImageData1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_GetImageData1
 //go:noescape
@@ -1459,11 +1457,11 @@ func TryOffscreenCanvasRenderingContext2DGetImageData1(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_PutImageData
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DPutImageData(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DPutImageData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_PutImageData
 //go:noescape
-func OffscreenCanvasRenderingContext2DPutImageDataFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DPutImageData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_PutImageData
 //go:noescape
@@ -1483,11 +1481,11 @@ func TryOffscreenCanvasRenderingContext2DPutImageData(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_PutImageData1
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DPutImageData1(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DPutImageData1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_PutImageData1
 //go:noescape
-func OffscreenCanvasRenderingContext2DPutImageData1Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DPutImageData1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_PutImageData1
 //go:noescape
@@ -1515,11 +1513,11 @@ func TryOffscreenCanvasRenderingContext2DPutImageData1(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_SetLineDash
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DSetLineDash(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DSetLineDash(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_SetLineDash
 //go:noescape
-func OffscreenCanvasRenderingContext2DSetLineDashFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DSetLineDash(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_SetLineDash
 //go:noescape
@@ -1535,11 +1533,11 @@ func TryOffscreenCanvasRenderingContext2DSetLineDash(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_GetLineDash
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DGetLineDash(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DGetLineDash(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_GetLineDash
 //go:noescape
-func OffscreenCanvasRenderingContext2DGetLineDashFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DGetLineDash(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_GetLineDash
 //go:noescape
@@ -1553,11 +1551,11 @@ func TryOffscreenCanvasRenderingContext2DGetLineDash(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_ClosePath
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DClosePath(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DClosePath(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_ClosePath
 //go:noescape
-func OffscreenCanvasRenderingContext2DClosePathFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DClosePath(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_ClosePath
 //go:noescape
@@ -1571,11 +1569,11 @@ func TryOffscreenCanvasRenderingContext2DClosePath(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_MoveTo
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DMoveTo(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DMoveTo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_MoveTo
 //go:noescape
-func OffscreenCanvasRenderingContext2DMoveToFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DMoveTo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_MoveTo
 //go:noescape
@@ -1593,11 +1591,11 @@ func TryOffscreenCanvasRenderingContext2DMoveTo(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_LineTo
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DLineTo(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DLineTo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_LineTo
 //go:noescape
-func OffscreenCanvasRenderingContext2DLineToFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DLineTo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_LineTo
 //go:noescape
@@ -1615,11 +1613,11 @@ func TryOffscreenCanvasRenderingContext2DLineTo(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_QuadraticCurveTo
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DQuadraticCurveTo(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DQuadraticCurveTo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_QuadraticCurveTo
 //go:noescape
-func OffscreenCanvasRenderingContext2DQuadraticCurveToFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DQuadraticCurveTo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_QuadraticCurveTo
 //go:noescape
@@ -1641,11 +1639,11 @@ func TryOffscreenCanvasRenderingContext2DQuadraticCurveTo(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_BezierCurveTo
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DBezierCurveTo(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DBezierCurveTo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_BezierCurveTo
 //go:noescape
-func OffscreenCanvasRenderingContext2DBezierCurveToFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DBezierCurveTo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_BezierCurveTo
 //go:noescape
@@ -1671,11 +1669,11 @@ func TryOffscreenCanvasRenderingContext2DBezierCurveTo(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_ArcTo
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DArcTo(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DArcTo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_ArcTo
 //go:noescape
-func OffscreenCanvasRenderingContext2DArcToFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DArcTo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_ArcTo
 //go:noescape
@@ -1699,11 +1697,11 @@ func TryOffscreenCanvasRenderingContext2DArcTo(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_Rect
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DRect(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DRect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_Rect
 //go:noescape
-func OffscreenCanvasRenderingContext2DRectFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DRect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_Rect
 //go:noescape
@@ -1725,11 +1723,11 @@ func TryOffscreenCanvasRenderingContext2DRect(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_RoundRect
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DRoundRect(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DRoundRect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_RoundRect
 //go:noescape
-func OffscreenCanvasRenderingContext2DRoundRectFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DRoundRect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_RoundRect
 //go:noescape
@@ -1753,11 +1751,11 @@ func TryOffscreenCanvasRenderingContext2DRoundRect(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_RoundRect1
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DRoundRect1(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DRoundRect1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_RoundRect1
 //go:noescape
-func OffscreenCanvasRenderingContext2DRoundRect1Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DRoundRect1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_RoundRect1
 //go:noescape
@@ -1779,11 +1777,11 @@ func TryOffscreenCanvasRenderingContext2DRoundRect1(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_Arc
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DArc(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DArc(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_Arc
 //go:noescape
-func OffscreenCanvasRenderingContext2DArcFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DArc(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_Arc
 //go:noescape
@@ -1809,11 +1807,11 @@ func TryOffscreenCanvasRenderingContext2DArc(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_Arc1
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DArc1(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DArc1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_Arc1
 //go:noescape
-func OffscreenCanvasRenderingContext2DArc1Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DArc1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_Arc1
 //go:noescape
@@ -1837,11 +1835,11 @@ func TryOffscreenCanvasRenderingContext2DArc1(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_Ellipse
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DEllipse(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DEllipse(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_Ellipse
 //go:noescape
-func OffscreenCanvasRenderingContext2DEllipseFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DEllipse(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_Ellipse
 //go:noescape
@@ -1871,11 +1869,11 @@ func TryOffscreenCanvasRenderingContext2DEllipse(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_Ellipse1
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DEllipse1(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DEllipse1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_Ellipse1
 //go:noescape
-func OffscreenCanvasRenderingContext2DEllipse1Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DEllipse1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_Ellipse1
 //go:noescape
@@ -1903,11 +1901,11 @@ func TryOffscreenCanvasRenderingContext2DEllipse1(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_Save
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DSave(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DSave(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_Save
 //go:noescape
-func OffscreenCanvasRenderingContext2DSaveFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DSave(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_Save
 //go:noescape
@@ -1921,11 +1919,11 @@ func TryOffscreenCanvasRenderingContext2DSave(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_Restore
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DRestore(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DRestore(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_Restore
 //go:noescape
-func OffscreenCanvasRenderingContext2DRestoreFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DRestore(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_Restore
 //go:noescape
@@ -1939,11 +1937,11 @@ func TryOffscreenCanvasRenderingContext2DRestore(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_Reset
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DReset(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DReset(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_Reset
 //go:noescape
-func OffscreenCanvasRenderingContext2DResetFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DReset(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_Reset
 //go:noescape
@@ -1957,11 +1955,11 @@ func TryOffscreenCanvasRenderingContext2DReset(
 
 //go:wasmimport plat/js/web has_OffscreenCanvasRenderingContext2D_IsContextLost
 //go:noescape
-func HasOffscreenCanvasRenderingContext2DIsContextLost(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasRenderingContext2DIsContextLost(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvasRenderingContext2D_IsContextLost
 //go:noescape
-func OffscreenCanvasRenderingContext2DIsContextLostFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasRenderingContext2DIsContextLost(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvasRenderingContext2D_IsContextLost
 //go:noescape
@@ -1980,11 +1978,11 @@ func GetImageBitmapRenderingContextCanvas(
 
 //go:wasmimport plat/js/web has_ImageBitmapRenderingContext_TransferFromImageBitmap
 //go:noescape
-func HasImageBitmapRenderingContextTransferFromImageBitmap(this js.Ref) js.Ref
+func HasFuncImageBitmapRenderingContextTransferFromImageBitmap(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ImageBitmapRenderingContext_TransferFromImageBitmap
 //go:noescape
-func ImageBitmapRenderingContextTransferFromImageBitmapFunc(this js.Ref) js.Ref
+func FuncImageBitmapRenderingContextTransferFromImageBitmap(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ImageBitmapRenderingContext_TransferFromImageBitmap
 //go:noescape

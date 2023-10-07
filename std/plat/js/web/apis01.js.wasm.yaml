@@ -1,4 +1,4 @@
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Enum:
     Name: AttestationConveyancePreference
     Values:
@@ -6,7 +6,7 @@
       - indirect
       - direct
       - enterprise
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: Attr
     Inherits: Node
@@ -74,7 +74,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: sanitizer-api.idl
+- File: webref/sanitizer-api.idl
   Typedef:
     Name: AttributeMatchList
     Type:
@@ -84,7 +84,7 @@
         - Name: sequence
           Params:
             - Name: DOMString
-- File: attribution-reporting-api.idl
+- File: webref/attribution-reporting-api.idl
   Dict:
     Name: AttributionReportingRequestOptions
     Fields:
@@ -96,7 +96,7 @@
         Required: true
         Type:
           Name: boolean
-- File: turtledove.idl
+- File: webref/turtledove.idl
   Dict:
     Name: AuctionAd
     Fields:
@@ -113,7 +113,7 @@
       - Name: buyerAndSellerReportingId
         Type:
           Name: USVString
-- File: turtledove.idl
+- File: webref/turtledove.idl
   Dict:
     Name: AuctionAdConfig
     Fields:
@@ -217,7 +217,7 @@
           Name: Promise
           Params:
             - Name: boolean
-- File: turtledove.idl
+- File: webref/turtledove.idl
   Dict:
     Name: AuctionAdInterestGroup
     Inherits: GenerateBidInterestGroup
@@ -288,7 +288,7 @@
           Name: sequence
           Params:
             - Name: AuctionAd
-- File: turtledove.idl
+- File: webref/turtledove.idl
   Dict:
     Name: AuctionAdInterestGroupKey
     Fields:
@@ -300,7 +300,7 @@
         Required: true
         Type:
           Name: USVString
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: AudioBuffer
     ExtAttrs:
@@ -399,7 +399,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: AudioBufferOptions
     Fields:
@@ -415,7 +415,7 @@
         Required: true
         Type:
           Name: float
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: AudioBufferSourceNode
     Inherits: AudioScheduledSourceNode
@@ -505,7 +505,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: AudioBufferSourceOptions
     Fields:
@@ -533,7 +533,7 @@
         Default: "1"
         Type:
           Name: float
-- File: media-capabilities.idl
+- File: webref/media-capabilities.idl
   Dict:
     Name: AudioConfiguration
     Fields:
@@ -553,7 +553,7 @@
       - Name: spatialRendering
         Type:
           Name: boolean
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: AudioContext
     Inherits: BaseAudioContext
@@ -707,14 +707,14 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Enum:
     Name: AudioContextLatencyCategory
     Values:
       - balanced
       - interactive
       - playback
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: AudioContextOptions
     Fields:
@@ -732,14 +732,14 @@
           Union:
             - Name: DOMString
             - Name: AudioSinkOptions
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Enum:
     Name: AudioContextState
     Values:
       - suspended
       - running
       - closed
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Interface:
     Name: AudioData
     ExtAttrs:
@@ -881,7 +881,7 @@
               - DedicatedWorker
           - Name: Serializable
           - Name: Transferable
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: AudioDataCopyToOptions
     Fields:
@@ -905,7 +905,7 @@
       - Name: format
         Type:
           Name: AudioSampleFormat
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: AudioDataInit
     Fields:
@@ -945,7 +945,7 @@
           Name: sequence
           Params:
             - Name: ArrayBuffer
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Callback:
     Name: AudioDataOutputCallback
     Args:
@@ -954,7 +954,7 @@
           Name: AudioData
     Returns:
       - Name: undefined
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Interface:
     Name: AudioDecoder
     Inherits: EventTarget
@@ -1077,7 +1077,7 @@
               - Window
               - DedicatedWorker
           - Name: SecureContext
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: AudioDecoderConfig
     Fields:
@@ -1100,7 +1100,7 @@
       - Name: description
         Type:
           Name: BufferSource
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: AudioDecoderInit
     Fields:
@@ -1112,7 +1112,7 @@
         Required: true
         Type:
           Name: WebCodecsErrorCallback
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: AudioDecoderSupport
     Fields:
@@ -1122,7 +1122,7 @@
       - Name: config
         Type:
           Name: AudioDecoderConfig
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: AudioDestinationNode
     Inherits: AudioNode
@@ -1139,7 +1139,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Interface:
     Name: AudioEncoder
     Inherits: EventTarget
@@ -1262,7 +1262,7 @@
               - Window
               - DedicatedWorker
           - Name: SecureContext
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: AudioEncoderConfig
     Fields:
@@ -1298,7 +1298,7 @@
       - Name: aac
         Type:
           Name: AacEncoderConfig
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: AudioEncoderInit
     Fields:
@@ -1310,7 +1310,7 @@
         Required: true
         Type:
           Name: WebCodecsErrorCallback
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: AudioEncoderSupport
     Fields:
@@ -1320,7 +1320,7 @@
       - Name: config
         Type:
           Name: AudioEncoderConfig
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: AudioListener
     ExtAttrs:
@@ -1444,7 +1444,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: AudioNode
     Inherits: EventTarget
@@ -1621,7 +1621,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: AudioNodeOptions
     Fields:
@@ -1634,7 +1634,7 @@
       - Name: channelInterpretation
         Type:
           Name: ChannelInterpretation
-- File: audio-output.idl
+- File: webref/audio-output.idl
   Dict:
     Name: AudioOutputOptions
     Fields:
@@ -1642,7 +1642,7 @@
         Default: '""'
         Type:
           Name: DOMString
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: AudioParam
     ExtAttrs:
@@ -1789,7 +1789,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: AudioParamDescriptor
     Fields:
@@ -1813,7 +1813,7 @@
         Default: '"a-rate"'
         Type:
           Name: AutomationRate
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: AudioParamMap
     ExtAttrs:
@@ -1825,7 +1825,7 @@
         - Name: DOMString
         - Name: AudioParam
       Readonly: true
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: AudioProcessingEvent
     Inherits: Event
@@ -1870,7 +1870,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: AudioProcessingEventInit
     Inherits: EventInit
@@ -1899,7 +1899,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: AudioRenderCapacity
     Inherits: EventTarget
@@ -1936,7 +1936,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: AudioRenderCapacityEvent
     Inherits: Event
@@ -1991,7 +1991,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: AudioRenderCapacityEventInit
     Inherits: EventInit
@@ -2024,7 +2024,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: AudioRenderCapacityOptions
     Fields:
@@ -2032,7 +2032,7 @@
         Default: "1"
         Type:
           Name: double
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Enum:
     Name: AudioSampleFormat
     Values:
@@ -2044,7 +2044,7 @@
       - s16-planar
       - s32-planar
       - f32-planar
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: AudioScheduledSourceNode
     Inherits: AudioNode
@@ -2087,7 +2087,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: AudioSinkInfo
     ExtAttrs:
@@ -2103,7 +2103,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: AudioSinkOptions
     Fields:
@@ -2111,12 +2111,12 @@
         Required: true
         Type:
           Name: AudioSinkType
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Enum:
     Name: AudioSinkType
     Values:
       - none
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: AudioTimestamp
     Fields:
@@ -2126,7 +2126,7 @@
       - Name: performanceTime
         Type:
           Name: DOMHighResTimeStamp
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: AudioTrack
     ExtAttrs:

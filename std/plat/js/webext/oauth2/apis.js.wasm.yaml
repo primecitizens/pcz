@@ -1,0 +1,80 @@
+- File: webext/oauth2.idl
+  Dict:
+    Name: ManifestKeys
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - oauth2
+    Fields:
+      - Name: oauth2
+        Type:
+          Name: OAuth2Info
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - oauth2
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - oauth2
+- File: webext/oauth2.idl
+  Dict:
+    Name: OAuth2Info
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - oauth2
+    Fields:
+      - Name: auto_approve
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - oauth2
+        ExtAttrs:
+          - Name: nodoc
+          - Name: Namespace
+            Values:
+              - chrome
+              - oauth2
+      - Name: client_id
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - oauth2
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - oauth2
+      - Name: scopes
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - oauth2
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - oauth2
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - oauth2

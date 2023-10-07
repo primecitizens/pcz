@@ -1,0 +1,60 @@
+- File: webext/cross_origin_isolation.idl
+  Dict:
+    Name: ManifestKeys
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - crossOriginIsolation
+    Fields:
+      - Name: cross_origin_embedder_policy
+        Type:
+          Name: ResponseHeader
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - crossOriginIsolation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - crossOriginIsolation
+      - Name: cross_origin_opener_policy
+        Type:
+          Name: ResponseHeader
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - crossOriginIsolation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - crossOriginIsolation
+- File: webext/cross_origin_isolation.idl
+  Dict:
+    Name: ResponseHeader
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - crossOriginIsolation
+    Fields:
+      - Name: value
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - crossOriginIsolation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - crossOriginIsolation

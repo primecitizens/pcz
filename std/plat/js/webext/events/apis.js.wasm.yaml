@@ -1,0 +1,532 @@
+- File: webext/events.json
+  Callback:
+    Name: AddListenerArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - events
+- File: webext/events.json
+  Callback:
+    Name: AddRulesArgCallback
+    Args:
+      - Name: rules
+        Type:
+          Name: sequence
+          Params:
+            - Name: Rule
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - events
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - events
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - events
+- File: webext/events.json
+  Interface:
+    Name: Event
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - events
+    Operations:
+      - Name: addListener
+        Args:
+          - Name: callback
+            Type:
+              Name: AddListenerArgCallback
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - events
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: removeListener
+        Args:
+          - Name: callback
+            Type:
+              Name: RemoveListenerArgCallback
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - events
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: hasListener
+        Args:
+          - Name: callback
+            Type:
+              Name: HasListenerArgCallback
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - events
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: hasListeners
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: addRules
+        Args:
+          - Name: eventName
+            Type:
+              Name: DOMString
+          - Name: webViewInstanceId
+            Type:
+              Name: long long
+          - Name: rules
+            Type:
+              Name: sequence
+              Params:
+                - Name: Rule
+                  ExtAttrs:
+                    - Name: Namespace
+                      Values:
+                        - chrome
+                        - events
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - events
+          - Name: callback
+            Optional: true
+            Type:
+              Name: AddRulesArgCallback
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - events
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: getRules
+        Args:
+          - Name: eventName
+            Type:
+              Name: DOMString
+          - Name: webViewInstanceId
+            Type:
+              Name: long long
+          - Name: ruleIdentifiers
+            Optional: true
+            Type:
+              Name: sequence
+              Params:
+                - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - events
+          - Name: callback
+            Type:
+              Name: GetRulesArgCallback
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - events
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: removeRules
+        Args:
+          - Name: eventName
+            Type:
+              Name: DOMString
+          - Name: webViewInstanceId
+            Type:
+              Name: long long
+          - Name: ruleIdentifiers
+            Optional: true
+            Type:
+              Name: sequence
+              Params:
+                - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - events
+          - Name: callback
+            Optional: true
+            Type:
+              Name: RemoveRulesArgCallback
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - events
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+- File: webext/events.json
+  Callback:
+    Name: GetRulesArgCallback
+    Args:
+      - Name: rules
+        Type:
+          Name: sequence
+          Params:
+            - Name: Rule
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - events
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - events
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - events
+- File: webext/events.json
+  Callback:
+    Name: HasListenerArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - events
+- File: webext/events.json
+  Callback:
+    Name: RemoveListenerArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - events
+- File: webext/events.json
+  Callback:
+    Name: RemoveRulesArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - events
+- File: webext/events.json
+  Dict:
+    Name: Rule
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - events
+    Fields:
+      - Name: actions
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: any
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: conditions
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: any
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: id
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: priority
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: tags
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+- File: webext/events.json
+  Dict:
+    Name: UrlFilter
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - events
+    Fields:
+      - Name: hostContains
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: hostEquals
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: hostPrefix
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: hostSuffix
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: originAndPathMatches
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: pathContains
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: pathEquals
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: pathPrefix
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: pathSuffix
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: ports
+        Type:
+          Name: sequence
+          Params:
+            - Union:
+                - Name: long long
+                - Name: sequence
+                  Params:
+                    - Name: long long
+                  ExtAttrs:
+                    - Name: Namespace
+                      Values:
+                        - chrome
+                        - events
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: queryContains
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: queryEquals
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: queryPrefix
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: querySuffix
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: schemes
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: urlContains
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: urlEquals
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: urlMatches
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: urlPrefix
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events
+      - Name: urlSuffix
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - events

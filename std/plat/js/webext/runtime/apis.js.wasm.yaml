@@ -1,0 +1,1307 @@
+- File: webext/runtime.json
+  Dict:
+    Name: ConnectArgConnectInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+    Fields:
+      - Name: includeTlsChannelId
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+- File: webext/runtime.json
+  Dict:
+    Name: ContextFilter
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+    Fields:
+      - Name: contextIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: contextTypes
+        Type:
+          Name: sequence
+          Params:
+            - Name: ContextType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - runtime
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: documentIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: documentOrigins
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: documentUrls
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: frameIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: long long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: incognito
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: tabIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: long long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: windowIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: long long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+- File: webext/runtime.json
+  Enum:
+    Name: ContextType
+    Values:
+      - TAB
+      - POPUP
+      - BACKGROUND
+      - OFFSCREEN_DOCUMENT
+      - SIDE_PANEL
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  Dict:
+    Name: ExtensionContext
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+    Fields:
+      - Name: contextId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: contextType
+        Required: true
+        Type:
+          Name: ContextType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: documentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: documentOrigin
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: documentUrl
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: frameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: incognito
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: tabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: windowId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+- File: webext/runtime.json
+  Callback:
+    Name: GetPackageDirectoryEntryArgCallback
+    Args:
+      - Name: directoryEntry
+        Type:
+          Name: any
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  Dict:
+    Name: LastErrorProperty
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+    Fields:
+      - Name: message
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+- File: webext/runtime.json
+  Dict:
+    Name: MessageSender
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+    Fields:
+      - Name: documentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: documentLifecycle
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: frameId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: guestProcessId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: guestRenderFrameRoutingId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: id
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: nativeApplication
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: origin
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: tab
+        Type:
+          Name: Tab
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: tlsChannelId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: url
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+- File: webext/runtime.json
+  Dict:
+    Name: OnInstalledArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: previousVersion
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: reason
+        Required: true
+        Type:
+          Name: OnInstalledReason
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+- File: webext/runtime.json
+  Enum:
+    Name: OnInstalledReason
+    Values:
+      - install
+      - update
+      - chrome_update
+      - shared_module_update
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  Callback:
+    Name: OnMessageArgSendResponse
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  Callback:
+    Name: OnMessageExternalArgSendResponse
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  Enum:
+    Name: OnRestartRequiredReason
+    Values:
+      - app_update
+      - os_update
+      - periodic
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  Callback:
+    Name: OnUserScriptMessageArgSendResponse
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  Enum:
+    Name: PlatformArch
+    Values:
+      - arm
+      - arm64
+      - x86-32
+      - x86-64
+      - mips
+      - mips64
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  Dict:
+    Name: PlatformInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+    Fields:
+      - Name: arch
+        Required: true
+        Type:
+          Name: PlatformArch
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: nacl_arch
+        Required: true
+        Type:
+          Name: PlatformNaclArch
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: os
+        Required: true
+        Type:
+          Name: PlatformOs
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+- File: webext/runtime.json
+  Enum:
+    Name: PlatformNaclArch
+    Values:
+      - arm
+      - x86-32
+      - x86-64
+      - mips
+      - mips64
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  Enum:
+    Name: PlatformOs
+    Values:
+      - mac
+      - win
+      - android
+      - cros
+      - linux
+      - openbsd
+      - fuchsia
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  Dict:
+    Name: Port
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+    Fields:
+      - Name: disconnect
+        Required: true
+        Type:
+          Name: PortFieldDisconnect
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: postMessage
+        Required: true
+        Type:
+          Name: PortFieldPostMessage
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: sender
+        Type:
+          Name: MessageSender
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+- File: webext/runtime.json
+  Callback:
+    Name: PortFieldDisconnect
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  Callback:
+    Name: PortFieldPostMessage
+    Args:
+      - Name: message
+        Type:
+          Name: any
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  Dict:
+    Name: RequestUpdateCheckReturnType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+    Fields:
+      - Name: status
+        Required: true
+        Type:
+          Name: RequestUpdateCheckStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+      - Name: version
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+- File: webext/runtime.json
+  Enum:
+    Name: RequestUpdateCheckStatus
+    Values:
+      - throttled
+      - no_update
+      - update_available
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  Dict:
+    Name: SendMessageArgOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+    Fields:
+      - Name: includeTlsChannelId
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+- File: webext/runtime.json
+  WebextFunc:
+    Name: connect
+    Args:
+      - Name: extensionId
+        Optional: true
+        Type:
+          Name: DOMString
+      - Name: connectInfo
+        Optional: true
+        Type:
+          Name: ConnectArgConnectInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+    Returns:
+      - Name: Port
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextFunc:
+    Name: connectNative
+    Args:
+      - Name: application
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Port
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextFunc:
+    Name: getBackgroundPage
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: any
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextFunc:
+    Name: getContexts
+    Args:
+      - Name: filter
+        Type:
+          Name: ContextFilter
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: ExtensionContext
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - runtime
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - runtime
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextFunc:
+    Name: getManifest
+    Returns:
+      - Name: any
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextFunc:
+    Name: getPackageDirectoryEntry
+    Args:
+      - Name: callback
+        Type:
+          Name: GetPackageDirectoryEntryArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextFunc:
+    Name: getPlatformInfo
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: PlatformInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - runtime
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextFunc:
+    Name: getURL
+    Args:
+      - Name: path
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextProp:
+    Name: id
+    Type:
+      Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextProp:
+    Name: lastError
+    Type:
+      Name: LastErrorProperty
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - runtime
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextEvent:
+    Name: onBrowserUpdateAvailable
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextEvent:
+    Name: onConnect
+    Args:
+      - Name: port
+        Type:
+          Name: Port
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextEvent:
+    Name: onConnectExternal
+    Args:
+      - Name: port
+        Type:
+          Name: Port
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextEvent:
+    Name: onConnectNative
+    Args:
+      - Name: port
+        Type:
+          Name: Port
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextEvent:
+    Name: onInstalled
+    Args:
+      - Name: details
+        Type:
+          Name: OnInstalledArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextEvent:
+    Name: onMessage
+    Args:
+      - Name: message
+        Optional: true
+        Type:
+          Name: any
+      - Name: sender
+        Type:
+          Name: MessageSender
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+      - Name: sendResponse
+        Type:
+          Name: OnMessageArgSendResponse
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+    Returns:
+      - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextEvent:
+    Name: onMessageExternal
+    Args:
+      - Name: message
+        Optional: true
+        Type:
+          Name: any
+      - Name: sender
+        Type:
+          Name: MessageSender
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+      - Name: sendResponse
+        Type:
+          Name: OnMessageExternalArgSendResponse
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+    Returns:
+      - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextEvent:
+    Name: onRestartRequired
+    Args:
+      - Name: reason
+        Type:
+          Name: OnRestartRequiredReason
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextEvent:
+    Name: onStartup
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextEvent:
+    Name: onSuspend
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextEvent:
+    Name: onSuspendCanceled
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextEvent:
+    Name: onUpdateAvailable
+    Args:
+      - Name: details
+        Type:
+          Name: any
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextEvent:
+    Name: onUserScriptConnect
+    Args:
+      - Name: port
+        Type:
+          Name: Port
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextEvent:
+    Name: onUserScriptMessage
+    Args:
+      - Name: message
+        Optional: true
+        Type:
+          Name: any
+      - Name: sender
+        Type:
+          Name: MessageSender
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+      - Name: sendResponse
+        Type:
+          Name: OnUserScriptMessageArgSendResponse
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+    Returns:
+      - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextFunc:
+    Name: openOptionsPage
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextFunc:
+    Name: reload
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextFunc:
+    Name: requestUpdateCheck
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RequestUpdateCheckReturnType
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - runtime
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextFunc:
+    Name: restart
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextFunc:
+    Name: restartAfterDelay
+    Args:
+      - Name: seconds
+        Type:
+          Name: long long
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextFunc:
+    Name: sendMessage
+    Args:
+      - Name: extensionId
+        Optional: true
+        Type:
+          Name: DOMString
+      - Name: message
+        Type:
+          Name: any
+      - Name: options
+        Optional: true
+        Type:
+          Name: SendMessageArgOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: any
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextFunc:
+    Name: sendNativeMessage
+    Args:
+      - Name: application
+        Type:
+          Name: DOMString
+      - Name: message
+        Type:
+          Name: any
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: any
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime
+- File: webext/runtime.json
+  WebextFunc:
+    Name: setUninstallURL
+    Args:
+      - Name: url
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - runtime

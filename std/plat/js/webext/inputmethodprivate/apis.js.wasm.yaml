@@ -1,0 +1,1613 @@
+- File: webext/chrome/input_method_private.json
+  Enum:
+    Name: AutoCapitalizeType
+    Values:
+      - "off"
+      - characters
+      - words
+      - sentences
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  Dict:
+    Name: FinishComposingTextArgParameters
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+    Fields:
+      - Name: contextID
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  Enum:
+    Name: FocusReason
+    Values:
+      - mouse
+      - touch
+      - pen
+      - other
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  Dict:
+    Name: GetInputMethodConfigReturnType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+    Fields:
+      - Name: isImeMenuActivated
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: isPhysicalKeyboardAutocorrectEnabled
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  Dict:
+    Name: GetInputMethodsReturnTypeElem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+    Fields:
+      - Name: id
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: indicator
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  Dict:
+    Name: GetSurroundingTextReturnType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+    Fields:
+      - Name: after
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: before
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: selected
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  Dict:
+    Name: GetTextFieldBoundsArgParameters
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+    Fields:
+      - Name: contextID
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  Dict:
+    Name: GetTextFieldBoundsReturnType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+    Fields:
+      - Name: height
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: width
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: x
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: "y"
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  Dict:
+    Name: InputContext
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+    Fields:
+      - Name: appKey
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: autoCapitalize
+        Required: true
+        Type:
+          Name: AutoCapitalizeType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - inputMethodPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: autoComplete
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: autoCorrect
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: contextID
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: focusReason
+        Required: true
+        Type:
+          Name: FocusReason
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - inputMethodPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: mode
+        Required: true
+        Type:
+          Name: InputModeType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - inputMethodPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: shouldDoLearning
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: spellCheck
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: type
+        Required: true
+        Type:
+          Name: InputContextType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - inputMethodPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  Enum:
+    Name: InputContextType
+    Values:
+      - text
+      - search
+      - tel
+      - url
+      - email
+      - number
+      - password
+      - "null"
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  Dict:
+    Name: InputMethodSettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+    Fields:
+      - Name: enableCompletion
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: enableDoubleSpacePeriod
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: enableGestureTyping
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: enablePrediction
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: enableSoundOnKeypress
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: koreanEnableSyllableInput
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: koreanKeyboardLayout
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: koreanShowHangulCandidate
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: physicalKeyboardAutoCorrectionEnabledByDefault
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: physicalKeyboardAutoCorrectionLevel
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: physicalKeyboardEnableCapitalization
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: physicalKeyboardEnableDiacriticsOnLongpress
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: physicalKeyboardEnablePredictiveWriting
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: pinyinChinesePunctuation
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: pinyinDefaultChinese
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: pinyinEnableFuzzy
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: pinyinEnableLowerPaging
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: pinyinEnableUpperPaging
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: pinyinFullWidthCharacter
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: pinyinFuzzyConfig
+        Type:
+          Name: InputMethodSettingsFieldPinyinFuzzyConfig
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - inputMethodPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: vietnameseTelexAllowFlexibleDiacritics
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: vietnameseTelexInsertDoubleHornOnUo
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: vietnameseTelexInsertUHornOnW
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: vietnameseTelexNewStyleToneMarkPlacement
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: vietnameseTelexShowUnderline
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: vietnameseVniAllowFlexibleDiacritics
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: vietnameseVniInsertDoubleHornOnUo
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: vietnameseVniNewStyleToneMarkPlacement
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: vietnameseVniShowUnderline
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: virtualKeyboardAutoCorrectionLevel
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: virtualKeyboardEnableCapitalization
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: xkbLayout
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: zhuyinKeyboardLayout
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: zhuyinPageSize
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: zhuyinSelectKeys
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  Dict:
+    Name: InputMethodSettingsFieldPinyinFuzzyConfig
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+    Fields:
+      - Name: an_ang
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: c_ch
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: en_eng
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: f_h
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: ian_iang
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: in_ing
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: k_g
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: l_n
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: r_l
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: s_sh
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: uan_uang
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: z_zh
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  Enum:
+    Name: InputModeType
+    Values:
+      - noKeyboard
+      - text
+      - tel
+      - url
+      - email
+      - numeric
+      - decimal
+      - search
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  Dict:
+    Name: MenuItem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+    Fields:
+      - Name: checked
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: enabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: id
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: label
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: style
+        Type:
+          Name: MenuItemStyle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - inputMethodPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: visible
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  Enum:
+    Name: MenuItemStyle
+    Values:
+      - check
+      - radio
+      - separator
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  Dict:
+    Name: OnAutocorrectArgParameters
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+    Fields:
+      - Name: contextID
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: correctedWord
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: startIndex
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: typedWord
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  Dict:
+    Name: OnCaretBoundsChangedArgCaretBounds
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+    Fields:
+      - Name: h
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: w
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: x
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: "y"
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  Dict:
+    Name: SetCompositionRangeArgParameters
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+    Fields:
+      - Name: contextID
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: segments
+        Type:
+          Name: sequence
+          Params:
+            - Name: SetCompositionRangeArgParametersFieldSegmentsElem
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - inputMethodPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - inputMethodPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: selectionAfter
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: selectionBefore
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  Dict:
+    Name: SetCompositionRangeArgParametersFieldSegmentsElem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+    Fields:
+      - Name: end
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: start
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+      - Name: style
+        Required: true
+        Type:
+          Name: UnderlineStyle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - inputMethodPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  Enum:
+    Name: UnderlineStyle
+    Values:
+      - underline
+      - doubleUnderline
+      - noUnderline
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextFunc:
+    Name: addWordToDictionary
+    Args:
+      - Name: word
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextFunc:
+    Name: fetchAllDictionaryWords
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - inputMethodPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextFunc:
+    Name: finishComposingText
+    Args:
+      - Name: parameters
+        Type:
+          Name: FinishComposingTextArgParameters
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - inputMethodPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextFunc:
+    Name: getCurrentInputMethod
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextFunc:
+    Name: getInputMethodConfig
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: GetInputMethodConfigReturnType
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - inputMethodPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextFunc:
+    Name: getInputMethods
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: GetInputMethodsReturnTypeElem
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - inputMethodPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - inputMethodPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextFunc:
+    Name: getSettings
+    Args:
+      - Name: engineID
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: InputMethodSettings
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - inputMethodPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextFunc:
+    Name: getSurroundingText
+    Args:
+      - Name: beforeLength
+        Type:
+          Name: long long
+      - Name: afterLength
+        Type:
+          Name: long long
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: GetSurroundingTextReturnType
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - inputMethodPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextFunc:
+    Name: getTextFieldBounds
+    Args:
+      - Name: parameters
+        Type:
+          Name: GetTextFieldBoundsArgParameters
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - inputMethodPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: GetTextFieldBoundsReturnType
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - inputMethodPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextFunc:
+    Name: hideInputView
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextFunc:
+    Name: notifyInputMethodReadyForTesting
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextFunc:
+    Name: onAutocorrect
+    Args:
+      - Name: parameters
+        Type:
+          Name: OnAutocorrectArgParameters
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - inputMethodPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextEvent:
+    Name: onCaretBoundsChanged
+    Args:
+      - Name: caretBounds
+        Type:
+          Name: OnCaretBoundsChangedArgCaretBounds
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - inputMethodPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextEvent:
+    Name: onChanged
+    Args:
+      - Name: newInputMethodId
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextEvent:
+    Name: onDictionaryChanged
+    Args:
+      - Name: added
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - inputMethodPrivate
+      - Name: removed
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - inputMethodPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextEvent:
+    Name: onDictionaryLoaded
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextEvent:
+    Name: onFocus
+    Args:
+      - Name: context
+        Type:
+          Name: InputContext
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - inputMethodPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextEvent:
+    Name: onImeMenuActivationChanged
+    Args:
+      - Name: activation
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextEvent:
+    Name: onImeMenuItemsChanged
+    Args:
+      - Name: engineID
+        Type:
+          Name: DOMString
+      - Name: items
+        Type:
+          Name: sequence
+          Params:
+            - Name: MenuItem
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - inputMethodPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - inputMethodPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextEvent:
+    Name: onImeMenuListChanged
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextEvent:
+    Name: onInputMethodOptionsChanged
+    Args:
+      - Name: engineID
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextEvent:
+    Name: onScreenProjectionChanged
+    Args:
+      - Name: isProjected
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextEvent:
+    Name: onSettingsChanged
+    Args:
+      - Name: engineID
+        Type:
+          Name: DOMString
+      - Name: settings
+        Type:
+          Name: InputMethodSettings
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - inputMethodPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextEvent:
+    Name: onSuggestionsChanged
+    Args:
+      - Name: suggestions
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - inputMethodPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextEvent:
+    Name: onTouch
+    Args:
+      - Name: pointerType
+        Type:
+          Name: FocusReason
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - inputMethodPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextFunc:
+    Name: openOptionsPage
+    Args:
+      - Name: inputMethodId
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextFunc:
+    Name: reset
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextFunc:
+    Name: setCompositionRange
+    Args:
+      - Name: parameters
+        Type:
+          Name: SetCompositionRangeArgParameters
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - inputMethodPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextFunc:
+    Name: setCurrentInputMethod
+    Args:
+      - Name: inputMethodId
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextFunc:
+    Name: setSettings
+    Args:
+      - Name: engineID
+        Type:
+          Name: DOMString
+      - Name: settings
+        Type:
+          Name: InputMethodSettings
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - inputMethodPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextFunc:
+    Name: setXkbLayout
+    Args:
+      - Name: xkb_name
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextFunc:
+    Name: showInputView
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate
+- File: webext/chrome/input_method_private.json
+  WebextFunc:
+    Name: switchToLastUsedInputMethod
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - inputMethodPrivate

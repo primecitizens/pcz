@@ -5,17 +5,9 @@ package web
 
 import (
 	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 func NewPresentationConnectionAvailableEvent(typ js.String, eventInitDict PresentationConnectionAvailableEventInit) (ret PresentationConnectionAvailableEvent) {
 	ret.ref = bindings.NewPresentationConnectionAvailableEventByPresentationConnectionAvailableEvent(
@@ -29,7 +21,7 @@ type PresentationConnectionAvailableEvent struct {
 }
 
 func (this PresentationConnectionAvailableEvent) Once() PresentationConnectionAvailableEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -43,7 +35,7 @@ func (this PresentationConnectionAvailableEvent) FromRef(ref js.Ref) Presentatio
 }
 
 func (this PresentationConnectionAvailableEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Connection returns the value of property "PresentationConnectionAvailableEvent.connection".
@@ -51,7 +43,7 @@ func (this PresentationConnectionAvailableEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this PresentationConnectionAvailableEvent) Connection() (ret PresentationConnection, ok bool) {
 	ok = js.True == bindings.GetPresentationConnectionAvailableEventConnection(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -132,17 +124,26 @@ func (p PresentationConnectionCloseEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PresentationConnectionCloseEventInit) UpdateFrom(ref js.Ref) {
+func (p *PresentationConnectionCloseEventInit) UpdateFrom(ref js.Ref) {
 	bindings.PresentationConnectionCloseEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PresentationConnectionCloseEventInit) Update(ref js.Ref) {
+func (p *PresentationConnectionCloseEventInit) Update(ref js.Ref) {
 	bindings.PresentationConnectionCloseEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PresentationConnectionCloseEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Message.Ref(),
+	)
+	p.Message = p.Message.FromRef(js.Undefined)
 }
 
 func NewPresentationConnectionCloseEvent(typ js.String, eventInitDict PresentationConnectionCloseEventInit) (ret PresentationConnectionCloseEvent) {
@@ -157,7 +158,7 @@ type PresentationConnectionCloseEvent struct {
 }
 
 func (this PresentationConnectionCloseEvent) Once() PresentationConnectionCloseEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -171,7 +172,7 @@ func (this PresentationConnectionCloseEvent) FromRef(ref js.Ref) PresentationCon
 }
 
 func (this PresentationConnectionCloseEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Reason returns the value of property "PresentationConnectionCloseEvent.reason".
@@ -179,7 +180,7 @@ func (this PresentationConnectionCloseEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this PresentationConnectionCloseEvent) Reason() (ret PresentationConnectionCloseReason, ok bool) {
 	ok = js.True == bindings.GetPresentationConnectionCloseEventReason(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -189,7 +190,7 @@ func (this PresentationConnectionCloseEvent) Reason() (ret PresentationConnectio
 // It returns ok=false if there is no such property.
 func (this PresentationConnectionCloseEvent) Message() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetPresentationConnectionCloseEventMessage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -240,7 +241,7 @@ func (cb *PressureUpdateCallback[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 2+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
 
 	if ctx.Return(cb.Fn(
@@ -315,7 +316,7 @@ type PressureRecord struct {
 }
 
 func (this PressureRecord) Once() PressureRecord {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -329,7 +330,7 @@ func (this PressureRecord) FromRef(ref js.Ref) PressureRecord {
 }
 
 func (this PressureRecord) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Source returns the value of property "PressureRecord.source".
@@ -337,7 +338,7 @@ func (this PressureRecord) Free() {
 // It returns ok=false if there is no such property.
 func (this PressureRecord) Source() (ret PressureSource, ok bool) {
 	ok = js.True == bindings.GetPressureRecordSource(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -347,7 +348,7 @@ func (this PressureRecord) Source() (ret PressureSource, ok bool) {
 // It returns ok=false if there is no such property.
 func (this PressureRecord) State() (ret PressureState, ok bool) {
 	ok = js.True == bindings.GetPressureRecordState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -357,31 +358,30 @@ func (this PressureRecord) State() (ret PressureState, ok bool) {
 // It returns ok=false if there is no such property.
 func (this PressureRecord) Time() (ret DOMHighResTimeStamp, ok bool) {
 	ok = js.True == bindings.GetPressureRecordTime(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasToJSON returns true if the method "PressureRecord.toJSON" exists.
-func (this PressureRecord) HasToJSON() bool {
-	return js.True == bindings.HasPressureRecordToJSON(
-		this.Ref(),
+// HasFuncToJSON returns true if the method "PressureRecord.toJSON" exists.
+func (this PressureRecord) HasFuncToJSON() bool {
+	return js.True == bindings.HasFuncPressureRecordToJSON(
+		this.ref,
 	)
 }
 
-// ToJSONFunc returns the method "PressureRecord.toJSON".
-func (this PressureRecord) ToJSONFunc() (fn js.Func[func() js.Object]) {
-	return fn.FromRef(
-		bindings.PressureRecordToJSONFunc(
-			this.Ref(),
-		),
+// FuncToJSON returns the method "PressureRecord.toJSON".
+func (this PressureRecord) FuncToJSON() (fn js.Func[func() js.Object]) {
+	bindings.FuncPressureRecordToJSON(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ToJSON calls the method "PressureRecord.toJSON".
 func (this PressureRecord) ToJSON() (ret js.Object) {
 	bindings.CallPressureRecordToJSON(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -392,7 +392,7 @@ func (this PressureRecord) ToJSON() (ret js.Object) {
 // the catch clause.
 func (this PressureRecord) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPressureRecordToJSON(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -425,17 +425,22 @@ func (p PressureObserverOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PressureObserverOptions) UpdateFrom(ref js.Ref) {
+func (p *PressureObserverOptions) UpdateFrom(ref js.Ref) {
 	bindings.PressureObserverOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PressureObserverOptions) Update(ref js.Ref) {
+func (p *PressureObserverOptions) Update(ref js.Ref) {
 	bindings.PressureObserverOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PressureObserverOptions) FreeMembers(recursive bool) {
 }
 
 func NewPressureObserver(callback js.Func[func(changes js.Array[PressureRecord], observer PressureObserver)], options PressureObserverOptions) (ret PressureObserver) {
@@ -456,7 +461,7 @@ type PressureObserver struct {
 }
 
 func (this PressureObserver) Once() PressureObserver {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -470,7 +475,7 @@ func (this PressureObserver) FromRef(ref js.Ref) PressureObserver {
 }
 
 func (this PressureObserver) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // SupportedSources returns the value of property "PressureObserver.supportedSources".
@@ -478,31 +483,30 @@ func (this PressureObserver) Free() {
 // It returns ok=false if there is no such property.
 func (this PressureObserver) SupportedSources() (ret js.FrozenArray[PressureSource], ok bool) {
 	ok = js.True == bindings.GetPressureObserverSupportedSources(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasObserve returns true if the method "PressureObserver.observe" exists.
-func (this PressureObserver) HasObserve() bool {
-	return js.True == bindings.HasPressureObserverObserve(
-		this.Ref(),
+// HasFuncObserve returns true if the method "PressureObserver.observe" exists.
+func (this PressureObserver) HasFuncObserve() bool {
+	return js.True == bindings.HasFuncPressureObserverObserve(
+		this.ref,
 	)
 }
 
-// ObserveFunc returns the method "PressureObserver.observe".
-func (this PressureObserver) ObserveFunc() (fn js.Func[func(source PressureSource) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.PressureObserverObserveFunc(
-			this.Ref(),
-		),
+// FuncObserve returns the method "PressureObserver.observe".
+func (this PressureObserver) FuncObserve() (fn js.Func[func(source PressureSource) js.Promise[js.Void]]) {
+	bindings.FuncPressureObserverObserve(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Observe calls the method "PressureObserver.observe".
 func (this PressureObserver) Observe(source PressureSource) (ret js.Promise[js.Void]) {
 	bindings.CallPressureObserverObserve(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(source),
 	)
 
@@ -514,33 +518,32 @@ func (this PressureObserver) Observe(source PressureSource) (ret js.Promise[js.V
 // the catch clause.
 func (this PressureObserver) TryObserve(source PressureSource) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPressureObserverObserve(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(source),
 	)
 
 	return
 }
 
-// HasUnobserve returns true if the method "PressureObserver.unobserve" exists.
-func (this PressureObserver) HasUnobserve() bool {
-	return js.True == bindings.HasPressureObserverUnobserve(
-		this.Ref(),
+// HasFuncUnobserve returns true if the method "PressureObserver.unobserve" exists.
+func (this PressureObserver) HasFuncUnobserve() bool {
+	return js.True == bindings.HasFuncPressureObserverUnobserve(
+		this.ref,
 	)
 }
 
-// UnobserveFunc returns the method "PressureObserver.unobserve".
-func (this PressureObserver) UnobserveFunc() (fn js.Func[func(source PressureSource)]) {
-	return fn.FromRef(
-		bindings.PressureObserverUnobserveFunc(
-			this.Ref(),
-		),
+// FuncUnobserve returns the method "PressureObserver.unobserve".
+func (this PressureObserver) FuncUnobserve() (fn js.Func[func(source PressureSource)]) {
+	bindings.FuncPressureObserverUnobserve(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Unobserve calls the method "PressureObserver.unobserve".
 func (this PressureObserver) Unobserve(source PressureSource) (ret js.Void) {
 	bindings.CallPressureObserverUnobserve(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(source),
 	)
 
@@ -552,33 +555,32 @@ func (this PressureObserver) Unobserve(source PressureSource) (ret js.Void) {
 // the catch clause.
 func (this PressureObserver) TryUnobserve(source PressureSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPressureObserverUnobserve(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(source),
 	)
 
 	return
 }
 
-// HasDisconnect returns true if the method "PressureObserver.disconnect" exists.
-func (this PressureObserver) HasDisconnect() bool {
-	return js.True == bindings.HasPressureObserverDisconnect(
-		this.Ref(),
+// HasFuncDisconnect returns true if the method "PressureObserver.disconnect" exists.
+func (this PressureObserver) HasFuncDisconnect() bool {
+	return js.True == bindings.HasFuncPressureObserverDisconnect(
+		this.ref,
 	)
 }
 
-// DisconnectFunc returns the method "PressureObserver.disconnect".
-func (this PressureObserver) DisconnectFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.PressureObserverDisconnectFunc(
-			this.Ref(),
-		),
+// FuncDisconnect returns the method "PressureObserver.disconnect".
+func (this PressureObserver) FuncDisconnect() (fn js.Func[func()]) {
+	bindings.FuncPressureObserverDisconnect(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Disconnect calls the method "PressureObserver.disconnect".
 func (this PressureObserver) Disconnect() (ret js.Void) {
 	bindings.CallPressureObserverDisconnect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -589,32 +591,31 @@ func (this PressureObserver) Disconnect() (ret js.Void) {
 // the catch clause.
 func (this PressureObserver) TryDisconnect() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPressureObserverDisconnect(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasTakeRecords returns true if the method "PressureObserver.takeRecords" exists.
-func (this PressureObserver) HasTakeRecords() bool {
-	return js.True == bindings.HasPressureObserverTakeRecords(
-		this.Ref(),
+// HasFuncTakeRecords returns true if the method "PressureObserver.takeRecords" exists.
+func (this PressureObserver) HasFuncTakeRecords() bool {
+	return js.True == bindings.HasFuncPressureObserverTakeRecords(
+		this.ref,
 	)
 }
 
-// TakeRecordsFunc returns the method "PressureObserver.takeRecords".
-func (this PressureObserver) TakeRecordsFunc() (fn js.Func[func() js.Array[PressureRecord]]) {
-	return fn.FromRef(
-		bindings.PressureObserverTakeRecordsFunc(
-			this.Ref(),
-		),
+// FuncTakeRecords returns the method "PressureObserver.takeRecords".
+func (this PressureObserver) FuncTakeRecords() (fn js.Func[func() js.Array[PressureRecord]]) {
+	bindings.FuncPressureObserverTakeRecords(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TakeRecords calls the method "PressureObserver.takeRecords".
 func (this PressureObserver) TakeRecords() (ret js.Array[PressureRecord]) {
 	bindings.CallPressureObserverTakeRecords(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -625,7 +626,7 @@ func (this PressureObserver) TakeRecords() (ret js.Array[PressureRecord]) {
 // the catch clause.
 func (this PressureObserver) TryTakeRecords() (ret js.Array[PressureRecord], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPressureObserverTakeRecords(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -658,17 +659,28 @@ func (p PrivateNetworkAccessPermissionDescriptor) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PrivateNetworkAccessPermissionDescriptor) UpdateFrom(ref js.Ref) {
+func (p *PrivateNetworkAccessPermissionDescriptor) UpdateFrom(ref js.Ref) {
 	bindings.PrivateNetworkAccessPermissionDescriptorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PrivateNetworkAccessPermissionDescriptor) Update(ref js.Ref) {
+func (p *PrivateNetworkAccessPermissionDescriptor) Update(ref js.Ref) {
 	bindings.PrivateNetworkAccessPermissionDescriptorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PrivateNetworkAccessPermissionDescriptor) FreeMembers(recursive bool) {
+	js.Free(
+		p.Id.Ref(),
+		p.Name.Ref(),
+	)
+	p.Id = p.Id.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type ProfilerInitOptions struct {
@@ -698,17 +710,22 @@ func (p ProfilerInitOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ProfilerInitOptions) UpdateFrom(ref js.Ref) {
+func (p *ProfilerInitOptions) UpdateFrom(ref js.Ref) {
 	bindings.ProfilerInitOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ProfilerInitOptions) Update(ref js.Ref) {
+func (p *ProfilerInitOptions) Update(ref js.Ref) {
 	bindings.ProfilerInitOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ProfilerInitOptions) FreeMembers(recursive bool) {
 }
 
 type ProfilerResource = js.String
@@ -758,17 +775,26 @@ func (p ProfilerFrame) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ProfilerFrame) UpdateFrom(ref js.Ref) {
+func (p *ProfilerFrame) UpdateFrom(ref js.Ref) {
 	bindings.ProfilerFrameJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ProfilerFrame) Update(ref js.Ref) {
+func (p *ProfilerFrame) Update(ref js.Ref) {
 	bindings.ProfilerFrameJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ProfilerFrame) FreeMembers(recursive bool) {
+	js.Free(
+		p.Name.Ref(),
+	)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type ProfilerStack struct {
@@ -802,17 +828,22 @@ func (p ProfilerStack) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ProfilerStack) UpdateFrom(ref js.Ref) {
+func (p *ProfilerStack) UpdateFrom(ref js.Ref) {
 	bindings.ProfilerStackJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ProfilerStack) Update(ref js.Ref) {
+func (p *ProfilerStack) Update(ref js.Ref) {
 	bindings.ProfilerStackJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ProfilerStack) FreeMembers(recursive bool) {
 }
 
 type ProfilerSample struct {
@@ -846,17 +877,22 @@ func (p ProfilerSample) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ProfilerSample) UpdateFrom(ref js.Ref) {
+func (p *ProfilerSample) UpdateFrom(ref js.Ref) {
 	bindings.ProfilerSampleJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ProfilerSample) Update(ref js.Ref) {
+func (p *ProfilerSample) Update(ref js.Ref) {
 	bindings.ProfilerSampleJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ProfilerSample) FreeMembers(recursive bool) {
 }
 
 type ProfilerTrace struct {
@@ -894,17 +930,32 @@ func (p ProfilerTrace) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ProfilerTrace) UpdateFrom(ref js.Ref) {
+func (p *ProfilerTrace) UpdateFrom(ref js.Ref) {
 	bindings.ProfilerTraceJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ProfilerTrace) Update(ref js.Ref) {
+func (p *ProfilerTrace) Update(ref js.Ref) {
 	bindings.ProfilerTraceJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ProfilerTrace) FreeMembers(recursive bool) {
+	js.Free(
+		p.Resources.Ref(),
+		p.Frames.Ref(),
+		p.Stacks.Ref(),
+		p.Samples.Ref(),
+	)
+	p.Resources = p.Resources.FromRef(js.Undefined)
+	p.Frames = p.Frames.FromRef(js.Undefined)
+	p.Stacks = p.Stacks.FromRef(js.Undefined)
+	p.Samples = p.Samples.FromRef(js.Undefined)
 }
 
 func NewProfiler(options ProfilerInitOptions) (ret Profiler) {
@@ -918,7 +969,7 @@ type Profiler struct {
 }
 
 func (this Profiler) Once() Profiler {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -932,7 +983,7 @@ func (this Profiler) FromRef(ref js.Ref) Profiler {
 }
 
 func (this Profiler) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // SampleInterval returns the value of property "Profiler.sampleInterval".
@@ -940,7 +991,7 @@ func (this Profiler) Free() {
 // It returns ok=false if there is no such property.
 func (this Profiler) SampleInterval() (ret DOMHighResTimeStamp, ok bool) {
 	ok = js.True == bindings.GetProfilerSampleInterval(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -950,31 +1001,30 @@ func (this Profiler) SampleInterval() (ret DOMHighResTimeStamp, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Profiler) Stopped() (ret bool, ok bool) {
 	ok = js.True == bindings.GetProfilerStopped(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasStop returns true if the method "Profiler.stop" exists.
-func (this Profiler) HasStop() bool {
-	return js.True == bindings.HasProfilerStop(
-		this.Ref(),
+// HasFuncStop returns true if the method "Profiler.stop" exists.
+func (this Profiler) HasFuncStop() bool {
+	return js.True == bindings.HasFuncProfilerStop(
+		this.ref,
 	)
 }
 
-// StopFunc returns the method "Profiler.stop".
-func (this Profiler) StopFunc() (fn js.Func[func() js.Promise[ProfilerTrace]]) {
-	return fn.FromRef(
-		bindings.ProfilerStopFunc(
-			this.Ref(),
-		),
+// FuncStop returns the method "Profiler.stop".
+func (this Profiler) FuncStop() (fn js.Func[func() js.Promise[ProfilerTrace]]) {
+	bindings.FuncProfilerStop(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Stop calls the method "Profiler.stop".
 func (this Profiler) Stop() (ret js.Promise[ProfilerTrace]) {
 	bindings.CallProfilerStop(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -985,7 +1035,7 @@ func (this Profiler) Stop() (ret js.Promise[ProfilerTrace]) {
 // the catch clause.
 func (this Profiler) TryStop() (ret js.Promise[ProfilerTrace], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryProfilerStop(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1053,17 +1103,22 @@ func (p ProgressEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ProgressEventInit) UpdateFrom(ref js.Ref) {
+func (p *ProgressEventInit) UpdateFrom(ref js.Ref) {
 	bindings.ProgressEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ProgressEventInit) Update(ref js.Ref) {
+func (p *ProgressEventInit) Update(ref js.Ref) {
 	bindings.ProgressEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ProgressEventInit) FreeMembers(recursive bool) {
 }
 
 func NewProgressEvent(typ js.String, eventInitDict ProgressEventInit) (ret ProgressEvent) {
@@ -1084,7 +1139,7 @@ type ProgressEvent struct {
 }
 
 func (this ProgressEvent) Once() ProgressEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1098,7 +1153,7 @@ func (this ProgressEvent) FromRef(ref js.Ref) ProgressEvent {
 }
 
 func (this ProgressEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // LengthComputable returns the value of property "ProgressEvent.lengthComputable".
@@ -1106,7 +1161,7 @@ func (this ProgressEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this ProgressEvent) LengthComputable() (ret bool, ok bool) {
 	ok = js.True == bindings.GetProgressEventLengthComputable(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1116,7 +1171,7 @@ func (this ProgressEvent) LengthComputable() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ProgressEvent) Loaded() (ret uint64, ok bool) {
 	ok = js.True == bindings.GetProgressEventLoaded(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1126,7 +1181,7 @@ func (this ProgressEvent) Loaded() (ret uint64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ProgressEvent) Total() (ret uint64, ok bool) {
 	ok = js.True == bindings.GetProgressEventTotal(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1180,17 +1235,28 @@ func (p PromiseRejectionEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PromiseRejectionEventInit) UpdateFrom(ref js.Ref) {
+func (p *PromiseRejectionEventInit) UpdateFrom(ref js.Ref) {
 	bindings.PromiseRejectionEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PromiseRejectionEventInit) Update(ref js.Ref) {
+func (p *PromiseRejectionEventInit) Update(ref js.Ref) {
 	bindings.PromiseRejectionEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PromiseRejectionEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Promise.Ref(),
+		p.Reason.Ref(),
+	)
+	p.Promise = p.Promise.FromRef(js.Undefined)
+	p.Reason = p.Reason.FromRef(js.Undefined)
 }
 
 func NewPromiseRejectionEvent(typ js.String, eventInitDict PromiseRejectionEventInit) (ret PromiseRejectionEvent) {
@@ -1205,7 +1271,7 @@ type PromiseRejectionEvent struct {
 }
 
 func (this PromiseRejectionEvent) Once() PromiseRejectionEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1219,7 +1285,7 @@ func (this PromiseRejectionEvent) FromRef(ref js.Ref) PromiseRejectionEvent {
 }
 
 func (this PromiseRejectionEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Promise returns the value of property "PromiseRejectionEvent.promise".
@@ -1227,7 +1293,7 @@ func (this PromiseRejectionEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this PromiseRejectionEvent) Promise() (ret js.Promise[js.Any], ok bool) {
 	ok = js.True == bindings.GetPromiseRejectionEventPromise(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1237,7 +1303,7 @@ func (this PromiseRejectionEvent) Promise() (ret js.Promise[js.Any], ok bool) {
 // It returns ok=false if there is no such property.
 func (this PromiseRejectionEvent) Reason() (ret js.Any, ok bool) {
 	ok = js.True == bindings.GetPromiseRejectionEventReason(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1273,17 +1339,22 @@ func (p ProximityReadingValues) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ProximityReadingValues) UpdateFrom(ref js.Ref) {
+func (p *ProximityReadingValues) UpdateFrom(ref js.Ref) {
 	bindings.ProximityReadingValuesJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ProximityReadingValues) Update(ref js.Ref) {
+func (p *ProximityReadingValues) Update(ref js.Ref) {
 	bindings.ProximityReadingValuesJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ProximityReadingValues) FreeMembers(recursive bool) {
 }
 
 func NewProximitySensor(sensorOptions SensorOptions) (ret ProximitySensor) {
@@ -1302,7 +1373,7 @@ type ProximitySensor struct {
 }
 
 func (this ProximitySensor) Once() ProximitySensor {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1316,7 +1387,7 @@ func (this ProximitySensor) FromRef(ref js.Ref) ProximitySensor {
 }
 
 func (this ProximitySensor) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Distance returns the value of property "ProximitySensor.distance".
@@ -1324,7 +1395,7 @@ func (this ProximitySensor) Free() {
 // It returns ok=false if there is no such property.
 func (this ProximitySensor) Distance() (ret float64, ok bool) {
 	ok = js.True == bindings.GetProximitySensorDistance(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1334,7 +1405,7 @@ func (this ProximitySensor) Distance() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ProximitySensor) Max() (ret float64, ok bool) {
 	ok = js.True == bindings.GetProximitySensorMax(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1344,7 +1415,7 @@ func (this ProximitySensor) Max() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ProximitySensor) Near() (ret bool, ok bool) {
 	ok = js.True == bindings.GetProximitySensorNear(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1396,17 +1467,36 @@ func (p RegistrationResponseJSON) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RegistrationResponseJSON) UpdateFrom(ref js.Ref) {
+func (p *RegistrationResponseJSON) UpdateFrom(ref js.Ref) {
 	bindings.RegistrationResponseJSONJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RegistrationResponseJSON) Update(ref js.Ref) {
+func (p *RegistrationResponseJSON) Update(ref js.Ref) {
 	bindings.RegistrationResponseJSONJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RegistrationResponseJSON) FreeMembers(recursive bool) {
+	js.Free(
+		p.Id.Ref(),
+		p.RawId.Ref(),
+		p.AuthenticatorAttachment.Ref(),
+		p.Type.Ref(),
+	)
+	p.Id = p.Id.FromRef(js.Undefined)
+	p.RawId = p.RawId.FromRef(js.Undefined)
+	p.AuthenticatorAttachment = p.AuthenticatorAttachment.FromRef(js.Undefined)
+	p.Type = p.Type.FromRef(js.Undefined)
+	if recursive {
+		p.Response.FreeMembers(true)
+		p.ClientExtensionResults.FreeMembers(true)
+	}
 }
 
 type OneOf_RegistrationResponseJSON_AuthenticationResponseJSON struct {
@@ -1472,17 +1562,30 @@ func (p PublicKeyCredentialDescriptorJSON) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PublicKeyCredentialDescriptorJSON) UpdateFrom(ref js.Ref) {
+func (p *PublicKeyCredentialDescriptorJSON) UpdateFrom(ref js.Ref) {
 	bindings.PublicKeyCredentialDescriptorJSONJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PublicKeyCredentialDescriptorJSON) Update(ref js.Ref) {
+func (p *PublicKeyCredentialDescriptorJSON) Update(ref js.Ref) {
 	bindings.PublicKeyCredentialDescriptorJSONJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PublicKeyCredentialDescriptorJSON) FreeMembers(recursive bool) {
+	js.Free(
+		p.Id.Ref(),
+		p.Type.Ref(),
+		p.Transports.Ref(),
+	)
+	p.Id = p.Id.FromRef(js.Undefined)
+	p.Type = p.Type.FromRef(js.Undefined)
+	p.Transports = p.Transports.FromRef(js.Undefined)
 }
 
 type PublicKeyCredentialRequestOptionsJSON struct {
@@ -1546,17 +1649,41 @@ func (p PublicKeyCredentialRequestOptionsJSON) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PublicKeyCredentialRequestOptionsJSON) UpdateFrom(ref js.Ref) {
+func (p *PublicKeyCredentialRequestOptionsJSON) UpdateFrom(ref js.Ref) {
 	bindings.PublicKeyCredentialRequestOptionsJSONJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PublicKeyCredentialRequestOptionsJSON) Update(ref js.Ref) {
+func (p *PublicKeyCredentialRequestOptionsJSON) Update(ref js.Ref) {
 	bindings.PublicKeyCredentialRequestOptionsJSONJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PublicKeyCredentialRequestOptionsJSON) FreeMembers(recursive bool) {
+	js.Free(
+		p.Challenge.Ref(),
+		p.RpId.Ref(),
+		p.AllowCredentials.Ref(),
+		p.UserVerification.Ref(),
+		p.Hints.Ref(),
+		p.Attestation.Ref(),
+		p.AttestationFormats.Ref(),
+	)
+	p.Challenge = p.Challenge.FromRef(js.Undefined)
+	p.RpId = p.RpId.FromRef(js.Undefined)
+	p.AllowCredentials = p.AllowCredentials.FromRef(js.Undefined)
+	p.UserVerification = p.UserVerification.FromRef(js.Undefined)
+	p.Hints = p.Hints.FromRef(js.Undefined)
+	p.Attestation = p.Attestation.FromRef(js.Undefined)
+	p.AttestationFormats = p.AttestationFormats.FromRef(js.Undefined)
+	if recursive {
+		p.Extensions.FreeMembers(true)
+	}
 }
 
 type PublicKeyCredentialUserEntityJSON struct {
@@ -1590,17 +1717,30 @@ func (p PublicKeyCredentialUserEntityJSON) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PublicKeyCredentialUserEntityJSON) UpdateFrom(ref js.Ref) {
+func (p *PublicKeyCredentialUserEntityJSON) UpdateFrom(ref js.Ref) {
 	bindings.PublicKeyCredentialUserEntityJSONJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PublicKeyCredentialUserEntityJSON) Update(ref js.Ref) {
+func (p *PublicKeyCredentialUserEntityJSON) Update(ref js.Ref) {
 	bindings.PublicKeyCredentialUserEntityJSONJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PublicKeyCredentialUserEntityJSON) FreeMembers(recursive bool) {
+	js.Free(
+		p.Id.Ref(),
+		p.Name.Ref(),
+		p.DisplayName.Ref(),
+	)
+	p.Id = p.Id.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
+	p.DisplayName = p.DisplayName.FromRef(js.Undefined)
 }
 
 type PublicKeyCredentialCreationOptionsJSON struct {
@@ -1678,17 +1818,42 @@ func (p PublicKeyCredentialCreationOptionsJSON) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PublicKeyCredentialCreationOptionsJSON) UpdateFrom(ref js.Ref) {
+func (p *PublicKeyCredentialCreationOptionsJSON) UpdateFrom(ref js.Ref) {
 	bindings.PublicKeyCredentialCreationOptionsJSONJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PublicKeyCredentialCreationOptionsJSON) Update(ref js.Ref) {
+func (p *PublicKeyCredentialCreationOptionsJSON) Update(ref js.Ref) {
 	bindings.PublicKeyCredentialCreationOptionsJSONJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PublicKeyCredentialCreationOptionsJSON) FreeMembers(recursive bool) {
+	js.Free(
+		p.Challenge.Ref(),
+		p.PubKeyCredParams.Ref(),
+		p.ExcludeCredentials.Ref(),
+		p.Hints.Ref(),
+		p.Attestation.Ref(),
+		p.AttestationFormats.Ref(),
+	)
+	p.Challenge = p.Challenge.FromRef(js.Undefined)
+	p.PubKeyCredParams = p.PubKeyCredParams.FromRef(js.Undefined)
+	p.ExcludeCredentials = p.ExcludeCredentials.FromRef(js.Undefined)
+	p.Hints = p.Hints.FromRef(js.Undefined)
+	p.Attestation = p.Attestation.FromRef(js.Undefined)
+	p.AttestationFormats = p.AttestationFormats.FromRef(js.Undefined)
+	if recursive {
+		p.Rp.FreeMembers(true)
+		p.User.FreeMembers(true)
+		p.AuthenticatorSelection.FreeMembers(true)
+		p.Extensions.FreeMembers(true)
+	}
 }
 
 type PublicKeyCredential struct {
@@ -1696,7 +1861,7 @@ type PublicKeyCredential struct {
 }
 
 func (this PublicKeyCredential) Once() PublicKeyCredential {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1710,7 +1875,7 @@ func (this PublicKeyCredential) FromRef(ref js.Ref) PublicKeyCredential {
 }
 
 func (this PublicKeyCredential) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // RawId returns the value of property "PublicKeyCredential.rawId".
@@ -1718,7 +1883,7 @@ func (this PublicKeyCredential) Free() {
 // It returns ok=false if there is no such property.
 func (this PublicKeyCredential) RawId() (ret js.ArrayBuffer, ok bool) {
 	ok = js.True == bindings.GetPublicKeyCredentialRawId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1728,7 +1893,7 @@ func (this PublicKeyCredential) RawId() (ret js.ArrayBuffer, ok bool) {
 // It returns ok=false if there is no such property.
 func (this PublicKeyCredential) Response() (ret AuthenticatorResponse, ok bool) {
 	ok = js.True == bindings.GetPublicKeyCredentialResponse(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1738,31 +1903,30 @@ func (this PublicKeyCredential) Response() (ret AuthenticatorResponse, ok bool) 
 // It returns ok=false if there is no such property.
 func (this PublicKeyCredential) AuthenticatorAttachment() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetPublicKeyCredentialAuthenticatorAttachment(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGetClientExtensionResults returns true if the method "PublicKeyCredential.getClientExtensionResults" exists.
-func (this PublicKeyCredential) HasGetClientExtensionResults() bool {
-	return js.True == bindings.HasPublicKeyCredentialGetClientExtensionResults(
-		this.Ref(),
+// HasFuncGetClientExtensionResults returns true if the method "PublicKeyCredential.getClientExtensionResults" exists.
+func (this PublicKeyCredential) HasFuncGetClientExtensionResults() bool {
+	return js.True == bindings.HasFuncPublicKeyCredentialGetClientExtensionResults(
+		this.ref,
 	)
 }
 
-// GetClientExtensionResultsFunc returns the method "PublicKeyCredential.getClientExtensionResults".
-func (this PublicKeyCredential) GetClientExtensionResultsFunc() (fn js.Func[func() AuthenticationExtensionsClientOutputs]) {
-	return fn.FromRef(
-		bindings.PublicKeyCredentialGetClientExtensionResultsFunc(
-			this.Ref(),
-		),
+// FuncGetClientExtensionResults returns the method "PublicKeyCredential.getClientExtensionResults".
+func (this PublicKeyCredential) FuncGetClientExtensionResults() (fn js.Func[func() AuthenticationExtensionsClientOutputs]) {
+	bindings.FuncPublicKeyCredentialGetClientExtensionResults(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetClientExtensionResults calls the method "PublicKeyCredential.getClientExtensionResults".
 func (this PublicKeyCredential) GetClientExtensionResults() (ret AuthenticationExtensionsClientOutputs) {
 	bindings.CallPublicKeyCredentialGetClientExtensionResults(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1773,68 +1937,66 @@ func (this PublicKeyCredential) GetClientExtensionResults() (ret AuthenticationE
 // the catch clause.
 func (this PublicKeyCredential) TryGetClientExtensionResults() (ret AuthenticationExtensionsClientOutputs, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPublicKeyCredentialGetClientExtensionResults(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasIsConditionalMediationAvailable returns true if the staticmethod "PublicKeyCredential.isConditionalMediationAvailable" exists.
-func (this PublicKeyCredential) HasIsConditionalMediationAvailable() bool {
-	return js.True == bindings.HasPublicKeyCredentialIsConditionalMediationAvailable(
-		this.Ref(),
+// HasFuncIsConditionalMediationAvailable returns true if the static method "PublicKeyCredential.isConditionalMediationAvailable" exists.
+func (this PublicKeyCredential) HasFuncIsConditionalMediationAvailable() bool {
+	return js.True == bindings.HasFuncPublicKeyCredentialIsConditionalMediationAvailable(
+		this.ref,
 	)
 }
 
-// IsConditionalMediationAvailableFunc returns the staticmethod "PublicKeyCredential.isConditionalMediationAvailable".
-func (this PublicKeyCredential) IsConditionalMediationAvailableFunc() (fn js.Func[func() js.Promise[js.Boolean]]) {
-	return fn.FromRef(
-		bindings.PublicKeyCredentialIsConditionalMediationAvailableFunc(
-			this.Ref(),
-		),
+// FuncIsConditionalMediationAvailable returns the static method "PublicKeyCredential.isConditionalMediationAvailable".
+func (this PublicKeyCredential) FuncIsConditionalMediationAvailable() (fn js.Func[func() js.Promise[js.Boolean]]) {
+	bindings.FuncPublicKeyCredentialIsConditionalMediationAvailable(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// IsConditionalMediationAvailable calls the staticmethod "PublicKeyCredential.isConditionalMediationAvailable".
+// IsConditionalMediationAvailable calls the static method "PublicKeyCredential.isConditionalMediationAvailable".
 func (this PublicKeyCredential) IsConditionalMediationAvailable() (ret js.Promise[js.Boolean]) {
 	bindings.CallPublicKeyCredentialIsConditionalMediationAvailable(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
 }
 
-// TryIsConditionalMediationAvailable calls the staticmethod "PublicKeyCredential.isConditionalMediationAvailable"
+// TryIsConditionalMediationAvailable calls the static method "PublicKeyCredential.isConditionalMediationAvailable"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PublicKeyCredential) TryIsConditionalMediationAvailable() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPublicKeyCredentialIsConditionalMediationAvailable(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasToJSON returns true if the method "PublicKeyCredential.toJSON" exists.
-func (this PublicKeyCredential) HasToJSON() bool {
-	return js.True == bindings.HasPublicKeyCredentialToJSON(
-		this.Ref(),
+// HasFuncToJSON returns true if the method "PublicKeyCredential.toJSON" exists.
+func (this PublicKeyCredential) HasFuncToJSON() bool {
+	return js.True == bindings.HasFuncPublicKeyCredentialToJSON(
+		this.ref,
 	)
 }
 
-// ToJSONFunc returns the method "PublicKeyCredential.toJSON".
-func (this PublicKeyCredential) ToJSONFunc() (fn js.Func[func() PublicKeyCredentialJSON]) {
-	return fn.FromRef(
-		bindings.PublicKeyCredentialToJSONFunc(
-			this.Ref(),
-		),
+// FuncToJSON returns the method "PublicKeyCredential.toJSON".
+func (this PublicKeyCredential) FuncToJSON() (fn js.Func[func() PublicKeyCredentialJSON]) {
+	bindings.FuncPublicKeyCredentialToJSON(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ToJSON calls the method "PublicKeyCredential.toJSON".
 func (this PublicKeyCredential) ToJSON() (ret PublicKeyCredentialJSON) {
 	bindings.CallPublicKeyCredentialToJSON(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1845,155 +2007,151 @@ func (this PublicKeyCredential) ToJSON() (ret PublicKeyCredentialJSON) {
 // the catch clause.
 func (this PublicKeyCredential) TryToJSON() (ret PublicKeyCredentialJSON, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPublicKeyCredentialToJSON(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasParseRequestOptionsFromJSON returns true if the staticmethod "PublicKeyCredential.parseRequestOptionsFromJSON" exists.
-func (this PublicKeyCredential) HasParseRequestOptionsFromJSON() bool {
-	return js.True == bindings.HasPublicKeyCredentialParseRequestOptionsFromJSON(
-		this.Ref(),
+// HasFuncParseRequestOptionsFromJSON returns true if the static method "PublicKeyCredential.parseRequestOptionsFromJSON" exists.
+func (this PublicKeyCredential) HasFuncParseRequestOptionsFromJSON() bool {
+	return js.True == bindings.HasFuncPublicKeyCredentialParseRequestOptionsFromJSON(
+		this.ref,
 	)
 }
 
-// ParseRequestOptionsFromJSONFunc returns the staticmethod "PublicKeyCredential.parseRequestOptionsFromJSON".
-func (this PublicKeyCredential) ParseRequestOptionsFromJSONFunc() (fn js.Func[func(options PublicKeyCredentialRequestOptionsJSON) PublicKeyCredentialRequestOptions]) {
-	return fn.FromRef(
-		bindings.PublicKeyCredentialParseRequestOptionsFromJSONFunc(
-			this.Ref(),
-		),
+// FuncParseRequestOptionsFromJSON returns the static method "PublicKeyCredential.parseRequestOptionsFromJSON".
+func (this PublicKeyCredential) FuncParseRequestOptionsFromJSON() (fn js.Func[func(options PublicKeyCredentialRequestOptionsJSON) PublicKeyCredentialRequestOptions]) {
+	bindings.FuncPublicKeyCredentialParseRequestOptionsFromJSON(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// ParseRequestOptionsFromJSON calls the staticmethod "PublicKeyCredential.parseRequestOptionsFromJSON".
+// ParseRequestOptionsFromJSON calls the static method "PublicKeyCredential.parseRequestOptionsFromJSON".
 func (this PublicKeyCredential) ParseRequestOptionsFromJSON(options PublicKeyCredentialRequestOptionsJSON) (ret PublicKeyCredentialRequestOptions) {
 	bindings.CallPublicKeyCredentialParseRequestOptionsFromJSON(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// TryParseRequestOptionsFromJSON calls the staticmethod "PublicKeyCredential.parseRequestOptionsFromJSON"
+// TryParseRequestOptionsFromJSON calls the static method "PublicKeyCredential.parseRequestOptionsFromJSON"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PublicKeyCredential) TryParseRequestOptionsFromJSON(options PublicKeyCredentialRequestOptionsJSON) (ret PublicKeyCredentialRequestOptions, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPublicKeyCredentialParseRequestOptionsFromJSON(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasIsPasskeyPlatformAuthenticatorAvailable returns true if the staticmethod "PublicKeyCredential.isPasskeyPlatformAuthenticatorAvailable" exists.
-func (this PublicKeyCredential) HasIsPasskeyPlatformAuthenticatorAvailable() bool {
-	return js.True == bindings.HasPublicKeyCredentialIsPasskeyPlatformAuthenticatorAvailable(
-		this.Ref(),
+// HasFuncIsPasskeyPlatformAuthenticatorAvailable returns true if the static method "PublicKeyCredential.isPasskeyPlatformAuthenticatorAvailable" exists.
+func (this PublicKeyCredential) HasFuncIsPasskeyPlatformAuthenticatorAvailable() bool {
+	return js.True == bindings.HasFuncPublicKeyCredentialIsPasskeyPlatformAuthenticatorAvailable(
+		this.ref,
 	)
 }
 
-// IsPasskeyPlatformAuthenticatorAvailableFunc returns the staticmethod "PublicKeyCredential.isPasskeyPlatformAuthenticatorAvailable".
-func (this PublicKeyCredential) IsPasskeyPlatformAuthenticatorAvailableFunc() (fn js.Func[func() js.Promise[js.Boolean]]) {
-	return fn.FromRef(
-		bindings.PublicKeyCredentialIsPasskeyPlatformAuthenticatorAvailableFunc(
-			this.Ref(),
-		),
+// FuncIsPasskeyPlatformAuthenticatorAvailable returns the static method "PublicKeyCredential.isPasskeyPlatformAuthenticatorAvailable".
+func (this PublicKeyCredential) FuncIsPasskeyPlatformAuthenticatorAvailable() (fn js.Func[func() js.Promise[js.Boolean]]) {
+	bindings.FuncPublicKeyCredentialIsPasskeyPlatformAuthenticatorAvailable(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// IsPasskeyPlatformAuthenticatorAvailable calls the staticmethod "PublicKeyCredential.isPasskeyPlatformAuthenticatorAvailable".
+// IsPasskeyPlatformAuthenticatorAvailable calls the static method "PublicKeyCredential.isPasskeyPlatformAuthenticatorAvailable".
 func (this PublicKeyCredential) IsPasskeyPlatformAuthenticatorAvailable() (ret js.Promise[js.Boolean]) {
 	bindings.CallPublicKeyCredentialIsPasskeyPlatformAuthenticatorAvailable(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
 }
 
-// TryIsPasskeyPlatformAuthenticatorAvailable calls the staticmethod "PublicKeyCredential.isPasskeyPlatformAuthenticatorAvailable"
+// TryIsPasskeyPlatformAuthenticatorAvailable calls the static method "PublicKeyCredential.isPasskeyPlatformAuthenticatorAvailable"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PublicKeyCredential) TryIsPasskeyPlatformAuthenticatorAvailable() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPublicKeyCredentialIsPasskeyPlatformAuthenticatorAvailable(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasParseCreationOptionsFromJSON returns true if the staticmethod "PublicKeyCredential.parseCreationOptionsFromJSON" exists.
-func (this PublicKeyCredential) HasParseCreationOptionsFromJSON() bool {
-	return js.True == bindings.HasPublicKeyCredentialParseCreationOptionsFromJSON(
-		this.Ref(),
+// HasFuncParseCreationOptionsFromJSON returns true if the static method "PublicKeyCredential.parseCreationOptionsFromJSON" exists.
+func (this PublicKeyCredential) HasFuncParseCreationOptionsFromJSON() bool {
+	return js.True == bindings.HasFuncPublicKeyCredentialParseCreationOptionsFromJSON(
+		this.ref,
 	)
 }
 
-// ParseCreationOptionsFromJSONFunc returns the staticmethod "PublicKeyCredential.parseCreationOptionsFromJSON".
-func (this PublicKeyCredential) ParseCreationOptionsFromJSONFunc() (fn js.Func[func(options PublicKeyCredentialCreationOptionsJSON) PublicKeyCredentialCreationOptions]) {
-	return fn.FromRef(
-		bindings.PublicKeyCredentialParseCreationOptionsFromJSONFunc(
-			this.Ref(),
-		),
+// FuncParseCreationOptionsFromJSON returns the static method "PublicKeyCredential.parseCreationOptionsFromJSON".
+func (this PublicKeyCredential) FuncParseCreationOptionsFromJSON() (fn js.Func[func(options PublicKeyCredentialCreationOptionsJSON) PublicKeyCredentialCreationOptions]) {
+	bindings.FuncPublicKeyCredentialParseCreationOptionsFromJSON(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// ParseCreationOptionsFromJSON calls the staticmethod "PublicKeyCredential.parseCreationOptionsFromJSON".
+// ParseCreationOptionsFromJSON calls the static method "PublicKeyCredential.parseCreationOptionsFromJSON".
 func (this PublicKeyCredential) ParseCreationOptionsFromJSON(options PublicKeyCredentialCreationOptionsJSON) (ret PublicKeyCredentialCreationOptions) {
 	bindings.CallPublicKeyCredentialParseCreationOptionsFromJSON(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// TryParseCreationOptionsFromJSON calls the staticmethod "PublicKeyCredential.parseCreationOptionsFromJSON"
+// TryParseCreationOptionsFromJSON calls the static method "PublicKeyCredential.parseCreationOptionsFromJSON"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PublicKeyCredential) TryParseCreationOptionsFromJSON(options PublicKeyCredentialCreationOptionsJSON) (ret PublicKeyCredentialCreationOptions, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPublicKeyCredentialParseCreationOptionsFromJSON(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasIsUserVerifyingPlatformAuthenticatorAvailable returns true if the staticmethod "PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable" exists.
-func (this PublicKeyCredential) HasIsUserVerifyingPlatformAuthenticatorAvailable() bool {
-	return js.True == bindings.HasPublicKeyCredentialIsUserVerifyingPlatformAuthenticatorAvailable(
-		this.Ref(),
+// HasFuncIsUserVerifyingPlatformAuthenticatorAvailable returns true if the static method "PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable" exists.
+func (this PublicKeyCredential) HasFuncIsUserVerifyingPlatformAuthenticatorAvailable() bool {
+	return js.True == bindings.HasFuncPublicKeyCredentialIsUserVerifyingPlatformAuthenticatorAvailable(
+		this.ref,
 	)
 }
 
-// IsUserVerifyingPlatformAuthenticatorAvailableFunc returns the staticmethod "PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable".
-func (this PublicKeyCredential) IsUserVerifyingPlatformAuthenticatorAvailableFunc() (fn js.Func[func() js.Promise[js.Boolean]]) {
-	return fn.FromRef(
-		bindings.PublicKeyCredentialIsUserVerifyingPlatformAuthenticatorAvailableFunc(
-			this.Ref(),
-		),
+// FuncIsUserVerifyingPlatformAuthenticatorAvailable returns the static method "PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable".
+func (this PublicKeyCredential) FuncIsUserVerifyingPlatformAuthenticatorAvailable() (fn js.Func[func() js.Promise[js.Boolean]]) {
+	bindings.FuncPublicKeyCredentialIsUserVerifyingPlatformAuthenticatorAvailable(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// IsUserVerifyingPlatformAuthenticatorAvailable calls the staticmethod "PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable".
+// IsUserVerifyingPlatformAuthenticatorAvailable calls the static method "PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable".
 func (this PublicKeyCredential) IsUserVerifyingPlatformAuthenticatorAvailable() (ret js.Promise[js.Boolean]) {
 	bindings.CallPublicKeyCredentialIsUserVerifyingPlatformAuthenticatorAvailable(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
 }
 
-// TryIsUserVerifyingPlatformAuthenticatorAvailable calls the staticmethod "PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable"
+// TryIsUserVerifyingPlatformAuthenticatorAvailable calls the static method "PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PublicKeyCredential) TryIsUserVerifyingPlatformAuthenticatorAvailable() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPublicKeyCredentialIsUserVerifyingPlatformAuthenticatorAvailable(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -2022,17 +2180,26 @@ func (p PublicKeyCredentialEntity) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PublicKeyCredentialEntity) UpdateFrom(ref js.Ref) {
+func (p *PublicKeyCredentialEntity) UpdateFrom(ref js.Ref) {
 	bindings.PublicKeyCredentialEntityJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PublicKeyCredentialEntity) Update(ref js.Ref) {
+func (p *PublicKeyCredentialEntity) Update(ref js.Ref) {
 	bindings.PublicKeyCredentialEntityJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PublicKeyCredentialEntity) FreeMembers(recursive bool) {
+	js.Free(
+		p.Name.Ref(),
+	)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type PublicKeyCredentialHints uint32
@@ -2130,17 +2297,26 @@ func (p PushEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PushEventInit) UpdateFrom(ref js.Ref) {
+func (p *PushEventInit) UpdateFrom(ref js.Ref) {
 	bindings.PushEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PushEventInit) Update(ref js.Ref) {
+func (p *PushEventInit) Update(ref js.Ref) {
 	bindings.PushEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PushEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Data.Ref(),
+	)
+	p.Data = p.Data.FromRef(js.Undefined)
 }
 
 type PushMessageData struct {
@@ -2148,7 +2324,7 @@ type PushMessageData struct {
 }
 
 func (this PushMessageData) Once() PushMessageData {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2162,29 +2338,28 @@ func (this PushMessageData) FromRef(ref js.Ref) PushMessageData {
 }
 
 func (this PushMessageData) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasArrayBuffer returns true if the method "PushMessageData.arrayBuffer" exists.
-func (this PushMessageData) HasArrayBuffer() bool {
-	return js.True == bindings.HasPushMessageDataArrayBuffer(
-		this.Ref(),
+// HasFuncArrayBuffer returns true if the method "PushMessageData.arrayBuffer" exists.
+func (this PushMessageData) HasFuncArrayBuffer() bool {
+	return js.True == bindings.HasFuncPushMessageDataArrayBuffer(
+		this.ref,
 	)
 }
 
-// ArrayBufferFunc returns the method "PushMessageData.arrayBuffer".
-func (this PushMessageData) ArrayBufferFunc() (fn js.Func[func() js.ArrayBuffer]) {
-	return fn.FromRef(
-		bindings.PushMessageDataArrayBufferFunc(
-			this.Ref(),
-		),
+// FuncArrayBuffer returns the method "PushMessageData.arrayBuffer".
+func (this PushMessageData) FuncArrayBuffer() (fn js.Func[func() js.ArrayBuffer]) {
+	bindings.FuncPushMessageDataArrayBuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ArrayBuffer calls the method "PushMessageData.arrayBuffer".
 func (this PushMessageData) ArrayBuffer() (ret js.ArrayBuffer) {
 	bindings.CallPushMessageDataArrayBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2195,32 +2370,31 @@ func (this PushMessageData) ArrayBuffer() (ret js.ArrayBuffer) {
 // the catch clause.
 func (this PushMessageData) TryArrayBuffer() (ret js.ArrayBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPushMessageDataArrayBuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasBlob returns true if the method "PushMessageData.blob" exists.
-func (this PushMessageData) HasBlob() bool {
-	return js.True == bindings.HasPushMessageDataBlob(
-		this.Ref(),
+// HasFuncBlob returns true if the method "PushMessageData.blob" exists.
+func (this PushMessageData) HasFuncBlob() bool {
+	return js.True == bindings.HasFuncPushMessageDataBlob(
+		this.ref,
 	)
 }
 
-// BlobFunc returns the method "PushMessageData.blob".
-func (this PushMessageData) BlobFunc() (fn js.Func[func() Blob]) {
-	return fn.FromRef(
-		bindings.PushMessageDataBlobFunc(
-			this.Ref(),
-		),
+// FuncBlob returns the method "PushMessageData.blob".
+func (this PushMessageData) FuncBlob() (fn js.Func[func() Blob]) {
+	bindings.FuncPushMessageDataBlob(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Blob calls the method "PushMessageData.blob".
 func (this PushMessageData) Blob() (ret Blob) {
 	bindings.CallPushMessageDataBlob(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2231,32 +2405,31 @@ func (this PushMessageData) Blob() (ret Blob) {
 // the catch clause.
 func (this PushMessageData) TryBlob() (ret Blob, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPushMessageDataBlob(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasJson returns true if the method "PushMessageData.json" exists.
-func (this PushMessageData) HasJson() bool {
-	return js.True == bindings.HasPushMessageDataJson(
-		this.Ref(),
+// HasFuncJson returns true if the method "PushMessageData.json" exists.
+func (this PushMessageData) HasFuncJson() bool {
+	return js.True == bindings.HasFuncPushMessageDataJson(
+		this.ref,
 	)
 }
 
-// JsonFunc returns the method "PushMessageData.json".
-func (this PushMessageData) JsonFunc() (fn js.Func[func() js.Any]) {
-	return fn.FromRef(
-		bindings.PushMessageDataJsonFunc(
-			this.Ref(),
-		),
+// FuncJson returns the method "PushMessageData.json".
+func (this PushMessageData) FuncJson() (fn js.Func[func() js.Any]) {
+	bindings.FuncPushMessageDataJson(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Json calls the method "PushMessageData.json".
 func (this PushMessageData) Json() (ret js.Any) {
 	bindings.CallPushMessageDataJson(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2267,32 +2440,31 @@ func (this PushMessageData) Json() (ret js.Any) {
 // the catch clause.
 func (this PushMessageData) TryJson() (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPushMessageDataJson(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasText returns true if the method "PushMessageData.text" exists.
-func (this PushMessageData) HasText() bool {
-	return js.True == bindings.HasPushMessageDataText(
-		this.Ref(),
+// HasFuncText returns true if the method "PushMessageData.text" exists.
+func (this PushMessageData) HasFuncText() bool {
+	return js.True == bindings.HasFuncPushMessageDataText(
+		this.ref,
 	)
 }
 
-// TextFunc returns the method "PushMessageData.text".
-func (this PushMessageData) TextFunc() (fn js.Func[func() js.String]) {
-	return fn.FromRef(
-		bindings.PushMessageDataTextFunc(
-			this.Ref(),
-		),
+// FuncText returns the method "PushMessageData.text".
+func (this PushMessageData) FuncText() (fn js.Func[func() js.String]) {
+	bindings.FuncPushMessageDataText(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Text calls the method "PushMessageData.text".
 func (this PushMessageData) Text() (ret js.String) {
 	bindings.CallPushMessageDataText(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2303,7 +2475,7 @@ func (this PushMessageData) Text() (ret js.String) {
 // the catch clause.
 func (this PushMessageData) TryText() (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPushMessageDataText(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -2327,7 +2499,7 @@ type PushEvent struct {
 }
 
 func (this PushEvent) Once() PushEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2341,7 +2513,7 @@ func (this PushEvent) FromRef(ref js.Ref) PushEvent {
 }
 
 func (this PushEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Data returns the value of property "PushEvent.data".
@@ -2349,7 +2521,7 @@ func (this PushEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this PushEvent) Data() (ret PushMessageData, ok bool) {
 	ok = js.True == bindings.GetPushEventData(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2385,17 +2557,26 @@ func (p PushPermissionDescriptor) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PushPermissionDescriptor) UpdateFrom(ref js.Ref) {
+func (p *PushPermissionDescriptor) UpdateFrom(ref js.Ref) {
 	bindings.PushPermissionDescriptorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PushPermissionDescriptor) Update(ref js.Ref) {
+func (p *PushPermissionDescriptor) Update(ref js.Ref) {
 	bindings.PushPermissionDescriptorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PushPermissionDescriptor) FreeMembers(recursive bool) {
+	js.Free(
+		p.Name.Ref(),
+	)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type PushSubscriptionChangeEventInit struct {
@@ -2447,17 +2628,28 @@ func (p PushSubscriptionChangeEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PushSubscriptionChangeEventInit) UpdateFrom(ref js.Ref) {
+func (p *PushSubscriptionChangeEventInit) UpdateFrom(ref js.Ref) {
 	bindings.PushSubscriptionChangeEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PushSubscriptionChangeEventInit) Update(ref js.Ref) {
+func (p *PushSubscriptionChangeEventInit) Update(ref js.Ref) {
 	bindings.PushSubscriptionChangeEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PushSubscriptionChangeEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.NewSubscription.Ref(),
+		p.OldSubscription.Ref(),
+	)
+	p.NewSubscription = p.NewSubscription.FromRef(js.Undefined)
+	p.OldSubscription = p.OldSubscription.FromRef(js.Undefined)
 }
 
 func NewPushSubscriptionChangeEvent(typ js.String, eventInitDict PushSubscriptionChangeEventInit) (ret PushSubscriptionChangeEvent) {
@@ -2478,7 +2670,7 @@ type PushSubscriptionChangeEvent struct {
 }
 
 func (this PushSubscriptionChangeEvent) Once() PushSubscriptionChangeEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2492,7 +2684,7 @@ func (this PushSubscriptionChangeEvent) FromRef(ref js.Ref) PushSubscriptionChan
 }
 
 func (this PushSubscriptionChangeEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // NewSubscription returns the value of property "PushSubscriptionChangeEvent.newSubscription".
@@ -2500,7 +2692,7 @@ func (this PushSubscriptionChangeEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this PushSubscriptionChangeEvent) NewSubscription() (ret PushSubscription, ok bool) {
 	ok = js.True == bindings.GetPushSubscriptionChangeEventNewSubscription(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2510,7 +2702,7 @@ func (this PushSubscriptionChangeEvent) NewSubscription() (ret PushSubscription,
 // It returns ok=false if there is no such property.
 func (this PushSubscriptionChangeEvent) OldSubscription() (ret PushSubscription, ok bool) {
 	ok = js.True == bindings.GetPushSubscriptionChangeEventOldSubscription(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2533,17 +2725,22 @@ func (p RTCAnswerOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCAnswerOptions) UpdateFrom(ref js.Ref) {
+func (p *RTCAnswerOptions) UpdateFrom(ref js.Ref) {
 	bindings.RTCAnswerOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCAnswerOptions) Update(ref js.Ref) {
+func (p *RTCAnswerOptions) Update(ref js.Ref) {
 	bindings.RTCAnswerOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCAnswerOptions) FreeMembers(recursive bool) {
 }
 
 type RTCStatsType uint32

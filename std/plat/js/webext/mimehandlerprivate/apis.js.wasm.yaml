@@ -1,0 +1,303 @@
+- File: webext/mime_handler_private.idl
+  Callback:
+    Name: GetStreamDetailsCallback
+    Args:
+      - Name: streamInfo
+        Type:
+          Name: StreamInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mimeHandlerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mimeHandlerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mimeHandlerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mimeHandlerPrivate
+- File: webext/mime_handler_private.idl
+  Dict:
+    Name: PdfPluginAttributes
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mimeHandlerPrivate
+    Fields:
+      - Name: backgroundColor
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mimeHandlerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mimeHandlerPrivate
+      - Name: allowJavascript
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mimeHandlerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mimeHandlerPrivate
+- File: webext/mime_handler_private.idl
+  Callback:
+    Name: SetShowBeforeUnloadDialogCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mimeHandlerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mimeHandlerPrivate
+- File: webext/mime_handler_private.idl
+  Dict:
+    Name: StreamInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mimeHandlerPrivate
+    Fields:
+      - Name: mimeType
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mimeHandlerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mimeHandlerPrivate
+      - Name: originalUrl
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mimeHandlerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mimeHandlerPrivate
+      - Name: streamUrl
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mimeHandlerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mimeHandlerPrivate
+      - Name: tabId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mimeHandlerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mimeHandlerPrivate
+      - Name: responseHeaders
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mimeHandlerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mimeHandlerPrivate
+      - Name: embedded
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mimeHandlerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mimeHandlerPrivate
+- File: webext/mime_handler_private.idl
+  WebextFunc:
+    Name: getStreamInfo
+    Modifier: static
+    Args:
+      - Name: callback
+        Type:
+          Name: GetStreamDetailsCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mimeHandlerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mimeHandlerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mimeHandlerPrivate
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - mimeHandlerPrivate
+- File: webext/mime_handler_private.idl
+  WebextEvent:
+    Name: onSave
+    Modifier: static
+    Args:
+      - Name: streamUrl
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mimeHandlerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mimeHandlerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mimeHandlerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mimeHandlerPrivate
+- File: webext/mime_handler_private.idl
+  WebextFunc:
+    Name: setPdfPluginAttributes
+    Modifier: static
+    Args:
+      - Name: pdfPluginAttributes
+        Type:
+          Name: PdfPluginAttributes
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mimeHandlerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mimeHandlerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mimeHandlerPrivate
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - mimeHandlerPrivate
+- File: webext/mime_handler_private.idl
+  WebextFunc:
+    Name: setShowBeforeUnloadDialog
+    Modifier: static
+    Args:
+      - Name: showDialog
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mimeHandlerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mimeHandlerPrivate
+      - Name: callback
+        Optional: true
+        Type:
+          Name: SetShowBeforeUnloadDialogCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mimeHandlerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mimeHandlerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mimeHandlerPrivate
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - mimeHandlerPrivate

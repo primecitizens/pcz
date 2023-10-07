@@ -1,0 +1,444 @@
+- File: webext/chrome/history.json
+  Dict:
+    Name: DeleteRangeArgRange
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - history
+    Fields:
+      - Name: endTime
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - history
+      - Name: startTime
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - history
+- File: webext/chrome/history.json
+  Dict:
+    Name: HistoryItem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - history
+    Fields:
+      - Name: id
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - history
+      - Name: lastVisitTime
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - history
+      - Name: title
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - history
+      - Name: typedCount
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - history
+      - Name: url
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - history
+      - Name: visitCount
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - history
+- File: webext/chrome/history.json
+  Dict:
+    Name: OnVisitRemovedArgRemoved
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - history
+    Fields:
+      - Name: allHistory
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - history
+      - Name: urls
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - history
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - history
+- File: webext/chrome/history.json
+  Dict:
+    Name: SearchArgQuery
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - history
+    Fields:
+      - Name: endTime
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - history
+      - Name: maxResults
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - history
+      - Name: startTime
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - history
+      - Name: text
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - history
+- File: webext/chrome/history.json
+  Enum:
+    Name: TransitionType
+    Values:
+      - link
+      - typed
+      - auto_bookmark
+      - auto_subframe
+      - manual_subframe
+      - generated
+      - auto_toplevel
+      - form_submit
+      - reload
+      - keyword
+      - keyword_generated
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - history
+- File: webext/chrome/history.json
+  Dict:
+    Name: UrlDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - history
+    Fields:
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - history
+- File: webext/chrome/history.json
+  Dict:
+    Name: VisitItem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - history
+    Fields:
+      - Name: id
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - history
+      - Name: isLocal
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - history
+      - Name: referringVisitId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - history
+      - Name: transition
+        Required: true
+        Type:
+          Name: TransitionType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - history
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - history
+      - Name: visitId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - history
+      - Name: visitTime
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - history
+- File: webext/chrome/history.json
+  WebextFunc:
+    Name: addUrl
+    Args:
+      - Name: details
+        Type:
+          Name: UrlDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - history
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - history
+- File: webext/chrome/history.json
+  WebextFunc:
+    Name: deleteAll
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - history
+- File: webext/chrome/history.json
+  WebextFunc:
+    Name: deleteRange
+    Args:
+      - Name: range
+        Type:
+          Name: DeleteRangeArgRange
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - history
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - history
+- File: webext/chrome/history.json
+  WebextFunc:
+    Name: deleteUrl
+    Args:
+      - Name: details
+        Type:
+          Name: UrlDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - history
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - history
+- File: webext/chrome/history.json
+  WebextFunc:
+    Name: getVisits
+    Args:
+      - Name: details
+        Type:
+          Name: UrlDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - history
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: VisitItem
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - history
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - history
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - history
+- File: webext/chrome/history.json
+  WebextEvent:
+    Name: onVisitRemoved
+    Args:
+      - Name: removed
+        Type:
+          Name: OnVisitRemovedArgRemoved
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - history
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - history
+- File: webext/chrome/history.json
+  WebextEvent:
+    Name: onVisited
+    Args:
+      - Name: result
+        Type:
+          Name: HistoryItem
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - history
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - history
+- File: webext/chrome/history.json
+  WebextFunc:
+    Name: search
+    Args:
+      - Name: query
+        Type:
+          Name: SearchArgQuery
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - history
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: HistoryItem
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - history
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - history
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - history

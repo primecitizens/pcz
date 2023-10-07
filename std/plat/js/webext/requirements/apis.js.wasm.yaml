@@ -1,0 +1,11 @@
+- File: webext/requirements.json
+  Enum:
+    Name: ThreeDFeature
+    Values:
+      - webgl
+      - css3d
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - requirements

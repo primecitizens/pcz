@@ -1,4 +1,4 @@
-- File: css-layout-api.idl
+- File: webref/css-layout-api.idl
   Dict:
     Name: LayoutConstraintsOptions
     Fields:
@@ -30,7 +30,7 @@
       - Name: data
         Type:
           Name: any
-- File: css-layout-api.idl
+- File: webref/css-layout-api.idl
   Interface:
     Name: LayoutEdges
     ExtAttrs:
@@ -86,7 +86,7 @@
           - Name: Exposed
             Values:
               - LayoutWorklet
-- File: css-layout-api.idl
+- File: webref/css-layout-api.idl
   Interface:
     Name: LayoutFragment
     ExtAttrs:
@@ -141,7 +141,7 @@
           - Name: Exposed
             Values:
               - LayoutWorklet
-- File: css-layout-api.idl
+- File: webref/css-layout-api.idl
   Dict:
     Name: LayoutOptions
     Fields:
@@ -153,7 +153,7 @@
         Default: '"block-like"'
         Type:
           Name: LayoutSizingMode
-- File: layout-instability.idl
+- File: webref/layout-instability.idl
   Interface:
     Name: LayoutShift
     Inherits: PerformanceEntry
@@ -205,7 +205,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: layout-instability.idl
+- File: webref/layout-instability.idl
   Interface:
     Name: LayoutShiftAttribution
     ExtAttrs:
@@ -238,13 +238,13 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-layout-api.idl
+- File: webref/css-layout-api.idl
   Enum:
     Name: LayoutSizingMode
     Values:
       - block-like
       - manual
-- File: css-layout-api.idl
+- File: webref/css-layout-api.idl
   Interface:
     Name: LayoutWorkletGlobalScope
     Inherits: WorkletGlobalScope
@@ -256,7 +256,6 @@
       - Name: Exposed
         Values:
           - LayoutWorklet
-      - Name: SecureContext
     Operations:
       - Name: registerLayout
         Args:
@@ -276,22 +275,21 @@
           - Name: Exposed
             Values:
               - LayoutWorklet
-          - Name: SecureContext
-- File: webvtt.idl
+- File: webref/webvtt.idl
   Enum:
     Name: LineAlignSetting
     Values:
       - start
       - center
       - end
-- File: webvtt.idl
+- File: webref/webvtt.idl
   Typedef:
     Name: LineAndPositionSetting
     Type:
       Union:
         - Name: double
         - Name: AutoKeyword
-- File: accelerometer.idl
+- File: webref/accelerometer.idl
   Dict:
     Name: LinearAccelerationReadingValues
     Inherits: AccelerometerReadingValues
@@ -311,7 +309,7 @@
         Type:
           Name: double
           Nullable: true
-- File: accelerometer.idl
+- File: webref/accelerometer.idl
   Interface:
     Name: LinearAccelerationSensor
     Inherits: Accelerometer
@@ -332,7 +330,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: json-ld-api.idl
+- File: webref/json-ld-api.idl
   Callback:
     Name: LoadDocumentCallback
     Args:
@@ -348,7 +346,7 @@
       - Name: Promise
         Params:
           - Name: RemoteDocument
-- File: json-ld-api.idl
+- File: webref/json-ld-api.idl
   Dict:
     Name: LoadDocumentOptions
     Fields:
@@ -368,7 +366,7 @@
             - Name: sequence
               Params:
                 - Name: USVString
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: Location
     ExtAttrs:
@@ -493,7 +491,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: web-locks.idl
+- File: webref/web-locks.idl
   Interface:
     Name: Lock
     ExtAttrs:
@@ -523,7 +521,7 @@
             Values:
               - Window
               - Worker
-- File: web-locks.idl
+- File: webref/web-locks.idl
   Callback:
     Name: LockGrantedCallback
     Args:
@@ -535,7 +533,7 @@
       - Name: Promise
         Params:
           - Name: any
-- File: web-locks.idl
+- File: webref/web-locks.idl
   Dict:
     Name: LockInfo
     Fields:
@@ -548,7 +546,7 @@
       - Name: clientId
         Type:
           Name: DOMString
-- File: web-locks.idl
+- File: webref/web-locks.idl
   Interface:
     Name: LockManager
     ExtAttrs:
@@ -608,7 +606,7 @@
             Values:
               - Window
               - Worker
-- File: web-locks.idl
+- File: webref/web-locks.idl
   Dict:
     Name: LockManagerSnapshot
     Fields:
@@ -622,13 +620,13 @@
           Name: sequence
           Params:
             - Name: LockInfo
-- File: web-locks.idl
+- File: webref/web-locks.idl
   Enum:
     Name: LockMode
     Values:
       - shared
       - exclusive
-- File: web-locks.idl
+- File: webref/web-locks.idl
   Dict:
     Name: LockOptions
     Fields:
@@ -647,7 +645,7 @@
       - Name: signal
         Type:
           Name: AbortSignal
-- File: webmidi.idl
+- File: webref/webmidi.idl
   Interface:
     Name: MIDIAccess
     Inherits: EventTarget
@@ -692,7 +690,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webmidi.idl
+- File: webref/webmidi.idl
   Interface:
     Name: MIDIConnectionEvent
     Inherits: Event
@@ -726,7 +724,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webmidi.idl
+- File: webref/webmidi.idl
   Dict:
     Name: MIDIConnectionEventInit
     Inherits: EventInit
@@ -746,7 +744,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webmidi.idl
+- File: webref/webmidi.idl
   Interface:
     Name: MIDIInput
     Inherits: MIDIPort
@@ -764,7 +762,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webmidi.idl
+- File: webref/webmidi.idl
   Interface:
     Name: MIDIInputMap
     ExtAttrs:
@@ -777,7 +775,7 @@
         - Name: DOMString
         - Name: MIDIInput
       Readonly: true
-- File: webmidi.idl
+- File: webref/webmidi.idl
   Interface:
     Name: MIDIMessageEvent
     Inherits: Event
@@ -811,7 +809,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webmidi.idl
+- File: webref/webmidi.idl
   Dict:
     Name: MIDIMessageEventInit
     Inherits: EventInit
@@ -831,7 +829,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webmidi.idl
+- File: webref/webmidi.idl
   Dict:
     Name: MIDIOptions
     Fields:
@@ -841,7 +839,7 @@
       - Name: software
         Type:
           Name: boolean
-- File: webmidi.idl
+- File: webref/webmidi.idl
   Interface:
     Name: MIDIOutput
     Inherits: MIDIPort
@@ -878,7 +876,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webmidi.idl
+- File: webref/webmidi.idl
   Interface:
     Name: MIDIOutputMap
     ExtAttrs:
@@ -891,7 +889,7 @@
         - Name: DOMString
         - Name: MIDIOutput
       Readonly: true
-- File: webmidi.idl
+- File: webref/webmidi.idl
   Interface:
     Name: MIDIPort
     Inherits: EventTarget
@@ -996,26 +994,26 @@
           - Name: Exposed
             Values:
               - Window
-- File: webmidi.idl
+- File: webref/webmidi.idl
   Enum:
     Name: MIDIPortConnectionState
     Values:
       - open
       - closed
       - pending
-- File: webmidi.idl
+- File: webref/webmidi.idl
   Enum:
     Name: MIDIPortDeviceState
     Values:
       - disconnected
       - connected
-- File: webmidi.idl
+- File: webref/webmidi.idl
   Enum:
     Name: MIDIPortType
     Values:
       - input
       - output
-- File: webnn.idl
+- File: webref/webnn.idl
   Interface:
     Name: ML
     ExtAttrs:
@@ -1083,7 +1081,7 @@
             Values:
               - DedicatedWorker
           - Name: SecureContext
-- File: webnn.idl
+- File: webref/webnn.idl
   Interface:
     Name: MLActivation
     ExtAttrs:
@@ -1092,14 +1090,14 @@
         Values:
           - Window
           - DedicatedWorker
-- File: webnn.idl
+- File: webref/webnn.idl
   Enum:
     Name: MLAutoPad
     Values:
       - explicit
       - same-upper
       - same-lower
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLBatchNormalizationOptions
     Fields:
@@ -1120,7 +1118,7 @@
       - Name: activation
         Type:
           Name: MLActivation
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLBufferResourceView
     Fields:
@@ -1135,14 +1133,14 @@
       - Name: size
         Type:
           Name: unsigned long long
-- File: webnn.idl
+- File: webref/webnn.idl
   Typedef:
     Name: MLBufferView
     Type:
       Union:
         - Name: ArrayBufferView
         - Name: MLBufferResourceView
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLClampOptions
     Fields:
@@ -1152,7 +1150,7 @@
       - Name: maxValue
         Type:
           Name: float
-- File: webnn.idl
+- File: webref/webnn.idl
   Interface:
     Name: MLCommandEncoder
     ExtAttrs:
@@ -1191,7 +1189,7 @@
               Name: MLGraph
         Returns:
           - Name: undefined
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLComputeResult
     Fields:
@@ -1201,7 +1199,7 @@
       - Name: outputs
         Type:
           Name: MLNamedArrayBufferViews
-- File: webnn.idl
+- File: webref/webnn.idl
   Interface:
     Name: MLContext
     ExtAttrs:
@@ -1246,7 +1244,7 @@
       - Name: createCommandEncoder
         Returns:
           - Name: MLCommandEncoder
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLContextOptions
     Fields:
@@ -1258,7 +1256,7 @@
         Default: '"default"'
         Type:
           Name: MLPowerPreference
-- File: webnn.idl
+- File: webref/webnn.idl
   Enum:
     Name: MLConv2dFilterOperandLayout
     Values:
@@ -1266,7 +1264,7 @@
       - hwio
       - ohwi
       - ihwo
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLConv2dOptions
     Fields:
@@ -1307,7 +1305,7 @@
       - Name: activation
         Type:
           Name: MLActivation
-- File: webnn.idl
+- File: webref/webnn.idl
   Enum:
     Name: MLConvTranspose2dFilterOperandLayout
     Values:

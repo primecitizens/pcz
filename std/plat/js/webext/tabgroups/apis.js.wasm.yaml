@@ -1,0 +1,384 @@
+- File: webext/chrome/tab_groups.json
+  Enum:
+    Name: Color
+    Values:
+      - grey
+      - blue
+      - red
+      - yellow
+      - green
+      - pink
+      - purple
+      - cyan
+      - orange
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabGroups
+- File: webext/chrome/tab_groups.json
+  Dict:
+    Name: MoveArgMoveProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabGroups
+    Fields:
+      - Name: index
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabGroups
+      - Name: windowId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabGroups
+- File: webext/chrome/tab_groups.json
+  Dict:
+    Name: QueryArgQueryInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabGroups
+    Fields:
+      - Name: collapsed
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabGroups
+      - Name: color
+        Type:
+          Name: Color
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabGroups
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabGroups
+      - Name: title
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabGroups
+      - Name: windowId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabGroups
+- File: webext/chrome/tab_groups.json
+  WebextProp:
+    Name: TAB_GROUP_ID_NONE
+    Type:
+      Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabGroups
+- File: webext/chrome/tab_groups.json
+  Dict:
+    Name: TabGroup
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabGroups
+    Fields:
+      - Name: collapsed
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabGroups
+      - Name: color
+        Required: true
+        Type:
+          Name: Color
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabGroups
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabGroups
+      - Name: id
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabGroups
+      - Name: title
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabGroups
+      - Name: windowId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabGroups
+- File: webext/chrome/tab_groups.json
+  Dict:
+    Name: UpdateArgUpdateProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabGroups
+    Fields:
+      - Name: collapsed
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabGroups
+      - Name: color
+        Type:
+          Name: Color
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabGroups
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabGroups
+      - Name: title
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabGroups
+- File: webext/chrome/tab_groups.json
+  WebextFunc:
+    Name: get
+    Args:
+      - Name: groupId
+        Type:
+          Name: long long
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: TabGroup
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - tabGroups
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabGroups
+- File: webext/chrome/tab_groups.json
+  WebextFunc:
+    Name: move
+    Args:
+      - Name: groupId
+        Type:
+          Name: long long
+      - Name: moveProperties
+        Type:
+          Name: MoveArgMoveProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabGroups
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: TabGroup
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - tabGroups
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabGroups
+- File: webext/chrome/tab_groups.json
+  WebextEvent:
+    Name: onCreated
+    Args:
+      - Name: group
+        Type:
+          Name: TabGroup
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabGroups
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabGroups
+- File: webext/chrome/tab_groups.json
+  WebextEvent:
+    Name: onMoved
+    Args:
+      - Name: group
+        Type:
+          Name: TabGroup
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabGroups
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabGroups
+- File: webext/chrome/tab_groups.json
+  WebextEvent:
+    Name: onRemoved
+    Args:
+      - Name: group
+        Type:
+          Name: TabGroup
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabGroups
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabGroups
+- File: webext/chrome/tab_groups.json
+  WebextEvent:
+    Name: onUpdated
+    Args:
+      - Name: group
+        Type:
+          Name: TabGroup
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabGroups
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabGroups
+- File: webext/chrome/tab_groups.json
+  WebextFunc:
+    Name: query
+    Args:
+      - Name: queryInfo
+        Type:
+          Name: QueryArgQueryInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabGroups
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: TabGroup
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - tabGroups
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - tabGroups
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabGroups
+- File: webext/chrome/tab_groups.json
+  WebextFunc:
+    Name: update
+    Args:
+      - Name: groupId
+        Type:
+          Name: long long
+      - Name: updateProperties
+        Type:
+          Name: UpdateArgUpdateProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabGroups
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: TabGroup
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - tabGroups
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabGroups

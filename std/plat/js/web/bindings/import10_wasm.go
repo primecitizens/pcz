@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web store_AudioEncoderInit
 //go:noescape
@@ -93,11 +91,11 @@ func GetAudioEncoderEncodeQueueSize(
 
 //go:wasmimport plat/js/web has_AudioEncoder_Configure
 //go:noescape
-func HasAudioEncoderConfigure(this js.Ref) js.Ref
+func HasFuncAudioEncoderConfigure(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioEncoder_Configure
 //go:noescape
-func AudioEncoderConfigureFunc(this js.Ref) js.Ref
+func FuncAudioEncoderConfigure(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioEncoder_Configure
 //go:noescape
@@ -113,11 +111,11 @@ func TryAudioEncoderConfigure(
 
 //go:wasmimport plat/js/web has_AudioEncoder_Encode
 //go:noescape
-func HasAudioEncoderEncode(this js.Ref) js.Ref
+func HasFuncAudioEncoderEncode(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioEncoder_Encode
 //go:noescape
-func AudioEncoderEncodeFunc(this js.Ref) js.Ref
+func FuncAudioEncoderEncode(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioEncoder_Encode
 //go:noescape
@@ -133,11 +131,11 @@ func TryAudioEncoderEncode(
 
 //go:wasmimport plat/js/web has_AudioEncoder_Flush
 //go:noescape
-func HasAudioEncoderFlush(this js.Ref) js.Ref
+func HasFuncAudioEncoderFlush(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioEncoder_Flush
 //go:noescape
-func AudioEncoderFlushFunc(this js.Ref) js.Ref
+func FuncAudioEncoderFlush(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioEncoder_Flush
 //go:noescape
@@ -151,11 +149,11 @@ func TryAudioEncoderFlush(
 
 //go:wasmimport plat/js/web has_AudioEncoder_Reset
 //go:noescape
-func HasAudioEncoderReset(this js.Ref) js.Ref
+func HasFuncAudioEncoderReset(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioEncoder_Reset
 //go:noescape
-func AudioEncoderResetFunc(this js.Ref) js.Ref
+func FuncAudioEncoderReset(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioEncoder_Reset
 //go:noescape
@@ -169,11 +167,11 @@ func TryAudioEncoderReset(
 
 //go:wasmimport plat/js/web has_AudioEncoder_Close
 //go:noescape
-func HasAudioEncoderClose(this js.Ref) js.Ref
+func HasFuncAudioEncoderClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioEncoder_Close
 //go:noescape
-func AudioEncoderCloseFunc(this js.Ref) js.Ref
+func FuncAudioEncoderClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioEncoder_Close
 //go:noescape
@@ -187,11 +185,11 @@ func TryAudioEncoderClose(
 
 //go:wasmimport plat/js/web has_AudioEncoder_IsConfigSupported
 //go:noescape
-func HasAudioEncoderIsConfigSupported(this js.Ref) js.Ref
+func HasFuncAudioEncoderIsConfigSupported(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioEncoder_IsConfigSupported
 //go:noescape
-func AudioEncoderIsConfigSupportedFunc(this js.Ref) js.Ref
+func FuncAudioEncoderIsConfigSupported(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioEncoder_IsConfigSupported
 //go:noescape
@@ -258,11 +256,11 @@ func SetAudioNodeChannelInterpretation(
 
 //go:wasmimport plat/js/web has_AudioNode_Connect
 //go:noescape
-func HasAudioNodeConnect(this js.Ref) js.Ref
+func HasFuncAudioNodeConnect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioNode_Connect
 //go:noescape
-func AudioNodeConnectFunc(this js.Ref) js.Ref
+func FuncAudioNodeConnect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioNode_Connect
 //go:noescape
@@ -282,11 +280,11 @@ func TryAudioNodeConnect(
 
 //go:wasmimport plat/js/web has_AudioNode_Connect1
 //go:noescape
-func HasAudioNodeConnect1(this js.Ref) js.Ref
+func HasFuncAudioNodeConnect1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioNode_Connect1
 //go:noescape
-func AudioNodeConnect1Func(this js.Ref) js.Ref
+func FuncAudioNodeConnect1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioNode_Connect1
 //go:noescape
@@ -304,11 +302,11 @@ func TryAudioNodeConnect1(
 
 //go:wasmimport plat/js/web has_AudioNode_Connect2
 //go:noescape
-func HasAudioNodeConnect2(this js.Ref) js.Ref
+func HasFuncAudioNodeConnect2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioNode_Connect2
 //go:noescape
-func AudioNodeConnect2Func(this js.Ref) js.Ref
+func FuncAudioNodeConnect2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioNode_Connect2
 //go:noescape
@@ -324,11 +322,11 @@ func TryAudioNodeConnect2(
 
 //go:wasmimport plat/js/web has_AudioNode_Connect3
 //go:noescape
-func HasAudioNodeConnect3(this js.Ref) js.Ref
+func HasFuncAudioNodeConnect3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioNode_Connect3
 //go:noescape
-func AudioNodeConnect3Func(this js.Ref) js.Ref
+func FuncAudioNodeConnect3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioNode_Connect3
 //go:noescape
@@ -346,11 +344,11 @@ func TryAudioNodeConnect3(
 
 //go:wasmimport plat/js/web has_AudioNode_Connect4
 //go:noescape
-func HasAudioNodeConnect4(this js.Ref) js.Ref
+func HasFuncAudioNodeConnect4(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioNode_Connect4
 //go:noescape
-func AudioNodeConnect4Func(this js.Ref) js.Ref
+func FuncAudioNodeConnect4(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioNode_Connect4
 //go:noescape
@@ -366,11 +364,11 @@ func TryAudioNodeConnect4(
 
 //go:wasmimport plat/js/web has_AudioNode_Disconnect
 //go:noescape
-func HasAudioNodeDisconnect(this js.Ref) js.Ref
+func HasFuncAudioNodeDisconnect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioNode_Disconnect
 //go:noescape
-func AudioNodeDisconnectFunc(this js.Ref) js.Ref
+func FuncAudioNodeDisconnect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioNode_Disconnect
 //go:noescape
@@ -384,11 +382,11 @@ func TryAudioNodeDisconnect(
 
 //go:wasmimport plat/js/web has_AudioNode_Disconnect1
 //go:noescape
-func HasAudioNodeDisconnect1(this js.Ref) js.Ref
+func HasFuncAudioNodeDisconnect1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioNode_Disconnect1
 //go:noescape
-func AudioNodeDisconnect1Func(this js.Ref) js.Ref
+func FuncAudioNodeDisconnect1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioNode_Disconnect1
 //go:noescape
@@ -404,11 +402,11 @@ func TryAudioNodeDisconnect1(
 
 //go:wasmimport plat/js/web has_AudioNode_Disconnect2
 //go:noescape
-func HasAudioNodeDisconnect2(this js.Ref) js.Ref
+func HasFuncAudioNodeDisconnect2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioNode_Disconnect2
 //go:noescape
-func AudioNodeDisconnect2Func(this js.Ref) js.Ref
+func FuncAudioNodeDisconnect2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioNode_Disconnect2
 //go:noescape
@@ -424,11 +422,11 @@ func TryAudioNodeDisconnect2(
 
 //go:wasmimport plat/js/web has_AudioNode_Disconnect3
 //go:noescape
-func HasAudioNodeDisconnect3(this js.Ref) js.Ref
+func HasFuncAudioNodeDisconnect3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioNode_Disconnect3
 //go:noescape
-func AudioNodeDisconnect3Func(this js.Ref) js.Ref
+func FuncAudioNodeDisconnect3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioNode_Disconnect3
 //go:noescape
@@ -446,11 +444,11 @@ func TryAudioNodeDisconnect3(
 
 //go:wasmimport plat/js/web has_AudioNode_Disconnect4
 //go:noescape
-func HasAudioNodeDisconnect4(this js.Ref) js.Ref
+func HasFuncAudioNodeDisconnect4(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioNode_Disconnect4
 //go:noescape
-func AudioNodeDisconnect4Func(this js.Ref) js.Ref
+func FuncAudioNodeDisconnect4(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioNode_Disconnect4
 //go:noescape
@@ -470,11 +468,11 @@ func TryAudioNodeDisconnect4(
 
 //go:wasmimport plat/js/web has_AudioNode_Disconnect5
 //go:noescape
-func HasAudioNodeDisconnect5(this js.Ref) js.Ref
+func HasFuncAudioNodeDisconnect5(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioNode_Disconnect5
 //go:noescape
-func AudioNodeDisconnect5Func(this js.Ref) js.Ref
+func FuncAudioNodeDisconnect5(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioNode_Disconnect5
 //go:noescape
@@ -490,11 +488,11 @@ func TryAudioNodeDisconnect5(
 
 //go:wasmimport plat/js/web has_AudioNode_Disconnect6
 //go:noescape
-func HasAudioNodeDisconnect6(this js.Ref) js.Ref
+func HasFuncAudioNodeDisconnect6(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioNode_Disconnect6
 //go:noescape
-func AudioNodeDisconnect6Func(this js.Ref) js.Ref
+func FuncAudioNodeDisconnect6(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioNode_Disconnect6
 //go:noescape
@@ -604,11 +602,11 @@ func GetAudioRenderCapacityEventUnderrunRatio(
 
 //go:wasmimport plat/js/web has_AudioScheduledSourceNode_Start
 //go:noescape
-func HasAudioScheduledSourceNodeStart(this js.Ref) js.Ref
+func HasFuncAudioScheduledSourceNodeStart(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioScheduledSourceNode_Start
 //go:noescape
-func AudioScheduledSourceNodeStartFunc(this js.Ref) js.Ref
+func FuncAudioScheduledSourceNodeStart(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioScheduledSourceNode_Start
 //go:noescape
@@ -624,11 +622,11 @@ func TryAudioScheduledSourceNodeStart(
 
 //go:wasmimport plat/js/web has_AudioScheduledSourceNode_Start1
 //go:noescape
-func HasAudioScheduledSourceNodeStart1(this js.Ref) js.Ref
+func HasFuncAudioScheduledSourceNodeStart1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioScheduledSourceNode_Start1
 //go:noescape
-func AudioScheduledSourceNodeStart1Func(this js.Ref) js.Ref
+func FuncAudioScheduledSourceNodeStart1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioScheduledSourceNode_Start1
 //go:noescape
@@ -642,11 +640,11 @@ func TryAudioScheduledSourceNodeStart1(
 
 //go:wasmimport plat/js/web has_AudioScheduledSourceNode_Stop
 //go:noescape
-func HasAudioScheduledSourceNodeStop(this js.Ref) js.Ref
+func HasFuncAudioScheduledSourceNodeStop(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioScheduledSourceNode_Stop
 //go:noescape
-func AudioScheduledSourceNodeStopFunc(this js.Ref) js.Ref
+func FuncAudioScheduledSourceNodeStop(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioScheduledSourceNode_Stop
 //go:noescape
@@ -662,11 +660,11 @@ func TryAudioScheduledSourceNodeStop(
 
 //go:wasmimport plat/js/web has_AudioScheduledSourceNode_Stop1
 //go:noescape
-func HasAudioScheduledSourceNodeStop1(this js.Ref) js.Ref
+func HasFuncAudioScheduledSourceNodeStop1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioScheduledSourceNode_Stop1
 //go:noescape
-func AudioScheduledSourceNodeStop1Func(this js.Ref) js.Ref
+func FuncAudioScheduledSourceNodeStop1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioScheduledSourceNode_Stop1
 //go:noescape
@@ -705,11 +703,11 @@ func GetAudioWorkletGlobalScopePort(
 
 //go:wasmimport plat/js/web has_AudioWorkletGlobalScope_RegisterProcessor
 //go:noescape
-func HasAudioWorkletGlobalScopeRegisterProcessor(this js.Ref) js.Ref
+func HasFuncAudioWorkletGlobalScopeRegisterProcessor(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioWorkletGlobalScope_RegisterProcessor
 //go:noescape
-func AudioWorkletGlobalScopeRegisterProcessorFunc(this js.Ref) js.Ref
+func FuncAudioWorkletGlobalScopeRegisterProcessor(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioWorkletGlobalScope_RegisterProcessor
 //go:noescape

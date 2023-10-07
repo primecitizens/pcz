@@ -1,4 +1,4 @@
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Interface:
     Name: MediaDeviceInfo
     ExtAttrs:
@@ -53,14 +53,14 @@
             Values:
               - Window
           - Name: SecureContext
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Enum:
     Name: MediaDeviceKind
     Values:
       - audioinput
       - audiooutput
       - videoinput
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Interface:
     Name: MediaDevices
     Inherits: EventTarget
@@ -159,7 +159,7 @@
           - Name: Promise
             Params:
               - Name: MediaStream
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: MediaElementAudioSourceNode
     Inherits: AudioNode
@@ -189,7 +189,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: MediaElementAudioSourceOptions
     Fields:
@@ -197,7 +197,7 @@
         Required: true
         Type:
           Name: HTMLMediaElement
-- File: media-capabilities.idl
+- File: webref/media-capabilities.idl
   Dict:
     Name: MediaEncodingConfiguration
     Inherits: MediaConfiguration
@@ -212,13 +212,13 @@
       - Name: audio
         Type:
           Name: AudioConfiguration
-- File: media-capabilities.idl
+- File: webref/media-capabilities.idl
   Enum:
     Name: MediaEncodingType
     Values:
       - record
       - webrtc
-- File: encrypted-media.idl
+- File: webref/encrypted-media.idl
   Interface:
     Name: MediaEncryptedEvent
     Inherits: Event
@@ -258,7 +258,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: encrypted-media.idl
+- File: webref/encrypted-media.idl
   Dict:
     Name: MediaEncryptedEventInit
     Inherits: EventInit
@@ -284,7 +284,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: MediaError
     ExtAttrs:
@@ -325,7 +325,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: mediasession.idl
+- File: webref/mediasession.idl
   Dict:
     Name: MediaImage
     Fields:
@@ -341,7 +341,7 @@
         Default: '""'
         Type:
           Name: DOMString
-- File: encrypted-media.idl
+- File: webref/encrypted-media.idl
   Interface:
     Name: MediaKeyMessageEvent
     Inherits: Event
@@ -382,7 +382,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: encrypted-media.idl
+- File: webref/encrypted-media.idl
   Dict:
     Name: MediaKeyMessageEventInit
     Inherits: EventInit
@@ -407,7 +407,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: encrypted-media.idl
+- File: webref/encrypted-media.idl
   Enum:
     Name: MediaKeyMessageType
     Values:
@@ -415,7 +415,7 @@
       - license-renewal
       - license-release
       - individualization-request
-- File: encrypted-media.idl
+- File: webref/encrypted-media.idl
   Interface:
     Name: MediaKeySession
     Inherits: EventTarget
@@ -545,7 +545,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: encrypted-media.idl
+- File: webref/encrypted-media.idl
   Enum:
     Name: MediaKeySessionClosedReason
     Values:
@@ -554,13 +554,13 @@
       - release-acknowledged
       - hardware-context-reset
       - resource-evicted
-- File: encrypted-media.idl
+- File: webref/encrypted-media.idl
   Enum:
     Name: MediaKeySessionType
     Values:
       - temporary
       - persistent-license
-- File: encrypted-media.idl
+- File: webref/encrypted-media.idl
   Enum:
     Name: MediaKeyStatus
     Values:
@@ -572,7 +572,7 @@
       - usable-in-future
       - status-pending
       - internal-error
-- File: encrypted-media.idl
+- File: webref/encrypted-media.idl
   Interface:
     Name: MediaKeyStatusMap
     ExtAttrs:
@@ -621,7 +621,7 @@
       TypeParams:
         - Name: BufferSource
         - Name: MediaKeyStatus
-- File: encrypted-media.idl
+- File: webref/encrypted-media.idl
   Interface:
     Name: MediaKeySystemAccess
     ExtAttrs:
@@ -658,7 +658,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: encrypted-media.idl
+- File: webref/encrypted-media.idl
   Dict:
     Name: MediaKeySystemConfiguration
     Fields:
@@ -697,7 +697,7 @@
           Name: sequence
           Params:
             - Name: DOMString
-- File: encrypted-media.idl
+- File: webref/encrypted-media.idl
   Dict:
     Name: MediaKeySystemMediaCapability
     Fields:
@@ -714,7 +714,7 @@
         Default: '""'
         Type:
           Name: DOMString
-- File: encrypted-media.idl
+- File: webref/encrypted-media.idl
   Interface:
     Name: MediaKeys
     ExtAttrs:
@@ -751,14 +751,14 @@
             Values:
               - Window
           - Name: SecureContext
-- File: encrypted-media.idl
+- File: webref/encrypted-media.idl
   Enum:
     Name: MediaKeysRequirement
     Values:
       - required
       - optional
       - not-allowed
-- File: cssom.idl
+- File: webref/cssom.idl
   Interface:
     Name: MediaList
     ExtAttrs:
@@ -818,7 +818,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: mediasession.idl
+- File: webref/mediasession.idl
   Interface:
     Name: MediaMetadata
     ExtAttrs:
@@ -867,7 +867,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: mediasession.idl
+- File: webref/mediasession.idl
   Dict:
     Name: MediaMetadataInit
     Fields:
@@ -889,7 +889,7 @@
           Name: sequence
           Params:
             - Name: MediaImage
-- File: mediasession.idl
+- File: webref/mediasession.idl
   Dict:
     Name: MediaPositionState
     Fields:
@@ -902,7 +902,7 @@
       - Name: position
         Type:
           Name: double
-- File: html.idl
+- File: webref/html.idl
   Typedef:
     Name: MediaProvider
     Type:
@@ -910,7 +910,7 @@
         - Name: MediaStream
         - Name: MediaSource
         - Name: Blob
-- File: cssom-view.idl
+- File: webref/cssom-view.idl
   Interface:
     Name: MediaQueryList
     Inherits: EventTarget
@@ -967,7 +967,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: cssom-view.idl
+- File: webref/cssom-view.idl
   Interface:
     Name: MediaQueryListEvent
     Inherits: Event
@@ -1006,7 +1006,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: cssom-view.idl
+- File: webref/cssom-view.idl
   Dict:
     Name: MediaQueryListEventInit
     Inherits: EventInit
@@ -1031,7 +1031,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: mediastream-recording.idl
+- File: webref/mediastream-recording.idl
   Interface:
     Name: MediaRecorder
     Inherits: EventTarget
@@ -1197,7 +1197,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: mediastream-recording.idl
+- File: webref/mediastream-recording.idl
   Dict:
     Name: MediaRecorderOptions
     Fields:
@@ -1224,7 +1224,7 @@
       - Name: videoKeyFrameIntervalCount
         Type:
           Name: unsigned long
-- File: mediasession.idl
+- File: webref/mediasession.idl
   Interface:
     Name: MediaSession
     ExtAttrs:
@@ -1298,7 +1298,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: mediasession.idl
+- File: webref/mediasession.idl
   Enum:
     Name: MediaSessionAction
     Values:
@@ -1316,7 +1316,7 @@
       - hangup
       - previousslide
       - nextslide
-- File: mediasession.idl
+- File: webref/mediasession.idl
   Dict:
     Name: MediaSessionActionDetails
     Fields:
@@ -1333,7 +1333,7 @@
       - Name: fastSeek
         Type:
           Name: boolean
-- File: mediasession.idl
+- File: webref/mediasession.idl
   Callback:
     Name: MediaSessionActionHandler
     Args:
@@ -1342,14 +1342,14 @@
           Name: MediaSessionActionDetails
     Returns:
       - Name: undefined
-- File: mediasession.idl
+- File: webref/mediasession.idl
   Enum:
     Name: MediaSessionPlaybackState
     Values:
       - none
       - paused
       - playing
-- File: image-capture.idl
+- File: webref/image-capture.idl
   Dict:
     Name: MediaSettingsRange
     Fields:
@@ -1362,7 +1362,7 @@
       - Name: step
         Type:
           Name: double
-- File: media-source.idl
+- File: webref/media-source.idl
   Interface:
     Name: MediaSource
     Inherits: EventTarget
@@ -1524,7 +1524,7 @@
             Values:
               - Window
               - DedicatedWorker
-- File: media-source.idl
+- File: webref/media-source.idl
   Interface:
     Name: MediaSourceHandle
     ExtAttrs:
@@ -1533,7 +1533,7 @@
         Values:
           - Window
           - DedicatedWorker
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Interface:
     Name: MediaStream
     Inherits: EventTarget
@@ -1660,7 +1660,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: MediaStreamAudioDestinationNode
     Inherits: AudioNode
@@ -1691,7 +1691,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: MediaStreamAudioSourceNode
     Inherits: AudioNode
@@ -1721,7 +1721,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: MediaStreamAudioSourceOptions
     Fields:
@@ -1729,7 +1729,7 @@
         Required: true
         Type:
           Name: MediaStream
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Dict:
     Name: MediaStreamConstraints
     Fields:
@@ -1752,7 +1752,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Interface:
     Name: MediaStreamTrack
     Inherits: EventTarget
@@ -1911,7 +1911,7 @@
         Returns:
           - Name: CaptureHandle
             Nullable: true
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: MediaStreamTrackAudioSourceNode
     Inherits: AudioNode
@@ -1931,7 +1931,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: MediaStreamTrackAudioSourceOptions
     Fields:

@@ -11,16 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
-
-//go:wasmimport plat/js/web new_HTMLPortalElement_HTMLPortalElement
-//go:noescape
-func NewHTMLPortalElementByHTMLPortalElement() js.Ref
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web get_HTMLPortalElement_Src
 //go:noescape
@@ -48,11 +42,11 @@ func SetHTMLPortalElementReferrerPolicy(
 
 //go:wasmimport plat/js/web has_HTMLPortalElement_Activate
 //go:noescape
-func HasHTMLPortalElementActivate(this js.Ref) js.Ref
+func HasFuncHTMLPortalElementActivate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLPortalElement_Activate
 //go:noescape
-func HTMLPortalElementActivateFunc(this js.Ref) js.Ref
+func FuncHTMLPortalElementActivate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLPortalElement_Activate
 //go:noescape
@@ -68,11 +62,11 @@ func TryHTMLPortalElementActivate(
 
 //go:wasmimport plat/js/web has_HTMLPortalElement_Activate1
 //go:noescape
-func HasHTMLPortalElementActivate1(this js.Ref) js.Ref
+func HasFuncHTMLPortalElementActivate1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLPortalElement_Activate1
 //go:noescape
-func HTMLPortalElementActivate1Func(this js.Ref) js.Ref
+func FuncHTMLPortalElementActivate1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLPortalElement_Activate1
 //go:noescape
@@ -86,11 +80,11 @@ func TryHTMLPortalElementActivate1(
 
 //go:wasmimport plat/js/web has_HTMLPortalElement_PostMessage
 //go:noescape
-func HasHTMLPortalElementPostMessage(this js.Ref) js.Ref
+func HasFuncHTMLPortalElementPostMessage(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLPortalElement_PostMessage
 //go:noescape
-func HTMLPortalElementPostMessageFunc(this js.Ref) js.Ref
+func FuncHTMLPortalElementPostMessage(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLPortalElement_PostMessage
 //go:noescape
@@ -108,11 +102,11 @@ func TryHTMLPortalElementPostMessage(
 
 //go:wasmimport plat/js/web has_HTMLPortalElement_PostMessage1
 //go:noescape
-func HasHTMLPortalElementPostMessage1(this js.Ref) js.Ref
+func HasFuncHTMLPortalElementPostMessage1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLPortalElement_PostMessage1
 //go:noescape
-func HTMLPortalElementPostMessage1Func(this js.Ref) js.Ref
+func FuncHTMLPortalElementPostMessage1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLPortalElement_PostMessage1
 //go:noescape
@@ -126,10 +120,6 @@ func TryHTMLPortalElementPostMessage1(
 	this js.Ref, retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	message js.Ref) (ok js.Ref)
 
-//go:wasmimport plat/js/web new_HTMLPreElement_HTMLPreElement
-//go:noescape
-func NewHTMLPreElementByHTMLPreElement() js.Ref
-
 //go:wasmimport plat/js/web get_HTMLPreElement_Width
 //go:noescape
 func GetHTMLPreElementWidth(
@@ -141,10 +131,6 @@ func SetHTMLPreElementWidth(
 	this js.Ref,
 	val int32,
 ) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLProgressElement_HTMLProgressElement
-//go:noescape
-func NewHTMLProgressElementByHTMLProgressElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLProgressElement_Value
 //go:noescape
@@ -180,10 +166,6 @@ func GetHTMLProgressElementPosition(
 func GetHTMLProgressElementLabels(
 	this js.Ref, retPtr unsafe.Pointer) (ok js.Ref)
 
-//go:wasmimport plat/js/web new_HTMLQuoteElement_HTMLQuoteElement
-//go:noescape
-func NewHTMLQuoteElementByHTMLQuoteElement() js.Ref
-
 //go:wasmimport plat/js/web get_HTMLQuoteElement_Cite
 //go:noescape
 func GetHTMLQuoteElementCite(
@@ -195,10 +177,6 @@ func SetHTMLQuoteElementCite(
 	this js.Ref,
 	val js.Ref,
 ) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLSelectElement_HTMLSelectElement
-//go:noescape
-func NewHTMLSelectElementByHTMLSelectElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLSelectElement_Autocomplete
 //go:noescape
@@ -350,11 +328,11 @@ func GetHTMLSelectElementLabels(
 
 //go:wasmimport plat/js/web has_HTMLSelectElement_Item
 //go:noescape
-func HasHTMLSelectElementItem(this js.Ref) js.Ref
+func HasFuncHTMLSelectElementItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLSelectElement_Item
 //go:noescape
-func HTMLSelectElementItemFunc(this js.Ref) js.Ref
+func FuncHTMLSelectElementItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLSelectElement_Item
 //go:noescape
@@ -370,11 +348,11 @@ func TryHTMLSelectElementItem(
 
 //go:wasmimport plat/js/web has_HTMLSelectElement_NamedItem
 //go:noescape
-func HasHTMLSelectElementNamedItem(this js.Ref) js.Ref
+func HasFuncHTMLSelectElementNamedItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLSelectElement_NamedItem
 //go:noescape
-func HTMLSelectElementNamedItemFunc(this js.Ref) js.Ref
+func FuncHTMLSelectElementNamedItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLSelectElement_NamedItem
 //go:noescape
@@ -390,11 +368,11 @@ func TryHTMLSelectElementNamedItem(
 
 //go:wasmimport plat/js/web has_HTMLSelectElement_Add
 //go:noescape
-func HasHTMLSelectElementAdd(this js.Ref) js.Ref
+func HasFuncHTMLSelectElementAdd(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLSelectElement_Add
 //go:noescape
-func HTMLSelectElementAddFunc(this js.Ref) js.Ref
+func FuncHTMLSelectElementAdd(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLSelectElement_Add
 //go:noescape
@@ -412,11 +390,11 @@ func TryHTMLSelectElementAdd(
 
 //go:wasmimport plat/js/web has_HTMLSelectElement_Add1
 //go:noescape
-func HasHTMLSelectElementAdd1(this js.Ref) js.Ref
+func HasFuncHTMLSelectElementAdd1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLSelectElement_Add1
 //go:noescape
-func HTMLSelectElementAdd1Func(this js.Ref) js.Ref
+func FuncHTMLSelectElementAdd1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLSelectElement_Add1
 //go:noescape
@@ -432,11 +410,11 @@ func TryHTMLSelectElementAdd1(
 
 //go:wasmimport plat/js/web has_HTMLSelectElement_Remove
 //go:noescape
-func HasHTMLSelectElementRemove(this js.Ref) js.Ref
+func HasFuncHTMLSelectElementRemove(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLSelectElement_Remove
 //go:noescape
-func HTMLSelectElementRemoveFunc(this js.Ref) js.Ref
+func FuncHTMLSelectElementRemove(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLSelectElement_Remove
 //go:noescape
@@ -450,11 +428,11 @@ func TryHTMLSelectElementRemove(
 
 //go:wasmimport plat/js/web has_HTMLSelectElement_Remove1
 //go:noescape
-func HasHTMLSelectElementRemove1(this js.Ref) js.Ref
+func HasFuncHTMLSelectElementRemove1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLSelectElement_Remove1
 //go:noescape
-func HTMLSelectElementRemove1Func(this js.Ref) js.Ref
+func FuncHTMLSelectElementRemove1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLSelectElement_Remove1
 //go:noescape
@@ -470,11 +448,11 @@ func TryHTMLSelectElementRemove1(
 
 //go:wasmimport plat/js/web has_HTMLSelectElement_Set
 //go:noescape
-func HasHTMLSelectElementSet(this js.Ref) js.Ref
+func HasFuncHTMLSelectElementSet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLSelectElement_Set
 //go:noescape
-func HTMLSelectElementSetFunc(this js.Ref) js.Ref
+func FuncHTMLSelectElementSet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLSelectElement_Set
 //go:noescape
@@ -492,11 +470,11 @@ func TryHTMLSelectElementSet(
 
 //go:wasmimport plat/js/web has_HTMLSelectElement_CheckValidity
 //go:noescape
-func HasHTMLSelectElementCheckValidity(this js.Ref) js.Ref
+func HasFuncHTMLSelectElementCheckValidity(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLSelectElement_CheckValidity
 //go:noescape
-func HTMLSelectElementCheckValidityFunc(this js.Ref) js.Ref
+func FuncHTMLSelectElementCheckValidity(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLSelectElement_CheckValidity
 //go:noescape
@@ -510,11 +488,11 @@ func TryHTMLSelectElementCheckValidity(
 
 //go:wasmimport plat/js/web has_HTMLSelectElement_ReportValidity
 //go:noescape
-func HasHTMLSelectElementReportValidity(this js.Ref) js.Ref
+func HasFuncHTMLSelectElementReportValidity(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLSelectElement_ReportValidity
 //go:noescape
-func HTMLSelectElementReportValidityFunc(this js.Ref) js.Ref
+func FuncHTMLSelectElementReportValidity(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLSelectElement_ReportValidity
 //go:noescape
@@ -528,11 +506,11 @@ func TryHTMLSelectElementReportValidity(
 
 //go:wasmimport plat/js/web has_HTMLSelectElement_SetCustomValidity
 //go:noescape
-func HasHTMLSelectElementSetCustomValidity(this js.Ref) js.Ref
+func HasFuncHTMLSelectElementSetCustomValidity(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLSelectElement_SetCustomValidity
 //go:noescape
-func HTMLSelectElementSetCustomValidityFunc(this js.Ref) js.Ref
+func FuncHTMLSelectElementSetCustomValidity(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLSelectElement_SetCustomValidity
 //go:noescape
@@ -545,10 +523,6 @@ func CallHTMLSelectElementSetCustomValidity(
 func TryHTMLSelectElementSetCustomValidity(
 	this js.Ref, retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	err js.Ref) (ok js.Ref)
-
-//go:wasmimport plat/js/web new_HTMLSourceElement_HTMLSourceElement
-//go:noescape
-func NewHTMLSourceElementByHTMLSourceElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLSourceElement_Src
 //go:noescape
@@ -634,14 +608,6 @@ func SetHTMLSourceElementHeight(
 	val uint32,
 ) js.Ref
 
-//go:wasmimport plat/js/web new_HTMLSpanElement_HTMLSpanElement
-//go:noescape
-func NewHTMLSpanElementByHTMLSpanElement() js.Ref
-
-//go:wasmimport plat/js/web new_HTMLStyleElement_HTMLStyleElement
-//go:noescape
-func NewHTMLStyleElementByHTMLStyleElement() js.Ref
-
 //go:wasmimport plat/js/web get_HTMLStyleElement_Disabled
 //go:noescape
 func GetHTMLStyleElementDisabled(
@@ -688,10 +654,6 @@ func SetHTMLStyleElementType(
 func GetHTMLStyleElementSheet(
 	this js.Ref, retPtr unsafe.Pointer) (ok js.Ref)
 
-//go:wasmimport plat/js/web new_HTMLTableCaptionElement_HTMLTableCaptionElement
-//go:noescape
-func NewHTMLTableCaptionElementByHTMLTableCaptionElement() js.Ref
-
 //go:wasmimport plat/js/web get_HTMLTableCaptionElement_Align
 //go:noescape
 func GetHTMLTableCaptionElementAlign(
@@ -703,10 +665,6 @@ func SetHTMLTableCaptionElementAlign(
 	this js.Ref,
 	val js.Ref,
 ) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLTableCellElement_HTMLTableCellElement
-//go:noescape
-func NewHTMLTableCellElementByHTMLTableCellElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLTableCellElement_ColSpan
 //go:noescape
@@ -881,10 +839,6 @@ func SetHTMLTableCellElementBgColor(
 	val js.Ref,
 ) js.Ref
 
-//go:wasmimport plat/js/web new_HTMLTableColElement_HTMLTableColElement
-//go:noescape
-func NewHTMLTableColElementByHTMLTableColElement() js.Ref
-
 //go:wasmimport plat/js/web get_HTMLTableColElement_Span
 //go:noescape
 func GetHTMLTableColElementSpan(
@@ -956,10 +910,6 @@ func SetHTMLTableColElementWidth(
 	this js.Ref,
 	val js.Ref,
 ) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLTableRowElement_HTMLTableRowElement
-//go:noescape
-func NewHTMLTableRowElementByHTMLTableRowElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLTableRowElement_RowIndex
 //go:noescape
@@ -1038,11 +988,11 @@ func SetHTMLTableRowElementBgColor(
 
 //go:wasmimport plat/js/web has_HTMLTableRowElement_InsertCell
 //go:noescape
-func HasHTMLTableRowElementInsertCell(this js.Ref) js.Ref
+func HasFuncHTMLTableRowElementInsertCell(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTableRowElement_InsertCell
 //go:noescape
-func HTMLTableRowElementInsertCellFunc(this js.Ref) js.Ref
+func FuncHTMLTableRowElementInsertCell(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTableRowElement_InsertCell
 //go:noescape
@@ -1058,11 +1008,11 @@ func TryHTMLTableRowElementInsertCell(
 
 //go:wasmimport plat/js/web has_HTMLTableRowElement_InsertCell1
 //go:noescape
-func HasHTMLTableRowElementInsertCell1(this js.Ref) js.Ref
+func HasFuncHTMLTableRowElementInsertCell1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTableRowElement_InsertCell1
 //go:noescape
-func HTMLTableRowElementInsertCell1Func(this js.Ref) js.Ref
+func FuncHTMLTableRowElementInsertCell1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTableRowElement_InsertCell1
 //go:noescape
@@ -1076,11 +1026,11 @@ func TryHTMLTableRowElementInsertCell1(
 
 //go:wasmimport plat/js/web has_HTMLTableRowElement_DeleteCell
 //go:noescape
-func HasHTMLTableRowElementDeleteCell(this js.Ref) js.Ref
+func HasFuncHTMLTableRowElementDeleteCell(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTableRowElement_DeleteCell
 //go:noescape
-func HTMLTableRowElementDeleteCellFunc(this js.Ref) js.Ref
+func FuncHTMLTableRowElementDeleteCell(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTableRowElement_DeleteCell
 //go:noescape
@@ -1093,10 +1043,6 @@ func CallHTMLTableRowElementDeleteCell(
 func TryHTMLTableRowElementDeleteCell(
 	this js.Ref, retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	index int32) (ok js.Ref)
-
-//go:wasmimport plat/js/web new_HTMLTableSectionElement_HTMLTableSectionElement
-//go:noescape
-func NewHTMLTableSectionElementByHTMLTableSectionElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLTableSectionElement_Rows
 //go:noescape
@@ -1153,11 +1099,11 @@ func SetHTMLTableSectionElementVAlign(
 
 //go:wasmimport plat/js/web has_HTMLTableSectionElement_InsertRow
 //go:noescape
-func HasHTMLTableSectionElementInsertRow(this js.Ref) js.Ref
+func HasFuncHTMLTableSectionElementInsertRow(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTableSectionElement_InsertRow
 //go:noescape
-func HTMLTableSectionElementInsertRowFunc(this js.Ref) js.Ref
+func FuncHTMLTableSectionElementInsertRow(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTableSectionElement_InsertRow
 //go:noescape
@@ -1173,11 +1119,11 @@ func TryHTMLTableSectionElementInsertRow(
 
 //go:wasmimport plat/js/web has_HTMLTableSectionElement_InsertRow1
 //go:noescape
-func HasHTMLTableSectionElementInsertRow1(this js.Ref) js.Ref
+func HasFuncHTMLTableSectionElementInsertRow1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTableSectionElement_InsertRow1
 //go:noescape
-func HTMLTableSectionElementInsertRow1Func(this js.Ref) js.Ref
+func FuncHTMLTableSectionElementInsertRow1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTableSectionElement_InsertRow1
 //go:noescape
@@ -1191,11 +1137,11 @@ func TryHTMLTableSectionElementInsertRow1(
 
 //go:wasmimport plat/js/web has_HTMLTableSectionElement_DeleteRow
 //go:noescape
-func HasHTMLTableSectionElementDeleteRow(this js.Ref) js.Ref
+func HasFuncHTMLTableSectionElementDeleteRow(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTableSectionElement_DeleteRow
 //go:noescape
-func HTMLTableSectionElementDeleteRowFunc(this js.Ref) js.Ref
+func FuncHTMLTableSectionElementDeleteRow(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTableSectionElement_DeleteRow
 //go:noescape
@@ -1208,10 +1154,6 @@ func CallHTMLTableSectionElementDeleteRow(
 func TryHTMLTableSectionElementDeleteRow(
 	this js.Ref, retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	index int32) (ok js.Ref)
-
-//go:wasmimport plat/js/web new_HTMLTableElement_HTMLTableElement
-//go:noescape
-func NewHTMLTableElementByHTMLTableElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLTableElement_Caption
 //go:noescape
@@ -1369,11 +1311,11 @@ func SetHTMLTableElementCellSpacing(
 
 //go:wasmimport plat/js/web has_HTMLTableElement_CreateCaption
 //go:noescape
-func HasHTMLTableElementCreateCaption(this js.Ref) js.Ref
+func HasFuncHTMLTableElementCreateCaption(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTableElement_CreateCaption
 //go:noescape
-func HTMLTableElementCreateCaptionFunc(this js.Ref) js.Ref
+func FuncHTMLTableElementCreateCaption(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTableElement_CreateCaption
 //go:noescape
@@ -1387,11 +1329,11 @@ func TryHTMLTableElementCreateCaption(
 
 //go:wasmimport plat/js/web has_HTMLTableElement_DeleteCaption
 //go:noescape
-func HasHTMLTableElementDeleteCaption(this js.Ref) js.Ref
+func HasFuncHTMLTableElementDeleteCaption(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTableElement_DeleteCaption
 //go:noescape
-func HTMLTableElementDeleteCaptionFunc(this js.Ref) js.Ref
+func FuncHTMLTableElementDeleteCaption(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTableElement_DeleteCaption
 //go:noescape
@@ -1405,11 +1347,11 @@ func TryHTMLTableElementDeleteCaption(
 
 //go:wasmimport plat/js/web has_HTMLTableElement_CreateTHead
 //go:noescape
-func HasHTMLTableElementCreateTHead(this js.Ref) js.Ref
+func HasFuncHTMLTableElementCreateTHead(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTableElement_CreateTHead
 //go:noescape
-func HTMLTableElementCreateTHeadFunc(this js.Ref) js.Ref
+func FuncHTMLTableElementCreateTHead(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTableElement_CreateTHead
 //go:noescape
@@ -1423,11 +1365,11 @@ func TryHTMLTableElementCreateTHead(
 
 //go:wasmimport plat/js/web has_HTMLTableElement_DeleteTHead
 //go:noescape
-func HasHTMLTableElementDeleteTHead(this js.Ref) js.Ref
+func HasFuncHTMLTableElementDeleteTHead(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTableElement_DeleteTHead
 //go:noescape
-func HTMLTableElementDeleteTHeadFunc(this js.Ref) js.Ref
+func FuncHTMLTableElementDeleteTHead(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTableElement_DeleteTHead
 //go:noescape
@@ -1441,11 +1383,11 @@ func TryHTMLTableElementDeleteTHead(
 
 //go:wasmimport plat/js/web has_HTMLTableElement_CreateTFoot
 //go:noescape
-func HasHTMLTableElementCreateTFoot(this js.Ref) js.Ref
+func HasFuncHTMLTableElementCreateTFoot(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTableElement_CreateTFoot
 //go:noescape
-func HTMLTableElementCreateTFootFunc(this js.Ref) js.Ref
+func FuncHTMLTableElementCreateTFoot(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTableElement_CreateTFoot
 //go:noescape
@@ -1459,11 +1401,11 @@ func TryHTMLTableElementCreateTFoot(
 
 //go:wasmimport plat/js/web has_HTMLTableElement_DeleteTFoot
 //go:noescape
-func HasHTMLTableElementDeleteTFoot(this js.Ref) js.Ref
+func HasFuncHTMLTableElementDeleteTFoot(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTableElement_DeleteTFoot
 //go:noescape
-func HTMLTableElementDeleteTFootFunc(this js.Ref) js.Ref
+func FuncHTMLTableElementDeleteTFoot(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTableElement_DeleteTFoot
 //go:noescape
@@ -1477,11 +1419,11 @@ func TryHTMLTableElementDeleteTFoot(
 
 //go:wasmimport plat/js/web has_HTMLTableElement_CreateTBody
 //go:noescape
-func HasHTMLTableElementCreateTBody(this js.Ref) js.Ref
+func HasFuncHTMLTableElementCreateTBody(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTableElement_CreateTBody
 //go:noescape
-func HTMLTableElementCreateTBodyFunc(this js.Ref) js.Ref
+func FuncHTMLTableElementCreateTBody(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTableElement_CreateTBody
 //go:noescape
@@ -1495,11 +1437,11 @@ func TryHTMLTableElementCreateTBody(
 
 //go:wasmimport plat/js/web has_HTMLTableElement_InsertRow
 //go:noescape
-func HasHTMLTableElementInsertRow(this js.Ref) js.Ref
+func HasFuncHTMLTableElementInsertRow(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTableElement_InsertRow
 //go:noescape
-func HTMLTableElementInsertRowFunc(this js.Ref) js.Ref
+func FuncHTMLTableElementInsertRow(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTableElement_InsertRow
 //go:noescape
@@ -1515,11 +1457,11 @@ func TryHTMLTableElementInsertRow(
 
 //go:wasmimport plat/js/web has_HTMLTableElement_InsertRow1
 //go:noescape
-func HasHTMLTableElementInsertRow1(this js.Ref) js.Ref
+func HasFuncHTMLTableElementInsertRow1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTableElement_InsertRow1
 //go:noescape
-func HTMLTableElementInsertRow1Func(this js.Ref) js.Ref
+func FuncHTMLTableElementInsertRow1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTableElement_InsertRow1
 //go:noescape
@@ -1533,11 +1475,11 @@ func TryHTMLTableElementInsertRow1(
 
 //go:wasmimport plat/js/web has_HTMLTableElement_DeleteRow
 //go:noescape
-func HasHTMLTableElementDeleteRow(this js.Ref) js.Ref
+func HasFuncHTMLTableElementDeleteRow(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTableElement_DeleteRow
 //go:noescape
-func HTMLTableElementDeleteRowFunc(this js.Ref) js.Ref
+func FuncHTMLTableElementDeleteRow(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTableElement_DeleteRow
 //go:noescape
@@ -1551,18 +1493,10 @@ func TryHTMLTableElementDeleteRow(
 	this js.Ref, retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	index int32) (ok js.Ref)
 
-//go:wasmimport plat/js/web new_HTMLTemplateElement_HTMLTemplateElement
-//go:noescape
-func NewHTMLTemplateElementByHTMLTemplateElement() js.Ref
-
 //go:wasmimport plat/js/web get_HTMLTemplateElement_Content
 //go:noescape
 func GetHTMLTemplateElementContent(
 	this js.Ref, retPtr unsafe.Pointer) (ok js.Ref)
-
-//go:wasmimport plat/js/web new_HTMLTextAreaElement_HTMLTextAreaElement
-//go:noescape
-func NewHTMLTextAreaElementByHTMLTextAreaElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLTextAreaElement_Autocomplete
 //go:noescape
@@ -1805,11 +1739,11 @@ func SetHTMLTextAreaElementSelectionDirection(
 
 //go:wasmimport plat/js/web has_HTMLTextAreaElement_CheckValidity
 //go:noescape
-func HasHTMLTextAreaElementCheckValidity(this js.Ref) js.Ref
+func HasFuncHTMLTextAreaElementCheckValidity(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTextAreaElement_CheckValidity
 //go:noescape
-func HTMLTextAreaElementCheckValidityFunc(this js.Ref) js.Ref
+func FuncHTMLTextAreaElementCheckValidity(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTextAreaElement_CheckValidity
 //go:noescape
@@ -1823,11 +1757,11 @@ func TryHTMLTextAreaElementCheckValidity(
 
 //go:wasmimport plat/js/web has_HTMLTextAreaElement_ReportValidity
 //go:noescape
-func HasHTMLTextAreaElementReportValidity(this js.Ref) js.Ref
+func HasFuncHTMLTextAreaElementReportValidity(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTextAreaElement_ReportValidity
 //go:noescape
-func HTMLTextAreaElementReportValidityFunc(this js.Ref) js.Ref
+func FuncHTMLTextAreaElementReportValidity(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTextAreaElement_ReportValidity
 //go:noescape
@@ -1841,11 +1775,11 @@ func TryHTMLTextAreaElementReportValidity(
 
 //go:wasmimport plat/js/web has_HTMLTextAreaElement_SetCustomValidity
 //go:noescape
-func HasHTMLTextAreaElementSetCustomValidity(this js.Ref) js.Ref
+func HasFuncHTMLTextAreaElementSetCustomValidity(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTextAreaElement_SetCustomValidity
 //go:noescape
-func HTMLTextAreaElementSetCustomValidityFunc(this js.Ref) js.Ref
+func FuncHTMLTextAreaElementSetCustomValidity(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTextAreaElement_SetCustomValidity
 //go:noescape
@@ -1861,11 +1795,11 @@ func TryHTMLTextAreaElementSetCustomValidity(
 
 //go:wasmimport plat/js/web has_HTMLTextAreaElement_Select
 //go:noescape
-func HasHTMLTextAreaElementSelect(this js.Ref) js.Ref
+func HasFuncHTMLTextAreaElementSelect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTextAreaElement_Select
 //go:noescape
-func HTMLTextAreaElementSelectFunc(this js.Ref) js.Ref
+func FuncHTMLTextAreaElementSelect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTextAreaElement_Select
 //go:noescape
@@ -1879,11 +1813,11 @@ func TryHTMLTextAreaElementSelect(
 
 //go:wasmimport plat/js/web has_HTMLTextAreaElement_SetRangeText
 //go:noescape
-func HasHTMLTextAreaElementSetRangeText(this js.Ref) js.Ref
+func HasFuncHTMLTextAreaElementSetRangeText(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTextAreaElement_SetRangeText
 //go:noescape
-func HTMLTextAreaElementSetRangeTextFunc(this js.Ref) js.Ref
+func FuncHTMLTextAreaElementSetRangeText(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTextAreaElement_SetRangeText
 //go:noescape
@@ -1899,11 +1833,11 @@ func TryHTMLTextAreaElementSetRangeText(
 
 //go:wasmimport plat/js/web has_HTMLTextAreaElement_SetRangeText1
 //go:noescape
-func HasHTMLTextAreaElementSetRangeText1(this js.Ref) js.Ref
+func HasFuncHTMLTextAreaElementSetRangeText1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTextAreaElement_SetRangeText1
 //go:noescape
-func HTMLTextAreaElementSetRangeText1Func(this js.Ref) js.Ref
+func FuncHTMLTextAreaElementSetRangeText1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTextAreaElement_SetRangeText1
 //go:noescape
@@ -1925,11 +1859,11 @@ func TryHTMLTextAreaElementSetRangeText1(
 
 //go:wasmimport plat/js/web has_HTMLTextAreaElement_SetRangeText2
 //go:noescape
-func HasHTMLTextAreaElementSetRangeText2(this js.Ref) js.Ref
+func HasFuncHTMLTextAreaElementSetRangeText2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTextAreaElement_SetRangeText2
 //go:noescape
-func HTMLTextAreaElementSetRangeText2Func(this js.Ref) js.Ref
+func FuncHTMLTextAreaElementSetRangeText2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTextAreaElement_SetRangeText2
 //go:noescape
@@ -1949,11 +1883,11 @@ func TryHTMLTextAreaElementSetRangeText2(
 
 //go:wasmimport plat/js/web has_HTMLTextAreaElement_SetSelectionRange
 //go:noescape
-func HasHTMLTextAreaElementSetSelectionRange(this js.Ref) js.Ref
+func HasFuncHTMLTextAreaElementSetSelectionRange(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTextAreaElement_SetSelectionRange
 //go:noescape
-func HTMLTextAreaElementSetSelectionRangeFunc(this js.Ref) js.Ref
+func FuncHTMLTextAreaElementSetSelectionRange(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTextAreaElement_SetSelectionRange
 //go:noescape
@@ -1973,11 +1907,11 @@ func TryHTMLTextAreaElementSetSelectionRange(
 
 //go:wasmimport plat/js/web has_HTMLTextAreaElement_SetSelectionRange1
 //go:noescape
-func HasHTMLTextAreaElementSetSelectionRange1(this js.Ref) js.Ref
+func HasFuncHTMLTextAreaElementSetSelectionRange1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLTextAreaElement_SetSelectionRange1
 //go:noescape
-func HTMLTextAreaElementSetSelectionRange1Func(this js.Ref) js.Ref
+func FuncHTMLTextAreaElementSetSelectionRange1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLTextAreaElement_SetSelectionRange1
 //go:noescape
@@ -1993,10 +1927,6 @@ func TryHTMLTextAreaElementSetSelectionRange1(
 	start uint32,
 	end uint32) (ok js.Ref)
 
-//go:wasmimport plat/js/web new_HTMLTimeElement_HTMLTimeElement
-//go:noescape
-func NewHTMLTimeElementByHTMLTimeElement() js.Ref
-
 //go:wasmimport plat/js/web get_HTMLTimeElement_DateTime
 //go:noescape
 func GetHTMLTimeElementDateTime(
@@ -2009,10 +1939,6 @@ func SetHTMLTimeElementDateTime(
 	val js.Ref,
 ) js.Ref
 
-//go:wasmimport plat/js/web new_HTMLTitleElement_HTMLTitleElement
-//go:noescape
-func NewHTMLTitleElementByHTMLTitleElement() js.Ref
-
 //go:wasmimport plat/js/web get_HTMLTitleElement_Text
 //go:noescape
 func GetHTMLTitleElementText(
@@ -2024,10 +1950,6 @@ func SetHTMLTitleElementText(
 	this js.Ref,
 	val js.Ref,
 ) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLTrackElement_HTMLTrackElement
-//go:noescape
-func NewHTMLTrackElementByHTMLTrackElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLTrackElement_Kind
 //go:noescape
@@ -2098,10 +2020,6 @@ func GetHTMLTrackElementReadyState(
 //go:noescape
 func GetHTMLTrackElementTrack(
 	this js.Ref, retPtr unsafe.Pointer) (ok js.Ref)
-
-//go:wasmimport plat/js/web new_HTMLUListElement_HTMLUListElement
-//go:noescape
-func NewHTMLUListElementByHTMLUListElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLUListElement_Compact
 //go:noescape
@@ -2294,11 +2212,11 @@ func GetIDBIndexUnique(
 
 //go:wasmimport plat/js/web has_IDBIndex_Get
 //go:noescape
-func HasIDBIndexGet(this js.Ref) js.Ref
+func HasFuncIDBIndexGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBIndex_Get
 //go:noescape
-func IDBIndexGetFunc(this js.Ref) js.Ref
+func FuncIDBIndexGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBIndex_Get
 //go:noescape
@@ -2314,11 +2232,11 @@ func TryIDBIndexGet(
 
 //go:wasmimport plat/js/web has_IDBIndex_GetKey
 //go:noescape
-func HasIDBIndexGetKey(this js.Ref) js.Ref
+func HasFuncIDBIndexGetKey(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBIndex_GetKey
 //go:noescape
-func IDBIndexGetKeyFunc(this js.Ref) js.Ref
+func FuncIDBIndexGetKey(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBIndex_GetKey
 //go:noescape
@@ -2334,11 +2252,11 @@ func TryIDBIndexGetKey(
 
 //go:wasmimport plat/js/web has_IDBIndex_GetAll
 //go:noescape
-func HasIDBIndexGetAll(this js.Ref) js.Ref
+func HasFuncIDBIndexGetAll(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBIndex_GetAll
 //go:noescape
-func IDBIndexGetAllFunc(this js.Ref) js.Ref
+func FuncIDBIndexGetAll(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBIndex_GetAll
 //go:noescape
@@ -2356,11 +2274,11 @@ func TryIDBIndexGetAll(
 
 //go:wasmimport plat/js/web has_IDBIndex_GetAll1
 //go:noescape
-func HasIDBIndexGetAll1(this js.Ref) js.Ref
+func HasFuncIDBIndexGetAll1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBIndex_GetAll1
 //go:noescape
-func IDBIndexGetAll1Func(this js.Ref) js.Ref
+func FuncIDBIndexGetAll1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBIndex_GetAll1
 //go:noescape
@@ -2376,11 +2294,11 @@ func TryIDBIndexGetAll1(
 
 //go:wasmimport plat/js/web has_IDBIndex_GetAll2
 //go:noescape
-func HasIDBIndexGetAll2(this js.Ref) js.Ref
+func HasFuncIDBIndexGetAll2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBIndex_GetAll2
 //go:noescape
-func IDBIndexGetAll2Func(this js.Ref) js.Ref
+func FuncIDBIndexGetAll2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBIndex_GetAll2
 //go:noescape
@@ -2394,11 +2312,11 @@ func TryIDBIndexGetAll2(
 
 //go:wasmimport plat/js/web has_IDBIndex_GetAllKeys
 //go:noescape
-func HasIDBIndexGetAllKeys(this js.Ref) js.Ref
+func HasFuncIDBIndexGetAllKeys(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBIndex_GetAllKeys
 //go:noescape
-func IDBIndexGetAllKeysFunc(this js.Ref) js.Ref
+func FuncIDBIndexGetAllKeys(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBIndex_GetAllKeys
 //go:noescape
@@ -2416,11 +2334,11 @@ func TryIDBIndexGetAllKeys(
 
 //go:wasmimport plat/js/web has_IDBIndex_GetAllKeys1
 //go:noescape
-func HasIDBIndexGetAllKeys1(this js.Ref) js.Ref
+func HasFuncIDBIndexGetAllKeys1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBIndex_GetAllKeys1
 //go:noescape
-func IDBIndexGetAllKeys1Func(this js.Ref) js.Ref
+func FuncIDBIndexGetAllKeys1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBIndex_GetAllKeys1
 //go:noescape
@@ -2436,11 +2354,11 @@ func TryIDBIndexGetAllKeys1(
 
 //go:wasmimport plat/js/web has_IDBIndex_GetAllKeys2
 //go:noescape
-func HasIDBIndexGetAllKeys2(this js.Ref) js.Ref
+func HasFuncIDBIndexGetAllKeys2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBIndex_GetAllKeys2
 //go:noescape
-func IDBIndexGetAllKeys2Func(this js.Ref) js.Ref
+func FuncIDBIndexGetAllKeys2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBIndex_GetAllKeys2
 //go:noescape
@@ -2454,11 +2372,11 @@ func TryIDBIndexGetAllKeys2(
 
 //go:wasmimport plat/js/web has_IDBIndex_Count
 //go:noescape
-func HasIDBIndexCount(this js.Ref) js.Ref
+func HasFuncIDBIndexCount(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBIndex_Count
 //go:noescape
-func IDBIndexCountFunc(this js.Ref) js.Ref
+func FuncIDBIndexCount(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBIndex_Count
 //go:noescape
@@ -2474,11 +2392,11 @@ func TryIDBIndexCount(
 
 //go:wasmimport plat/js/web has_IDBIndex_Count1
 //go:noescape
-func HasIDBIndexCount1(this js.Ref) js.Ref
+func HasFuncIDBIndexCount1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBIndex_Count1
 //go:noescape
-func IDBIndexCount1Func(this js.Ref) js.Ref
+func FuncIDBIndexCount1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBIndex_Count1
 //go:noescape
@@ -2492,11 +2410,11 @@ func TryIDBIndexCount1(
 
 //go:wasmimport plat/js/web has_IDBIndex_OpenCursor
 //go:noescape
-func HasIDBIndexOpenCursor(this js.Ref) js.Ref
+func HasFuncIDBIndexOpenCursor(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBIndex_OpenCursor
 //go:noescape
-func IDBIndexOpenCursorFunc(this js.Ref) js.Ref
+func FuncIDBIndexOpenCursor(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBIndex_OpenCursor
 //go:noescape
@@ -2514,11 +2432,11 @@ func TryIDBIndexOpenCursor(
 
 //go:wasmimport plat/js/web has_IDBIndex_OpenCursor1
 //go:noescape
-func HasIDBIndexOpenCursor1(this js.Ref) js.Ref
+func HasFuncIDBIndexOpenCursor1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBIndex_OpenCursor1
 //go:noescape
-func IDBIndexOpenCursor1Func(this js.Ref) js.Ref
+func FuncIDBIndexOpenCursor1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBIndex_OpenCursor1
 //go:noescape
@@ -2534,11 +2452,11 @@ func TryIDBIndexOpenCursor1(
 
 //go:wasmimport plat/js/web has_IDBIndex_OpenCursor2
 //go:noescape
-func HasIDBIndexOpenCursor2(this js.Ref) js.Ref
+func HasFuncIDBIndexOpenCursor2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBIndex_OpenCursor2
 //go:noescape
-func IDBIndexOpenCursor2Func(this js.Ref) js.Ref
+func FuncIDBIndexOpenCursor2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBIndex_OpenCursor2
 //go:noescape
@@ -2552,11 +2470,11 @@ func TryIDBIndexOpenCursor2(
 
 //go:wasmimport plat/js/web has_IDBIndex_OpenKeyCursor
 //go:noescape
-func HasIDBIndexOpenKeyCursor(this js.Ref) js.Ref
+func HasFuncIDBIndexOpenKeyCursor(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBIndex_OpenKeyCursor
 //go:noescape
-func IDBIndexOpenKeyCursorFunc(this js.Ref) js.Ref
+func FuncIDBIndexOpenKeyCursor(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBIndex_OpenKeyCursor
 //go:noescape
@@ -2574,11 +2492,11 @@ func TryIDBIndexOpenKeyCursor(
 
 //go:wasmimport plat/js/web has_IDBIndex_OpenKeyCursor1
 //go:noescape
-func HasIDBIndexOpenKeyCursor1(this js.Ref) js.Ref
+func HasFuncIDBIndexOpenKeyCursor1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBIndex_OpenKeyCursor1
 //go:noescape
-func IDBIndexOpenKeyCursor1Func(this js.Ref) js.Ref
+func FuncIDBIndexOpenKeyCursor1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBIndex_OpenKeyCursor1
 //go:noescape
@@ -2594,11 +2512,11 @@ func TryIDBIndexOpenKeyCursor1(
 
 //go:wasmimport plat/js/web has_IDBIndex_OpenKeyCursor2
 //go:noescape
-func HasIDBIndexOpenKeyCursor2(this js.Ref) js.Ref
+func HasFuncIDBIndexOpenKeyCursor2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBIndex_OpenKeyCursor2
 //go:noescape
-func IDBIndexOpenKeyCursor2Func(this js.Ref) js.Ref
+func FuncIDBIndexOpenKeyCursor2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBIndex_OpenKeyCursor2
 //go:noescape
@@ -2665,11 +2583,11 @@ func GetIDBDatabaseObjectStoreNames(
 
 //go:wasmimport plat/js/web has_IDBDatabase_Transaction
 //go:noescape
-func HasIDBDatabaseTransaction(this js.Ref) js.Ref
+func HasFuncIDBDatabaseTransaction(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBDatabase_Transaction
 //go:noescape
-func IDBDatabaseTransactionFunc(this js.Ref) js.Ref
+func FuncIDBDatabaseTransaction(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBDatabase_Transaction
 //go:noescape
@@ -2689,11 +2607,11 @@ func TryIDBDatabaseTransaction(
 
 //go:wasmimport plat/js/web has_IDBDatabase_Transaction1
 //go:noescape
-func HasIDBDatabaseTransaction1(this js.Ref) js.Ref
+func HasFuncIDBDatabaseTransaction1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBDatabase_Transaction1
 //go:noescape
-func IDBDatabaseTransaction1Func(this js.Ref) js.Ref
+func FuncIDBDatabaseTransaction1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBDatabase_Transaction1
 //go:noescape
@@ -2711,11 +2629,11 @@ func TryIDBDatabaseTransaction1(
 
 //go:wasmimport plat/js/web has_IDBDatabase_Transaction2
 //go:noescape
-func HasIDBDatabaseTransaction2(this js.Ref) js.Ref
+func HasFuncIDBDatabaseTransaction2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBDatabase_Transaction2
 //go:noescape
-func IDBDatabaseTransaction2Func(this js.Ref) js.Ref
+func FuncIDBDatabaseTransaction2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBDatabase_Transaction2
 //go:noescape
@@ -2731,11 +2649,11 @@ func TryIDBDatabaseTransaction2(
 
 //go:wasmimport plat/js/web has_IDBDatabase_Close
 //go:noescape
-func HasIDBDatabaseClose(this js.Ref) js.Ref
+func HasFuncIDBDatabaseClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBDatabase_Close
 //go:noescape
-func IDBDatabaseCloseFunc(this js.Ref) js.Ref
+func FuncIDBDatabaseClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBDatabase_Close
 //go:noescape
@@ -2749,11 +2667,11 @@ func TryIDBDatabaseClose(
 
 //go:wasmimport plat/js/web has_IDBDatabase_CreateObjectStore
 //go:noescape
-func HasIDBDatabaseCreateObjectStore(this js.Ref) js.Ref
+func HasFuncIDBDatabaseCreateObjectStore(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBDatabase_CreateObjectStore
 //go:noescape
-func IDBDatabaseCreateObjectStoreFunc(this js.Ref) js.Ref
+func FuncIDBDatabaseCreateObjectStore(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBDatabase_CreateObjectStore
 //go:noescape
@@ -2771,11 +2689,11 @@ func TryIDBDatabaseCreateObjectStore(
 
 //go:wasmimport plat/js/web has_IDBDatabase_CreateObjectStore1
 //go:noescape
-func HasIDBDatabaseCreateObjectStore1(this js.Ref) js.Ref
+func HasFuncIDBDatabaseCreateObjectStore1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBDatabase_CreateObjectStore1
 //go:noescape
-func IDBDatabaseCreateObjectStore1Func(this js.Ref) js.Ref
+func FuncIDBDatabaseCreateObjectStore1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBDatabase_CreateObjectStore1
 //go:noescape
@@ -2791,11 +2709,11 @@ func TryIDBDatabaseCreateObjectStore1(
 
 //go:wasmimport plat/js/web has_IDBDatabase_DeleteObjectStore
 //go:noescape
-func HasIDBDatabaseDeleteObjectStore(this js.Ref) js.Ref
+func HasFuncIDBDatabaseDeleteObjectStore(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBDatabase_DeleteObjectStore
 //go:noescape
-func IDBDatabaseDeleteObjectStoreFunc(this js.Ref) js.Ref
+func FuncIDBDatabaseDeleteObjectStore(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBDatabase_DeleteObjectStore
 //go:noescape
@@ -2836,11 +2754,11 @@ func GetIDBTransactionError(
 
 //go:wasmimport plat/js/web has_IDBTransaction_ObjectStore
 //go:noescape
-func HasIDBTransactionObjectStore(this js.Ref) js.Ref
+func HasFuncIDBTransactionObjectStore(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBTransaction_ObjectStore
 //go:noescape
-func IDBTransactionObjectStoreFunc(this js.Ref) js.Ref
+func FuncIDBTransactionObjectStore(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBTransaction_ObjectStore
 //go:noescape
@@ -2856,11 +2774,11 @@ func TryIDBTransactionObjectStore(
 
 //go:wasmimport plat/js/web has_IDBTransaction_Commit
 //go:noescape
-func HasIDBTransactionCommit(this js.Ref) js.Ref
+func HasFuncIDBTransactionCommit(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBTransaction_Commit
 //go:noescape
-func IDBTransactionCommitFunc(this js.Ref) js.Ref
+func FuncIDBTransactionCommit(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBTransaction_Commit
 //go:noescape
@@ -2874,11 +2792,11 @@ func TryIDBTransactionCommit(
 
 //go:wasmimport plat/js/web has_IDBTransaction_Abort
 //go:noescape
-func HasIDBTransactionAbort(this js.Ref) js.Ref
+func HasFuncIDBTransactionAbort(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBTransaction_Abort
 //go:noescape
-func IDBTransactionAbortFunc(this js.Ref) js.Ref
+func FuncIDBTransactionAbort(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBTransaction_Abort
 //go:noescape
@@ -2924,11 +2842,11 @@ func GetIDBObjectStoreAutoIncrement(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_Put
 //go:noescape
-func HasIDBObjectStorePut(this js.Ref) js.Ref
+func HasFuncIDBObjectStorePut(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_Put
 //go:noescape
-func IDBObjectStorePutFunc(this js.Ref) js.Ref
+func FuncIDBObjectStorePut(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_Put
 //go:noescape
@@ -2946,11 +2864,11 @@ func TryIDBObjectStorePut(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_Put1
 //go:noescape
-func HasIDBObjectStorePut1(this js.Ref) js.Ref
+func HasFuncIDBObjectStorePut1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_Put1
 //go:noescape
-func IDBObjectStorePut1Func(this js.Ref) js.Ref
+func FuncIDBObjectStorePut1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_Put1
 //go:noescape
@@ -2966,11 +2884,11 @@ func TryIDBObjectStorePut1(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_Add
 //go:noescape
-func HasIDBObjectStoreAdd(this js.Ref) js.Ref
+func HasFuncIDBObjectStoreAdd(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_Add
 //go:noescape
-func IDBObjectStoreAddFunc(this js.Ref) js.Ref
+func FuncIDBObjectStoreAdd(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_Add
 //go:noescape
@@ -2988,11 +2906,11 @@ func TryIDBObjectStoreAdd(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_Add1
 //go:noescape
-func HasIDBObjectStoreAdd1(this js.Ref) js.Ref
+func HasFuncIDBObjectStoreAdd1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_Add1
 //go:noescape
-func IDBObjectStoreAdd1Func(this js.Ref) js.Ref
+func FuncIDBObjectStoreAdd1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_Add1
 //go:noescape
@@ -3008,11 +2926,11 @@ func TryIDBObjectStoreAdd1(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_Delete
 //go:noescape
-func HasIDBObjectStoreDelete(this js.Ref) js.Ref
+func HasFuncIDBObjectStoreDelete(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_Delete
 //go:noescape
-func IDBObjectStoreDeleteFunc(this js.Ref) js.Ref
+func FuncIDBObjectStoreDelete(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_Delete
 //go:noescape
@@ -3028,11 +2946,11 @@ func TryIDBObjectStoreDelete(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_Clear
 //go:noescape
-func HasIDBObjectStoreClear(this js.Ref) js.Ref
+func HasFuncIDBObjectStoreClear(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_Clear
 //go:noescape
-func IDBObjectStoreClearFunc(this js.Ref) js.Ref
+func FuncIDBObjectStoreClear(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_Clear
 //go:noescape
@@ -3046,11 +2964,11 @@ func TryIDBObjectStoreClear(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_Get
 //go:noescape
-func HasIDBObjectStoreGet(this js.Ref) js.Ref
+func HasFuncIDBObjectStoreGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_Get
 //go:noescape
-func IDBObjectStoreGetFunc(this js.Ref) js.Ref
+func FuncIDBObjectStoreGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_Get
 //go:noescape
@@ -3066,11 +2984,11 @@ func TryIDBObjectStoreGet(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_GetKey
 //go:noescape
-func HasIDBObjectStoreGetKey(this js.Ref) js.Ref
+func HasFuncIDBObjectStoreGetKey(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_GetKey
 //go:noescape
-func IDBObjectStoreGetKeyFunc(this js.Ref) js.Ref
+func FuncIDBObjectStoreGetKey(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_GetKey
 //go:noescape
@@ -3086,11 +3004,11 @@ func TryIDBObjectStoreGetKey(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_GetAll
 //go:noescape
-func HasIDBObjectStoreGetAll(this js.Ref) js.Ref
+func HasFuncIDBObjectStoreGetAll(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_GetAll
 //go:noescape
-func IDBObjectStoreGetAllFunc(this js.Ref) js.Ref
+func FuncIDBObjectStoreGetAll(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_GetAll
 //go:noescape
@@ -3108,11 +3026,11 @@ func TryIDBObjectStoreGetAll(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_GetAll1
 //go:noescape
-func HasIDBObjectStoreGetAll1(this js.Ref) js.Ref
+func HasFuncIDBObjectStoreGetAll1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_GetAll1
 //go:noescape
-func IDBObjectStoreGetAll1Func(this js.Ref) js.Ref
+func FuncIDBObjectStoreGetAll1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_GetAll1
 //go:noescape
@@ -3128,11 +3046,11 @@ func TryIDBObjectStoreGetAll1(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_GetAll2
 //go:noescape
-func HasIDBObjectStoreGetAll2(this js.Ref) js.Ref
+func HasFuncIDBObjectStoreGetAll2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_GetAll2
 //go:noescape
-func IDBObjectStoreGetAll2Func(this js.Ref) js.Ref
+func FuncIDBObjectStoreGetAll2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_GetAll2
 //go:noescape
@@ -3146,11 +3064,11 @@ func TryIDBObjectStoreGetAll2(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_GetAllKeys
 //go:noescape
-func HasIDBObjectStoreGetAllKeys(this js.Ref) js.Ref
+func HasFuncIDBObjectStoreGetAllKeys(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_GetAllKeys
 //go:noescape
-func IDBObjectStoreGetAllKeysFunc(this js.Ref) js.Ref
+func FuncIDBObjectStoreGetAllKeys(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_GetAllKeys
 //go:noescape
@@ -3168,11 +3086,11 @@ func TryIDBObjectStoreGetAllKeys(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_GetAllKeys1
 //go:noescape
-func HasIDBObjectStoreGetAllKeys1(this js.Ref) js.Ref
+func HasFuncIDBObjectStoreGetAllKeys1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_GetAllKeys1
 //go:noescape
-func IDBObjectStoreGetAllKeys1Func(this js.Ref) js.Ref
+func FuncIDBObjectStoreGetAllKeys1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_GetAllKeys1
 //go:noescape
@@ -3188,11 +3106,11 @@ func TryIDBObjectStoreGetAllKeys1(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_GetAllKeys2
 //go:noescape
-func HasIDBObjectStoreGetAllKeys2(this js.Ref) js.Ref
+func HasFuncIDBObjectStoreGetAllKeys2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_GetAllKeys2
 //go:noescape
-func IDBObjectStoreGetAllKeys2Func(this js.Ref) js.Ref
+func FuncIDBObjectStoreGetAllKeys2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_GetAllKeys2
 //go:noescape
@@ -3206,11 +3124,11 @@ func TryIDBObjectStoreGetAllKeys2(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_Count
 //go:noescape
-func HasIDBObjectStoreCount(this js.Ref) js.Ref
+func HasFuncIDBObjectStoreCount(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_Count
 //go:noescape
-func IDBObjectStoreCountFunc(this js.Ref) js.Ref
+func FuncIDBObjectStoreCount(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_Count
 //go:noescape
@@ -3226,11 +3144,11 @@ func TryIDBObjectStoreCount(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_Count1
 //go:noescape
-func HasIDBObjectStoreCount1(this js.Ref) js.Ref
+func HasFuncIDBObjectStoreCount1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_Count1
 //go:noescape
-func IDBObjectStoreCount1Func(this js.Ref) js.Ref
+func FuncIDBObjectStoreCount1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_Count1
 //go:noescape
@@ -3244,11 +3162,11 @@ func TryIDBObjectStoreCount1(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_OpenCursor
 //go:noescape
-func HasIDBObjectStoreOpenCursor(this js.Ref) js.Ref
+func HasFuncIDBObjectStoreOpenCursor(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_OpenCursor
 //go:noescape
-func IDBObjectStoreOpenCursorFunc(this js.Ref) js.Ref
+func FuncIDBObjectStoreOpenCursor(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_OpenCursor
 //go:noescape
@@ -3266,11 +3184,11 @@ func TryIDBObjectStoreOpenCursor(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_OpenCursor1
 //go:noescape
-func HasIDBObjectStoreOpenCursor1(this js.Ref) js.Ref
+func HasFuncIDBObjectStoreOpenCursor1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_OpenCursor1
 //go:noescape
-func IDBObjectStoreOpenCursor1Func(this js.Ref) js.Ref
+func FuncIDBObjectStoreOpenCursor1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_OpenCursor1
 //go:noescape
@@ -3286,11 +3204,11 @@ func TryIDBObjectStoreOpenCursor1(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_OpenCursor2
 //go:noescape
-func HasIDBObjectStoreOpenCursor2(this js.Ref) js.Ref
+func HasFuncIDBObjectStoreOpenCursor2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_OpenCursor2
 //go:noescape
-func IDBObjectStoreOpenCursor2Func(this js.Ref) js.Ref
+func FuncIDBObjectStoreOpenCursor2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_OpenCursor2
 //go:noescape
@@ -3304,11 +3222,11 @@ func TryIDBObjectStoreOpenCursor2(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_OpenKeyCursor
 //go:noescape
-func HasIDBObjectStoreOpenKeyCursor(this js.Ref) js.Ref
+func HasFuncIDBObjectStoreOpenKeyCursor(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_OpenKeyCursor
 //go:noescape
-func IDBObjectStoreOpenKeyCursorFunc(this js.Ref) js.Ref
+func FuncIDBObjectStoreOpenKeyCursor(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_OpenKeyCursor
 //go:noescape
@@ -3326,11 +3244,11 @@ func TryIDBObjectStoreOpenKeyCursor(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_OpenKeyCursor1
 //go:noescape
-func HasIDBObjectStoreOpenKeyCursor1(this js.Ref) js.Ref
+func HasFuncIDBObjectStoreOpenKeyCursor1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_OpenKeyCursor1
 //go:noescape
-func IDBObjectStoreOpenKeyCursor1Func(this js.Ref) js.Ref
+func FuncIDBObjectStoreOpenKeyCursor1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_OpenKeyCursor1
 //go:noescape
@@ -3346,11 +3264,11 @@ func TryIDBObjectStoreOpenKeyCursor1(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_OpenKeyCursor2
 //go:noescape
-func HasIDBObjectStoreOpenKeyCursor2(this js.Ref) js.Ref
+func HasFuncIDBObjectStoreOpenKeyCursor2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_OpenKeyCursor2
 //go:noescape
-func IDBObjectStoreOpenKeyCursor2Func(this js.Ref) js.Ref
+func FuncIDBObjectStoreOpenKeyCursor2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_OpenKeyCursor2
 //go:noescape
@@ -3364,11 +3282,11 @@ func TryIDBObjectStoreOpenKeyCursor2(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_Index
 //go:noescape
-func HasIDBObjectStoreIndex(this js.Ref) js.Ref
+func HasFuncIDBObjectStoreIndex(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_Index
 //go:noescape
-func IDBObjectStoreIndexFunc(this js.Ref) js.Ref
+func FuncIDBObjectStoreIndex(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_Index
 //go:noescape
@@ -3384,11 +3302,11 @@ func TryIDBObjectStoreIndex(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_CreateIndex
 //go:noescape
-func HasIDBObjectStoreCreateIndex(this js.Ref) js.Ref
+func HasFuncIDBObjectStoreCreateIndex(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_CreateIndex
 //go:noescape
-func IDBObjectStoreCreateIndexFunc(this js.Ref) js.Ref
+func FuncIDBObjectStoreCreateIndex(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_CreateIndex
 //go:noescape
@@ -3408,11 +3326,11 @@ func TryIDBObjectStoreCreateIndex(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_CreateIndex1
 //go:noescape
-func HasIDBObjectStoreCreateIndex1(this js.Ref) js.Ref
+func HasFuncIDBObjectStoreCreateIndex1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_CreateIndex1
 //go:noescape
-func IDBObjectStoreCreateIndex1Func(this js.Ref) js.Ref
+func FuncIDBObjectStoreCreateIndex1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_CreateIndex1
 //go:noescape
@@ -3430,11 +3348,11 @@ func TryIDBObjectStoreCreateIndex1(
 
 //go:wasmimport plat/js/web has_IDBObjectStore_DeleteIndex
 //go:noescape
-func HasIDBObjectStoreDeleteIndex(this js.Ref) js.Ref
+func HasFuncIDBObjectStoreDeleteIndex(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBObjectStore_DeleteIndex
 //go:noescape
-func IDBObjectStoreDeleteIndexFunc(this js.Ref) js.Ref
+func FuncIDBObjectStoreDeleteIndex(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBObjectStore_DeleteIndex
 //go:noescape

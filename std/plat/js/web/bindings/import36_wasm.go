@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web new_GPUInternalError_GPUInternalError
 //go:noescape
@@ -280,11 +278,11 @@ func GetGeolocationSensorSpeed(
 
 //go:wasmimport plat/js/web has_GeolocationSensor_Read
 //go:noescape
-func HasGeolocationSensorRead(this js.Ref) js.Ref
+func HasFuncGeolocationSensorRead(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GeolocationSensor_Read
 //go:noescape
-func GeolocationSensorReadFunc(this js.Ref) js.Ref
+func FuncGeolocationSensorRead(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GeolocationSensor_Read
 //go:noescape
@@ -300,11 +298,11 @@ func TryGeolocationSensorRead(
 
 //go:wasmimport plat/js/web has_GeolocationSensor_Read1
 //go:noescape
-func HasGeolocationSensorRead1(this js.Ref) js.Ref
+func HasFuncGeolocationSensorRead1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GeolocationSensor_Read1
 //go:noescape
-func GeolocationSensorRead1Func(this js.Ref) js.Ref
+func FuncGeolocationSensorRead1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GeolocationSensor_Read1
 //go:noescape
@@ -355,11 +353,11 @@ func SetGlobalValue(
 
 //go:wasmimport plat/js/web has_Global_ValueOf
 //go:noescape
-func HasGlobalValueOf(this js.Ref) js.Ref
+func HasFuncGlobalValueOf(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Global_ValueOf
 //go:noescape
-func GlobalValueOfFunc(this js.Ref) js.Ref
+func FuncGlobalValueOf(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Global_ValueOf
 //go:noescape
@@ -489,10 +487,6 @@ func GetHIDInputReportEventReportId(
 //go:noescape
 func GetHIDInputReportEventData(
 	this js.Ref, retPtr unsafe.Pointer) (ok js.Ref)
-
-//go:wasmimport plat/js/web new_HTMLAnchorElement_HTMLAnchorElement
-//go:noescape
-func NewHTMLAnchorElementByHTMLAnchorElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLAnchorElement_Target
 //go:noescape
@@ -803,10 +797,6 @@ func SetHTMLAnchorElementAttributionSrc(
 	this js.Ref,
 	val js.Ref,
 ) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLAreaElement_HTMLAreaElement
-//go:noescape
-func NewHTMLAreaElementByHTMLAreaElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLAreaElement_Alt
 //go:noescape

@@ -1,4 +1,4 @@
-- File: push-api.idl
+- File: webref/push-api.idl
   Interface:
     Name: PushEvent
     Inherits: ExtendableEvent
@@ -33,7 +33,7 @@
             Values:
               - ServiceWorker
           - Name: SecureContext
-- File: push-api.idl
+- File: webref/push-api.idl
   Dict:
     Name: PushEventInit
     Inherits: ExtendableEventInit
@@ -53,7 +53,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: push-api.idl
+- File: webref/push-api.idl
   Interface:
     Name: PushManager
     ExtAttrs:
@@ -124,7 +124,7 @@
               - Window
               - Worker
           - Name: SecureContext
-- File: push-api.idl
+- File: webref/push-api.idl
   Interface:
     Name: PushMessageData
     ExtAttrs:
@@ -165,14 +165,14 @@
             Values:
               - ServiceWorker
           - Name: SecureContext
-- File: push-api.idl
+- File: webref/push-api.idl
   Typedef:
     Name: PushMessageDataInit
     Type:
       Union:
         - Name: BufferSource
         - Name: USVString
-- File: push-api.idl
+- File: webref/push-api.idl
   Dict:
     Name: PushPermissionDescriptor
     Inherits: PermissionDescriptor
@@ -185,7 +185,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: push-api.idl
+- File: webref/push-api.idl
   Interface:
     Name: PushSubscription
     ExtAttrs:
@@ -262,7 +262,7 @@
               - Window
               - Worker
           - Name: SecureContext
-- File: push-api.idl
+- File: webref/push-api.idl
   Interface:
     Name: PushSubscriptionChangeEvent
     Inherits: ExtendableEvent
@@ -307,7 +307,7 @@
             Values:
               - ServiceWorker
           - Name: SecureContext
-- File: push-api.idl
+- File: webref/push-api.idl
   Dict:
     Name: PushSubscriptionChangeEventInit
     Inherits: ExtendableEventInit
@@ -332,7 +332,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: push-api.idl
+- File: webref/push-api.idl
   Dict:
     Name: PushSubscriptionJSON
     Fields:
@@ -350,7 +350,7 @@
           Params:
             - Name: DOMString
             - Name: USVString
-- File: push-api.idl
+- File: webref/push-api.idl
   Interface:
     Name: PushSubscriptionOptions
     ExtAttrs:
@@ -382,7 +382,7 @@
               - Window
               - Worker
           - Name: SecureContext
-- File: push-api.idl
+- File: webref/push-api.idl
   Dict:
     Name: PushSubscriptionOptionsInit
     Fields:
@@ -397,7 +397,7 @@
             - Name: BufferSource
             - Name: DOMString
           Nullable: true
-- File: local-font-access.idl
+- File: webref/local-font-access.idl
   Dict:
     Name: QueryOptions
     Fields:
@@ -406,7 +406,7 @@
           Name: sequence
           Params:
             - Name: DOMString
-- File: streams.idl
+- File: webref/streams.idl
   Dict:
     Name: QueuingStrategy
     Fields:
@@ -416,7 +416,7 @@
       - Name: size
         Type:
           Name: QueuingStrategySize
-- File: streams.idl
+- File: webref/streams.idl
   Dict:
     Name: QueuingStrategyInit
     Fields:
@@ -424,7 +424,7 @@
         Required: true
         Type:
           Name: unrestricted double
-- File: streams.idl
+- File: webref/streams.idl
   Callback:
     Name: QueuingStrategySize
     Args:
@@ -433,11 +433,11 @@
           Name: any
     Returns:
       - Name: unrestricted double
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCAnswerOptions
     Inherits: RTCOfferAnswerOptions
-- File: webrtc-stats.idl
+- File: webref/webrtc-stats.idl
   Dict:
     Name: RTCAudioPlayoutStats
     Inherits: RTCStats
@@ -473,7 +473,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: webrtc-stats.idl
+- File: webref/webrtc-stats.idl
   Dict:
     Name: RTCAudioSourceStats
     Inherits: RTCMediaSourceStats
@@ -525,14 +525,14 @@
         Required: true
         Type:
           Name: DOMString
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Enum:
     Name: RTCBundlePolicy
     Values:
       - balanced
       - max-compat
       - max-bundle
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Interface:
     Name: RTCCertificate
     ExtAttrs:
@@ -561,7 +561,7 @@
             Values:
               - Window
           - Name: Serializable
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCCertificateExpiration
     Fields:
@@ -570,7 +570,7 @@
           Name: unsigned long long
         ExtAttrs:
           - Name: EnforceRange
-- File: webrtc-stats.idl
+- File: webref/webrtc-stats.idl
   Dict:
     Name: RTCCertificateStats
     Inherits: RTCStats
@@ -602,7 +602,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: webrtc-stats.idl
+- File: webref/webrtc-stats.idl
   Dict:
     Name: RTCCodecStats
     Inherits: RTCStats
@@ -640,7 +640,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCConfiguration
     Fields:
@@ -677,7 +677,7 @@
       - Name: peerIdentity
         Type:
           Name: DOMString
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Interface:
     Name: RTCDTMFSender
     Inherits: EventTarget
@@ -731,7 +731,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Interface:
     Name: RTCDTMFToneChangeEvent
     Inherits: Event
@@ -762,7 +762,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCDTMFToneChangeEventInit
     Inherits: EventInit
@@ -783,7 +783,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Interface:
     Name: RTCDataChannel
     Inherits: EventTarget
@@ -980,7 +980,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Interface:
     Name: RTCDataChannelEvent
     Inherits: Event
@@ -1009,7 +1009,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCDataChannelEventInit
     Inherits: EventInit
@@ -1030,7 +1030,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCDataChannelInit
     Fields:
@@ -1065,7 +1065,7 @@
         Default: '"low"'
         Type:
           Name: RTCPriorityType
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Enum:
     Name: RTCDataChannelState
     Values:
@@ -1073,7 +1073,7 @@
       - open
       - closing
       - closed
-- File: webrtc-stats.idl
+- File: webref/webrtc-stats.idl
   Dict:
     Name: RTCDataChannelStats
     Inherits: RTCStats
@@ -1115,14 +1115,14 @@
         Required: true
         Type:
           Name: DOMString
-- File: mst-content-hint.idl
+- File: webref/mst-content-hint.idl
   Enum:
     Name: RTCDegradationPreference
     Values:
       - maintain-framerate
       - maintain-resolution
       - balanced
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCDtlsFingerprint
     Fields:
@@ -1132,14 +1132,14 @@
       - Name: value
         Type:
           Name: DOMString
-- File: webrtc-stats.idl
+- File: webref/webrtc-stats.idl
   Enum:
     Name: RTCDtlsRole
     Values:
       - client
       - server
       - unknown
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Interface:
     Name: RTCDtlsTransport
     Inherits: EventTarget
@@ -1189,7 +1189,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Enum:
     Name: RTCDtlsTransportState
     Values:
@@ -1198,7 +1198,7 @@
       - connected
       - closed
       - failed
-- File: webrtc-encoded-transform.idl
+- File: webref/webrtc-encoded-transform.idl
   Interface:
     Name: RTCEncodedAudioFrame
     ExtAttrs:
@@ -1233,7 +1233,7 @@
             Values:
               - Window
               - DedicatedWorker
-- File: webrtc-encoded-transform.idl
+- File: webref/webrtc-encoded-transform.idl
   Dict:
     Name: RTCEncodedAudioFrameMetadata
     Fields:
@@ -1251,7 +1251,7 @@
       - Name: sequenceNumber
         Type:
           Name: short
-- File: webrtc-encoded-transform.idl
+- File: webref/webrtc-encoded-transform.idl
   Interface:
     Name: RTCEncodedVideoFrame
     ExtAttrs:
@@ -1295,7 +1295,7 @@
             Values:
               - Window
               - DedicatedWorker
-- File: webrtc-encoded-transform.idl
+- File: webref/webrtc-encoded-transform.idl
   Dict:
     Name: RTCEncodedVideoFrameMetadata
     Fields:
@@ -1333,14 +1333,14 @@
       - Name: timestamp
         Type:
           Name: long long
-- File: webrtc-encoded-transform.idl
+- File: webref/webrtc-encoded-transform.idl
   Enum:
     Name: RTCEncodedVideoFrameType
     Values:
       - empty
       - key
       - delta
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Interface:
     Name: RTCError
     Inherits: DOMException
@@ -1348,7 +1348,6 @@
       - Name: Exposed
         Values:
           - Window
-      - Name: Serializable
     Attrs:
       - Name: errorDetail
         Readonly: true
@@ -1358,7 +1357,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: Serializable
       - Name: sdpLineNumber
         Readonly: true
         Type:
@@ -1368,7 +1366,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: Serializable
       - Name: sctpCauseCode
         Readonly: true
         Type:
@@ -1378,7 +1375,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: Serializable
       - Name: receivedAlert
         Readonly: true
         Type:
@@ -1388,7 +1384,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: Serializable
       - Name: sentAlert
         Readonly: true
         Type:
@@ -1398,7 +1393,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: Serializable
       - Name: httpRequestStatusCode
         Readonly: true
         Type:
@@ -1418,8 +1412,7 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: Serializable
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Enum:
     Name: RTCErrorDetailType
     Values:
@@ -1430,7 +1423,7 @@
       - sdp-syntax-error
       - hardware-encoder-not-available
       - hardware-encoder-error
-- File: webrtc-identity.idl
+- File: webref/webrtc-identity.idl
   Enum:
     Name: RTCErrorDetailTypeIdp
     Values:
@@ -1442,7 +1435,7 @@
       - idp-tls-failure
       - idp-token-expired
       - idp-token-invalid
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Interface:
     Name: RTCErrorEvent
     Inherits: Event
@@ -1472,7 +1465,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCErrorEventInit
     Inherits: EventInit
@@ -1493,7 +1486,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webrtc.idl
+- File: webref/webrtc.idl
   Dict:
     Name: RTCErrorInit
     Fields:

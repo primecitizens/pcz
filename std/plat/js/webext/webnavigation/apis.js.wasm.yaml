@@ -1,0 +1,1462 @@
+- File: webext/chrome/web_navigation.json
+  Dict:
+    Name: GetAllFramesArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+    Fields:
+      - Name: tabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+- File: webext/chrome/web_navigation.json
+  Dict:
+    Name: GetAllFramesReturnTypeElem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+    Fields:
+      - Name: documentId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: documentLifecycle
+        Required: true
+        Type:
+          Name: DocumentLifecycle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: errorOccurred
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: frameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: frameType
+        Required: true
+        Type:
+          Name: FrameType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: parentDocumentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: parentFrameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: processId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+- File: webext/chrome/web_navigation.json
+  Dict:
+    Name: GetFrameArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+    Fields:
+      - Name: documentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: frameId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: processId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: tabId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+- File: webext/chrome/web_navigation.json
+  Dict:
+    Name: GetFrameReturnType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+    Fields:
+      - Name: documentId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: documentLifecycle
+        Required: true
+        Type:
+          Name: DocumentLifecycle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: errorOccurred
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: frameType
+        Required: true
+        Type:
+          Name: FrameType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: parentDocumentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: parentFrameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+- File: webext/chrome/web_navigation.json
+  Dict:
+    Name: OnBeforeNavigateArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+    Fields:
+      - Name: documentLifecycle
+        Required: true
+        Type:
+          Name: DocumentLifecycle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: frameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: frameType
+        Required: true
+        Type:
+          Name: FrameType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: parentDocumentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: parentFrameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: processId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: tabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: timeStamp
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+- File: webext/chrome/web_navigation.json
+  Dict:
+    Name: OnCommittedArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+    Fields:
+      - Name: documentId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: documentLifecycle
+        Required: true
+        Type:
+          Name: DocumentLifecycle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: frameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: frameType
+        Required: true
+        Type:
+          Name: FrameType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: parentDocumentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: parentFrameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: processId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: tabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: timeStamp
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: transitionQualifiers
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: TransitionQualifier
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webNavigation
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webNavigation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: transitionType
+        Required: true
+        Type:
+          Name: TransitionType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webNavigation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+- File: webext/chrome/web_navigation.json
+  Dict:
+    Name: OnCompletedArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+    Fields:
+      - Name: documentId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: documentLifecycle
+        Required: true
+        Type:
+          Name: DocumentLifecycle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: frameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: frameType
+        Required: true
+        Type:
+          Name: FrameType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: parentDocumentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: parentFrameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: processId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: tabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: timeStamp
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+- File: webext/chrome/web_navigation.json
+  Dict:
+    Name: OnCreatedNavigationTargetArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+    Fields:
+      - Name: sourceFrameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: sourceProcessId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: sourceTabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: tabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: timeStamp
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+- File: webext/chrome/web_navigation.json
+  Dict:
+    Name: OnDOMContentLoadedArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+    Fields:
+      - Name: documentId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: documentLifecycle
+        Required: true
+        Type:
+          Name: DocumentLifecycle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: frameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: frameType
+        Required: true
+        Type:
+          Name: FrameType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: parentDocumentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: parentFrameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: processId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: tabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: timeStamp
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+- File: webext/chrome/web_navigation.json
+  Dict:
+    Name: OnErrorOccurredArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+    Fields:
+      - Name: documentId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: documentLifecycle
+        Required: true
+        Type:
+          Name: DocumentLifecycle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: error
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: frameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: frameType
+        Required: true
+        Type:
+          Name: FrameType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: parentDocumentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: parentFrameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: processId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: tabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: timeStamp
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+- File: webext/chrome/web_navigation.json
+  Dict:
+    Name: OnHistoryStateUpdatedArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+    Fields:
+      - Name: documentId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: documentLifecycle
+        Required: true
+        Type:
+          Name: DocumentLifecycle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: frameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: frameType
+        Required: true
+        Type:
+          Name: FrameType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: parentDocumentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: parentFrameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: processId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: tabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: timeStamp
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: transitionQualifiers
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: TransitionQualifier
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webNavigation
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webNavigation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: transitionType
+        Required: true
+        Type:
+          Name: TransitionType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webNavigation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+- File: webext/chrome/web_navigation.json
+  Dict:
+    Name: OnReferenceFragmentUpdatedArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+    Fields:
+      - Name: documentId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: documentLifecycle
+        Required: true
+        Type:
+          Name: DocumentLifecycle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: frameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: frameType
+        Required: true
+        Type:
+          Name: FrameType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: parentDocumentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: parentFrameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: processId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: tabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: timeStamp
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: transitionQualifiers
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: TransitionQualifier
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webNavigation
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webNavigation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: transitionType
+        Required: true
+        Type:
+          Name: TransitionType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webNavigation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+- File: webext/chrome/web_navigation.json
+  Dict:
+    Name: OnTabReplacedArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+    Fields:
+      - Name: replacedTabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: tabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+      - Name: timeStamp
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webNavigation
+- File: webext/chrome/web_navigation.json
+  Enum:
+    Name: TransitionQualifier
+    Values:
+      - client_redirect
+      - server_redirect
+      - forward_back
+      - from_address_bar
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+- File: webext/chrome/web_navigation.json
+  Enum:
+    Name: TransitionType
+    Values:
+      - link
+      - typed
+      - auto_bookmark
+      - auto_subframe
+      - manual_subframe
+      - generated
+      - start_page
+      - form_submit
+      - reload
+      - keyword
+      - keyword_generated
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+- File: webext/chrome/web_navigation.json
+  WebextFunc:
+    Name: getAllFrames
+    Args:
+      - Name: details
+        Type:
+          Name: GetAllFramesArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webNavigation
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: GetAllFramesReturnTypeElem
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - webNavigation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - webNavigation
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+- File: webext/chrome/web_navigation.json
+  WebextFunc:
+    Name: getFrame
+    Args:
+      - Name: details
+        Type:
+          Name: GetFrameArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webNavigation
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: GetFrameReturnType
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - webNavigation
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+- File: webext/chrome/web_navigation.json
+  WebextEvent:
+    Name: onBeforeNavigate
+    Args:
+      - Name: details
+        Type:
+          Name: OnBeforeNavigateArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webNavigation
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+- File: webext/chrome/web_navigation.json
+  WebextEvent:
+    Name: onCommitted
+    Args:
+      - Name: details
+        Type:
+          Name: OnCommittedArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webNavigation
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+- File: webext/chrome/web_navigation.json
+  WebextEvent:
+    Name: onCompleted
+    Args:
+      - Name: details
+        Type:
+          Name: OnCompletedArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webNavigation
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+- File: webext/chrome/web_navigation.json
+  WebextEvent:
+    Name: onCreatedNavigationTarget
+    Args:
+      - Name: details
+        Type:
+          Name: OnCreatedNavigationTargetArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webNavigation
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+- File: webext/chrome/web_navigation.json
+  WebextEvent:
+    Name: onDOMContentLoaded
+    Args:
+      - Name: details
+        Type:
+          Name: OnDOMContentLoadedArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webNavigation
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+- File: webext/chrome/web_navigation.json
+  WebextEvent:
+    Name: onErrorOccurred
+    Args:
+      - Name: details
+        Type:
+          Name: OnErrorOccurredArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webNavigation
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+- File: webext/chrome/web_navigation.json
+  WebextEvent:
+    Name: onHistoryStateUpdated
+    Args:
+      - Name: details
+        Type:
+          Name: OnHistoryStateUpdatedArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webNavigation
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+- File: webext/chrome/web_navigation.json
+  WebextEvent:
+    Name: onReferenceFragmentUpdated
+    Args:
+      - Name: details
+        Type:
+          Name: OnReferenceFragmentUpdatedArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webNavigation
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation
+- File: webext/chrome/web_navigation.json
+  WebextEvent:
+    Name: onTabReplaced
+    Args:
+      - Name: details
+        Type:
+          Name: OnTabReplacedArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webNavigation
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webNavigation

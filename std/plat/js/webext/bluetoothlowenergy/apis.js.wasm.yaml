@@ -1,0 +1,2289 @@
+- File: webext/bluetooth_low_energy.idl
+  Dict:
+    Name: Advertisement
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+    Fields:
+      - Name: type
+        Type:
+          Name: AdvertisementType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: serviceUuids
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - bluetoothLowEnergy
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: manufacturerData
+        Type:
+          Name: sequence
+          Params:
+            - Name: ManufacturerData
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - bluetoothLowEnergy
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: solicitUuids
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - bluetoothLowEnergy
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: serviceData
+        Type:
+          Name: sequence
+          Params:
+            - Name: ServiceData
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - bluetoothLowEnergy
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Enum:
+    Name: AdvertisementType
+    Values:
+      - broadcast
+      - peripheral
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Dict:
+    Name: Characteristic
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+    Fields:
+      - Name: uuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: service
+        Type:
+          Name: Service
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: properties
+        Type:
+          Name: sequence
+          Params:
+            - Name: CharacteristicProperty
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - bluetoothLowEnergy
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: instanceId
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: value
+        Type:
+          Name: ArrayBuffer
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Callback:
+    Name: CharacteristicCallback
+    Args:
+      - Name: result
+        Type:
+          Name: Characteristic
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Enum:
+    Name: CharacteristicProperty
+    Values:
+      - broadcast
+      - read
+      - writeWithoutResponse
+      - write
+      - notify
+      - indicate
+      - authenticatedSignedWrites
+      - extendedProperties
+      - reliableWrite
+      - writableAuxiliaries
+      - encryptRead
+      - encryptWrite
+      - encryptAuthenticatedRead
+      - encryptAuthenticatedWrite
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Callback:
+    Name: CharacteristicsCallback
+    Args:
+      - Name: result
+        Type:
+          Name: sequence
+          Params:
+            - Name: Characteristic
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - bluetoothLowEnergy
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Dict:
+    Name: ConnectProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+    Fields:
+      - Name: persistent
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Callback:
+    Name: CreateCharacteristicCallback
+    Args:
+      - Name: characteristicId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Callback:
+    Name: CreateDescriptorCallback
+    Args:
+      - Name: descriptorId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Callback:
+    Name: CreateServiceCallback
+    Args:
+      - Name: serviceId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Dict:
+    Name: Descriptor
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+    Fields:
+      - Name: uuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: characteristic
+        Type:
+          Name: Characteristic
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: permissions
+        Type:
+          Name: sequence
+          Params:
+            - Name: DescriptorPermission
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - bluetoothLowEnergy
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: instanceId
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: value
+        Type:
+          Name: ArrayBuffer
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Callback:
+    Name: DescriptorCallback
+    Args:
+      - Name: result
+        Type:
+          Name: Descriptor
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Enum:
+    Name: DescriptorPermission
+    Values:
+      - read
+      - write
+      - encryptedRead
+      - encryptedWrite
+      - encryptedAuthenticatedRead
+      - encryptedAuthenticatedWrite
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Callback:
+    Name: DescriptorsCallback
+    Args:
+      - Name: result
+        Type:
+          Name: sequence
+          Params:
+            - Name: Descriptor
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - bluetoothLowEnergy
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Dict:
+    Name: Device
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+    Fields:
+      - Name: address
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: name
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: deviceClass
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Dict:
+    Name: ManufacturerData
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+    Fields:
+      - Name: id
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: data
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - bluetoothLowEnergy
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Dict:
+    Name: Notification
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+    Fields:
+      - Name: value
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: shouldIndicate
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Dict:
+    Name: NotificationProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+    Fields:
+      - Name: persistent
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Callback:
+    Name: RegisterAdvertisementCallback
+    Args:
+      - Name: advertisementId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Dict:
+    Name: Request
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+    Fields:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: device
+        Type:
+          Name: Device
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: value
+        Type:
+          Name: ArrayBuffer
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Dict:
+    Name: Response
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+    Fields:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: isError
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: value
+        Type:
+          Name: ArrayBuffer
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Callback:
+    Name: ResultCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Dict:
+    Name: Service
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+    Fields:
+      - Name: uuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: isPrimary
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: instanceId
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: deviceAddress
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Callback:
+    Name: ServiceCallback
+    Args:
+      - Name: result
+        Type:
+          Name: Service
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Dict:
+    Name: ServiceData
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+    Fields:
+      - Name: uuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: data
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - bluetoothLowEnergy
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  Callback:
+    Name: ServicesCallback
+    Args:
+      - Name: result
+        Type:
+          Name: sequence
+          Params:
+            - Name: Service
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - bluetoothLowEnergy
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: connect
+    Modifier: static
+    Args:
+      - Name: deviceAddress
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: properties
+        Optional: true
+        Type:
+          Name: ConnectProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: createCharacteristic
+    Modifier: static
+    Args:
+      - Name: characteristic
+        Type:
+          Name: Characteristic
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: serviceId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: createDescriptor
+    Modifier: static
+    Args:
+      - Name: descriptor
+        Type:
+          Name: Descriptor
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: characteristicId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: createService
+    Modifier: static
+    Args:
+      - Name: service
+        Type:
+          Name: Service
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: disconnect
+    Modifier: static
+    Args:
+      - Name: deviceAddress
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: getCharacteristic
+    Modifier: static
+    Args:
+      - Name: characteristicId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Characteristic
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: getCharacteristics
+    Modifier: static
+    Args:
+      - Name: serviceId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: Characteristic
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - bluetoothLowEnergy
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: getDescriptor
+    Modifier: static
+    Args:
+      - Name: descriptorId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Descriptor
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: getDescriptors
+    Modifier: static
+    Args:
+      - Name: characteristicId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: Descriptor
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - bluetoothLowEnergy
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: getIncludedServices
+    Modifier: static
+    Args:
+      - Name: serviceId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: Service
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - bluetoothLowEnergy
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: getService
+    Modifier: static
+    Args:
+      - Name: serviceId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Service
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: getServices
+    Modifier: static
+    Args:
+      - Name: deviceAddress
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: Service
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - bluetoothLowEnergy
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: notifyCharacteristicValueChanged
+    Modifier: static
+    Args:
+      - Name: characteristicId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: notification
+        Type:
+          Name: Notification
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextEvent:
+    Name: onCharacteristicReadRequest
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: Request
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: characteristicId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextEvent:
+    Name: onCharacteristicValueChanged
+    Modifier: static
+    Args:
+      - Name: characteristic
+        Type:
+          Name: Characteristic
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextEvent:
+    Name: onCharacteristicWriteRequest
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: Request
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: characteristicId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextEvent:
+    Name: onDescriptorReadRequest
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: Request
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: descriptorId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextEvent:
+    Name: onDescriptorValueChanged
+    Modifier: static
+    Args:
+      - Name: descriptor
+        Type:
+          Name: Descriptor
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextEvent:
+    Name: onDescriptorWriteRequest
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: Request
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: descriptorId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextEvent:
+    Name: onServiceAdded
+    Modifier: static
+    Args:
+      - Name: service
+        Type:
+          Name: Service
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextEvent:
+    Name: onServiceChanged
+    Modifier: static
+    Args:
+      - Name: service
+        Type:
+          Name: Service
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextEvent:
+    Name: onServiceRemoved
+    Modifier: static
+    Args:
+      - Name: service
+        Type:
+          Name: Service
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: readCharacteristicValue
+    Modifier: static
+    Args:
+      - Name: characteristicId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Characteristic
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: readDescriptorValue
+    Modifier: static
+    Args:
+      - Name: descriptorId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Descriptor
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: registerAdvertisement
+    Modifier: static
+    Args:
+      - Name: advertisement
+        Type:
+          Name: Advertisement
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: long
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: registerService
+    Modifier: static
+    Args:
+      - Name: serviceId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: removeService
+    Modifier: static
+    Args:
+      - Name: serviceId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: resetAdvertising
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: sendRequestResponse
+    Modifier: static
+    Args:
+      - Name: response
+        Type:
+          Name: Response
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: setAdvertisingInterval
+    Modifier: static
+    Args:
+      - Name: minInterval
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: maxInterval
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: startCharacteristicNotifications
+    Modifier: static
+    Args:
+      - Name: characteristicId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: properties
+        Optional: true
+        Type:
+          Name: NotificationProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: stopCharacteristicNotifications
+    Modifier: static
+    Args:
+      - Name: characteristicId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: unregisterAdvertisement
+    Modifier: static
+    Args:
+      - Name: advertisementId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: unregisterService
+    Modifier: static
+    Args:
+      - Name: serviceId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: writeCharacteristicValue
+    Modifier: static
+    Args:
+      - Name: characteristicId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: value
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy
+- File: webext/bluetooth_low_energy.idl
+  WebextFunc:
+    Name: writeDescriptorValue
+    Modifier: static
+    Args:
+      - Name: descriptorId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+      - Name: value
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - bluetoothLowEnergy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - bluetoothLowEnergy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - bluetoothLowEnergy

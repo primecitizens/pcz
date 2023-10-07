@@ -1,4 +1,4 @@
-- File: turtledove.idl
+- File: webref/turtledove.idl
   Interface:
     Name: InterestGroupReportingScriptRunnerGlobalScope
     Inherits: InterestGroupScriptRunnerGlobalScope
@@ -44,7 +44,7 @@
             Values:
               - InterestGroupScriptRunnerGlobalScope
               - InterestGroupReportingScriptRunnerGlobalScope
-- File: turtledove.idl
+- File: webref/turtledove.idl
   Interface:
     Name: InterestGroupScoringScriptRunnerGlobalScope
     Inherits: InterestGroupScriptRunnerGlobalScope
@@ -56,14 +56,14 @@
         Values:
           - InterestGroupScriptRunnerGlobalScope
           - InterestGroupScoringScriptRunnerGlobalScope
-- File: turtledove.idl
+- File: webref/turtledove.idl
   Interface:
     Name: InterestGroupScriptRunnerGlobalScope
     ExtAttrs:
       - Name: Exposed
         Values:
           - InterestGroupScriptRunnerGlobalScope
-- File: intersection-observer.idl
+- File: webref/intersection-observer.idl
   Interface:
     Name: IntersectionObserver
     ExtAttrs:
@@ -153,7 +153,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: intersection-observer.idl
+- File: webref/intersection-observer.idl
   Callback:
     Name: IntersectionObserverCallback
     Args:
@@ -167,7 +167,7 @@
           Name: IntersectionObserver
     Returns:
       - Name: undefined
-- File: intersection-observer.idl
+- File: webref/intersection-observer.idl
   Interface:
     Name: IntersectionObserverEntry
     ExtAttrs:
@@ -241,7 +241,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: intersection-observer.idl
+- File: webref/intersection-observer.idl
   Dict:
     Name: IntersectionObserverEntryInit
     Fields:
@@ -274,7 +274,7 @@
         Required: true
         Type:
           Name: Element
-- File: intersection-observer.idl
+- File: webref/intersection-observer.idl
   Dict:
     Name: IntersectionObserverInit
     Fields:
@@ -297,7 +297,7 @@
             - Name: sequence
               Params:
                 - Name: double
-- File: intervention-reporting.idl
+- File: webref/intervention-reporting.idl
   Interface:
     Name: InterventionReportBody
     Inherits: ReportBody
@@ -365,7 +365,7 @@
             Values:
               - Window
               - Worker
-- File: css-layout-api.idl
+- File: webref/css-layout-api.idl
   Interface:
     Name: IntrinsicSizes
     ExtAttrs:
@@ -389,7 +389,7 @@
           - Name: Exposed
             Values:
               - LayoutWorklet
-- File: css-layout-api.idl
+- File: webref/css-layout-api.idl
   Dict:
     Name: IntrinsicSizesResultOptions
     Fields:
@@ -399,7 +399,7 @@
       - Name: minContentSize
         Type:
           Name: double
-- File: is-input-pending.idl
+- File: webref/is-input-pending.idl
   Dict:
     Name: IsInputPendingOptions
     Fields:
@@ -407,7 +407,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: digital-goods.idl
+- File: webref/digital-goods.idl
   Dict:
     Name: ItemDetails
     Fields:
@@ -451,19 +451,19 @@
           Name: unsigned long long
         ExtAttrs:
           - Name: EnforceRange
-- File: digital-goods.idl
+- File: webref/digital-goods.idl
   Enum:
     Name: ItemType
     Values:
       - product
       - subscription
-- File: web-animations-2.idl
+- File: webref/web-animations-2.idl
   Enum:
     Name: IterationCompositeOperation
     Values:
       - replace
       - accumulate
-- File: json-ld-api.idl
+- File: webref/json-ld-api.idl
   Interface:
     Name: JsonLd
     ExtAttrs:
@@ -473,7 +473,7 @@
       - Name: Exposed
         Values:
           - JsonLd
-- File: json-ld-api.idl
+- File: webref/json-ld-api.idl
   Typedef:
     Name: JsonLdContext
     Type:
@@ -485,14 +485,14 @@
                 - Name: JsonLdRecord
                 - Name: USVString
         - Name: USVString
-- File: json-ld-framing.idl
+- File: webref/json-ld-framing.idl
   Enum:
     Name: JsonLdEmbed
     Values:
       - '@always'
       - '@once'
       - '@never'
-- File: json-ld-api.idl
+- File: webref/json-ld-api.idl
   Dict:
     Name: JsonLdError
     Fields:
@@ -504,7 +504,7 @@
         Type:
           Name: USVString
           Nullable: true
-- File: json-ld-api.idl
+- File: webref/json-ld-api.idl
   Enum:
     Name: JsonLdErrorCode
     Values:
@@ -557,7 +557,7 @@
       - multiple context link headers
       - processing mode conflict
       - protected term redefinition
-- File: json-ld-framing.idl
+- File: webref/json-ld-framing.idl
   Dict:
     Name: JsonLdFramingError
     Fields:
@@ -569,13 +569,13 @@
         Type:
           Name: USVString
           Nullable: true
-- File: json-ld-framing.idl
+- File: webref/json-ld-framing.idl
   Enum:
     Name: JsonLdFramingErrorCode
     Values:
       - invalid frame
       - invalid @embed value
-- File: json-ld-api.idl
+- File: webref/json-ld-api.idl
   Typedef:
     Name: JsonLdInput
     Type:
@@ -586,7 +586,7 @@
             - Name: JsonLdRecord
         - Name: USVString
         - Name: RemoteDocument
-- File: json-ld-api.idl
+- File: webref/json-ld-api.idl
   Dict:
     Name: JsonLdOptions
     Fields:
@@ -673,7 +673,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: json-ld-api.idl
+- File: webref/json-ld-api.idl
   Interface:
     Name: JsonLdProcessor
     ExtAttrs:
@@ -812,7 +812,7 @@
           - Name: Exposed
             Values:
               - JsonLd
-- File: json-ld-api.idl
+- File: webref/json-ld-api.idl
   Typedef:
     Name: JsonLdRecord
     Type:
@@ -820,7 +820,7 @@
       Params:
         - Name: USVString
         - Name: any
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: JsonWebKey
     Fields:
@@ -882,7 +882,7 @@
       - Name: k
         Type:
           Name: DOMString
-- File: KHR_parallel_shader_compile.idl
+- File: webref/KHR_parallel_shader_compile.idl
   Interface:
     Name: KHR_parallel_shader_compile
     ExtAttrs:
@@ -896,7 +896,7 @@
         Value: "0x91B1"
         Type:
           Name: GLenum
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: KeyAlgorithm
     Fields:
@@ -904,7 +904,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Enum:
     Name: KeyFormat
     Values:
@@ -912,7 +912,7 @@
       - spki
       - pkcs8
       - jwk
-- File: media-capabilities.idl
+- File: webref/media-capabilities.idl
   Dict:
     Name: KeySystemTrackConfiguration
     Fields:
@@ -925,14 +925,14 @@
         Type:
           Name: DOMString
           Nullable: true
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Enum:
     Name: KeyType
     Values:
       - public
       - private
       - secret
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Enum:
     Name: KeyUsage
     Values:
@@ -944,7 +944,7 @@
       - deriveBits
       - wrapKey
       - unwrapKey
-- File: keyboard-lock.idl
+- File: webref/keyboard-lock.idl
   Interface:
     Name: Keyboard
     Inherits: EventTarget
@@ -989,7 +989,7 @@
           - Name: Promise
             Params:
               - Name: KeyboardLayoutMap
-- File: uievents.idl
+- File: webref/uievents.idl
   Interface:
     Name: KeyboardEvent
     Inherits: UIEvent
@@ -1174,7 +1174,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: uievents.idl
+- File: webref/uievents.idl
   Dict:
     Name: KeyboardEventInit
     Inherits: EventModifierInit
@@ -1284,7 +1284,7 @@
         Default: "0"
         Type:
           Name: unsigned long
-- File: keyboard-map.idl
+- File: webref/keyboard-map.idl
   Interface:
     Name: KeyboardLayoutMap
     ExtAttrs:
@@ -1296,7 +1296,7 @@
         - Name: DOMString
         - Name: DOMString
       Readonly: true
-- File: web-animations.idl
+- File: webref/web-animations.idl
   Dict:
     Name: KeyframeAnimationOptions
     Inherits: KeyframeEffectOptions
@@ -1329,7 +1329,7 @@
             - Name: CSSNumericValue
             - Name: CSSKeywordValue
             - Name: DOMString
-- File: web-animations.idl
+- File: webref/web-animations.idl
   Interface:
     Name: KeyframeEffect
     Inherits: AnimationEffect
@@ -1415,7 +1415,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: web-animations.idl
+- File: webref/web-animations.idl
   Dict:
     Name: KeyframeEffectOptions
     Inherits: EffectTiming
@@ -1453,7 +1453,7 @@
         Default: '"replace"'
         Type:
           Name: IterationCompositeOperation
-- File: shape-detection-api.idl
+- File: webref/shape-detection-api.idl
   Dict:
     Name: Landmark
     Fields:
@@ -1466,20 +1466,20 @@
       - Name: type
         Type:
           Name: LandmarkType
-- File: shape-detection-api.idl
+- File: webref/shape-detection-api.idl
   Enum:
     Name: LandmarkType
     Values:
       - mouth
       - eye
       - nose
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Enum:
     Name: LargeBlobSupport
     Values:
       - required
       - preferred
-- File: largest-contentful-paint.idl
+- File: webref/largest-contentful-paint.idl
   Interface:
     Name: LargestContentfulPaint
     Inherits: PerformanceEntry
@@ -1546,13 +1546,13 @@
           - Name: Exposed
             Values:
               - Window
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Enum:
     Name: LatencyMode
     Values:
       - quality
       - realtime
-- File: web-app-launch.idl
+- File: webref/web-app-launch.idl
   Callback:
     Name: LaunchConsumer
     Args:
@@ -1561,7 +1561,7 @@
           Name: LaunchParams
     Returns:
       - Name: any
-- File: web-app-launch.idl
+- File: webref/web-app-launch.idl
   Interface:
     Name: LaunchParams
     ExtAttrs:
@@ -1588,7 +1588,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: web-app-launch.idl
+- File: webref/web-app-launch.idl
   Interface:
     Name: LaunchQueue
     ExtAttrs:
@@ -1607,7 +1607,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-layout-api.idl
+- File: webref/css-layout-api.idl
   Interface:
     Name: LayoutChild
     ExtAttrs:
@@ -1649,7 +1649,7 @@
           - Name: Exposed
             Values:
               - LayoutWorklet
-- File: css-layout-api.idl
+- File: webref/css-layout-api.idl
   Interface:
     Name: LayoutConstraints
     ExtAttrs:

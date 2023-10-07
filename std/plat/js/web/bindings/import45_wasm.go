@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web store_PaymentDetailsModifier
 //go:noescape
@@ -150,11 +148,11 @@ func GetPaymentResponseDetails(
 
 //go:wasmimport plat/js/web has_PaymentResponse_ToJSON
 //go:noescape
-func HasPaymentResponseToJSON(this js.Ref) js.Ref
+func HasFuncPaymentResponseToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PaymentResponse_ToJSON
 //go:noescape
-func PaymentResponseToJSONFunc(this js.Ref) js.Ref
+func FuncPaymentResponseToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PaymentResponse_ToJSON
 //go:noescape
@@ -168,11 +166,11 @@ func TryPaymentResponseToJSON(
 
 //go:wasmimport plat/js/web has_PaymentResponse_Complete
 //go:noescape
-func HasPaymentResponseComplete(this js.Ref) js.Ref
+func HasFuncPaymentResponseComplete(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PaymentResponse_Complete
 //go:noescape
-func PaymentResponseCompleteFunc(this js.Ref) js.Ref
+func FuncPaymentResponseComplete(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PaymentResponse_Complete
 //go:noescape
@@ -190,11 +188,11 @@ func TryPaymentResponseComplete(
 
 //go:wasmimport plat/js/web has_PaymentResponse_Complete1
 //go:noescape
-func HasPaymentResponseComplete1(this js.Ref) js.Ref
+func HasFuncPaymentResponseComplete1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PaymentResponse_Complete1
 //go:noescape
-func PaymentResponseComplete1Func(this js.Ref) js.Ref
+func FuncPaymentResponseComplete1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PaymentResponse_Complete1
 //go:noescape
@@ -210,11 +208,11 @@ func TryPaymentResponseComplete1(
 
 //go:wasmimport plat/js/web has_PaymentResponse_Complete2
 //go:noescape
-func HasPaymentResponseComplete2(this js.Ref) js.Ref
+func HasFuncPaymentResponseComplete2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PaymentResponse_Complete2
 //go:noescape
-func PaymentResponseComplete2Func(this js.Ref) js.Ref
+func FuncPaymentResponseComplete2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PaymentResponse_Complete2
 //go:noescape
@@ -228,11 +226,11 @@ func TryPaymentResponseComplete2(
 
 //go:wasmimport plat/js/web has_PaymentResponse_Retry
 //go:noescape
-func HasPaymentResponseRetry(this js.Ref) js.Ref
+func HasFuncPaymentResponseRetry(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PaymentResponse_Retry
 //go:noescape
-func PaymentResponseRetryFunc(this js.Ref) js.Ref
+func FuncPaymentResponseRetry(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PaymentResponse_Retry
 //go:noescape
@@ -248,11 +246,11 @@ func TryPaymentResponseRetry(
 
 //go:wasmimport plat/js/web has_PaymentResponse_Retry1
 //go:noescape
-func HasPaymentResponseRetry1(this js.Ref) js.Ref
+func HasFuncPaymentResponseRetry1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PaymentResponse_Retry1
 //go:noescape
-func PaymentResponseRetry1Func(this js.Ref) js.Ref
+func FuncPaymentResponseRetry1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PaymentResponse_Retry1
 //go:noescape
@@ -277,11 +275,11 @@ func GetPaymentRequestId(
 
 //go:wasmimport plat/js/web has_PaymentRequest_Show
 //go:noescape
-func HasPaymentRequestShow(this js.Ref) js.Ref
+func HasFuncPaymentRequestShow(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PaymentRequest_Show
 //go:noescape
-func PaymentRequestShowFunc(this js.Ref) js.Ref
+func FuncPaymentRequestShow(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PaymentRequest_Show
 //go:noescape
@@ -297,11 +295,11 @@ func TryPaymentRequestShow(
 
 //go:wasmimport plat/js/web has_PaymentRequest_Show1
 //go:noescape
-func HasPaymentRequestShow1(this js.Ref) js.Ref
+func HasFuncPaymentRequestShow1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PaymentRequest_Show1
 //go:noescape
-func PaymentRequestShow1Func(this js.Ref) js.Ref
+func FuncPaymentRequestShow1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PaymentRequest_Show1
 //go:noescape
@@ -315,11 +313,11 @@ func TryPaymentRequestShow1(
 
 //go:wasmimport plat/js/web has_PaymentRequest_Abort
 //go:noescape
-func HasPaymentRequestAbort(this js.Ref) js.Ref
+func HasFuncPaymentRequestAbort(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PaymentRequest_Abort
 //go:noescape
-func PaymentRequestAbortFunc(this js.Ref) js.Ref
+func FuncPaymentRequestAbort(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PaymentRequest_Abort
 //go:noescape
@@ -333,11 +331,11 @@ func TryPaymentRequestAbort(
 
 //go:wasmimport plat/js/web has_PaymentRequest_CanMakePayment
 //go:noescape
-func HasPaymentRequestCanMakePayment(this js.Ref) js.Ref
+func HasFuncPaymentRequestCanMakePayment(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PaymentRequest_CanMakePayment
 //go:noescape
-func PaymentRequestCanMakePaymentFunc(this js.Ref) js.Ref
+func FuncPaymentRequestCanMakePayment(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PaymentRequest_CanMakePayment
 //go:noescape
@@ -351,11 +349,11 @@ func TryPaymentRequestCanMakePayment(
 
 //go:wasmimport plat/js/web has_PaymentRequest_IsSecurePaymentConfirmationAvailable
 //go:noescape
-func HasPaymentRequestIsSecurePaymentConfirmationAvailable(this js.Ref) js.Ref
+func HasFuncPaymentRequestIsSecurePaymentConfirmationAvailable(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PaymentRequest_IsSecurePaymentConfirmationAvailable
 //go:noescape
-func PaymentRequestIsSecurePaymentConfirmationAvailableFunc(this js.Ref) js.Ref
+func FuncPaymentRequestIsSecurePaymentConfirmationAvailable(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PaymentRequest_IsSecurePaymentConfirmationAvailable
 //go:noescape
@@ -450,11 +448,11 @@ func GetPaymentRequestEventShippingOptions(
 
 //go:wasmimport plat/js/web has_PaymentRequestEvent_OpenWindow
 //go:noescape
-func HasPaymentRequestEventOpenWindow(this js.Ref) js.Ref
+func HasFuncPaymentRequestEventOpenWindow(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PaymentRequestEvent_OpenWindow
 //go:noescape
-func PaymentRequestEventOpenWindowFunc(this js.Ref) js.Ref
+func FuncPaymentRequestEventOpenWindow(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PaymentRequestEvent_OpenWindow
 //go:noescape
@@ -470,11 +468,11 @@ func TryPaymentRequestEventOpenWindow(
 
 //go:wasmimport plat/js/web has_PaymentRequestEvent_ChangePaymentMethod
 //go:noescape
-func HasPaymentRequestEventChangePaymentMethod(this js.Ref) js.Ref
+func HasFuncPaymentRequestEventChangePaymentMethod(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PaymentRequestEvent_ChangePaymentMethod
 //go:noescape
-func PaymentRequestEventChangePaymentMethodFunc(this js.Ref) js.Ref
+func FuncPaymentRequestEventChangePaymentMethod(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PaymentRequestEvent_ChangePaymentMethod
 //go:noescape
@@ -492,11 +490,11 @@ func TryPaymentRequestEventChangePaymentMethod(
 
 //go:wasmimport plat/js/web has_PaymentRequestEvent_ChangePaymentMethod1
 //go:noescape
-func HasPaymentRequestEventChangePaymentMethod1(this js.Ref) js.Ref
+func HasFuncPaymentRequestEventChangePaymentMethod1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PaymentRequestEvent_ChangePaymentMethod1
 //go:noescape
-func PaymentRequestEventChangePaymentMethod1Func(this js.Ref) js.Ref
+func FuncPaymentRequestEventChangePaymentMethod1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PaymentRequestEvent_ChangePaymentMethod1
 //go:noescape
@@ -512,11 +510,11 @@ func TryPaymentRequestEventChangePaymentMethod1(
 
 //go:wasmimport plat/js/web has_PaymentRequestEvent_ChangeShippingAddress
 //go:noescape
-func HasPaymentRequestEventChangeShippingAddress(this js.Ref) js.Ref
+func HasFuncPaymentRequestEventChangeShippingAddress(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PaymentRequestEvent_ChangeShippingAddress
 //go:noescape
-func PaymentRequestEventChangeShippingAddressFunc(this js.Ref) js.Ref
+func FuncPaymentRequestEventChangeShippingAddress(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PaymentRequestEvent_ChangeShippingAddress
 //go:noescape
@@ -532,11 +530,11 @@ func TryPaymentRequestEventChangeShippingAddress(
 
 //go:wasmimport plat/js/web has_PaymentRequestEvent_ChangeShippingAddress1
 //go:noescape
-func HasPaymentRequestEventChangeShippingAddress1(this js.Ref) js.Ref
+func HasFuncPaymentRequestEventChangeShippingAddress1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PaymentRequestEvent_ChangeShippingAddress1
 //go:noescape
-func PaymentRequestEventChangeShippingAddress1Func(this js.Ref) js.Ref
+func FuncPaymentRequestEventChangeShippingAddress1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PaymentRequestEvent_ChangeShippingAddress1
 //go:noescape
@@ -550,11 +548,11 @@ func TryPaymentRequestEventChangeShippingAddress1(
 
 //go:wasmimport plat/js/web has_PaymentRequestEvent_ChangeShippingOption
 //go:noescape
-func HasPaymentRequestEventChangeShippingOption(this js.Ref) js.Ref
+func HasFuncPaymentRequestEventChangeShippingOption(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PaymentRequestEvent_ChangeShippingOption
 //go:noescape
-func PaymentRequestEventChangeShippingOptionFunc(this js.Ref) js.Ref
+func FuncPaymentRequestEventChangeShippingOption(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PaymentRequestEvent_ChangeShippingOption
 //go:noescape
@@ -570,11 +568,11 @@ func TryPaymentRequestEventChangeShippingOption(
 
 //go:wasmimport plat/js/web has_PaymentRequestEvent_RespondWith
 //go:noescape
-func HasPaymentRequestEventRespondWith(this js.Ref) js.Ref
+func HasFuncPaymentRequestEventRespondWith(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PaymentRequestEvent_RespondWith
 //go:noescape
-func PaymentRequestEventRespondWithFunc(this js.Ref) js.Ref
+func FuncPaymentRequestEventRespondWith(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PaymentRequestEvent_RespondWith
 //go:noescape
@@ -611,11 +609,11 @@ func NewPaymentRequestUpdateEventByPaymentRequestUpdateEvent1(
 
 //go:wasmimport plat/js/web has_PaymentRequestUpdateEvent_UpdateWith
 //go:noescape
-func HasPaymentRequestUpdateEventUpdateWith(this js.Ref) js.Ref
+func HasFuncPaymentRequestUpdateEventUpdateWith(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PaymentRequestUpdateEvent_UpdateWith
 //go:noescape
-func PaymentRequestUpdateEventUpdateWithFunc(this js.Ref) js.Ref
+func FuncPaymentRequestUpdateEventUpdateWith(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PaymentRequestUpdateEvent_UpdateWith
 //go:noescape
@@ -686,11 +684,11 @@ func GetPerformanceElementTimingUrl(
 
 //go:wasmimport plat/js/web has_PerformanceElementTiming_ToJSON
 //go:noescape
-func HasPerformanceElementTimingToJSON(this js.Ref) js.Ref
+func HasFuncPerformanceElementTimingToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PerformanceElementTiming_ToJSON
 //go:noescape
-func PerformanceElementTimingToJSONFunc(this js.Ref) js.Ref
+func FuncPerformanceElementTimingToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PerformanceElementTiming_ToJSON
 //go:noescape
@@ -729,11 +727,11 @@ func GetPerformanceEventTimingInteractionId(
 
 //go:wasmimport plat/js/web has_PerformanceEventTiming_ToJSON
 //go:noescape
-func HasPerformanceEventTimingToJSON(this js.Ref) js.Ref
+func HasFuncPerformanceEventTimingToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PerformanceEventTiming_ToJSON
 //go:noescape
-func PerformanceEventTimingToJSONFunc(this js.Ref) js.Ref
+func FuncPerformanceEventTimingToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PerformanceEventTiming_ToJSON
 //go:noescape
@@ -767,11 +765,11 @@ func GetTaskAttributionTimingContainerName(
 
 //go:wasmimport plat/js/web has_TaskAttributionTiming_ToJSON
 //go:noescape
-func HasTaskAttributionTimingToJSON(this js.Ref) js.Ref
+func HasFuncTaskAttributionTimingToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TaskAttributionTiming_ToJSON
 //go:noescape
-func TaskAttributionTimingToJSONFunc(this js.Ref) js.Ref
+func FuncTaskAttributionTimingToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TaskAttributionTiming_ToJSON
 //go:noescape
@@ -790,11 +788,11 @@ func GetPerformanceLongTaskTimingAttribution(
 
 //go:wasmimport plat/js/web has_PerformanceLongTaskTiming_ToJSON
 //go:noescape
-func HasPerformanceLongTaskTimingToJSON(this js.Ref) js.Ref
+func HasFuncPerformanceLongTaskTimingToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PerformanceLongTaskTiming_ToJSON
 //go:noescape
-func PerformanceLongTaskTimingToJSONFunc(this js.Ref) js.Ref
+func FuncPerformanceLongTaskTimingToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PerformanceLongTaskTiming_ToJSON
 //go:noescape
@@ -868,11 +866,11 @@ func GetPerformanceNavigationTimingActivationStart(
 
 //go:wasmimport plat/js/web has_PerformanceNavigationTiming_ToJSON
 //go:noescape
-func HasPerformanceNavigationTimingToJSON(this js.Ref) js.Ref
+func HasFuncPerformanceNavigationTimingToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PerformanceNavigationTiming_ToJSON
 //go:noescape
-func PerformanceNavigationTimingToJSONFunc(this js.Ref) js.Ref
+func FuncPerformanceNavigationTimingToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PerformanceNavigationTiming_ToJSON
 //go:noescape
@@ -886,11 +884,11 @@ func TryPerformanceNavigationTimingToJSON(
 
 //go:wasmimport plat/js/web has_PerformanceObserverEntryList_GetEntries
 //go:noescape
-func HasPerformanceObserverEntryListGetEntries(this js.Ref) js.Ref
+func HasFuncPerformanceObserverEntryListGetEntries(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PerformanceObserverEntryList_GetEntries
 //go:noescape
-func PerformanceObserverEntryListGetEntriesFunc(this js.Ref) js.Ref
+func FuncPerformanceObserverEntryListGetEntries(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PerformanceObserverEntryList_GetEntries
 //go:noescape
@@ -904,11 +902,11 @@ func TryPerformanceObserverEntryListGetEntries(
 
 //go:wasmimport plat/js/web has_PerformanceObserverEntryList_GetEntriesByType
 //go:noescape
-func HasPerformanceObserverEntryListGetEntriesByType(this js.Ref) js.Ref
+func HasFuncPerformanceObserverEntryListGetEntriesByType(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PerformanceObserverEntryList_GetEntriesByType
 //go:noescape
-func PerformanceObserverEntryListGetEntriesByTypeFunc(this js.Ref) js.Ref
+func FuncPerformanceObserverEntryListGetEntriesByType(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PerformanceObserverEntryList_GetEntriesByType
 //go:noescape
@@ -924,11 +922,11 @@ func TryPerformanceObserverEntryListGetEntriesByType(
 
 //go:wasmimport plat/js/web has_PerformanceObserverEntryList_GetEntriesByName
 //go:noescape
-func HasPerformanceObserverEntryListGetEntriesByName(this js.Ref) js.Ref
+func HasFuncPerformanceObserverEntryListGetEntriesByName(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PerformanceObserverEntryList_GetEntriesByName
 //go:noescape
-func PerformanceObserverEntryListGetEntriesByNameFunc(this js.Ref) js.Ref
+func FuncPerformanceObserverEntryListGetEntriesByName(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PerformanceObserverEntryList_GetEntriesByName
 //go:noescape
@@ -946,11 +944,11 @@ func TryPerformanceObserverEntryListGetEntriesByName(
 
 //go:wasmimport plat/js/web has_PerformanceObserverEntryList_GetEntriesByName1
 //go:noescape
-func HasPerformanceObserverEntryListGetEntriesByName1(this js.Ref) js.Ref
+func HasFuncPerformanceObserverEntryListGetEntriesByName1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PerformanceObserverEntryList_GetEntriesByName1
 //go:noescape
-func PerformanceObserverEntryListGetEntriesByName1Func(this js.Ref) js.Ref
+func FuncPerformanceObserverEntryListGetEntriesByName1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PerformanceObserverEntryList_GetEntriesByName1
 //go:noescape
@@ -996,11 +994,11 @@ func GetPerformanceObserverSupportedEntryTypes(
 
 //go:wasmimport plat/js/web has_PerformanceObserver_Observe
 //go:noescape
-func HasPerformanceObserverObserve(this js.Ref) js.Ref
+func HasFuncPerformanceObserverObserve(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PerformanceObserver_Observe
 //go:noescape
-func PerformanceObserverObserveFunc(this js.Ref) js.Ref
+func FuncPerformanceObserverObserve(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PerformanceObserver_Observe
 //go:noescape
@@ -1016,11 +1014,11 @@ func TryPerformanceObserverObserve(
 
 //go:wasmimport plat/js/web has_PerformanceObserver_Observe1
 //go:noescape
-func HasPerformanceObserverObserve1(this js.Ref) js.Ref
+func HasFuncPerformanceObserverObserve1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PerformanceObserver_Observe1
 //go:noescape
-func PerformanceObserverObserve1Func(this js.Ref) js.Ref
+func FuncPerformanceObserverObserve1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PerformanceObserver_Observe1
 //go:noescape
@@ -1034,11 +1032,11 @@ func TryPerformanceObserverObserve1(
 
 //go:wasmimport plat/js/web has_PerformanceObserver_Disconnect
 //go:noescape
-func HasPerformanceObserverDisconnect(this js.Ref) js.Ref
+func HasFuncPerformanceObserverDisconnect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PerformanceObserver_Disconnect
 //go:noescape
-func PerformanceObserverDisconnectFunc(this js.Ref) js.Ref
+func FuncPerformanceObserverDisconnect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PerformanceObserver_Disconnect
 //go:noescape
@@ -1052,11 +1050,11 @@ func TryPerformanceObserverDisconnect(
 
 //go:wasmimport plat/js/web has_PerformanceObserver_TakeRecords
 //go:noescape
-func HasPerformanceObserverTakeRecords(this js.Ref) js.Ref
+func HasFuncPerformanceObserverTakeRecords(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PerformanceObserver_TakeRecords
 //go:noescape
-func PerformanceObserverTakeRecordsFunc(this js.Ref) js.Ref
+func FuncPerformanceObserverTakeRecords(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PerformanceObserver_TakeRecords
 //go:noescape
@@ -1089,11 +1087,11 @@ func GetPerformanceServerTimingDescription(
 
 //go:wasmimport plat/js/web has_PerformanceServerTiming_ToJSON
 //go:noescape
-func HasPerformanceServerTimingToJSON(this js.Ref) js.Ref
+func HasFuncPerformanceServerTimingToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PerformanceServerTiming_ToJSON
 //go:noescape
-func PerformanceServerTimingToJSONFunc(this js.Ref) js.Ref
+func FuncPerformanceServerTimingToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PerformanceServerTiming_ToJSON
 //go:noescape
@@ -1222,11 +1220,11 @@ func GetPerformanceResourceTimingServerTiming(
 
 //go:wasmimport plat/js/web has_PerformanceResourceTiming_ToJSON
 //go:noescape
-func HasPerformanceResourceTimingToJSON(this js.Ref) js.Ref
+func HasFuncPerformanceResourceTimingToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PerformanceResourceTiming_ToJSON
 //go:noescape
-func PerformanceResourceTimingToJSONFunc(this js.Ref) js.Ref
+func FuncPerformanceResourceTimingToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PerformanceResourceTiming_ToJSON
 //go:noescape
@@ -1384,11 +1382,11 @@ func GetPortalActivateEventData(
 
 //go:wasmimport plat/js/web has_PortalActivateEvent_AdoptPredecessor
 //go:noescape
-func HasPortalActivateEventAdoptPredecessor(this js.Ref) js.Ref
+func HasFuncPortalActivateEventAdoptPredecessor(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PortalActivateEvent_AdoptPredecessor
 //go:noescape
-func PortalActivateEventAdoptPredecessorFunc(this js.Ref) js.Ref
+func FuncPortalActivateEventAdoptPredecessor(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PortalActivateEvent_AdoptPredecessor
 //go:noescape

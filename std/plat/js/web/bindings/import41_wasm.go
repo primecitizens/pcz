@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web get_LargestContentfulPaint_RenderTime
 //go:noescape
@@ -50,11 +48,11 @@ func GetLargestContentfulPaintElement(
 
 //go:wasmimport plat/js/web has_LargestContentfulPaint_ToJSON
 //go:noescape
-func HasLargestContentfulPaintToJSON(this js.Ref) js.Ref
+func HasFuncLargestContentfulPaintToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_LargestContentfulPaint_ToJSON
 //go:noescape
-func LargestContentfulPaintToJSONFunc(this js.Ref) js.Ref
+func FuncLargestContentfulPaintToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_LargestContentfulPaint_ToJSON
 //go:noescape
@@ -196,11 +194,11 @@ func GetLayoutShiftSources(
 
 //go:wasmimport plat/js/web has_LayoutShift_ToJSON
 //go:noescape
-func HasLayoutShiftToJSON(this js.Ref) js.Ref
+func HasFuncLayoutShiftToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_LayoutShift_ToJSON
 //go:noescape
-func LayoutShiftToJSONFunc(this js.Ref) js.Ref
+func FuncLayoutShiftToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_LayoutShift_ToJSON
 //go:noescape
@@ -214,11 +212,11 @@ func TryLayoutShiftToJSON(
 
 //go:wasmimport plat/js/web has_LayoutWorkletGlobalScope_RegisterLayout
 //go:noescape
-func HasLayoutWorkletGlobalScopeRegisterLayout(this js.Ref) js.Ref
+func HasFuncLayoutWorkletGlobalScopeRegisterLayout(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_LayoutWorkletGlobalScope_RegisterLayout
 //go:noescape
-func LayoutWorkletGlobalScopeRegisterLayoutFunc(this js.Ref) js.Ref
+func FuncLayoutWorkletGlobalScopeRegisterLayout(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_LayoutWorkletGlobalScope_RegisterLayout
 //go:noescape
@@ -306,11 +304,11 @@ func GetMIDIPortConnection(
 
 //go:wasmimport plat/js/web has_MIDIPort_Open
 //go:noescape
-func HasMIDIPortOpen(this js.Ref) js.Ref
+func HasFuncMIDIPortOpen(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MIDIPort_Open
 //go:noescape
-func MIDIPortOpenFunc(this js.Ref) js.Ref
+func FuncMIDIPortOpen(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MIDIPort_Open
 //go:noescape
@@ -324,11 +322,11 @@ func TryMIDIPortOpen(
 
 //go:wasmimport plat/js/web has_MIDIPort_Close
 //go:noescape
-func HasMIDIPortClose(this js.Ref) js.Ref
+func HasFuncMIDIPortClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MIDIPort_Close
 //go:noescape
-func MIDIPortCloseFunc(this js.Ref) js.Ref
+func FuncMIDIPortClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MIDIPort_Close
 //go:noescape
@@ -394,11 +392,11 @@ func GetMIDIMessageEventData(
 
 //go:wasmimport plat/js/web has_MIDIOutput_Send
 //go:noescape
-func HasMIDIOutputSend(this js.Ref) js.Ref
+func HasFuncMIDIOutputSend(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MIDIOutput_Send
 //go:noescape
-func MIDIOutputSendFunc(this js.Ref) js.Ref
+func FuncMIDIOutputSend(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MIDIOutput_Send
 //go:noescape
@@ -416,11 +414,11 @@ func TryMIDIOutputSend(
 
 //go:wasmimport plat/js/web has_MIDIOutput_Send1
 //go:noescape
-func HasMIDIOutputSend1(this js.Ref) js.Ref
+func HasFuncMIDIOutputSend1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MIDIOutput_Send1
 //go:noescape
-func MIDIOutputSend1Func(this js.Ref) js.Ref
+func FuncMIDIOutputSend1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MIDIOutput_Send1
 //go:noescape
@@ -436,11 +434,11 @@ func TryMIDIOutputSend1(
 
 //go:wasmimport plat/js/web has_MIDIOutput_Clear
 //go:noescape
-func HasMIDIOutputClear(this js.Ref) js.Ref
+func HasFuncMIDIOutputClear(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MIDIOutput_Clear
 //go:noescape
-func MIDIOutputClearFunc(this js.Ref) js.Ref
+func FuncMIDIOutputClear(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MIDIOutput_Clear
 //go:noescape

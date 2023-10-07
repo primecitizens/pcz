@@ -1,11 +1,11 @@
-- File: streams.idl
+- File: webref/streams.idl
   Typedef:
     Name: ReadableStreamController
     Type:
       Union:
         - Name: ReadableStreamDefaultController
         - Name: ReadableByteStreamController
-- File: streams.idl
+- File: webref/streams.idl
   Interface:
     Name: ReadableStreamDefaultController
     ExtAttrs:
@@ -44,7 +44,7 @@
           - Name: undefined
         ExtAttrs:
           - Name: Exposed
-- File: streams.idl
+- File: webref/streams.idl
   Interface:
     Name: ReadableStreamDefaultReader
     ExtAttrs:
@@ -86,14 +86,14 @@
               Name: ReadableStream
         ExtAttrs:
           - Name: Exposed
-- File: streams.idl
+- File: webref/streams.idl
   Dict:
     Name: ReadableStreamGetReaderOptions
     Fields:
       - Name: mode
         Type:
           Name: ReadableStreamReaderMode
-- File: streams.idl
+- File: webref/streams.idl
   Dict:
     Name: ReadableStreamIteratorOptions
     Fields:
@@ -101,7 +101,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: streams.idl
+- File: webref/streams.idl
   Dict:
     Name: ReadableStreamReadResult
     Fields:
@@ -111,24 +111,24 @@
       - Name: done
         Type:
           Name: boolean
-- File: streams.idl
+- File: webref/streams.idl
   Typedef:
     Name: ReadableStreamReader
     Type:
       Union:
         - Name: ReadableStreamDefaultReader
         - Name: ReadableStreamBYOBReader
-- File: streams.idl
+- File: webref/streams.idl
   Enum:
     Name: ReadableStreamReaderMode
     Values:
       - byob
-- File: streams.idl
+- File: webref/streams.idl
   Enum:
     Name: ReadableStreamType
     Values:
       - bytes
-- File: streams.idl
+- File: webref/streams.idl
   Dict:
     Name: ReadableWritablePair
     Fields:
@@ -140,28 +140,28 @@
         Required: true
         Type:
           Name: WritableStream
-- File: media-source.idl
+- File: webref/media-source.idl
   Enum:
     Name: ReadyState
     Values:
       - closed
       - open
       - ended
-- File: mediastream-recording.idl
+- File: webref/mediastream-recording.idl
   Enum:
     Name: RecordingState
     Values:
       - inactive
       - recording
       - paused
-- File: image-capture.idl
+- File: webref/image-capture.idl
   Enum:
     Name: RedEyeReduction
     Values:
       - never
       - always
       - controllable
-- File: referrer-policy.idl
+- File: webref/referrer-policy.idl
   Enum:
     Name: ReferrerPolicy
     Values:
@@ -174,13 +174,13 @@
       - origin-when-cross-origin
       - strict-origin-when-cross-origin
       - unsafe-url
-- File: trust-token-api.idl
+- File: webref/trust-token-api.idl
   Enum:
     Name: RefreshPolicy
     Values:
       - none
       - refresh
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Dict:
     Name: RegistrationOptions
     Fields:
@@ -195,7 +195,7 @@
         Default: '"imports"'
         Type:
           Name: ServiceWorkerUpdateViaCache
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: RegistrationResponseJSON
     Fields:
@@ -222,7 +222,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: get-installed-related-apps.idl
+- File: webref/get-installed-related-apps.idl
   Dict:
     Name: RelatedApplication
     Fields:
@@ -239,7 +239,7 @@
       - Name: version
         Type:
           Name: USVString
-- File: orientation-sensor.idl
+- File: webref/orientation-sensor.idl
   Dict:
     Name: RelativeOrientationReadingValues
     Inherits: AbsoluteOrientationReadingValues
@@ -251,7 +251,7 @@
           Params:
             - Name: double
           Nullable: true
-- File: orientation-sensor.idl
+- File: webref/orientation-sensor.idl
   Interface:
     Name: RelativeOrientationSensor
     Inherits: OrientationSensor
@@ -272,7 +272,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: json-ld-api.idl
+- File: webref/json-ld-api.idl
   Interface:
     Name: RemoteDocument
     ExtAttrs:
@@ -319,7 +319,7 @@
           - Name: Exposed
             Values:
               - JsonLd
-- File: remote-playback.idl
+- File: webref/remote-playback.idl
   Interface:
     Name: RemotePlayback
     Inherits: EventTarget
@@ -394,7 +394,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: remote-playback.idl
+- File: webref/remote-playback.idl
   Callback:
     Name: RemotePlaybackAvailabilityCallback
     Args:
@@ -403,20 +403,20 @@
           Name: boolean
     Returns:
       - Name: undefined
-- File: remote-playback.idl
+- File: webref/remote-playback.idl
   Enum:
     Name: RemotePlaybackState
     Values:
       - connecting
       - connected
       - disconnected
-- File: resource-timing.idl
+- File: webref/resource-timing.idl
   Enum:
     Name: RenderBlockingStatusType
     Values:
       - blocking
       - non-blocking
-- File: html.idl
+- File: webref/html.idl
   Typedef:
     Name: RenderingContext
     Type:
@@ -426,7 +426,7 @@
         - Name: WebGLRenderingContext
         - Name: WebGL2RenderingContext
         - Name: GPUCanvasContext
-- File: reporting.idl
+- File: webref/reporting.idl
   Interface:
     Name: Report
     ExtAttrs:
@@ -473,7 +473,7 @@
             Values:
               - Window
               - Worker
-- File: reporting.idl
+- File: webref/reporting.idl
   Interface:
     Name: ReportBody
     ExtAttrs:
@@ -491,21 +491,21 @@
             Values:
               - Window
               - Worker
-- File: fenced-frame.idl
+- File: webref/fenced-frame.idl
   Typedef:
     Name: ReportEventType
     Type:
       Union:
         - Name: FenceEvent
         - Name: DOMString
-- File: reporting.idl
+- File: webref/reporting.idl
   Typedef:
     Name: ReportList
     Type:
       Name: sequence
       Params:
         - Name: Report
-- File: turtledove.idl
+- File: webref/turtledove.idl
   Dict:
     Name: ReportResultBrowserSignals
     Inherits: ReportingBrowserSignals
@@ -558,7 +558,7 @@
       - Name: buyerAndSellerReportingId
         Type:
           Name: USVString
-- File: turtledove.idl
+- File: webref/turtledove.idl
   Dict:
     Name: ReportWinBrowserSignals
     Inherits: ReportingBrowserSignals
@@ -619,7 +619,7 @@
       - Name: buyerAndSellerReportingId
         Type:
           Name: USVString
-- File: turtledove.idl
+- File: webref/turtledove.idl
   Dict:
     Name: ReportingBrowserSignals
     Fields:
@@ -658,7 +658,7 @@
       - Name: buyerAndSellerReportingId
         Type:
           Name: USVString
-- File: reporting.idl
+- File: webref/reporting.idl
   Interface:
     Name: ReportingObserver
     ExtAttrs:
@@ -706,7 +706,7 @@
             Values:
               - Window
               - Worker
-- File: reporting.idl
+- File: webref/reporting.idl
   Callback:
     Name: ReportingObserverCallback
     Args:
@@ -720,7 +720,7 @@
           Name: ReportingObserver
     Returns:
       - Name: undefined
-- File: reporting.idl
+- File: webref/reporting.idl
   Dict:
     Name: ReportingObserverOptions
     Fields:
@@ -733,7 +733,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: fetch.idl
+- File: webref/fetch.idl
   Interface:
     Name: Request
     ExtAttrs:
@@ -956,7 +956,7 @@
             Values:
               - Window
               - Worker
-- File: fetch.idl
+- File: webref/fetch.idl
   Enum:
     Name: RequestCache
     Values:
@@ -966,14 +966,14 @@
       - no-cache
       - force-cache
       - only-if-cached
-- File: fetch.idl
+- File: webref/fetch.idl
   Enum:
     Name: RequestCredentials
     Values:
       - omit
       - same-origin
       - include
-- File: fetch.idl
+- File: webref/fetch.idl
   Enum:
     Name: RequestDestination
     Values:
@@ -997,7 +997,7 @@
       - video
       - worker
       - xslt
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Dict:
     Name: RequestDeviceOptions
     Fields:
@@ -1027,19 +1027,19 @@
         Default: "false"
         Type:
           Name: boolean
-- File: fetch.idl
+- File: webref/fetch.idl
   Enum:
     Name: RequestDuplex
     Values:
       - half
-- File: fetch.idl
+- File: webref/fetch.idl
   Typedef:
     Name: RequestInfo
     Type:
       Union:
         - Name: Request
         - Name: USVString
-- File: fetch.idl
+- File: webref/fetch.idl
   Dict:
     Name: RequestInit
     Fields:
@@ -1099,7 +1099,7 @@
       - Name: attributionReporting
         Type:
           Name: AttributionReportingRequestOptions
-- File: fetch.idl
+- File: webref/fetch.idl
   Enum:
     Name: RequestMode
     Values:
@@ -1107,34 +1107,34 @@
       - same-origin
       - no-cors
       - cors
-- File: fetch.idl
+- File: webref/fetch.idl
   Enum:
     Name: RequestPriority
     Values:
       - high
       - low
       - auto
-- File: fetch.idl
+- File: webref/fetch.idl
   Enum:
     Name: RequestRedirect
     Values:
       - follow
       - error
       - manual
-- File: private-network-access.idl
+- File: webref/private-network-access.idl
   Enum:
     Name: RequestTargetAddressSpace
     Values:
       - private
       - local
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Enum:
     Name: ResidentKeyRequirement
     Values:
       - discouraged
       - preferred
       - required
-- File: resize-observer.idl
+- File: webref/resize-observer.idl
   Interface:
     Name: ResizeObserver
     ExtAttrs:

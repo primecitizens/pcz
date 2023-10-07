@@ -1,4 +1,4 @@
-- File: css-paint-api.idl
+- File: webref/css-paint-api.idl
   Interface:
     Name: PaintSize
     ExtAttrs:
@@ -22,7 +22,7 @@
           - Name: Exposed
             Values:
               - PaintWorklet
-- File: css-paint-api.idl
+- File: webref/css-paint-api.idl
   Interface:
     Name: PaintWorkletGlobalScope
     Inherits: WorkletGlobalScope
@@ -34,7 +34,6 @@
       - Name: Exposed
         Values:
           - PaintWorklet
-      - Name: SecureContext
     Attrs:
       - Name: devicePixelRatio
         Readonly: true
@@ -48,7 +47,6 @@
           - Name: Exposed
             Values:
               - PaintWorklet
-          - Name: SecureContext
     Operations:
       - Name: registerPaint
         Args:
@@ -68,8 +66,7 @@
           - Name: Exposed
             Values:
               - PaintWorklet
-          - Name: SecureContext
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: PannerNode
     Inherits: AudioNode
@@ -231,7 +228,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: PannerOptions
     Inherits: AudioNodeOptions
@@ -301,20 +298,20 @@
       - Name: channelInterpretation
         Type:
           Name: ChannelInterpretation
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Enum:
     Name: PanningModelType
     Values:
       - equalpower
       - HRTF
-- File: serial.idl
+- File: webref/serial.idl
   Enum:
     Name: ParityType
     Values:
       - none
       - even
       - odd
-- File: credential-management.idl
+- File: webref/credential-management.idl
   Interface:
     Name: PasswordCredential
     Inherits: Credential
@@ -364,7 +361,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: credential-management.idl
+- File: webref/credential-management.idl
   Dict:
     Name: PasswordCredentialData
     Inherits: CredentialData
@@ -387,14 +384,14 @@
         Required: true
         Type:
           Name: USVString
-- File: credential-management.idl
+- File: webref/credential-management.idl
   Typedef:
     Name: PasswordCredentialInit
     Type:
       Union:
         - Name: PasswordCredentialData
         - Name: HTMLFormElement
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: Path2D
     ExtAttrs:
@@ -611,14 +608,14 @@
             Values:
               - Window
               - Worker
-- File: payment-request.idl
+- File: webref/payment-request.idl
   Enum:
     Name: PaymentComplete
     Values:
       - fail
       - success
       - unknown
-- File: payment-request.idl
+- File: webref/payment-request.idl
   Dict:
     Name: PaymentCompleteDetails
     Fields:
@@ -627,7 +624,7 @@
         Type:
           Name: object
           Nullable: true
-- File: secure-payment-confirmation.idl
+- File: webref/secure-payment-confirmation.idl
   Dict:
     Name: PaymentCredentialInstrument
     Fields:
@@ -643,7 +640,7 @@
         Default: "true"
         Type:
           Name: boolean
-- File: payment-request.idl
+- File: webref/payment-request.idl
   Dict:
     Name: PaymentCurrencyAmount
     Fields:
@@ -655,7 +652,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: payment-handler.idl
+- File: webref/payment-handler.idl
   Enum:
     Name: PaymentDelegation
     Values:
@@ -663,7 +660,7 @@
       - payerName
       - payerPhone
       - payerEmail
-- File: payment-request.idl
+- File: webref/payment-request.idl
   Dict:
     Name: PaymentDetailsBase
     Fields:
@@ -677,7 +674,7 @@
           Name: sequence
           Params:
             - Name: PaymentDetailsModifier
-- File: payment-request.idl
+- File: webref/payment-request.idl
   Dict:
     Name: PaymentDetailsInit
     Inherits: PaymentDetailsBase
@@ -699,7 +696,7 @@
           Name: sequence
           Params:
             - Name: PaymentDetailsModifier
-- File: payment-request.idl
+- File: webref/payment-request.idl
   Dict:
     Name: PaymentDetailsModifier
     Fields:
@@ -718,7 +715,7 @@
       - Name: data
         Type:
           Name: object
-- File: payment-request.idl
+- File: webref/payment-request.idl
   Dict:
     Name: PaymentDetailsUpdate
     Inherits: PaymentDetailsBase
@@ -739,7 +736,7 @@
           Name: sequence
           Params:
             - Name: PaymentDetailsModifier
-- File: payment-handler.idl
+- File: webref/payment-handler.idl
   Dict:
     Name: PaymentHandlerResponse
     Fields:
@@ -768,7 +765,7 @@
         Type:
           Name: DOMString
           Nullable: true
-- File: payment-request.idl
+- File: webref/payment-request.idl
   Dict:
     Name: PaymentItem
     Fields:
@@ -784,7 +781,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: payment-handler.idl
+- File: webref/payment-handler.idl
   Interface:
     Name: PaymentManager
     ExtAttrs:
@@ -818,7 +815,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: payment-request.idl
+- File: webref/payment-request.idl
   Interface:
     Name: PaymentMethodChangeEvent
     Inherits: PaymentRequestUpdateEvent
@@ -862,7 +859,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: payment-request.idl
+- File: webref/payment-request.idl
   Dict:
     Name: PaymentMethodChangeEventInit
     Inherits: PaymentRequestUpdateEventInit
@@ -888,7 +885,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: payment-request.idl
+- File: webref/payment-request.idl
   Dict:
     Name: PaymentMethodData
     Fields:
@@ -899,7 +896,7 @@
       - Name: data
         Type:
           Name: object
-- File: payment-handler.idl
+- File: webref/payment-handler.idl
   Dict:
     Name: PaymentOptions
     Fields:
@@ -927,7 +924,7 @@
         Default: '"shipping"'
         Type:
           Name: PaymentShippingType
-- File: payment-request.idl
+- File: webref/payment-request.idl
   Interface:
     Name: PaymentRequest
     Inherits: EventTarget
@@ -1016,7 +1013,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: payment-handler.idl
+- File: webref/payment-handler.idl
   Dict:
     Name: PaymentRequestDetailsUpdate
     Fields:
@@ -1042,7 +1039,7 @@
       - Name: shippingAddressErrors
         Type:
           Name: AddressErrors
-- File: payment-handler.idl
+- File: webref/payment-handler.idl
   Interface:
     Name: PaymentRequestEvent
     Inherits: ExtendableEvent
@@ -1215,7 +1212,7 @@
           - Name: Exposed
             Values:
               - ServiceWorker
-- File: payment-handler.idl
+- File: webref/payment-handler.idl
   Dict:
     Name: PaymentRequestEventInit
     Inherits: ExtendableEventInit
@@ -1262,7 +1259,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: payment-request.idl
+- File: webref/payment-request.idl
   Interface:
     Name: PaymentRequestUpdateEvent
     Inherits: Event
@@ -1301,7 +1298,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: payment-request.idl
+- File: webref/payment-request.idl
   Dict:
     Name: PaymentRequestUpdateEventInit
     Inherits: EventInit
@@ -1318,7 +1315,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: payment-request.idl
+- File: webref/payment-request.idl
   Interface:
     Name: PaymentResponse
     Inherits: EventTarget
@@ -1404,7 +1401,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: payment-handler.idl
+- File: webref/payment-handler.idl
   Dict:
     Name: PaymentShippingOption
     Fields:
@@ -1424,14 +1421,14 @@
         Default: "false"
         Type:
           Name: boolean
-- File: payment-handler.idl
+- File: webref/payment-handler.idl
   Enum:
     Name: PaymentShippingType
     Values:
       - shipping
       - delivery
       - pickup
-- File: payment-request.idl
+- File: webref/payment-request.idl
   Dict:
     Name: PaymentValidationErrors
     Fields:
@@ -1441,7 +1438,7 @@
       - Name: paymentMethod
         Type:
           Name: object
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: Pbkdf2Params
     Inherits: Algorithm
@@ -1462,7 +1459,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: hr-time.idl
+- File: webref/hr-time.idl
   Interface:
     Name: Performance
     Inherits: EventTarget
@@ -1626,7 +1623,7 @@
               Name: DOMString
         Returns:
           - Name: PerformanceEntryList
-- File: element-timing.idl
+- File: webref/element-timing.idl
   Interface:
     Name: PerformanceElementTiming
     Inherits: PerformanceEntry
@@ -1717,7 +1714,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: performance-timeline.idl
+- File: webref/performance-timeline.idl
   Interface:
     Name: PerformanceEntry
     ExtAttrs:
@@ -1772,14 +1769,14 @@
             Values:
               - Window
               - Worker
-- File: performance-timeline.idl
+- File: webref/performance-timeline.idl
   Typedef:
     Name: PerformanceEntryList
     Type:
       Name: sequence
       Params:
         - Name: PerformanceEntry
-- File: event-timing.idl
+- File: webref/event-timing.idl
   Interface:
     Name: PerformanceEventTiming
     Inherits: PerformanceEntry
@@ -1838,7 +1835,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: longtasks.idl
+- File: webref/longtasks.idl
   Interface:
     Name: PerformanceLongTaskTiming
     Inherits: PerformanceEntry
@@ -1866,7 +1863,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: user-timing.idl
+- File: webref/user-timing.idl
   Interface:
     Name: PerformanceMark
     Inherits: PerformanceEntry
@@ -1900,7 +1897,7 @@
             Values:
               - Window
               - Worker
-- File: user-timing.idl
+- File: webref/user-timing.idl
   Dict:
     Name: PerformanceMarkOptions
     Fields:
@@ -1910,7 +1907,7 @@
       - Name: startTime
         Type:
           Name: DOMHighResTimeStamp
-- File: user-timing.idl
+- File: webref/user-timing.idl
   Interface:
     Name: PerformanceMeasure
     Inherits: PerformanceEntry
@@ -1929,7 +1926,7 @@
             Values:
               - Window
               - Worker
-- File: user-timing.idl
+- File: webref/user-timing.idl
   Dict:
     Name: PerformanceMeasureOptions
     Fields:
@@ -1949,7 +1946,7 @@
           Union:
             - Name: DOMString
             - Name: DOMHighResTimeStamp
-- File: navigation-timing.idl
+- File: webref/navigation-timing.idl
   Interface:
     Name: PerformanceNavigation
     ExtAttrs:
@@ -1999,7 +1996,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: navigation-timing.idl
+- File: webref/navigation-timing.idl
   Interface:
     Name: PerformanceNavigationTiming
     Inherits: PerformanceResourceTiming
@@ -2109,7 +2106,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: performance-timeline.idl
+- File: webref/performance-timeline.idl
   Interface:
     Name: PerformanceObserver
     ExtAttrs:

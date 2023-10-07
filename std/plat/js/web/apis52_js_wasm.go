@@ -4,25 +4,16 @@
 package web
 
 import (
-	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 type SVGFETileElement struct {
 	SVGElement
 }
 
 func (this SVGFETileElement) Once() SVGFETileElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -36,7 +27,7 @@ func (this SVGFETileElement) FromRef(ref js.Ref) SVGFETileElement {
 }
 
 func (this SVGFETileElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // In1 returns the value of property "SVGFETileElement.in1".
@@ -44,7 +35,7 @@ func (this SVGFETileElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGFETileElement) In1() (ret SVGAnimatedString, ok bool) {
 	ok = js.True == bindings.GetSVGFETileElementIn1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -54,7 +45,7 @@ func (this SVGFETileElement) In1() (ret SVGAnimatedString, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGFETileElement) X() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGFETileElementX(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -64,7 +55,7 @@ func (this SVGFETileElement) X() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGFETileElement) Y() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGFETileElementY(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -74,7 +65,7 @@ func (this SVGFETileElement) Y() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGFETileElement) Width() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGFETileElementWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -84,7 +75,7 @@ func (this SVGFETileElement) Width() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGFETileElement) Height() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGFETileElementHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -94,7 +85,7 @@ func (this SVGFETileElement) Height() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGFETileElement) Result() (ret SVGAnimatedString, ok bool) {
 	ok = js.True == bindings.GetSVGFETileElementResult(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -113,7 +104,7 @@ type SVGFETurbulenceElement struct {
 }
 
 func (this SVGFETurbulenceElement) Once() SVGFETurbulenceElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -127,7 +118,7 @@ func (this SVGFETurbulenceElement) FromRef(ref js.Ref) SVGFETurbulenceElement {
 }
 
 func (this SVGFETurbulenceElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // BaseFrequencyX returns the value of property "SVGFETurbulenceElement.baseFrequencyX".
@@ -135,7 +126,7 @@ func (this SVGFETurbulenceElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGFETurbulenceElement) BaseFrequencyX() (ret SVGAnimatedNumber, ok bool) {
 	ok = js.True == bindings.GetSVGFETurbulenceElementBaseFrequencyX(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -145,7 +136,7 @@ func (this SVGFETurbulenceElement) BaseFrequencyX() (ret SVGAnimatedNumber, ok b
 // It returns ok=false if there is no such property.
 func (this SVGFETurbulenceElement) BaseFrequencyY() (ret SVGAnimatedNumber, ok bool) {
 	ok = js.True == bindings.GetSVGFETurbulenceElementBaseFrequencyY(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -155,7 +146,7 @@ func (this SVGFETurbulenceElement) BaseFrequencyY() (ret SVGAnimatedNumber, ok b
 // It returns ok=false if there is no such property.
 func (this SVGFETurbulenceElement) NumOctaves() (ret SVGAnimatedInteger, ok bool) {
 	ok = js.True == bindings.GetSVGFETurbulenceElementNumOctaves(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -165,7 +156,7 @@ func (this SVGFETurbulenceElement) NumOctaves() (ret SVGAnimatedInteger, ok bool
 // It returns ok=false if there is no such property.
 func (this SVGFETurbulenceElement) Seed() (ret SVGAnimatedNumber, ok bool) {
 	ok = js.True == bindings.GetSVGFETurbulenceElementSeed(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -175,7 +166,7 @@ func (this SVGFETurbulenceElement) Seed() (ret SVGAnimatedNumber, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGFETurbulenceElement) StitchTiles() (ret SVGAnimatedEnumeration, ok bool) {
 	ok = js.True == bindings.GetSVGFETurbulenceElementStitchTiles(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -185,7 +176,7 @@ func (this SVGFETurbulenceElement) StitchTiles() (ret SVGAnimatedEnumeration, ok
 // It returns ok=false if there is no such property.
 func (this SVGFETurbulenceElement) Type() (ret SVGAnimatedEnumeration, ok bool) {
 	ok = js.True == bindings.GetSVGFETurbulenceElementType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -195,7 +186,7 @@ func (this SVGFETurbulenceElement) Type() (ret SVGAnimatedEnumeration, ok bool) 
 // It returns ok=false if there is no such property.
 func (this SVGFETurbulenceElement) X() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGFETurbulenceElementX(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -205,7 +196,7 @@ func (this SVGFETurbulenceElement) X() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGFETurbulenceElement) Y() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGFETurbulenceElementY(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -215,7 +206,7 @@ func (this SVGFETurbulenceElement) Y() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGFETurbulenceElement) Width() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGFETurbulenceElementWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -225,7 +216,7 @@ func (this SVGFETurbulenceElement) Width() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGFETurbulenceElement) Height() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGFETurbulenceElementHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -235,7 +226,7 @@ func (this SVGFETurbulenceElement) Height() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGFETurbulenceElement) Result() (ret SVGAnimatedString, ok bool) {
 	ok = js.True == bindings.GetSVGFETurbulenceElementResult(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -245,7 +236,7 @@ type SVGFilterElement struct {
 }
 
 func (this SVGFilterElement) Once() SVGFilterElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -259,7 +250,7 @@ func (this SVGFilterElement) FromRef(ref js.Ref) SVGFilterElement {
 }
 
 func (this SVGFilterElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // FilterUnits returns the value of property "SVGFilterElement.filterUnits".
@@ -267,7 +258,7 @@ func (this SVGFilterElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGFilterElement) FilterUnits() (ret SVGAnimatedEnumeration, ok bool) {
 	ok = js.True == bindings.GetSVGFilterElementFilterUnits(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -277,7 +268,7 @@ func (this SVGFilterElement) FilterUnits() (ret SVGAnimatedEnumeration, ok bool)
 // It returns ok=false if there is no such property.
 func (this SVGFilterElement) PrimitiveUnits() (ret SVGAnimatedEnumeration, ok bool) {
 	ok = js.True == bindings.GetSVGFilterElementPrimitiveUnits(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -287,7 +278,7 @@ func (this SVGFilterElement) PrimitiveUnits() (ret SVGAnimatedEnumeration, ok bo
 // It returns ok=false if there is no such property.
 func (this SVGFilterElement) X() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGFilterElementX(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -297,7 +288,7 @@ func (this SVGFilterElement) X() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGFilterElement) Y() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGFilterElementY(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -307,7 +298,7 @@ func (this SVGFilterElement) Y() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGFilterElement) Width() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGFilterElementWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -317,7 +308,7 @@ func (this SVGFilterElement) Width() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGFilterElement) Height() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGFilterElementHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -327,7 +318,7 @@ func (this SVGFilterElement) Height() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGFilterElement) Href() (ret SVGAnimatedString, ok bool) {
 	ok = js.True == bindings.GetSVGFilterElementHref(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -337,7 +328,7 @@ type SVGForeignObjectElement struct {
 }
 
 func (this SVGForeignObjectElement) Once() SVGForeignObjectElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -351,7 +342,7 @@ func (this SVGForeignObjectElement) FromRef(ref js.Ref) SVGForeignObjectElement 
 }
 
 func (this SVGForeignObjectElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // X returns the value of property "SVGForeignObjectElement.x".
@@ -359,7 +350,7 @@ func (this SVGForeignObjectElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGForeignObjectElement) X() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGForeignObjectElementX(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -369,7 +360,7 @@ func (this SVGForeignObjectElement) X() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGForeignObjectElement) Y() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGForeignObjectElementY(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -379,7 +370,7 @@ func (this SVGForeignObjectElement) Y() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGForeignObjectElement) Width() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGForeignObjectElementWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -389,7 +380,7 @@ func (this SVGForeignObjectElement) Width() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGForeignObjectElement) Height() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGForeignObjectElementHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -399,7 +390,7 @@ type SVGGElement struct {
 }
 
 func (this SVGGElement) Once() SVGGElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -413,7 +404,7 @@ func (this SVGGElement) FromRef(ref js.Ref) SVGGElement {
 }
 
 func (this SVGGElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type SVGGeometryElement struct {
@@ -421,7 +412,7 @@ type SVGGeometryElement struct {
 }
 
 func (this SVGGeometryElement) Once() SVGGeometryElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -435,7 +426,7 @@ func (this SVGGeometryElement) FromRef(ref js.Ref) SVGGeometryElement {
 }
 
 func (this SVGGeometryElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // PathLength returns the value of property "SVGGeometryElement.pathLength".
@@ -443,31 +434,30 @@ func (this SVGGeometryElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGGeometryElement) PathLength() (ret SVGAnimatedNumber, ok bool) {
 	ok = js.True == bindings.GetSVGGeometryElementPathLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasIsPointInFill returns true if the method "SVGGeometryElement.isPointInFill" exists.
-func (this SVGGeometryElement) HasIsPointInFill() bool {
-	return js.True == bindings.HasSVGGeometryElementIsPointInFill(
-		this.Ref(),
+// HasFuncIsPointInFill returns true if the method "SVGGeometryElement.isPointInFill" exists.
+func (this SVGGeometryElement) HasFuncIsPointInFill() bool {
+	return js.True == bindings.HasFuncSVGGeometryElementIsPointInFill(
+		this.ref,
 	)
 }
 
-// IsPointInFillFunc returns the method "SVGGeometryElement.isPointInFill".
-func (this SVGGeometryElement) IsPointInFillFunc() (fn js.Func[func(point DOMPointInit) bool]) {
-	return fn.FromRef(
-		bindings.SVGGeometryElementIsPointInFillFunc(
-			this.Ref(),
-		),
+// FuncIsPointInFill returns the method "SVGGeometryElement.isPointInFill".
+func (this SVGGeometryElement) FuncIsPointInFill() (fn js.Func[func(point DOMPointInit) bool]) {
+	bindings.FuncSVGGeometryElementIsPointInFill(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsPointInFill calls the method "SVGGeometryElement.isPointInFill".
 func (this SVGGeometryElement) IsPointInFill(point DOMPointInit) (ret bool) {
 	bindings.CallSVGGeometryElementIsPointInFill(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&point),
 	)
 
@@ -479,33 +469,32 @@ func (this SVGGeometryElement) IsPointInFill(point DOMPointInit) (ret bool) {
 // the catch clause.
 func (this SVGGeometryElement) TryIsPointInFill(point DOMPointInit) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGGeometryElementIsPointInFill(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&point),
 	)
 
 	return
 }
 
-// HasIsPointInFill1 returns true if the method "SVGGeometryElement.isPointInFill" exists.
-func (this SVGGeometryElement) HasIsPointInFill1() bool {
-	return js.True == bindings.HasSVGGeometryElementIsPointInFill1(
-		this.Ref(),
+// HasFuncIsPointInFill1 returns true if the method "SVGGeometryElement.isPointInFill" exists.
+func (this SVGGeometryElement) HasFuncIsPointInFill1() bool {
+	return js.True == bindings.HasFuncSVGGeometryElementIsPointInFill1(
+		this.ref,
 	)
 }
 
-// IsPointInFill1Func returns the method "SVGGeometryElement.isPointInFill".
-func (this SVGGeometryElement) IsPointInFill1Func() (fn js.Func[func() bool]) {
-	return fn.FromRef(
-		bindings.SVGGeometryElementIsPointInFill1Func(
-			this.Ref(),
-		),
+// FuncIsPointInFill1 returns the method "SVGGeometryElement.isPointInFill".
+func (this SVGGeometryElement) FuncIsPointInFill1() (fn js.Func[func() bool]) {
+	bindings.FuncSVGGeometryElementIsPointInFill1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsPointInFill1 calls the method "SVGGeometryElement.isPointInFill".
 func (this SVGGeometryElement) IsPointInFill1() (ret bool) {
 	bindings.CallSVGGeometryElementIsPointInFill1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -516,32 +505,31 @@ func (this SVGGeometryElement) IsPointInFill1() (ret bool) {
 // the catch clause.
 func (this SVGGeometryElement) TryIsPointInFill1() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGGeometryElementIsPointInFill1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasIsPointInStroke returns true if the method "SVGGeometryElement.isPointInStroke" exists.
-func (this SVGGeometryElement) HasIsPointInStroke() bool {
-	return js.True == bindings.HasSVGGeometryElementIsPointInStroke(
-		this.Ref(),
+// HasFuncIsPointInStroke returns true if the method "SVGGeometryElement.isPointInStroke" exists.
+func (this SVGGeometryElement) HasFuncIsPointInStroke() bool {
+	return js.True == bindings.HasFuncSVGGeometryElementIsPointInStroke(
+		this.ref,
 	)
 }
 
-// IsPointInStrokeFunc returns the method "SVGGeometryElement.isPointInStroke".
-func (this SVGGeometryElement) IsPointInStrokeFunc() (fn js.Func[func(point DOMPointInit) bool]) {
-	return fn.FromRef(
-		bindings.SVGGeometryElementIsPointInStrokeFunc(
-			this.Ref(),
-		),
+// FuncIsPointInStroke returns the method "SVGGeometryElement.isPointInStroke".
+func (this SVGGeometryElement) FuncIsPointInStroke() (fn js.Func[func(point DOMPointInit) bool]) {
+	bindings.FuncSVGGeometryElementIsPointInStroke(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsPointInStroke calls the method "SVGGeometryElement.isPointInStroke".
 func (this SVGGeometryElement) IsPointInStroke(point DOMPointInit) (ret bool) {
 	bindings.CallSVGGeometryElementIsPointInStroke(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&point),
 	)
 
@@ -553,33 +541,32 @@ func (this SVGGeometryElement) IsPointInStroke(point DOMPointInit) (ret bool) {
 // the catch clause.
 func (this SVGGeometryElement) TryIsPointInStroke(point DOMPointInit) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGGeometryElementIsPointInStroke(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&point),
 	)
 
 	return
 }
 
-// HasIsPointInStroke1 returns true if the method "SVGGeometryElement.isPointInStroke" exists.
-func (this SVGGeometryElement) HasIsPointInStroke1() bool {
-	return js.True == bindings.HasSVGGeometryElementIsPointInStroke1(
-		this.Ref(),
+// HasFuncIsPointInStroke1 returns true if the method "SVGGeometryElement.isPointInStroke" exists.
+func (this SVGGeometryElement) HasFuncIsPointInStroke1() bool {
+	return js.True == bindings.HasFuncSVGGeometryElementIsPointInStroke1(
+		this.ref,
 	)
 }
 
-// IsPointInStroke1Func returns the method "SVGGeometryElement.isPointInStroke".
-func (this SVGGeometryElement) IsPointInStroke1Func() (fn js.Func[func() bool]) {
-	return fn.FromRef(
-		bindings.SVGGeometryElementIsPointInStroke1Func(
-			this.Ref(),
-		),
+// FuncIsPointInStroke1 returns the method "SVGGeometryElement.isPointInStroke".
+func (this SVGGeometryElement) FuncIsPointInStroke1() (fn js.Func[func() bool]) {
+	bindings.FuncSVGGeometryElementIsPointInStroke1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsPointInStroke1 calls the method "SVGGeometryElement.isPointInStroke".
 func (this SVGGeometryElement) IsPointInStroke1() (ret bool) {
 	bindings.CallSVGGeometryElementIsPointInStroke1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -590,32 +577,31 @@ func (this SVGGeometryElement) IsPointInStroke1() (ret bool) {
 // the catch clause.
 func (this SVGGeometryElement) TryIsPointInStroke1() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGGeometryElementIsPointInStroke1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetTotalLength returns true if the method "SVGGeometryElement.getTotalLength" exists.
-func (this SVGGeometryElement) HasGetTotalLength() bool {
-	return js.True == bindings.HasSVGGeometryElementGetTotalLength(
-		this.Ref(),
+// HasFuncGetTotalLength returns true if the method "SVGGeometryElement.getTotalLength" exists.
+func (this SVGGeometryElement) HasFuncGetTotalLength() bool {
+	return js.True == bindings.HasFuncSVGGeometryElementGetTotalLength(
+		this.ref,
 	)
 }
 
-// GetTotalLengthFunc returns the method "SVGGeometryElement.getTotalLength".
-func (this SVGGeometryElement) GetTotalLengthFunc() (fn js.Func[func() float32]) {
-	return fn.FromRef(
-		bindings.SVGGeometryElementGetTotalLengthFunc(
-			this.Ref(),
-		),
+// FuncGetTotalLength returns the method "SVGGeometryElement.getTotalLength".
+func (this SVGGeometryElement) FuncGetTotalLength() (fn js.Func[func() float32]) {
+	bindings.FuncSVGGeometryElementGetTotalLength(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetTotalLength calls the method "SVGGeometryElement.getTotalLength".
 func (this SVGGeometryElement) GetTotalLength() (ret float32) {
 	bindings.CallSVGGeometryElementGetTotalLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -626,32 +612,31 @@ func (this SVGGeometryElement) GetTotalLength() (ret float32) {
 // the catch clause.
 func (this SVGGeometryElement) TryGetTotalLength() (ret float32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGGeometryElementGetTotalLength(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetPointAtLength returns true if the method "SVGGeometryElement.getPointAtLength" exists.
-func (this SVGGeometryElement) HasGetPointAtLength() bool {
-	return js.True == bindings.HasSVGGeometryElementGetPointAtLength(
-		this.Ref(),
+// HasFuncGetPointAtLength returns true if the method "SVGGeometryElement.getPointAtLength" exists.
+func (this SVGGeometryElement) HasFuncGetPointAtLength() bool {
+	return js.True == bindings.HasFuncSVGGeometryElementGetPointAtLength(
+		this.ref,
 	)
 }
 
-// GetPointAtLengthFunc returns the method "SVGGeometryElement.getPointAtLength".
-func (this SVGGeometryElement) GetPointAtLengthFunc() (fn js.Func[func(distance float32) DOMPoint]) {
-	return fn.FromRef(
-		bindings.SVGGeometryElementGetPointAtLengthFunc(
-			this.Ref(),
-		),
+// FuncGetPointAtLength returns the method "SVGGeometryElement.getPointAtLength".
+func (this SVGGeometryElement) FuncGetPointAtLength() (fn js.Func[func(distance float32) DOMPoint]) {
+	bindings.FuncSVGGeometryElementGetPointAtLength(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetPointAtLength calls the method "SVGGeometryElement.getPointAtLength".
 func (this SVGGeometryElement) GetPointAtLength(distance float32) (ret DOMPoint) {
 	bindings.CallSVGGeometryElementGetPointAtLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float32(distance),
 	)
 
@@ -663,7 +648,7 @@ func (this SVGGeometryElement) GetPointAtLength(distance float32) (ret DOMPoint)
 // the catch clause.
 func (this SVGGeometryElement) TryGetPointAtLength(distance float32) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGGeometryElementGetPointAtLength(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float32(distance),
 	)
 
@@ -682,7 +667,7 @@ type SVGGradientElement struct {
 }
 
 func (this SVGGradientElement) Once() SVGGradientElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -696,7 +681,7 @@ func (this SVGGradientElement) FromRef(ref js.Ref) SVGGradientElement {
 }
 
 func (this SVGGradientElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // GradientUnits returns the value of property "SVGGradientElement.gradientUnits".
@@ -704,7 +689,7 @@ func (this SVGGradientElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGGradientElement) GradientUnits() (ret SVGAnimatedEnumeration, ok bool) {
 	ok = js.True == bindings.GetSVGGradientElementGradientUnits(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -714,7 +699,7 @@ func (this SVGGradientElement) GradientUnits() (ret SVGAnimatedEnumeration, ok b
 // It returns ok=false if there is no such property.
 func (this SVGGradientElement) GradientTransform() (ret SVGAnimatedTransformList, ok bool) {
 	ok = js.True == bindings.GetSVGGradientElementGradientTransform(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -724,7 +709,7 @@ func (this SVGGradientElement) GradientTransform() (ret SVGAnimatedTransformList
 // It returns ok=false if there is no such property.
 func (this SVGGradientElement) SpreadMethod() (ret SVGAnimatedEnumeration, ok bool) {
 	ok = js.True == bindings.GetSVGGradientElementSpreadMethod(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -734,7 +719,7 @@ func (this SVGGradientElement) SpreadMethod() (ret SVGAnimatedEnumeration, ok bo
 // It returns ok=false if there is no such property.
 func (this SVGGradientElement) Href() (ret SVGAnimatedString, ok bool) {
 	ok = js.True == bindings.GetSVGGradientElementHref(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -744,7 +729,7 @@ type SVGGraphicsElement struct {
 }
 
 func (this SVGGraphicsElement) Once() SVGGraphicsElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -758,7 +743,7 @@ func (this SVGGraphicsElement) FromRef(ref js.Ref) SVGGraphicsElement {
 }
 
 func (this SVGGraphicsElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Transform returns the value of property "SVGGraphicsElement.transform".
@@ -766,7 +751,7 @@ func (this SVGGraphicsElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGGraphicsElement) Transform() (ret SVGAnimatedTransformList, ok bool) {
 	ok = js.True == bindings.GetSVGGraphicsElementTransform(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -776,7 +761,7 @@ func (this SVGGraphicsElement) Transform() (ret SVGAnimatedTransformList, ok boo
 // It returns ok=false if there is no such property.
 func (this SVGGraphicsElement) RequiredExtensions() (ret SVGStringList, ok bool) {
 	ok = js.True == bindings.GetSVGGraphicsElementRequiredExtensions(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -786,31 +771,30 @@ func (this SVGGraphicsElement) RequiredExtensions() (ret SVGStringList, ok bool)
 // It returns ok=false if there is no such property.
 func (this SVGGraphicsElement) SystemLanguage() (ret SVGStringList, ok bool) {
 	ok = js.True == bindings.GetSVGGraphicsElementSystemLanguage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGetBBox returns true if the method "SVGGraphicsElement.getBBox" exists.
-func (this SVGGraphicsElement) HasGetBBox() bool {
-	return js.True == bindings.HasSVGGraphicsElementGetBBox(
-		this.Ref(),
+// HasFuncGetBBox returns true if the method "SVGGraphicsElement.getBBox" exists.
+func (this SVGGraphicsElement) HasFuncGetBBox() bool {
+	return js.True == bindings.HasFuncSVGGraphicsElementGetBBox(
+		this.ref,
 	)
 }
 
-// GetBBoxFunc returns the method "SVGGraphicsElement.getBBox".
-func (this SVGGraphicsElement) GetBBoxFunc() (fn js.Func[func(options SVGBoundingBoxOptions) DOMRect]) {
-	return fn.FromRef(
-		bindings.SVGGraphicsElementGetBBoxFunc(
-			this.Ref(),
-		),
+// FuncGetBBox returns the method "SVGGraphicsElement.getBBox".
+func (this SVGGraphicsElement) FuncGetBBox() (fn js.Func[func(options SVGBoundingBoxOptions) DOMRect]) {
+	bindings.FuncSVGGraphicsElementGetBBox(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetBBox calls the method "SVGGraphicsElement.getBBox".
 func (this SVGGraphicsElement) GetBBox(options SVGBoundingBoxOptions) (ret DOMRect) {
 	bindings.CallSVGGraphicsElementGetBBox(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -822,33 +806,32 @@ func (this SVGGraphicsElement) GetBBox(options SVGBoundingBoxOptions) (ret DOMRe
 // the catch clause.
 func (this SVGGraphicsElement) TryGetBBox(options SVGBoundingBoxOptions) (ret DOMRect, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGGraphicsElementGetBBox(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasGetBBox1 returns true if the method "SVGGraphicsElement.getBBox" exists.
-func (this SVGGraphicsElement) HasGetBBox1() bool {
-	return js.True == bindings.HasSVGGraphicsElementGetBBox1(
-		this.Ref(),
+// HasFuncGetBBox1 returns true if the method "SVGGraphicsElement.getBBox" exists.
+func (this SVGGraphicsElement) HasFuncGetBBox1() bool {
+	return js.True == bindings.HasFuncSVGGraphicsElementGetBBox1(
+		this.ref,
 	)
 }
 
-// GetBBox1Func returns the method "SVGGraphicsElement.getBBox".
-func (this SVGGraphicsElement) GetBBox1Func() (fn js.Func[func() DOMRect]) {
-	return fn.FromRef(
-		bindings.SVGGraphicsElementGetBBox1Func(
-			this.Ref(),
-		),
+// FuncGetBBox1 returns the method "SVGGraphicsElement.getBBox".
+func (this SVGGraphicsElement) FuncGetBBox1() (fn js.Func[func() DOMRect]) {
+	bindings.FuncSVGGraphicsElementGetBBox1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetBBox1 calls the method "SVGGraphicsElement.getBBox".
 func (this SVGGraphicsElement) GetBBox1() (ret DOMRect) {
 	bindings.CallSVGGraphicsElementGetBBox1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -859,32 +842,31 @@ func (this SVGGraphicsElement) GetBBox1() (ret DOMRect) {
 // the catch clause.
 func (this SVGGraphicsElement) TryGetBBox1() (ret DOMRect, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGGraphicsElementGetBBox1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetCTM returns true if the method "SVGGraphicsElement.getCTM" exists.
-func (this SVGGraphicsElement) HasGetCTM() bool {
-	return js.True == bindings.HasSVGGraphicsElementGetCTM(
-		this.Ref(),
+// HasFuncGetCTM returns true if the method "SVGGraphicsElement.getCTM" exists.
+func (this SVGGraphicsElement) HasFuncGetCTM() bool {
+	return js.True == bindings.HasFuncSVGGraphicsElementGetCTM(
+		this.ref,
 	)
 }
 
-// GetCTMFunc returns the method "SVGGraphicsElement.getCTM".
-func (this SVGGraphicsElement) GetCTMFunc() (fn js.Func[func() DOMMatrix]) {
-	return fn.FromRef(
-		bindings.SVGGraphicsElementGetCTMFunc(
-			this.Ref(),
-		),
+// FuncGetCTM returns the method "SVGGraphicsElement.getCTM".
+func (this SVGGraphicsElement) FuncGetCTM() (fn js.Func[func() DOMMatrix]) {
+	bindings.FuncSVGGraphicsElementGetCTM(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetCTM calls the method "SVGGraphicsElement.getCTM".
 func (this SVGGraphicsElement) GetCTM() (ret DOMMatrix) {
 	bindings.CallSVGGraphicsElementGetCTM(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -895,32 +877,31 @@ func (this SVGGraphicsElement) GetCTM() (ret DOMMatrix) {
 // the catch clause.
 func (this SVGGraphicsElement) TryGetCTM() (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGGraphicsElementGetCTM(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetScreenCTM returns true if the method "SVGGraphicsElement.getScreenCTM" exists.
-func (this SVGGraphicsElement) HasGetScreenCTM() bool {
-	return js.True == bindings.HasSVGGraphicsElementGetScreenCTM(
-		this.Ref(),
+// HasFuncGetScreenCTM returns true if the method "SVGGraphicsElement.getScreenCTM" exists.
+func (this SVGGraphicsElement) HasFuncGetScreenCTM() bool {
+	return js.True == bindings.HasFuncSVGGraphicsElementGetScreenCTM(
+		this.ref,
 	)
 }
 
-// GetScreenCTMFunc returns the method "SVGGraphicsElement.getScreenCTM".
-func (this SVGGraphicsElement) GetScreenCTMFunc() (fn js.Func[func() DOMMatrix]) {
-	return fn.FromRef(
-		bindings.SVGGraphicsElementGetScreenCTMFunc(
-			this.Ref(),
-		),
+// FuncGetScreenCTM returns the method "SVGGraphicsElement.getScreenCTM".
+func (this SVGGraphicsElement) FuncGetScreenCTM() (fn js.Func[func() DOMMatrix]) {
+	bindings.FuncSVGGraphicsElementGetScreenCTM(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetScreenCTM calls the method "SVGGraphicsElement.getScreenCTM".
 func (this SVGGraphicsElement) GetScreenCTM() (ret DOMMatrix) {
 	bindings.CallSVGGraphicsElementGetScreenCTM(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -931,7 +912,7 @@ func (this SVGGraphicsElement) GetScreenCTM() (ret DOMMatrix) {
 // the catch clause.
 func (this SVGGraphicsElement) TryGetScreenCTM() (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGGraphicsElementGetScreenCTM(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -942,7 +923,7 @@ type SVGLineElement struct {
 }
 
 func (this SVGLineElement) Once() SVGLineElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -956,7 +937,7 @@ func (this SVGLineElement) FromRef(ref js.Ref) SVGLineElement {
 }
 
 func (this SVGLineElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // X1 returns the value of property "SVGLineElement.x1".
@@ -964,7 +945,7 @@ func (this SVGLineElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGLineElement) X1() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGLineElementX1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -974,7 +955,7 @@ func (this SVGLineElement) X1() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGLineElement) Y1() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGLineElementY1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -984,7 +965,7 @@ func (this SVGLineElement) Y1() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGLineElement) X2() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGLineElementX2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -994,7 +975,7 @@ func (this SVGLineElement) X2() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGLineElement) Y2() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGLineElementY2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1004,7 +985,7 @@ type SVGLinearGradientElement struct {
 }
 
 func (this SVGLinearGradientElement) Once() SVGLinearGradientElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1018,7 +999,7 @@ func (this SVGLinearGradientElement) FromRef(ref js.Ref) SVGLinearGradientElemen
 }
 
 func (this SVGLinearGradientElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // X1 returns the value of property "SVGLinearGradientElement.x1".
@@ -1026,7 +1007,7 @@ func (this SVGLinearGradientElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGLinearGradientElement) X1() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGLinearGradientElementX1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1036,7 +1017,7 @@ func (this SVGLinearGradientElement) X1() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGLinearGradientElement) Y1() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGLinearGradientElementY1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1046,7 +1027,7 @@ func (this SVGLinearGradientElement) Y1() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGLinearGradientElement) X2() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGLinearGradientElementX2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1056,7 +1037,7 @@ func (this SVGLinearGradientElement) X2() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGLinearGradientElement) Y2() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGLinearGradientElementY2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1066,7 +1047,7 @@ type SVGMPathElement struct {
 }
 
 func (this SVGMPathElement) Once() SVGMPathElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1080,7 +1061,7 @@ func (this SVGMPathElement) FromRef(ref js.Ref) SVGMPathElement {
 }
 
 func (this SVGMPathElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Href returns the value of property "SVGMPathElement.href".
@@ -1088,7 +1069,7 @@ func (this SVGMPathElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGMPathElement) Href() (ret SVGAnimatedString, ok bool) {
 	ok = js.True == bindings.GetSVGMPathElementHref(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1107,7 +1088,7 @@ type SVGMarkerElement struct {
 }
 
 func (this SVGMarkerElement) Once() SVGMarkerElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1121,7 +1102,7 @@ func (this SVGMarkerElement) FromRef(ref js.Ref) SVGMarkerElement {
 }
 
 func (this SVGMarkerElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // RefX returns the value of property "SVGMarkerElement.refX".
@@ -1129,7 +1110,7 @@ func (this SVGMarkerElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGMarkerElement) RefX() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGMarkerElementRefX(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1139,7 +1120,7 @@ func (this SVGMarkerElement) RefX() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGMarkerElement) RefY() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGMarkerElementRefY(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1149,7 +1130,7 @@ func (this SVGMarkerElement) RefY() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGMarkerElement) MarkerUnits() (ret SVGAnimatedEnumeration, ok bool) {
 	ok = js.True == bindings.GetSVGMarkerElementMarkerUnits(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1159,7 +1140,7 @@ func (this SVGMarkerElement) MarkerUnits() (ret SVGAnimatedEnumeration, ok bool)
 // It returns ok=false if there is no such property.
 func (this SVGMarkerElement) MarkerWidth() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGMarkerElementMarkerWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1169,7 +1150,7 @@ func (this SVGMarkerElement) MarkerWidth() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGMarkerElement) MarkerHeight() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGMarkerElementMarkerHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1179,7 +1160,7 @@ func (this SVGMarkerElement) MarkerHeight() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGMarkerElement) OrientType() (ret SVGAnimatedEnumeration, ok bool) {
 	ok = js.True == bindings.GetSVGMarkerElementOrientType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1189,7 +1170,7 @@ func (this SVGMarkerElement) OrientType() (ret SVGAnimatedEnumeration, ok bool) 
 // It returns ok=false if there is no such property.
 func (this SVGMarkerElement) OrientAngle() (ret SVGAnimatedAngle, ok bool) {
 	ok = js.True == bindings.GetSVGMarkerElementOrientAngle(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1199,7 +1180,7 @@ func (this SVGMarkerElement) OrientAngle() (ret SVGAnimatedAngle, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGMarkerElement) Orient() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSVGMarkerElementOrient(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1209,7 +1190,7 @@ func (this SVGMarkerElement) Orient() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this SVGMarkerElement) SetOrient(val js.String) bool {
 	return js.True == bindings.SetSVGMarkerElementOrient(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1219,7 +1200,7 @@ func (this SVGMarkerElement) SetOrient(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this SVGMarkerElement) ViewBox() (ret SVGAnimatedRect, ok bool) {
 	ok = js.True == bindings.GetSVGMarkerElementViewBox(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1229,31 +1210,30 @@ func (this SVGMarkerElement) ViewBox() (ret SVGAnimatedRect, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGMarkerElement) PreserveAspectRatio() (ret SVGAnimatedPreserveAspectRatio, ok bool) {
 	ok = js.True == bindings.GetSVGMarkerElementPreserveAspectRatio(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasSetOrientToAuto returns true if the method "SVGMarkerElement.setOrientToAuto" exists.
-func (this SVGMarkerElement) HasSetOrientToAuto() bool {
-	return js.True == bindings.HasSVGMarkerElementSetOrientToAuto(
-		this.Ref(),
+// HasFuncSetOrientToAuto returns true if the method "SVGMarkerElement.setOrientToAuto" exists.
+func (this SVGMarkerElement) HasFuncSetOrientToAuto() bool {
+	return js.True == bindings.HasFuncSVGMarkerElementSetOrientToAuto(
+		this.ref,
 	)
 }
 
-// SetOrientToAutoFunc returns the method "SVGMarkerElement.setOrientToAuto".
-func (this SVGMarkerElement) SetOrientToAutoFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.SVGMarkerElementSetOrientToAutoFunc(
-			this.Ref(),
-		),
+// FuncSetOrientToAuto returns the method "SVGMarkerElement.setOrientToAuto".
+func (this SVGMarkerElement) FuncSetOrientToAuto() (fn js.Func[func()]) {
+	bindings.FuncSVGMarkerElementSetOrientToAuto(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetOrientToAuto calls the method "SVGMarkerElement.setOrientToAuto".
 func (this SVGMarkerElement) SetOrientToAuto() (ret js.Void) {
 	bindings.CallSVGMarkerElementSetOrientToAuto(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1264,32 +1244,31 @@ func (this SVGMarkerElement) SetOrientToAuto() (ret js.Void) {
 // the catch clause.
 func (this SVGMarkerElement) TrySetOrientToAuto() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGMarkerElementSetOrientToAuto(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSetOrientToAngle returns true if the method "SVGMarkerElement.setOrientToAngle" exists.
-func (this SVGMarkerElement) HasSetOrientToAngle() bool {
-	return js.True == bindings.HasSVGMarkerElementSetOrientToAngle(
-		this.Ref(),
+// HasFuncSetOrientToAngle returns true if the method "SVGMarkerElement.setOrientToAngle" exists.
+func (this SVGMarkerElement) HasFuncSetOrientToAngle() bool {
+	return js.True == bindings.HasFuncSVGMarkerElementSetOrientToAngle(
+		this.ref,
 	)
 }
 
-// SetOrientToAngleFunc returns the method "SVGMarkerElement.setOrientToAngle".
-func (this SVGMarkerElement) SetOrientToAngleFunc() (fn js.Func[func(angle SVGAngle)]) {
-	return fn.FromRef(
-		bindings.SVGMarkerElementSetOrientToAngleFunc(
-			this.Ref(),
-		),
+// FuncSetOrientToAngle returns the method "SVGMarkerElement.setOrientToAngle".
+func (this SVGMarkerElement) FuncSetOrientToAngle() (fn js.Func[func(angle SVGAngle)]) {
+	bindings.FuncSVGMarkerElementSetOrientToAngle(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetOrientToAngle calls the method "SVGMarkerElement.setOrientToAngle".
 func (this SVGMarkerElement) SetOrientToAngle(angle SVGAngle) (ret js.Void) {
 	bindings.CallSVGMarkerElementSetOrientToAngle(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		angle.Ref(),
 	)
 
@@ -1301,7 +1280,7 @@ func (this SVGMarkerElement) SetOrientToAngle(angle SVGAngle) (ret js.Void) {
 // the catch clause.
 func (this SVGMarkerElement) TrySetOrientToAngle(angle SVGAngle) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGMarkerElementSetOrientToAngle(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		angle.Ref(),
 	)
 
@@ -1313,7 +1292,7 @@ type SVGMaskElement struct {
 }
 
 func (this SVGMaskElement) Once() SVGMaskElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1327,7 +1306,7 @@ func (this SVGMaskElement) FromRef(ref js.Ref) SVGMaskElement {
 }
 
 func (this SVGMaskElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // MaskUnits returns the value of property "SVGMaskElement.maskUnits".
@@ -1335,7 +1314,7 @@ func (this SVGMaskElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGMaskElement) MaskUnits() (ret SVGAnimatedEnumeration, ok bool) {
 	ok = js.True == bindings.GetSVGMaskElementMaskUnits(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1345,7 +1324,7 @@ func (this SVGMaskElement) MaskUnits() (ret SVGAnimatedEnumeration, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGMaskElement) MaskContentUnits() (ret SVGAnimatedEnumeration, ok bool) {
 	ok = js.True == bindings.GetSVGMaskElementMaskContentUnits(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1355,7 +1334,7 @@ func (this SVGMaskElement) MaskContentUnits() (ret SVGAnimatedEnumeration, ok bo
 // It returns ok=false if there is no such property.
 func (this SVGMaskElement) X() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGMaskElementX(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1365,7 +1344,7 @@ func (this SVGMaskElement) X() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGMaskElement) Y() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGMaskElementY(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1375,7 +1354,7 @@ func (this SVGMaskElement) Y() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGMaskElement) Width() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGMaskElementWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1385,7 +1364,7 @@ func (this SVGMaskElement) Width() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGMaskElement) Height() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGMaskElementHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1395,7 +1374,7 @@ type SVGMetadataElement struct {
 }
 
 func (this SVGMetadataElement) Once() SVGMetadataElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1409,7 +1388,7 @@ func (this SVGMetadataElement) FromRef(ref js.Ref) SVGMetadataElement {
 }
 
 func (this SVGMetadataElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type SVGPathElement struct {
@@ -1417,7 +1396,7 @@ type SVGPathElement struct {
 }
 
 func (this SVGPathElement) Once() SVGPathElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1431,7 +1410,7 @@ func (this SVGPathElement) FromRef(ref js.Ref) SVGPathElement {
 }
 
 func (this SVGPathElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type SVGPatternElement struct {
@@ -1439,7 +1418,7 @@ type SVGPatternElement struct {
 }
 
 func (this SVGPatternElement) Once() SVGPatternElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1453,7 +1432,7 @@ func (this SVGPatternElement) FromRef(ref js.Ref) SVGPatternElement {
 }
 
 func (this SVGPatternElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // PatternUnits returns the value of property "SVGPatternElement.patternUnits".
@@ -1461,7 +1440,7 @@ func (this SVGPatternElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGPatternElement) PatternUnits() (ret SVGAnimatedEnumeration, ok bool) {
 	ok = js.True == bindings.GetSVGPatternElementPatternUnits(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1471,7 +1450,7 @@ func (this SVGPatternElement) PatternUnits() (ret SVGAnimatedEnumeration, ok boo
 // It returns ok=false if there is no such property.
 func (this SVGPatternElement) PatternContentUnits() (ret SVGAnimatedEnumeration, ok bool) {
 	ok = js.True == bindings.GetSVGPatternElementPatternContentUnits(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1481,7 +1460,7 @@ func (this SVGPatternElement) PatternContentUnits() (ret SVGAnimatedEnumeration,
 // It returns ok=false if there is no such property.
 func (this SVGPatternElement) PatternTransform() (ret SVGAnimatedTransformList, ok bool) {
 	ok = js.True == bindings.GetSVGPatternElementPatternTransform(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1491,7 +1470,7 @@ func (this SVGPatternElement) PatternTransform() (ret SVGAnimatedTransformList, 
 // It returns ok=false if there is no such property.
 func (this SVGPatternElement) X() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGPatternElementX(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1501,7 +1480,7 @@ func (this SVGPatternElement) X() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGPatternElement) Y() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGPatternElementY(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1511,7 +1490,7 @@ func (this SVGPatternElement) Y() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGPatternElement) Width() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGPatternElementWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1521,7 +1500,7 @@ func (this SVGPatternElement) Width() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGPatternElement) Height() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGPatternElementHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1531,7 +1510,7 @@ func (this SVGPatternElement) Height() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGPatternElement) ViewBox() (ret SVGAnimatedRect, ok bool) {
 	ok = js.True == bindings.GetSVGPatternElementViewBox(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1541,7 +1520,7 @@ func (this SVGPatternElement) ViewBox() (ret SVGAnimatedRect, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGPatternElement) PreserveAspectRatio() (ret SVGAnimatedPreserveAspectRatio, ok bool) {
 	ok = js.True == bindings.GetSVGPatternElementPreserveAspectRatio(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1551,7 +1530,7 @@ func (this SVGPatternElement) PreserveAspectRatio() (ret SVGAnimatedPreserveAspe
 // It returns ok=false if there is no such property.
 func (this SVGPatternElement) Href() (ret SVGAnimatedString, ok bool) {
 	ok = js.True == bindings.GetSVGPatternElementHref(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1561,7 +1540,7 @@ type SVGPointList struct {
 }
 
 func (this SVGPointList) Once() SVGPointList {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1575,7 +1554,7 @@ func (this SVGPointList) FromRef(ref js.Ref) SVGPointList {
 }
 
 func (this SVGPointList) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Length returns the value of property "SVGPointList.length".
@@ -1583,7 +1562,7 @@ func (this SVGPointList) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGPointList) Length() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetSVGPointListLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1593,31 +1572,30 @@ func (this SVGPointList) Length() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGPointList) NumberOfItems() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetSVGPointListNumberOfItems(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasClear returns true if the method "SVGPointList.clear" exists.
-func (this SVGPointList) HasClear() bool {
-	return js.True == bindings.HasSVGPointListClear(
-		this.Ref(),
+// HasFuncClear returns true if the method "SVGPointList.clear" exists.
+func (this SVGPointList) HasFuncClear() bool {
+	return js.True == bindings.HasFuncSVGPointListClear(
+		this.ref,
 	)
 }
 
-// ClearFunc returns the method "SVGPointList.clear".
-func (this SVGPointList) ClearFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.SVGPointListClearFunc(
-			this.Ref(),
-		),
+// FuncClear returns the method "SVGPointList.clear".
+func (this SVGPointList) FuncClear() (fn js.Func[func()]) {
+	bindings.FuncSVGPointListClear(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Clear calls the method "SVGPointList.clear".
 func (this SVGPointList) Clear() (ret js.Void) {
 	bindings.CallSVGPointListClear(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1628,32 +1606,31 @@ func (this SVGPointList) Clear() (ret js.Void) {
 // the catch clause.
 func (this SVGPointList) TryClear() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGPointListClear(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasInitialize returns true if the method "SVGPointList.initialize" exists.
-func (this SVGPointList) HasInitialize() bool {
-	return js.True == bindings.HasSVGPointListInitialize(
-		this.Ref(),
+// HasFuncInitialize returns true if the method "SVGPointList.initialize" exists.
+func (this SVGPointList) HasFuncInitialize() bool {
+	return js.True == bindings.HasFuncSVGPointListInitialize(
+		this.ref,
 	)
 }
 
-// InitializeFunc returns the method "SVGPointList.initialize".
-func (this SVGPointList) InitializeFunc() (fn js.Func[func(newItem DOMPoint) DOMPoint]) {
-	return fn.FromRef(
-		bindings.SVGPointListInitializeFunc(
-			this.Ref(),
-		),
+// FuncInitialize returns the method "SVGPointList.initialize".
+func (this SVGPointList) FuncInitialize() (fn js.Func[func(newItem DOMPoint) DOMPoint]) {
+	bindings.FuncSVGPointListInitialize(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Initialize calls the method "SVGPointList.initialize".
 func (this SVGPointList) Initialize(newItem DOMPoint) (ret DOMPoint) {
 	bindings.CallSVGPointListInitialize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		newItem.Ref(),
 	)
 
@@ -1665,33 +1642,32 @@ func (this SVGPointList) Initialize(newItem DOMPoint) (ret DOMPoint) {
 // the catch clause.
 func (this SVGPointList) TryInitialize(newItem DOMPoint) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGPointListInitialize(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		newItem.Ref(),
 	)
 
 	return
 }
 
-// HasGetItem returns true if the method "SVGPointList.getItem" exists.
-func (this SVGPointList) HasGetItem() bool {
-	return js.True == bindings.HasSVGPointListGetItem(
-		this.Ref(),
+// HasFuncGetItem returns true if the method "SVGPointList.getItem" exists.
+func (this SVGPointList) HasFuncGetItem() bool {
+	return js.True == bindings.HasFuncSVGPointListGetItem(
+		this.ref,
 	)
 }
 
-// GetItemFunc returns the method "SVGPointList.getItem".
-func (this SVGPointList) GetItemFunc() (fn js.Func[func(index uint32) DOMPoint]) {
-	return fn.FromRef(
-		bindings.SVGPointListGetItemFunc(
-			this.Ref(),
-		),
+// FuncGetItem returns the method "SVGPointList.getItem".
+func (this SVGPointList) FuncGetItem() (fn js.Func[func(index uint32) DOMPoint]) {
+	bindings.FuncSVGPointListGetItem(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetItem calls the method "SVGPointList.getItem".
 func (this SVGPointList) GetItem(index uint32) (ret DOMPoint) {
 	bindings.CallSVGPointListGetItem(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 	)
 
@@ -1703,33 +1679,32 @@ func (this SVGPointList) GetItem(index uint32) (ret DOMPoint) {
 // the catch clause.
 func (this SVGPointList) TryGetItem(index uint32) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGPointListGetItem(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 	)
 
 	return
 }
 
-// HasInsertItemBefore returns true if the method "SVGPointList.insertItemBefore" exists.
-func (this SVGPointList) HasInsertItemBefore() bool {
-	return js.True == bindings.HasSVGPointListInsertItemBefore(
-		this.Ref(),
+// HasFuncInsertItemBefore returns true if the method "SVGPointList.insertItemBefore" exists.
+func (this SVGPointList) HasFuncInsertItemBefore() bool {
+	return js.True == bindings.HasFuncSVGPointListInsertItemBefore(
+		this.ref,
 	)
 }
 
-// InsertItemBeforeFunc returns the method "SVGPointList.insertItemBefore".
-func (this SVGPointList) InsertItemBeforeFunc() (fn js.Func[func(newItem DOMPoint, index uint32) DOMPoint]) {
-	return fn.FromRef(
-		bindings.SVGPointListInsertItemBeforeFunc(
-			this.Ref(),
-		),
+// FuncInsertItemBefore returns the method "SVGPointList.insertItemBefore".
+func (this SVGPointList) FuncInsertItemBefore() (fn js.Func[func(newItem DOMPoint, index uint32) DOMPoint]) {
+	bindings.FuncSVGPointListInsertItemBefore(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InsertItemBefore calls the method "SVGPointList.insertItemBefore".
 func (this SVGPointList) InsertItemBefore(newItem DOMPoint, index uint32) (ret DOMPoint) {
 	bindings.CallSVGPointListInsertItemBefore(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		newItem.Ref(),
 		uint32(index),
 	)
@@ -1742,7 +1717,7 @@ func (this SVGPointList) InsertItemBefore(newItem DOMPoint, index uint32) (ret D
 // the catch clause.
 func (this SVGPointList) TryInsertItemBefore(newItem DOMPoint, index uint32) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGPointListInsertItemBefore(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		newItem.Ref(),
 		uint32(index),
 	)
@@ -1750,26 +1725,25 @@ func (this SVGPointList) TryInsertItemBefore(newItem DOMPoint, index uint32) (re
 	return
 }
 
-// HasReplaceItem returns true if the method "SVGPointList.replaceItem" exists.
-func (this SVGPointList) HasReplaceItem() bool {
-	return js.True == bindings.HasSVGPointListReplaceItem(
-		this.Ref(),
+// HasFuncReplaceItem returns true if the method "SVGPointList.replaceItem" exists.
+func (this SVGPointList) HasFuncReplaceItem() bool {
+	return js.True == bindings.HasFuncSVGPointListReplaceItem(
+		this.ref,
 	)
 }
 
-// ReplaceItemFunc returns the method "SVGPointList.replaceItem".
-func (this SVGPointList) ReplaceItemFunc() (fn js.Func[func(newItem DOMPoint, index uint32) DOMPoint]) {
-	return fn.FromRef(
-		bindings.SVGPointListReplaceItemFunc(
-			this.Ref(),
-		),
+// FuncReplaceItem returns the method "SVGPointList.replaceItem".
+func (this SVGPointList) FuncReplaceItem() (fn js.Func[func(newItem DOMPoint, index uint32) DOMPoint]) {
+	bindings.FuncSVGPointListReplaceItem(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReplaceItem calls the method "SVGPointList.replaceItem".
 func (this SVGPointList) ReplaceItem(newItem DOMPoint, index uint32) (ret DOMPoint) {
 	bindings.CallSVGPointListReplaceItem(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		newItem.Ref(),
 		uint32(index),
 	)
@@ -1782,7 +1756,7 @@ func (this SVGPointList) ReplaceItem(newItem DOMPoint, index uint32) (ret DOMPoi
 // the catch clause.
 func (this SVGPointList) TryReplaceItem(newItem DOMPoint, index uint32) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGPointListReplaceItem(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		newItem.Ref(),
 		uint32(index),
 	)
@@ -1790,26 +1764,25 @@ func (this SVGPointList) TryReplaceItem(newItem DOMPoint, index uint32) (ret DOM
 	return
 }
 
-// HasRemoveItem returns true if the method "SVGPointList.removeItem" exists.
-func (this SVGPointList) HasRemoveItem() bool {
-	return js.True == bindings.HasSVGPointListRemoveItem(
-		this.Ref(),
+// HasFuncRemoveItem returns true if the method "SVGPointList.removeItem" exists.
+func (this SVGPointList) HasFuncRemoveItem() bool {
+	return js.True == bindings.HasFuncSVGPointListRemoveItem(
+		this.ref,
 	)
 }
 
-// RemoveItemFunc returns the method "SVGPointList.removeItem".
-func (this SVGPointList) RemoveItemFunc() (fn js.Func[func(index uint32) DOMPoint]) {
-	return fn.FromRef(
-		bindings.SVGPointListRemoveItemFunc(
-			this.Ref(),
-		),
+// FuncRemoveItem returns the method "SVGPointList.removeItem".
+func (this SVGPointList) FuncRemoveItem() (fn js.Func[func(index uint32) DOMPoint]) {
+	bindings.FuncSVGPointListRemoveItem(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RemoveItem calls the method "SVGPointList.removeItem".
 func (this SVGPointList) RemoveItem(index uint32) (ret DOMPoint) {
 	bindings.CallSVGPointListRemoveItem(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 	)
 
@@ -1821,33 +1794,32 @@ func (this SVGPointList) RemoveItem(index uint32) (ret DOMPoint) {
 // the catch clause.
 func (this SVGPointList) TryRemoveItem(index uint32) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGPointListRemoveItem(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 	)
 
 	return
 }
 
-// HasAppendItem returns true if the method "SVGPointList.appendItem" exists.
-func (this SVGPointList) HasAppendItem() bool {
-	return js.True == bindings.HasSVGPointListAppendItem(
-		this.Ref(),
+// HasFuncAppendItem returns true if the method "SVGPointList.appendItem" exists.
+func (this SVGPointList) HasFuncAppendItem() bool {
+	return js.True == bindings.HasFuncSVGPointListAppendItem(
+		this.ref,
 	)
 }
 
-// AppendItemFunc returns the method "SVGPointList.appendItem".
-func (this SVGPointList) AppendItemFunc() (fn js.Func[func(newItem DOMPoint) DOMPoint]) {
-	return fn.FromRef(
-		bindings.SVGPointListAppendItemFunc(
-			this.Ref(),
-		),
+// FuncAppendItem returns the method "SVGPointList.appendItem".
+func (this SVGPointList) FuncAppendItem() (fn js.Func[func(newItem DOMPoint) DOMPoint]) {
+	bindings.FuncSVGPointListAppendItem(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AppendItem calls the method "SVGPointList.appendItem".
 func (this SVGPointList) AppendItem(newItem DOMPoint) (ret DOMPoint) {
 	bindings.CallSVGPointListAppendItem(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		newItem.Ref(),
 	)
 
@@ -1859,33 +1831,32 @@ func (this SVGPointList) AppendItem(newItem DOMPoint) (ret DOMPoint) {
 // the catch clause.
 func (this SVGPointList) TryAppendItem(newItem DOMPoint) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGPointListAppendItem(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		newItem.Ref(),
 	)
 
 	return
 }
 
-// HasSet returns true if the method "SVGPointList." exists.
-func (this SVGPointList) HasSet() bool {
-	return js.True == bindings.HasSVGPointListSet(
-		this.Ref(),
+// HasFuncSet returns true if the method "SVGPointList." exists.
+func (this SVGPointList) HasFuncSet() bool {
+	return js.True == bindings.HasFuncSVGPointListSet(
+		this.ref,
 	)
 }
 
-// SetFunc returns the method "SVGPointList.".
-func (this SVGPointList) SetFunc() (fn js.Func[func(index uint32, newItem DOMPoint)]) {
-	return fn.FromRef(
-		bindings.SVGPointListSetFunc(
-			this.Ref(),
-		),
+// FuncSet returns the method "SVGPointList.".
+func (this SVGPointList) FuncSet() (fn js.Func[func(index uint32, newItem DOMPoint)]) {
+	bindings.FuncSVGPointListSet(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Set calls the method "SVGPointList.".
 func (this SVGPointList) Set(index uint32, newItem DOMPoint) (ret js.Void) {
 	bindings.CallSVGPointListSet(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		newItem.Ref(),
 	)
@@ -1898,7 +1869,7 @@ func (this SVGPointList) Set(index uint32, newItem DOMPoint) (ret js.Void) {
 // the catch clause.
 func (this SVGPointList) TrySet(index uint32, newItem DOMPoint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGPointListSet(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		newItem.Ref(),
 	)
@@ -1911,7 +1882,7 @@ type SVGPolygonElement struct {
 }
 
 func (this SVGPolygonElement) Once() SVGPolygonElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1925,7 +1896,7 @@ func (this SVGPolygonElement) FromRef(ref js.Ref) SVGPolygonElement {
 }
 
 func (this SVGPolygonElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Points returns the value of property "SVGPolygonElement.points".
@@ -1933,7 +1904,7 @@ func (this SVGPolygonElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGPolygonElement) Points() (ret SVGPointList, ok bool) {
 	ok = js.True == bindings.GetSVGPolygonElementPoints(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1943,7 +1914,7 @@ func (this SVGPolygonElement) Points() (ret SVGPointList, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGPolygonElement) AnimatedPoints() (ret SVGPointList, ok bool) {
 	ok = js.True == bindings.GetSVGPolygonElementAnimatedPoints(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1953,7 +1924,7 @@ type SVGPolylineElement struct {
 }
 
 func (this SVGPolylineElement) Once() SVGPolylineElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1967,7 +1938,7 @@ func (this SVGPolylineElement) FromRef(ref js.Ref) SVGPolylineElement {
 }
 
 func (this SVGPolylineElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Points returns the value of property "SVGPolylineElement.points".
@@ -1975,7 +1946,7 @@ func (this SVGPolylineElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGPolylineElement) Points() (ret SVGPointList, ok bool) {
 	ok = js.True == bindings.GetSVGPolylineElementPoints(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1985,7 +1956,7 @@ func (this SVGPolylineElement) Points() (ret SVGPointList, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGPolylineElement) AnimatedPoints() (ret SVGPointList, ok bool) {
 	ok = js.True == bindings.GetSVGPolylineElementAnimatedPoints(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1995,7 +1966,7 @@ type SVGRadialGradientElement struct {
 }
 
 func (this SVGRadialGradientElement) Once() SVGRadialGradientElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2009,7 +1980,7 @@ func (this SVGRadialGradientElement) FromRef(ref js.Ref) SVGRadialGradientElemen
 }
 
 func (this SVGRadialGradientElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Cx returns the value of property "SVGRadialGradientElement.cx".
@@ -2017,7 +1988,7 @@ func (this SVGRadialGradientElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGRadialGradientElement) Cx() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGRadialGradientElementCx(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2027,7 +1998,7 @@ func (this SVGRadialGradientElement) Cx() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGRadialGradientElement) Cy() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGRadialGradientElementCy(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2037,7 +2008,7 @@ func (this SVGRadialGradientElement) Cy() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGRadialGradientElement) R() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGRadialGradientElementR(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2047,7 +2018,7 @@ func (this SVGRadialGradientElement) R() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGRadialGradientElement) Fx() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGRadialGradientElementFx(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2057,7 +2028,7 @@ func (this SVGRadialGradientElement) Fx() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGRadialGradientElement) Fy() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGRadialGradientElementFy(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2067,7 +2038,7 @@ func (this SVGRadialGradientElement) Fy() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGRadialGradientElement) Fr() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGRadialGradientElementFr(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2077,7 +2048,7 @@ type SVGRectElement struct {
 }
 
 func (this SVGRectElement) Once() SVGRectElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2091,7 +2062,7 @@ func (this SVGRectElement) FromRef(ref js.Ref) SVGRectElement {
 }
 
 func (this SVGRectElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // X returns the value of property "SVGRectElement.x".
@@ -2099,7 +2070,7 @@ func (this SVGRectElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGRectElement) X() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGRectElementX(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2109,7 +2080,7 @@ func (this SVGRectElement) X() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGRectElement) Y() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGRectElementY(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2119,7 +2090,7 @@ func (this SVGRectElement) Y() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGRectElement) Width() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGRectElementWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2129,7 +2100,7 @@ func (this SVGRectElement) Width() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGRectElement) Height() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGRectElementHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2139,7 +2110,7 @@ func (this SVGRectElement) Height() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGRectElement) Rx() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGRectElementRx(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2149,7 +2120,7 @@ func (this SVGRectElement) Rx() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGRectElement) Ry() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGRectElementRy(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2159,7 +2130,7 @@ type SVGSetElement struct {
 }
 
 func (this SVGSetElement) Once() SVGSetElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2173,7 +2144,7 @@ func (this SVGSetElement) FromRef(ref js.Ref) SVGSetElement {
 }
 
 func (this SVGSetElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type SVGStopElement struct {
@@ -2181,7 +2152,7 @@ type SVGStopElement struct {
 }
 
 func (this SVGStopElement) Once() SVGStopElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2195,7 +2166,7 @@ func (this SVGStopElement) FromRef(ref js.Ref) SVGStopElement {
 }
 
 func (this SVGStopElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Offset returns the value of property "SVGStopElement.offset".
@@ -2203,7 +2174,7 @@ func (this SVGStopElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGStopElement) Offset() (ret SVGAnimatedNumber, ok bool) {
 	ok = js.True == bindings.GetSVGStopElementOffset(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2213,7 +2184,7 @@ type SVGStyleElement struct {
 }
 
 func (this SVGStyleElement) Once() SVGStyleElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2227,7 +2198,7 @@ func (this SVGStyleElement) FromRef(ref js.Ref) SVGStyleElement {
 }
 
 func (this SVGStyleElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Type returns the value of property "SVGStyleElement.type".
@@ -2235,7 +2206,7 @@ func (this SVGStyleElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGStyleElement) Type() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSVGStyleElementType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2245,7 +2216,7 @@ func (this SVGStyleElement) Type() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this SVGStyleElement) SetType(val js.String) bool {
 	return js.True == bindings.SetSVGStyleElementType(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2255,7 +2226,7 @@ func (this SVGStyleElement) SetType(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this SVGStyleElement) Media() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSVGStyleElementMedia(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2265,7 +2236,7 @@ func (this SVGStyleElement) Media() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this SVGStyleElement) SetMedia(val js.String) bool {
 	return js.True == bindings.SetSVGStyleElementMedia(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2275,7 +2246,7 @@ func (this SVGStyleElement) SetMedia(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this SVGStyleElement) Title() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSVGStyleElementTitle(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2285,7 +2256,7 @@ func (this SVGStyleElement) Title() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this SVGStyleElement) SetTitle(val js.String) bool {
 	return js.True == bindings.SetSVGStyleElementTitle(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2295,7 +2266,7 @@ func (this SVGStyleElement) SetTitle(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this SVGStyleElement) Sheet() (ret CSSStyleSheet, ok bool) {
 	ok = js.True == bindings.GetSVGStyleElementSheet(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2305,7 +2276,7 @@ type SVGSwitchElement struct {
 }
 
 func (this SVGSwitchElement) Once() SVGSwitchElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2319,7 +2290,7 @@ func (this SVGSwitchElement) FromRef(ref js.Ref) SVGSwitchElement {
 }
 
 func (this SVGSwitchElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type SVGSymbolElement struct {
@@ -2327,7 +2298,7 @@ type SVGSymbolElement struct {
 }
 
 func (this SVGSymbolElement) Once() SVGSymbolElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2341,7 +2312,7 @@ func (this SVGSymbolElement) FromRef(ref js.Ref) SVGSymbolElement {
 }
 
 func (this SVGSymbolElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // ViewBox returns the value of property "SVGSymbolElement.viewBox".
@@ -2349,7 +2320,7 @@ func (this SVGSymbolElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGSymbolElement) ViewBox() (ret SVGAnimatedRect, ok bool) {
 	ok = js.True == bindings.GetSVGSymbolElementViewBox(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2359,7 +2330,7 @@ func (this SVGSymbolElement) ViewBox() (ret SVGAnimatedRect, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGSymbolElement) PreserveAspectRatio() (ret SVGAnimatedPreserveAspectRatio, ok bool) {
 	ok = js.True == bindings.GetSVGSymbolElementPreserveAspectRatio(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2369,7 +2340,7 @@ type SVGTSpanElement struct {
 }
 
 func (this SVGTSpanElement) Once() SVGTSpanElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2383,7 +2354,7 @@ func (this SVGTSpanElement) FromRef(ref js.Ref) SVGTSpanElement {
 }
 
 func (this SVGTSpanElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 const (
@@ -2397,7 +2368,7 @@ type SVGTextContentElement struct {
 }
 
 func (this SVGTextContentElement) Once() SVGTextContentElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2411,7 +2382,7 @@ func (this SVGTextContentElement) FromRef(ref js.Ref) SVGTextContentElement {
 }
 
 func (this SVGTextContentElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // TextLength returns the value of property "SVGTextContentElement.textLength".
@@ -2419,7 +2390,7 @@ func (this SVGTextContentElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGTextContentElement) TextLength() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGTextContentElementTextLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2429,31 +2400,30 @@ func (this SVGTextContentElement) TextLength() (ret SVGAnimatedLength, ok bool) 
 // It returns ok=false if there is no such property.
 func (this SVGTextContentElement) LengthAdjust() (ret SVGAnimatedEnumeration, ok bool) {
 	ok = js.True == bindings.GetSVGTextContentElementLengthAdjust(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGetNumberOfChars returns true if the method "SVGTextContentElement.getNumberOfChars" exists.
-func (this SVGTextContentElement) HasGetNumberOfChars() bool {
-	return js.True == bindings.HasSVGTextContentElementGetNumberOfChars(
-		this.Ref(),
+// HasFuncGetNumberOfChars returns true if the method "SVGTextContentElement.getNumberOfChars" exists.
+func (this SVGTextContentElement) HasFuncGetNumberOfChars() bool {
+	return js.True == bindings.HasFuncSVGTextContentElementGetNumberOfChars(
+		this.ref,
 	)
 }
 
-// GetNumberOfCharsFunc returns the method "SVGTextContentElement.getNumberOfChars".
-func (this SVGTextContentElement) GetNumberOfCharsFunc() (fn js.Func[func() int32]) {
-	return fn.FromRef(
-		bindings.SVGTextContentElementGetNumberOfCharsFunc(
-			this.Ref(),
-		),
+// FuncGetNumberOfChars returns the method "SVGTextContentElement.getNumberOfChars".
+func (this SVGTextContentElement) FuncGetNumberOfChars() (fn js.Func[func() int32]) {
+	bindings.FuncSVGTextContentElementGetNumberOfChars(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetNumberOfChars calls the method "SVGTextContentElement.getNumberOfChars".
 func (this SVGTextContentElement) GetNumberOfChars() (ret int32) {
 	bindings.CallSVGTextContentElementGetNumberOfChars(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2464,32 +2434,31 @@ func (this SVGTextContentElement) GetNumberOfChars() (ret int32) {
 // the catch clause.
 func (this SVGTextContentElement) TryGetNumberOfChars() (ret int32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTextContentElementGetNumberOfChars(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetComputedTextLength returns true if the method "SVGTextContentElement.getComputedTextLength" exists.
-func (this SVGTextContentElement) HasGetComputedTextLength() bool {
-	return js.True == bindings.HasSVGTextContentElementGetComputedTextLength(
-		this.Ref(),
+// HasFuncGetComputedTextLength returns true if the method "SVGTextContentElement.getComputedTextLength" exists.
+func (this SVGTextContentElement) HasFuncGetComputedTextLength() bool {
+	return js.True == bindings.HasFuncSVGTextContentElementGetComputedTextLength(
+		this.ref,
 	)
 }
 
-// GetComputedTextLengthFunc returns the method "SVGTextContentElement.getComputedTextLength".
-func (this SVGTextContentElement) GetComputedTextLengthFunc() (fn js.Func[func() float32]) {
-	return fn.FromRef(
-		bindings.SVGTextContentElementGetComputedTextLengthFunc(
-			this.Ref(),
-		),
+// FuncGetComputedTextLength returns the method "SVGTextContentElement.getComputedTextLength".
+func (this SVGTextContentElement) FuncGetComputedTextLength() (fn js.Func[func() float32]) {
+	bindings.FuncSVGTextContentElementGetComputedTextLength(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetComputedTextLength calls the method "SVGTextContentElement.getComputedTextLength".
 func (this SVGTextContentElement) GetComputedTextLength() (ret float32) {
 	bindings.CallSVGTextContentElementGetComputedTextLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2500,32 +2469,31 @@ func (this SVGTextContentElement) GetComputedTextLength() (ret float32) {
 // the catch clause.
 func (this SVGTextContentElement) TryGetComputedTextLength() (ret float32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTextContentElementGetComputedTextLength(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetSubStringLength returns true if the method "SVGTextContentElement.getSubStringLength" exists.
-func (this SVGTextContentElement) HasGetSubStringLength() bool {
-	return js.True == bindings.HasSVGTextContentElementGetSubStringLength(
-		this.Ref(),
+// HasFuncGetSubStringLength returns true if the method "SVGTextContentElement.getSubStringLength" exists.
+func (this SVGTextContentElement) HasFuncGetSubStringLength() bool {
+	return js.True == bindings.HasFuncSVGTextContentElementGetSubStringLength(
+		this.ref,
 	)
 }
 
-// GetSubStringLengthFunc returns the method "SVGTextContentElement.getSubStringLength".
-func (this SVGTextContentElement) GetSubStringLengthFunc() (fn js.Func[func(charnum uint32, nchars uint32) float32]) {
-	return fn.FromRef(
-		bindings.SVGTextContentElementGetSubStringLengthFunc(
-			this.Ref(),
-		),
+// FuncGetSubStringLength returns the method "SVGTextContentElement.getSubStringLength".
+func (this SVGTextContentElement) FuncGetSubStringLength() (fn js.Func[func(charnum uint32, nchars uint32) float32]) {
+	bindings.FuncSVGTextContentElementGetSubStringLength(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetSubStringLength calls the method "SVGTextContentElement.getSubStringLength".
 func (this SVGTextContentElement) GetSubStringLength(charnum uint32, nchars uint32) (ret float32) {
 	bindings.CallSVGTextContentElementGetSubStringLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(charnum),
 		uint32(nchars),
 	)
@@ -2538,7 +2506,7 @@ func (this SVGTextContentElement) GetSubStringLength(charnum uint32, nchars uint
 // the catch clause.
 func (this SVGTextContentElement) TryGetSubStringLength(charnum uint32, nchars uint32) (ret float32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTextContentElementGetSubStringLength(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(charnum),
 		uint32(nchars),
 	)
@@ -2546,26 +2514,25 @@ func (this SVGTextContentElement) TryGetSubStringLength(charnum uint32, nchars u
 	return
 }
 
-// HasGetStartPositionOfChar returns true if the method "SVGTextContentElement.getStartPositionOfChar" exists.
-func (this SVGTextContentElement) HasGetStartPositionOfChar() bool {
-	return js.True == bindings.HasSVGTextContentElementGetStartPositionOfChar(
-		this.Ref(),
+// HasFuncGetStartPositionOfChar returns true if the method "SVGTextContentElement.getStartPositionOfChar" exists.
+func (this SVGTextContentElement) HasFuncGetStartPositionOfChar() bool {
+	return js.True == bindings.HasFuncSVGTextContentElementGetStartPositionOfChar(
+		this.ref,
 	)
 }
 
-// GetStartPositionOfCharFunc returns the method "SVGTextContentElement.getStartPositionOfChar".
-func (this SVGTextContentElement) GetStartPositionOfCharFunc() (fn js.Func[func(charnum uint32) DOMPoint]) {
-	return fn.FromRef(
-		bindings.SVGTextContentElementGetStartPositionOfCharFunc(
-			this.Ref(),
-		),
+// FuncGetStartPositionOfChar returns the method "SVGTextContentElement.getStartPositionOfChar".
+func (this SVGTextContentElement) FuncGetStartPositionOfChar() (fn js.Func[func(charnum uint32) DOMPoint]) {
+	bindings.FuncSVGTextContentElementGetStartPositionOfChar(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetStartPositionOfChar calls the method "SVGTextContentElement.getStartPositionOfChar".
 func (this SVGTextContentElement) GetStartPositionOfChar(charnum uint32) (ret DOMPoint) {
 	bindings.CallSVGTextContentElementGetStartPositionOfChar(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(charnum),
 	)
 
@@ -2577,33 +2544,32 @@ func (this SVGTextContentElement) GetStartPositionOfChar(charnum uint32) (ret DO
 // the catch clause.
 func (this SVGTextContentElement) TryGetStartPositionOfChar(charnum uint32) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTextContentElementGetStartPositionOfChar(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(charnum),
 	)
 
 	return
 }
 
-// HasGetEndPositionOfChar returns true if the method "SVGTextContentElement.getEndPositionOfChar" exists.
-func (this SVGTextContentElement) HasGetEndPositionOfChar() bool {
-	return js.True == bindings.HasSVGTextContentElementGetEndPositionOfChar(
-		this.Ref(),
+// HasFuncGetEndPositionOfChar returns true if the method "SVGTextContentElement.getEndPositionOfChar" exists.
+func (this SVGTextContentElement) HasFuncGetEndPositionOfChar() bool {
+	return js.True == bindings.HasFuncSVGTextContentElementGetEndPositionOfChar(
+		this.ref,
 	)
 }
 
-// GetEndPositionOfCharFunc returns the method "SVGTextContentElement.getEndPositionOfChar".
-func (this SVGTextContentElement) GetEndPositionOfCharFunc() (fn js.Func[func(charnum uint32) DOMPoint]) {
-	return fn.FromRef(
-		bindings.SVGTextContentElementGetEndPositionOfCharFunc(
-			this.Ref(),
-		),
+// FuncGetEndPositionOfChar returns the method "SVGTextContentElement.getEndPositionOfChar".
+func (this SVGTextContentElement) FuncGetEndPositionOfChar() (fn js.Func[func(charnum uint32) DOMPoint]) {
+	bindings.FuncSVGTextContentElementGetEndPositionOfChar(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetEndPositionOfChar calls the method "SVGTextContentElement.getEndPositionOfChar".
 func (this SVGTextContentElement) GetEndPositionOfChar(charnum uint32) (ret DOMPoint) {
 	bindings.CallSVGTextContentElementGetEndPositionOfChar(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(charnum),
 	)
 
@@ -2615,33 +2581,32 @@ func (this SVGTextContentElement) GetEndPositionOfChar(charnum uint32) (ret DOMP
 // the catch clause.
 func (this SVGTextContentElement) TryGetEndPositionOfChar(charnum uint32) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTextContentElementGetEndPositionOfChar(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(charnum),
 	)
 
 	return
 }
 
-// HasGetExtentOfChar returns true if the method "SVGTextContentElement.getExtentOfChar" exists.
-func (this SVGTextContentElement) HasGetExtentOfChar() bool {
-	return js.True == bindings.HasSVGTextContentElementGetExtentOfChar(
-		this.Ref(),
+// HasFuncGetExtentOfChar returns true if the method "SVGTextContentElement.getExtentOfChar" exists.
+func (this SVGTextContentElement) HasFuncGetExtentOfChar() bool {
+	return js.True == bindings.HasFuncSVGTextContentElementGetExtentOfChar(
+		this.ref,
 	)
 }
 
-// GetExtentOfCharFunc returns the method "SVGTextContentElement.getExtentOfChar".
-func (this SVGTextContentElement) GetExtentOfCharFunc() (fn js.Func[func(charnum uint32) DOMRect]) {
-	return fn.FromRef(
-		bindings.SVGTextContentElementGetExtentOfCharFunc(
-			this.Ref(),
-		),
+// FuncGetExtentOfChar returns the method "SVGTextContentElement.getExtentOfChar".
+func (this SVGTextContentElement) FuncGetExtentOfChar() (fn js.Func[func(charnum uint32) DOMRect]) {
+	bindings.FuncSVGTextContentElementGetExtentOfChar(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetExtentOfChar calls the method "SVGTextContentElement.getExtentOfChar".
 func (this SVGTextContentElement) GetExtentOfChar(charnum uint32) (ret DOMRect) {
 	bindings.CallSVGTextContentElementGetExtentOfChar(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(charnum),
 	)
 
@@ -2653,33 +2618,32 @@ func (this SVGTextContentElement) GetExtentOfChar(charnum uint32) (ret DOMRect) 
 // the catch clause.
 func (this SVGTextContentElement) TryGetExtentOfChar(charnum uint32) (ret DOMRect, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTextContentElementGetExtentOfChar(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(charnum),
 	)
 
 	return
 }
 
-// HasGetRotationOfChar returns true if the method "SVGTextContentElement.getRotationOfChar" exists.
-func (this SVGTextContentElement) HasGetRotationOfChar() bool {
-	return js.True == bindings.HasSVGTextContentElementGetRotationOfChar(
-		this.Ref(),
+// HasFuncGetRotationOfChar returns true if the method "SVGTextContentElement.getRotationOfChar" exists.
+func (this SVGTextContentElement) HasFuncGetRotationOfChar() bool {
+	return js.True == bindings.HasFuncSVGTextContentElementGetRotationOfChar(
+		this.ref,
 	)
 }
 
-// GetRotationOfCharFunc returns the method "SVGTextContentElement.getRotationOfChar".
-func (this SVGTextContentElement) GetRotationOfCharFunc() (fn js.Func[func(charnum uint32) float32]) {
-	return fn.FromRef(
-		bindings.SVGTextContentElementGetRotationOfCharFunc(
-			this.Ref(),
-		),
+// FuncGetRotationOfChar returns the method "SVGTextContentElement.getRotationOfChar".
+func (this SVGTextContentElement) FuncGetRotationOfChar() (fn js.Func[func(charnum uint32) float32]) {
+	bindings.FuncSVGTextContentElementGetRotationOfChar(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetRotationOfChar calls the method "SVGTextContentElement.getRotationOfChar".
 func (this SVGTextContentElement) GetRotationOfChar(charnum uint32) (ret float32) {
 	bindings.CallSVGTextContentElementGetRotationOfChar(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(charnum),
 	)
 
@@ -2691,33 +2655,32 @@ func (this SVGTextContentElement) GetRotationOfChar(charnum uint32) (ret float32
 // the catch clause.
 func (this SVGTextContentElement) TryGetRotationOfChar(charnum uint32) (ret float32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTextContentElementGetRotationOfChar(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(charnum),
 	)
 
 	return
 }
 
-// HasGetCharNumAtPosition returns true if the method "SVGTextContentElement.getCharNumAtPosition" exists.
-func (this SVGTextContentElement) HasGetCharNumAtPosition() bool {
-	return js.True == bindings.HasSVGTextContentElementGetCharNumAtPosition(
-		this.Ref(),
+// HasFuncGetCharNumAtPosition returns true if the method "SVGTextContentElement.getCharNumAtPosition" exists.
+func (this SVGTextContentElement) HasFuncGetCharNumAtPosition() bool {
+	return js.True == bindings.HasFuncSVGTextContentElementGetCharNumAtPosition(
+		this.ref,
 	)
 }
 
-// GetCharNumAtPositionFunc returns the method "SVGTextContentElement.getCharNumAtPosition".
-func (this SVGTextContentElement) GetCharNumAtPositionFunc() (fn js.Func[func(point DOMPointInit) int32]) {
-	return fn.FromRef(
-		bindings.SVGTextContentElementGetCharNumAtPositionFunc(
-			this.Ref(),
-		),
+// FuncGetCharNumAtPosition returns the method "SVGTextContentElement.getCharNumAtPosition".
+func (this SVGTextContentElement) FuncGetCharNumAtPosition() (fn js.Func[func(point DOMPointInit) int32]) {
+	bindings.FuncSVGTextContentElementGetCharNumAtPosition(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetCharNumAtPosition calls the method "SVGTextContentElement.getCharNumAtPosition".
 func (this SVGTextContentElement) GetCharNumAtPosition(point DOMPointInit) (ret int32) {
 	bindings.CallSVGTextContentElementGetCharNumAtPosition(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&point),
 	)
 
@@ -2729,33 +2692,32 @@ func (this SVGTextContentElement) GetCharNumAtPosition(point DOMPointInit) (ret 
 // the catch clause.
 func (this SVGTextContentElement) TryGetCharNumAtPosition(point DOMPointInit) (ret int32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTextContentElementGetCharNumAtPosition(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&point),
 	)
 
 	return
 }
 
-// HasGetCharNumAtPosition1 returns true if the method "SVGTextContentElement.getCharNumAtPosition" exists.
-func (this SVGTextContentElement) HasGetCharNumAtPosition1() bool {
-	return js.True == bindings.HasSVGTextContentElementGetCharNumAtPosition1(
-		this.Ref(),
+// HasFuncGetCharNumAtPosition1 returns true if the method "SVGTextContentElement.getCharNumAtPosition" exists.
+func (this SVGTextContentElement) HasFuncGetCharNumAtPosition1() bool {
+	return js.True == bindings.HasFuncSVGTextContentElementGetCharNumAtPosition1(
+		this.ref,
 	)
 }
 
-// GetCharNumAtPosition1Func returns the method "SVGTextContentElement.getCharNumAtPosition".
-func (this SVGTextContentElement) GetCharNumAtPosition1Func() (fn js.Func[func() int32]) {
-	return fn.FromRef(
-		bindings.SVGTextContentElementGetCharNumAtPosition1Func(
-			this.Ref(),
-		),
+// FuncGetCharNumAtPosition1 returns the method "SVGTextContentElement.getCharNumAtPosition".
+func (this SVGTextContentElement) FuncGetCharNumAtPosition1() (fn js.Func[func() int32]) {
+	bindings.FuncSVGTextContentElementGetCharNumAtPosition1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetCharNumAtPosition1 calls the method "SVGTextContentElement.getCharNumAtPosition".
 func (this SVGTextContentElement) GetCharNumAtPosition1() (ret int32) {
 	bindings.CallSVGTextContentElementGetCharNumAtPosition1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2766,32 +2728,31 @@ func (this SVGTextContentElement) GetCharNumAtPosition1() (ret int32) {
 // the catch clause.
 func (this SVGTextContentElement) TryGetCharNumAtPosition1() (ret int32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTextContentElementGetCharNumAtPosition1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSelectSubString returns true if the method "SVGTextContentElement.selectSubString" exists.
-func (this SVGTextContentElement) HasSelectSubString() bool {
-	return js.True == bindings.HasSVGTextContentElementSelectSubString(
-		this.Ref(),
+// HasFuncSelectSubString returns true if the method "SVGTextContentElement.selectSubString" exists.
+func (this SVGTextContentElement) HasFuncSelectSubString() bool {
+	return js.True == bindings.HasFuncSVGTextContentElementSelectSubString(
+		this.ref,
 	)
 }
 
-// SelectSubStringFunc returns the method "SVGTextContentElement.selectSubString".
-func (this SVGTextContentElement) SelectSubStringFunc() (fn js.Func[func(charnum uint32, nchars uint32)]) {
-	return fn.FromRef(
-		bindings.SVGTextContentElementSelectSubStringFunc(
-			this.Ref(),
-		),
+// FuncSelectSubString returns the method "SVGTextContentElement.selectSubString".
+func (this SVGTextContentElement) FuncSelectSubString() (fn js.Func[func(charnum uint32, nchars uint32)]) {
+	bindings.FuncSVGTextContentElementSelectSubString(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SelectSubString calls the method "SVGTextContentElement.selectSubString".
 func (this SVGTextContentElement) SelectSubString(charnum uint32, nchars uint32) (ret js.Void) {
 	bindings.CallSVGTextContentElementSelectSubString(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(charnum),
 		uint32(nchars),
 	)
@@ -2804,7 +2765,7 @@ func (this SVGTextContentElement) SelectSubString(charnum uint32, nchars uint32)
 // the catch clause.
 func (this SVGTextContentElement) TrySelectSubString(charnum uint32, nchars uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTextContentElementSelectSubString(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(charnum),
 		uint32(nchars),
 	)
@@ -2817,7 +2778,7 @@ type SVGTextElement struct {
 }
 
 func (this SVGTextElement) Once() SVGTextElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2831,7 +2792,7 @@ func (this SVGTextElement) FromRef(ref js.Ref) SVGTextElement {
 }
 
 func (this SVGTextElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 const (
@@ -2848,7 +2809,7 @@ type SVGTextPathElement struct {
 }
 
 func (this SVGTextPathElement) Once() SVGTextPathElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2862,7 +2823,7 @@ func (this SVGTextPathElement) FromRef(ref js.Ref) SVGTextPathElement {
 }
 
 func (this SVGTextPathElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // StartOffset returns the value of property "SVGTextPathElement.startOffset".
@@ -2870,7 +2831,7 @@ func (this SVGTextPathElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGTextPathElement) StartOffset() (ret SVGAnimatedLength, ok bool) {
 	ok = js.True == bindings.GetSVGTextPathElementStartOffset(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2880,7 +2841,7 @@ func (this SVGTextPathElement) StartOffset() (ret SVGAnimatedLength, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGTextPathElement) Method() (ret SVGAnimatedEnumeration, ok bool) {
 	ok = js.True == bindings.GetSVGTextPathElementMethod(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2890,7 +2851,7 @@ func (this SVGTextPathElement) Method() (ret SVGAnimatedEnumeration, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGTextPathElement) Spacing() (ret SVGAnimatedEnumeration, ok bool) {
 	ok = js.True == bindings.GetSVGTextPathElementSpacing(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2900,7 +2861,7 @@ func (this SVGTextPathElement) Spacing() (ret SVGAnimatedEnumeration, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGTextPathElement) Href() (ret SVGAnimatedString, ok bool) {
 	ok = js.True == bindings.GetSVGTextPathElementHref(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2910,7 +2871,7 @@ type SVGTextPositioningElement struct {
 }
 
 func (this SVGTextPositioningElement) Once() SVGTextPositioningElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2924,7 +2885,7 @@ func (this SVGTextPositioningElement) FromRef(ref js.Ref) SVGTextPositioningElem
 }
 
 func (this SVGTextPositioningElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // X returns the value of property "SVGTextPositioningElement.x".
@@ -2932,7 +2893,7 @@ func (this SVGTextPositioningElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGTextPositioningElement) X() (ret SVGAnimatedLengthList, ok bool) {
 	ok = js.True == bindings.GetSVGTextPositioningElementX(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2942,7 +2903,7 @@ func (this SVGTextPositioningElement) X() (ret SVGAnimatedLengthList, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGTextPositioningElement) Y() (ret SVGAnimatedLengthList, ok bool) {
 	ok = js.True == bindings.GetSVGTextPositioningElementY(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2952,7 +2913,7 @@ func (this SVGTextPositioningElement) Y() (ret SVGAnimatedLengthList, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGTextPositioningElement) Dx() (ret SVGAnimatedLengthList, ok bool) {
 	ok = js.True == bindings.GetSVGTextPositioningElementDx(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2962,7 +2923,7 @@ func (this SVGTextPositioningElement) Dx() (ret SVGAnimatedLengthList, ok bool) 
 // It returns ok=false if there is no such property.
 func (this SVGTextPositioningElement) Dy() (ret SVGAnimatedLengthList, ok bool) {
 	ok = js.True == bindings.GetSVGTextPositioningElementDy(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2972,7 +2933,7 @@ func (this SVGTextPositioningElement) Dy() (ret SVGAnimatedLengthList, ok bool) 
 // It returns ok=false if there is no such property.
 func (this SVGTextPositioningElement) Rotate() (ret SVGAnimatedNumberList, ok bool) {
 	ok = js.True == bindings.GetSVGTextPositioningElementRotate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2982,7 +2943,7 @@ type SVGTitleElement struct {
 }
 
 func (this SVGTitleElement) Once() SVGTitleElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2996,7 +2957,7 @@ func (this SVGTitleElement) FromRef(ref js.Ref) SVGTitleElement {
 }
 
 func (this SVGTitleElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 const (
@@ -3010,7 +2971,7 @@ type SVGUnitTypes struct {
 }
 
 func (this SVGUnitTypes) Once() SVGUnitTypes {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3024,7 +2985,7 @@ func (this SVGUnitTypes) FromRef(ref js.Ref) SVGUnitTypes {
 }
 
 func (this SVGUnitTypes) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type SVGUseElementShadowRoot struct {
@@ -3032,7 +2993,7 @@ type SVGUseElementShadowRoot struct {
 }
 
 func (this SVGUseElementShadowRoot) Once() SVGUseElementShadowRoot {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3046,7 +3007,7 @@ func (this SVGUseElementShadowRoot) FromRef(ref js.Ref) SVGUseElementShadowRoot 
 }
 
 func (this SVGUseElementShadowRoot) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type SVGViewElement struct {
@@ -3054,7 +3015,7 @@ type SVGViewElement struct {
 }
 
 func (this SVGViewElement) Once() SVGViewElement {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3068,7 +3029,7 @@ func (this SVGViewElement) FromRef(ref js.Ref) SVGViewElement {
 }
 
 func (this SVGViewElement) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // ViewBox returns the value of property "SVGViewElement.viewBox".
@@ -3076,7 +3037,7 @@ func (this SVGViewElement) Free() {
 // It returns ok=false if there is no such property.
 func (this SVGViewElement) ViewBox() (ret SVGAnimatedRect, ok bool) {
 	ok = js.True == bindings.GetSVGViewElementViewBox(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3086,7 +3047,7 @@ func (this SVGViewElement) ViewBox() (ret SVGAnimatedRect, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SVGViewElement) PreserveAspectRatio() (ret SVGAnimatedPreserveAspectRatio, ok bool) {
 	ok = js.True == bindings.GetSVGViewElementPreserveAspectRatio(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3140,17 +3101,26 @@ func (p ScoreAdOutput) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ScoreAdOutput) UpdateFrom(ref js.Ref) {
+func (p *ScoreAdOutput) UpdateFrom(ref js.Ref) {
 	bindings.ScoreAdOutputJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ScoreAdOutput) Update(ref js.Ref) {
+func (p *ScoreAdOutput) Update(ref js.Ref) {
 	bindings.ScoreAdOutputJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ScoreAdOutput) FreeMembers(recursive bool) {
+	js.Free(
+		p.BidCurrency.Ref(),
+	)
+	p.BidCurrency = p.BidCurrency.FromRef(js.Undefined)
 }
 
 type ScoringBrowserSignals struct {
@@ -3204,17 +3174,34 @@ func (p ScoringBrowserSignals) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ScoringBrowserSignals) UpdateFrom(ref js.Ref) {
+func (p *ScoringBrowserSignals) UpdateFrom(ref js.Ref) {
 	bindings.ScoringBrowserSignalsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ScoringBrowserSignals) Update(ref js.Ref) {
+func (p *ScoringBrowserSignals) Update(ref js.Ref) {
 	bindings.ScoringBrowserSignalsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ScoringBrowserSignals) FreeMembers(recursive bool) {
+	js.Free(
+		p.TopWindowHostname.Ref(),
+		p.InterestGroupOwner.Ref(),
+		p.RenderURL.Ref(),
+		p.BidCurrency.Ref(),
+		p.AdComponents.Ref(),
+	)
+	p.TopWindowHostname = p.TopWindowHostname.FromRef(js.Undefined)
+	p.InterestGroupOwner = p.InterestGroupOwner.FromRef(js.Undefined)
+	p.RenderURL = p.RenderURL.FromRef(js.Undefined)
+	p.BidCurrency = p.BidCurrency.FromRef(js.Undefined)
+	p.AdComponents = p.AdComponents.FromRef(js.Undefined)
 }
 
 type ScriptString = js.String
@@ -3226,7 +3213,7 @@ type ScriptingPolicyReportBody struct {
 }
 
 func (this ScriptingPolicyReportBody) Once() ScriptingPolicyReportBody {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3240,7 +3227,7 @@ func (this ScriptingPolicyReportBody) FromRef(ref js.Ref) ScriptingPolicyReportB
 }
 
 func (this ScriptingPolicyReportBody) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // ViolationType returns the value of property "ScriptingPolicyReportBody.violationType".
@@ -3248,7 +3235,7 @@ func (this ScriptingPolicyReportBody) Free() {
 // It returns ok=false if there is no such property.
 func (this ScriptingPolicyReportBody) ViolationType() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetScriptingPolicyReportBodyViolationType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3258,7 +3245,7 @@ func (this ScriptingPolicyReportBody) ViolationType() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ScriptingPolicyReportBody) ViolationURL() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetScriptingPolicyReportBodyViolationURL(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3268,7 +3255,7 @@ func (this ScriptingPolicyReportBody) ViolationURL() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ScriptingPolicyReportBody) ViolationSample() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetScriptingPolicyReportBodyViolationSample(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3278,7 +3265,7 @@ func (this ScriptingPolicyReportBody) ViolationSample() (ret js.String, ok bool)
 // It returns ok=false if there is no such property.
 func (this ScriptingPolicyReportBody) Lineno() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetScriptingPolicyReportBodyLineno(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3288,31 +3275,30 @@ func (this ScriptingPolicyReportBody) Lineno() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ScriptingPolicyReportBody) Colno() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetScriptingPolicyReportBodyColno(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasToJSON returns true if the method "ScriptingPolicyReportBody.toJSON" exists.
-func (this ScriptingPolicyReportBody) HasToJSON() bool {
-	return js.True == bindings.HasScriptingPolicyReportBodyToJSON(
-		this.Ref(),
+// HasFuncToJSON returns true if the method "ScriptingPolicyReportBody.toJSON" exists.
+func (this ScriptingPolicyReportBody) HasFuncToJSON() bool {
+	return js.True == bindings.HasFuncScriptingPolicyReportBodyToJSON(
+		this.ref,
 	)
 }
 
-// ToJSONFunc returns the method "ScriptingPolicyReportBody.toJSON".
-func (this ScriptingPolicyReportBody) ToJSONFunc() (fn js.Func[func() js.Object]) {
-	return fn.FromRef(
-		bindings.ScriptingPolicyReportBodyToJSONFunc(
-			this.Ref(),
-		),
+// FuncToJSON returns the method "ScriptingPolicyReportBody.toJSON".
+func (this ScriptingPolicyReportBody) FuncToJSON() (fn js.Func[func() js.Object]) {
+	bindings.FuncScriptingPolicyReportBodyToJSON(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ToJSON calls the method "ScriptingPolicyReportBody.toJSON".
 func (this ScriptingPolicyReportBody) ToJSON() (ret js.Object) {
 	bindings.CallScriptingPolicyReportBodyToJSON(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3323,7 +3309,7 @@ func (this ScriptingPolicyReportBody) ToJSON() (ret js.Object) {
 // the catch clause.
 func (this ScriptingPolicyReportBody) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryScriptingPolicyReportBodyToJSON(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return

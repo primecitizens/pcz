@@ -1,84 +1,84 @@
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Typedef:
     Name: GLboolean
     Type:
       Name: boolean
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Typedef:
     Name: GLbyte
     Type:
       Name: byte
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Typedef:
     Name: GLclampf
     Type:
       Name: unrestricted float
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Typedef:
     Name: GLenum
     Type:
       Name: unsigned long
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Typedef:
     Name: GLfloat
     Type:
       Name: unrestricted float
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Typedef:
     Name: GLint
     Type:
       Name: long
-- File: webgl2.idl
+- File: webref/webgl2.idl
   Typedef:
     Name: GLint64
     Type:
       Name: long long
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Typedef:
     Name: GLintptr
     Type:
       Name: long long
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Typedef:
     Name: GLshort
     Type:
       Name: short
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Typedef:
     Name: GLsizei
     Type:
       Name: long
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Typedef:
     Name: GLsizeiptr
     Type:
       Name: long long
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Typedef:
     Name: GLubyte
     Type:
       Name: octet
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Typedef:
     Name: GLuint
     Type:
       Name: unsigned long
-- File: webgl2.idl
+- File: webref/webgl2.idl
   Typedef:
     Name: GLuint64
     Type:
       Name: unsigned long long
-- File: EXT_disjoint_timer_query.idl
+- File: webref/EXT_disjoint_timer_query.idl
   Typedef:
     Name: GLuint64EXT
     Type:
       Name: unsigned long long
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Typedef:
     Name: GLushort
     Type:
       Name: unsigned short
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPU
     ExtAttrs:
@@ -127,7 +127,7 @@
               - Window
               - DedicatedWorker
           - Name: SecureContext
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUAdapter
     ExtAttrs:
@@ -206,7 +206,7 @@
               - Window
               - DedicatedWorker
           - Name: SecureContext
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUAdapterInfo
     ExtAttrs:
@@ -256,19 +256,19 @@
               - Window
               - DedicatedWorker
           - Name: SecureContext
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUAddressMode
     Values:
       - clamp-to-edge
       - repeat
       - mirror-repeat
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUAutoLayoutMode
     Values:
       - auto
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUBindGroup
     ExtAttrs:
@@ -281,7 +281,7 @@
       - Name: label
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUBindGroupDescriptor
     Inherits: GPUObjectDescriptorBase
@@ -300,7 +300,7 @@
         Default: '""'
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUBindGroupEntry
     Fields:
@@ -312,7 +312,7 @@
         Required: true
         Type:
           Name: GPUBindingResource
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUBindGroupLayout
     ExtAttrs:
@@ -325,7 +325,7 @@
       - Name: label
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUBindGroupLayoutDescriptor
     Inherits: GPUObjectDescriptorBase
@@ -340,7 +340,7 @@
         Default: '""'
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUBindGroupLayoutEntry
     Fields:
@@ -367,7 +367,7 @@
       - Name: externalTexture
         Type:
           Name: GPUExternalTextureBindingLayout
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUBindingResource
     Type:
@@ -376,7 +376,7 @@
         - Name: GPUTextureView
         - Name: GPUBufferBinding
         - Name: GPUExternalTexture
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUBlendComponent
     Fields:
@@ -392,7 +392,7 @@
         Default: '"zero"'
         Type:
           Name: GPUBlendFactor
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUBlendFactor
     Values:
@@ -409,7 +409,7 @@
       - src-alpha-saturated
       - constant
       - one-minus-constant
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUBlendOperation
     Values:
@@ -418,7 +418,7 @@
       - reverse-subtract
       - min
       - max
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUBlendState
     Fields:
@@ -430,7 +430,7 @@
         Required: true
         Type:
           Name: GPUBlendComponent
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUBuffer
     ExtAttrs:
@@ -535,7 +535,7 @@
               - Window
               - DedicatedWorker
           - Name: SecureContext
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUBufferBinding
     Fields:
@@ -550,7 +550,7 @@
       - Name: size
         Type:
           Name: GPUSize64
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUBufferBindingLayout
     Fields:
@@ -566,14 +566,14 @@
         Default: "0"
         Type:
           Name: GPUSize64
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUBufferBindingType
     Values:
       - uniform
       - storage
       - read-only-storage
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUBufferDescriptor
     Inherits: GPUObjectDescriptorBase
@@ -594,19 +594,19 @@
         Default: '""'
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUBufferDynamicOffset
     Type:
       Name: unsigned long
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUBufferMapState
     Values:
       - unmapped
       - pending
       - mapped
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Namespace:
     Name: GPUBufferUsage
     ExtAttrs:
@@ -656,18 +656,18 @@
         Value: "0x0200"
         Type:
           Name: GPUFlagsConstant
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUBufferUsageFlags
     Type:
       Name: unsigned long
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUCanvasAlphaMode
     Values:
       - opaque
       - premultiplied
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUCanvasConfiguration
     Fields:
@@ -697,7 +697,7 @@
         Default: '"opaque"'
         Type:
           Name: GPUCanvasAlphaMode
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUCanvasContext
     ExtAttrs:
@@ -751,7 +751,7 @@
               - Window
               - DedicatedWorker
           - Name: SecureContext
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUColor
     Type:
@@ -760,7 +760,7 @@
           Params:
             - Name: double
         - Name: GPUColorDict
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUColorDict
     Fields:
@@ -780,7 +780,7 @@
         Required: true
         Type:
           Name: double
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUColorTargetState
     Fields:
@@ -795,7 +795,7 @@
         Default: "0xF"
         Type:
           Name: GPUColorWriteFlags
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Namespace:
     Name: GPUColorWrite
     ExtAttrs:
@@ -825,12 +825,12 @@
         Value: "0xF"
         Type:
           Name: GPUFlagsConstant
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUColorWriteFlags
     Type:
       Name: unsigned long
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUCommandBuffer
     ExtAttrs:

@@ -1,0 +1,219 @@
+- File: webext/chrome/sessions.json
+  Dict:
+    Name: Device
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sessions
+    Fields:
+      - Name: deviceName
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sessions
+      - Name: info
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sessions
+      - Name: sessions
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: Session
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - sessions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sessions
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sessions
+- File: webext/chrome/sessions.json
+  Dict:
+    Name: Filter
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sessions
+    Fields:
+      - Name: maxResults
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sessions
+- File: webext/chrome/sessions.json
+  WebextProp:
+    Name: MAX_SESSION_RESULTS
+    Type:
+      Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sessions
+- File: webext/chrome/sessions.json
+  Dict:
+    Name: Session
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sessions
+    Fields:
+      - Name: lastModified
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sessions
+      - Name: tab
+        Type:
+          Name: Tab
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sessions
+      - Name: window
+        Type:
+          Name: Window
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - windows
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sessions
+- File: webext/chrome/sessions.json
+  WebextFunc:
+    Name: getDevices
+    Args:
+      - Name: filter
+        Optional: true
+        Type:
+          Name: Filter
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sessions
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: Device
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - sessions
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - sessions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sessions
+- File: webext/chrome/sessions.json
+  WebextFunc:
+    Name: getRecentlyClosed
+    Args:
+      - Name: filter
+        Optional: true
+        Type:
+          Name: Filter
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sessions
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: Session
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - sessions
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - sessions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sessions
+- File: webext/chrome/sessions.json
+  WebextEvent:
+    Name: onChanged
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sessions
+- File: webext/chrome/sessions.json
+  WebextFunc:
+    Name: restore
+    Args:
+      - Name: sessionId
+        Optional: true
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Session
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - sessions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sessions

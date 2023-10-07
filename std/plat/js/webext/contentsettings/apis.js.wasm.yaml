@@ -1,0 +1,644 @@
+- File: webext/chrome/content_settings.json
+  Enum:
+    Name: AutoVerifyContentSetting
+    Values:
+      - allow
+      - block
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  Enum:
+    Name: CameraContentSetting
+    Values:
+      - allow
+      - block
+      - ask
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  Dict:
+    Name: ClearArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+    Fields:
+      - Name: scope
+        Type:
+          Name: Scope
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contentSettings
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentSettings
+- File: webext/chrome/content_settings.json
+  Interface:
+    Name: ContentSetting
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+    Operations:
+      - Name: clear
+        Args:
+          - Name: details
+            Type:
+              Name: ClearArgDetails
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - contentSettings
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentSettings
+      - Name: get
+        Args:
+          - Name: details
+            Type:
+              Name: GetArgDetails
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - contentSettings
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: GetReturnType
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - contentSettings
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentSettings
+      - Name: set
+        Args:
+          - Name: details
+            Type:
+              Name: SetArgDetails
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - contentSettings
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentSettings
+      - Name: getResourceIdentifiers
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: sequence
+                Params:
+                  - Name: ResourceIdentifier
+                    ExtAttrs:
+                      - Name: Namespace
+                        Values:
+                          - chrome
+                          - contentSettings
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - contentSettings
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentSettings
+- File: webext/chrome/content_settings.json
+  Enum:
+    Name: CookiesContentSetting
+    Values:
+      - allow
+      - block
+      - session_only
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  Enum:
+    Name: FullscreenContentSetting
+    Values:
+      - allow
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  Dict:
+    Name: GetArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+    Fields:
+      - Name: incognito
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentSettings
+      - Name: primaryUrl
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentSettings
+      - Name: resourceIdentifier
+        Type:
+          Name: ResourceIdentifier
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contentSettings
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentSettings
+      - Name: secondaryUrl
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentSettings
+- File: webext/chrome/content_settings.json
+  Dict:
+    Name: GetReturnType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+    Fields:
+      - Name: setting
+        Required: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentSettings
+- File: webext/chrome/content_settings.json
+  Enum:
+    Name: ImagesContentSetting
+    Values:
+      - allow
+      - block
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  Enum:
+    Name: JavascriptContentSetting
+    Values:
+      - allow
+      - block
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  Enum:
+    Name: LocationContentSetting
+    Values:
+      - allow
+      - block
+      - ask
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  Enum:
+    Name: MicrophoneContentSetting
+    Values:
+      - allow
+      - block
+      - ask
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  Enum:
+    Name: MouselockContentSetting
+    Values:
+      - allow
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  Enum:
+    Name: MultipleAutomaticDownloadsContentSetting
+    Values:
+      - allow
+      - block
+      - ask
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  Enum:
+    Name: NotificationsContentSetting
+    Values:
+      - allow
+      - block
+      - ask
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  Enum:
+    Name: PluginsContentSetting
+    Values:
+      - block
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  Enum:
+    Name: PopupsContentSetting
+    Values:
+      - allow
+      - block
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  Enum:
+    Name: PpapiBrokerContentSetting
+    Values:
+      - block
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  Dict:
+    Name: ResourceIdentifier
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+    Fields:
+      - Name: description
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentSettings
+      - Name: id
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentSettings
+- File: webext/chrome/content_settings.json
+  Enum:
+    Name: Scope
+    Values:
+      - regular
+      - incognito_session_only
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  Dict:
+    Name: SetArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+    Fields:
+      - Name: primaryPattern
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentSettings
+      - Name: resourceIdentifier
+        Type:
+          Name: ResourceIdentifier
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contentSettings
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentSettings
+      - Name: scope
+        Type:
+          Name: Scope
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contentSettings
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentSettings
+      - Name: secondaryPattern
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentSettings
+      - Name: setting
+        Required: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contentSettings
+- File: webext/chrome/content_settings.json
+  WebextProp:
+    Name: autoVerify
+    Type:
+      Name: ContentSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - contentSettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  WebextProp:
+    Name: automaticDownloads
+    Type:
+      Name: ContentSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - contentSettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  WebextProp:
+    Name: camera
+    Type:
+      Name: ContentSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - contentSettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  WebextProp:
+    Name: cookies
+    Type:
+      Name: ContentSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - contentSettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  WebextProp:
+    Name: fullscreen
+    Type:
+      Name: ContentSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - contentSettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  WebextProp:
+    Name: images
+    Type:
+      Name: ContentSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - contentSettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  WebextProp:
+    Name: javascript
+    Type:
+      Name: ContentSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - contentSettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  WebextProp:
+    Name: location
+    Type:
+      Name: ContentSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - contentSettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  WebextProp:
+    Name: microphone
+    Type:
+      Name: ContentSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - contentSettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  WebextProp:
+    Name: mouselock
+    Type:
+      Name: ContentSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - contentSettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  WebextProp:
+    Name: notifications
+    Type:
+      Name: ContentSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - contentSettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  WebextProp:
+    Name: plugins
+    Type:
+      Name: ContentSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - contentSettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  WebextProp:
+    Name: popups
+    Type:
+      Name: ContentSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - contentSettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings
+- File: webext/chrome/content_settings.json
+  WebextProp:
+    Name: unsandboxedPlugins
+    Type:
+      Name: ContentSetting
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - contentSettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contentSettings

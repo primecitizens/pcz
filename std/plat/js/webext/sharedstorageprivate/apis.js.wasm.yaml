@@ -1,0 +1,153 @@
+- File: webext/chrome/shared_storage_private.idl
+  Callback:
+    Name: GetCallback
+    Args:
+      - Name: items
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sharedStoragePrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sharedStoragePrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sharedStoragePrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sharedStoragePrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/shared_storage_private.idl
+  Callback:
+    Name: RemoveCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sharedStoragePrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sharedStoragePrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/shared_storage_private.idl
+  Callback:
+    Name: SetCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sharedStoragePrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sharedStoragePrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/shared_storage_private.idl
+  WebextFunc:
+    Name: get
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: object
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - sharedStoragePrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - sharedStoragePrivate
+- File: webext/chrome/shared_storage_private.idl
+  WebextFunc:
+    Name: remove
+    Modifier: static
+    Args:
+      - Name: keys
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - sharedStoragePrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sharedStoragePrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sharedStoragePrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - sharedStoragePrivate
+- File: webext/chrome/shared_storage_private.idl
+  WebextFunc:
+    Name: set
+    Modifier: static
+    Args:
+      - Name: items
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sharedStoragePrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sharedStoragePrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - sharedStoragePrivate

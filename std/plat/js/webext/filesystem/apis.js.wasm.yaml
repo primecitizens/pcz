@@ -1,0 +1,860 @@
+- File: webext/file_system.idl
+  Dict:
+    Name: AcceptOption
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystem
+    Fields:
+      - Name: description
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+      - Name: mimeTypes
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileSystem
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+      - Name: extensions
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileSystem
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+- File: webext/file_system.idl
+  Dict:
+    Name: ChooseEntryOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystem
+    Fields:
+      - Name: type
+        Type:
+          Name: ChooseEntryType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+      - Name: suggestedName
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+      - Name: accepts
+        Type:
+          Name: sequence
+          Params:
+            - Name: AcceptOption
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileSystem
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+      - Name: acceptsAllTypes
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+      - Name: acceptsMultiple
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+- File: webext/file_system.idl
+  Enum:
+    Name: ChooseEntryType
+    Values:
+      - openFile
+      - openWritableFile
+      - saveFile
+      - openDirectory
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystem
+- File: webext/file_system.idl
+  Callback:
+    Name: EntriesCallback
+    Args:
+      - Name: entry
+        Optional: true
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - Entry
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+      - Name: fileEntries
+        Optional: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: object
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileSystem
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - FileEntry
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystem
+- File: webext/file_system.idl
+  Callback:
+    Name: EntryCallback
+    Args:
+      - Name: entry
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - Entry
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystem
+- File: webext/file_system.idl
+  Callback:
+    Name: GetDisplayPathCallback
+    Args:
+      - Name: displayPath
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystem
+- File: webext/file_system.idl
+  Callback:
+    Name: GetVolumeListCallback
+    Args:
+      - Name: volumes
+        Optional: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: Volume
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileSystem
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystem
+- File: webext/file_system.idl
+  Callback:
+    Name: IsRestorableCallback
+    Args:
+      - Name: isRestorable
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystem
+- File: webext/file_system.idl
+  Callback:
+    Name: IsWritableCallback
+    Args:
+      - Name: isWritable
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystem
+- File: webext/file_system.idl
+  Callback:
+    Name: RequestFileSystemCallback
+    Args:
+      - Name: fileSystem
+        Optional: true
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - FileSystem
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystem
+- File: webext/file_system.idl
+  Dict:
+    Name: RequestFileSystemOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystem
+    Fields:
+      - Name: volumeId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+      - Name: writable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+- File: webext/file_system.idl
+  Dict:
+    Name: Volume
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystem
+    Fields:
+      - Name: volumeId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+      - Name: writable
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+- File: webext/file_system.idl
+  Dict:
+    Name: VolumeListChangedEvent
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystem
+    Fields:
+      - Name: volumes
+        Type:
+          Name: sequence
+          Params:
+            - Name: Volume
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileSystem
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+- File: webext/file_system.idl
+  WebextFunc:
+    Name: chooseEntry
+    Modifier: static
+    Args:
+      - Name: options
+        Optional: true
+        Type:
+          Name: ChooseEntryOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+      - Name: callback
+        Type:
+          Name: EntriesCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystem
+- File: webext/file_system.idl
+  WebextFunc:
+    Name: getDisplayPath
+    Modifier: static
+    Args:
+      - Name: entry
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - Entry
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileSystem
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystem
+- File: webext/file_system.idl
+  WebextFunc:
+    Name: getVolumeList
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: Volume
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - fileSystem
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileSystem
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystem
+- File: webext/file_system.idl
+  WebextFunc:
+    Name: getWritableEntry
+    Modifier: static
+    Args:
+      - Name: entry
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - Entry
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: object
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileSystem
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystem
+- File: webext/file_system.idl
+  WebextFunc:
+    Name: isRestorable
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileSystem
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystem
+- File: webext/file_system.idl
+  WebextFunc:
+    Name: isWritableEntry
+    Modifier: static
+    Args:
+      - Name: entry
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - Entry
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileSystem
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystem
+- File: webext/file_system.idl
+  WebextEvent:
+    Name: onVolumeListChanged
+    Modifier: static
+    Args:
+      - Name: event
+        Type:
+          Name: VolumeListChangedEvent
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystem
+- File: webext/file_system.idl
+  WebextFunc:
+    Name: requestFileSystem
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: RequestFileSystemOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: object
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileSystem
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystem
+- File: webext/file_system.idl
+  WebextFunc:
+    Name: restoreEntry
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+      - Name: callback
+        Type:
+          Name: EntryCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystem
+- File: webext/file_system.idl
+  WebextFunc:
+    Name: retainEntry
+    Modifier: static
+    Args:
+      - Name: entry
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystem
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - Entry
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    Returns:
+      - Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystem

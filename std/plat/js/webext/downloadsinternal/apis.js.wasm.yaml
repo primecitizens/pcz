@@ -1,0 +1,56 @@
+- File: webext/chrome/downloads_internal.idl
+  WebextFunc:
+    Name: determineFilename
+    Modifier: static
+    Args:
+      - Name: downloadId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloadsInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloadsInternal
+      - Name: filename
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloadsInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloadsInternal
+      - Name: conflict_action
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloadsInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloadsInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloadsInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloadsInternal

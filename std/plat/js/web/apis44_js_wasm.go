@@ -5,17 +5,9 @@ package web
 
 import (
 	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 type NavigationInterceptHandlerFunc func(this js.Ref) js.Ref
 
@@ -60,7 +52,7 @@ func (cb *NavigationInterceptHandler[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 0+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
 
 	if ctx.Return(cb.Fn(
@@ -152,17 +144,26 @@ func (p NavigationInterceptOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p NavigationInterceptOptions) UpdateFrom(ref js.Ref) {
+func (p *NavigationInterceptOptions) UpdateFrom(ref js.Ref) {
 	bindings.NavigationInterceptOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p NavigationInterceptOptions) Update(ref js.Ref) {
+func (p *NavigationInterceptOptions) Update(ref js.Ref) {
 	bindings.NavigationInterceptOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *NavigationInterceptOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Handler.Ref(),
+	)
+	p.Handler = p.Handler.FromRef(js.Undefined)
 }
 
 func NewNavigateEvent(typ js.String, eventInitDict NavigateEventInit) (ret NavigateEvent) {
@@ -177,7 +178,7 @@ type NavigateEvent struct {
 }
 
 func (this NavigateEvent) Once() NavigateEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -191,7 +192,7 @@ func (this NavigateEvent) FromRef(ref js.Ref) NavigateEvent {
 }
 
 func (this NavigateEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // NavigationType returns the value of property "NavigateEvent.navigationType".
@@ -199,7 +200,7 @@ func (this NavigateEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this NavigateEvent) NavigationType() (ret NavigationType, ok bool) {
 	ok = js.True == bindings.GetNavigateEventNavigationType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -209,7 +210,7 @@ func (this NavigateEvent) NavigationType() (ret NavigationType, ok bool) {
 // It returns ok=false if there is no such property.
 func (this NavigateEvent) Destination() (ret NavigationDestination, ok bool) {
 	ok = js.True == bindings.GetNavigateEventDestination(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -219,7 +220,7 @@ func (this NavigateEvent) Destination() (ret NavigationDestination, ok bool) {
 // It returns ok=false if there is no such property.
 func (this NavigateEvent) CanIntercept() (ret bool, ok bool) {
 	ok = js.True == bindings.GetNavigateEventCanIntercept(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -229,7 +230,7 @@ func (this NavigateEvent) CanIntercept() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this NavigateEvent) UserInitiated() (ret bool, ok bool) {
 	ok = js.True == bindings.GetNavigateEventUserInitiated(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -239,7 +240,7 @@ func (this NavigateEvent) UserInitiated() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this NavigateEvent) HashChange() (ret bool, ok bool) {
 	ok = js.True == bindings.GetNavigateEventHashChange(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -249,7 +250,7 @@ func (this NavigateEvent) HashChange() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this NavigateEvent) Signal() (ret AbortSignal, ok bool) {
 	ok = js.True == bindings.GetNavigateEventSignal(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -259,7 +260,7 @@ func (this NavigateEvent) Signal() (ret AbortSignal, ok bool) {
 // It returns ok=false if there is no such property.
 func (this NavigateEvent) FormData() (ret FormData, ok bool) {
 	ok = js.True == bindings.GetNavigateEventFormData(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -269,7 +270,7 @@ func (this NavigateEvent) FormData() (ret FormData, ok bool) {
 // It returns ok=false if there is no such property.
 func (this NavigateEvent) DownloadRequest() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetNavigateEventDownloadRequest(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -279,7 +280,7 @@ func (this NavigateEvent) DownloadRequest() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this NavigateEvent) Info() (ret js.Any, ok bool) {
 	ok = js.True == bindings.GetNavigateEventInfo(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -289,31 +290,30 @@ func (this NavigateEvent) Info() (ret js.Any, ok bool) {
 // It returns ok=false if there is no such property.
 func (this NavigateEvent) HasUAVisualTransition() (ret bool, ok bool) {
 	ok = js.True == bindings.GetNavigateEventHasUAVisualTransition(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasIntercept returns true if the method "NavigateEvent.intercept" exists.
-func (this NavigateEvent) HasIntercept() bool {
-	return js.True == bindings.HasNavigateEventIntercept(
-		this.Ref(),
+// HasFuncIntercept returns true if the method "NavigateEvent.intercept" exists.
+func (this NavigateEvent) HasFuncIntercept() bool {
+	return js.True == bindings.HasFuncNavigateEventIntercept(
+		this.ref,
 	)
 }
 
-// InterceptFunc returns the method "NavigateEvent.intercept".
-func (this NavigateEvent) InterceptFunc() (fn js.Func[func(options NavigationInterceptOptions)]) {
-	return fn.FromRef(
-		bindings.NavigateEventInterceptFunc(
-			this.Ref(),
-		),
+// FuncIntercept returns the method "NavigateEvent.intercept".
+func (this NavigateEvent) FuncIntercept() (fn js.Func[func(options NavigationInterceptOptions)]) {
+	bindings.FuncNavigateEventIntercept(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Intercept calls the method "NavigateEvent.intercept".
 func (this NavigateEvent) Intercept(options NavigationInterceptOptions) (ret js.Void) {
 	bindings.CallNavigateEventIntercept(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -325,33 +325,32 @@ func (this NavigateEvent) Intercept(options NavigationInterceptOptions) (ret js.
 // the catch clause.
 func (this NavigateEvent) TryIntercept(options NavigationInterceptOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigateEventIntercept(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasIntercept1 returns true if the method "NavigateEvent.intercept" exists.
-func (this NavigateEvent) HasIntercept1() bool {
-	return js.True == bindings.HasNavigateEventIntercept1(
-		this.Ref(),
+// HasFuncIntercept1 returns true if the method "NavigateEvent.intercept" exists.
+func (this NavigateEvent) HasFuncIntercept1() bool {
+	return js.True == bindings.HasFuncNavigateEventIntercept1(
+		this.ref,
 	)
 }
 
-// Intercept1Func returns the method "NavigateEvent.intercept".
-func (this NavigateEvent) Intercept1Func() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.NavigateEventIntercept1Func(
-			this.Ref(),
-		),
+// FuncIntercept1 returns the method "NavigateEvent.intercept".
+func (this NavigateEvent) FuncIntercept1() (fn js.Func[func()]) {
+	bindings.FuncNavigateEventIntercept1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Intercept1 calls the method "NavigateEvent.intercept".
 func (this NavigateEvent) Intercept1() (ret js.Void) {
 	bindings.CallNavigateEventIntercept1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -362,32 +361,31 @@ func (this NavigateEvent) Intercept1() (ret js.Void) {
 // the catch clause.
 func (this NavigateEvent) TryIntercept1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigateEventIntercept1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasScroll returns true if the method "NavigateEvent.scroll" exists.
-func (this NavigateEvent) HasScroll() bool {
-	return js.True == bindings.HasNavigateEventScroll(
-		this.Ref(),
+// HasFuncScroll returns true if the method "NavigateEvent.scroll" exists.
+func (this NavigateEvent) HasFuncScroll() bool {
+	return js.True == bindings.HasFuncNavigateEventScroll(
+		this.ref,
 	)
 }
 
-// ScrollFunc returns the method "NavigateEvent.scroll".
-func (this NavigateEvent) ScrollFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.NavigateEventScrollFunc(
-			this.Ref(),
-		),
+// FuncScroll returns the method "NavigateEvent.scroll".
+func (this NavigateEvent) FuncScroll() (fn js.Func[func()]) {
+	bindings.FuncNavigateEventScroll(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Scroll calls the method "NavigateEvent.scroll".
 func (this NavigateEvent) Scroll() (ret js.Void) {
 	bindings.CallNavigateEventScroll(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -398,7 +396,7 @@ func (this NavigateEvent) Scroll() (ret js.Void) {
 // the catch clause.
 func (this NavigateEvent) TryScroll() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigateEventScroll(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -453,17 +451,26 @@ func (p NavigationCurrentEntryChangeEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p NavigationCurrentEntryChangeEventInit) UpdateFrom(ref js.Ref) {
+func (p *NavigationCurrentEntryChangeEventInit) UpdateFrom(ref js.Ref) {
 	bindings.NavigationCurrentEntryChangeEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p NavigationCurrentEntryChangeEventInit) Update(ref js.Ref) {
+func (p *NavigationCurrentEntryChangeEventInit) Update(ref js.Ref) {
 	bindings.NavigationCurrentEntryChangeEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *NavigationCurrentEntryChangeEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.From.Ref(),
+	)
+	p.From = p.From.FromRef(js.Undefined)
 }
 
 func NewNavigationCurrentEntryChangeEvent(typ js.String, eventInitDict NavigationCurrentEntryChangeEventInit) (ret NavigationCurrentEntryChangeEvent) {
@@ -478,7 +485,7 @@ type NavigationCurrentEntryChangeEvent struct {
 }
 
 func (this NavigationCurrentEntryChangeEvent) Once() NavigationCurrentEntryChangeEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -492,7 +499,7 @@ func (this NavigationCurrentEntryChangeEvent) FromRef(ref js.Ref) NavigationCurr
 }
 
 func (this NavigationCurrentEntryChangeEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // NavigationType returns the value of property "NavigationCurrentEntryChangeEvent.navigationType".
@@ -500,7 +507,7 @@ func (this NavigationCurrentEntryChangeEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this NavigationCurrentEntryChangeEvent) NavigationType() (ret NavigationType, ok bool) {
 	ok = js.True == bindings.GetNavigationCurrentEntryChangeEventNavigationType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -510,7 +517,7 @@ func (this NavigationCurrentEntryChangeEvent) NavigationType() (ret NavigationTy
 // It returns ok=false if there is no such property.
 func (this NavigationCurrentEntryChangeEvent) From() (ret NavigationHistoryEntry, ok bool) {
 	ok = js.True == bindings.GetNavigationCurrentEntryChangeEventFrom(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -575,17 +582,28 @@ func (p NavigationEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p NavigationEventInit) UpdateFrom(ref js.Ref) {
+func (p *NavigationEventInit) UpdateFrom(ref js.Ref) {
 	bindings.NavigationEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p NavigationEventInit) Update(ref js.Ref) {
+func (p *NavigationEventInit) Update(ref js.Ref) {
 	bindings.NavigationEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *NavigationEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.RelatedTarget.Ref(),
+		p.View.Ref(),
+	)
+	p.RelatedTarget = p.RelatedTarget.FromRef(js.Undefined)
+	p.View = p.View.FromRef(js.Undefined)
 }
 
 func NewNavigationEvent(typ js.String, eventInitDict NavigationEventInit) (ret NavigationEvent) {
@@ -606,7 +624,7 @@ type NavigationEvent struct {
 }
 
 func (this NavigationEvent) Once() NavigationEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -620,7 +638,7 @@ func (this NavigationEvent) FromRef(ref js.Ref) NavigationEvent {
 }
 
 func (this NavigationEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Dir returns the value of property "NavigationEvent.dir".
@@ -628,7 +646,7 @@ func (this NavigationEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this NavigationEvent) Dir() (ret SpatialNavigationDirection, ok bool) {
 	ok = js.True == bindings.GetNavigationEventDir(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -638,7 +656,7 @@ func (this NavigationEvent) Dir() (ret SpatialNavigationDirection, ok bool) {
 // It returns ok=false if there is no such property.
 func (this NavigationEvent) RelatedTarget() (ret EventTarget, ok bool) {
 	ok = js.True == bindings.GetNavigationEventRelatedTarget(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -722,17 +740,28 @@ func (p NotificationEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p NotificationEventInit) UpdateFrom(ref js.Ref) {
+func (p *NotificationEventInit) UpdateFrom(ref js.Ref) {
 	bindings.NotificationEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p NotificationEventInit) Update(ref js.Ref) {
+func (p *NotificationEventInit) Update(ref js.Ref) {
 	bindings.NotificationEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *NotificationEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Notification.Ref(),
+		p.Action.Ref(),
+	)
+	p.Notification = p.Notification.FromRef(js.Undefined)
+	p.Action = p.Action.FromRef(js.Undefined)
 }
 
 func NewNotificationEvent(typ js.String, eventInitDict NotificationEventInit) (ret NotificationEvent) {
@@ -747,7 +776,7 @@ type NotificationEvent struct {
 }
 
 func (this NotificationEvent) Once() NotificationEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -761,7 +790,7 @@ func (this NotificationEvent) FromRef(ref js.Ref) NotificationEvent {
 }
 
 func (this NotificationEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Notification returns the value of property "NotificationEvent.notification".
@@ -769,7 +798,7 @@ func (this NotificationEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this NotificationEvent) Notification() (ret Notification, ok bool) {
 	ok = js.True == bindings.GetNotificationEventNotification(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -779,7 +808,7 @@ func (this NotificationEvent) Notification() (ret Notification, ok bool) {
 // It returns ok=false if there is no such property.
 func (this NotificationEvent) Action() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetNotificationEventAction(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -789,7 +818,7 @@ type OES_draw_buffers_indexed struct {
 }
 
 func (this OES_draw_buffers_indexed) Once() OES_draw_buffers_indexed {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -803,29 +832,28 @@ func (this OES_draw_buffers_indexed) FromRef(ref js.Ref) OES_draw_buffers_indexe
 }
 
 func (this OES_draw_buffers_indexed) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasEnableiOES returns true if the method "OES_draw_buffers_indexed.enableiOES" exists.
-func (this OES_draw_buffers_indexed) HasEnableiOES() bool {
-	return js.True == bindings.HasOES_draw_buffers_indexedEnableiOES(
-		this.Ref(),
+// HasFuncEnableiOES returns true if the method "OES_draw_buffers_indexed.enableiOES" exists.
+func (this OES_draw_buffers_indexed) HasFuncEnableiOES() bool {
+	return js.True == bindings.HasFuncOES_draw_buffers_indexedEnableiOES(
+		this.ref,
 	)
 }
 
-// EnableiOESFunc returns the method "OES_draw_buffers_indexed.enableiOES".
-func (this OES_draw_buffers_indexed) EnableiOESFunc() (fn js.Func[func(target GLenum, index GLuint)]) {
-	return fn.FromRef(
-		bindings.OES_draw_buffers_indexedEnableiOESFunc(
-			this.Ref(),
-		),
+// FuncEnableiOES returns the method "OES_draw_buffers_indexed.enableiOES".
+func (this OES_draw_buffers_indexed) FuncEnableiOES() (fn js.Func[func(target GLenum, index GLuint)]) {
+	bindings.FuncOES_draw_buffers_indexedEnableiOES(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // EnableiOES calls the method "OES_draw_buffers_indexed.enableiOES".
 func (this OES_draw_buffers_indexed) EnableiOES(target GLenum, index GLuint) (ret js.Void) {
 	bindings.CallOES_draw_buffers_indexedEnableiOES(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(index),
 	)
@@ -838,7 +866,7 @@ func (this OES_draw_buffers_indexed) EnableiOES(target GLenum, index GLuint) (re
 // the catch clause.
 func (this OES_draw_buffers_indexed) TryEnableiOES(target GLenum, index GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOES_draw_buffers_indexedEnableiOES(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(index),
 	)
@@ -846,26 +874,25 @@ func (this OES_draw_buffers_indexed) TryEnableiOES(target GLenum, index GLuint) 
 	return
 }
 
-// HasDisableiOES returns true if the method "OES_draw_buffers_indexed.disableiOES" exists.
-func (this OES_draw_buffers_indexed) HasDisableiOES() bool {
-	return js.True == bindings.HasOES_draw_buffers_indexedDisableiOES(
-		this.Ref(),
+// HasFuncDisableiOES returns true if the method "OES_draw_buffers_indexed.disableiOES" exists.
+func (this OES_draw_buffers_indexed) HasFuncDisableiOES() bool {
+	return js.True == bindings.HasFuncOES_draw_buffers_indexedDisableiOES(
+		this.ref,
 	)
 }
 
-// DisableiOESFunc returns the method "OES_draw_buffers_indexed.disableiOES".
-func (this OES_draw_buffers_indexed) DisableiOESFunc() (fn js.Func[func(target GLenum, index GLuint)]) {
-	return fn.FromRef(
-		bindings.OES_draw_buffers_indexedDisableiOESFunc(
-			this.Ref(),
-		),
+// FuncDisableiOES returns the method "OES_draw_buffers_indexed.disableiOES".
+func (this OES_draw_buffers_indexed) FuncDisableiOES() (fn js.Func[func(target GLenum, index GLuint)]) {
+	bindings.FuncOES_draw_buffers_indexedDisableiOES(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DisableiOES calls the method "OES_draw_buffers_indexed.disableiOES".
 func (this OES_draw_buffers_indexed) DisableiOES(target GLenum, index GLuint) (ret js.Void) {
 	bindings.CallOES_draw_buffers_indexedDisableiOES(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(index),
 	)
@@ -878,7 +905,7 @@ func (this OES_draw_buffers_indexed) DisableiOES(target GLenum, index GLuint) (r
 // the catch clause.
 func (this OES_draw_buffers_indexed) TryDisableiOES(target GLenum, index GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOES_draw_buffers_indexedDisableiOES(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(index),
 	)
@@ -886,26 +913,25 @@ func (this OES_draw_buffers_indexed) TryDisableiOES(target GLenum, index GLuint)
 	return
 }
 
-// HasBlendEquationiOES returns true if the method "OES_draw_buffers_indexed.blendEquationiOES" exists.
-func (this OES_draw_buffers_indexed) HasBlendEquationiOES() bool {
-	return js.True == bindings.HasOES_draw_buffers_indexedBlendEquationiOES(
-		this.Ref(),
+// HasFuncBlendEquationiOES returns true if the method "OES_draw_buffers_indexed.blendEquationiOES" exists.
+func (this OES_draw_buffers_indexed) HasFuncBlendEquationiOES() bool {
+	return js.True == bindings.HasFuncOES_draw_buffers_indexedBlendEquationiOES(
+		this.ref,
 	)
 }
 
-// BlendEquationiOESFunc returns the method "OES_draw_buffers_indexed.blendEquationiOES".
-func (this OES_draw_buffers_indexed) BlendEquationiOESFunc() (fn js.Func[func(buf GLuint, mode GLenum)]) {
-	return fn.FromRef(
-		bindings.OES_draw_buffers_indexedBlendEquationiOESFunc(
-			this.Ref(),
-		),
+// FuncBlendEquationiOES returns the method "OES_draw_buffers_indexed.blendEquationiOES".
+func (this OES_draw_buffers_indexed) FuncBlendEquationiOES() (fn js.Func[func(buf GLuint, mode GLenum)]) {
+	bindings.FuncOES_draw_buffers_indexedBlendEquationiOES(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BlendEquationiOES calls the method "OES_draw_buffers_indexed.blendEquationiOES".
 func (this OES_draw_buffers_indexed) BlendEquationiOES(buf GLuint, mode GLenum) (ret js.Void) {
 	bindings.CallOES_draw_buffers_indexedBlendEquationiOES(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(buf),
 		uint32(mode),
 	)
@@ -918,7 +944,7 @@ func (this OES_draw_buffers_indexed) BlendEquationiOES(buf GLuint, mode GLenum) 
 // the catch clause.
 func (this OES_draw_buffers_indexed) TryBlendEquationiOES(buf GLuint, mode GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOES_draw_buffers_indexedBlendEquationiOES(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(buf),
 		uint32(mode),
 	)
@@ -926,26 +952,25 @@ func (this OES_draw_buffers_indexed) TryBlendEquationiOES(buf GLuint, mode GLenu
 	return
 }
 
-// HasBlendEquationSeparateiOES returns true if the method "OES_draw_buffers_indexed.blendEquationSeparateiOES" exists.
-func (this OES_draw_buffers_indexed) HasBlendEquationSeparateiOES() bool {
-	return js.True == bindings.HasOES_draw_buffers_indexedBlendEquationSeparateiOES(
-		this.Ref(),
+// HasFuncBlendEquationSeparateiOES returns true if the method "OES_draw_buffers_indexed.blendEquationSeparateiOES" exists.
+func (this OES_draw_buffers_indexed) HasFuncBlendEquationSeparateiOES() bool {
+	return js.True == bindings.HasFuncOES_draw_buffers_indexedBlendEquationSeparateiOES(
+		this.ref,
 	)
 }
 
-// BlendEquationSeparateiOESFunc returns the method "OES_draw_buffers_indexed.blendEquationSeparateiOES".
-func (this OES_draw_buffers_indexed) BlendEquationSeparateiOESFunc() (fn js.Func[func(buf GLuint, modeRGB GLenum, modeAlpha GLenum)]) {
-	return fn.FromRef(
-		bindings.OES_draw_buffers_indexedBlendEquationSeparateiOESFunc(
-			this.Ref(),
-		),
+// FuncBlendEquationSeparateiOES returns the method "OES_draw_buffers_indexed.blendEquationSeparateiOES".
+func (this OES_draw_buffers_indexed) FuncBlendEquationSeparateiOES() (fn js.Func[func(buf GLuint, modeRGB GLenum, modeAlpha GLenum)]) {
+	bindings.FuncOES_draw_buffers_indexedBlendEquationSeparateiOES(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BlendEquationSeparateiOES calls the method "OES_draw_buffers_indexed.blendEquationSeparateiOES".
 func (this OES_draw_buffers_indexed) BlendEquationSeparateiOES(buf GLuint, modeRGB GLenum, modeAlpha GLenum) (ret js.Void) {
 	bindings.CallOES_draw_buffers_indexedBlendEquationSeparateiOES(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(buf),
 		uint32(modeRGB),
 		uint32(modeAlpha),
@@ -959,7 +984,7 @@ func (this OES_draw_buffers_indexed) BlendEquationSeparateiOES(buf GLuint, modeR
 // the catch clause.
 func (this OES_draw_buffers_indexed) TryBlendEquationSeparateiOES(buf GLuint, modeRGB GLenum, modeAlpha GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOES_draw_buffers_indexedBlendEquationSeparateiOES(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(buf),
 		uint32(modeRGB),
 		uint32(modeAlpha),
@@ -968,26 +993,25 @@ func (this OES_draw_buffers_indexed) TryBlendEquationSeparateiOES(buf GLuint, mo
 	return
 }
 
-// HasBlendFunciOES returns true if the method "OES_draw_buffers_indexed.blendFunciOES" exists.
-func (this OES_draw_buffers_indexed) HasBlendFunciOES() bool {
-	return js.True == bindings.HasOES_draw_buffers_indexedBlendFunciOES(
-		this.Ref(),
+// HasFuncBlendFunciOES returns true if the method "OES_draw_buffers_indexed.blendFunciOES" exists.
+func (this OES_draw_buffers_indexed) HasFuncBlendFunciOES() bool {
+	return js.True == bindings.HasFuncOES_draw_buffers_indexedBlendFunciOES(
+		this.ref,
 	)
 }
 
-// BlendFunciOESFunc returns the method "OES_draw_buffers_indexed.blendFunciOES".
-func (this OES_draw_buffers_indexed) BlendFunciOESFunc() (fn js.Func[func(buf GLuint, src GLenum, dst GLenum)]) {
-	return fn.FromRef(
-		bindings.OES_draw_buffers_indexedBlendFunciOESFunc(
-			this.Ref(),
-		),
+// FuncBlendFunciOES returns the method "OES_draw_buffers_indexed.blendFunciOES".
+func (this OES_draw_buffers_indexed) FuncBlendFunciOES() (fn js.Func[func(buf GLuint, src GLenum, dst GLenum)]) {
+	bindings.FuncOES_draw_buffers_indexedBlendFunciOES(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BlendFunciOES calls the method "OES_draw_buffers_indexed.blendFunciOES".
 func (this OES_draw_buffers_indexed) BlendFunciOES(buf GLuint, src GLenum, dst GLenum) (ret js.Void) {
 	bindings.CallOES_draw_buffers_indexedBlendFunciOES(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(buf),
 		uint32(src),
 		uint32(dst),
@@ -1001,7 +1025,7 @@ func (this OES_draw_buffers_indexed) BlendFunciOES(buf GLuint, src GLenum, dst G
 // the catch clause.
 func (this OES_draw_buffers_indexed) TryBlendFunciOES(buf GLuint, src GLenum, dst GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOES_draw_buffers_indexedBlendFunciOES(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(buf),
 		uint32(src),
 		uint32(dst),
@@ -1010,26 +1034,25 @@ func (this OES_draw_buffers_indexed) TryBlendFunciOES(buf GLuint, src GLenum, ds
 	return
 }
 
-// HasBlendFuncSeparateiOES returns true if the method "OES_draw_buffers_indexed.blendFuncSeparateiOES" exists.
-func (this OES_draw_buffers_indexed) HasBlendFuncSeparateiOES() bool {
-	return js.True == bindings.HasOES_draw_buffers_indexedBlendFuncSeparateiOES(
-		this.Ref(),
+// HasFuncBlendFuncSeparateiOES returns true if the method "OES_draw_buffers_indexed.blendFuncSeparateiOES" exists.
+func (this OES_draw_buffers_indexed) HasFuncBlendFuncSeparateiOES() bool {
+	return js.True == bindings.HasFuncOES_draw_buffers_indexedBlendFuncSeparateiOES(
+		this.ref,
 	)
 }
 
-// BlendFuncSeparateiOESFunc returns the method "OES_draw_buffers_indexed.blendFuncSeparateiOES".
-func (this OES_draw_buffers_indexed) BlendFuncSeparateiOESFunc() (fn js.Func[func(buf GLuint, srcRGB GLenum, dstRGB GLenum, srcAlpha GLenum, dstAlpha GLenum)]) {
-	return fn.FromRef(
-		bindings.OES_draw_buffers_indexedBlendFuncSeparateiOESFunc(
-			this.Ref(),
-		),
+// FuncBlendFuncSeparateiOES returns the method "OES_draw_buffers_indexed.blendFuncSeparateiOES".
+func (this OES_draw_buffers_indexed) FuncBlendFuncSeparateiOES() (fn js.Func[func(buf GLuint, srcRGB GLenum, dstRGB GLenum, srcAlpha GLenum, dstAlpha GLenum)]) {
+	bindings.FuncOES_draw_buffers_indexedBlendFuncSeparateiOES(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BlendFuncSeparateiOES calls the method "OES_draw_buffers_indexed.blendFuncSeparateiOES".
 func (this OES_draw_buffers_indexed) BlendFuncSeparateiOES(buf GLuint, srcRGB GLenum, dstRGB GLenum, srcAlpha GLenum, dstAlpha GLenum) (ret js.Void) {
 	bindings.CallOES_draw_buffers_indexedBlendFuncSeparateiOES(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(buf),
 		uint32(srcRGB),
 		uint32(dstRGB),
@@ -1045,7 +1068,7 @@ func (this OES_draw_buffers_indexed) BlendFuncSeparateiOES(buf GLuint, srcRGB GL
 // the catch clause.
 func (this OES_draw_buffers_indexed) TryBlendFuncSeparateiOES(buf GLuint, srcRGB GLenum, dstRGB GLenum, srcAlpha GLenum, dstAlpha GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOES_draw_buffers_indexedBlendFuncSeparateiOES(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(buf),
 		uint32(srcRGB),
 		uint32(dstRGB),
@@ -1056,26 +1079,25 @@ func (this OES_draw_buffers_indexed) TryBlendFuncSeparateiOES(buf GLuint, srcRGB
 	return
 }
 
-// HasColorMaskiOES returns true if the method "OES_draw_buffers_indexed.colorMaskiOES" exists.
-func (this OES_draw_buffers_indexed) HasColorMaskiOES() bool {
-	return js.True == bindings.HasOES_draw_buffers_indexedColorMaskiOES(
-		this.Ref(),
+// HasFuncColorMaskiOES returns true if the method "OES_draw_buffers_indexed.colorMaskiOES" exists.
+func (this OES_draw_buffers_indexed) HasFuncColorMaskiOES() bool {
+	return js.True == bindings.HasFuncOES_draw_buffers_indexedColorMaskiOES(
+		this.ref,
 	)
 }
 
-// ColorMaskiOESFunc returns the method "OES_draw_buffers_indexed.colorMaskiOES".
-func (this OES_draw_buffers_indexed) ColorMaskiOESFunc() (fn js.Func[func(buf GLuint, r GLboolean, g GLboolean, b GLboolean, a GLboolean)]) {
-	return fn.FromRef(
-		bindings.OES_draw_buffers_indexedColorMaskiOESFunc(
-			this.Ref(),
-		),
+// FuncColorMaskiOES returns the method "OES_draw_buffers_indexed.colorMaskiOES".
+func (this OES_draw_buffers_indexed) FuncColorMaskiOES() (fn js.Func[func(buf GLuint, r GLboolean, g GLboolean, b GLboolean, a GLboolean)]) {
+	bindings.FuncOES_draw_buffers_indexedColorMaskiOES(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ColorMaskiOES calls the method "OES_draw_buffers_indexed.colorMaskiOES".
 func (this OES_draw_buffers_indexed) ColorMaskiOES(buf GLuint, r GLboolean, g GLboolean, b GLboolean, a GLboolean) (ret js.Void) {
 	bindings.CallOES_draw_buffers_indexedColorMaskiOES(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(buf),
 		js.Bool(bool(r)),
 		js.Bool(bool(g)),
@@ -1091,7 +1113,7 @@ func (this OES_draw_buffers_indexed) ColorMaskiOES(buf GLuint, r GLboolean, g GL
 // the catch clause.
 func (this OES_draw_buffers_indexed) TryColorMaskiOES(buf GLuint, r GLboolean, g GLboolean, b GLboolean, a GLboolean) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOES_draw_buffers_indexedColorMaskiOES(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(buf),
 		js.Bool(bool(r)),
 		js.Bool(bool(g)),
@@ -1107,7 +1129,7 @@ type OES_element_index_uint struct {
 }
 
 func (this OES_element_index_uint) Once() OES_element_index_uint {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1121,7 +1143,7 @@ func (this OES_element_index_uint) FromRef(ref js.Ref) OES_element_index_uint {
 }
 
 func (this OES_element_index_uint) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type OES_fbo_render_mipmap struct {
@@ -1129,7 +1151,7 @@ type OES_fbo_render_mipmap struct {
 }
 
 func (this OES_fbo_render_mipmap) Once() OES_fbo_render_mipmap {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1143,7 +1165,7 @@ func (this OES_fbo_render_mipmap) FromRef(ref js.Ref) OES_fbo_render_mipmap {
 }
 
 func (this OES_fbo_render_mipmap) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 const (
@@ -1155,7 +1177,7 @@ type OES_standard_derivatives struct {
 }
 
 func (this OES_standard_derivatives) Once() OES_standard_derivatives {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1169,7 +1191,7 @@ func (this OES_standard_derivatives) FromRef(ref js.Ref) OES_standard_derivative
 }
 
 func (this OES_standard_derivatives) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type OES_texture_float struct {
@@ -1177,7 +1199,7 @@ type OES_texture_float struct {
 }
 
 func (this OES_texture_float) Once() OES_texture_float {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1191,7 +1213,7 @@ func (this OES_texture_float) FromRef(ref js.Ref) OES_texture_float {
 }
 
 func (this OES_texture_float) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type OES_texture_float_linear struct {
@@ -1199,7 +1221,7 @@ type OES_texture_float_linear struct {
 }
 
 func (this OES_texture_float_linear) Once() OES_texture_float_linear {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1213,7 +1235,7 @@ func (this OES_texture_float_linear) FromRef(ref js.Ref) OES_texture_float_linea
 }
 
 func (this OES_texture_float_linear) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 const (
@@ -1225,7 +1247,7 @@ type OES_texture_half_float struct {
 }
 
 func (this OES_texture_half_float) Once() OES_texture_half_float {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1239,7 +1261,7 @@ func (this OES_texture_half_float) FromRef(ref js.Ref) OES_texture_half_float {
 }
 
 func (this OES_texture_half_float) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type OES_texture_half_float_linear struct {
@@ -1247,7 +1269,7 @@ type OES_texture_half_float_linear struct {
 }
 
 func (this OES_texture_half_float_linear) Once() OES_texture_half_float_linear {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1261,7 +1283,7 @@ func (this OES_texture_half_float_linear) FromRef(ref js.Ref) OES_texture_half_f
 }
 
 func (this OES_texture_half_float_linear) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 const (
@@ -1273,7 +1295,7 @@ type WebGLVertexArrayObjectOES struct {
 }
 
 func (this WebGLVertexArrayObjectOES) Once() WebGLVertexArrayObjectOES {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1287,7 +1309,7 @@ func (this WebGLVertexArrayObjectOES) FromRef(ref js.Ref) WebGLVertexArrayObject
 }
 
 func (this WebGLVertexArrayObjectOES) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type OES_vertex_array_object struct {
@@ -1295,7 +1317,7 @@ type OES_vertex_array_object struct {
 }
 
 func (this OES_vertex_array_object) Once() OES_vertex_array_object {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1309,29 +1331,28 @@ func (this OES_vertex_array_object) FromRef(ref js.Ref) OES_vertex_array_object 
 }
 
 func (this OES_vertex_array_object) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasCreateVertexArrayOES returns true if the method "OES_vertex_array_object.createVertexArrayOES" exists.
-func (this OES_vertex_array_object) HasCreateVertexArrayOES() bool {
-	return js.True == bindings.HasOES_vertex_array_objectCreateVertexArrayOES(
-		this.Ref(),
+// HasFuncCreateVertexArrayOES returns true if the method "OES_vertex_array_object.createVertexArrayOES" exists.
+func (this OES_vertex_array_object) HasFuncCreateVertexArrayOES() bool {
+	return js.True == bindings.HasFuncOES_vertex_array_objectCreateVertexArrayOES(
+		this.ref,
 	)
 }
 
-// CreateVertexArrayOESFunc returns the method "OES_vertex_array_object.createVertexArrayOES".
-func (this OES_vertex_array_object) CreateVertexArrayOESFunc() (fn js.Func[func() WebGLVertexArrayObjectOES]) {
-	return fn.FromRef(
-		bindings.OES_vertex_array_objectCreateVertexArrayOESFunc(
-			this.Ref(),
-		),
+// FuncCreateVertexArrayOES returns the method "OES_vertex_array_object.createVertexArrayOES".
+func (this OES_vertex_array_object) FuncCreateVertexArrayOES() (fn js.Func[func() WebGLVertexArrayObjectOES]) {
+	bindings.FuncOES_vertex_array_objectCreateVertexArrayOES(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateVertexArrayOES calls the method "OES_vertex_array_object.createVertexArrayOES".
 func (this OES_vertex_array_object) CreateVertexArrayOES() (ret WebGLVertexArrayObjectOES) {
 	bindings.CallOES_vertex_array_objectCreateVertexArrayOES(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1342,32 +1363,31 @@ func (this OES_vertex_array_object) CreateVertexArrayOES() (ret WebGLVertexArray
 // the catch clause.
 func (this OES_vertex_array_object) TryCreateVertexArrayOES() (ret WebGLVertexArrayObjectOES, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOES_vertex_array_objectCreateVertexArrayOES(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasDeleteVertexArrayOES returns true if the method "OES_vertex_array_object.deleteVertexArrayOES" exists.
-func (this OES_vertex_array_object) HasDeleteVertexArrayOES() bool {
-	return js.True == bindings.HasOES_vertex_array_objectDeleteVertexArrayOES(
-		this.Ref(),
+// HasFuncDeleteVertexArrayOES returns true if the method "OES_vertex_array_object.deleteVertexArrayOES" exists.
+func (this OES_vertex_array_object) HasFuncDeleteVertexArrayOES() bool {
+	return js.True == bindings.HasFuncOES_vertex_array_objectDeleteVertexArrayOES(
+		this.ref,
 	)
 }
 
-// DeleteVertexArrayOESFunc returns the method "OES_vertex_array_object.deleteVertexArrayOES".
-func (this OES_vertex_array_object) DeleteVertexArrayOESFunc() (fn js.Func[func(arrayObject WebGLVertexArrayObjectOES)]) {
-	return fn.FromRef(
-		bindings.OES_vertex_array_objectDeleteVertexArrayOESFunc(
-			this.Ref(),
-		),
+// FuncDeleteVertexArrayOES returns the method "OES_vertex_array_object.deleteVertexArrayOES".
+func (this OES_vertex_array_object) FuncDeleteVertexArrayOES() (fn js.Func[func(arrayObject WebGLVertexArrayObjectOES)]) {
+	bindings.FuncOES_vertex_array_objectDeleteVertexArrayOES(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteVertexArrayOES calls the method "OES_vertex_array_object.deleteVertexArrayOES".
 func (this OES_vertex_array_object) DeleteVertexArrayOES(arrayObject WebGLVertexArrayObjectOES) (ret js.Void) {
 	bindings.CallOES_vertex_array_objectDeleteVertexArrayOES(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		arrayObject.Ref(),
 	)
 
@@ -1379,33 +1399,32 @@ func (this OES_vertex_array_object) DeleteVertexArrayOES(arrayObject WebGLVertex
 // the catch clause.
 func (this OES_vertex_array_object) TryDeleteVertexArrayOES(arrayObject WebGLVertexArrayObjectOES) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOES_vertex_array_objectDeleteVertexArrayOES(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		arrayObject.Ref(),
 	)
 
 	return
 }
 
-// HasIsVertexArrayOES returns true if the method "OES_vertex_array_object.isVertexArrayOES" exists.
-func (this OES_vertex_array_object) HasIsVertexArrayOES() bool {
-	return js.True == bindings.HasOES_vertex_array_objectIsVertexArrayOES(
-		this.Ref(),
+// HasFuncIsVertexArrayOES returns true if the method "OES_vertex_array_object.isVertexArrayOES" exists.
+func (this OES_vertex_array_object) HasFuncIsVertexArrayOES() bool {
+	return js.True == bindings.HasFuncOES_vertex_array_objectIsVertexArrayOES(
+		this.ref,
 	)
 }
 
-// IsVertexArrayOESFunc returns the method "OES_vertex_array_object.isVertexArrayOES".
-func (this OES_vertex_array_object) IsVertexArrayOESFunc() (fn js.Func[func(arrayObject WebGLVertexArrayObjectOES) GLboolean]) {
-	return fn.FromRef(
-		bindings.OES_vertex_array_objectIsVertexArrayOESFunc(
-			this.Ref(),
-		),
+// FuncIsVertexArrayOES returns the method "OES_vertex_array_object.isVertexArrayOES".
+func (this OES_vertex_array_object) FuncIsVertexArrayOES() (fn js.Func[func(arrayObject WebGLVertexArrayObjectOES) GLboolean]) {
+	bindings.FuncOES_vertex_array_objectIsVertexArrayOES(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsVertexArrayOES calls the method "OES_vertex_array_object.isVertexArrayOES".
 func (this OES_vertex_array_object) IsVertexArrayOES(arrayObject WebGLVertexArrayObjectOES) (ret GLboolean) {
 	bindings.CallOES_vertex_array_objectIsVertexArrayOES(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		arrayObject.Ref(),
 	)
 
@@ -1417,33 +1436,32 @@ func (this OES_vertex_array_object) IsVertexArrayOES(arrayObject WebGLVertexArra
 // the catch clause.
 func (this OES_vertex_array_object) TryIsVertexArrayOES(arrayObject WebGLVertexArrayObjectOES) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOES_vertex_array_objectIsVertexArrayOES(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		arrayObject.Ref(),
 	)
 
 	return
 }
 
-// HasBindVertexArrayOES returns true if the method "OES_vertex_array_object.bindVertexArrayOES" exists.
-func (this OES_vertex_array_object) HasBindVertexArrayOES() bool {
-	return js.True == bindings.HasOES_vertex_array_objectBindVertexArrayOES(
-		this.Ref(),
+// HasFuncBindVertexArrayOES returns true if the method "OES_vertex_array_object.bindVertexArrayOES" exists.
+func (this OES_vertex_array_object) HasFuncBindVertexArrayOES() bool {
+	return js.True == bindings.HasFuncOES_vertex_array_objectBindVertexArrayOES(
+		this.ref,
 	)
 }
 
-// BindVertexArrayOESFunc returns the method "OES_vertex_array_object.bindVertexArrayOES".
-func (this OES_vertex_array_object) BindVertexArrayOESFunc() (fn js.Func[func(arrayObject WebGLVertexArrayObjectOES)]) {
-	return fn.FromRef(
-		bindings.OES_vertex_array_objectBindVertexArrayOESFunc(
-			this.Ref(),
-		),
+// FuncBindVertexArrayOES returns the method "OES_vertex_array_object.bindVertexArrayOES".
+func (this OES_vertex_array_object) FuncBindVertexArrayOES() (fn js.Func[func(arrayObject WebGLVertexArrayObjectOES)]) {
+	bindings.FuncOES_vertex_array_objectBindVertexArrayOES(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BindVertexArrayOES calls the method "OES_vertex_array_object.bindVertexArrayOES".
 func (this OES_vertex_array_object) BindVertexArrayOES(arrayObject WebGLVertexArrayObjectOES) (ret js.Void) {
 	bindings.CallOES_vertex_array_objectBindVertexArrayOES(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		arrayObject.Ref(),
 	)
 
@@ -1455,7 +1473,7 @@ func (this OES_vertex_array_object) BindVertexArrayOES(arrayObject WebGLVertexAr
 // the catch clause.
 func (this OES_vertex_array_object) TryBindVertexArrayOES(arrayObject WebGLVertexArrayObjectOES) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOES_vertex_array_objectBindVertexArrayOES(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		arrayObject.Ref(),
 	)
 
@@ -1467,7 +1485,7 @@ type OTPCredential struct {
 }
 
 func (this OTPCredential) Once() OTPCredential {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1481,7 +1499,7 @@ func (this OTPCredential) FromRef(ref js.Ref) OTPCredential {
 }
 
 func (this OTPCredential) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Code returns the value of property "OTPCredential.code".
@@ -1489,7 +1507,7 @@ func (this OTPCredential) Free() {
 // It returns ok=false if there is no such property.
 func (this OTPCredential) Code() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetOTPCredentialCode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1506,7 +1524,7 @@ type OVR_multiview2 struct {
 }
 
 func (this OVR_multiview2) Once() OVR_multiview2 {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1520,29 +1538,28 @@ func (this OVR_multiview2) FromRef(ref js.Ref) OVR_multiview2 {
 }
 
 func (this OVR_multiview2) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasFramebufferTextureMultiviewOVR returns true if the method "OVR_multiview2.framebufferTextureMultiviewOVR" exists.
-func (this OVR_multiview2) HasFramebufferTextureMultiviewOVR() bool {
-	return js.True == bindings.HasOVR_multiview2FramebufferTextureMultiviewOVR(
-		this.Ref(),
+// HasFuncFramebufferTextureMultiviewOVR returns true if the method "OVR_multiview2.framebufferTextureMultiviewOVR" exists.
+func (this OVR_multiview2) HasFuncFramebufferTextureMultiviewOVR() bool {
+	return js.True == bindings.HasFuncOVR_multiview2FramebufferTextureMultiviewOVR(
+		this.ref,
 	)
 }
 
-// FramebufferTextureMultiviewOVRFunc returns the method "OVR_multiview2.framebufferTextureMultiviewOVR".
-func (this OVR_multiview2) FramebufferTextureMultiviewOVRFunc() (fn js.Func[func(target GLenum, attachment GLenum, texture WebGLTexture, level GLint, baseViewIndex GLint, numViews GLsizei)]) {
-	return fn.FromRef(
-		bindings.OVR_multiview2FramebufferTextureMultiviewOVRFunc(
-			this.Ref(),
-		),
+// FuncFramebufferTextureMultiviewOVR returns the method "OVR_multiview2.framebufferTextureMultiviewOVR".
+func (this OVR_multiview2) FuncFramebufferTextureMultiviewOVR() (fn js.Func[func(target GLenum, attachment GLenum, texture WebGLTexture, level GLint, baseViewIndex GLint, numViews GLsizei)]) {
+	bindings.FuncOVR_multiview2FramebufferTextureMultiviewOVR(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // FramebufferTextureMultiviewOVR calls the method "OVR_multiview2.framebufferTextureMultiviewOVR".
 func (this OVR_multiview2) FramebufferTextureMultiviewOVR(target GLenum, attachment GLenum, texture WebGLTexture, level GLint, baseViewIndex GLint, numViews GLsizei) (ret js.Void) {
 	bindings.CallOVR_multiview2FramebufferTextureMultiviewOVR(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(attachment),
 		texture.Ref(),
@@ -1559,7 +1576,7 @@ func (this OVR_multiview2) FramebufferTextureMultiviewOVR(target GLenum, attachm
 // the catch clause.
 func (this OVR_multiview2) TryFramebufferTextureMultiviewOVR(target GLenum, attachment GLenum, texture WebGLTexture, level GLint, baseViewIndex GLint, numViews GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOVR_multiview2FramebufferTextureMultiviewOVR(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(attachment),
 		texture.Ref(),
@@ -1616,17 +1633,26 @@ func (p OfflineAudioCompletionEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p OfflineAudioCompletionEventInit) UpdateFrom(ref js.Ref) {
+func (p *OfflineAudioCompletionEventInit) UpdateFrom(ref js.Ref) {
 	bindings.OfflineAudioCompletionEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p OfflineAudioCompletionEventInit) Update(ref js.Ref) {
+func (p *OfflineAudioCompletionEventInit) Update(ref js.Ref) {
 	bindings.OfflineAudioCompletionEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *OfflineAudioCompletionEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.RenderedBuffer.Ref(),
+	)
+	p.RenderedBuffer = p.RenderedBuffer.FromRef(js.Undefined)
 }
 
 func NewOfflineAudioCompletionEvent(typ js.String, eventInitDict OfflineAudioCompletionEventInit) (ret OfflineAudioCompletionEvent) {
@@ -1641,7 +1667,7 @@ type OfflineAudioCompletionEvent struct {
 }
 
 func (this OfflineAudioCompletionEvent) Once() OfflineAudioCompletionEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1655,7 +1681,7 @@ func (this OfflineAudioCompletionEvent) FromRef(ref js.Ref) OfflineAudioCompleti
 }
 
 func (this OfflineAudioCompletionEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // RenderedBuffer returns the value of property "OfflineAudioCompletionEvent.renderedBuffer".
@@ -1663,7 +1689,7 @@ func (this OfflineAudioCompletionEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this OfflineAudioCompletionEvent) RenderedBuffer() (ret AudioBuffer, ok bool) {
 	ok = js.True == bindings.GetOfflineAudioCompletionEventRenderedBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1703,17 +1729,22 @@ func (p OfflineAudioContextOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p OfflineAudioContextOptions) UpdateFrom(ref js.Ref) {
+func (p *OfflineAudioContextOptions) UpdateFrom(ref js.Ref) {
 	bindings.OfflineAudioContextOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p OfflineAudioContextOptions) Update(ref js.Ref) {
+func (p *OfflineAudioContextOptions) Update(ref js.Ref) {
 	bindings.OfflineAudioContextOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *OfflineAudioContextOptions) FreeMembers(recursive bool) {
 }
 
 func NewOfflineAudioContext(contextOptions OfflineAudioContextOptions) (ret OfflineAudioContext) {
@@ -1735,7 +1766,7 @@ type OfflineAudioContext struct {
 }
 
 func (this OfflineAudioContext) Once() OfflineAudioContext {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1749,7 +1780,7 @@ func (this OfflineAudioContext) FromRef(ref js.Ref) OfflineAudioContext {
 }
 
 func (this OfflineAudioContext) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Length returns the value of property "OfflineAudioContext.length".
@@ -1757,31 +1788,30 @@ func (this OfflineAudioContext) Free() {
 // It returns ok=false if there is no such property.
 func (this OfflineAudioContext) Length() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetOfflineAudioContextLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasStartRendering returns true if the method "OfflineAudioContext.startRendering" exists.
-func (this OfflineAudioContext) HasStartRendering() bool {
-	return js.True == bindings.HasOfflineAudioContextStartRendering(
-		this.Ref(),
+// HasFuncStartRendering returns true if the method "OfflineAudioContext.startRendering" exists.
+func (this OfflineAudioContext) HasFuncStartRendering() bool {
+	return js.True == bindings.HasFuncOfflineAudioContextStartRendering(
+		this.ref,
 	)
 }
 
-// StartRenderingFunc returns the method "OfflineAudioContext.startRendering".
-func (this OfflineAudioContext) StartRenderingFunc() (fn js.Func[func() js.Promise[AudioBuffer]]) {
-	return fn.FromRef(
-		bindings.OfflineAudioContextStartRenderingFunc(
-			this.Ref(),
-		),
+// FuncStartRendering returns the method "OfflineAudioContext.startRendering".
+func (this OfflineAudioContext) FuncStartRendering() (fn js.Func[func() js.Promise[AudioBuffer]]) {
+	bindings.FuncOfflineAudioContextStartRendering(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // StartRendering calls the method "OfflineAudioContext.startRendering".
 func (this OfflineAudioContext) StartRendering() (ret js.Promise[AudioBuffer]) {
 	bindings.CallOfflineAudioContextStartRendering(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1792,32 +1822,31 @@ func (this OfflineAudioContext) StartRendering() (ret js.Promise[AudioBuffer]) {
 // the catch clause.
 func (this OfflineAudioContext) TryStartRendering() (ret js.Promise[AudioBuffer], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOfflineAudioContextStartRendering(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasResume returns true if the method "OfflineAudioContext.resume" exists.
-func (this OfflineAudioContext) HasResume() bool {
-	return js.True == bindings.HasOfflineAudioContextResume(
-		this.Ref(),
+// HasFuncResume returns true if the method "OfflineAudioContext.resume" exists.
+func (this OfflineAudioContext) HasFuncResume() bool {
+	return js.True == bindings.HasFuncOfflineAudioContextResume(
+		this.ref,
 	)
 }
 
-// ResumeFunc returns the method "OfflineAudioContext.resume".
-func (this OfflineAudioContext) ResumeFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.OfflineAudioContextResumeFunc(
-			this.Ref(),
-		),
+// FuncResume returns the method "OfflineAudioContext.resume".
+func (this OfflineAudioContext) FuncResume() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncOfflineAudioContextResume(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Resume calls the method "OfflineAudioContext.resume".
 func (this OfflineAudioContext) Resume() (ret js.Promise[js.Void]) {
 	bindings.CallOfflineAudioContextResume(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1828,32 +1857,31 @@ func (this OfflineAudioContext) Resume() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this OfflineAudioContext) TryResume() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOfflineAudioContextResume(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSuspend returns true if the method "OfflineAudioContext.suspend" exists.
-func (this OfflineAudioContext) HasSuspend() bool {
-	return js.True == bindings.HasOfflineAudioContextSuspend(
-		this.Ref(),
+// HasFuncSuspend returns true if the method "OfflineAudioContext.suspend" exists.
+func (this OfflineAudioContext) HasFuncSuspend() bool {
+	return js.True == bindings.HasFuncOfflineAudioContextSuspend(
+		this.ref,
 	)
 }
 
-// SuspendFunc returns the method "OfflineAudioContext.suspend".
-func (this OfflineAudioContext) SuspendFunc() (fn js.Func[func(suspendTime float64) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.OfflineAudioContextSuspendFunc(
-			this.Ref(),
-		),
+// FuncSuspend returns the method "OfflineAudioContext.suspend".
+func (this OfflineAudioContext) FuncSuspend() (fn js.Func[func(suspendTime float64) js.Promise[js.Void]]) {
+	bindings.FuncOfflineAudioContextSuspend(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Suspend calls the method "OfflineAudioContext.suspend".
 func (this OfflineAudioContext) Suspend(suspendTime float64) (ret js.Promise[js.Void]) {
 	bindings.CallOfflineAudioContextSuspend(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(suspendTime),
 	)
 
@@ -1865,7 +1893,7 @@ func (this OfflineAudioContext) Suspend(suspendTime float64) (ret js.Promise[js.
 // the catch clause.
 func (this OfflineAudioContext) TrySuspend(suspendTime float64) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOfflineAudioContextSuspend(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(suspendTime),
 	)
 
@@ -1909,7 +1937,7 @@ type OrientationSensor struct {
 }
 
 func (this OrientationSensor) Once() OrientationSensor {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1923,7 +1951,7 @@ func (this OrientationSensor) FromRef(ref js.Ref) OrientationSensor {
 }
 
 func (this OrientationSensor) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Quaternion returns the value of property "OrientationSensor.quaternion".
@@ -1931,31 +1959,30 @@ func (this OrientationSensor) Free() {
 // It returns ok=false if there is no such property.
 func (this OrientationSensor) Quaternion() (ret js.FrozenArray[float64], ok bool) {
 	ok = js.True == bindings.GetOrientationSensorQuaternion(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasPopulateMatrix returns true if the method "OrientationSensor.populateMatrix" exists.
-func (this OrientationSensor) HasPopulateMatrix() bool {
-	return js.True == bindings.HasOrientationSensorPopulateMatrix(
-		this.Ref(),
+// HasFuncPopulateMatrix returns true if the method "OrientationSensor.populateMatrix" exists.
+func (this OrientationSensor) HasFuncPopulateMatrix() bool {
+	return js.True == bindings.HasFuncOrientationSensorPopulateMatrix(
+		this.ref,
 	)
 }
 
-// PopulateMatrixFunc returns the method "OrientationSensor.populateMatrix".
-func (this OrientationSensor) PopulateMatrixFunc() (fn js.Func[func(targetMatrix RotationMatrixType)]) {
-	return fn.FromRef(
-		bindings.OrientationSensorPopulateMatrixFunc(
-			this.Ref(),
-		),
+// FuncPopulateMatrix returns the method "OrientationSensor.populateMatrix".
+func (this OrientationSensor) FuncPopulateMatrix() (fn js.Func[func(targetMatrix RotationMatrixType)]) {
+	bindings.FuncOrientationSensorPopulateMatrix(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PopulateMatrix calls the method "OrientationSensor.populateMatrix".
 func (this OrientationSensor) PopulateMatrix(targetMatrix RotationMatrixType) (ret js.Void) {
 	bindings.CallOrientationSensorPopulateMatrix(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		targetMatrix.Ref(),
 	)
 
@@ -1967,7 +1994,7 @@ func (this OrientationSensor) PopulateMatrix(targetMatrix RotationMatrixType) (r
 // the catch clause.
 func (this OrientationSensor) TryPopulateMatrix(targetMatrix RotationMatrixType) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOrientationSensorPopulateMatrix(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		targetMatrix.Ref(),
 	)
 
@@ -1992,7 +2019,7 @@ type OverconstrainedError struct {
 }
 
 func (this OverconstrainedError) Once() OverconstrainedError {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2006,7 +2033,7 @@ func (this OverconstrainedError) FromRef(ref js.Ref) OverconstrainedError {
 }
 
 func (this OverconstrainedError) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Constraint returns the value of property "OverconstrainedError.constraint".
@@ -2014,7 +2041,7 @@ func (this OverconstrainedError) Free() {
 // It returns ok=false if there is no such property.
 func (this OverconstrainedError) Constraint() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetOverconstrainedErrorConstraint(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2067,17 +2094,22 @@ func (p PageTransitionEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PageTransitionEventInit) UpdateFrom(ref js.Ref) {
+func (p *PageTransitionEventInit) UpdateFrom(ref js.Ref) {
 	bindings.PageTransitionEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PageTransitionEventInit) Update(ref js.Ref) {
+func (p *PageTransitionEventInit) Update(ref js.Ref) {
 	bindings.PageTransitionEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PageTransitionEventInit) FreeMembers(recursive bool) {
 }
 
 func NewPageTransitionEvent(typ js.String, eventInitDict PageTransitionEventInit) (ret PageTransitionEvent) {
@@ -2098,7 +2130,7 @@ type PageTransitionEvent struct {
 }
 
 func (this PageTransitionEvent) Once() PageTransitionEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2112,7 +2144,7 @@ func (this PageTransitionEvent) FromRef(ref js.Ref) PageTransitionEvent {
 }
 
 func (this PageTransitionEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Persisted returns the value of property "PageTransitionEvent.persisted".
@@ -2120,7 +2152,7 @@ func (this PageTransitionEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this PageTransitionEvent) Persisted() (ret bool, ok bool) {
 	ok = js.True == bindings.GetPageTransitionEventPersisted(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2130,7 +2162,7 @@ type PaintRenderingContext2D struct {
 }
 
 func (this PaintRenderingContext2D) Once() PaintRenderingContext2D {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2144,7 +2176,7 @@ func (this PaintRenderingContext2D) FromRef(ref js.Ref) PaintRenderingContext2D 
 }
 
 func (this PaintRenderingContext2D) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // LineWidth returns the value of property "PaintRenderingContext2D.lineWidth".
@@ -2152,7 +2184,7 @@ func (this PaintRenderingContext2D) Free() {
 // It returns ok=false if there is no such property.
 func (this PaintRenderingContext2D) LineWidth() (ret float64, ok bool) {
 	ok = js.True == bindings.GetPaintRenderingContext2DLineWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2162,7 +2194,7 @@ func (this PaintRenderingContext2D) LineWidth() (ret float64, ok bool) {
 // It returns false if the property cannot be set.
 func (this PaintRenderingContext2D) SetLineWidth(val float64) bool {
 	return js.True == bindings.SetPaintRenderingContext2DLineWidth(
-		this.Ref(),
+		this.ref,
 		float64(val),
 	)
 }
@@ -2172,7 +2204,7 @@ func (this PaintRenderingContext2D) SetLineWidth(val float64) bool {
 // It returns ok=false if there is no such property.
 func (this PaintRenderingContext2D) LineCap() (ret CanvasLineCap, ok bool) {
 	ok = js.True == bindings.GetPaintRenderingContext2DLineCap(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2182,7 +2214,7 @@ func (this PaintRenderingContext2D) LineCap() (ret CanvasLineCap, ok bool) {
 // It returns false if the property cannot be set.
 func (this PaintRenderingContext2D) SetLineCap(val CanvasLineCap) bool {
 	return js.True == bindings.SetPaintRenderingContext2DLineCap(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
@@ -2192,7 +2224,7 @@ func (this PaintRenderingContext2D) SetLineCap(val CanvasLineCap) bool {
 // It returns ok=false if there is no such property.
 func (this PaintRenderingContext2D) LineJoin() (ret CanvasLineJoin, ok bool) {
 	ok = js.True == bindings.GetPaintRenderingContext2DLineJoin(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2202,7 +2234,7 @@ func (this PaintRenderingContext2D) LineJoin() (ret CanvasLineJoin, ok bool) {
 // It returns false if the property cannot be set.
 func (this PaintRenderingContext2D) SetLineJoin(val CanvasLineJoin) bool {
 	return js.True == bindings.SetPaintRenderingContext2DLineJoin(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
@@ -2212,7 +2244,7 @@ func (this PaintRenderingContext2D) SetLineJoin(val CanvasLineJoin) bool {
 // It returns ok=false if there is no such property.
 func (this PaintRenderingContext2D) MiterLimit() (ret float64, ok bool) {
 	ok = js.True == bindings.GetPaintRenderingContext2DMiterLimit(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2222,7 +2254,7 @@ func (this PaintRenderingContext2D) MiterLimit() (ret float64, ok bool) {
 // It returns false if the property cannot be set.
 func (this PaintRenderingContext2D) SetMiterLimit(val float64) bool {
 	return js.True == bindings.SetPaintRenderingContext2DMiterLimit(
-		this.Ref(),
+		this.ref,
 		float64(val),
 	)
 }
@@ -2232,7 +2264,7 @@ func (this PaintRenderingContext2D) SetMiterLimit(val float64) bool {
 // It returns ok=false if there is no such property.
 func (this PaintRenderingContext2D) LineDashOffset() (ret float64, ok bool) {
 	ok = js.True == bindings.GetPaintRenderingContext2DLineDashOffset(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2242,7 +2274,7 @@ func (this PaintRenderingContext2D) LineDashOffset() (ret float64, ok bool) {
 // It returns false if the property cannot be set.
 func (this PaintRenderingContext2D) SetLineDashOffset(val float64) bool {
 	return js.True == bindings.SetPaintRenderingContext2DLineDashOffset(
-		this.Ref(),
+		this.ref,
 		float64(val),
 	)
 }
@@ -2252,7 +2284,7 @@ func (this PaintRenderingContext2D) SetLineDashOffset(val float64) bool {
 // It returns ok=false if there is no such property.
 func (this PaintRenderingContext2D) ShadowOffsetX() (ret float64, ok bool) {
 	ok = js.True == bindings.GetPaintRenderingContext2DShadowOffsetX(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2262,7 +2294,7 @@ func (this PaintRenderingContext2D) ShadowOffsetX() (ret float64, ok bool) {
 // It returns false if the property cannot be set.
 func (this PaintRenderingContext2D) SetShadowOffsetX(val float64) bool {
 	return js.True == bindings.SetPaintRenderingContext2DShadowOffsetX(
-		this.Ref(),
+		this.ref,
 		float64(val),
 	)
 }
@@ -2272,7 +2304,7 @@ func (this PaintRenderingContext2D) SetShadowOffsetX(val float64) bool {
 // It returns ok=false if there is no such property.
 func (this PaintRenderingContext2D) ShadowOffsetY() (ret float64, ok bool) {
 	ok = js.True == bindings.GetPaintRenderingContext2DShadowOffsetY(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2282,7 +2314,7 @@ func (this PaintRenderingContext2D) ShadowOffsetY() (ret float64, ok bool) {
 // It returns false if the property cannot be set.
 func (this PaintRenderingContext2D) SetShadowOffsetY(val float64) bool {
 	return js.True == bindings.SetPaintRenderingContext2DShadowOffsetY(
-		this.Ref(),
+		this.ref,
 		float64(val),
 	)
 }
@@ -2292,7 +2324,7 @@ func (this PaintRenderingContext2D) SetShadowOffsetY(val float64) bool {
 // It returns ok=false if there is no such property.
 func (this PaintRenderingContext2D) ShadowBlur() (ret float64, ok bool) {
 	ok = js.True == bindings.GetPaintRenderingContext2DShadowBlur(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2302,7 +2334,7 @@ func (this PaintRenderingContext2D) ShadowBlur() (ret float64, ok bool) {
 // It returns false if the property cannot be set.
 func (this PaintRenderingContext2D) SetShadowBlur(val float64) bool {
 	return js.True == bindings.SetPaintRenderingContext2DShadowBlur(
-		this.Ref(),
+		this.ref,
 		float64(val),
 	)
 }
@@ -2312,7 +2344,7 @@ func (this PaintRenderingContext2D) SetShadowBlur(val float64) bool {
 // It returns ok=false if there is no such property.
 func (this PaintRenderingContext2D) ShadowColor() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetPaintRenderingContext2DShadowColor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2322,7 +2354,7 @@ func (this PaintRenderingContext2D) ShadowColor() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this PaintRenderingContext2D) SetShadowColor(val js.String) bool {
 	return js.True == bindings.SetPaintRenderingContext2DShadowColor(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2332,7 +2364,7 @@ func (this PaintRenderingContext2D) SetShadowColor(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this PaintRenderingContext2D) StrokeStyle() (ret OneOf_String_CanvasGradient_CanvasPattern, ok bool) {
 	ok = js.True == bindings.GetPaintRenderingContext2DStrokeStyle(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2342,7 +2374,7 @@ func (this PaintRenderingContext2D) StrokeStyle() (ret OneOf_String_CanvasGradie
 // It returns false if the property cannot be set.
 func (this PaintRenderingContext2D) SetStrokeStyle(val OneOf_String_CanvasGradient_CanvasPattern) bool {
 	return js.True == bindings.SetPaintRenderingContext2DStrokeStyle(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2352,7 +2384,7 @@ func (this PaintRenderingContext2D) SetStrokeStyle(val OneOf_String_CanvasGradie
 // It returns ok=false if there is no such property.
 func (this PaintRenderingContext2D) FillStyle() (ret OneOf_String_CanvasGradient_CanvasPattern, ok bool) {
 	ok = js.True == bindings.GetPaintRenderingContext2DFillStyle(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2362,7 +2394,7 @@ func (this PaintRenderingContext2D) FillStyle() (ret OneOf_String_CanvasGradient
 // It returns false if the property cannot be set.
 func (this PaintRenderingContext2D) SetFillStyle(val OneOf_String_CanvasGradient_CanvasPattern) bool {
 	return js.True == bindings.SetPaintRenderingContext2DFillStyle(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2372,7 +2404,7 @@ func (this PaintRenderingContext2D) SetFillStyle(val OneOf_String_CanvasGradient
 // It returns ok=false if there is no such property.
 func (this PaintRenderingContext2D) ImageSmoothingEnabled() (ret bool, ok bool) {
 	ok = js.True == bindings.GetPaintRenderingContext2DImageSmoothingEnabled(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2382,7 +2414,7 @@ func (this PaintRenderingContext2D) ImageSmoothingEnabled() (ret bool, ok bool) 
 // It returns false if the property cannot be set.
 func (this PaintRenderingContext2D) SetImageSmoothingEnabled(val bool) bool {
 	return js.True == bindings.SetPaintRenderingContext2DImageSmoothingEnabled(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -2392,7 +2424,7 @@ func (this PaintRenderingContext2D) SetImageSmoothingEnabled(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this PaintRenderingContext2D) ImageSmoothingQuality() (ret ImageSmoothingQuality, ok bool) {
 	ok = js.True == bindings.GetPaintRenderingContext2DImageSmoothingQuality(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2402,7 +2434,7 @@ func (this PaintRenderingContext2D) ImageSmoothingQuality() (ret ImageSmoothingQ
 // It returns false if the property cannot be set.
 func (this PaintRenderingContext2D) SetImageSmoothingQuality(val ImageSmoothingQuality) bool {
 	return js.True == bindings.SetPaintRenderingContext2DImageSmoothingQuality(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
@@ -2412,7 +2444,7 @@ func (this PaintRenderingContext2D) SetImageSmoothingQuality(val ImageSmoothingQ
 // It returns ok=false if there is no such property.
 func (this PaintRenderingContext2D) GlobalAlpha() (ret float64, ok bool) {
 	ok = js.True == bindings.GetPaintRenderingContext2DGlobalAlpha(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2422,7 +2454,7 @@ func (this PaintRenderingContext2D) GlobalAlpha() (ret float64, ok bool) {
 // It returns false if the property cannot be set.
 func (this PaintRenderingContext2D) SetGlobalAlpha(val float64) bool {
 	return js.True == bindings.SetPaintRenderingContext2DGlobalAlpha(
-		this.Ref(),
+		this.ref,
 		float64(val),
 	)
 }
@@ -2432,7 +2464,7 @@ func (this PaintRenderingContext2D) SetGlobalAlpha(val float64) bool {
 // It returns ok=false if there is no such property.
 func (this PaintRenderingContext2D) GlobalCompositeOperation() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetPaintRenderingContext2DGlobalCompositeOperation(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2442,31 +2474,30 @@ func (this PaintRenderingContext2D) GlobalCompositeOperation() (ret js.String, o
 // It returns false if the property cannot be set.
 func (this PaintRenderingContext2D) SetGlobalCompositeOperation(val js.String) bool {
 	return js.True == bindings.SetPaintRenderingContext2DGlobalCompositeOperation(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
 
-// HasClosePath returns true if the method "PaintRenderingContext2D.closePath" exists.
-func (this PaintRenderingContext2D) HasClosePath() bool {
-	return js.True == bindings.HasPaintRenderingContext2DClosePath(
-		this.Ref(),
+// HasFuncClosePath returns true if the method "PaintRenderingContext2D.closePath" exists.
+func (this PaintRenderingContext2D) HasFuncClosePath() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DClosePath(
+		this.ref,
 	)
 }
 
-// ClosePathFunc returns the method "PaintRenderingContext2D.closePath".
-func (this PaintRenderingContext2D) ClosePathFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DClosePathFunc(
-			this.Ref(),
-		),
+// FuncClosePath returns the method "PaintRenderingContext2D.closePath".
+func (this PaintRenderingContext2D) FuncClosePath() (fn js.Func[func()]) {
+	bindings.FuncPaintRenderingContext2DClosePath(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ClosePath calls the method "PaintRenderingContext2D.closePath".
 func (this PaintRenderingContext2D) ClosePath() (ret js.Void) {
 	bindings.CallPaintRenderingContext2DClosePath(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2477,32 +2508,31 @@ func (this PaintRenderingContext2D) ClosePath() (ret js.Void) {
 // the catch clause.
 func (this PaintRenderingContext2D) TryClosePath() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DClosePath(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasMoveTo returns true if the method "PaintRenderingContext2D.moveTo" exists.
-func (this PaintRenderingContext2D) HasMoveTo() bool {
-	return js.True == bindings.HasPaintRenderingContext2DMoveTo(
-		this.Ref(),
+// HasFuncMoveTo returns true if the method "PaintRenderingContext2D.moveTo" exists.
+func (this PaintRenderingContext2D) HasFuncMoveTo() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DMoveTo(
+		this.ref,
 	)
 }
 
-// MoveToFunc returns the method "PaintRenderingContext2D.moveTo".
-func (this PaintRenderingContext2D) MoveToFunc() (fn js.Func[func(x float64, y float64)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DMoveToFunc(
-			this.Ref(),
-		),
+// FuncMoveTo returns the method "PaintRenderingContext2D.moveTo".
+func (this PaintRenderingContext2D) FuncMoveTo() (fn js.Func[func(x float64, y float64)]) {
+	bindings.FuncPaintRenderingContext2DMoveTo(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // MoveTo calls the method "PaintRenderingContext2D.moveTo".
 func (this PaintRenderingContext2D) MoveTo(x float64, y float64) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DMoveTo(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(x),
 		float64(y),
 	)
@@ -2515,7 +2545,7 @@ func (this PaintRenderingContext2D) MoveTo(x float64, y float64) (ret js.Void) {
 // the catch clause.
 func (this PaintRenderingContext2D) TryMoveTo(x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DMoveTo(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(x),
 		float64(y),
 	)
@@ -2523,26 +2553,25 @@ func (this PaintRenderingContext2D) TryMoveTo(x float64, y float64) (ret js.Void
 	return
 }
 
-// HasLineTo returns true if the method "PaintRenderingContext2D.lineTo" exists.
-func (this PaintRenderingContext2D) HasLineTo() bool {
-	return js.True == bindings.HasPaintRenderingContext2DLineTo(
-		this.Ref(),
+// HasFuncLineTo returns true if the method "PaintRenderingContext2D.lineTo" exists.
+func (this PaintRenderingContext2D) HasFuncLineTo() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DLineTo(
+		this.ref,
 	)
 }
 
-// LineToFunc returns the method "PaintRenderingContext2D.lineTo".
-func (this PaintRenderingContext2D) LineToFunc() (fn js.Func[func(x float64, y float64)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DLineToFunc(
-			this.Ref(),
-		),
+// FuncLineTo returns the method "PaintRenderingContext2D.lineTo".
+func (this PaintRenderingContext2D) FuncLineTo() (fn js.Func[func(x float64, y float64)]) {
+	bindings.FuncPaintRenderingContext2DLineTo(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // LineTo calls the method "PaintRenderingContext2D.lineTo".
 func (this PaintRenderingContext2D) LineTo(x float64, y float64) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DLineTo(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(x),
 		float64(y),
 	)
@@ -2555,7 +2584,7 @@ func (this PaintRenderingContext2D) LineTo(x float64, y float64) (ret js.Void) {
 // the catch clause.
 func (this PaintRenderingContext2D) TryLineTo(x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DLineTo(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(x),
 		float64(y),
 	)
@@ -2563,26 +2592,25 @@ func (this PaintRenderingContext2D) TryLineTo(x float64, y float64) (ret js.Void
 	return
 }
 
-// HasQuadraticCurveTo returns true if the method "PaintRenderingContext2D.quadraticCurveTo" exists.
-func (this PaintRenderingContext2D) HasQuadraticCurveTo() bool {
-	return js.True == bindings.HasPaintRenderingContext2DQuadraticCurveTo(
-		this.Ref(),
+// HasFuncQuadraticCurveTo returns true if the method "PaintRenderingContext2D.quadraticCurveTo" exists.
+func (this PaintRenderingContext2D) HasFuncQuadraticCurveTo() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DQuadraticCurveTo(
+		this.ref,
 	)
 }
 
-// QuadraticCurveToFunc returns the method "PaintRenderingContext2D.quadraticCurveTo".
-func (this PaintRenderingContext2D) QuadraticCurveToFunc() (fn js.Func[func(cpx float64, cpy float64, x float64, y float64)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DQuadraticCurveToFunc(
-			this.Ref(),
-		),
+// FuncQuadraticCurveTo returns the method "PaintRenderingContext2D.quadraticCurveTo".
+func (this PaintRenderingContext2D) FuncQuadraticCurveTo() (fn js.Func[func(cpx float64, cpy float64, x float64, y float64)]) {
+	bindings.FuncPaintRenderingContext2DQuadraticCurveTo(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // QuadraticCurveTo calls the method "PaintRenderingContext2D.quadraticCurveTo".
 func (this PaintRenderingContext2D) QuadraticCurveTo(cpx float64, cpy float64, x float64, y float64) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DQuadraticCurveTo(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(cpx),
 		float64(cpy),
 		float64(x),
@@ -2597,7 +2625,7 @@ func (this PaintRenderingContext2D) QuadraticCurveTo(cpx float64, cpy float64, x
 // the catch clause.
 func (this PaintRenderingContext2D) TryQuadraticCurveTo(cpx float64, cpy float64, x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DQuadraticCurveTo(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(cpx),
 		float64(cpy),
 		float64(x),
@@ -2607,26 +2635,25 @@ func (this PaintRenderingContext2D) TryQuadraticCurveTo(cpx float64, cpy float64
 	return
 }
 
-// HasBezierCurveTo returns true if the method "PaintRenderingContext2D.bezierCurveTo" exists.
-func (this PaintRenderingContext2D) HasBezierCurveTo() bool {
-	return js.True == bindings.HasPaintRenderingContext2DBezierCurveTo(
-		this.Ref(),
+// HasFuncBezierCurveTo returns true if the method "PaintRenderingContext2D.bezierCurveTo" exists.
+func (this PaintRenderingContext2D) HasFuncBezierCurveTo() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DBezierCurveTo(
+		this.ref,
 	)
 }
 
-// BezierCurveToFunc returns the method "PaintRenderingContext2D.bezierCurveTo".
-func (this PaintRenderingContext2D) BezierCurveToFunc() (fn js.Func[func(cp1x float64, cp1y float64, cp2x float64, cp2y float64, x float64, y float64)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DBezierCurveToFunc(
-			this.Ref(),
-		),
+// FuncBezierCurveTo returns the method "PaintRenderingContext2D.bezierCurveTo".
+func (this PaintRenderingContext2D) FuncBezierCurveTo() (fn js.Func[func(cp1x float64, cp1y float64, cp2x float64, cp2y float64, x float64, y float64)]) {
+	bindings.FuncPaintRenderingContext2DBezierCurveTo(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BezierCurveTo calls the method "PaintRenderingContext2D.bezierCurveTo".
 func (this PaintRenderingContext2D) BezierCurveTo(cp1x float64, cp1y float64, cp2x float64, cp2y float64, x float64, y float64) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DBezierCurveTo(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(cp1x),
 		float64(cp1y),
 		float64(cp2x),
@@ -2643,7 +2670,7 @@ func (this PaintRenderingContext2D) BezierCurveTo(cp1x float64, cp1y float64, cp
 // the catch clause.
 func (this PaintRenderingContext2D) TryBezierCurveTo(cp1x float64, cp1y float64, cp2x float64, cp2y float64, x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DBezierCurveTo(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(cp1x),
 		float64(cp1y),
 		float64(cp2x),
@@ -2655,26 +2682,25 @@ func (this PaintRenderingContext2D) TryBezierCurveTo(cp1x float64, cp1y float64,
 	return
 }
 
-// HasArcTo returns true if the method "PaintRenderingContext2D.arcTo" exists.
-func (this PaintRenderingContext2D) HasArcTo() bool {
-	return js.True == bindings.HasPaintRenderingContext2DArcTo(
-		this.Ref(),
+// HasFuncArcTo returns true if the method "PaintRenderingContext2D.arcTo" exists.
+func (this PaintRenderingContext2D) HasFuncArcTo() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DArcTo(
+		this.ref,
 	)
 }
 
-// ArcToFunc returns the method "PaintRenderingContext2D.arcTo".
-func (this PaintRenderingContext2D) ArcToFunc() (fn js.Func[func(x1 float64, y1 float64, x2 float64, y2 float64, radius float64)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DArcToFunc(
-			this.Ref(),
-		),
+// FuncArcTo returns the method "PaintRenderingContext2D.arcTo".
+func (this PaintRenderingContext2D) FuncArcTo() (fn js.Func[func(x1 float64, y1 float64, x2 float64, y2 float64, radius float64)]) {
+	bindings.FuncPaintRenderingContext2DArcTo(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ArcTo calls the method "PaintRenderingContext2D.arcTo".
 func (this PaintRenderingContext2D) ArcTo(x1 float64, y1 float64, x2 float64, y2 float64, radius float64) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DArcTo(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(x1),
 		float64(y1),
 		float64(x2),
@@ -2690,7 +2716,7 @@ func (this PaintRenderingContext2D) ArcTo(x1 float64, y1 float64, x2 float64, y2
 // the catch clause.
 func (this PaintRenderingContext2D) TryArcTo(x1 float64, y1 float64, x2 float64, y2 float64, radius float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DArcTo(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(x1),
 		float64(y1),
 		float64(x2),
@@ -2701,26 +2727,25 @@ func (this PaintRenderingContext2D) TryArcTo(x1 float64, y1 float64, x2 float64,
 	return
 }
 
-// HasRect returns true if the method "PaintRenderingContext2D.rect" exists.
-func (this PaintRenderingContext2D) HasRect() bool {
-	return js.True == bindings.HasPaintRenderingContext2DRect(
-		this.Ref(),
+// HasFuncRect returns true if the method "PaintRenderingContext2D.rect" exists.
+func (this PaintRenderingContext2D) HasFuncRect() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DRect(
+		this.ref,
 	)
 }
 
-// RectFunc returns the method "PaintRenderingContext2D.rect".
-func (this PaintRenderingContext2D) RectFunc() (fn js.Func[func(x float64, y float64, w float64, h float64)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DRectFunc(
-			this.Ref(),
-		),
+// FuncRect returns the method "PaintRenderingContext2D.rect".
+func (this PaintRenderingContext2D) FuncRect() (fn js.Func[func(x float64, y float64, w float64, h float64)]) {
+	bindings.FuncPaintRenderingContext2DRect(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Rect calls the method "PaintRenderingContext2D.rect".
 func (this PaintRenderingContext2D) Rect(x float64, y float64, w float64, h float64) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DRect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(x),
 		float64(y),
 		float64(w),
@@ -2735,7 +2760,7 @@ func (this PaintRenderingContext2D) Rect(x float64, y float64, w float64, h floa
 // the catch clause.
 func (this PaintRenderingContext2D) TryRect(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DRect(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(x),
 		float64(y),
 		float64(w),
@@ -2745,26 +2770,25 @@ func (this PaintRenderingContext2D) TryRect(x float64, y float64, w float64, h f
 	return
 }
 
-// HasRoundRect returns true if the method "PaintRenderingContext2D.roundRect" exists.
-func (this PaintRenderingContext2D) HasRoundRect() bool {
-	return js.True == bindings.HasPaintRenderingContext2DRoundRect(
-		this.Ref(),
+// HasFuncRoundRect returns true if the method "PaintRenderingContext2D.roundRect" exists.
+func (this PaintRenderingContext2D) HasFuncRoundRect() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DRoundRect(
+		this.ref,
 	)
 }
 
-// RoundRectFunc returns the method "PaintRenderingContext2D.roundRect".
-func (this PaintRenderingContext2D) RoundRectFunc() (fn js.Func[func(x float64, y float64, w float64, h float64, radii OneOf_Float64_DOMPointInit_ArrayOneOf_Float64_DOMPointInit)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DRoundRectFunc(
-			this.Ref(),
-		),
+// FuncRoundRect returns the method "PaintRenderingContext2D.roundRect".
+func (this PaintRenderingContext2D) FuncRoundRect() (fn js.Func[func(x float64, y float64, w float64, h float64, radii OneOf_Float64_DOMPointInit_ArrayOneOf_Float64_DOMPointInit)]) {
+	bindings.FuncPaintRenderingContext2DRoundRect(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RoundRect calls the method "PaintRenderingContext2D.roundRect".
 func (this PaintRenderingContext2D) RoundRect(x float64, y float64, w float64, h float64, radii OneOf_Float64_DOMPointInit_ArrayOneOf_Float64_DOMPointInit) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DRoundRect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(x),
 		float64(y),
 		float64(w),
@@ -2780,7 +2804,7 @@ func (this PaintRenderingContext2D) RoundRect(x float64, y float64, w float64, h
 // the catch clause.
 func (this PaintRenderingContext2D) TryRoundRect(x float64, y float64, w float64, h float64, radii OneOf_Float64_DOMPointInit_ArrayOneOf_Float64_DOMPointInit) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DRoundRect(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(x),
 		float64(y),
 		float64(w),
@@ -2791,26 +2815,25 @@ func (this PaintRenderingContext2D) TryRoundRect(x float64, y float64, w float64
 	return
 }
 
-// HasRoundRect1 returns true if the method "PaintRenderingContext2D.roundRect" exists.
-func (this PaintRenderingContext2D) HasRoundRect1() bool {
-	return js.True == bindings.HasPaintRenderingContext2DRoundRect1(
-		this.Ref(),
+// HasFuncRoundRect1 returns true if the method "PaintRenderingContext2D.roundRect" exists.
+func (this PaintRenderingContext2D) HasFuncRoundRect1() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DRoundRect1(
+		this.ref,
 	)
 }
 
-// RoundRect1Func returns the method "PaintRenderingContext2D.roundRect".
-func (this PaintRenderingContext2D) RoundRect1Func() (fn js.Func[func(x float64, y float64, w float64, h float64)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DRoundRect1Func(
-			this.Ref(),
-		),
+// FuncRoundRect1 returns the method "PaintRenderingContext2D.roundRect".
+func (this PaintRenderingContext2D) FuncRoundRect1() (fn js.Func[func(x float64, y float64, w float64, h float64)]) {
+	bindings.FuncPaintRenderingContext2DRoundRect1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RoundRect1 calls the method "PaintRenderingContext2D.roundRect".
 func (this PaintRenderingContext2D) RoundRect1(x float64, y float64, w float64, h float64) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DRoundRect1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(x),
 		float64(y),
 		float64(w),
@@ -2825,7 +2848,7 @@ func (this PaintRenderingContext2D) RoundRect1(x float64, y float64, w float64, 
 // the catch clause.
 func (this PaintRenderingContext2D) TryRoundRect1(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DRoundRect1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(x),
 		float64(y),
 		float64(w),
@@ -2835,26 +2858,25 @@ func (this PaintRenderingContext2D) TryRoundRect1(x float64, y float64, w float6
 	return
 }
 
-// HasArc returns true if the method "PaintRenderingContext2D.arc" exists.
-func (this PaintRenderingContext2D) HasArc() bool {
-	return js.True == bindings.HasPaintRenderingContext2DArc(
-		this.Ref(),
+// HasFuncArc returns true if the method "PaintRenderingContext2D.arc" exists.
+func (this PaintRenderingContext2D) HasFuncArc() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DArc(
+		this.ref,
 	)
 }
 
-// ArcFunc returns the method "PaintRenderingContext2D.arc".
-func (this PaintRenderingContext2D) ArcFunc() (fn js.Func[func(x float64, y float64, radius float64, startAngle float64, endAngle float64, counterclockwise bool)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DArcFunc(
-			this.Ref(),
-		),
+// FuncArc returns the method "PaintRenderingContext2D.arc".
+func (this PaintRenderingContext2D) FuncArc() (fn js.Func[func(x float64, y float64, radius float64, startAngle float64, endAngle float64, counterclockwise bool)]) {
+	bindings.FuncPaintRenderingContext2DArc(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Arc calls the method "PaintRenderingContext2D.arc".
 func (this PaintRenderingContext2D) Arc(x float64, y float64, radius float64, startAngle float64, endAngle float64, counterclockwise bool) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DArc(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(x),
 		float64(y),
 		float64(radius),
@@ -2871,7 +2893,7 @@ func (this PaintRenderingContext2D) Arc(x float64, y float64, radius float64, st
 // the catch clause.
 func (this PaintRenderingContext2D) TryArc(x float64, y float64, radius float64, startAngle float64, endAngle float64, counterclockwise bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DArc(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(x),
 		float64(y),
 		float64(radius),
@@ -2883,26 +2905,25 @@ func (this PaintRenderingContext2D) TryArc(x float64, y float64, radius float64,
 	return
 }
 
-// HasArc1 returns true if the method "PaintRenderingContext2D.arc" exists.
-func (this PaintRenderingContext2D) HasArc1() bool {
-	return js.True == bindings.HasPaintRenderingContext2DArc1(
-		this.Ref(),
+// HasFuncArc1 returns true if the method "PaintRenderingContext2D.arc" exists.
+func (this PaintRenderingContext2D) HasFuncArc1() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DArc1(
+		this.ref,
 	)
 }
 
-// Arc1Func returns the method "PaintRenderingContext2D.arc".
-func (this PaintRenderingContext2D) Arc1Func() (fn js.Func[func(x float64, y float64, radius float64, startAngle float64, endAngle float64)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DArc1Func(
-			this.Ref(),
-		),
+// FuncArc1 returns the method "PaintRenderingContext2D.arc".
+func (this PaintRenderingContext2D) FuncArc1() (fn js.Func[func(x float64, y float64, radius float64, startAngle float64, endAngle float64)]) {
+	bindings.FuncPaintRenderingContext2DArc1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Arc1 calls the method "PaintRenderingContext2D.arc".
 func (this PaintRenderingContext2D) Arc1(x float64, y float64, radius float64, startAngle float64, endAngle float64) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DArc1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(x),
 		float64(y),
 		float64(radius),
@@ -2918,7 +2939,7 @@ func (this PaintRenderingContext2D) Arc1(x float64, y float64, radius float64, s
 // the catch clause.
 func (this PaintRenderingContext2D) TryArc1(x float64, y float64, radius float64, startAngle float64, endAngle float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DArc1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(x),
 		float64(y),
 		float64(radius),
@@ -2929,26 +2950,25 @@ func (this PaintRenderingContext2D) TryArc1(x float64, y float64, radius float64
 	return
 }
 
-// HasEllipse returns true if the method "PaintRenderingContext2D.ellipse" exists.
-func (this PaintRenderingContext2D) HasEllipse() bool {
-	return js.True == bindings.HasPaintRenderingContext2DEllipse(
-		this.Ref(),
+// HasFuncEllipse returns true if the method "PaintRenderingContext2D.ellipse" exists.
+func (this PaintRenderingContext2D) HasFuncEllipse() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DEllipse(
+		this.ref,
 	)
 }
 
-// EllipseFunc returns the method "PaintRenderingContext2D.ellipse".
-func (this PaintRenderingContext2D) EllipseFunc() (fn js.Func[func(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64, counterclockwise bool)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DEllipseFunc(
-			this.Ref(),
-		),
+// FuncEllipse returns the method "PaintRenderingContext2D.ellipse".
+func (this PaintRenderingContext2D) FuncEllipse() (fn js.Func[func(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64, counterclockwise bool)]) {
+	bindings.FuncPaintRenderingContext2DEllipse(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Ellipse calls the method "PaintRenderingContext2D.ellipse".
 func (this PaintRenderingContext2D) Ellipse(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64, counterclockwise bool) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DEllipse(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(x),
 		float64(y),
 		float64(radiusX),
@@ -2967,7 +2987,7 @@ func (this PaintRenderingContext2D) Ellipse(x float64, y float64, radiusX float6
 // the catch clause.
 func (this PaintRenderingContext2D) TryEllipse(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64, counterclockwise bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DEllipse(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(x),
 		float64(y),
 		float64(radiusX),
@@ -2981,26 +3001,25 @@ func (this PaintRenderingContext2D) TryEllipse(x float64, y float64, radiusX flo
 	return
 }
 
-// HasEllipse1 returns true if the method "PaintRenderingContext2D.ellipse" exists.
-func (this PaintRenderingContext2D) HasEllipse1() bool {
-	return js.True == bindings.HasPaintRenderingContext2DEllipse1(
-		this.Ref(),
+// HasFuncEllipse1 returns true if the method "PaintRenderingContext2D.ellipse" exists.
+func (this PaintRenderingContext2D) HasFuncEllipse1() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DEllipse1(
+		this.ref,
 	)
 }
 
-// Ellipse1Func returns the method "PaintRenderingContext2D.ellipse".
-func (this PaintRenderingContext2D) Ellipse1Func() (fn js.Func[func(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DEllipse1Func(
-			this.Ref(),
-		),
+// FuncEllipse1 returns the method "PaintRenderingContext2D.ellipse".
+func (this PaintRenderingContext2D) FuncEllipse1() (fn js.Func[func(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64)]) {
+	bindings.FuncPaintRenderingContext2DEllipse1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Ellipse1 calls the method "PaintRenderingContext2D.ellipse".
 func (this PaintRenderingContext2D) Ellipse1(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DEllipse1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(x),
 		float64(y),
 		float64(radiusX),
@@ -3018,7 +3037,7 @@ func (this PaintRenderingContext2D) Ellipse1(x float64, y float64, radiusX float
 // the catch clause.
 func (this PaintRenderingContext2D) TryEllipse1(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DEllipse1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(x),
 		float64(y),
 		float64(radiusX),
@@ -3031,26 +3050,25 @@ func (this PaintRenderingContext2D) TryEllipse1(x float64, y float64, radiusX fl
 	return
 }
 
-// HasSetLineDash returns true if the method "PaintRenderingContext2D.setLineDash" exists.
-func (this PaintRenderingContext2D) HasSetLineDash() bool {
-	return js.True == bindings.HasPaintRenderingContext2DSetLineDash(
-		this.Ref(),
+// HasFuncSetLineDash returns true if the method "PaintRenderingContext2D.setLineDash" exists.
+func (this PaintRenderingContext2D) HasFuncSetLineDash() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DSetLineDash(
+		this.ref,
 	)
 }
 
-// SetLineDashFunc returns the method "PaintRenderingContext2D.setLineDash".
-func (this PaintRenderingContext2D) SetLineDashFunc() (fn js.Func[func(segments js.Array[float64])]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DSetLineDashFunc(
-			this.Ref(),
-		),
+// FuncSetLineDash returns the method "PaintRenderingContext2D.setLineDash".
+func (this PaintRenderingContext2D) FuncSetLineDash() (fn js.Func[func(segments js.Array[float64])]) {
+	bindings.FuncPaintRenderingContext2DSetLineDash(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetLineDash calls the method "PaintRenderingContext2D.setLineDash".
 func (this PaintRenderingContext2D) SetLineDash(segments js.Array[float64]) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DSetLineDash(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		segments.Ref(),
 	)
 
@@ -3062,33 +3080,32 @@ func (this PaintRenderingContext2D) SetLineDash(segments js.Array[float64]) (ret
 // the catch clause.
 func (this PaintRenderingContext2D) TrySetLineDash(segments js.Array[float64]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DSetLineDash(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		segments.Ref(),
 	)
 
 	return
 }
 
-// HasGetLineDash returns true if the method "PaintRenderingContext2D.getLineDash" exists.
-func (this PaintRenderingContext2D) HasGetLineDash() bool {
-	return js.True == bindings.HasPaintRenderingContext2DGetLineDash(
-		this.Ref(),
+// HasFuncGetLineDash returns true if the method "PaintRenderingContext2D.getLineDash" exists.
+func (this PaintRenderingContext2D) HasFuncGetLineDash() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DGetLineDash(
+		this.ref,
 	)
 }
 
-// GetLineDashFunc returns the method "PaintRenderingContext2D.getLineDash".
-func (this PaintRenderingContext2D) GetLineDashFunc() (fn js.Func[func() js.Array[float64]]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DGetLineDashFunc(
-			this.Ref(),
-		),
+// FuncGetLineDash returns the method "PaintRenderingContext2D.getLineDash".
+func (this PaintRenderingContext2D) FuncGetLineDash() (fn js.Func[func() js.Array[float64]]) {
+	bindings.FuncPaintRenderingContext2DGetLineDash(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetLineDash calls the method "PaintRenderingContext2D.getLineDash".
 func (this PaintRenderingContext2D) GetLineDash() (ret js.Array[float64]) {
 	bindings.CallPaintRenderingContext2DGetLineDash(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3099,32 +3116,31 @@ func (this PaintRenderingContext2D) GetLineDash() (ret js.Array[float64]) {
 // the catch clause.
 func (this PaintRenderingContext2D) TryGetLineDash() (ret js.Array[float64], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DGetLineDash(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasDrawImage returns true if the method "PaintRenderingContext2D.drawImage" exists.
-func (this PaintRenderingContext2D) HasDrawImage() bool {
-	return js.True == bindings.HasPaintRenderingContext2DDrawImage(
-		this.Ref(),
+// HasFuncDrawImage returns true if the method "PaintRenderingContext2D.drawImage" exists.
+func (this PaintRenderingContext2D) HasFuncDrawImage() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DDrawImage(
+		this.ref,
 	)
 }
 
-// DrawImageFunc returns the method "PaintRenderingContext2D.drawImage".
-func (this PaintRenderingContext2D) DrawImageFunc() (fn js.Func[func(image CanvasImageSource, dx float64, dy float64)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DDrawImageFunc(
-			this.Ref(),
-		),
+// FuncDrawImage returns the method "PaintRenderingContext2D.drawImage".
+func (this PaintRenderingContext2D) FuncDrawImage() (fn js.Func[func(image CanvasImageSource, dx float64, dy float64)]) {
+	bindings.FuncPaintRenderingContext2DDrawImage(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawImage calls the method "PaintRenderingContext2D.drawImage".
 func (this PaintRenderingContext2D) DrawImage(image CanvasImageSource, dx float64, dy float64) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DDrawImage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		image.Ref(),
 		float64(dx),
 		float64(dy),
@@ -3138,7 +3154,7 @@ func (this PaintRenderingContext2D) DrawImage(image CanvasImageSource, dx float6
 // the catch clause.
 func (this PaintRenderingContext2D) TryDrawImage(image CanvasImageSource, dx float64, dy float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DDrawImage(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		image.Ref(),
 		float64(dx),
 		float64(dy),
@@ -3147,26 +3163,25 @@ func (this PaintRenderingContext2D) TryDrawImage(image CanvasImageSource, dx flo
 	return
 }
 
-// HasDrawImage1 returns true if the method "PaintRenderingContext2D.drawImage" exists.
-func (this PaintRenderingContext2D) HasDrawImage1() bool {
-	return js.True == bindings.HasPaintRenderingContext2DDrawImage1(
-		this.Ref(),
+// HasFuncDrawImage1 returns true if the method "PaintRenderingContext2D.drawImage" exists.
+func (this PaintRenderingContext2D) HasFuncDrawImage1() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DDrawImage1(
+		this.ref,
 	)
 }
 
-// DrawImage1Func returns the method "PaintRenderingContext2D.drawImage".
-func (this PaintRenderingContext2D) DrawImage1Func() (fn js.Func[func(image CanvasImageSource, dx float64, dy float64, dw float64, dh float64)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DDrawImage1Func(
-			this.Ref(),
-		),
+// FuncDrawImage1 returns the method "PaintRenderingContext2D.drawImage".
+func (this PaintRenderingContext2D) FuncDrawImage1() (fn js.Func[func(image CanvasImageSource, dx float64, dy float64, dw float64, dh float64)]) {
+	bindings.FuncPaintRenderingContext2DDrawImage1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawImage1 calls the method "PaintRenderingContext2D.drawImage".
 func (this PaintRenderingContext2D) DrawImage1(image CanvasImageSource, dx float64, dy float64, dw float64, dh float64) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DDrawImage1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		image.Ref(),
 		float64(dx),
 		float64(dy),
@@ -3182,7 +3197,7 @@ func (this PaintRenderingContext2D) DrawImage1(image CanvasImageSource, dx float
 // the catch clause.
 func (this PaintRenderingContext2D) TryDrawImage1(image CanvasImageSource, dx float64, dy float64, dw float64, dh float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DDrawImage1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		image.Ref(),
 		float64(dx),
 		float64(dy),
@@ -3193,26 +3208,25 @@ func (this PaintRenderingContext2D) TryDrawImage1(image CanvasImageSource, dx fl
 	return
 }
 
-// HasDrawImage2 returns true if the method "PaintRenderingContext2D.drawImage" exists.
-func (this PaintRenderingContext2D) HasDrawImage2() bool {
-	return js.True == bindings.HasPaintRenderingContext2DDrawImage2(
-		this.Ref(),
+// HasFuncDrawImage2 returns true if the method "PaintRenderingContext2D.drawImage" exists.
+func (this PaintRenderingContext2D) HasFuncDrawImage2() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DDrawImage2(
+		this.ref,
 	)
 }
 
-// DrawImage2Func returns the method "PaintRenderingContext2D.drawImage".
-func (this PaintRenderingContext2D) DrawImage2Func() (fn js.Func[func(image CanvasImageSource, sx float64, sy float64, sw float64, sh float64, dx float64, dy float64, dw float64, dh float64)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DDrawImage2Func(
-			this.Ref(),
-		),
+// FuncDrawImage2 returns the method "PaintRenderingContext2D.drawImage".
+func (this PaintRenderingContext2D) FuncDrawImage2() (fn js.Func[func(image CanvasImageSource, sx float64, sy float64, sw float64, sh float64, dx float64, dy float64, dw float64, dh float64)]) {
+	bindings.FuncPaintRenderingContext2DDrawImage2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawImage2 calls the method "PaintRenderingContext2D.drawImage".
 func (this PaintRenderingContext2D) DrawImage2(image CanvasImageSource, sx float64, sy float64, sw float64, sh float64, dx float64, dy float64, dw float64, dh float64) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DDrawImage2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		image.Ref(),
 		float64(sx),
 		float64(sy),
@@ -3232,7 +3246,7 @@ func (this PaintRenderingContext2D) DrawImage2(image CanvasImageSource, sx float
 // the catch clause.
 func (this PaintRenderingContext2D) TryDrawImage2(image CanvasImageSource, sx float64, sy float64, sw float64, sh float64, dx float64, dy float64, dw float64, dh float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DDrawImage2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		image.Ref(),
 		float64(sx),
 		float64(sy),
@@ -3247,26 +3261,25 @@ func (this PaintRenderingContext2D) TryDrawImage2(image CanvasImageSource, sx fl
 	return
 }
 
-// HasBeginPath returns true if the method "PaintRenderingContext2D.beginPath" exists.
-func (this PaintRenderingContext2D) HasBeginPath() bool {
-	return js.True == bindings.HasPaintRenderingContext2DBeginPath(
-		this.Ref(),
+// HasFuncBeginPath returns true if the method "PaintRenderingContext2D.beginPath" exists.
+func (this PaintRenderingContext2D) HasFuncBeginPath() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DBeginPath(
+		this.ref,
 	)
 }
 
-// BeginPathFunc returns the method "PaintRenderingContext2D.beginPath".
-func (this PaintRenderingContext2D) BeginPathFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DBeginPathFunc(
-			this.Ref(),
-		),
+// FuncBeginPath returns the method "PaintRenderingContext2D.beginPath".
+func (this PaintRenderingContext2D) FuncBeginPath() (fn js.Func[func()]) {
+	bindings.FuncPaintRenderingContext2DBeginPath(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BeginPath calls the method "PaintRenderingContext2D.beginPath".
 func (this PaintRenderingContext2D) BeginPath() (ret js.Void) {
 	bindings.CallPaintRenderingContext2DBeginPath(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3277,32 +3290,31 @@ func (this PaintRenderingContext2D) BeginPath() (ret js.Void) {
 // the catch clause.
 func (this PaintRenderingContext2D) TryBeginPath() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DBeginPath(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasFill returns true if the method "PaintRenderingContext2D.fill" exists.
-func (this PaintRenderingContext2D) HasFill() bool {
-	return js.True == bindings.HasPaintRenderingContext2DFill(
-		this.Ref(),
+// HasFuncFill returns true if the method "PaintRenderingContext2D.fill" exists.
+func (this PaintRenderingContext2D) HasFuncFill() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DFill(
+		this.ref,
 	)
 }
 
-// FillFunc returns the method "PaintRenderingContext2D.fill".
-func (this PaintRenderingContext2D) FillFunc() (fn js.Func[func(fillRule CanvasFillRule)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DFillFunc(
-			this.Ref(),
-		),
+// FuncFill returns the method "PaintRenderingContext2D.fill".
+func (this PaintRenderingContext2D) FuncFill() (fn js.Func[func(fillRule CanvasFillRule)]) {
+	bindings.FuncPaintRenderingContext2DFill(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Fill calls the method "PaintRenderingContext2D.fill".
 func (this PaintRenderingContext2D) Fill(fillRule CanvasFillRule) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DFill(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(fillRule),
 	)
 
@@ -3314,33 +3326,32 @@ func (this PaintRenderingContext2D) Fill(fillRule CanvasFillRule) (ret js.Void) 
 // the catch clause.
 func (this PaintRenderingContext2D) TryFill(fillRule CanvasFillRule) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DFill(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(fillRule),
 	)
 
 	return
 }
 
-// HasFill1 returns true if the method "PaintRenderingContext2D.fill" exists.
-func (this PaintRenderingContext2D) HasFill1() bool {
-	return js.True == bindings.HasPaintRenderingContext2DFill1(
-		this.Ref(),
+// HasFuncFill1 returns true if the method "PaintRenderingContext2D.fill" exists.
+func (this PaintRenderingContext2D) HasFuncFill1() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DFill1(
+		this.ref,
 	)
 }
 
-// Fill1Func returns the method "PaintRenderingContext2D.fill".
-func (this PaintRenderingContext2D) Fill1Func() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DFill1Func(
-			this.Ref(),
-		),
+// FuncFill1 returns the method "PaintRenderingContext2D.fill".
+func (this PaintRenderingContext2D) FuncFill1() (fn js.Func[func()]) {
+	bindings.FuncPaintRenderingContext2DFill1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Fill1 calls the method "PaintRenderingContext2D.fill".
 func (this PaintRenderingContext2D) Fill1() (ret js.Void) {
 	bindings.CallPaintRenderingContext2DFill1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3351,32 +3362,31 @@ func (this PaintRenderingContext2D) Fill1() (ret js.Void) {
 // the catch clause.
 func (this PaintRenderingContext2D) TryFill1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DFill1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasFill2 returns true if the method "PaintRenderingContext2D.fill" exists.
-func (this PaintRenderingContext2D) HasFill2() bool {
-	return js.True == bindings.HasPaintRenderingContext2DFill2(
-		this.Ref(),
+// HasFuncFill2 returns true if the method "PaintRenderingContext2D.fill" exists.
+func (this PaintRenderingContext2D) HasFuncFill2() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DFill2(
+		this.ref,
 	)
 }
 
-// Fill2Func returns the method "PaintRenderingContext2D.fill".
-func (this PaintRenderingContext2D) Fill2Func() (fn js.Func[func(path Path2D, fillRule CanvasFillRule)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DFill2Func(
-			this.Ref(),
-		),
+// FuncFill2 returns the method "PaintRenderingContext2D.fill".
+func (this PaintRenderingContext2D) FuncFill2() (fn js.Func[func(path Path2D, fillRule CanvasFillRule)]) {
+	bindings.FuncPaintRenderingContext2DFill2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Fill2 calls the method "PaintRenderingContext2D.fill".
 func (this PaintRenderingContext2D) Fill2(path Path2D, fillRule CanvasFillRule) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DFill2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		path.Ref(),
 		uint32(fillRule),
 	)
@@ -3389,7 +3399,7 @@ func (this PaintRenderingContext2D) Fill2(path Path2D, fillRule CanvasFillRule) 
 // the catch clause.
 func (this PaintRenderingContext2D) TryFill2(path Path2D, fillRule CanvasFillRule) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DFill2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		path.Ref(),
 		uint32(fillRule),
 	)
@@ -3397,26 +3407,25 @@ func (this PaintRenderingContext2D) TryFill2(path Path2D, fillRule CanvasFillRul
 	return
 }
 
-// HasFill3 returns true if the method "PaintRenderingContext2D.fill" exists.
-func (this PaintRenderingContext2D) HasFill3() bool {
-	return js.True == bindings.HasPaintRenderingContext2DFill3(
-		this.Ref(),
+// HasFuncFill3 returns true if the method "PaintRenderingContext2D.fill" exists.
+func (this PaintRenderingContext2D) HasFuncFill3() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DFill3(
+		this.ref,
 	)
 }
 
-// Fill3Func returns the method "PaintRenderingContext2D.fill".
-func (this PaintRenderingContext2D) Fill3Func() (fn js.Func[func(path Path2D)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DFill3Func(
-			this.Ref(),
-		),
+// FuncFill3 returns the method "PaintRenderingContext2D.fill".
+func (this PaintRenderingContext2D) FuncFill3() (fn js.Func[func(path Path2D)]) {
+	bindings.FuncPaintRenderingContext2DFill3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Fill3 calls the method "PaintRenderingContext2D.fill".
 func (this PaintRenderingContext2D) Fill3(path Path2D) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DFill3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		path.Ref(),
 	)
 
@@ -3428,33 +3437,32 @@ func (this PaintRenderingContext2D) Fill3(path Path2D) (ret js.Void) {
 // the catch clause.
 func (this PaintRenderingContext2D) TryFill3(path Path2D) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DFill3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		path.Ref(),
 	)
 
 	return
 }
 
-// HasStroke returns true if the method "PaintRenderingContext2D.stroke" exists.
-func (this PaintRenderingContext2D) HasStroke() bool {
-	return js.True == bindings.HasPaintRenderingContext2DStroke(
-		this.Ref(),
+// HasFuncStroke returns true if the method "PaintRenderingContext2D.stroke" exists.
+func (this PaintRenderingContext2D) HasFuncStroke() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DStroke(
+		this.ref,
 	)
 }
 
-// StrokeFunc returns the method "PaintRenderingContext2D.stroke".
-func (this PaintRenderingContext2D) StrokeFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DStrokeFunc(
-			this.Ref(),
-		),
+// FuncStroke returns the method "PaintRenderingContext2D.stroke".
+func (this PaintRenderingContext2D) FuncStroke() (fn js.Func[func()]) {
+	bindings.FuncPaintRenderingContext2DStroke(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Stroke calls the method "PaintRenderingContext2D.stroke".
 func (this PaintRenderingContext2D) Stroke() (ret js.Void) {
 	bindings.CallPaintRenderingContext2DStroke(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3465,32 +3473,31 @@ func (this PaintRenderingContext2D) Stroke() (ret js.Void) {
 // the catch clause.
 func (this PaintRenderingContext2D) TryStroke() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DStroke(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasStroke1 returns true if the method "PaintRenderingContext2D.stroke" exists.
-func (this PaintRenderingContext2D) HasStroke1() bool {
-	return js.True == bindings.HasPaintRenderingContext2DStroke1(
-		this.Ref(),
+// HasFuncStroke1 returns true if the method "PaintRenderingContext2D.stroke" exists.
+func (this PaintRenderingContext2D) HasFuncStroke1() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DStroke1(
+		this.ref,
 	)
 }
 
-// Stroke1Func returns the method "PaintRenderingContext2D.stroke".
-func (this PaintRenderingContext2D) Stroke1Func() (fn js.Func[func(path Path2D)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DStroke1Func(
-			this.Ref(),
-		),
+// FuncStroke1 returns the method "PaintRenderingContext2D.stroke".
+func (this PaintRenderingContext2D) FuncStroke1() (fn js.Func[func(path Path2D)]) {
+	bindings.FuncPaintRenderingContext2DStroke1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Stroke1 calls the method "PaintRenderingContext2D.stroke".
 func (this PaintRenderingContext2D) Stroke1(path Path2D) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DStroke1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		path.Ref(),
 	)
 
@@ -3502,33 +3509,32 @@ func (this PaintRenderingContext2D) Stroke1(path Path2D) (ret js.Void) {
 // the catch clause.
 func (this PaintRenderingContext2D) TryStroke1(path Path2D) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DStroke1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		path.Ref(),
 	)
 
 	return
 }
 
-// HasClip returns true if the method "PaintRenderingContext2D.clip" exists.
-func (this PaintRenderingContext2D) HasClip() bool {
-	return js.True == bindings.HasPaintRenderingContext2DClip(
-		this.Ref(),
+// HasFuncClip returns true if the method "PaintRenderingContext2D.clip" exists.
+func (this PaintRenderingContext2D) HasFuncClip() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DClip(
+		this.ref,
 	)
 }
 
-// ClipFunc returns the method "PaintRenderingContext2D.clip".
-func (this PaintRenderingContext2D) ClipFunc() (fn js.Func[func(fillRule CanvasFillRule)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DClipFunc(
-			this.Ref(),
-		),
+// FuncClip returns the method "PaintRenderingContext2D.clip".
+func (this PaintRenderingContext2D) FuncClip() (fn js.Func[func(fillRule CanvasFillRule)]) {
+	bindings.FuncPaintRenderingContext2DClip(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Clip calls the method "PaintRenderingContext2D.clip".
 func (this PaintRenderingContext2D) Clip(fillRule CanvasFillRule) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DClip(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(fillRule),
 	)
 
@@ -3540,33 +3546,32 @@ func (this PaintRenderingContext2D) Clip(fillRule CanvasFillRule) (ret js.Void) 
 // the catch clause.
 func (this PaintRenderingContext2D) TryClip(fillRule CanvasFillRule) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DClip(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(fillRule),
 	)
 
 	return
 }
 
-// HasClip1 returns true if the method "PaintRenderingContext2D.clip" exists.
-func (this PaintRenderingContext2D) HasClip1() bool {
-	return js.True == bindings.HasPaintRenderingContext2DClip1(
-		this.Ref(),
+// HasFuncClip1 returns true if the method "PaintRenderingContext2D.clip" exists.
+func (this PaintRenderingContext2D) HasFuncClip1() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DClip1(
+		this.ref,
 	)
 }
 
-// Clip1Func returns the method "PaintRenderingContext2D.clip".
-func (this PaintRenderingContext2D) Clip1Func() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DClip1Func(
-			this.Ref(),
-		),
+// FuncClip1 returns the method "PaintRenderingContext2D.clip".
+func (this PaintRenderingContext2D) FuncClip1() (fn js.Func[func()]) {
+	bindings.FuncPaintRenderingContext2DClip1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Clip1 calls the method "PaintRenderingContext2D.clip".
 func (this PaintRenderingContext2D) Clip1() (ret js.Void) {
 	bindings.CallPaintRenderingContext2DClip1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3577,32 +3582,31 @@ func (this PaintRenderingContext2D) Clip1() (ret js.Void) {
 // the catch clause.
 func (this PaintRenderingContext2D) TryClip1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DClip1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasClip2 returns true if the method "PaintRenderingContext2D.clip" exists.
-func (this PaintRenderingContext2D) HasClip2() bool {
-	return js.True == bindings.HasPaintRenderingContext2DClip2(
-		this.Ref(),
+// HasFuncClip2 returns true if the method "PaintRenderingContext2D.clip" exists.
+func (this PaintRenderingContext2D) HasFuncClip2() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DClip2(
+		this.ref,
 	)
 }
 
-// Clip2Func returns the method "PaintRenderingContext2D.clip".
-func (this PaintRenderingContext2D) Clip2Func() (fn js.Func[func(path Path2D, fillRule CanvasFillRule)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DClip2Func(
-			this.Ref(),
-		),
+// FuncClip2 returns the method "PaintRenderingContext2D.clip".
+func (this PaintRenderingContext2D) FuncClip2() (fn js.Func[func(path Path2D, fillRule CanvasFillRule)]) {
+	bindings.FuncPaintRenderingContext2DClip2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Clip2 calls the method "PaintRenderingContext2D.clip".
 func (this PaintRenderingContext2D) Clip2(path Path2D, fillRule CanvasFillRule) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DClip2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		path.Ref(),
 		uint32(fillRule),
 	)
@@ -3615,7 +3619,7 @@ func (this PaintRenderingContext2D) Clip2(path Path2D, fillRule CanvasFillRule) 
 // the catch clause.
 func (this PaintRenderingContext2D) TryClip2(path Path2D, fillRule CanvasFillRule) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DClip2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		path.Ref(),
 		uint32(fillRule),
 	)
@@ -3623,26 +3627,25 @@ func (this PaintRenderingContext2D) TryClip2(path Path2D, fillRule CanvasFillRul
 	return
 }
 
-// HasClip3 returns true if the method "PaintRenderingContext2D.clip" exists.
-func (this PaintRenderingContext2D) HasClip3() bool {
-	return js.True == bindings.HasPaintRenderingContext2DClip3(
-		this.Ref(),
+// HasFuncClip3 returns true if the method "PaintRenderingContext2D.clip" exists.
+func (this PaintRenderingContext2D) HasFuncClip3() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DClip3(
+		this.ref,
 	)
 }
 
-// Clip3Func returns the method "PaintRenderingContext2D.clip".
-func (this PaintRenderingContext2D) Clip3Func() (fn js.Func[func(path Path2D)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DClip3Func(
-			this.Ref(),
-		),
+// FuncClip3 returns the method "PaintRenderingContext2D.clip".
+func (this PaintRenderingContext2D) FuncClip3() (fn js.Func[func(path Path2D)]) {
+	bindings.FuncPaintRenderingContext2DClip3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Clip3 calls the method "PaintRenderingContext2D.clip".
 func (this PaintRenderingContext2D) Clip3(path Path2D) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DClip3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		path.Ref(),
 	)
 
@@ -3654,33 +3657,32 @@ func (this PaintRenderingContext2D) Clip3(path Path2D) (ret js.Void) {
 // the catch clause.
 func (this PaintRenderingContext2D) TryClip3(path Path2D) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DClip3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		path.Ref(),
 	)
 
 	return
 }
 
-// HasIsPointInPath returns true if the method "PaintRenderingContext2D.isPointInPath" exists.
-func (this PaintRenderingContext2D) HasIsPointInPath() bool {
-	return js.True == bindings.HasPaintRenderingContext2DIsPointInPath(
-		this.Ref(),
+// HasFuncIsPointInPath returns true if the method "PaintRenderingContext2D.isPointInPath" exists.
+func (this PaintRenderingContext2D) HasFuncIsPointInPath() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DIsPointInPath(
+		this.ref,
 	)
 }
 
-// IsPointInPathFunc returns the method "PaintRenderingContext2D.isPointInPath".
-func (this PaintRenderingContext2D) IsPointInPathFunc() (fn js.Func[func(x float64, y float64, fillRule CanvasFillRule) bool]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DIsPointInPathFunc(
-			this.Ref(),
-		),
+// FuncIsPointInPath returns the method "PaintRenderingContext2D.isPointInPath".
+func (this PaintRenderingContext2D) FuncIsPointInPath() (fn js.Func[func(x float64, y float64, fillRule CanvasFillRule) bool]) {
+	bindings.FuncPaintRenderingContext2DIsPointInPath(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsPointInPath calls the method "PaintRenderingContext2D.isPointInPath".
 func (this PaintRenderingContext2D) IsPointInPath(x float64, y float64, fillRule CanvasFillRule) (ret bool) {
 	bindings.CallPaintRenderingContext2DIsPointInPath(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(x),
 		float64(y),
 		uint32(fillRule),
@@ -3694,7 +3696,7 @@ func (this PaintRenderingContext2D) IsPointInPath(x float64, y float64, fillRule
 // the catch clause.
 func (this PaintRenderingContext2D) TryIsPointInPath(x float64, y float64, fillRule CanvasFillRule) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DIsPointInPath(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(x),
 		float64(y),
 		uint32(fillRule),
@@ -3703,26 +3705,25 @@ func (this PaintRenderingContext2D) TryIsPointInPath(x float64, y float64, fillR
 	return
 }
 
-// HasIsPointInPath1 returns true if the method "PaintRenderingContext2D.isPointInPath" exists.
-func (this PaintRenderingContext2D) HasIsPointInPath1() bool {
-	return js.True == bindings.HasPaintRenderingContext2DIsPointInPath1(
-		this.Ref(),
+// HasFuncIsPointInPath1 returns true if the method "PaintRenderingContext2D.isPointInPath" exists.
+func (this PaintRenderingContext2D) HasFuncIsPointInPath1() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DIsPointInPath1(
+		this.ref,
 	)
 }
 
-// IsPointInPath1Func returns the method "PaintRenderingContext2D.isPointInPath".
-func (this PaintRenderingContext2D) IsPointInPath1Func() (fn js.Func[func(x float64, y float64) bool]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DIsPointInPath1Func(
-			this.Ref(),
-		),
+// FuncIsPointInPath1 returns the method "PaintRenderingContext2D.isPointInPath".
+func (this PaintRenderingContext2D) FuncIsPointInPath1() (fn js.Func[func(x float64, y float64) bool]) {
+	bindings.FuncPaintRenderingContext2DIsPointInPath1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsPointInPath1 calls the method "PaintRenderingContext2D.isPointInPath".
 func (this PaintRenderingContext2D) IsPointInPath1(x float64, y float64) (ret bool) {
 	bindings.CallPaintRenderingContext2DIsPointInPath1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(x),
 		float64(y),
 	)
@@ -3735,7 +3736,7 @@ func (this PaintRenderingContext2D) IsPointInPath1(x float64, y float64) (ret bo
 // the catch clause.
 func (this PaintRenderingContext2D) TryIsPointInPath1(x float64, y float64) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DIsPointInPath1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(x),
 		float64(y),
 	)
@@ -3743,26 +3744,25 @@ func (this PaintRenderingContext2D) TryIsPointInPath1(x float64, y float64) (ret
 	return
 }
 
-// HasIsPointInPath2 returns true if the method "PaintRenderingContext2D.isPointInPath" exists.
-func (this PaintRenderingContext2D) HasIsPointInPath2() bool {
-	return js.True == bindings.HasPaintRenderingContext2DIsPointInPath2(
-		this.Ref(),
+// HasFuncIsPointInPath2 returns true if the method "PaintRenderingContext2D.isPointInPath" exists.
+func (this PaintRenderingContext2D) HasFuncIsPointInPath2() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DIsPointInPath2(
+		this.ref,
 	)
 }
 
-// IsPointInPath2Func returns the method "PaintRenderingContext2D.isPointInPath".
-func (this PaintRenderingContext2D) IsPointInPath2Func() (fn js.Func[func(path Path2D, x float64, y float64, fillRule CanvasFillRule) bool]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DIsPointInPath2Func(
-			this.Ref(),
-		),
+// FuncIsPointInPath2 returns the method "PaintRenderingContext2D.isPointInPath".
+func (this PaintRenderingContext2D) FuncIsPointInPath2() (fn js.Func[func(path Path2D, x float64, y float64, fillRule CanvasFillRule) bool]) {
+	bindings.FuncPaintRenderingContext2DIsPointInPath2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsPointInPath2 calls the method "PaintRenderingContext2D.isPointInPath".
 func (this PaintRenderingContext2D) IsPointInPath2(path Path2D, x float64, y float64, fillRule CanvasFillRule) (ret bool) {
 	bindings.CallPaintRenderingContext2DIsPointInPath2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		path.Ref(),
 		float64(x),
 		float64(y),
@@ -3777,7 +3777,7 @@ func (this PaintRenderingContext2D) IsPointInPath2(path Path2D, x float64, y flo
 // the catch clause.
 func (this PaintRenderingContext2D) TryIsPointInPath2(path Path2D, x float64, y float64, fillRule CanvasFillRule) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DIsPointInPath2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		path.Ref(),
 		float64(x),
 		float64(y),
@@ -3787,26 +3787,25 @@ func (this PaintRenderingContext2D) TryIsPointInPath2(path Path2D, x float64, y 
 	return
 }
 
-// HasIsPointInPath3 returns true if the method "PaintRenderingContext2D.isPointInPath" exists.
-func (this PaintRenderingContext2D) HasIsPointInPath3() bool {
-	return js.True == bindings.HasPaintRenderingContext2DIsPointInPath3(
-		this.Ref(),
+// HasFuncIsPointInPath3 returns true if the method "PaintRenderingContext2D.isPointInPath" exists.
+func (this PaintRenderingContext2D) HasFuncIsPointInPath3() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DIsPointInPath3(
+		this.ref,
 	)
 }
 
-// IsPointInPath3Func returns the method "PaintRenderingContext2D.isPointInPath".
-func (this PaintRenderingContext2D) IsPointInPath3Func() (fn js.Func[func(path Path2D, x float64, y float64) bool]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DIsPointInPath3Func(
-			this.Ref(),
-		),
+// FuncIsPointInPath3 returns the method "PaintRenderingContext2D.isPointInPath".
+func (this PaintRenderingContext2D) FuncIsPointInPath3() (fn js.Func[func(path Path2D, x float64, y float64) bool]) {
+	bindings.FuncPaintRenderingContext2DIsPointInPath3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsPointInPath3 calls the method "PaintRenderingContext2D.isPointInPath".
 func (this PaintRenderingContext2D) IsPointInPath3(path Path2D, x float64, y float64) (ret bool) {
 	bindings.CallPaintRenderingContext2DIsPointInPath3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		path.Ref(),
 		float64(x),
 		float64(y),
@@ -3820,7 +3819,7 @@ func (this PaintRenderingContext2D) IsPointInPath3(path Path2D, x float64, y flo
 // the catch clause.
 func (this PaintRenderingContext2D) TryIsPointInPath3(path Path2D, x float64, y float64) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DIsPointInPath3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		path.Ref(),
 		float64(x),
 		float64(y),
@@ -3829,26 +3828,25 @@ func (this PaintRenderingContext2D) TryIsPointInPath3(path Path2D, x float64, y 
 	return
 }
 
-// HasIsPointInStroke returns true if the method "PaintRenderingContext2D.isPointInStroke" exists.
-func (this PaintRenderingContext2D) HasIsPointInStroke() bool {
-	return js.True == bindings.HasPaintRenderingContext2DIsPointInStroke(
-		this.Ref(),
+// HasFuncIsPointInStroke returns true if the method "PaintRenderingContext2D.isPointInStroke" exists.
+func (this PaintRenderingContext2D) HasFuncIsPointInStroke() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DIsPointInStroke(
+		this.ref,
 	)
 }
 
-// IsPointInStrokeFunc returns the method "PaintRenderingContext2D.isPointInStroke".
-func (this PaintRenderingContext2D) IsPointInStrokeFunc() (fn js.Func[func(x float64, y float64) bool]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DIsPointInStrokeFunc(
-			this.Ref(),
-		),
+// FuncIsPointInStroke returns the method "PaintRenderingContext2D.isPointInStroke".
+func (this PaintRenderingContext2D) FuncIsPointInStroke() (fn js.Func[func(x float64, y float64) bool]) {
+	bindings.FuncPaintRenderingContext2DIsPointInStroke(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsPointInStroke calls the method "PaintRenderingContext2D.isPointInStroke".
 func (this PaintRenderingContext2D) IsPointInStroke(x float64, y float64) (ret bool) {
 	bindings.CallPaintRenderingContext2DIsPointInStroke(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(x),
 		float64(y),
 	)
@@ -3861,7 +3859,7 @@ func (this PaintRenderingContext2D) IsPointInStroke(x float64, y float64) (ret b
 // the catch clause.
 func (this PaintRenderingContext2D) TryIsPointInStroke(x float64, y float64) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DIsPointInStroke(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(x),
 		float64(y),
 	)
@@ -3869,26 +3867,25 @@ func (this PaintRenderingContext2D) TryIsPointInStroke(x float64, y float64) (re
 	return
 }
 
-// HasIsPointInStroke1 returns true if the method "PaintRenderingContext2D.isPointInStroke" exists.
-func (this PaintRenderingContext2D) HasIsPointInStroke1() bool {
-	return js.True == bindings.HasPaintRenderingContext2DIsPointInStroke1(
-		this.Ref(),
+// HasFuncIsPointInStroke1 returns true if the method "PaintRenderingContext2D.isPointInStroke" exists.
+func (this PaintRenderingContext2D) HasFuncIsPointInStroke1() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DIsPointInStroke1(
+		this.ref,
 	)
 }
 
-// IsPointInStroke1Func returns the method "PaintRenderingContext2D.isPointInStroke".
-func (this PaintRenderingContext2D) IsPointInStroke1Func() (fn js.Func[func(path Path2D, x float64, y float64) bool]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DIsPointInStroke1Func(
-			this.Ref(),
-		),
+// FuncIsPointInStroke1 returns the method "PaintRenderingContext2D.isPointInStroke".
+func (this PaintRenderingContext2D) FuncIsPointInStroke1() (fn js.Func[func(path Path2D, x float64, y float64) bool]) {
+	bindings.FuncPaintRenderingContext2DIsPointInStroke1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsPointInStroke1 calls the method "PaintRenderingContext2D.isPointInStroke".
 func (this PaintRenderingContext2D) IsPointInStroke1(path Path2D, x float64, y float64) (ret bool) {
 	bindings.CallPaintRenderingContext2DIsPointInStroke1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		path.Ref(),
 		float64(x),
 		float64(y),
@@ -3902,7 +3899,7 @@ func (this PaintRenderingContext2D) IsPointInStroke1(path Path2D, x float64, y f
 // the catch clause.
 func (this PaintRenderingContext2D) TryIsPointInStroke1(path Path2D, x float64, y float64) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DIsPointInStroke1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		path.Ref(),
 		float64(x),
 		float64(y),
@@ -3911,26 +3908,25 @@ func (this PaintRenderingContext2D) TryIsPointInStroke1(path Path2D, x float64, 
 	return
 }
 
-// HasClearRect returns true if the method "PaintRenderingContext2D.clearRect" exists.
-func (this PaintRenderingContext2D) HasClearRect() bool {
-	return js.True == bindings.HasPaintRenderingContext2DClearRect(
-		this.Ref(),
+// HasFuncClearRect returns true if the method "PaintRenderingContext2D.clearRect" exists.
+func (this PaintRenderingContext2D) HasFuncClearRect() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DClearRect(
+		this.ref,
 	)
 }
 
-// ClearRectFunc returns the method "PaintRenderingContext2D.clearRect".
-func (this PaintRenderingContext2D) ClearRectFunc() (fn js.Func[func(x float64, y float64, w float64, h float64)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DClearRectFunc(
-			this.Ref(),
-		),
+// FuncClearRect returns the method "PaintRenderingContext2D.clearRect".
+func (this PaintRenderingContext2D) FuncClearRect() (fn js.Func[func(x float64, y float64, w float64, h float64)]) {
+	bindings.FuncPaintRenderingContext2DClearRect(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ClearRect calls the method "PaintRenderingContext2D.clearRect".
 func (this PaintRenderingContext2D) ClearRect(x float64, y float64, w float64, h float64) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DClearRect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(x),
 		float64(y),
 		float64(w),
@@ -3945,7 +3941,7 @@ func (this PaintRenderingContext2D) ClearRect(x float64, y float64, w float64, h
 // the catch clause.
 func (this PaintRenderingContext2D) TryClearRect(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DClearRect(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(x),
 		float64(y),
 		float64(w),
@@ -3955,26 +3951,25 @@ func (this PaintRenderingContext2D) TryClearRect(x float64, y float64, w float64
 	return
 }
 
-// HasFillRect returns true if the method "PaintRenderingContext2D.fillRect" exists.
-func (this PaintRenderingContext2D) HasFillRect() bool {
-	return js.True == bindings.HasPaintRenderingContext2DFillRect(
-		this.Ref(),
+// HasFuncFillRect returns true if the method "PaintRenderingContext2D.fillRect" exists.
+func (this PaintRenderingContext2D) HasFuncFillRect() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DFillRect(
+		this.ref,
 	)
 }
 
-// FillRectFunc returns the method "PaintRenderingContext2D.fillRect".
-func (this PaintRenderingContext2D) FillRectFunc() (fn js.Func[func(x float64, y float64, w float64, h float64)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DFillRectFunc(
-			this.Ref(),
-		),
+// FuncFillRect returns the method "PaintRenderingContext2D.fillRect".
+func (this PaintRenderingContext2D) FuncFillRect() (fn js.Func[func(x float64, y float64, w float64, h float64)]) {
+	bindings.FuncPaintRenderingContext2DFillRect(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // FillRect calls the method "PaintRenderingContext2D.fillRect".
 func (this PaintRenderingContext2D) FillRect(x float64, y float64, w float64, h float64) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DFillRect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(x),
 		float64(y),
 		float64(w),
@@ -3989,7 +3984,7 @@ func (this PaintRenderingContext2D) FillRect(x float64, y float64, w float64, h 
 // the catch clause.
 func (this PaintRenderingContext2D) TryFillRect(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DFillRect(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(x),
 		float64(y),
 		float64(w),
@@ -3999,26 +3994,25 @@ func (this PaintRenderingContext2D) TryFillRect(x float64, y float64, w float64,
 	return
 }
 
-// HasStrokeRect returns true if the method "PaintRenderingContext2D.strokeRect" exists.
-func (this PaintRenderingContext2D) HasStrokeRect() bool {
-	return js.True == bindings.HasPaintRenderingContext2DStrokeRect(
-		this.Ref(),
+// HasFuncStrokeRect returns true if the method "PaintRenderingContext2D.strokeRect" exists.
+func (this PaintRenderingContext2D) HasFuncStrokeRect() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DStrokeRect(
+		this.ref,
 	)
 }
 
-// StrokeRectFunc returns the method "PaintRenderingContext2D.strokeRect".
-func (this PaintRenderingContext2D) StrokeRectFunc() (fn js.Func[func(x float64, y float64, w float64, h float64)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DStrokeRectFunc(
-			this.Ref(),
-		),
+// FuncStrokeRect returns the method "PaintRenderingContext2D.strokeRect".
+func (this PaintRenderingContext2D) FuncStrokeRect() (fn js.Func[func(x float64, y float64, w float64, h float64)]) {
+	bindings.FuncPaintRenderingContext2DStrokeRect(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // StrokeRect calls the method "PaintRenderingContext2D.strokeRect".
 func (this PaintRenderingContext2D) StrokeRect(x float64, y float64, w float64, h float64) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DStrokeRect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(x),
 		float64(y),
 		float64(w),
@@ -4033,7 +4027,7 @@ func (this PaintRenderingContext2D) StrokeRect(x float64, y float64, w float64, 
 // the catch clause.
 func (this PaintRenderingContext2D) TryStrokeRect(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DStrokeRect(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(x),
 		float64(y),
 		float64(w),
@@ -4043,26 +4037,25 @@ func (this PaintRenderingContext2D) TryStrokeRect(x float64, y float64, w float6
 	return
 }
 
-// HasCreateLinearGradient returns true if the method "PaintRenderingContext2D.createLinearGradient" exists.
-func (this PaintRenderingContext2D) HasCreateLinearGradient() bool {
-	return js.True == bindings.HasPaintRenderingContext2DCreateLinearGradient(
-		this.Ref(),
+// HasFuncCreateLinearGradient returns true if the method "PaintRenderingContext2D.createLinearGradient" exists.
+func (this PaintRenderingContext2D) HasFuncCreateLinearGradient() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DCreateLinearGradient(
+		this.ref,
 	)
 }
 
-// CreateLinearGradientFunc returns the method "PaintRenderingContext2D.createLinearGradient".
-func (this PaintRenderingContext2D) CreateLinearGradientFunc() (fn js.Func[func(x0 float64, y0 float64, x1 float64, y1 float64) CanvasGradient]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DCreateLinearGradientFunc(
-			this.Ref(),
-		),
+// FuncCreateLinearGradient returns the method "PaintRenderingContext2D.createLinearGradient".
+func (this PaintRenderingContext2D) FuncCreateLinearGradient() (fn js.Func[func(x0 float64, y0 float64, x1 float64, y1 float64) CanvasGradient]) {
+	bindings.FuncPaintRenderingContext2DCreateLinearGradient(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateLinearGradient calls the method "PaintRenderingContext2D.createLinearGradient".
 func (this PaintRenderingContext2D) CreateLinearGradient(x0 float64, y0 float64, x1 float64, y1 float64) (ret CanvasGradient) {
 	bindings.CallPaintRenderingContext2DCreateLinearGradient(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(x0),
 		float64(y0),
 		float64(x1),
@@ -4077,7 +4070,7 @@ func (this PaintRenderingContext2D) CreateLinearGradient(x0 float64, y0 float64,
 // the catch clause.
 func (this PaintRenderingContext2D) TryCreateLinearGradient(x0 float64, y0 float64, x1 float64, y1 float64) (ret CanvasGradient, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DCreateLinearGradient(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(x0),
 		float64(y0),
 		float64(x1),
@@ -4087,26 +4080,25 @@ func (this PaintRenderingContext2D) TryCreateLinearGradient(x0 float64, y0 float
 	return
 }
 
-// HasCreateRadialGradient returns true if the method "PaintRenderingContext2D.createRadialGradient" exists.
-func (this PaintRenderingContext2D) HasCreateRadialGradient() bool {
-	return js.True == bindings.HasPaintRenderingContext2DCreateRadialGradient(
-		this.Ref(),
+// HasFuncCreateRadialGradient returns true if the method "PaintRenderingContext2D.createRadialGradient" exists.
+func (this PaintRenderingContext2D) HasFuncCreateRadialGradient() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DCreateRadialGradient(
+		this.ref,
 	)
 }
 
-// CreateRadialGradientFunc returns the method "PaintRenderingContext2D.createRadialGradient".
-func (this PaintRenderingContext2D) CreateRadialGradientFunc() (fn js.Func[func(x0 float64, y0 float64, r0 float64, x1 float64, y1 float64, r1 float64) CanvasGradient]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DCreateRadialGradientFunc(
-			this.Ref(),
-		),
+// FuncCreateRadialGradient returns the method "PaintRenderingContext2D.createRadialGradient".
+func (this PaintRenderingContext2D) FuncCreateRadialGradient() (fn js.Func[func(x0 float64, y0 float64, r0 float64, x1 float64, y1 float64, r1 float64) CanvasGradient]) {
+	bindings.FuncPaintRenderingContext2DCreateRadialGradient(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateRadialGradient calls the method "PaintRenderingContext2D.createRadialGradient".
 func (this PaintRenderingContext2D) CreateRadialGradient(x0 float64, y0 float64, r0 float64, x1 float64, y1 float64, r1 float64) (ret CanvasGradient) {
 	bindings.CallPaintRenderingContext2DCreateRadialGradient(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(x0),
 		float64(y0),
 		float64(r0),
@@ -4123,7 +4115,7 @@ func (this PaintRenderingContext2D) CreateRadialGradient(x0 float64, y0 float64,
 // the catch clause.
 func (this PaintRenderingContext2D) TryCreateRadialGradient(x0 float64, y0 float64, r0 float64, x1 float64, y1 float64, r1 float64) (ret CanvasGradient, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DCreateRadialGradient(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(x0),
 		float64(y0),
 		float64(r0),
@@ -4135,26 +4127,25 @@ func (this PaintRenderingContext2D) TryCreateRadialGradient(x0 float64, y0 float
 	return
 }
 
-// HasCreateConicGradient returns true if the method "PaintRenderingContext2D.createConicGradient" exists.
-func (this PaintRenderingContext2D) HasCreateConicGradient() bool {
-	return js.True == bindings.HasPaintRenderingContext2DCreateConicGradient(
-		this.Ref(),
+// HasFuncCreateConicGradient returns true if the method "PaintRenderingContext2D.createConicGradient" exists.
+func (this PaintRenderingContext2D) HasFuncCreateConicGradient() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DCreateConicGradient(
+		this.ref,
 	)
 }
 
-// CreateConicGradientFunc returns the method "PaintRenderingContext2D.createConicGradient".
-func (this PaintRenderingContext2D) CreateConicGradientFunc() (fn js.Func[func(startAngle float64, x float64, y float64) CanvasGradient]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DCreateConicGradientFunc(
-			this.Ref(),
-		),
+// FuncCreateConicGradient returns the method "PaintRenderingContext2D.createConicGradient".
+func (this PaintRenderingContext2D) FuncCreateConicGradient() (fn js.Func[func(startAngle float64, x float64, y float64) CanvasGradient]) {
+	bindings.FuncPaintRenderingContext2DCreateConicGradient(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateConicGradient calls the method "PaintRenderingContext2D.createConicGradient".
 func (this PaintRenderingContext2D) CreateConicGradient(startAngle float64, x float64, y float64) (ret CanvasGradient) {
 	bindings.CallPaintRenderingContext2DCreateConicGradient(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(startAngle),
 		float64(x),
 		float64(y),
@@ -4168,7 +4159,7 @@ func (this PaintRenderingContext2D) CreateConicGradient(startAngle float64, x fl
 // the catch clause.
 func (this PaintRenderingContext2D) TryCreateConicGradient(startAngle float64, x float64, y float64) (ret CanvasGradient, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DCreateConicGradient(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(startAngle),
 		float64(x),
 		float64(y),
@@ -4177,26 +4168,25 @@ func (this PaintRenderingContext2D) TryCreateConicGradient(startAngle float64, x
 	return
 }
 
-// HasCreatePattern returns true if the method "PaintRenderingContext2D.createPattern" exists.
-func (this PaintRenderingContext2D) HasCreatePattern() bool {
-	return js.True == bindings.HasPaintRenderingContext2DCreatePattern(
-		this.Ref(),
+// HasFuncCreatePattern returns true if the method "PaintRenderingContext2D.createPattern" exists.
+func (this PaintRenderingContext2D) HasFuncCreatePattern() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DCreatePattern(
+		this.ref,
 	)
 }
 
-// CreatePatternFunc returns the method "PaintRenderingContext2D.createPattern".
-func (this PaintRenderingContext2D) CreatePatternFunc() (fn js.Func[func(image CanvasImageSource, repetition js.String) CanvasPattern]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DCreatePatternFunc(
-			this.Ref(),
-		),
+// FuncCreatePattern returns the method "PaintRenderingContext2D.createPattern".
+func (this PaintRenderingContext2D) FuncCreatePattern() (fn js.Func[func(image CanvasImageSource, repetition js.String) CanvasPattern]) {
+	bindings.FuncPaintRenderingContext2DCreatePattern(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreatePattern calls the method "PaintRenderingContext2D.createPattern".
 func (this PaintRenderingContext2D) CreatePattern(image CanvasImageSource, repetition js.String) (ret CanvasPattern) {
 	bindings.CallPaintRenderingContext2DCreatePattern(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		image.Ref(),
 		repetition.Ref(),
 	)
@@ -4209,7 +4199,7 @@ func (this PaintRenderingContext2D) CreatePattern(image CanvasImageSource, repet
 // the catch clause.
 func (this PaintRenderingContext2D) TryCreatePattern(image CanvasImageSource, repetition js.String) (ret CanvasPattern, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DCreatePattern(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		image.Ref(),
 		repetition.Ref(),
 	)
@@ -4217,26 +4207,25 @@ func (this PaintRenderingContext2D) TryCreatePattern(image CanvasImageSource, re
 	return
 }
 
-// HasScale returns true if the method "PaintRenderingContext2D.scale" exists.
-func (this PaintRenderingContext2D) HasScale() bool {
-	return js.True == bindings.HasPaintRenderingContext2DScale(
-		this.Ref(),
+// HasFuncScale returns true if the method "PaintRenderingContext2D.scale" exists.
+func (this PaintRenderingContext2D) HasFuncScale() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DScale(
+		this.ref,
 	)
 }
 
-// ScaleFunc returns the method "PaintRenderingContext2D.scale".
-func (this PaintRenderingContext2D) ScaleFunc() (fn js.Func[func(x float64, y float64)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DScaleFunc(
-			this.Ref(),
-		),
+// FuncScale returns the method "PaintRenderingContext2D.scale".
+func (this PaintRenderingContext2D) FuncScale() (fn js.Func[func(x float64, y float64)]) {
+	bindings.FuncPaintRenderingContext2DScale(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Scale calls the method "PaintRenderingContext2D.scale".
 func (this PaintRenderingContext2D) Scale(x float64, y float64) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DScale(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(x),
 		float64(y),
 	)
@@ -4249,7 +4238,7 @@ func (this PaintRenderingContext2D) Scale(x float64, y float64) (ret js.Void) {
 // the catch clause.
 func (this PaintRenderingContext2D) TryScale(x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DScale(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(x),
 		float64(y),
 	)
@@ -4257,26 +4246,25 @@ func (this PaintRenderingContext2D) TryScale(x float64, y float64) (ret js.Void,
 	return
 }
 
-// HasRotate returns true if the method "PaintRenderingContext2D.rotate" exists.
-func (this PaintRenderingContext2D) HasRotate() bool {
-	return js.True == bindings.HasPaintRenderingContext2DRotate(
-		this.Ref(),
+// HasFuncRotate returns true if the method "PaintRenderingContext2D.rotate" exists.
+func (this PaintRenderingContext2D) HasFuncRotate() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DRotate(
+		this.ref,
 	)
 }
 
-// RotateFunc returns the method "PaintRenderingContext2D.rotate".
-func (this PaintRenderingContext2D) RotateFunc() (fn js.Func[func(angle float64)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DRotateFunc(
-			this.Ref(),
-		),
+// FuncRotate returns the method "PaintRenderingContext2D.rotate".
+func (this PaintRenderingContext2D) FuncRotate() (fn js.Func[func(angle float64)]) {
+	bindings.FuncPaintRenderingContext2DRotate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Rotate calls the method "PaintRenderingContext2D.rotate".
 func (this PaintRenderingContext2D) Rotate(angle float64) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DRotate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(angle),
 	)
 
@@ -4288,33 +4276,32 @@ func (this PaintRenderingContext2D) Rotate(angle float64) (ret js.Void) {
 // the catch clause.
 func (this PaintRenderingContext2D) TryRotate(angle float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DRotate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(angle),
 	)
 
 	return
 }
 
-// HasTranslate returns true if the method "PaintRenderingContext2D.translate" exists.
-func (this PaintRenderingContext2D) HasTranslate() bool {
-	return js.True == bindings.HasPaintRenderingContext2DTranslate(
-		this.Ref(),
+// HasFuncTranslate returns true if the method "PaintRenderingContext2D.translate" exists.
+func (this PaintRenderingContext2D) HasFuncTranslate() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DTranslate(
+		this.ref,
 	)
 }
 
-// TranslateFunc returns the method "PaintRenderingContext2D.translate".
-func (this PaintRenderingContext2D) TranslateFunc() (fn js.Func[func(x float64, y float64)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DTranslateFunc(
-			this.Ref(),
-		),
+// FuncTranslate returns the method "PaintRenderingContext2D.translate".
+func (this PaintRenderingContext2D) FuncTranslate() (fn js.Func[func(x float64, y float64)]) {
+	bindings.FuncPaintRenderingContext2DTranslate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Translate calls the method "PaintRenderingContext2D.translate".
 func (this PaintRenderingContext2D) Translate(x float64, y float64) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DTranslate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(x),
 		float64(y),
 	)
@@ -4327,7 +4314,7 @@ func (this PaintRenderingContext2D) Translate(x float64, y float64) (ret js.Void
 // the catch clause.
 func (this PaintRenderingContext2D) TryTranslate(x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DTranslate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(x),
 		float64(y),
 	)
@@ -4335,26 +4322,25 @@ func (this PaintRenderingContext2D) TryTranslate(x float64, y float64) (ret js.V
 	return
 }
 
-// HasTransform returns true if the method "PaintRenderingContext2D.transform" exists.
-func (this PaintRenderingContext2D) HasTransform() bool {
-	return js.True == bindings.HasPaintRenderingContext2DTransform(
-		this.Ref(),
+// HasFuncTransform returns true if the method "PaintRenderingContext2D.transform" exists.
+func (this PaintRenderingContext2D) HasFuncTransform() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DTransform(
+		this.ref,
 	)
 }
 
-// TransformFunc returns the method "PaintRenderingContext2D.transform".
-func (this PaintRenderingContext2D) TransformFunc() (fn js.Func[func(a float64, b float64, c float64, d float64, e float64, f float64)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DTransformFunc(
-			this.Ref(),
-		),
+// FuncTransform returns the method "PaintRenderingContext2D.transform".
+func (this PaintRenderingContext2D) FuncTransform() (fn js.Func[func(a float64, b float64, c float64, d float64, e float64, f float64)]) {
+	bindings.FuncPaintRenderingContext2DTransform(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Transform calls the method "PaintRenderingContext2D.transform".
 func (this PaintRenderingContext2D) Transform(a float64, b float64, c float64, d float64, e float64, f float64) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DTransform(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(a),
 		float64(b),
 		float64(c),
@@ -4371,7 +4357,7 @@ func (this PaintRenderingContext2D) Transform(a float64, b float64, c float64, d
 // the catch clause.
 func (this PaintRenderingContext2D) TryTransform(a float64, b float64, c float64, d float64, e float64, f float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DTransform(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(a),
 		float64(b),
 		float64(c),
@@ -4383,26 +4369,25 @@ func (this PaintRenderingContext2D) TryTransform(a float64, b float64, c float64
 	return
 }
 
-// HasGetTransform returns true if the method "PaintRenderingContext2D.getTransform" exists.
-func (this PaintRenderingContext2D) HasGetTransform() bool {
-	return js.True == bindings.HasPaintRenderingContext2DGetTransform(
-		this.Ref(),
+// HasFuncGetTransform returns true if the method "PaintRenderingContext2D.getTransform" exists.
+func (this PaintRenderingContext2D) HasFuncGetTransform() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DGetTransform(
+		this.ref,
 	)
 }
 
-// GetTransformFunc returns the method "PaintRenderingContext2D.getTransform".
-func (this PaintRenderingContext2D) GetTransformFunc() (fn js.Func[func() DOMMatrix]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DGetTransformFunc(
-			this.Ref(),
-		),
+// FuncGetTransform returns the method "PaintRenderingContext2D.getTransform".
+func (this PaintRenderingContext2D) FuncGetTransform() (fn js.Func[func() DOMMatrix]) {
+	bindings.FuncPaintRenderingContext2DGetTransform(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetTransform calls the method "PaintRenderingContext2D.getTransform".
 func (this PaintRenderingContext2D) GetTransform() (ret DOMMatrix) {
 	bindings.CallPaintRenderingContext2DGetTransform(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -4413,32 +4398,31 @@ func (this PaintRenderingContext2D) GetTransform() (ret DOMMatrix) {
 // the catch clause.
 func (this PaintRenderingContext2D) TryGetTransform() (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DGetTransform(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSetTransform returns true if the method "PaintRenderingContext2D.setTransform" exists.
-func (this PaintRenderingContext2D) HasSetTransform() bool {
-	return js.True == bindings.HasPaintRenderingContext2DSetTransform(
-		this.Ref(),
+// HasFuncSetTransform returns true if the method "PaintRenderingContext2D.setTransform" exists.
+func (this PaintRenderingContext2D) HasFuncSetTransform() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DSetTransform(
+		this.ref,
 	)
 }
 
-// SetTransformFunc returns the method "PaintRenderingContext2D.setTransform".
-func (this PaintRenderingContext2D) SetTransformFunc() (fn js.Func[func(a float64, b float64, c float64, d float64, e float64, f float64)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DSetTransformFunc(
-			this.Ref(),
-		),
+// FuncSetTransform returns the method "PaintRenderingContext2D.setTransform".
+func (this PaintRenderingContext2D) FuncSetTransform() (fn js.Func[func(a float64, b float64, c float64, d float64, e float64, f float64)]) {
+	bindings.FuncPaintRenderingContext2DSetTransform(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetTransform calls the method "PaintRenderingContext2D.setTransform".
 func (this PaintRenderingContext2D) SetTransform(a float64, b float64, c float64, d float64, e float64, f float64) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DSetTransform(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(a),
 		float64(b),
 		float64(c),
@@ -4455,7 +4439,7 @@ func (this PaintRenderingContext2D) SetTransform(a float64, b float64, c float64
 // the catch clause.
 func (this PaintRenderingContext2D) TrySetTransform(a float64, b float64, c float64, d float64, e float64, f float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DSetTransform(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(a),
 		float64(b),
 		float64(c),
@@ -4467,26 +4451,25 @@ func (this PaintRenderingContext2D) TrySetTransform(a float64, b float64, c floa
 	return
 }
 
-// HasSetTransform1 returns true if the method "PaintRenderingContext2D.setTransform" exists.
-func (this PaintRenderingContext2D) HasSetTransform1() bool {
-	return js.True == bindings.HasPaintRenderingContext2DSetTransform1(
-		this.Ref(),
+// HasFuncSetTransform1 returns true if the method "PaintRenderingContext2D.setTransform" exists.
+func (this PaintRenderingContext2D) HasFuncSetTransform1() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DSetTransform1(
+		this.ref,
 	)
 }
 
-// SetTransform1Func returns the method "PaintRenderingContext2D.setTransform".
-func (this PaintRenderingContext2D) SetTransform1Func() (fn js.Func[func(transform DOMMatrix2DInit)]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DSetTransform1Func(
-			this.Ref(),
-		),
+// FuncSetTransform1 returns the method "PaintRenderingContext2D.setTransform".
+func (this PaintRenderingContext2D) FuncSetTransform1() (fn js.Func[func(transform DOMMatrix2DInit)]) {
+	bindings.FuncPaintRenderingContext2DSetTransform1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetTransform1 calls the method "PaintRenderingContext2D.setTransform".
 func (this PaintRenderingContext2D) SetTransform1(transform DOMMatrix2DInit) (ret js.Void) {
 	bindings.CallPaintRenderingContext2DSetTransform1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&transform),
 	)
 
@@ -4498,33 +4481,32 @@ func (this PaintRenderingContext2D) SetTransform1(transform DOMMatrix2DInit) (re
 // the catch clause.
 func (this PaintRenderingContext2D) TrySetTransform1(transform DOMMatrix2DInit) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DSetTransform1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&transform),
 	)
 
 	return
 }
 
-// HasSetTransform2 returns true if the method "PaintRenderingContext2D.setTransform" exists.
-func (this PaintRenderingContext2D) HasSetTransform2() bool {
-	return js.True == bindings.HasPaintRenderingContext2DSetTransform2(
-		this.Ref(),
+// HasFuncSetTransform2 returns true if the method "PaintRenderingContext2D.setTransform" exists.
+func (this PaintRenderingContext2D) HasFuncSetTransform2() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DSetTransform2(
+		this.ref,
 	)
 }
 
-// SetTransform2Func returns the method "PaintRenderingContext2D.setTransform".
-func (this PaintRenderingContext2D) SetTransform2Func() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DSetTransform2Func(
-			this.Ref(),
-		),
+// FuncSetTransform2 returns the method "PaintRenderingContext2D.setTransform".
+func (this PaintRenderingContext2D) FuncSetTransform2() (fn js.Func[func()]) {
+	bindings.FuncPaintRenderingContext2DSetTransform2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetTransform2 calls the method "PaintRenderingContext2D.setTransform".
 func (this PaintRenderingContext2D) SetTransform2() (ret js.Void) {
 	bindings.CallPaintRenderingContext2DSetTransform2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -4535,32 +4517,31 @@ func (this PaintRenderingContext2D) SetTransform2() (ret js.Void) {
 // the catch clause.
 func (this PaintRenderingContext2D) TrySetTransform2() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DSetTransform2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasResetTransform returns true if the method "PaintRenderingContext2D.resetTransform" exists.
-func (this PaintRenderingContext2D) HasResetTransform() bool {
-	return js.True == bindings.HasPaintRenderingContext2DResetTransform(
-		this.Ref(),
+// HasFuncResetTransform returns true if the method "PaintRenderingContext2D.resetTransform" exists.
+func (this PaintRenderingContext2D) HasFuncResetTransform() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DResetTransform(
+		this.ref,
 	)
 }
 
-// ResetTransformFunc returns the method "PaintRenderingContext2D.resetTransform".
-func (this PaintRenderingContext2D) ResetTransformFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DResetTransformFunc(
-			this.Ref(),
-		),
+// FuncResetTransform returns the method "PaintRenderingContext2D.resetTransform".
+func (this PaintRenderingContext2D) FuncResetTransform() (fn js.Func[func()]) {
+	bindings.FuncPaintRenderingContext2DResetTransform(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ResetTransform calls the method "PaintRenderingContext2D.resetTransform".
 func (this PaintRenderingContext2D) ResetTransform() (ret js.Void) {
 	bindings.CallPaintRenderingContext2DResetTransform(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -4571,32 +4552,31 @@ func (this PaintRenderingContext2D) ResetTransform() (ret js.Void) {
 // the catch clause.
 func (this PaintRenderingContext2D) TryResetTransform() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DResetTransform(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSave returns true if the method "PaintRenderingContext2D.save" exists.
-func (this PaintRenderingContext2D) HasSave() bool {
-	return js.True == bindings.HasPaintRenderingContext2DSave(
-		this.Ref(),
+// HasFuncSave returns true if the method "PaintRenderingContext2D.save" exists.
+func (this PaintRenderingContext2D) HasFuncSave() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DSave(
+		this.ref,
 	)
 }
 
-// SaveFunc returns the method "PaintRenderingContext2D.save".
-func (this PaintRenderingContext2D) SaveFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DSaveFunc(
-			this.Ref(),
-		),
+// FuncSave returns the method "PaintRenderingContext2D.save".
+func (this PaintRenderingContext2D) FuncSave() (fn js.Func[func()]) {
+	bindings.FuncPaintRenderingContext2DSave(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Save calls the method "PaintRenderingContext2D.save".
 func (this PaintRenderingContext2D) Save() (ret js.Void) {
 	bindings.CallPaintRenderingContext2DSave(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -4607,32 +4587,31 @@ func (this PaintRenderingContext2D) Save() (ret js.Void) {
 // the catch clause.
 func (this PaintRenderingContext2D) TrySave() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DSave(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasRestore returns true if the method "PaintRenderingContext2D.restore" exists.
-func (this PaintRenderingContext2D) HasRestore() bool {
-	return js.True == bindings.HasPaintRenderingContext2DRestore(
-		this.Ref(),
+// HasFuncRestore returns true if the method "PaintRenderingContext2D.restore" exists.
+func (this PaintRenderingContext2D) HasFuncRestore() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DRestore(
+		this.ref,
 	)
 }
 
-// RestoreFunc returns the method "PaintRenderingContext2D.restore".
-func (this PaintRenderingContext2D) RestoreFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DRestoreFunc(
-			this.Ref(),
-		),
+// FuncRestore returns the method "PaintRenderingContext2D.restore".
+func (this PaintRenderingContext2D) FuncRestore() (fn js.Func[func()]) {
+	bindings.FuncPaintRenderingContext2DRestore(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Restore calls the method "PaintRenderingContext2D.restore".
 func (this PaintRenderingContext2D) Restore() (ret js.Void) {
 	bindings.CallPaintRenderingContext2DRestore(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -4643,32 +4622,31 @@ func (this PaintRenderingContext2D) Restore() (ret js.Void) {
 // the catch clause.
 func (this PaintRenderingContext2D) TryRestore() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DRestore(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasReset returns true if the method "PaintRenderingContext2D.reset" exists.
-func (this PaintRenderingContext2D) HasReset() bool {
-	return js.True == bindings.HasPaintRenderingContext2DReset(
-		this.Ref(),
+// HasFuncReset returns true if the method "PaintRenderingContext2D.reset" exists.
+func (this PaintRenderingContext2D) HasFuncReset() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DReset(
+		this.ref,
 	)
 }
 
-// ResetFunc returns the method "PaintRenderingContext2D.reset".
-func (this PaintRenderingContext2D) ResetFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DResetFunc(
-			this.Ref(),
-		),
+// FuncReset returns the method "PaintRenderingContext2D.reset".
+func (this PaintRenderingContext2D) FuncReset() (fn js.Func[func()]) {
+	bindings.FuncPaintRenderingContext2DReset(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Reset calls the method "PaintRenderingContext2D.reset".
 func (this PaintRenderingContext2D) Reset() (ret js.Void) {
 	bindings.CallPaintRenderingContext2DReset(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -4679,32 +4657,31 @@ func (this PaintRenderingContext2D) Reset() (ret js.Void) {
 // the catch clause.
 func (this PaintRenderingContext2D) TryReset() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DReset(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasIsContextLost returns true if the method "PaintRenderingContext2D.isContextLost" exists.
-func (this PaintRenderingContext2D) HasIsContextLost() bool {
-	return js.True == bindings.HasPaintRenderingContext2DIsContextLost(
-		this.Ref(),
+// HasFuncIsContextLost returns true if the method "PaintRenderingContext2D.isContextLost" exists.
+func (this PaintRenderingContext2D) HasFuncIsContextLost() bool {
+	return js.True == bindings.HasFuncPaintRenderingContext2DIsContextLost(
+		this.ref,
 	)
 }
 
-// IsContextLostFunc returns the method "PaintRenderingContext2D.isContextLost".
-func (this PaintRenderingContext2D) IsContextLostFunc() (fn js.Func[func() bool]) {
-	return fn.FromRef(
-		bindings.PaintRenderingContext2DIsContextLostFunc(
-			this.Ref(),
-		),
+// FuncIsContextLost returns the method "PaintRenderingContext2D.isContextLost".
+func (this PaintRenderingContext2D) FuncIsContextLost() (fn js.Func[func() bool]) {
+	bindings.FuncPaintRenderingContext2DIsContextLost(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsContextLost calls the method "PaintRenderingContext2D.isContextLost".
 func (this PaintRenderingContext2D) IsContextLost() (ret bool) {
 	bindings.CallPaintRenderingContext2DIsContextLost(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -4715,7 +4692,7 @@ func (this PaintRenderingContext2D) IsContextLost() (ret bool) {
 // the catch clause.
 func (this PaintRenderingContext2D) TryIsContextLost() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DIsContextLost(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -4748,17 +4725,22 @@ func (p PaintRenderingContext2DSettings) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PaintRenderingContext2DSettings) UpdateFrom(ref js.Ref) {
+func (p *PaintRenderingContext2DSettings) UpdateFrom(ref js.Ref) {
 	bindings.PaintRenderingContext2DSettingsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PaintRenderingContext2DSettings) Update(ref js.Ref) {
+func (p *PaintRenderingContext2DSettings) Update(ref js.Ref) {
 	bindings.PaintRenderingContext2DSettingsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PaintRenderingContext2DSettings) FreeMembers(recursive bool) {
 }
 
 type PaintSize struct {
@@ -4766,7 +4748,7 @@ type PaintSize struct {
 }
 
 func (this PaintSize) Once() PaintSize {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -4780,7 +4762,7 @@ func (this PaintSize) FromRef(ref js.Ref) PaintSize {
 }
 
 func (this PaintSize) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Width returns the value of property "PaintSize.width".
@@ -4788,7 +4770,7 @@ func (this PaintSize) Free() {
 // It returns ok=false if there is no such property.
 func (this PaintSize) Width() (ret float64, ok bool) {
 	ok = js.True == bindings.GetPaintSizeWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4798,7 +4780,7 @@ func (this PaintSize) Width() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this PaintSize) Height() (ret float64, ok bool) {
 	ok = js.True == bindings.GetPaintSizeHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4808,7 +4790,7 @@ type PaintWorkletGlobalScope struct {
 }
 
 func (this PaintWorkletGlobalScope) Once() PaintWorkletGlobalScope {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -4822,7 +4804,7 @@ func (this PaintWorkletGlobalScope) FromRef(ref js.Ref) PaintWorkletGlobalScope 
 }
 
 func (this PaintWorkletGlobalScope) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // DevicePixelRatio returns the value of property "PaintWorkletGlobalScope.devicePixelRatio".
@@ -4830,31 +4812,30 @@ func (this PaintWorkletGlobalScope) Free() {
 // It returns ok=false if there is no such property.
 func (this PaintWorkletGlobalScope) DevicePixelRatio() (ret float64, ok bool) {
 	ok = js.True == bindings.GetPaintWorkletGlobalScopeDevicePixelRatio(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasRegisterPaint returns true if the method "PaintWorkletGlobalScope.registerPaint" exists.
-func (this PaintWorkletGlobalScope) HasRegisterPaint() bool {
-	return js.True == bindings.HasPaintWorkletGlobalScopeRegisterPaint(
-		this.Ref(),
+// HasFuncRegisterPaint returns true if the method "PaintWorkletGlobalScope.registerPaint" exists.
+func (this PaintWorkletGlobalScope) HasFuncRegisterPaint() bool {
+	return js.True == bindings.HasFuncPaintWorkletGlobalScopeRegisterPaint(
+		this.ref,
 	)
 }
 
-// RegisterPaintFunc returns the method "PaintWorkletGlobalScope.registerPaint".
-func (this PaintWorkletGlobalScope) RegisterPaintFunc() (fn js.Func[func(name js.String, paintCtor js.Func[func()])]) {
-	return fn.FromRef(
-		bindings.PaintWorkletGlobalScopeRegisterPaintFunc(
-			this.Ref(),
-		),
+// FuncRegisterPaint returns the method "PaintWorkletGlobalScope.registerPaint".
+func (this PaintWorkletGlobalScope) FuncRegisterPaint() (fn js.Func[func(name js.String, paintCtor js.Func[func()])]) {
+	bindings.FuncPaintWorkletGlobalScopeRegisterPaint(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RegisterPaint calls the method "PaintWorkletGlobalScope.registerPaint".
 func (this PaintWorkletGlobalScope) RegisterPaint(name js.String, paintCtor js.Func[func()]) (ret js.Void) {
 	bindings.CallPaintWorkletGlobalScopeRegisterPaint(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 		paintCtor.Ref(),
 	)
@@ -4867,7 +4848,7 @@ func (this PaintWorkletGlobalScope) RegisterPaint(name js.String, paintCtor js.F
 // the catch clause.
 func (this PaintWorkletGlobalScope) TryRegisterPaint(name js.String, paintCtor js.Func[func()]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintWorkletGlobalScopeRegisterPaint(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 		paintCtor.Ref(),
 	)
@@ -4892,7 +4873,7 @@ type PasswordCredential struct {
 }
 
 func (this PasswordCredential) Once() PasswordCredential {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -4906,7 +4887,7 @@ func (this PasswordCredential) FromRef(ref js.Ref) PasswordCredential {
 }
 
 func (this PasswordCredential) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Password returns the value of property "PasswordCredential.password".
@@ -4914,7 +4895,7 @@ func (this PasswordCredential) Free() {
 // It returns ok=false if there is no such property.
 func (this PasswordCredential) Password() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetPasswordCredentialPassword(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4924,7 +4905,7 @@ func (this PasswordCredential) Password() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this PasswordCredential) Name() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetPasswordCredentialName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4934,7 +4915,7 @@ func (this PasswordCredential) Name() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this PasswordCredential) IconURL() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetPasswordCredentialIconURL(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4989,17 +4970,26 @@ func (p PaymentCompleteDetails) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PaymentCompleteDetails) UpdateFrom(ref js.Ref) {
+func (p *PaymentCompleteDetails) UpdateFrom(ref js.Ref) {
 	bindings.PaymentCompleteDetailsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PaymentCompleteDetails) Update(ref js.Ref) {
+func (p *PaymentCompleteDetails) Update(ref js.Ref) {
 	bindings.PaymentCompleteDetailsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PaymentCompleteDetails) FreeMembers(recursive bool) {
+	js.Free(
+		p.Data.Ref(),
+	)
+	p.Data = p.Data.FromRef(js.Undefined)
 }
 
 type PaymentItem struct {
@@ -5039,15 +5029,27 @@ func (p PaymentItem) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PaymentItem) UpdateFrom(ref js.Ref) {
+func (p *PaymentItem) UpdateFrom(ref js.Ref) {
 	bindings.PaymentItemJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PaymentItem) Update(ref js.Ref) {
+func (p *PaymentItem) Update(ref js.Ref) {
 	bindings.PaymentItemJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PaymentItem) FreeMembers(recursive bool) {
+	js.Free(
+		p.Label.Ref(),
+	)
+	p.Label = p.Label.FromRef(js.Undefined)
+	if recursive {
+		p.Amount.FreeMembers(true)
+	}
 }

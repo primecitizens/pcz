@@ -1,0 +1,691 @@
+- File: webext/chrome/identity.idl
+  Dict:
+    Name: AccountInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - identity
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+- File: webext/chrome/identity.idl
+  Enum:
+    Name: AccountStatus
+    Values:
+      - SYNC
+      - ANY
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - identity
+- File: webext/chrome/identity.idl
+  Callback:
+    Name: ClearAllCachedAuthTokensCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - identity
+- File: webext/chrome/identity.idl
+  Callback:
+    Name: GetAccountsCallback
+    Args:
+      - Name: accounts
+        Type:
+          Name: sequence
+          Params:
+            - Name: AccountInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - identity
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - identity
+- File: webext/chrome/identity.idl
+  Callback:
+    Name: GetAuthTokenCallback
+    Args:
+      - Name: result
+        Type:
+          Name: GetAuthTokenResult
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - identity
+- File: webext/chrome/identity.idl
+  Dict:
+    Name: GetAuthTokenResult
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - identity
+    Fields:
+      - Name: token
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+      - Name: grantedScopes
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - identity
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+- File: webext/chrome/identity.idl
+  Callback:
+    Name: GetProfileUserInfoCallback
+    Args:
+      - Name: userInfo
+        Type:
+          Name: ProfileUserInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - identity
+- File: webext/chrome/identity.idl
+  Dict:
+    Name: InvalidTokenDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - identity
+    Fields:
+      - Name: token
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+- File: webext/chrome/identity.idl
+  Callback:
+    Name: InvalidateAuthTokenCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - identity
+- File: webext/chrome/identity.idl
+  Callback:
+    Name: LaunchWebAuthFlowCallback
+    Args:
+      - Name: responseUrl
+        Optional: true
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - identity
+- File: webext/chrome/identity.idl
+  Dict:
+    Name: ProfileDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - identity
+    Fields:
+      - Name: accountStatus
+        Type:
+          Name: AccountStatus
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+- File: webext/chrome/identity.idl
+  Dict:
+    Name: ProfileUserInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - identity
+    Fields:
+      - Name: email
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+- File: webext/chrome/identity.idl
+  Dict:
+    Name: TokenDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - identity
+    Fields:
+      - Name: interactive
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+      - Name: account
+        Type:
+          Name: AccountInfo
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+      - Name: scopes
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - identity
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+      - Name: enableGranularPermissions
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+- File: webext/chrome/identity.idl
+  Dict:
+    Name: WebAuthFlowDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - identity
+    Fields:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+      - Name: interactive
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+      - Name: abortOnLoadForNonInteractive
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+      - Name: timeoutMsForNonInteractive
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+- File: webext/chrome/identity.idl
+  WebextFunc:
+    Name: clearAllCachedAuthTokens
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - identity
+- File: webext/chrome/identity.idl
+  WebextFunc:
+    Name: getAccounts
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: AccountInfo
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - identity
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - identity
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - identity
+- File: webext/chrome/identity.idl
+  WebextFunc:
+    Name: getAuthToken
+    Modifier: static
+    Args:
+      - Name: details
+        Optional: true
+        Type:
+          Name: TokenDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: GetAuthTokenResult
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - identity
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - identity
+- File: webext/chrome/identity.idl
+  WebextFunc:
+    Name: getProfileUserInfo
+    Modifier: static
+    Args:
+      - Name: details
+        Optional: true
+        Type:
+          Name: ProfileDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ProfileUserInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - identity
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - identity
+- File: webext/chrome/identity.idl
+  WebextFunc:
+    Name: getRedirectURL
+    Modifier: static
+    Args:
+      - Name: path
+        Optional: true
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+    Returns:
+      - Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - identity
+- File: webext/chrome/identity.idl
+  WebextFunc:
+    Name: launchWebAuthFlow
+    Modifier: static
+    Args:
+      - Name: details
+        Type:
+          Name: WebAuthFlowDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - identity
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - identity
+- File: webext/chrome/identity.idl
+  WebextEvent:
+    Name: onSignInChanged
+    Modifier: static
+    Args:
+      - Name: account
+        Type:
+          Name: AccountInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+      - Name: signedIn
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - identity
+- File: webext/chrome/identity.idl
+  WebextFunc:
+    Name: removeCachedAuthToken
+    Modifier: static
+    Args:
+      - Name: details
+        Type:
+          Name: InvalidTokenDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - identity
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - identity
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - identity

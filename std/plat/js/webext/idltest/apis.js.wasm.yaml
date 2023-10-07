@@ -1,0 +1,198 @@
+- File: webext/chrome/idltest.idl
+  Callback:
+    Name: ArrayBufferCallback
+    Args:
+      - Name: buffer
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - idltest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - idltest
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - idltest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - idltest
+- File: webext/chrome/idltest.idl
+  Callback:
+    Name: LongArrayCallback
+    Args:
+      - Name: array
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - idltest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - idltest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - idltest
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - idltest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - idltest
+- File: webext/chrome/idltest.idl
+  WebextFunc:
+    Name: getArrayBuffer
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ArrayBuffer
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - idltest
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - idltest
+- File: webext/chrome/idltest.idl
+  WebextFunc:
+    Name: nocompileFunc
+    Modifier: static
+    Args:
+      - Name: switch_
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - idltest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - idltest
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - idltest
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - idltest
+- File: webext/chrome/idltest.idl
+  WebextFunc:
+    Name: sendArrayBuffer
+    Modifier: static
+    Args:
+      - Name: input
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - idltest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - idltest
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: long
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - idltest
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - idltest
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - idltest
+- File: webext/chrome/idltest.idl
+  WebextFunc:
+    Name: sendArrayBufferView
+    Modifier: static
+    Args:
+      - Name: input
+        Type:
+          Name: ArrayBufferView
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - idltest
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - Uint8Array
+          - Name: Namespace
+            Values:
+              - chrome
+              - idltest
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: long
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - idltest
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - idltest
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - idltest

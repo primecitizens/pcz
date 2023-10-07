@@ -1,0 +1,282 @@
+- File: webext/chrome/declarative_content.json
+  Typedef:
+    Name: ImageDataType
+    Type:
+      Name: Uint8Array
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeContent
+- File: webext/chrome/declarative_content.json
+  Dict:
+    Name: PageStateMatcher
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeContent
+    Fields:
+      - Name: css
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeContent
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeContent
+      - Name: instanceType
+        Required: true
+        Type:
+          Name: PageStateMatcherInstanceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeContent
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeContent
+      - Name: isBookmarked
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeContent
+      - Name: pageUrl
+        Type:
+          Name: UrlFilter
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeContent
+- File: webext/chrome/declarative_content.json
+  Enum:
+    Name: PageStateMatcherInstanceType
+    Values:
+      - declarativeContent.PageStateMatcher
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeContent
+- File: webext/chrome/declarative_content.json
+  Dict:
+    Name: RequestContentScript
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeContent
+    Fields:
+      - Name: allFrames
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeContent
+      - Name: css
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeContent
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeContent
+      - Name: instanceType
+        Required: true
+        Type:
+          Name: RequestContentScriptInstanceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeContent
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeContent
+      - Name: js
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeContent
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeContent
+      - Name: matchAboutBlank
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeContent
+- File: webext/chrome/declarative_content.json
+  Enum:
+    Name: RequestContentScriptInstanceType
+    Values:
+      - declarativeContent.RequestContentScript
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeContent
+- File: webext/chrome/declarative_content.json
+  Dict:
+    Name: SetIcon
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeContent
+    Fields:
+      - Name: imageData
+        Type:
+          Union:
+            - Name: ImageDataType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - declarativeContent
+            - Name: any
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeContent
+      - Name: instanceType
+        Required: true
+        Type:
+          Name: SetIconInstanceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeContent
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeContent
+- File: webext/chrome/declarative_content.json
+  Enum:
+    Name: SetIconInstanceType
+    Values:
+      - declarativeContent.SetIcon
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeContent
+- File: webext/chrome/declarative_content.json
+  Dict:
+    Name: ShowAction
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeContent
+    Fields:
+      - Name: instanceType
+        Required: true
+        Type:
+          Name: ShowActionInstanceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeContent
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeContent
+- File: webext/chrome/declarative_content.json
+  Enum:
+    Name: ShowActionInstanceType
+    Values:
+      - declarativeContent.ShowAction
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeContent
+- File: webext/chrome/declarative_content.json
+  Dict:
+    Name: ShowPageAction
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeContent
+    Fields:
+      - Name: instanceType
+        Required: true
+        Type:
+          Name: ShowPageActionInstanceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - declarativeContent
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - declarativeContent
+- File: webext/chrome/declarative_content.json
+  Enum:
+    Name: ShowPageActionInstanceType
+    Values:
+      - declarativeContent.ShowPageAction
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeContent
+- File: webext/chrome/declarative_content.json
+  WebextEvent:
+    Name: onPageChanged
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - declarativeContent

@@ -1,0 +1,97 @@
+- File: webext/chrome/app.json
+  Dict:
+    Name: DOMWindow
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+- File: webext/chrome/app.json
+  Dict:
+    Name: Details
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+- File: webext/chrome/app.json
+  Enum:
+    Name: InstallStateType
+    Values:
+      - not_installed
+      - installed
+      - disabled
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+- File: webext/chrome/app.json
+  Enum:
+    Name: RunningStateType
+    Values:
+      - running
+      - cannot_run
+      - ready_to_run
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+- File: webext/chrome/app.json
+  WebextFunc:
+    Name: getDetails
+    Returns:
+      - Name: Details
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+- File: webext/chrome/app.json
+  WebextFunc:
+    Name: getIsInstalled
+    Returns:
+      - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+- File: webext/chrome/app.json
+  WebextFunc:
+    Name: installState
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: InstallStateType
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+- File: webext/chrome/app.json
+  WebextFunc:
+    Name: runningState
+    Returns:
+      - Name: RunningStateType
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app

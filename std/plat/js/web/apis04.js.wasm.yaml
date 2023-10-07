@@ -1,4 +1,4 @@
-- File: css-layout-api.idl
+- File: webref/css-layout-api.idl
   Enum:
     Name: BreakType
     Values:
@@ -7,7 +7,7 @@
       - column
       - page
       - region
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: BroadcastChannel
     Inherits: EventTarget
@@ -73,7 +73,7 @@
             Values:
               - Window
               - Worker
-- File: mediacapture-region.idl
+- File: webref/mediacapture-region.idl
   Interface:
     Name: BrowserCaptureMediaStreamTrack
     Inherits: MediaStreamTrack
@@ -117,14 +117,14 @@
           - Name: Exposed
             Values:
               - Window
-- File: webidl.idl
+- File: webref/webidl.idl
   Typedef:
     Name: BufferSource
     Type:
       Union:
         - Name: ArrayBufferView
         - Name: ArrayBuffer
-- File: streams.idl
+- File: webref/streams.idl
   Interface:
     Name: ByteLengthQueuingStrategy
     ExtAttrs:
@@ -149,7 +149,7 @@
               Name: QueuingStrategyInit
         ExtAttrs:
           - Name: Exposed
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: CDATASection
     Inherits: Text
@@ -169,12 +169,12 @@
           - Name: Exposed
             Values:
               - Window
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Typedef:
     Name: COSEAlgorithmIdentifier
     Type:
       Name: long
-- File: CSP.idl
+- File: webref/CSP.idl
   Interface:
     Name: CSPViolationReportBody
     Inherits: ReportBody
@@ -286,7 +286,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: cssom.idl
+- File: webref/cssom.idl
   Namespace:
     Name: CSS
     ExtAttrs:
@@ -903,7 +903,7 @@
               - Name: sequence
                 Params:
                   - Name: CSSToken
-- File: css-animations-2.idl
+- File: webref/css-animations-2.idl
   Interface:
     Name: CSSAnimation
     Inherits: Animation
@@ -938,7 +938,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: cssom-view.idl
+- File: webref/cssom-view.idl
   Enum:
     Name: CSSBoxType
     Values:
@@ -946,7 +946,7 @@
       - border
       - padding
       - content
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSColor
     Inherits: CSSColorValue
@@ -1012,28 +1012,28 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Typedef:
     Name: CSSColorAngle
     Type:
       Union:
         - Name: CSSNumberish
         - Name: CSSKeywordish
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Typedef:
     Name: CSSColorNumber
     Type:
       Union:
         - Name: CSSNumberish
         - Name: CSSKeywordish
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Typedef:
     Name: CSSColorPercent
     Type:
       Union:
         - Name: CSSNumberish
         - Name: CSSKeywordish
-- File: css-color-5.idl
+- File: webref/css-color-5.idl
   Interface:
     Name: CSSColorProfileRule
     Inherits: CSSRule
@@ -1074,14 +1074,14 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Typedef:
     Name: CSSColorRGBComp
     Type:
       Union:
         - Name: CSSNumberish
         - Name: CSSKeywordish
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSColorValue
     Inherits: CSSStyleValue
@@ -1107,7 +1107,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-conditional.idl
+- File: webref/css-conditional.idl
   Interface:
     Name: CSSConditionRule
     Inherits: CSSGroupingRule
@@ -1124,7 +1124,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-contain-3.idl
+- File: webref/css-contain-3.idl
   Interface:
     Name: CSSContainerRule
     Inherits: CSSConditionRule
@@ -1149,7 +1149,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-counter-styles.idl
+- File: webref/css-counter-styles.idl
   Interface:
     Name: CSSCounterStyleRule
     Inherits: CSSRule
@@ -1235,7 +1235,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-fonts.idl
+- File: webref/css-fonts.idl
   Interface:
     Name: CSSFontFaceRule
     Inherits: CSSRule
@@ -1252,7 +1252,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-fonts.idl
+- File: webref/css-fonts.idl
   Interface:
     Name: CSSFontFeatureValuesMap
     ExtAttrs:
@@ -1284,7 +1284,7 @@
         - Name: sequence
           Params:
             - Name: unsigned long
-- File: css-fonts.idl
+- File: webref/css-fonts.idl
   Interface:
     Name: CSSFontFeatureValuesRule
     Inherits: CSSRule
@@ -1348,7 +1348,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-fonts.idl
+- File: webref/css-fonts.idl
   Interface:
     Name: CSSFontPaletteValuesRule
     Inherits: CSSRule
@@ -1389,7 +1389,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: cssom.idl
+- File: webref/cssom.idl
   Interface:
     Name: CSSGroupingRule
     Inherits: CSSRule
@@ -1435,7 +1435,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSHSL
     Inherits: CSSColorValue
@@ -1510,7 +1510,7 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSHWB
     Inherits: CSSColorValue
@@ -1585,7 +1585,7 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSImageValue
     Inherits: CSSStyleValue
@@ -1596,7 +1596,7 @@
           - Worker
           - PaintWorklet
           - LayoutWorklet
-- File: cssom.idl
+- File: webref/cssom.idl
   Interface:
     Name: CSSImportRule
     Inherits: CSSRule
@@ -1653,7 +1653,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-animations.idl
+- File: webref/css-animations.idl
   Interface:
     Name: CSSKeyframeRule
     Inherits: CSSRule
@@ -1681,7 +1681,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-animations.idl
+- File: webref/css-animations.idl
   Interface:
     Name: CSSKeyframesRule
     Inherits: CSSRule
@@ -1759,7 +1759,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSKeywordValue
     Inherits: CSSStyleValue
@@ -1793,14 +1793,14 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Typedef:
     Name: CSSKeywordish
     Type:
       Union:
         - Name: DOMString
         - Name: CSSKeywordValue
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSLCH
     Inherits: CSSColorValue
@@ -1875,7 +1875,7 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSLab
     Inherits: CSSColorValue
@@ -1950,7 +1950,7 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-cascade.idl
+- File: webref/css-cascade.idl
   Interface:
     Name: CSSLayerBlockRule
     Inherits: CSSGroupingRule
@@ -1967,7 +1967,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-cascade.idl
+- File: webref/css-cascade.idl
   Interface:
     Name: CSSLayerStatementRule
     Inherits: CSSRule
@@ -1986,7 +1986,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: cssom.idl
+- File: webref/cssom.idl
   Interface:
     Name: CSSMarginRule
     Inherits: CSSRule
@@ -2015,7 +2015,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSMathClamp
     Inherits: CSSMathValue
@@ -2078,7 +2078,7 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSMathInvert
     Inherits: CSSMathValue
@@ -2113,7 +2113,7 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSMathMax
     Inherits: CSSMathValue
@@ -2149,7 +2149,7 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSMathMin
     Inherits: CSSMathValue
@@ -2185,7 +2185,7 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSMathNegate
     Inherits: CSSMathValue
@@ -2220,7 +2220,7 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Enum:
     Name: CSSMathOperator
     Values:
@@ -2231,7 +2231,7 @@
       - min
       - max
       - clamp
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSMathProduct
     Inherits: CSSMathValue
@@ -2267,7 +2267,7 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSMathSum
     Inherits: CSSMathValue
@@ -2303,7 +2303,7 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSMathValue
     Inherits: CSSNumericValue
@@ -2326,7 +2326,7 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Interface:
     Name: CSSMatrixComponent
     Inherits: CSSTransformComponent
@@ -2365,7 +2365,7 @@
               - Worker
               - PaintWorklet
               - LayoutWorklet
-- File: css-typed-om.idl
+- File: webref/css-typed-om.idl
   Dict:
     Name: CSSMatrixComponentOptions
     Fields:

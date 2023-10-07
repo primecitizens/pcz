@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web constof_IDBRequestReadyState
 //go:noescape
@@ -74,11 +72,11 @@ func GetIDBCursorRequest(
 
 //go:wasmimport plat/js/web has_IDBCursor_Advance
 //go:noescape
-func HasIDBCursorAdvance(this js.Ref) js.Ref
+func HasFuncIDBCursorAdvance(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBCursor_Advance
 //go:noescape
-func IDBCursorAdvanceFunc(this js.Ref) js.Ref
+func FuncIDBCursorAdvance(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBCursor_Advance
 //go:noescape
@@ -94,11 +92,11 @@ func TryIDBCursorAdvance(
 
 //go:wasmimport plat/js/web has_IDBCursor_Continue
 //go:noescape
-func HasIDBCursorContinue(this js.Ref) js.Ref
+func HasFuncIDBCursorContinue(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBCursor_Continue
 //go:noescape
-func IDBCursorContinueFunc(this js.Ref) js.Ref
+func FuncIDBCursorContinue(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBCursor_Continue
 //go:noescape
@@ -114,11 +112,11 @@ func TryIDBCursorContinue(
 
 //go:wasmimport plat/js/web has_IDBCursor_Continue1
 //go:noescape
-func HasIDBCursorContinue1(this js.Ref) js.Ref
+func HasFuncIDBCursorContinue1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBCursor_Continue1
 //go:noescape
-func IDBCursorContinue1Func(this js.Ref) js.Ref
+func FuncIDBCursorContinue1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBCursor_Continue1
 //go:noescape
@@ -132,11 +130,11 @@ func TryIDBCursorContinue1(
 
 //go:wasmimport plat/js/web has_IDBCursor_ContinuePrimaryKey
 //go:noescape
-func HasIDBCursorContinuePrimaryKey(this js.Ref) js.Ref
+func HasFuncIDBCursorContinuePrimaryKey(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBCursor_ContinuePrimaryKey
 //go:noescape
-func IDBCursorContinuePrimaryKeyFunc(this js.Ref) js.Ref
+func FuncIDBCursorContinuePrimaryKey(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBCursor_ContinuePrimaryKey
 //go:noescape
@@ -154,11 +152,11 @@ func TryIDBCursorContinuePrimaryKey(
 
 //go:wasmimport plat/js/web has_IDBCursor_Update
 //go:noescape
-func HasIDBCursorUpdate(this js.Ref) js.Ref
+func HasFuncIDBCursorUpdate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBCursor_Update
 //go:noescape
-func IDBCursorUpdateFunc(this js.Ref) js.Ref
+func FuncIDBCursorUpdate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBCursor_Update
 //go:noescape
@@ -174,11 +172,11 @@ func TryIDBCursorUpdate(
 
 //go:wasmimport plat/js/web has_IDBCursor_Delete
 //go:noescape
-func HasIDBCursorDelete(this js.Ref) js.Ref
+func HasFuncIDBCursorDelete(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBCursor_Delete
 //go:noescape
-func IDBCursorDeleteFunc(this js.Ref) js.Ref
+func FuncIDBCursorDelete(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBCursor_Delete
 //go:noescape
@@ -217,11 +215,11 @@ func GetIDBKeyRangeUpperOpen(
 
 //go:wasmimport plat/js/web has_IDBKeyRange_Only
 //go:noescape
-func HasIDBKeyRangeOnly(this js.Ref) js.Ref
+func HasFuncIDBKeyRangeOnly(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBKeyRange_Only
 //go:noescape
-func IDBKeyRangeOnlyFunc(this js.Ref) js.Ref
+func FuncIDBKeyRangeOnly(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBKeyRange_Only
 //go:noescape
@@ -237,11 +235,11 @@ func TryIDBKeyRangeOnly(
 
 //go:wasmimport plat/js/web has_IDBKeyRange_LowerBound
 //go:noescape
-func HasIDBKeyRangeLowerBound(this js.Ref) js.Ref
+func HasFuncIDBKeyRangeLowerBound(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBKeyRange_LowerBound
 //go:noescape
-func IDBKeyRangeLowerBoundFunc(this js.Ref) js.Ref
+func FuncIDBKeyRangeLowerBound(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBKeyRange_LowerBound
 //go:noescape
@@ -259,11 +257,11 @@ func TryIDBKeyRangeLowerBound(
 
 //go:wasmimport plat/js/web has_IDBKeyRange_LowerBound1
 //go:noescape
-func HasIDBKeyRangeLowerBound1(this js.Ref) js.Ref
+func HasFuncIDBKeyRangeLowerBound1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBKeyRange_LowerBound1
 //go:noescape
-func IDBKeyRangeLowerBound1Func(this js.Ref) js.Ref
+func FuncIDBKeyRangeLowerBound1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBKeyRange_LowerBound1
 //go:noescape
@@ -279,11 +277,11 @@ func TryIDBKeyRangeLowerBound1(
 
 //go:wasmimport plat/js/web has_IDBKeyRange_UpperBound
 //go:noescape
-func HasIDBKeyRangeUpperBound(this js.Ref) js.Ref
+func HasFuncIDBKeyRangeUpperBound(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBKeyRange_UpperBound
 //go:noescape
-func IDBKeyRangeUpperBoundFunc(this js.Ref) js.Ref
+func FuncIDBKeyRangeUpperBound(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBKeyRange_UpperBound
 //go:noescape
@@ -301,11 +299,11 @@ func TryIDBKeyRangeUpperBound(
 
 //go:wasmimport plat/js/web has_IDBKeyRange_UpperBound1
 //go:noescape
-func HasIDBKeyRangeUpperBound1(this js.Ref) js.Ref
+func HasFuncIDBKeyRangeUpperBound1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBKeyRange_UpperBound1
 //go:noescape
-func IDBKeyRangeUpperBound1Func(this js.Ref) js.Ref
+func FuncIDBKeyRangeUpperBound1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBKeyRange_UpperBound1
 //go:noescape
@@ -321,11 +319,11 @@ func TryIDBKeyRangeUpperBound1(
 
 //go:wasmimport plat/js/web has_IDBKeyRange_Bound
 //go:noescape
-func HasIDBKeyRangeBound(this js.Ref) js.Ref
+func HasFuncIDBKeyRangeBound(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBKeyRange_Bound
 //go:noescape
-func IDBKeyRangeBoundFunc(this js.Ref) js.Ref
+func FuncIDBKeyRangeBound(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBKeyRange_Bound
 //go:noescape
@@ -347,11 +345,11 @@ func TryIDBKeyRangeBound(
 
 //go:wasmimport plat/js/web has_IDBKeyRange_Bound1
 //go:noescape
-func HasIDBKeyRangeBound1(this js.Ref) js.Ref
+func HasFuncIDBKeyRangeBound1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBKeyRange_Bound1
 //go:noescape
-func IDBKeyRangeBound1Func(this js.Ref) js.Ref
+func FuncIDBKeyRangeBound1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBKeyRange_Bound1
 //go:noescape
@@ -371,11 +369,11 @@ func TryIDBKeyRangeBound1(
 
 //go:wasmimport plat/js/web has_IDBKeyRange_Bound2
 //go:noescape
-func HasIDBKeyRangeBound2(this js.Ref) js.Ref
+func HasFuncIDBKeyRangeBound2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBKeyRange_Bound2
 //go:noescape
-func IDBKeyRangeBound2Func(this js.Ref) js.Ref
+func FuncIDBKeyRangeBound2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBKeyRange_Bound2
 //go:noescape
@@ -393,11 +391,11 @@ func TryIDBKeyRangeBound2(
 
 //go:wasmimport plat/js/web has_IDBKeyRange_Includes
 //go:noescape
-func HasIDBKeyRangeIncludes(this js.Ref) js.Ref
+func HasFuncIDBKeyRangeIncludes(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IDBKeyRange_Includes
 //go:noescape
-func IDBKeyRangeIncludesFunc(this js.Ref) js.Ref
+func FuncIDBKeyRangeIncludes(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IDBKeyRange_Includes
 //go:noescape
@@ -459,11 +457,11 @@ func IdentityUserInfoJSLoad(
 
 //go:wasmimport plat/js/web has_IdentityProvider_GetUserInfo
 //go:noescape
-func HasIdentityProviderGetUserInfo(this js.Ref) js.Ref
+func HasFuncIdentityProviderGetUserInfo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IdentityProvider_GetUserInfo
 //go:noescape
-func IdentityProviderGetUserInfoFunc(this js.Ref) js.Ref
+func FuncIdentityProviderGetUserInfo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IdentityProvider_GetUserInfo
 //go:noescape
@@ -587,11 +585,11 @@ func GetIdleDetectorScreenState(
 
 //go:wasmimport plat/js/web has_IdleDetector_RequestPermission
 //go:noescape
-func HasIdleDetectorRequestPermission(this js.Ref) js.Ref
+func HasFuncIdleDetectorRequestPermission(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IdleDetector_RequestPermission
 //go:noescape
-func IdleDetectorRequestPermissionFunc(this js.Ref) js.Ref
+func FuncIdleDetectorRequestPermission(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IdleDetector_RequestPermission
 //go:noescape
@@ -605,11 +603,11 @@ func TryIdleDetectorRequestPermission(
 
 //go:wasmimport plat/js/web has_IdleDetector_Start
 //go:noescape
-func HasIdleDetectorStart(this js.Ref) js.Ref
+func HasFuncIdleDetectorStart(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IdleDetector_Start
 //go:noescape
-func IdleDetectorStartFunc(this js.Ref) js.Ref
+func FuncIdleDetectorStart(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IdleDetector_Start
 //go:noescape
@@ -625,11 +623,11 @@ func TryIdleDetectorStart(
 
 //go:wasmimport plat/js/web has_IdleDetector_Start1
 //go:noescape
-func HasIdleDetectorStart1(this js.Ref) js.Ref
+func HasFuncIdleDetectorStart1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_IdleDetector_Start1
 //go:noescape
-func IdleDetectorStart1Func(this js.Ref) js.Ref
+func FuncIdleDetectorStart1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_IdleDetector_Start1
 //go:noescape
@@ -687,11 +685,11 @@ func GetImageCaptureTrack(
 
 //go:wasmimport plat/js/web has_ImageCapture_TakePhoto
 //go:noescape
-func HasImageCaptureTakePhoto(this js.Ref) js.Ref
+func HasFuncImageCaptureTakePhoto(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ImageCapture_TakePhoto
 //go:noescape
-func ImageCaptureTakePhotoFunc(this js.Ref) js.Ref
+func FuncImageCaptureTakePhoto(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ImageCapture_TakePhoto
 //go:noescape
@@ -707,11 +705,11 @@ func TryImageCaptureTakePhoto(
 
 //go:wasmimport plat/js/web has_ImageCapture_TakePhoto1
 //go:noescape
-func HasImageCaptureTakePhoto1(this js.Ref) js.Ref
+func HasFuncImageCaptureTakePhoto1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ImageCapture_TakePhoto1
 //go:noescape
-func ImageCaptureTakePhoto1Func(this js.Ref) js.Ref
+func FuncImageCaptureTakePhoto1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ImageCapture_TakePhoto1
 //go:noescape
@@ -725,11 +723,11 @@ func TryImageCaptureTakePhoto1(
 
 //go:wasmimport plat/js/web has_ImageCapture_GetPhotoCapabilities
 //go:noescape
-func HasImageCaptureGetPhotoCapabilities(this js.Ref) js.Ref
+func HasFuncImageCaptureGetPhotoCapabilities(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ImageCapture_GetPhotoCapabilities
 //go:noescape
-func ImageCaptureGetPhotoCapabilitiesFunc(this js.Ref) js.Ref
+func FuncImageCaptureGetPhotoCapabilities(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ImageCapture_GetPhotoCapabilities
 //go:noescape
@@ -743,11 +741,11 @@ func TryImageCaptureGetPhotoCapabilities(
 
 //go:wasmimport plat/js/web has_ImageCapture_GetPhotoSettings
 //go:noescape
-func HasImageCaptureGetPhotoSettings(this js.Ref) js.Ref
+func HasFuncImageCaptureGetPhotoSettings(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ImageCapture_GetPhotoSettings
 //go:noescape
-func ImageCaptureGetPhotoSettingsFunc(this js.Ref) js.Ref
+func FuncImageCaptureGetPhotoSettings(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ImageCapture_GetPhotoSettings
 //go:noescape
@@ -761,11 +759,11 @@ func TryImageCaptureGetPhotoSettings(
 
 //go:wasmimport plat/js/web has_ImageCapture_GrabFrame
 //go:noescape
-func HasImageCaptureGrabFrame(this js.Ref) js.Ref
+func HasFuncImageCaptureGrabFrame(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ImageCapture_GrabFrame
 //go:noescape
-func ImageCaptureGrabFrameFunc(this js.Ref) js.Ref
+func FuncImageCaptureGrabFrame(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ImageCapture_GrabFrame
 //go:noescape
@@ -856,11 +854,11 @@ func GetImageTrackListSelectedTrack(
 
 //go:wasmimport plat/js/web has_ImageTrackList_Get
 //go:noescape
-func HasImageTrackListGet(this js.Ref) js.Ref
+func HasFuncImageTrackListGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ImageTrackList_Get
 //go:noescape
-func ImageTrackListGetFunc(this js.Ref) js.Ref
+func FuncImageTrackListGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ImageTrackList_Get
 //go:noescape
@@ -901,11 +899,11 @@ func GetImageDecoderTracks(
 
 //go:wasmimport plat/js/web has_ImageDecoder_Decode
 //go:noescape
-func HasImageDecoderDecode(this js.Ref) js.Ref
+func HasFuncImageDecoderDecode(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ImageDecoder_Decode
 //go:noescape
-func ImageDecoderDecodeFunc(this js.Ref) js.Ref
+func FuncImageDecoderDecode(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ImageDecoder_Decode
 //go:noescape
@@ -921,11 +919,11 @@ func TryImageDecoderDecode(
 
 //go:wasmimport plat/js/web has_ImageDecoder_Decode1
 //go:noescape
-func HasImageDecoderDecode1(this js.Ref) js.Ref
+func HasFuncImageDecoderDecode1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ImageDecoder_Decode1
 //go:noescape
-func ImageDecoderDecode1Func(this js.Ref) js.Ref
+func FuncImageDecoderDecode1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ImageDecoder_Decode1
 //go:noescape
@@ -939,11 +937,11 @@ func TryImageDecoderDecode1(
 
 //go:wasmimport plat/js/web has_ImageDecoder_Reset
 //go:noescape
-func HasImageDecoderReset(this js.Ref) js.Ref
+func HasFuncImageDecoderReset(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ImageDecoder_Reset
 //go:noescape
-func ImageDecoderResetFunc(this js.Ref) js.Ref
+func FuncImageDecoderReset(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ImageDecoder_Reset
 //go:noescape
@@ -957,11 +955,11 @@ func TryImageDecoderReset(
 
 //go:wasmimport plat/js/web has_ImageDecoder_Close
 //go:noescape
-func HasImageDecoderClose(this js.Ref) js.Ref
+func HasFuncImageDecoderClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ImageDecoder_Close
 //go:noescape
-func ImageDecoderCloseFunc(this js.Ref) js.Ref
+func FuncImageDecoderClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ImageDecoder_Close
 //go:noescape
@@ -975,11 +973,11 @@ func TryImageDecoderClose(
 
 //go:wasmimport plat/js/web has_ImageDecoder_IsTypeSupported
 //go:noescape
-func HasImageDecoderIsTypeSupported(this js.Ref) js.Ref
+func HasFuncImageDecoderIsTypeSupported(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ImageDecoder_IsTypeSupported
 //go:noescape
-func ImageDecoderIsTypeSupportedFunc(this js.Ref) js.Ref
+func FuncImageDecoderIsTypeSupported(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ImageDecoder_IsTypeSupported
 //go:noescape
@@ -1028,11 +1026,11 @@ func GetInputDeviceCapabilitiesPointerMovementScrolls(
 
 //go:wasmimport plat/js/web has_InputDeviceInfo_GetCapabilities
 //go:noescape
-func HasInputDeviceInfoGetCapabilities(this js.Ref) js.Ref
+func HasFuncInputDeviceInfoGetCapabilities(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_InputDeviceInfo_GetCapabilities
 //go:noescape
-func InputDeviceInfoGetCapabilitiesFunc(this js.Ref) js.Ref
+func FuncInputDeviceInfoGetCapabilities(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_InputDeviceInfo_GetCapabilities
 //go:noescape
@@ -1087,11 +1085,11 @@ func GetInputEventDataTransfer(
 
 //go:wasmimport plat/js/web has_InputEvent_GetTargetRanges
 //go:noescape
-func HasInputEventGetTargetRanges(this js.Ref) js.Ref
+func HasFuncInputEventGetTargetRanges(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_InputEvent_GetTargetRanges
 //go:noescape
-func InputEventGetTargetRangesFunc(this js.Ref) js.Ref
+func FuncInputEventGetTargetRanges(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_InputEvent_GetTargetRanges
 //go:noescape
@@ -1130,11 +1128,11 @@ func NewModuleByModule(
 
 //go:wasmimport plat/js/web has_Module_Exports
 //go:noescape
-func HasModuleExports(this js.Ref) js.Ref
+func HasFuncModuleExports(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Module_Exports
 //go:noescape
-func ModuleExportsFunc(this js.Ref) js.Ref
+func FuncModuleExports(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Module_Exports
 //go:noescape
@@ -1150,11 +1148,11 @@ func TryModuleExports(
 
 //go:wasmimport plat/js/web has_Module_Imports
 //go:noescape
-func HasModuleImports(this js.Ref) js.Ref
+func HasFuncModuleImports(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Module_Imports
 //go:noescape
-func ModuleImportsFunc(this js.Ref) js.Ref
+func FuncModuleImports(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Module_Imports
 //go:noescape
@@ -1170,11 +1168,11 @@ func TryModuleImports(
 
 //go:wasmimport plat/js/web has_Module_CustomSections
 //go:noescape
-func HasModuleCustomSections(this js.Ref) js.Ref
+func HasFuncModuleCustomSections(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Module_CustomSections
 //go:noescape
-func ModuleCustomSectionsFunc(this js.Ref) js.Ref
+func FuncModuleCustomSections(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Module_CustomSections
 //go:noescape

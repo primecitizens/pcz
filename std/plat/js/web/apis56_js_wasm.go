@@ -4,18 +4,9 @@
 package web
 
 import (
-	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 type VideoEncoderEncodeOptionsForAv1 struct {
 	// Quantizer is "VideoEncoderEncodeOptionsForAv1.quantizer"
@@ -44,17 +35,22 @@ func (p VideoEncoderEncodeOptionsForAv1) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p VideoEncoderEncodeOptionsForAv1) UpdateFrom(ref js.Ref) {
+func (p *VideoEncoderEncodeOptionsForAv1) UpdateFrom(ref js.Ref) {
 	bindings.VideoEncoderEncodeOptionsForAv1JSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p VideoEncoderEncodeOptionsForAv1) Update(ref js.Ref) {
+func (p *VideoEncoderEncodeOptionsForAv1) Update(ref js.Ref) {
 	bindings.VideoEncoderEncodeOptionsForAv1JSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *VideoEncoderEncodeOptionsForAv1) FreeMembers(recursive bool) {
 }
 
 type VideoEncoderEncodeOptionsForAvc struct {
@@ -84,17 +80,22 @@ func (p VideoEncoderEncodeOptionsForAvc) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p VideoEncoderEncodeOptionsForAvc) UpdateFrom(ref js.Ref) {
+func (p *VideoEncoderEncodeOptionsForAvc) UpdateFrom(ref js.Ref) {
 	bindings.VideoEncoderEncodeOptionsForAvcJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p VideoEncoderEncodeOptionsForAvc) Update(ref js.Ref) {
+func (p *VideoEncoderEncodeOptionsForAvc) Update(ref js.Ref) {
 	bindings.VideoEncoderEncodeOptionsForAvcJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *VideoEncoderEncodeOptionsForAvc) FreeMembers(recursive bool) {
 }
 
 type VideoEncoderEncodeOptions struct {
@@ -148,17 +149,28 @@ func (p VideoEncoderEncodeOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p VideoEncoderEncodeOptions) UpdateFrom(ref js.Ref) {
+func (p *VideoEncoderEncodeOptions) UpdateFrom(ref js.Ref) {
 	bindings.VideoEncoderEncodeOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p VideoEncoderEncodeOptions) Update(ref js.Ref) {
+func (p *VideoEncoderEncodeOptions) Update(ref js.Ref) {
 	bindings.VideoEncoderEncodeOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *VideoEncoderEncodeOptions) FreeMembers(recursive bool) {
+	if recursive {
+		p.Hevc.FreeMembers(true)
+		p.Vp9.FreeMembers(true)
+		p.Av1.FreeMembers(true)
+		p.Avc.FreeMembers(true)
+	}
 }
 
 type VideoEncoderSupport struct {
@@ -194,17 +206,25 @@ func (p VideoEncoderSupport) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p VideoEncoderSupport) UpdateFrom(ref js.Ref) {
+func (p *VideoEncoderSupport) UpdateFrom(ref js.Ref) {
 	bindings.VideoEncoderSupportJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p VideoEncoderSupport) Update(ref js.Ref) {
+func (p *VideoEncoderSupport) Update(ref js.Ref) {
 	bindings.VideoEncoderSupportJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *VideoEncoderSupport) FreeMembers(recursive bool) {
+	if recursive {
+		p.Config.FreeMembers(true)
+	}
 }
 
 func NewVideoEncoder(init VideoEncoderInit) (ret VideoEncoder) {
@@ -218,7 +238,7 @@ type VideoEncoder struct {
 }
 
 func (this VideoEncoder) Once() VideoEncoder {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -232,7 +252,7 @@ func (this VideoEncoder) FromRef(ref js.Ref) VideoEncoder {
 }
 
 func (this VideoEncoder) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // State returns the value of property "VideoEncoder.state".
@@ -240,7 +260,7 @@ func (this VideoEncoder) Free() {
 // It returns ok=false if there is no such property.
 func (this VideoEncoder) State() (ret CodecState, ok bool) {
 	ok = js.True == bindings.GetVideoEncoderState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -250,31 +270,30 @@ func (this VideoEncoder) State() (ret CodecState, ok bool) {
 // It returns ok=false if there is no such property.
 func (this VideoEncoder) EncodeQueueSize() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetVideoEncoderEncodeQueueSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasConfigure returns true if the method "VideoEncoder.configure" exists.
-func (this VideoEncoder) HasConfigure() bool {
-	return js.True == bindings.HasVideoEncoderConfigure(
-		this.Ref(),
+// HasFuncConfigure returns true if the method "VideoEncoder.configure" exists.
+func (this VideoEncoder) HasFuncConfigure() bool {
+	return js.True == bindings.HasFuncVideoEncoderConfigure(
+		this.ref,
 	)
 }
 
-// ConfigureFunc returns the method "VideoEncoder.configure".
-func (this VideoEncoder) ConfigureFunc() (fn js.Func[func(config VideoEncoderConfig)]) {
-	return fn.FromRef(
-		bindings.VideoEncoderConfigureFunc(
-			this.Ref(),
-		),
+// FuncConfigure returns the method "VideoEncoder.configure".
+func (this VideoEncoder) FuncConfigure() (fn js.Func[func(config VideoEncoderConfig)]) {
+	bindings.FuncVideoEncoderConfigure(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Configure calls the method "VideoEncoder.configure".
 func (this VideoEncoder) Configure(config VideoEncoderConfig) (ret js.Void) {
 	bindings.CallVideoEncoderConfigure(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&config),
 	)
 
@@ -286,33 +305,32 @@ func (this VideoEncoder) Configure(config VideoEncoderConfig) (ret js.Void) {
 // the catch clause.
 func (this VideoEncoder) TryConfigure(config VideoEncoderConfig) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoEncoderConfigure(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&config),
 	)
 
 	return
 }
 
-// HasEncode returns true if the method "VideoEncoder.encode" exists.
-func (this VideoEncoder) HasEncode() bool {
-	return js.True == bindings.HasVideoEncoderEncode(
-		this.Ref(),
+// HasFuncEncode returns true if the method "VideoEncoder.encode" exists.
+func (this VideoEncoder) HasFuncEncode() bool {
+	return js.True == bindings.HasFuncVideoEncoderEncode(
+		this.ref,
 	)
 }
 
-// EncodeFunc returns the method "VideoEncoder.encode".
-func (this VideoEncoder) EncodeFunc() (fn js.Func[func(frame VideoFrame, options VideoEncoderEncodeOptions)]) {
-	return fn.FromRef(
-		bindings.VideoEncoderEncodeFunc(
-			this.Ref(),
-		),
+// FuncEncode returns the method "VideoEncoder.encode".
+func (this VideoEncoder) FuncEncode() (fn js.Func[func(frame VideoFrame, options VideoEncoderEncodeOptions)]) {
+	bindings.FuncVideoEncoderEncode(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Encode calls the method "VideoEncoder.encode".
 func (this VideoEncoder) Encode(frame VideoFrame, options VideoEncoderEncodeOptions) (ret js.Void) {
 	bindings.CallVideoEncoderEncode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		frame.Ref(),
 		js.Pointer(&options),
 	)
@@ -325,7 +343,7 @@ func (this VideoEncoder) Encode(frame VideoFrame, options VideoEncoderEncodeOpti
 // the catch clause.
 func (this VideoEncoder) TryEncode(frame VideoFrame, options VideoEncoderEncodeOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoEncoderEncode(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		frame.Ref(),
 		js.Pointer(&options),
 	)
@@ -333,26 +351,25 @@ func (this VideoEncoder) TryEncode(frame VideoFrame, options VideoEncoderEncodeO
 	return
 }
 
-// HasEncode1 returns true if the method "VideoEncoder.encode" exists.
-func (this VideoEncoder) HasEncode1() bool {
-	return js.True == bindings.HasVideoEncoderEncode1(
-		this.Ref(),
+// HasFuncEncode1 returns true if the method "VideoEncoder.encode" exists.
+func (this VideoEncoder) HasFuncEncode1() bool {
+	return js.True == bindings.HasFuncVideoEncoderEncode1(
+		this.ref,
 	)
 }
 
-// Encode1Func returns the method "VideoEncoder.encode".
-func (this VideoEncoder) Encode1Func() (fn js.Func[func(frame VideoFrame)]) {
-	return fn.FromRef(
-		bindings.VideoEncoderEncode1Func(
-			this.Ref(),
-		),
+// FuncEncode1 returns the method "VideoEncoder.encode".
+func (this VideoEncoder) FuncEncode1() (fn js.Func[func(frame VideoFrame)]) {
+	bindings.FuncVideoEncoderEncode1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Encode1 calls the method "VideoEncoder.encode".
 func (this VideoEncoder) Encode1(frame VideoFrame) (ret js.Void) {
 	bindings.CallVideoEncoderEncode1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		frame.Ref(),
 	)
 
@@ -364,33 +381,32 @@ func (this VideoEncoder) Encode1(frame VideoFrame) (ret js.Void) {
 // the catch clause.
 func (this VideoEncoder) TryEncode1(frame VideoFrame) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoEncoderEncode1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		frame.Ref(),
 	)
 
 	return
 }
 
-// HasFlush returns true if the method "VideoEncoder.flush" exists.
-func (this VideoEncoder) HasFlush() bool {
-	return js.True == bindings.HasVideoEncoderFlush(
-		this.Ref(),
+// HasFuncFlush returns true if the method "VideoEncoder.flush" exists.
+func (this VideoEncoder) HasFuncFlush() bool {
+	return js.True == bindings.HasFuncVideoEncoderFlush(
+		this.ref,
 	)
 }
 
-// FlushFunc returns the method "VideoEncoder.flush".
-func (this VideoEncoder) FlushFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.VideoEncoderFlushFunc(
-			this.Ref(),
-		),
+// FuncFlush returns the method "VideoEncoder.flush".
+func (this VideoEncoder) FuncFlush() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncVideoEncoderFlush(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Flush calls the method "VideoEncoder.flush".
 func (this VideoEncoder) Flush() (ret js.Promise[js.Void]) {
 	bindings.CallVideoEncoderFlush(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -401,32 +417,31 @@ func (this VideoEncoder) Flush() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this VideoEncoder) TryFlush() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoEncoderFlush(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasReset returns true if the method "VideoEncoder.reset" exists.
-func (this VideoEncoder) HasReset() bool {
-	return js.True == bindings.HasVideoEncoderReset(
-		this.Ref(),
+// HasFuncReset returns true if the method "VideoEncoder.reset" exists.
+func (this VideoEncoder) HasFuncReset() bool {
+	return js.True == bindings.HasFuncVideoEncoderReset(
+		this.ref,
 	)
 }
 
-// ResetFunc returns the method "VideoEncoder.reset".
-func (this VideoEncoder) ResetFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.VideoEncoderResetFunc(
-			this.Ref(),
-		),
+// FuncReset returns the method "VideoEncoder.reset".
+func (this VideoEncoder) FuncReset() (fn js.Func[func()]) {
+	bindings.FuncVideoEncoderReset(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Reset calls the method "VideoEncoder.reset".
 func (this VideoEncoder) Reset() (ret js.Void) {
 	bindings.CallVideoEncoderReset(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -437,32 +452,31 @@ func (this VideoEncoder) Reset() (ret js.Void) {
 // the catch clause.
 func (this VideoEncoder) TryReset() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoEncoderReset(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasClose returns true if the method "VideoEncoder.close" exists.
-func (this VideoEncoder) HasClose() bool {
-	return js.True == bindings.HasVideoEncoderClose(
-		this.Ref(),
+// HasFuncClose returns true if the method "VideoEncoder.close" exists.
+func (this VideoEncoder) HasFuncClose() bool {
+	return js.True == bindings.HasFuncVideoEncoderClose(
+		this.ref,
 	)
 }
 
-// CloseFunc returns the method "VideoEncoder.close".
-func (this VideoEncoder) CloseFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.VideoEncoderCloseFunc(
-			this.Ref(),
-		),
+// FuncClose returns the method "VideoEncoder.close".
+func (this VideoEncoder) FuncClose() (fn js.Func[func()]) {
+	bindings.FuncVideoEncoderClose(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Close calls the method "VideoEncoder.close".
 func (this VideoEncoder) Close() (ret js.Void) {
 	bindings.CallVideoEncoderClose(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -473,44 +487,43 @@ func (this VideoEncoder) Close() (ret js.Void) {
 // the catch clause.
 func (this VideoEncoder) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoEncoderClose(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasIsConfigSupported returns true if the staticmethod "VideoEncoder.isConfigSupported" exists.
-func (this VideoEncoder) HasIsConfigSupported() bool {
-	return js.True == bindings.HasVideoEncoderIsConfigSupported(
-		this.Ref(),
+// HasFuncIsConfigSupported returns true if the static method "VideoEncoder.isConfigSupported" exists.
+func (this VideoEncoder) HasFuncIsConfigSupported() bool {
+	return js.True == bindings.HasFuncVideoEncoderIsConfigSupported(
+		this.ref,
 	)
 }
 
-// IsConfigSupportedFunc returns the staticmethod "VideoEncoder.isConfigSupported".
-func (this VideoEncoder) IsConfigSupportedFunc() (fn js.Func[func(config VideoEncoderConfig) js.Promise[VideoEncoderSupport]]) {
-	return fn.FromRef(
-		bindings.VideoEncoderIsConfigSupportedFunc(
-			this.Ref(),
-		),
+// FuncIsConfigSupported returns the static method "VideoEncoder.isConfigSupported".
+func (this VideoEncoder) FuncIsConfigSupported() (fn js.Func[func(config VideoEncoderConfig) js.Promise[VideoEncoderSupport]]) {
+	bindings.FuncVideoEncoderIsConfigSupported(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// IsConfigSupported calls the staticmethod "VideoEncoder.isConfigSupported".
+// IsConfigSupported calls the static method "VideoEncoder.isConfigSupported".
 func (this VideoEncoder) IsConfigSupported(config VideoEncoderConfig) (ret js.Promise[VideoEncoderSupport]) {
 	bindings.CallVideoEncoderIsConfigSupported(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&config),
 	)
 
 	return
 }
 
-// TryIsConfigSupported calls the staticmethod "VideoEncoder.isConfigSupported"
+// TryIsConfigSupported calls the static method "VideoEncoder.isConfigSupported"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VideoEncoder) TryIsConfigSupported(config VideoEncoderConfig) (ret js.Promise[VideoEncoderSupport], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoEncoderIsConfigSupported(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&config),
 	)
 
@@ -576,7 +589,7 @@ type VideoTrackGenerator struct {
 }
 
 func (this VideoTrackGenerator) Once() VideoTrackGenerator {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -590,7 +603,7 @@ func (this VideoTrackGenerator) FromRef(ref js.Ref) VideoTrackGenerator {
 }
 
 func (this VideoTrackGenerator) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Writable returns the value of property "VideoTrackGenerator.writable".
@@ -598,7 +611,7 @@ func (this VideoTrackGenerator) Free() {
 // It returns ok=false if there is no such property.
 func (this VideoTrackGenerator) Writable() (ret WritableStream, ok bool) {
 	ok = js.True == bindings.GetVideoTrackGeneratorWritable(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -608,7 +621,7 @@ func (this VideoTrackGenerator) Writable() (ret WritableStream, ok bool) {
 // It returns ok=false if there is no such property.
 func (this VideoTrackGenerator) Muted() (ret bool, ok bool) {
 	ok = js.True == bindings.GetVideoTrackGeneratorMuted(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -618,7 +631,7 @@ func (this VideoTrackGenerator) Muted() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this VideoTrackGenerator) SetMuted(val bool) bool {
 	return js.True == bindings.SetVideoTrackGeneratorMuted(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -628,7 +641,7 @@ func (this VideoTrackGenerator) SetMuted(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this VideoTrackGenerator) Track() (ret MediaStreamTrack, ok bool) {
 	ok = js.True == bindings.GetVideoTrackGeneratorTrack(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -716,17 +729,28 @@ func (p ViewTimelineOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ViewTimelineOptions) UpdateFrom(ref js.Ref) {
+func (p *ViewTimelineOptions) UpdateFrom(ref js.Ref) {
 	bindings.ViewTimelineOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ViewTimelineOptions) Update(ref js.Ref) {
+func (p *ViewTimelineOptions) Update(ref js.Ref) {
 	bindings.ViewTimelineOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ViewTimelineOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Subject.Ref(),
+		p.Inset.Ref(),
+	)
+	p.Subject = p.Subject.FromRef(js.Undefined)
+	p.Inset = p.Inset.FromRef(js.Undefined)
 }
 
 func NewViewTimeline(options ViewTimelineOptions) (ret ViewTimeline) {
@@ -745,7 +769,7 @@ type ViewTimeline struct {
 }
 
 func (this ViewTimeline) Once() ViewTimeline {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -759,7 +783,7 @@ func (this ViewTimeline) FromRef(ref js.Ref) ViewTimeline {
 }
 
 func (this ViewTimeline) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Subject returns the value of property "ViewTimeline.subject".
@@ -767,7 +791,7 @@ func (this ViewTimeline) Free() {
 // It returns ok=false if there is no such property.
 func (this ViewTimeline) Subject() (ret Element, ok bool) {
 	ok = js.True == bindings.GetViewTimelineSubject(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -777,7 +801,7 @@ func (this ViewTimeline) Subject() (ret Element, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ViewTimeline) StartOffset() (ret CSSNumericValue, ok bool) {
 	ok = js.True == bindings.GetViewTimelineStartOffset(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -787,7 +811,7 @@ func (this ViewTimeline) StartOffset() (ret CSSNumericValue, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ViewTimeline) EndOffset() (ret CSSNumericValue, ok bool) {
 	ok = js.True == bindings.GetViewTimelineEndOffset(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -797,7 +821,7 @@ type VisibilityStateEntry struct {
 }
 
 func (this VisibilityStateEntry) Once() VisibilityStateEntry {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -811,7 +835,7 @@ func (this VisibilityStateEntry) FromRef(ref js.Ref) VisibilityStateEntry {
 }
 
 func (this VisibilityStateEntry) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Name returns the value of property "VisibilityStateEntry.name".
@@ -819,7 +843,7 @@ func (this VisibilityStateEntry) Free() {
 // It returns ok=false if there is no such property.
 func (this VisibilityStateEntry) Name() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetVisibilityStateEntryName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -829,7 +853,7 @@ func (this VisibilityStateEntry) Name() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this VisibilityStateEntry) EntryType() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetVisibilityStateEntryEntryType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -839,7 +863,7 @@ func (this VisibilityStateEntry) EntryType() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this VisibilityStateEntry) StartTime() (ret DOMHighResTimeStamp, ok bool) {
 	ok = js.True == bindings.GetVisibilityStateEntryStartTime(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -849,7 +873,7 @@ func (this VisibilityStateEntry) StartTime() (ret DOMHighResTimeStamp, ok bool) 
 // It returns ok=false if there is no such property.
 func (this VisibilityStateEntry) Duration() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetVisibilityStateEntryDuration(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -877,7 +901,7 @@ type WEBGL_blend_equation_advanced_coherent struct {
 }
 
 func (this WEBGL_blend_equation_advanced_coherent) Once() WEBGL_blend_equation_advanced_coherent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -891,7 +915,7 @@ func (this WEBGL_blend_equation_advanced_coherent) FromRef(ref js.Ref) WEBGL_ble
 }
 
 func (this WEBGL_blend_equation_advanced_coherent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 const (
@@ -913,7 +937,7 @@ type WEBGL_clip_cull_distance struct {
 }
 
 func (this WEBGL_clip_cull_distance) Once() WEBGL_clip_cull_distance {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -927,7 +951,7 @@ func (this WEBGL_clip_cull_distance) FromRef(ref js.Ref) WEBGL_clip_cull_distanc
 }
 
 func (this WEBGL_clip_cull_distance) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 const (
@@ -941,7 +965,7 @@ type WEBGL_color_buffer_float struct {
 }
 
 func (this WEBGL_color_buffer_float) Once() WEBGL_color_buffer_float {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -955,7 +979,7 @@ func (this WEBGL_color_buffer_float) FromRef(ref js.Ref) WEBGL_color_buffer_floa
 }
 
 func (this WEBGL_color_buffer_float) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 const (
@@ -994,7 +1018,7 @@ type WEBGL_compressed_texture_astc struct {
 }
 
 func (this WEBGL_compressed_texture_astc) Once() WEBGL_compressed_texture_astc {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1008,29 +1032,28 @@ func (this WEBGL_compressed_texture_astc) FromRef(ref js.Ref) WEBGL_compressed_t
 }
 
 func (this WEBGL_compressed_texture_astc) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasGetSupportedProfiles returns true if the method "WEBGL_compressed_texture_astc.getSupportedProfiles" exists.
-func (this WEBGL_compressed_texture_astc) HasGetSupportedProfiles() bool {
-	return js.True == bindings.HasWEBGL_compressed_texture_astcGetSupportedProfiles(
-		this.Ref(),
+// HasFuncGetSupportedProfiles returns true if the method "WEBGL_compressed_texture_astc.getSupportedProfiles" exists.
+func (this WEBGL_compressed_texture_astc) HasFuncGetSupportedProfiles() bool {
+	return js.True == bindings.HasFuncWEBGL_compressed_texture_astcGetSupportedProfiles(
+		this.ref,
 	)
 }
 
-// GetSupportedProfilesFunc returns the method "WEBGL_compressed_texture_astc.getSupportedProfiles".
-func (this WEBGL_compressed_texture_astc) GetSupportedProfilesFunc() (fn js.Func[func() js.Array[js.String]]) {
-	return fn.FromRef(
-		bindings.WEBGL_compressed_texture_astcGetSupportedProfilesFunc(
-			this.Ref(),
-		),
+// FuncGetSupportedProfiles returns the method "WEBGL_compressed_texture_astc.getSupportedProfiles".
+func (this WEBGL_compressed_texture_astc) FuncGetSupportedProfiles() (fn js.Func[func() js.Array[js.String]]) {
+	bindings.FuncWEBGL_compressed_texture_astcGetSupportedProfiles(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetSupportedProfiles calls the method "WEBGL_compressed_texture_astc.getSupportedProfiles".
 func (this WEBGL_compressed_texture_astc) GetSupportedProfiles() (ret js.Array[js.String]) {
 	bindings.CallWEBGL_compressed_texture_astcGetSupportedProfiles(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1041,7 +1064,7 @@ func (this WEBGL_compressed_texture_astc) GetSupportedProfiles() (ret js.Array[j
 // the catch clause.
 func (this WEBGL_compressed_texture_astc) TryGetSupportedProfiles() (ret js.Array[js.String], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_compressed_texture_astcGetSupportedProfiles(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1065,7 +1088,7 @@ type WEBGL_compressed_texture_etc struct {
 }
 
 func (this WEBGL_compressed_texture_etc) Once() WEBGL_compressed_texture_etc {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1079,7 +1102,7 @@ func (this WEBGL_compressed_texture_etc) FromRef(ref js.Ref) WEBGL_compressed_te
 }
 
 func (this WEBGL_compressed_texture_etc) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 const (
@@ -1091,7 +1114,7 @@ type WEBGL_compressed_texture_etc1 struct {
 }
 
 func (this WEBGL_compressed_texture_etc1) Once() WEBGL_compressed_texture_etc1 {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1105,7 +1128,7 @@ func (this WEBGL_compressed_texture_etc1) FromRef(ref js.Ref) WEBGL_compressed_t
 }
 
 func (this WEBGL_compressed_texture_etc1) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 const (
@@ -1120,7 +1143,7 @@ type WEBGL_compressed_texture_pvrtc struct {
 }
 
 func (this WEBGL_compressed_texture_pvrtc) Once() WEBGL_compressed_texture_pvrtc {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1134,7 +1157,7 @@ func (this WEBGL_compressed_texture_pvrtc) FromRef(ref js.Ref) WEBGL_compressed_
 }
 
 func (this WEBGL_compressed_texture_pvrtc) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 const (
@@ -1149,7 +1172,7 @@ type WEBGL_compressed_texture_s3tc struct {
 }
 
 func (this WEBGL_compressed_texture_s3tc) Once() WEBGL_compressed_texture_s3tc {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1163,7 +1186,7 @@ func (this WEBGL_compressed_texture_s3tc) FromRef(ref js.Ref) WEBGL_compressed_t
 }
 
 func (this WEBGL_compressed_texture_s3tc) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 const (
@@ -1178,7 +1201,7 @@ type WEBGL_compressed_texture_s3tc_srgb struct {
 }
 
 func (this WEBGL_compressed_texture_s3tc_srgb) Once() WEBGL_compressed_texture_s3tc_srgb {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1192,7 +1215,7 @@ func (this WEBGL_compressed_texture_s3tc_srgb) FromRef(ref js.Ref) WEBGL_compres
 }
 
 func (this WEBGL_compressed_texture_s3tc_srgb) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 const (
@@ -1205,7 +1228,7 @@ type WEBGL_debug_renderer_info struct {
 }
 
 func (this WEBGL_debug_renderer_info) Once() WEBGL_debug_renderer_info {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1219,7 +1242,7 @@ func (this WEBGL_debug_renderer_info) FromRef(ref js.Ref) WEBGL_debug_renderer_i
 }
 
 func (this WEBGL_debug_renderer_info) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type WEBGL_debug_shaders struct {
@@ -1227,7 +1250,7 @@ type WEBGL_debug_shaders struct {
 }
 
 func (this WEBGL_debug_shaders) Once() WEBGL_debug_shaders {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1241,29 +1264,28 @@ func (this WEBGL_debug_shaders) FromRef(ref js.Ref) WEBGL_debug_shaders {
 }
 
 func (this WEBGL_debug_shaders) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasGetTranslatedShaderSource returns true if the method "WEBGL_debug_shaders.getTranslatedShaderSource" exists.
-func (this WEBGL_debug_shaders) HasGetTranslatedShaderSource() bool {
-	return js.True == bindings.HasWEBGL_debug_shadersGetTranslatedShaderSource(
-		this.Ref(),
+// HasFuncGetTranslatedShaderSource returns true if the method "WEBGL_debug_shaders.getTranslatedShaderSource" exists.
+func (this WEBGL_debug_shaders) HasFuncGetTranslatedShaderSource() bool {
+	return js.True == bindings.HasFuncWEBGL_debug_shadersGetTranslatedShaderSource(
+		this.ref,
 	)
 }
 
-// GetTranslatedShaderSourceFunc returns the method "WEBGL_debug_shaders.getTranslatedShaderSource".
-func (this WEBGL_debug_shaders) GetTranslatedShaderSourceFunc() (fn js.Func[func(shader WebGLShader) js.String]) {
-	return fn.FromRef(
-		bindings.WEBGL_debug_shadersGetTranslatedShaderSourceFunc(
-			this.Ref(),
-		),
+// FuncGetTranslatedShaderSource returns the method "WEBGL_debug_shaders.getTranslatedShaderSource".
+func (this WEBGL_debug_shaders) FuncGetTranslatedShaderSource() (fn js.Func[func(shader WebGLShader) js.String]) {
+	bindings.FuncWEBGL_debug_shadersGetTranslatedShaderSource(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetTranslatedShaderSource calls the method "WEBGL_debug_shaders.getTranslatedShaderSource".
 func (this WEBGL_debug_shaders) GetTranslatedShaderSource(shader WebGLShader) (ret js.String) {
 	bindings.CallWEBGL_debug_shadersGetTranslatedShaderSource(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		shader.Ref(),
 	)
 
@@ -1275,7 +1297,7 @@ func (this WEBGL_debug_shaders) GetTranslatedShaderSource(shader WebGLShader) (r
 // the catch clause.
 func (this WEBGL_debug_shaders) TryGetTranslatedShaderSource(shader WebGLShader) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_debug_shadersGetTranslatedShaderSource(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		shader.Ref(),
 	)
 
@@ -1291,7 +1313,7 @@ type WEBGL_depth_texture struct {
 }
 
 func (this WEBGL_depth_texture) Once() WEBGL_depth_texture {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1305,7 +1327,7 @@ func (this WEBGL_depth_texture) FromRef(ref js.Ref) WEBGL_depth_texture {
 }
 
 func (this WEBGL_depth_texture) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 const (
@@ -1350,7 +1372,7 @@ type WEBGL_draw_buffers struct {
 }
 
 func (this WEBGL_draw_buffers) Once() WEBGL_draw_buffers {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1364,29 +1386,28 @@ func (this WEBGL_draw_buffers) FromRef(ref js.Ref) WEBGL_draw_buffers {
 }
 
 func (this WEBGL_draw_buffers) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasDrawBuffersWEBGL returns true if the method "WEBGL_draw_buffers.drawBuffersWEBGL" exists.
-func (this WEBGL_draw_buffers) HasDrawBuffersWEBGL() bool {
-	return js.True == bindings.HasWEBGL_draw_buffersDrawBuffersWEBGL(
-		this.Ref(),
+// HasFuncDrawBuffersWEBGL returns true if the method "WEBGL_draw_buffers.drawBuffersWEBGL" exists.
+func (this WEBGL_draw_buffers) HasFuncDrawBuffersWEBGL() bool {
+	return js.True == bindings.HasFuncWEBGL_draw_buffersDrawBuffersWEBGL(
+		this.ref,
 	)
 }
 
-// DrawBuffersWEBGLFunc returns the method "WEBGL_draw_buffers.drawBuffersWEBGL".
-func (this WEBGL_draw_buffers) DrawBuffersWEBGLFunc() (fn js.Func[func(buffers js.Array[GLenum])]) {
-	return fn.FromRef(
-		bindings.WEBGL_draw_buffersDrawBuffersWEBGLFunc(
-			this.Ref(),
-		),
+// FuncDrawBuffersWEBGL returns the method "WEBGL_draw_buffers.drawBuffersWEBGL".
+func (this WEBGL_draw_buffers) FuncDrawBuffersWEBGL() (fn js.Func[func(buffers js.Array[GLenum])]) {
+	bindings.FuncWEBGL_draw_buffersDrawBuffersWEBGL(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawBuffersWEBGL calls the method "WEBGL_draw_buffers.drawBuffersWEBGL".
 func (this WEBGL_draw_buffers) DrawBuffersWEBGL(buffers js.Array[GLenum]) (ret js.Void) {
 	bindings.CallWEBGL_draw_buffersDrawBuffersWEBGL(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		buffers.Ref(),
 	)
 
@@ -1398,7 +1419,7 @@ func (this WEBGL_draw_buffers) DrawBuffersWEBGL(buffers js.Array[GLenum]) (ret j
 // the catch clause.
 func (this WEBGL_draw_buffers) TryDrawBuffersWEBGL(buffers js.Array[GLenum]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_draw_buffersDrawBuffersWEBGL(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		buffers.Ref(),
 	)
 
@@ -1410,7 +1431,7 @@ type WEBGL_draw_instanced_base_vertex_base_instance struct {
 }
 
 func (this WEBGL_draw_instanced_base_vertex_base_instance) Once() WEBGL_draw_instanced_base_vertex_base_instance {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1424,29 +1445,28 @@ func (this WEBGL_draw_instanced_base_vertex_base_instance) FromRef(ref js.Ref) W
 }
 
 func (this WEBGL_draw_instanced_base_vertex_base_instance) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasDrawArraysInstancedBaseInstanceWEBGL returns true if the method "WEBGL_draw_instanced_base_vertex_base_instance.drawArraysInstancedBaseInstanceWEBGL" exists.
-func (this WEBGL_draw_instanced_base_vertex_base_instance) HasDrawArraysInstancedBaseInstanceWEBGL() bool {
-	return js.True == bindings.HasWEBGL_draw_instanced_base_vertex_base_instanceDrawArraysInstancedBaseInstanceWEBGL(
-		this.Ref(),
+// HasFuncDrawArraysInstancedBaseInstanceWEBGL returns true if the method "WEBGL_draw_instanced_base_vertex_base_instance.drawArraysInstancedBaseInstanceWEBGL" exists.
+func (this WEBGL_draw_instanced_base_vertex_base_instance) HasFuncDrawArraysInstancedBaseInstanceWEBGL() bool {
+	return js.True == bindings.HasFuncWEBGL_draw_instanced_base_vertex_base_instanceDrawArraysInstancedBaseInstanceWEBGL(
+		this.ref,
 	)
 }
 
-// DrawArraysInstancedBaseInstanceWEBGLFunc returns the method "WEBGL_draw_instanced_base_vertex_base_instance.drawArraysInstancedBaseInstanceWEBGL".
-func (this WEBGL_draw_instanced_base_vertex_base_instance) DrawArraysInstancedBaseInstanceWEBGLFunc() (fn js.Func[func(mode GLenum, first GLint, count GLsizei, instanceCount GLsizei, baseInstance GLuint)]) {
-	return fn.FromRef(
-		bindings.WEBGL_draw_instanced_base_vertex_base_instanceDrawArraysInstancedBaseInstanceWEBGLFunc(
-			this.Ref(),
-		),
+// FuncDrawArraysInstancedBaseInstanceWEBGL returns the method "WEBGL_draw_instanced_base_vertex_base_instance.drawArraysInstancedBaseInstanceWEBGL".
+func (this WEBGL_draw_instanced_base_vertex_base_instance) FuncDrawArraysInstancedBaseInstanceWEBGL() (fn js.Func[func(mode GLenum, first GLint, count GLsizei, instanceCount GLsizei, baseInstance GLuint)]) {
+	bindings.FuncWEBGL_draw_instanced_base_vertex_base_instanceDrawArraysInstancedBaseInstanceWEBGL(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawArraysInstancedBaseInstanceWEBGL calls the method "WEBGL_draw_instanced_base_vertex_base_instance.drawArraysInstancedBaseInstanceWEBGL".
 func (this WEBGL_draw_instanced_base_vertex_base_instance) DrawArraysInstancedBaseInstanceWEBGL(mode GLenum, first GLint, count GLsizei, instanceCount GLsizei, baseInstance GLuint) (ret js.Void) {
 	bindings.CallWEBGL_draw_instanced_base_vertex_base_instanceDrawArraysInstancedBaseInstanceWEBGL(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mode),
 		int32(first),
 		int32(count),
@@ -1462,7 +1482,7 @@ func (this WEBGL_draw_instanced_base_vertex_base_instance) DrawArraysInstancedBa
 // the catch clause.
 func (this WEBGL_draw_instanced_base_vertex_base_instance) TryDrawArraysInstancedBaseInstanceWEBGL(mode GLenum, first GLint, count GLsizei, instanceCount GLsizei, baseInstance GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_draw_instanced_base_vertex_base_instanceDrawArraysInstancedBaseInstanceWEBGL(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mode),
 		int32(first),
 		int32(count),
@@ -1473,26 +1493,25 @@ func (this WEBGL_draw_instanced_base_vertex_base_instance) TryDrawArraysInstance
 	return
 }
 
-// HasDrawElementsInstancedBaseVertexBaseInstanceWEBGL returns true if the method "WEBGL_draw_instanced_base_vertex_base_instance.drawElementsInstancedBaseVertexBaseInstanceWEBGL" exists.
-func (this WEBGL_draw_instanced_base_vertex_base_instance) HasDrawElementsInstancedBaseVertexBaseInstanceWEBGL() bool {
-	return js.True == bindings.HasWEBGL_draw_instanced_base_vertex_base_instanceDrawElementsInstancedBaseVertexBaseInstanceWEBGL(
-		this.Ref(),
+// HasFuncDrawElementsInstancedBaseVertexBaseInstanceWEBGL returns true if the method "WEBGL_draw_instanced_base_vertex_base_instance.drawElementsInstancedBaseVertexBaseInstanceWEBGL" exists.
+func (this WEBGL_draw_instanced_base_vertex_base_instance) HasFuncDrawElementsInstancedBaseVertexBaseInstanceWEBGL() bool {
+	return js.True == bindings.HasFuncWEBGL_draw_instanced_base_vertex_base_instanceDrawElementsInstancedBaseVertexBaseInstanceWEBGL(
+		this.ref,
 	)
 }
 
-// DrawElementsInstancedBaseVertexBaseInstanceWEBGLFunc returns the method "WEBGL_draw_instanced_base_vertex_base_instance.drawElementsInstancedBaseVertexBaseInstanceWEBGL".
-func (this WEBGL_draw_instanced_base_vertex_base_instance) DrawElementsInstancedBaseVertexBaseInstanceWEBGLFunc() (fn js.Func[func(mode GLenum, count GLsizei, typ GLenum, offset GLintptr, instanceCount GLsizei, baseVertex GLint, baseInstance GLuint)]) {
-	return fn.FromRef(
-		bindings.WEBGL_draw_instanced_base_vertex_base_instanceDrawElementsInstancedBaseVertexBaseInstanceWEBGLFunc(
-			this.Ref(),
-		),
+// FuncDrawElementsInstancedBaseVertexBaseInstanceWEBGL returns the method "WEBGL_draw_instanced_base_vertex_base_instance.drawElementsInstancedBaseVertexBaseInstanceWEBGL".
+func (this WEBGL_draw_instanced_base_vertex_base_instance) FuncDrawElementsInstancedBaseVertexBaseInstanceWEBGL() (fn js.Func[func(mode GLenum, count GLsizei, typ GLenum, offset GLintptr, instanceCount GLsizei, baseVertex GLint, baseInstance GLuint)]) {
+	bindings.FuncWEBGL_draw_instanced_base_vertex_base_instanceDrawElementsInstancedBaseVertexBaseInstanceWEBGL(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawElementsInstancedBaseVertexBaseInstanceWEBGL calls the method "WEBGL_draw_instanced_base_vertex_base_instance.drawElementsInstancedBaseVertexBaseInstanceWEBGL".
 func (this WEBGL_draw_instanced_base_vertex_base_instance) DrawElementsInstancedBaseVertexBaseInstanceWEBGL(mode GLenum, count GLsizei, typ GLenum, offset GLintptr, instanceCount GLsizei, baseVertex GLint, baseInstance GLuint) (ret js.Void) {
 	bindings.CallWEBGL_draw_instanced_base_vertex_base_instanceDrawElementsInstancedBaseVertexBaseInstanceWEBGL(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mode),
 		int32(count),
 		uint32(typ),
@@ -1510,7 +1529,7 @@ func (this WEBGL_draw_instanced_base_vertex_base_instance) DrawElementsInstanced
 // the catch clause.
 func (this WEBGL_draw_instanced_base_vertex_base_instance) TryDrawElementsInstancedBaseVertexBaseInstanceWEBGL(mode GLenum, count GLsizei, typ GLenum, offset GLintptr, instanceCount GLsizei, baseVertex GLint, baseInstance GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_draw_instanced_base_vertex_base_instanceDrawElementsInstancedBaseVertexBaseInstanceWEBGL(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mode),
 		int32(count),
 		uint32(typ),
@@ -1528,7 +1547,7 @@ type WEBGL_lose_context struct {
 }
 
 func (this WEBGL_lose_context) Once() WEBGL_lose_context {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1542,29 +1561,28 @@ func (this WEBGL_lose_context) FromRef(ref js.Ref) WEBGL_lose_context {
 }
 
 func (this WEBGL_lose_context) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasLoseContext returns true if the method "WEBGL_lose_context.loseContext" exists.
-func (this WEBGL_lose_context) HasLoseContext() bool {
-	return js.True == bindings.HasWEBGL_lose_contextLoseContext(
-		this.Ref(),
+// HasFuncLoseContext returns true if the method "WEBGL_lose_context.loseContext" exists.
+func (this WEBGL_lose_context) HasFuncLoseContext() bool {
+	return js.True == bindings.HasFuncWEBGL_lose_contextLoseContext(
+		this.ref,
 	)
 }
 
-// LoseContextFunc returns the method "WEBGL_lose_context.loseContext".
-func (this WEBGL_lose_context) LoseContextFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.WEBGL_lose_contextLoseContextFunc(
-			this.Ref(),
-		),
+// FuncLoseContext returns the method "WEBGL_lose_context.loseContext".
+func (this WEBGL_lose_context) FuncLoseContext() (fn js.Func[func()]) {
+	bindings.FuncWEBGL_lose_contextLoseContext(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // LoseContext calls the method "WEBGL_lose_context.loseContext".
 func (this WEBGL_lose_context) LoseContext() (ret js.Void) {
 	bindings.CallWEBGL_lose_contextLoseContext(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1575,32 +1593,31 @@ func (this WEBGL_lose_context) LoseContext() (ret js.Void) {
 // the catch clause.
 func (this WEBGL_lose_context) TryLoseContext() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_lose_contextLoseContext(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasRestoreContext returns true if the method "WEBGL_lose_context.restoreContext" exists.
-func (this WEBGL_lose_context) HasRestoreContext() bool {
-	return js.True == bindings.HasWEBGL_lose_contextRestoreContext(
-		this.Ref(),
+// HasFuncRestoreContext returns true if the method "WEBGL_lose_context.restoreContext" exists.
+func (this WEBGL_lose_context) HasFuncRestoreContext() bool {
+	return js.True == bindings.HasFuncWEBGL_lose_contextRestoreContext(
+		this.ref,
 	)
 }
 
-// RestoreContextFunc returns the method "WEBGL_lose_context.restoreContext".
-func (this WEBGL_lose_context) RestoreContextFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.WEBGL_lose_contextRestoreContextFunc(
-			this.Ref(),
-		),
+// FuncRestoreContext returns the method "WEBGL_lose_context.restoreContext".
+func (this WEBGL_lose_context) FuncRestoreContext() (fn js.Func[func()]) {
+	bindings.FuncWEBGL_lose_contextRestoreContext(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RestoreContext calls the method "WEBGL_lose_context.restoreContext".
 func (this WEBGL_lose_context) RestoreContext() (ret js.Void) {
 	bindings.CallWEBGL_lose_contextRestoreContext(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1611,7 +1628,7 @@ func (this WEBGL_lose_context) RestoreContext() (ret js.Void) {
 // the catch clause.
 func (this WEBGL_lose_context) TryRestoreContext() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_lose_contextRestoreContext(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1648,7 +1665,7 @@ type WEBGL_multi_draw struct {
 }
 
 func (this WEBGL_multi_draw) Once() WEBGL_multi_draw {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1662,29 +1679,28 @@ func (this WEBGL_multi_draw) FromRef(ref js.Ref) WEBGL_multi_draw {
 }
 
 func (this WEBGL_multi_draw) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasMultiDrawArraysWEBGL returns true if the method "WEBGL_multi_draw.multiDrawArraysWEBGL" exists.
-func (this WEBGL_multi_draw) HasMultiDrawArraysWEBGL() bool {
-	return js.True == bindings.HasWEBGL_multi_drawMultiDrawArraysWEBGL(
-		this.Ref(),
+// HasFuncMultiDrawArraysWEBGL returns true if the method "WEBGL_multi_draw.multiDrawArraysWEBGL" exists.
+func (this WEBGL_multi_draw) HasFuncMultiDrawArraysWEBGL() bool {
+	return js.True == bindings.HasFuncWEBGL_multi_drawMultiDrawArraysWEBGL(
+		this.ref,
 	)
 }
 
-// MultiDrawArraysWEBGLFunc returns the method "WEBGL_multi_draw.multiDrawArraysWEBGL".
-func (this WEBGL_multi_draw) MultiDrawArraysWEBGLFunc() (fn js.Func[func(mode GLenum, firstsList OneOf_TypedArrayInt32_ArrayGLint, firstsOffset GLuint, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, drawcount GLsizei)]) {
-	return fn.FromRef(
-		bindings.WEBGL_multi_drawMultiDrawArraysWEBGLFunc(
-			this.Ref(),
-		),
+// FuncMultiDrawArraysWEBGL returns the method "WEBGL_multi_draw.multiDrawArraysWEBGL".
+func (this WEBGL_multi_draw) FuncMultiDrawArraysWEBGL() (fn js.Func[func(mode GLenum, firstsList OneOf_TypedArrayInt32_ArrayGLint, firstsOffset GLuint, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, drawcount GLsizei)]) {
+	bindings.FuncWEBGL_multi_drawMultiDrawArraysWEBGL(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // MultiDrawArraysWEBGL calls the method "WEBGL_multi_draw.multiDrawArraysWEBGL".
 func (this WEBGL_multi_draw) MultiDrawArraysWEBGL(mode GLenum, firstsList OneOf_TypedArrayInt32_ArrayGLint, firstsOffset GLuint, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, drawcount GLsizei) (ret js.Void) {
 	bindings.CallWEBGL_multi_drawMultiDrawArraysWEBGL(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mode),
 		firstsList.Ref(),
 		uint32(firstsOffset),
@@ -1701,7 +1717,7 @@ func (this WEBGL_multi_draw) MultiDrawArraysWEBGL(mode GLenum, firstsList OneOf_
 // the catch clause.
 func (this WEBGL_multi_draw) TryMultiDrawArraysWEBGL(mode GLenum, firstsList OneOf_TypedArrayInt32_ArrayGLint, firstsOffset GLuint, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, drawcount GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_multi_drawMultiDrawArraysWEBGL(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mode),
 		firstsList.Ref(),
 		uint32(firstsOffset),
@@ -1713,26 +1729,25 @@ func (this WEBGL_multi_draw) TryMultiDrawArraysWEBGL(mode GLenum, firstsList One
 	return
 }
 
-// HasMultiDrawElementsWEBGL returns true if the method "WEBGL_multi_draw.multiDrawElementsWEBGL" exists.
-func (this WEBGL_multi_draw) HasMultiDrawElementsWEBGL() bool {
-	return js.True == bindings.HasWEBGL_multi_drawMultiDrawElementsWEBGL(
-		this.Ref(),
+// HasFuncMultiDrawElementsWEBGL returns true if the method "WEBGL_multi_draw.multiDrawElementsWEBGL" exists.
+func (this WEBGL_multi_draw) HasFuncMultiDrawElementsWEBGL() bool {
+	return js.True == bindings.HasFuncWEBGL_multi_drawMultiDrawElementsWEBGL(
+		this.ref,
 	)
 }
 
-// MultiDrawElementsWEBGLFunc returns the method "WEBGL_multi_draw.multiDrawElementsWEBGL".
-func (this WEBGL_multi_draw) MultiDrawElementsWEBGLFunc() (fn js.Func[func(mode GLenum, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, typ GLenum, offsetsList OneOf_TypedArrayInt32_ArrayGLsizei, offsetsOffset GLuint, drawcount GLsizei)]) {
-	return fn.FromRef(
-		bindings.WEBGL_multi_drawMultiDrawElementsWEBGLFunc(
-			this.Ref(),
-		),
+// FuncMultiDrawElementsWEBGL returns the method "WEBGL_multi_draw.multiDrawElementsWEBGL".
+func (this WEBGL_multi_draw) FuncMultiDrawElementsWEBGL() (fn js.Func[func(mode GLenum, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, typ GLenum, offsetsList OneOf_TypedArrayInt32_ArrayGLsizei, offsetsOffset GLuint, drawcount GLsizei)]) {
+	bindings.FuncWEBGL_multi_drawMultiDrawElementsWEBGL(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // MultiDrawElementsWEBGL calls the method "WEBGL_multi_draw.multiDrawElementsWEBGL".
 func (this WEBGL_multi_draw) MultiDrawElementsWEBGL(mode GLenum, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, typ GLenum, offsetsList OneOf_TypedArrayInt32_ArrayGLsizei, offsetsOffset GLuint, drawcount GLsizei) (ret js.Void) {
 	bindings.CallWEBGL_multi_drawMultiDrawElementsWEBGL(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mode),
 		countsList.Ref(),
 		uint32(countsOffset),
@@ -1750,7 +1765,7 @@ func (this WEBGL_multi_draw) MultiDrawElementsWEBGL(mode GLenum, countsList OneO
 // the catch clause.
 func (this WEBGL_multi_draw) TryMultiDrawElementsWEBGL(mode GLenum, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, typ GLenum, offsetsList OneOf_TypedArrayInt32_ArrayGLsizei, offsetsOffset GLuint, drawcount GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_multi_drawMultiDrawElementsWEBGL(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mode),
 		countsList.Ref(),
 		uint32(countsOffset),
@@ -1763,26 +1778,25 @@ func (this WEBGL_multi_draw) TryMultiDrawElementsWEBGL(mode GLenum, countsList O
 	return
 }
 
-// HasMultiDrawArraysInstancedWEBGL returns true if the method "WEBGL_multi_draw.multiDrawArraysInstancedWEBGL" exists.
-func (this WEBGL_multi_draw) HasMultiDrawArraysInstancedWEBGL() bool {
-	return js.True == bindings.HasWEBGL_multi_drawMultiDrawArraysInstancedWEBGL(
-		this.Ref(),
+// HasFuncMultiDrawArraysInstancedWEBGL returns true if the method "WEBGL_multi_draw.multiDrawArraysInstancedWEBGL" exists.
+func (this WEBGL_multi_draw) HasFuncMultiDrawArraysInstancedWEBGL() bool {
+	return js.True == bindings.HasFuncWEBGL_multi_drawMultiDrawArraysInstancedWEBGL(
+		this.ref,
 	)
 }
 
-// MultiDrawArraysInstancedWEBGLFunc returns the method "WEBGL_multi_draw.multiDrawArraysInstancedWEBGL".
-func (this WEBGL_multi_draw) MultiDrawArraysInstancedWEBGLFunc() (fn js.Func[func(mode GLenum, firstsList OneOf_TypedArrayInt32_ArrayGLint, firstsOffset GLuint, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, instanceCountsList OneOf_TypedArrayInt32_ArrayGLsizei, instanceCountsOffset GLuint, drawcount GLsizei)]) {
-	return fn.FromRef(
-		bindings.WEBGL_multi_drawMultiDrawArraysInstancedWEBGLFunc(
-			this.Ref(),
-		),
+// FuncMultiDrawArraysInstancedWEBGL returns the method "WEBGL_multi_draw.multiDrawArraysInstancedWEBGL".
+func (this WEBGL_multi_draw) FuncMultiDrawArraysInstancedWEBGL() (fn js.Func[func(mode GLenum, firstsList OneOf_TypedArrayInt32_ArrayGLint, firstsOffset GLuint, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, instanceCountsList OneOf_TypedArrayInt32_ArrayGLsizei, instanceCountsOffset GLuint, drawcount GLsizei)]) {
+	bindings.FuncWEBGL_multi_drawMultiDrawArraysInstancedWEBGL(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // MultiDrawArraysInstancedWEBGL calls the method "WEBGL_multi_draw.multiDrawArraysInstancedWEBGL".
 func (this WEBGL_multi_draw) MultiDrawArraysInstancedWEBGL(mode GLenum, firstsList OneOf_TypedArrayInt32_ArrayGLint, firstsOffset GLuint, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, instanceCountsList OneOf_TypedArrayInt32_ArrayGLsizei, instanceCountsOffset GLuint, drawcount GLsizei) (ret js.Void) {
 	bindings.CallWEBGL_multi_drawMultiDrawArraysInstancedWEBGL(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mode),
 		firstsList.Ref(),
 		uint32(firstsOffset),
@@ -1801,7 +1815,7 @@ func (this WEBGL_multi_draw) MultiDrawArraysInstancedWEBGL(mode GLenum, firstsLi
 // the catch clause.
 func (this WEBGL_multi_draw) TryMultiDrawArraysInstancedWEBGL(mode GLenum, firstsList OneOf_TypedArrayInt32_ArrayGLint, firstsOffset GLuint, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, instanceCountsList OneOf_TypedArrayInt32_ArrayGLsizei, instanceCountsOffset GLuint, drawcount GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_multi_drawMultiDrawArraysInstancedWEBGL(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mode),
 		firstsList.Ref(),
 		uint32(firstsOffset),
@@ -1815,26 +1829,25 @@ func (this WEBGL_multi_draw) TryMultiDrawArraysInstancedWEBGL(mode GLenum, first
 	return
 }
 
-// HasMultiDrawElementsInstancedWEBGL returns true if the method "WEBGL_multi_draw.multiDrawElementsInstancedWEBGL" exists.
-func (this WEBGL_multi_draw) HasMultiDrawElementsInstancedWEBGL() bool {
-	return js.True == bindings.HasWEBGL_multi_drawMultiDrawElementsInstancedWEBGL(
-		this.Ref(),
+// HasFuncMultiDrawElementsInstancedWEBGL returns true if the method "WEBGL_multi_draw.multiDrawElementsInstancedWEBGL" exists.
+func (this WEBGL_multi_draw) HasFuncMultiDrawElementsInstancedWEBGL() bool {
+	return js.True == bindings.HasFuncWEBGL_multi_drawMultiDrawElementsInstancedWEBGL(
+		this.ref,
 	)
 }
 
-// MultiDrawElementsInstancedWEBGLFunc returns the method "WEBGL_multi_draw.multiDrawElementsInstancedWEBGL".
-func (this WEBGL_multi_draw) MultiDrawElementsInstancedWEBGLFunc() (fn js.Func[func(mode GLenum, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, typ GLenum, offsetsList OneOf_TypedArrayInt32_ArrayGLsizei, offsetsOffset GLuint, instanceCountsList OneOf_TypedArrayInt32_ArrayGLsizei, instanceCountsOffset GLuint, drawcount GLsizei)]) {
-	return fn.FromRef(
-		bindings.WEBGL_multi_drawMultiDrawElementsInstancedWEBGLFunc(
-			this.Ref(),
-		),
+// FuncMultiDrawElementsInstancedWEBGL returns the method "WEBGL_multi_draw.multiDrawElementsInstancedWEBGL".
+func (this WEBGL_multi_draw) FuncMultiDrawElementsInstancedWEBGL() (fn js.Func[func(mode GLenum, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, typ GLenum, offsetsList OneOf_TypedArrayInt32_ArrayGLsizei, offsetsOffset GLuint, instanceCountsList OneOf_TypedArrayInt32_ArrayGLsizei, instanceCountsOffset GLuint, drawcount GLsizei)]) {
+	bindings.FuncWEBGL_multi_drawMultiDrawElementsInstancedWEBGL(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // MultiDrawElementsInstancedWEBGL calls the method "WEBGL_multi_draw.multiDrawElementsInstancedWEBGL".
 func (this WEBGL_multi_draw) MultiDrawElementsInstancedWEBGL(mode GLenum, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, typ GLenum, offsetsList OneOf_TypedArrayInt32_ArrayGLsizei, offsetsOffset GLuint, instanceCountsList OneOf_TypedArrayInt32_ArrayGLsizei, instanceCountsOffset GLuint, drawcount GLsizei) (ret js.Void) {
 	bindings.CallWEBGL_multi_drawMultiDrawElementsInstancedWEBGL(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mode),
 		countsList.Ref(),
 		uint32(countsOffset),
@@ -1854,7 +1867,7 @@ func (this WEBGL_multi_draw) MultiDrawElementsInstancedWEBGL(mode GLenum, counts
 // the catch clause.
 func (this WEBGL_multi_draw) TryMultiDrawElementsInstancedWEBGL(mode GLenum, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, typ GLenum, offsetsList OneOf_TypedArrayInt32_ArrayGLsizei, offsetsOffset GLuint, instanceCountsList OneOf_TypedArrayInt32_ArrayGLsizei, instanceCountsOffset GLuint, drawcount GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_multi_drawMultiDrawElementsInstancedWEBGL(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mode),
 		countsList.Ref(),
 		uint32(countsOffset),
@@ -1874,7 +1887,7 @@ type WEBGL_multi_draw_instanced_base_vertex_base_instance struct {
 }
 
 func (this WEBGL_multi_draw_instanced_base_vertex_base_instance) Once() WEBGL_multi_draw_instanced_base_vertex_base_instance {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1888,29 +1901,28 @@ func (this WEBGL_multi_draw_instanced_base_vertex_base_instance) FromRef(ref js.
 }
 
 func (this WEBGL_multi_draw_instanced_base_vertex_base_instance) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasMultiDrawArraysInstancedBaseInstanceWEBGL returns true if the method "WEBGL_multi_draw_instanced_base_vertex_base_instance.multiDrawArraysInstancedBaseInstanceWEBGL" exists.
-func (this WEBGL_multi_draw_instanced_base_vertex_base_instance) HasMultiDrawArraysInstancedBaseInstanceWEBGL() bool {
-	return js.True == bindings.HasWEBGL_multi_draw_instanced_base_vertex_base_instanceMultiDrawArraysInstancedBaseInstanceWEBGL(
-		this.Ref(),
+// HasFuncMultiDrawArraysInstancedBaseInstanceWEBGL returns true if the method "WEBGL_multi_draw_instanced_base_vertex_base_instance.multiDrawArraysInstancedBaseInstanceWEBGL" exists.
+func (this WEBGL_multi_draw_instanced_base_vertex_base_instance) HasFuncMultiDrawArraysInstancedBaseInstanceWEBGL() bool {
+	return js.True == bindings.HasFuncWEBGL_multi_draw_instanced_base_vertex_base_instanceMultiDrawArraysInstancedBaseInstanceWEBGL(
+		this.ref,
 	)
 }
 
-// MultiDrawArraysInstancedBaseInstanceWEBGLFunc returns the method "WEBGL_multi_draw_instanced_base_vertex_base_instance.multiDrawArraysInstancedBaseInstanceWEBGL".
-func (this WEBGL_multi_draw_instanced_base_vertex_base_instance) MultiDrawArraysInstancedBaseInstanceWEBGLFunc() (fn js.Func[func(mode GLenum, firstsList OneOf_TypedArrayInt32_ArrayGLint, firstsOffset GLuint, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, instanceCountsList OneOf_TypedArrayInt32_ArrayGLsizei, instanceCountsOffset GLuint, baseInstancesList OneOf_TypedArrayUint32_ArrayGLuint, baseInstancesOffset GLuint, drawcount GLsizei)]) {
-	return fn.FromRef(
-		bindings.WEBGL_multi_draw_instanced_base_vertex_base_instanceMultiDrawArraysInstancedBaseInstanceWEBGLFunc(
-			this.Ref(),
-		),
+// FuncMultiDrawArraysInstancedBaseInstanceWEBGL returns the method "WEBGL_multi_draw_instanced_base_vertex_base_instance.multiDrawArraysInstancedBaseInstanceWEBGL".
+func (this WEBGL_multi_draw_instanced_base_vertex_base_instance) FuncMultiDrawArraysInstancedBaseInstanceWEBGL() (fn js.Func[func(mode GLenum, firstsList OneOf_TypedArrayInt32_ArrayGLint, firstsOffset GLuint, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, instanceCountsList OneOf_TypedArrayInt32_ArrayGLsizei, instanceCountsOffset GLuint, baseInstancesList OneOf_TypedArrayUint32_ArrayGLuint, baseInstancesOffset GLuint, drawcount GLsizei)]) {
+	bindings.FuncWEBGL_multi_draw_instanced_base_vertex_base_instanceMultiDrawArraysInstancedBaseInstanceWEBGL(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // MultiDrawArraysInstancedBaseInstanceWEBGL calls the method "WEBGL_multi_draw_instanced_base_vertex_base_instance.multiDrawArraysInstancedBaseInstanceWEBGL".
 func (this WEBGL_multi_draw_instanced_base_vertex_base_instance) MultiDrawArraysInstancedBaseInstanceWEBGL(mode GLenum, firstsList OneOf_TypedArrayInt32_ArrayGLint, firstsOffset GLuint, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, instanceCountsList OneOf_TypedArrayInt32_ArrayGLsizei, instanceCountsOffset GLuint, baseInstancesList OneOf_TypedArrayUint32_ArrayGLuint, baseInstancesOffset GLuint, drawcount GLsizei) (ret js.Void) {
 	bindings.CallWEBGL_multi_draw_instanced_base_vertex_base_instanceMultiDrawArraysInstancedBaseInstanceWEBGL(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mode),
 		firstsList.Ref(),
 		uint32(firstsOffset),
@@ -1931,7 +1943,7 @@ func (this WEBGL_multi_draw_instanced_base_vertex_base_instance) MultiDrawArrays
 // the catch clause.
 func (this WEBGL_multi_draw_instanced_base_vertex_base_instance) TryMultiDrawArraysInstancedBaseInstanceWEBGL(mode GLenum, firstsList OneOf_TypedArrayInt32_ArrayGLint, firstsOffset GLuint, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, instanceCountsList OneOf_TypedArrayInt32_ArrayGLsizei, instanceCountsOffset GLuint, baseInstancesList OneOf_TypedArrayUint32_ArrayGLuint, baseInstancesOffset GLuint, drawcount GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_multi_draw_instanced_base_vertex_base_instanceMultiDrawArraysInstancedBaseInstanceWEBGL(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mode),
 		firstsList.Ref(),
 		uint32(firstsOffset),
@@ -1947,26 +1959,25 @@ func (this WEBGL_multi_draw_instanced_base_vertex_base_instance) TryMultiDrawArr
 	return
 }
 
-// HasMultiDrawElementsInstancedBaseVertexBaseInstanceWEBGL returns true if the method "WEBGL_multi_draw_instanced_base_vertex_base_instance.multiDrawElementsInstancedBaseVertexBaseInstanceWEBGL" exists.
-func (this WEBGL_multi_draw_instanced_base_vertex_base_instance) HasMultiDrawElementsInstancedBaseVertexBaseInstanceWEBGL() bool {
-	return js.True == bindings.HasWEBGL_multi_draw_instanced_base_vertex_base_instanceMultiDrawElementsInstancedBaseVertexBaseInstanceWEBGL(
-		this.Ref(),
+// HasFuncMultiDrawElementsInstancedBaseVertexBaseInstanceWEBGL returns true if the method "WEBGL_multi_draw_instanced_base_vertex_base_instance.multiDrawElementsInstancedBaseVertexBaseInstanceWEBGL" exists.
+func (this WEBGL_multi_draw_instanced_base_vertex_base_instance) HasFuncMultiDrawElementsInstancedBaseVertexBaseInstanceWEBGL() bool {
+	return js.True == bindings.HasFuncWEBGL_multi_draw_instanced_base_vertex_base_instanceMultiDrawElementsInstancedBaseVertexBaseInstanceWEBGL(
+		this.ref,
 	)
 }
 
-// MultiDrawElementsInstancedBaseVertexBaseInstanceWEBGLFunc returns the method "WEBGL_multi_draw_instanced_base_vertex_base_instance.multiDrawElementsInstancedBaseVertexBaseInstanceWEBGL".
-func (this WEBGL_multi_draw_instanced_base_vertex_base_instance) MultiDrawElementsInstancedBaseVertexBaseInstanceWEBGLFunc() (fn js.Func[func(mode GLenum, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, typ GLenum, offsetsList OneOf_TypedArrayInt32_ArrayGLsizei, offsetsOffset GLuint, instanceCountsList OneOf_TypedArrayInt32_ArrayGLsizei, instanceCountsOffset GLuint, baseVerticesList OneOf_TypedArrayInt32_ArrayGLint, baseVerticesOffset GLuint, baseInstancesList OneOf_TypedArrayUint32_ArrayGLuint, baseInstancesOffset GLuint, drawcount GLsizei)]) {
-	return fn.FromRef(
-		bindings.WEBGL_multi_draw_instanced_base_vertex_base_instanceMultiDrawElementsInstancedBaseVertexBaseInstanceWEBGLFunc(
-			this.Ref(),
-		),
+// FuncMultiDrawElementsInstancedBaseVertexBaseInstanceWEBGL returns the method "WEBGL_multi_draw_instanced_base_vertex_base_instance.multiDrawElementsInstancedBaseVertexBaseInstanceWEBGL".
+func (this WEBGL_multi_draw_instanced_base_vertex_base_instance) FuncMultiDrawElementsInstancedBaseVertexBaseInstanceWEBGL() (fn js.Func[func(mode GLenum, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, typ GLenum, offsetsList OneOf_TypedArrayInt32_ArrayGLsizei, offsetsOffset GLuint, instanceCountsList OneOf_TypedArrayInt32_ArrayGLsizei, instanceCountsOffset GLuint, baseVerticesList OneOf_TypedArrayInt32_ArrayGLint, baseVerticesOffset GLuint, baseInstancesList OneOf_TypedArrayUint32_ArrayGLuint, baseInstancesOffset GLuint, drawcount GLsizei)]) {
+	bindings.FuncWEBGL_multi_draw_instanced_base_vertex_base_instanceMultiDrawElementsInstancedBaseVertexBaseInstanceWEBGL(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // MultiDrawElementsInstancedBaseVertexBaseInstanceWEBGL calls the method "WEBGL_multi_draw_instanced_base_vertex_base_instance.multiDrawElementsInstancedBaseVertexBaseInstanceWEBGL".
 func (this WEBGL_multi_draw_instanced_base_vertex_base_instance) MultiDrawElementsInstancedBaseVertexBaseInstanceWEBGL(mode GLenum, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, typ GLenum, offsetsList OneOf_TypedArrayInt32_ArrayGLsizei, offsetsOffset GLuint, instanceCountsList OneOf_TypedArrayInt32_ArrayGLsizei, instanceCountsOffset GLuint, baseVerticesList OneOf_TypedArrayInt32_ArrayGLint, baseVerticesOffset GLuint, baseInstancesList OneOf_TypedArrayUint32_ArrayGLuint, baseInstancesOffset GLuint, drawcount GLsizei) (ret js.Void) {
 	bindings.CallWEBGL_multi_draw_instanced_base_vertex_base_instanceMultiDrawElementsInstancedBaseVertexBaseInstanceWEBGL(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mode),
 		countsList.Ref(),
 		uint32(countsOffset),
@@ -1990,7 +2001,7 @@ func (this WEBGL_multi_draw_instanced_base_vertex_base_instance) MultiDrawElemen
 // the catch clause.
 func (this WEBGL_multi_draw_instanced_base_vertex_base_instance) TryMultiDrawElementsInstancedBaseVertexBaseInstanceWEBGL(mode GLenum, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, typ GLenum, offsetsList OneOf_TypedArrayInt32_ArrayGLsizei, offsetsOffset GLuint, instanceCountsList OneOf_TypedArrayInt32_ArrayGLsizei, instanceCountsOffset GLuint, baseVerticesList OneOf_TypedArrayInt32_ArrayGLint, baseVerticesOffset GLuint, baseInstancesList OneOf_TypedArrayUint32_ArrayGLuint, baseInstancesOffset GLuint, drawcount GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_multi_draw_instanced_base_vertex_base_instanceMultiDrawElementsInstancedBaseVertexBaseInstanceWEBGL(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mode),
 		countsList.Ref(),
 		uint32(countsOffset),
@@ -2020,7 +2031,7 @@ type WEBGL_provoking_vertex struct {
 }
 
 func (this WEBGL_provoking_vertex) Once() WEBGL_provoking_vertex {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2034,29 +2045,28 @@ func (this WEBGL_provoking_vertex) FromRef(ref js.Ref) WEBGL_provoking_vertex {
 }
 
 func (this WEBGL_provoking_vertex) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasProvokingVertexWEBGL returns true if the method "WEBGL_provoking_vertex.provokingVertexWEBGL" exists.
-func (this WEBGL_provoking_vertex) HasProvokingVertexWEBGL() bool {
-	return js.True == bindings.HasWEBGL_provoking_vertexProvokingVertexWEBGL(
-		this.Ref(),
+// HasFuncProvokingVertexWEBGL returns true if the method "WEBGL_provoking_vertex.provokingVertexWEBGL" exists.
+func (this WEBGL_provoking_vertex) HasFuncProvokingVertexWEBGL() bool {
+	return js.True == bindings.HasFuncWEBGL_provoking_vertexProvokingVertexWEBGL(
+		this.ref,
 	)
 }
 
-// ProvokingVertexWEBGLFunc returns the method "WEBGL_provoking_vertex.provokingVertexWEBGL".
-func (this WEBGL_provoking_vertex) ProvokingVertexWEBGLFunc() (fn js.Func[func(provokeMode GLenum)]) {
-	return fn.FromRef(
-		bindings.WEBGL_provoking_vertexProvokingVertexWEBGLFunc(
-			this.Ref(),
-		),
+// FuncProvokingVertexWEBGL returns the method "WEBGL_provoking_vertex.provokingVertexWEBGL".
+func (this WEBGL_provoking_vertex) FuncProvokingVertexWEBGL() (fn js.Func[func(provokeMode GLenum)]) {
+	bindings.FuncWEBGL_provoking_vertexProvokingVertexWEBGL(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ProvokingVertexWEBGL calls the method "WEBGL_provoking_vertex.provokingVertexWEBGL".
 func (this WEBGL_provoking_vertex) ProvokingVertexWEBGL(provokeMode GLenum) (ret js.Void) {
 	bindings.CallWEBGL_provoking_vertexProvokingVertexWEBGL(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(provokeMode),
 	)
 
@@ -2068,7 +2078,7 @@ func (this WEBGL_provoking_vertex) ProvokingVertexWEBGL(provokeMode GLenum) (ret
 // the catch clause.
 func (this WEBGL_provoking_vertex) TryProvokingVertexWEBGL(provokeMode GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_provoking_vertexProvokingVertexWEBGL(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(provokeMode),
 	)
 
@@ -2102,31 +2112,43 @@ func (p WebAssemblyInstantiatedSource) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p WebAssemblyInstantiatedSource) UpdateFrom(ref js.Ref) {
+func (p *WebAssemblyInstantiatedSource) UpdateFrom(ref js.Ref) {
 	bindings.WebAssemblyInstantiatedSourceJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p WebAssemblyInstantiatedSource) Update(ref js.Ref) {
+func (p *WebAssemblyInstantiatedSource) Update(ref js.Ref) {
 	bindings.WebAssemblyInstantiatedSourceJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *WebAssemblyInstantiatedSource) FreeMembers(recursive bool) {
+	js.Free(
+		p.Module.Ref(),
+		p.Instance.Ref(),
+	)
+	p.Module = p.Module.FromRef(js.Undefined)
+	p.Instance = p.Instance.FromRef(js.Undefined)
 }
 
 type WebAssembly struct{}
 
-// HasValidate returns ture if the function "WebAssembly.validate" exists.
-func (WebAssembly) HasValidate() bool {
-	return js.True == bindings.HasWebAssemblyValidate()
+// HasFuncValidate returns ture if the function "WebAssembly.validate" exists.
+func (WebAssembly) HasFuncValidate() bool {
+	return js.True == bindings.HasFuncWebAssemblyValidate()
 }
 
-// ValidateFunc returns the function "WebAssembly.validate".
-func (WebAssembly) ValidateFunc() (fn js.Func[func(bytes BufferSource) bool]) {
-	return fn.FromRef(
-		bindings.WebAssemblyValidateFunc(),
+// FuncValidate returns the function "WebAssembly.validate".
+func (WebAssembly) FuncValidate() (fn js.Func[func(bytes BufferSource) bool]) {
+	bindings.FuncWebAssemblyValidate(
+		js.Pointer(&fn),
 	)
+	return
 }
 
 // Validate calls the function "WebAssembly.validate".
@@ -2149,16 +2171,17 @@ func (WebAssembly) TryValidate(bytes BufferSource) (ret bool, exception js.Any, 
 	return
 }
 
-// HasCompile returns ture if the function "WebAssembly.compile" exists.
-func (WebAssembly) HasCompile() bool {
-	return js.True == bindings.HasWebAssemblyCompile()
+// HasFuncCompile returns ture if the function "WebAssembly.compile" exists.
+func (WebAssembly) HasFuncCompile() bool {
+	return js.True == bindings.HasFuncWebAssemblyCompile()
 }
 
-// CompileFunc returns the function "WebAssembly.compile".
-func (WebAssembly) CompileFunc() (fn js.Func[func(bytes BufferSource) js.Promise[Module]]) {
-	return fn.FromRef(
-		bindings.WebAssemblyCompileFunc(),
+// FuncCompile returns the function "WebAssembly.compile".
+func (WebAssembly) FuncCompile() (fn js.Func[func(bytes BufferSource) js.Promise[Module]]) {
+	bindings.FuncWebAssemblyCompile(
+		js.Pointer(&fn),
 	)
+	return
 }
 
 // Compile calls the function "WebAssembly.compile".
@@ -2181,16 +2204,17 @@ func (WebAssembly) TryCompile(bytes BufferSource) (ret js.Promise[Module], excep
 	return
 }
 
-// HasInstantiate returns ture if the function "WebAssembly.instantiate" exists.
-func (WebAssembly) HasInstantiate() bool {
-	return js.True == bindings.HasWebAssemblyInstantiate()
+// HasFuncInstantiate returns ture if the function "WebAssembly.instantiate" exists.
+func (WebAssembly) HasFuncInstantiate() bool {
+	return js.True == bindings.HasFuncWebAssemblyInstantiate()
 }
 
-// InstantiateFunc returns the function "WebAssembly.instantiate".
-func (WebAssembly) InstantiateFunc() (fn js.Func[func(bytes BufferSource, importObject js.Object) js.Promise[WebAssemblyInstantiatedSource]]) {
-	return fn.FromRef(
-		bindings.WebAssemblyInstantiateFunc(),
+// FuncInstantiate returns the function "WebAssembly.instantiate".
+func (WebAssembly) FuncInstantiate() (fn js.Func[func(bytes BufferSource, importObject js.Object) js.Promise[WebAssemblyInstantiatedSource]]) {
+	bindings.FuncWebAssemblyInstantiate(
+		js.Pointer(&fn),
 	)
+	return
 }
 
 // Instantiate calls the function "WebAssembly.instantiate".
@@ -2215,16 +2239,17 @@ func (WebAssembly) TryInstantiate(bytes BufferSource, importObject js.Object) (r
 	return
 }
 
-// HasInstantiate1 returns ture if the function "WebAssembly.instantiate" exists.
-func (WebAssembly) HasInstantiate1() bool {
-	return js.True == bindings.HasWebAssemblyInstantiate1()
+// HasFuncInstantiate1 returns ture if the function "WebAssembly.instantiate" exists.
+func (WebAssembly) HasFuncInstantiate1() bool {
+	return js.True == bindings.HasFuncWebAssemblyInstantiate1()
 }
 
-// Instantiate1Func returns the function "WebAssembly.instantiate".
-func (WebAssembly) Instantiate1Func() (fn js.Func[func(bytes BufferSource) js.Promise[WebAssemblyInstantiatedSource]]) {
-	return fn.FromRef(
-		bindings.WebAssemblyInstantiate1Func(),
+// FuncInstantiate1 returns the function "WebAssembly.instantiate".
+func (WebAssembly) FuncInstantiate1() (fn js.Func[func(bytes BufferSource) js.Promise[WebAssemblyInstantiatedSource]]) {
+	bindings.FuncWebAssemblyInstantiate1(
+		js.Pointer(&fn),
 	)
+	return
 }
 
 // Instantiate1 calls the function "WebAssembly.instantiate".
@@ -2247,16 +2272,17 @@ func (WebAssembly) TryInstantiate1(bytes BufferSource) (ret js.Promise[WebAssemb
 	return
 }
 
-// HasInstantiate2 returns ture if the function "WebAssembly.instantiate" exists.
-func (WebAssembly) HasInstantiate2() bool {
-	return js.True == bindings.HasWebAssemblyInstantiate2()
+// HasFuncInstantiate2 returns ture if the function "WebAssembly.instantiate" exists.
+func (WebAssembly) HasFuncInstantiate2() bool {
+	return js.True == bindings.HasFuncWebAssemblyInstantiate2()
 }
 
-// Instantiate2Func returns the function "WebAssembly.instantiate".
-func (WebAssembly) Instantiate2Func() (fn js.Func[func(moduleObject Module, importObject js.Object) js.Promise[Instance]]) {
-	return fn.FromRef(
-		bindings.WebAssemblyInstantiate2Func(),
+// FuncInstantiate2 returns the function "WebAssembly.instantiate".
+func (WebAssembly) FuncInstantiate2() (fn js.Func[func(moduleObject Module, importObject js.Object) js.Promise[Instance]]) {
+	bindings.FuncWebAssemblyInstantiate2(
+		js.Pointer(&fn),
 	)
+	return
 }
 
 // Instantiate2 calls the function "WebAssembly.instantiate".
@@ -2281,16 +2307,17 @@ func (WebAssembly) TryInstantiate2(moduleObject Module, importObject js.Object) 
 	return
 }
 
-// HasInstantiate3 returns ture if the function "WebAssembly.instantiate" exists.
-func (WebAssembly) HasInstantiate3() bool {
-	return js.True == bindings.HasWebAssemblyInstantiate3()
+// HasFuncInstantiate3 returns ture if the function "WebAssembly.instantiate" exists.
+func (WebAssembly) HasFuncInstantiate3() bool {
+	return js.True == bindings.HasFuncWebAssemblyInstantiate3()
 }
 
-// Instantiate3Func returns the function "WebAssembly.instantiate".
-func (WebAssembly) Instantiate3Func() (fn js.Func[func(moduleObject Module) js.Promise[Instance]]) {
-	return fn.FromRef(
-		bindings.WebAssemblyInstantiate3Func(),
+// FuncInstantiate3 returns the function "WebAssembly.instantiate".
+func (WebAssembly) FuncInstantiate3() (fn js.Func[func(moduleObject Module) js.Promise[Instance]]) {
+	bindings.FuncWebAssemblyInstantiate3(
+		js.Pointer(&fn),
 	)
+	return
 }
 
 // Instantiate3 calls the function "WebAssembly.instantiate".
@@ -2313,16 +2340,17 @@ func (WebAssembly) TryInstantiate3(moduleObject Module) (ret js.Promise[Instance
 	return
 }
 
-// HasCompileStreaming returns ture if the function "WebAssembly.compileStreaming" exists.
-func (WebAssembly) HasCompileStreaming() bool {
-	return js.True == bindings.HasWebAssemblyCompileStreaming()
+// HasFuncCompileStreaming returns ture if the function "WebAssembly.compileStreaming" exists.
+func (WebAssembly) HasFuncCompileStreaming() bool {
+	return js.True == bindings.HasFuncWebAssemblyCompileStreaming()
 }
 
-// CompileStreamingFunc returns the function "WebAssembly.compileStreaming".
-func (WebAssembly) CompileStreamingFunc() (fn js.Func[func(source js.Promise[Response]) js.Promise[Module]]) {
-	return fn.FromRef(
-		bindings.WebAssemblyCompileStreamingFunc(),
+// FuncCompileStreaming returns the function "WebAssembly.compileStreaming".
+func (WebAssembly) FuncCompileStreaming() (fn js.Func[func(source js.Promise[Response]) js.Promise[Module]]) {
+	bindings.FuncWebAssemblyCompileStreaming(
+		js.Pointer(&fn),
 	)
+	return
 }
 
 // CompileStreaming calls the function "WebAssembly.compileStreaming".
@@ -2345,16 +2373,17 @@ func (WebAssembly) TryCompileStreaming(source js.Promise[Response]) (ret js.Prom
 	return
 }
 
-// HasInstantiateStreaming returns ture if the function "WebAssembly.instantiateStreaming" exists.
-func (WebAssembly) HasInstantiateStreaming() bool {
-	return js.True == bindings.HasWebAssemblyInstantiateStreaming()
+// HasFuncInstantiateStreaming returns ture if the function "WebAssembly.instantiateStreaming" exists.
+func (WebAssembly) HasFuncInstantiateStreaming() bool {
+	return js.True == bindings.HasFuncWebAssemblyInstantiateStreaming()
 }
 
-// InstantiateStreamingFunc returns the function "WebAssembly.instantiateStreaming".
-func (WebAssembly) InstantiateStreamingFunc() (fn js.Func[func(source js.Promise[Response], importObject js.Object) js.Promise[WebAssemblyInstantiatedSource]]) {
-	return fn.FromRef(
-		bindings.WebAssemblyInstantiateStreamingFunc(),
+// FuncInstantiateStreaming returns the function "WebAssembly.instantiateStreaming".
+func (WebAssembly) FuncInstantiateStreaming() (fn js.Func[func(source js.Promise[Response], importObject js.Object) js.Promise[WebAssemblyInstantiatedSource]]) {
+	bindings.FuncWebAssemblyInstantiateStreaming(
+		js.Pointer(&fn),
 	)
+	return
 }
 
 // InstantiateStreaming calls the function "WebAssembly.instantiateStreaming".
@@ -2379,16 +2408,17 @@ func (WebAssembly) TryInstantiateStreaming(source js.Promise[Response], importOb
 	return
 }
 
-// HasInstantiateStreaming1 returns ture if the function "WebAssembly.instantiateStreaming" exists.
-func (WebAssembly) HasInstantiateStreaming1() bool {
-	return js.True == bindings.HasWebAssemblyInstantiateStreaming1()
+// HasFuncInstantiateStreaming1 returns ture if the function "WebAssembly.instantiateStreaming" exists.
+func (WebAssembly) HasFuncInstantiateStreaming1() bool {
+	return js.True == bindings.HasFuncWebAssemblyInstantiateStreaming1()
 }
 
-// InstantiateStreaming1Func returns the function "WebAssembly.instantiateStreaming".
-func (WebAssembly) InstantiateStreaming1Func() (fn js.Func[func(source js.Promise[Response]) js.Promise[WebAssemblyInstantiatedSource]]) {
-	return fn.FromRef(
-		bindings.WebAssemblyInstantiateStreaming1Func(),
+// FuncInstantiateStreaming1 returns the function "WebAssembly.instantiateStreaming".
+func (WebAssembly) FuncInstantiateStreaming1() (fn js.Func[func(source js.Promise[Response]) js.Promise[WebAssemblyInstantiatedSource]]) {
+	bindings.FuncWebAssemblyInstantiateStreaming1(
+		js.Pointer(&fn),
 	)
+	return
 }
 
 // InstantiateStreaming1 calls the function "WebAssembly.instantiateStreaming".
@@ -2456,15 +2486,24 @@ func (p WebGLContextEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p WebGLContextEventInit) UpdateFrom(ref js.Ref) {
+func (p *WebGLContextEventInit) UpdateFrom(ref js.Ref) {
 	bindings.WebGLContextEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p WebGLContextEventInit) Update(ref js.Ref) {
+func (p *WebGLContextEventInit) Update(ref js.Ref) {
 	bindings.WebGLContextEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *WebGLContextEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.StatusMessage.Ref(),
+	)
+	p.StatusMessage = p.StatusMessage.FromRef(js.Undefined)
 }

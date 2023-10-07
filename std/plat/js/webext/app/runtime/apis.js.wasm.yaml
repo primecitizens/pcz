@@ -1,0 +1,489 @@
+- File: webext/app_runtime.idl
+  Dict:
+    Name: ActionData
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - runtime
+    Fields:
+      - Name: actionType
+        Type:
+          Name: ActionType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - runtime
+      - Name: isLockScreenAction
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - runtime
+        ExtAttrs:
+          - Name: nodoc
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - runtime
+      - Name: restoreLastActionState
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - runtime
+        ExtAttrs:
+          - Name: nodoc
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - runtime
+- File: webext/app_runtime.idl
+  Enum:
+    Name: ActionType
+    Values:
+      - new_note
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - runtime
+- File: webext/app_runtime.idl
+  Interface:
+    Name: EmbedRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - runtime
+    Attrs:
+      - Name: embedderId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - runtime
+      - Name: data
+        Type:
+          Name: any
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - runtime
+    Operations:
+      - Name: allow
+        Args:
+          - Name: url
+            Type:
+              Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - app
+                    - runtime
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - runtime
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - runtime
+        ExtAttrs:
+          - Name: nocompile
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - runtime
+      - Name: deny
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - runtime
+        ExtAttrs:
+          - Name: nocompile
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - runtime
+- File: webext/app_runtime.idl
+  Dict:
+    Name: LaunchData
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - runtime
+      - Name: inline_doc
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - runtime
+      - Name: items
+        Type:
+          Name: sequence
+          Params:
+            - Name: LaunchItem
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - app
+                    - runtime
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - runtime
+      - Name: url
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - runtime
+      - Name: referrerUrl
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - runtime
+      - Name: isDemoSession
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - runtime
+        ExtAttrs:
+          - Name: nodoc
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - runtime
+      - Name: isKioskSession
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - runtime
+      - Name: isPublicSession
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - runtime
+      - Name: source
+        Type:
+          Name: LaunchSource
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - runtime
+      - Name: actionData
+        Type:
+          Name: ActionData
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - runtime
+- File: webext/app_runtime.idl
+  Dict:
+    Name: LaunchItem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - runtime
+      - Name: inline_doc
+    Fields:
+      - Name: entry
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - runtime
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - Entry
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - runtime
+      - Name: type
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - runtime
+- File: webext/app_runtime.idl
+  Enum:
+    Name: LaunchSource
+    Values:
+      - untracked
+      - app_launcher
+      - new_tab_page
+      - reload
+      - restart
+      - load_and_launch
+      - command_line
+      - file_handler
+      - url_handler
+      - system_tray
+      - about_page
+      - keyboard
+      - extensions_page
+      - management_api
+      - ephemeral_app
+      - background
+      - kiosk
+      - chrome_internal
+      - test
+      - installed_notification
+      - context_menu
+      - arc
+      - intent_url
+      - app_home_page
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - runtime
+- File: webext/app_runtime.idl
+  WebextEvent:
+    Name: onEmbedRequested
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: EmbedRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - runtime
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - runtime
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - runtime
+- File: webext/app_runtime.idl
+  WebextEvent:
+    Name: onLaunched
+    Modifier: static
+    Args:
+      - Name: launchData
+        Optional: true
+        Type:
+          Name: LaunchData
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - runtime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - runtime
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - runtime
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - runtime
+- File: webext/app_runtime.idl
+  WebextEvent:
+    Name: onRestarted
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - runtime
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - runtime

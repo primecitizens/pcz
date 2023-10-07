@@ -1,0 +1,528 @@
+- File: webext/chrome/users_private.idl
+  Callback:
+    Name: IsUserInListCallback
+    Args:
+      - Name: found
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usersPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usersPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usersPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usersPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/users_private.idl
+  Callback:
+    Name: LoginStatusCallback
+    Args:
+      - Name: status
+        Type:
+          Name: LoginStatusDict
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usersPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usersPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usersPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usersPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/users_private.idl
+  Dict:
+    Name: LoginStatusDict
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usersPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: isLoggedIn
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usersPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usersPrivate
+      - Name: isScreenLocked
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usersPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usersPrivate
+- File: webext/chrome/users_private.idl
+  Callback:
+    Name: ManagedCallback
+    Args:
+      - Name: managed
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usersPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usersPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usersPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usersPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/users_private.idl
+  Dict:
+    Name: User
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usersPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: email
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usersPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usersPrivate
+      - Name: displayEmail
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usersPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usersPrivate
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usersPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usersPrivate
+      - Name: isOwner
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usersPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usersPrivate
+      - Name: isChild
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usersPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usersPrivate
+- File: webext/chrome/users_private.idl
+  Callback:
+    Name: UserAddedCallback
+    Args:
+      - Name: success
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usersPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usersPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usersPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usersPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/users_private.idl
+  Callback:
+    Name: UserCallback
+    Args:
+      - Name: user
+        Type:
+          Name: User
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usersPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usersPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usersPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usersPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/users_private.idl
+  Callback:
+    Name: UserRemovedCallback
+    Args:
+      - Name: success
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usersPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usersPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usersPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usersPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/users_private.idl
+  Callback:
+    Name: UsersCallback
+    Args:
+      - Name: users
+        Type:
+          Name: sequence
+          Params:
+            - Name: User
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - usersPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usersPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usersPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usersPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usersPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/users_private.idl
+  WebextFunc:
+    Name: addUser
+    Modifier: static
+    Args:
+      - Name: email
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usersPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usersPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - usersPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usersPrivate
+- File: webext/chrome/users_private.idl
+  WebextFunc:
+    Name: getCurrentUser
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: User
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - usersPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usersPrivate
+- File: webext/chrome/users_private.idl
+  WebextFunc:
+    Name: getLoginStatus
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: LoginStatusDict
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - usersPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usersPrivate
+- File: webext/chrome/users_private.idl
+  WebextFunc:
+    Name: getUsers
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: User
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - usersPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - usersPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usersPrivate
+- File: webext/chrome/users_private.idl
+  WebextFunc:
+    Name: isUserInList
+    Modifier: static
+    Args:
+      - Name: email
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usersPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usersPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - usersPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usersPrivate
+- File: webext/chrome/users_private.idl
+  WebextFunc:
+    Name: isUserListManaged
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - usersPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usersPrivate
+- File: webext/chrome/users_private.idl
+  WebextFunc:
+    Name: removeUser
+    Modifier: static
+    Args:
+      - Name: email
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usersPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usersPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - usersPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usersPrivate

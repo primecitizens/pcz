@@ -1,0 +1,417 @@
+- File: webext/chrome/tts.json
+  Enum:
+    Name: EventType
+    Values:
+      - start
+      - end
+      - word
+      - sentence
+      - marker
+      - interrupted
+      - cancelled
+      - error
+      - pause
+      - resume
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tts
+- File: webext/chrome/tts.json
+  Dict:
+    Name: TtsEvent
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tts
+    Fields:
+      - Name: charIndex
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tts
+      - Name: errorMessage
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tts
+      - Name: isFinalEvent
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tts
+      - Name: length
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tts
+      - Name: srcId
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tts
+      - Name: type
+        Required: true
+        Type:
+          Name: EventType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tts
+- File: webext/chrome/tts.json
+  Dict:
+    Name: TtsOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tts
+    Fields:
+      - Name: desiredEventTypes
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tts
+      - Name: enqueue
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tts
+      - Name: extensionId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tts
+      - Name: gender
+        Type:
+          Name: VoiceGender
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tts
+      - Name: lang
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tts
+      - Name: onEvent
+        Type:
+          Name: TtsOptionsFieldOnEvent
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tts
+      - Name: pitch
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tts
+      - Name: rate
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tts
+      - Name: requiredEventTypes
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tts
+      - Name: voiceName
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tts
+      - Name: volume
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tts
+- File: webext/chrome/tts.json
+  Callback:
+    Name: TtsOptionsFieldOnEvent
+    Args:
+      - Name: event
+        Type:
+          Name: TtsEvent
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tts
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tts
+- File: webext/chrome/tts.json
+  Dict:
+    Name: TtsVoice
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tts
+    Fields:
+      - Name: eventTypes
+        Type:
+          Name: sequence
+          Params:
+            - Name: EventType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - tts
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tts
+      - Name: extensionId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tts
+      - Name: gender
+        Type:
+          Name: VoiceGender
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tts
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tts
+      - Name: lang
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tts
+      - Name: remote
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tts
+      - Name: voiceName
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tts
+- File: webext/chrome/tts.json
+  Enum:
+    Name: VoiceGender
+    Values:
+      - male
+      - female
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tts
+- File: webext/chrome/tts.json
+  WebextFunc:
+    Name: getVoices
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: TtsVoice
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - tts
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - tts
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tts
+- File: webext/chrome/tts.json
+  WebextFunc:
+    Name: isSpeaking
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tts
+- File: webext/chrome/tts.json
+  WebextEvent:
+    Name: onEvent
+    Args:
+      - Name: event
+        Type:
+          Name: TtsEvent
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tts
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tts
+- File: webext/chrome/tts.json
+  WebextFunc:
+    Name: pause
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tts
+- File: webext/chrome/tts.json
+  WebextFunc:
+    Name: resume
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tts
+- File: webext/chrome/tts.json
+  WebextFunc:
+    Name: speak
+    Args:
+      - Name: utterance
+        Type:
+          Name: DOMString
+      - Name: options
+        Optional: true
+        Type:
+          Name: TtsOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tts
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tts
+- File: webext/chrome/tts.json
+  WebextFunc:
+    Name: stop
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tts

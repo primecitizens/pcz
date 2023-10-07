@@ -1,0 +1,3403 @@
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: AudioInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: outputMute
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: inputMute
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: underruns
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: severeUnderruns
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: outputNodes
+        Type:
+          Name: sequence
+          Params:
+            - Name: AudioOutputNodeInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - os
+                    - telemetry
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: inputNodes
+        Type:
+          Name: sequence
+          Params:
+            - Name: AudioInputNodeInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - os
+                    - telemetry
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Callback:
+    Name: AudioInfoCallback
+    Args:
+      - Name: audioInfo
+        Type:
+          Name: AudioInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: AudioInputNodeInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: id
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: name
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: deviceName
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: active
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: nodeGain
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: AudioOutputNodeInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: id
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: name
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: deviceName
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: active
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: nodeVolume
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: BatteryInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: cycleCount
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: voltageNow
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: vendor
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: serialNumber
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: chargeFullDesign
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: chargeFull
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: voltageMinDesign
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: modelName
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: chargeNow
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: currentNow
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: technology
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: status
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: manufactureDate
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: temperature
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Callback:
+    Name: BatteryInfoCallback
+    Args:
+      - Name: batteryInfo
+        Type:
+          Name: BatteryInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  Enum:
+    Name: CpuArchitectureEnum
+    Values:
+      - unknown
+      - x86_64
+      - aarch64
+      - armv7l
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: CpuCStateInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: name
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: timeInStateSinceLastBootUs
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: CpuInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: numTotalThreads
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: architecture
+        Type:
+          Name: CpuArchitectureEnum
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: physicalCpus
+        Type:
+          Name: sequence
+          Params:
+            - Name: PhysicalCpuInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - os
+                    - telemetry
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Callback:
+    Name: CpuInfoCallback
+    Args:
+      - Name: cpuInfo
+        Type:
+          Name: CpuInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: DisplayInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: embeddedDisplay
+        Type:
+          Name: EmbeddedDisplayInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: externalDisplays
+        Type:
+          Name: sequence
+          Params:
+            - Name: ExternalDisplayInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - os
+                    - telemetry
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Callback:
+    Name: DisplayInfoCallback
+    Args:
+      - Name: displayInfo
+        Type:
+          Name: DisplayInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  Enum:
+    Name: DisplayInputType
+    Values:
+      - unknown
+      - digital
+      - analog
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  Callback:
+    Name: EOF
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: EmbeddedDisplayInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: privacyScreenSupported
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: privacyScreenEnabled
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: displayWidth
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: displayHeight
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: resolutionHorizontal
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: resolutionVertical
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: refreshRate
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: manufacturer
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: modelId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: serialNumber
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: manufactureWeek
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: manufactureYear
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: edidVersion
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: inputType
+        Type:
+          Name: DisplayInputType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: displayName
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: ExternalDisplayInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: displayWidth
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: displayHeight
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: resolutionHorizontal
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: resolutionVertical
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: refreshRate
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: manufacturer
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: modelId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: serialNumber
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: manufactureWeek
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: manufactureYear
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: edidVersion
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: inputType
+        Type:
+          Name: DisplayInputType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: displayName
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: FwupdFirmwareVersionInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: version
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: version_format
+        Type:
+          Name: FwupdVersionFormat
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Enum:
+    Name: FwupdVersionFormat
+    Values:
+      - plain
+      - number
+      - pair
+      - triplet
+      - quad
+      - bcd
+      - intelMe
+      - intelMe2
+      - surfaceLegacy
+      - surface
+      - dellBios
+      - hex
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: InternetConnectivityInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: networks
+        Type:
+          Name: sequence
+          Params:
+            - Name: NetworkInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - os
+                    - telemetry
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Callback:
+    Name: InternetConnectivityInfoCallback
+    Args:
+      - Name: networkInfo
+        Type:
+          Name: InternetConnectivityInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: LogicalCpuInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: maxClockSpeedKhz
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: scalingMaxFrequencyKhz
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: scalingCurrentFrequencyKhz
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: idleTimeMs
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: cStates
+        Type:
+          Name: sequence
+          Params:
+            - Name: CpuCStateInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - os
+                    - telemetry
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: coreId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: MarketingInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: marketingName
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Callback:
+    Name: MarketingInfoCallback
+    Args:
+      - Name: marketingInfo
+        Type:
+          Name: MarketingInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: MemoryInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: totalMemoryKiB
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: freeMemoryKiB
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: availableMemoryKiB
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: pageFaultsSinceLastBoot
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Callback:
+    Name: MemoryInfoCallback
+    Args:
+      - Name: cpuInfo
+        Type:
+          Name: MemoryInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: NetworkInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: type
+        Type:
+          Name: NetworkType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: state
+        Type:
+          Name: NetworkState
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: macAddress
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: ipv4Address
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: ipv6Addresses
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - os
+                    - telemetry
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: signalStrength
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Enum:
+    Name: NetworkState
+    Values:
+      - uninitialized
+      - disabled
+      - prohibited
+      - not_connected
+      - connecting
+      - portal
+      - connected
+      - online
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  Enum:
+    Name: NetworkType
+    Values:
+      - cellular
+      - ethernet
+      - tether
+      - vpn
+      - wifi
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: NonRemovableBlockDeviceInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: name
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: type
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: size
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: NonRemovableBlockDeviceInfoResponse
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: deviceInfos
+        Type:
+          Name: sequence
+          Params:
+            - Name: NonRemovableBlockDeviceInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - os
+                    - telemetry
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Callback:
+    Name: NonRemovableBlockDevicesInfoCallback
+    Args:
+      - Name: deviceInfoResponse
+        Type:
+          Name: NonRemovableBlockDeviceInfoResponse
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: OemData
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: oemData
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Callback:
+    Name: OemDataCallback
+    Args:
+      - Name: oemData
+        Type:
+          Name: OemData
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: OsVersionInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: releaseMilestone
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: buildNumber
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: patchNumber
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: releaseChannel
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Callback:
+    Name: OsVersionInfoCallback
+    Args:
+      - Name: osVersionInfo
+        Type:
+          Name: OsVersionInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: PhysicalCpuInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: modelName
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: logicalCpus
+        Type:
+          Name: sequence
+          Params:
+            - Name: LogicalCpuInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - os
+                    - telemetry
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: StatefulPartitionInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: availableSpace
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: totalSpace
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Callback:
+    Name: StatefulPartitionInfoCallback
+    Args:
+      - Name: statefulPartitionInfo
+        Type:
+          Name: StatefulPartitionInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: TpmDictionaryAttack
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: counter
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: threshold
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: lockoutInEffect
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: lockoutSecondsRemaining
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Enum:
+    Name: TpmGSCVersion
+    Values:
+      - not_gsc
+      - cr50
+      - ti50
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: TpmInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: version
+        Type:
+          Name: TpmVersion
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: status
+        Type:
+          Name: TpmStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: dictionaryAttack
+        Type:
+          Name: TpmDictionaryAttack
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Callback:
+    Name: TpmInfoCallback
+    Args:
+      - Name: tpmInfo
+        Type:
+          Name: TpmInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: TpmStatus
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: enabled
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: owned
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: ownerPasswordIsPresent
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: TpmVersion
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: gscVersion
+        Type:
+          Name: TpmGSCVersion
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: family
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: specLevel
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: manufacturer
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: tpmModel
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: firmwareVersion
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: vendorSpecific
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: UsbBusDevices
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: devices
+        Type:
+          Name: sequence
+          Params:
+            - Name: UsbBusInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - os
+                    - telemetry
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Callback:
+    Name: UsbBusDevicesCallback
+    Args:
+      - Name: UsbBusDevices
+        Type:
+          Name: UsbBusDevices
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: UsbBusInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: classId
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: subclassId
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: protocolId
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: vendorId
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: productId
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: interfaces
+        Type:
+          Name: sequence
+          Params:
+            - Name: UsbBusInterfaceInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - os
+                    - telemetry
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: fwupdFirmwareVersionInfo
+        Type:
+          Name: FwupdFirmwareVersionInfo
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: version
+        Type:
+          Name: UsbVersion
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: spec_speed
+        Type:
+          Name: UsbSpecSpeed
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: UsbBusInterfaceInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: interfaceNumber
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: classId
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: subclassId
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: protocolId
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: driver
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Enum:
+    Name: UsbSpecSpeed
+    Values:
+      - unknown
+      - n1_5Mbps
+      - n12Mbps
+      - n480Mbps
+      - n5Gbps
+      - n10Gbps
+      - n20Gbps
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  Enum:
+    Name: UsbVersion
+    Values:
+      - unknown
+      - usb1
+      - usb2
+      - usb3
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  Dict:
+    Name: VpdInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+    Fields:
+      - Name: activateDate
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: modelName
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: serialNumber
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+      - Name: skuNumber
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+- File: webext/chromeos/telemetry.idl
+  Callback:
+    Name: VpdInfoCallback
+    Args:
+      - Name: vpdInfo
+        Type:
+          Name: VpdInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - telemetry
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - telemetry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  WebextFunc:
+    Name: getAudioInfo
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: AudioInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - telemetry
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  WebextFunc:
+    Name: getBatteryInfo
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: BatteryInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - telemetry
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  WebextFunc:
+    Name: getCpuInfo
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: CpuInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - telemetry
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  WebextFunc:
+    Name: getDisplayInfo
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DisplayInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - telemetry
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  WebextFunc:
+    Name: getInternetConnectivityInfo
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: InternetConnectivityInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - telemetry
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  WebextFunc:
+    Name: getMarketingInfo
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: MarketingInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - telemetry
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  WebextFunc:
+    Name: getMemoryInfo
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: MemoryInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - telemetry
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  WebextFunc:
+    Name: getNonRemovableBlockDevicesInfo
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: NonRemovableBlockDeviceInfoResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - telemetry
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  WebextFunc:
+    Name: getOemData
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: OemData
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - telemetry
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  WebextFunc:
+    Name: getOsVersionInfo
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: OsVersionInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - telemetry
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  WebextFunc:
+    Name: getStatefulPartitionInfo
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: StatefulPartitionInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - telemetry
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  WebextFunc:
+    Name: getTpmInfo
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: TpmInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - telemetry
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  WebextFunc:
+    Name: getUsbBusInfo
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: UsbBusDevices
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - telemetry
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry
+- File: webext/chromeos/telemetry.idl
+  WebextFunc:
+    Name: getVpdInfo
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: VpdInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - telemetry
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - telemetry

@@ -1,0 +1,1949 @@
+- File: webext/system_display.idl
+  Enum:
+    Name: ActiveState
+    Values:
+      - active
+      - inactive
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+- File: webext/system_display.idl
+  Dict:
+    Name: Bounds
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+    Fields:
+      - Name: left
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: top
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: width
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: height
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+- File: webext/system_display.idl
+  Callback:
+    Name: DisplayInfoCallback
+    Args:
+      - Name: displayInfo
+        Type:
+          Name: sequence
+          Params:
+            - Name: DisplayUnitInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - system
+                    - display
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+- File: webext/system_display.idl
+  Dict:
+    Name: DisplayLayout
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: parentId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: position
+        Type:
+          Name: LayoutPosition
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: offset
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+- File: webext/system_display.idl
+  Callback:
+    Name: DisplayLayoutCallback
+    Args:
+      - Name: layouts
+        Type:
+          Name: sequence
+          Params:
+            - Name: DisplayLayout
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - system
+                    - display
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+- File: webext/system_display.idl
+  Dict:
+    Name: DisplayMode
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+    Fields:
+      - Name: width
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: height
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: widthInNativePixels
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: heightInNativePixels
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: uiScale
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: deprecated
+            Values:
+              - 'Use $(ref: displayZoomFactor)'
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: deviceScaleFactor
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: refreshRate
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: isNative
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: isSelected
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: isInterlaced
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+- File: webext/system_display.idl
+  Dict:
+    Name: DisplayProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+    Fields:
+      - Name: isUnified
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: mirroringSourceId
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: deprecated
+            Values:
+              - Use $(ref:setMirrorMode).
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: isPrimary
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: overscan
+        Type:
+          Name: Insets
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: rotation
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: boundsOriginX
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: boundsOriginY
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: displayMode
+        Type:
+          Name: DisplayMode
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: displayZoomFactor
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+- File: webext/system_display.idl
+  Dict:
+    Name: DisplayUnitInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: edid
+        Type:
+          Name: Edid
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: mirroringSourceId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: mirroringDestinationIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - system
+                    - display
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: isPrimary
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: isInternal
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: isEnabled
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: activeState
+        Type:
+          Name: ActiveState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: isUnified
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: isAutoRotationAllowed
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: nodoc
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: dpiX
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: dpiY
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: rotation
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: bounds
+        Type:
+          Name: Bounds
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: overscan
+        Type:
+          Name: Insets
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: workArea
+        Type:
+          Name: Bounds
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: modes
+        Type:
+          Name: sequence
+          Params:
+            - Name: DisplayMode
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - system
+                    - display
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: hasTouchSupport
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: hasAccelerometerSupport
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: nodoc
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: availableDisplayZoomFactors
+        Type:
+          Name: sequence
+          Params:
+            - Name: double
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - system
+                    - display
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: displayZoomFactor
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+- File: webext/system_display.idl
+  Dict:
+    Name: Edid
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+    Fields:
+      - Name: manufacturerId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: productId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: yearOfManufacture
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+- File: webext/system_display.idl
+  Dict:
+    Name: GetInfoFlags
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+    Fields:
+      - Name: singleUnified
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+- File: webext/system_display.idl
+  Dict:
+    Name: Insets
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+    Fields:
+      - Name: left
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: top
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: right
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: bottom
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+- File: webext/system_display.idl
+  Enum:
+    Name: LayoutPosition
+    Values:
+      - top
+      - right
+      - bottom
+      - left
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+- File: webext/system_display.idl
+  Enum:
+    Name: MirrorMode
+    Values:
+      - "off"
+      - normal
+      - mixed
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+- File: webext/system_display.idl
+  Dict:
+    Name: MirrorModeInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+    Fields:
+      - Name: mode
+        Type:
+          Name: MirrorMode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: mirroringSourceId
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: mirroringDestinationIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - system
+                    - display
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+- File: webext/system_display.idl
+  Callback:
+    Name: NativeTouchCalibrationCallback
+    Args:
+      - Name: success
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+- File: webext/system_display.idl
+  Dict:
+    Name: Point
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+    Fields:
+      - Name: x
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: "y"
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+- File: webext/system_display.idl
+  Callback:
+    Name: SetDisplayLayoutCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+- File: webext/system_display.idl
+  Callback:
+    Name: SetDisplayUnitInfoCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+- File: webext/system_display.idl
+  Callback:
+    Name: SetMirrorModeCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+- File: webext/system_display.idl
+  Dict:
+    Name: TouchCalibrationPair
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+    Fields:
+      - Name: displayPoint
+        Type:
+          Name: Point
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: touchPoint
+        Type:
+          Name: Point
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+- File: webext/system_display.idl
+  Dict:
+    Name: TouchCalibrationPairQuad
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+    Fields:
+      - Name: pair1
+        Type:
+          Name: TouchCalibrationPair
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: pair2
+        Type:
+          Name: TouchCalibrationPair
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: pair3
+        Type:
+          Name: TouchCalibrationPair
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: pair4
+        Type:
+          Name: TouchCalibrationPair
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+- File: webext/system_display.idl
+  WebextFunc:
+    Name: clearTouchCalibration
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+- File: webext/system_display.idl
+  WebextFunc:
+    Name: completeCustomTouchCalibration
+    Modifier: static
+    Args:
+      - Name: pairs
+        Type:
+          Name: TouchCalibrationPairQuad
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: bounds
+        Type:
+          Name: Bounds
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+- File: webext/system_display.idl
+  WebextFunc:
+    Name: enableUnifiedDesktop
+    Modifier: static
+    Args:
+      - Name: enabled
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+- File: webext/system_display.idl
+  WebextFunc:
+    Name: getDisplayLayout
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: DisplayLayout
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - system
+                      - display
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - system
+                  - display
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+- File: webext/system_display.idl
+  WebextFunc:
+    Name: getInfo
+    Modifier: static
+    Args:
+      - Name: flags
+        Optional: true
+        Type:
+          Name: GetInfoFlags
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: DisplayUnitInfo
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - system
+                      - display
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - system
+                  - display
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+- File: webext/system_display.idl
+  WebextEvent:
+    Name: onDisplayChanged
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+- File: webext/system_display.idl
+  WebextFunc:
+    Name: overscanCalibrationAdjust
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: delta
+        Type:
+          Name: Insets
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+- File: webext/system_display.idl
+  WebextFunc:
+    Name: overscanCalibrationComplete
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+- File: webext/system_display.idl
+  WebextFunc:
+    Name: overscanCalibrationReset
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+- File: webext/system_display.idl
+  WebextFunc:
+    Name: overscanCalibrationStart
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+- File: webext/system_display.idl
+  WebextFunc:
+    Name: setDisplayLayout
+    Modifier: static
+    Args:
+      - Name: layouts
+        Type:
+          Name: sequence
+          Params:
+            - Name: DisplayLayout
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - system
+                    - display
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+- File: webext/system_display.idl
+  WebextFunc:
+    Name: setDisplayProperties
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+      - Name: info
+        Type:
+          Name: DisplayProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+- File: webext/system_display.idl
+  WebextFunc:
+    Name: setMirrorMode
+    Modifier: static
+    Args:
+      - Name: info
+        Type:
+          Name: MirrorModeInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+- File: webext/system_display.idl
+  WebextFunc:
+    Name: showNativeTouchCalibration
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - system
+                  - display
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display
+- File: webext/system_display.idl
+  WebextFunc:
+    Name: startCustomTouchCalibration
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - display
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - display
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - display

@@ -1,0 +1,126 @@
+- File: webext/chrome/system_indicator.idl
+  Callback:
+    Name: DoneCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - systemIndicator
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - systemIndicator
+- File: webext/chrome/system_indicator.idl
+  Dict:
+    Name: SetIconDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - systemIndicator
+    Fields:
+      - Name: path
+        Type:
+          Name: any
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - systemIndicator
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - systemIndicator
+      - Name: imageData
+        Type:
+          Name: any
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - systemIndicator
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - systemIndicator
+- File: webext/chrome/system_indicator.idl
+  WebextFunc:
+    Name: disable
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - systemIndicator
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - systemIndicator
+- File: webext/chrome/system_indicator.idl
+  WebextFunc:
+    Name: enable
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - systemIndicator
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - systemIndicator
+- File: webext/chrome/system_indicator.idl
+  WebextEvent:
+    Name: onClicked
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - systemIndicator
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - systemIndicator
+- File: webext/chrome/system_indicator.idl
+  WebextFunc:
+    Name: setIcon
+    Modifier: static
+    Args:
+      - Name: details
+        Type:
+          Name: SetIconDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - systemIndicator
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - systemIndicator
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - systemIndicator

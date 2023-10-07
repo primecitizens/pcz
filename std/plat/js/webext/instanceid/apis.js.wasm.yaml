@@ -1,0 +1,150 @@
+- File: webext/chrome/instance_id.json
+  Dict:
+    Name: DeleteTokenArgDeleteTokenParams
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - instanceID
+    Fields:
+      - Name: authorizedEntity
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - instanceID
+      - Name: scope
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - instanceID
+- File: webext/chrome/instance_id.json
+  Dict:
+    Name: GetTokenArgGetTokenParams
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - instanceID
+    Fields:
+      - Name: authorizedEntity
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - instanceID
+      - Name: options
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - instanceID
+      - Name: scope
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - instanceID
+- File: webext/chrome/instance_id.json
+  WebextFunc:
+    Name: deleteID
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - instanceID
+- File: webext/chrome/instance_id.json
+  WebextFunc:
+    Name: deleteToken
+    Args:
+      - Name: deleteTokenParams
+        Type:
+          Name: DeleteTokenArgDeleteTokenParams
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - instanceID
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - instanceID
+- File: webext/chrome/instance_id.json
+  WebextFunc:
+    Name: getCreationTime
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: double
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - instanceID
+- File: webext/chrome/instance_id.json
+  WebextFunc:
+    Name: getID
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - instanceID
+- File: webext/chrome/instance_id.json
+  WebextFunc:
+    Name: getToken
+    Args:
+      - Name: getTokenParams
+        Type:
+          Name: GetTokenArgGetTokenParams
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - instanceID
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - instanceID
+- File: webext/chrome/instance_id.json
+  WebextEvent:
+    Name: onTokenRefresh
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - instanceID

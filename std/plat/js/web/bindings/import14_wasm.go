@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web constof_VideoTransferCharacteristics
 //go:noescape
@@ -87,11 +85,11 @@ func GetVideoColorSpaceFullRange(
 
 //go:wasmimport plat/js/web has_VideoColorSpace_ToJSON
 //go:noescape
-func HasVideoColorSpaceToJSON(this js.Ref) js.Ref
+func HasFuncVideoColorSpaceToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_VideoColorSpace_ToJSON
 //go:noescape
-func VideoColorSpaceToJSONFunc(this js.Ref) js.Ref
+func FuncVideoColorSpaceToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_VideoColorSpace_ToJSON
 //go:noescape
@@ -172,11 +170,11 @@ func GetVideoFrameColorSpace(
 
 //go:wasmimport plat/js/web has_VideoFrame_Metadata
 //go:noescape
-func HasVideoFrameMetadata(this js.Ref) js.Ref
+func HasFuncVideoFrameMetadata(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_VideoFrame_Metadata
 //go:noescape
-func VideoFrameMetadataFunc(this js.Ref) js.Ref
+func FuncVideoFrameMetadata(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_VideoFrame_Metadata
 //go:noescape
@@ -190,11 +188,11 @@ func TryVideoFrameMetadata(
 
 //go:wasmimport plat/js/web has_VideoFrame_AllocationSize
 //go:noescape
-func HasVideoFrameAllocationSize(this js.Ref) js.Ref
+func HasFuncVideoFrameAllocationSize(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_VideoFrame_AllocationSize
 //go:noescape
-func VideoFrameAllocationSizeFunc(this js.Ref) js.Ref
+func FuncVideoFrameAllocationSize(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_VideoFrame_AllocationSize
 //go:noescape
@@ -210,11 +208,11 @@ func TryVideoFrameAllocationSize(
 
 //go:wasmimport plat/js/web has_VideoFrame_AllocationSize1
 //go:noescape
-func HasVideoFrameAllocationSize1(this js.Ref) js.Ref
+func HasFuncVideoFrameAllocationSize1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_VideoFrame_AllocationSize1
 //go:noescape
-func VideoFrameAllocationSize1Func(this js.Ref) js.Ref
+func FuncVideoFrameAllocationSize1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_VideoFrame_AllocationSize1
 //go:noescape
@@ -228,11 +226,11 @@ func TryVideoFrameAllocationSize1(
 
 //go:wasmimport plat/js/web has_VideoFrame_CopyTo
 //go:noescape
-func HasVideoFrameCopyTo(this js.Ref) js.Ref
+func HasFuncVideoFrameCopyTo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_VideoFrame_CopyTo
 //go:noescape
-func VideoFrameCopyToFunc(this js.Ref) js.Ref
+func FuncVideoFrameCopyTo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_VideoFrame_CopyTo
 //go:noescape
@@ -250,11 +248,11 @@ func TryVideoFrameCopyTo(
 
 //go:wasmimport plat/js/web has_VideoFrame_CopyTo1
 //go:noescape
-func HasVideoFrameCopyTo1(this js.Ref) js.Ref
+func HasFuncVideoFrameCopyTo1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_VideoFrame_CopyTo1
 //go:noescape
-func VideoFrameCopyTo1Func(this js.Ref) js.Ref
+func FuncVideoFrameCopyTo1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_VideoFrame_CopyTo1
 //go:noescape
@@ -270,11 +268,11 @@ func TryVideoFrameCopyTo1(
 
 //go:wasmimport plat/js/web has_VideoFrame_Clone
 //go:noescape
-func HasVideoFrameClone(this js.Ref) js.Ref
+func HasFuncVideoFrameClone(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_VideoFrame_Clone
 //go:noescape
-func VideoFrameCloneFunc(this js.Ref) js.Ref
+func FuncVideoFrameClone(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_VideoFrame_Clone
 //go:noescape
@@ -288,11 +286,11 @@ func TryVideoFrameClone(
 
 //go:wasmimport plat/js/web has_VideoFrame_Close
 //go:noescape
-func HasVideoFrameClose(this js.Ref) js.Ref
+func HasFuncVideoFrameClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_VideoFrame_Close
 //go:noescape
-func VideoFrameCloseFunc(this js.Ref) js.Ref
+func FuncVideoFrameClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_VideoFrame_Close
 //go:noescape
@@ -345,11 +343,11 @@ func SetWebGLRenderingContextUnpackColorSpace(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_GetContextAttributes
 //go:noescape
-func HasWebGLRenderingContextGetContextAttributes(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextGetContextAttributes(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_GetContextAttributes
 //go:noescape
-func WebGLRenderingContextGetContextAttributesFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextGetContextAttributes(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_GetContextAttributes
 //go:noescape
@@ -363,11 +361,11 @@ func TryWebGLRenderingContextGetContextAttributes(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_IsContextLost
 //go:noescape
-func HasWebGLRenderingContextIsContextLost(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextIsContextLost(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_IsContextLost
 //go:noescape
-func WebGLRenderingContextIsContextLostFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextIsContextLost(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_IsContextLost
 //go:noescape
@@ -381,11 +379,11 @@ func TryWebGLRenderingContextIsContextLost(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_GetSupportedExtensions
 //go:noescape
-func HasWebGLRenderingContextGetSupportedExtensions(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextGetSupportedExtensions(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_GetSupportedExtensions
 //go:noescape
-func WebGLRenderingContextGetSupportedExtensionsFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextGetSupportedExtensions(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_GetSupportedExtensions
 //go:noescape
@@ -399,11 +397,11 @@ func TryWebGLRenderingContextGetSupportedExtensions(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_GetExtension
 //go:noescape
-func HasWebGLRenderingContextGetExtension(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextGetExtension(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_GetExtension
 //go:noescape
-func WebGLRenderingContextGetExtensionFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextGetExtension(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_GetExtension
 //go:noescape
@@ -419,11 +417,11 @@ func TryWebGLRenderingContextGetExtension(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_ActiveTexture
 //go:noescape
-func HasWebGLRenderingContextActiveTexture(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextActiveTexture(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_ActiveTexture
 //go:noescape
-func WebGLRenderingContextActiveTextureFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextActiveTexture(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_ActiveTexture
 //go:noescape
@@ -439,11 +437,11 @@ func TryWebGLRenderingContextActiveTexture(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_AttachShader
 //go:noescape
-func HasWebGLRenderingContextAttachShader(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextAttachShader(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_AttachShader
 //go:noescape
-func WebGLRenderingContextAttachShaderFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextAttachShader(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_AttachShader
 //go:noescape
@@ -461,11 +459,11 @@ func TryWebGLRenderingContextAttachShader(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_BindAttribLocation
 //go:noescape
-func HasWebGLRenderingContextBindAttribLocation(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextBindAttribLocation(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_BindAttribLocation
 //go:noescape
-func WebGLRenderingContextBindAttribLocationFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextBindAttribLocation(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_BindAttribLocation
 //go:noescape
@@ -485,11 +483,11 @@ func TryWebGLRenderingContextBindAttribLocation(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_BindBuffer
 //go:noescape
-func HasWebGLRenderingContextBindBuffer(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextBindBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_BindBuffer
 //go:noescape
-func WebGLRenderingContextBindBufferFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextBindBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_BindBuffer
 //go:noescape
@@ -507,11 +505,11 @@ func TryWebGLRenderingContextBindBuffer(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_BindFramebuffer
 //go:noescape
-func HasWebGLRenderingContextBindFramebuffer(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextBindFramebuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_BindFramebuffer
 //go:noescape
-func WebGLRenderingContextBindFramebufferFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextBindFramebuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_BindFramebuffer
 //go:noescape
@@ -529,11 +527,11 @@ func TryWebGLRenderingContextBindFramebuffer(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_BindRenderbuffer
 //go:noescape
-func HasWebGLRenderingContextBindRenderbuffer(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextBindRenderbuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_BindRenderbuffer
 //go:noescape
-func WebGLRenderingContextBindRenderbufferFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextBindRenderbuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_BindRenderbuffer
 //go:noescape
@@ -551,11 +549,11 @@ func TryWebGLRenderingContextBindRenderbuffer(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_BindTexture
 //go:noescape
-func HasWebGLRenderingContextBindTexture(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextBindTexture(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_BindTexture
 //go:noescape
-func WebGLRenderingContextBindTextureFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextBindTexture(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_BindTexture
 //go:noescape
@@ -573,11 +571,11 @@ func TryWebGLRenderingContextBindTexture(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_BlendColor
 //go:noescape
-func HasWebGLRenderingContextBlendColor(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextBlendColor(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_BlendColor
 //go:noescape
-func WebGLRenderingContextBlendColorFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextBlendColor(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_BlendColor
 //go:noescape
@@ -599,11 +597,11 @@ func TryWebGLRenderingContextBlendColor(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_BlendEquation
 //go:noescape
-func HasWebGLRenderingContextBlendEquation(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextBlendEquation(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_BlendEquation
 //go:noescape
-func WebGLRenderingContextBlendEquationFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextBlendEquation(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_BlendEquation
 //go:noescape
@@ -619,11 +617,11 @@ func TryWebGLRenderingContextBlendEquation(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_BlendEquationSeparate
 //go:noescape
-func HasWebGLRenderingContextBlendEquationSeparate(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextBlendEquationSeparate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_BlendEquationSeparate
 //go:noescape
-func WebGLRenderingContextBlendEquationSeparateFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextBlendEquationSeparate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_BlendEquationSeparate
 //go:noescape
@@ -641,11 +639,11 @@ func TryWebGLRenderingContextBlendEquationSeparate(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_BlendFunc
 //go:noescape
-func HasWebGLRenderingContextBlendFunc(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextBlendFunc(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_BlendFunc
 //go:noescape
-func WebGLRenderingContextBlendFuncFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextBlendFunc(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_BlendFunc
 //go:noescape
@@ -663,11 +661,11 @@ func TryWebGLRenderingContextBlendFunc(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_BlendFuncSeparate
 //go:noescape
-func HasWebGLRenderingContextBlendFuncSeparate(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextBlendFuncSeparate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_BlendFuncSeparate
 //go:noescape
-func WebGLRenderingContextBlendFuncSeparateFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextBlendFuncSeparate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_BlendFuncSeparate
 //go:noescape
@@ -689,11 +687,11 @@ func TryWebGLRenderingContextBlendFuncSeparate(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_CheckFramebufferStatus
 //go:noescape
-func HasWebGLRenderingContextCheckFramebufferStatus(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextCheckFramebufferStatus(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_CheckFramebufferStatus
 //go:noescape
-func WebGLRenderingContextCheckFramebufferStatusFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextCheckFramebufferStatus(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_CheckFramebufferStatus
 //go:noescape
@@ -709,11 +707,11 @@ func TryWebGLRenderingContextCheckFramebufferStatus(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_Clear
 //go:noescape
-func HasWebGLRenderingContextClear(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextClear(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_Clear
 //go:noescape
-func WebGLRenderingContextClearFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextClear(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_Clear
 //go:noescape
@@ -729,11 +727,11 @@ func TryWebGLRenderingContextClear(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_ClearColor
 //go:noescape
-func HasWebGLRenderingContextClearColor(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextClearColor(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_ClearColor
 //go:noescape
-func WebGLRenderingContextClearColorFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextClearColor(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_ClearColor
 //go:noescape
@@ -755,11 +753,11 @@ func TryWebGLRenderingContextClearColor(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_ClearDepth
 //go:noescape
-func HasWebGLRenderingContextClearDepth(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextClearDepth(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_ClearDepth
 //go:noescape
-func WebGLRenderingContextClearDepthFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextClearDepth(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_ClearDepth
 //go:noescape
@@ -775,11 +773,11 @@ func TryWebGLRenderingContextClearDepth(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_ClearStencil
 //go:noescape
-func HasWebGLRenderingContextClearStencil(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextClearStencil(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_ClearStencil
 //go:noescape
-func WebGLRenderingContextClearStencilFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextClearStencil(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_ClearStencil
 //go:noescape
@@ -795,11 +793,11 @@ func TryWebGLRenderingContextClearStencil(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_ColorMask
 //go:noescape
-func HasWebGLRenderingContextColorMask(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextColorMask(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_ColorMask
 //go:noescape
-func WebGLRenderingContextColorMaskFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextColorMask(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_ColorMask
 //go:noescape
@@ -821,11 +819,11 @@ func TryWebGLRenderingContextColorMask(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_CompileShader
 //go:noescape
-func HasWebGLRenderingContextCompileShader(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextCompileShader(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_CompileShader
 //go:noescape
-func WebGLRenderingContextCompileShaderFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextCompileShader(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_CompileShader
 //go:noescape
@@ -841,11 +839,11 @@ func TryWebGLRenderingContextCompileShader(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_CopyTexImage2D
 //go:noescape
-func HasWebGLRenderingContextCopyTexImage2D(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextCopyTexImage2D(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_CopyTexImage2D
 //go:noescape
-func WebGLRenderingContextCopyTexImage2DFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextCopyTexImage2D(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_CopyTexImage2D
 //go:noescape
@@ -875,11 +873,11 @@ func TryWebGLRenderingContextCopyTexImage2D(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_CopyTexSubImage2D
 //go:noescape
-func HasWebGLRenderingContextCopyTexSubImage2D(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextCopyTexSubImage2D(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_CopyTexSubImage2D
 //go:noescape
-func WebGLRenderingContextCopyTexSubImage2DFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextCopyTexSubImage2D(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_CopyTexSubImage2D
 //go:noescape
@@ -909,11 +907,11 @@ func TryWebGLRenderingContextCopyTexSubImage2D(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_CreateBuffer
 //go:noescape
-func HasWebGLRenderingContextCreateBuffer(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextCreateBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_CreateBuffer
 //go:noescape
-func WebGLRenderingContextCreateBufferFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextCreateBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_CreateBuffer
 //go:noescape
@@ -927,11 +925,11 @@ func TryWebGLRenderingContextCreateBuffer(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_CreateFramebuffer
 //go:noescape
-func HasWebGLRenderingContextCreateFramebuffer(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextCreateFramebuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_CreateFramebuffer
 //go:noescape
-func WebGLRenderingContextCreateFramebufferFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextCreateFramebuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_CreateFramebuffer
 //go:noescape
@@ -945,11 +943,11 @@ func TryWebGLRenderingContextCreateFramebuffer(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_CreateProgram
 //go:noescape
-func HasWebGLRenderingContextCreateProgram(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextCreateProgram(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_CreateProgram
 //go:noescape
-func WebGLRenderingContextCreateProgramFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextCreateProgram(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_CreateProgram
 //go:noescape
@@ -963,11 +961,11 @@ func TryWebGLRenderingContextCreateProgram(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_CreateRenderbuffer
 //go:noescape
-func HasWebGLRenderingContextCreateRenderbuffer(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextCreateRenderbuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_CreateRenderbuffer
 //go:noescape
-func WebGLRenderingContextCreateRenderbufferFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextCreateRenderbuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_CreateRenderbuffer
 //go:noescape
@@ -981,11 +979,11 @@ func TryWebGLRenderingContextCreateRenderbuffer(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_CreateShader
 //go:noescape
-func HasWebGLRenderingContextCreateShader(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextCreateShader(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_CreateShader
 //go:noescape
-func WebGLRenderingContextCreateShaderFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextCreateShader(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_CreateShader
 //go:noescape
@@ -1001,11 +999,11 @@ func TryWebGLRenderingContextCreateShader(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_CreateTexture
 //go:noescape
-func HasWebGLRenderingContextCreateTexture(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextCreateTexture(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_CreateTexture
 //go:noescape
-func WebGLRenderingContextCreateTextureFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextCreateTexture(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_CreateTexture
 //go:noescape
@@ -1019,11 +1017,11 @@ func TryWebGLRenderingContextCreateTexture(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_CullFace
 //go:noescape
-func HasWebGLRenderingContextCullFace(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextCullFace(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_CullFace
 //go:noescape
-func WebGLRenderingContextCullFaceFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextCullFace(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_CullFace
 //go:noescape
@@ -1039,11 +1037,11 @@ func TryWebGLRenderingContextCullFace(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_DeleteBuffer
 //go:noescape
-func HasWebGLRenderingContextDeleteBuffer(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextDeleteBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_DeleteBuffer
 //go:noescape
-func WebGLRenderingContextDeleteBufferFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextDeleteBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_DeleteBuffer
 //go:noescape
@@ -1059,11 +1057,11 @@ func TryWebGLRenderingContextDeleteBuffer(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_DeleteFramebuffer
 //go:noescape
-func HasWebGLRenderingContextDeleteFramebuffer(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextDeleteFramebuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_DeleteFramebuffer
 //go:noescape
-func WebGLRenderingContextDeleteFramebufferFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextDeleteFramebuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_DeleteFramebuffer
 //go:noescape
@@ -1079,11 +1077,11 @@ func TryWebGLRenderingContextDeleteFramebuffer(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_DeleteProgram
 //go:noescape
-func HasWebGLRenderingContextDeleteProgram(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextDeleteProgram(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_DeleteProgram
 //go:noescape
-func WebGLRenderingContextDeleteProgramFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextDeleteProgram(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_DeleteProgram
 //go:noescape
@@ -1099,11 +1097,11 @@ func TryWebGLRenderingContextDeleteProgram(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_DeleteRenderbuffer
 //go:noescape
-func HasWebGLRenderingContextDeleteRenderbuffer(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextDeleteRenderbuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_DeleteRenderbuffer
 //go:noescape
-func WebGLRenderingContextDeleteRenderbufferFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextDeleteRenderbuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_DeleteRenderbuffer
 //go:noescape
@@ -1119,11 +1117,11 @@ func TryWebGLRenderingContextDeleteRenderbuffer(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_DeleteShader
 //go:noescape
-func HasWebGLRenderingContextDeleteShader(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextDeleteShader(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_DeleteShader
 //go:noescape
-func WebGLRenderingContextDeleteShaderFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextDeleteShader(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_DeleteShader
 //go:noescape
@@ -1139,11 +1137,11 @@ func TryWebGLRenderingContextDeleteShader(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_DeleteTexture
 //go:noescape
-func HasWebGLRenderingContextDeleteTexture(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextDeleteTexture(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_DeleteTexture
 //go:noescape
-func WebGLRenderingContextDeleteTextureFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextDeleteTexture(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_DeleteTexture
 //go:noescape
@@ -1159,11 +1157,11 @@ func TryWebGLRenderingContextDeleteTexture(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_DepthFunc
 //go:noescape
-func HasWebGLRenderingContextDepthFunc(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextDepthFunc(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_DepthFunc
 //go:noescape
-func WebGLRenderingContextDepthFuncFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextDepthFunc(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_DepthFunc
 //go:noescape
@@ -1179,11 +1177,11 @@ func TryWebGLRenderingContextDepthFunc(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_DepthMask
 //go:noescape
-func HasWebGLRenderingContextDepthMask(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextDepthMask(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_DepthMask
 //go:noescape
-func WebGLRenderingContextDepthMaskFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextDepthMask(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_DepthMask
 //go:noescape
@@ -1199,11 +1197,11 @@ func TryWebGLRenderingContextDepthMask(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_DepthRange
 //go:noescape
-func HasWebGLRenderingContextDepthRange(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextDepthRange(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_DepthRange
 //go:noescape
-func WebGLRenderingContextDepthRangeFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextDepthRange(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_DepthRange
 //go:noescape
@@ -1221,11 +1219,11 @@ func TryWebGLRenderingContextDepthRange(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_DetachShader
 //go:noescape
-func HasWebGLRenderingContextDetachShader(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextDetachShader(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_DetachShader
 //go:noescape
-func WebGLRenderingContextDetachShaderFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextDetachShader(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_DetachShader
 //go:noescape
@@ -1243,11 +1241,11 @@ func TryWebGLRenderingContextDetachShader(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_Disable
 //go:noescape
-func HasWebGLRenderingContextDisable(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextDisable(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_Disable
 //go:noescape
-func WebGLRenderingContextDisableFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextDisable(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_Disable
 //go:noescape
@@ -1263,11 +1261,11 @@ func TryWebGLRenderingContextDisable(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_DisableVertexAttribArray
 //go:noescape
-func HasWebGLRenderingContextDisableVertexAttribArray(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextDisableVertexAttribArray(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_DisableVertexAttribArray
 //go:noescape
-func WebGLRenderingContextDisableVertexAttribArrayFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextDisableVertexAttribArray(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_DisableVertexAttribArray
 //go:noescape
@@ -1283,11 +1281,11 @@ func TryWebGLRenderingContextDisableVertexAttribArray(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_DrawArrays
 //go:noescape
-func HasWebGLRenderingContextDrawArrays(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextDrawArrays(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_DrawArrays
 //go:noescape
-func WebGLRenderingContextDrawArraysFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextDrawArrays(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_DrawArrays
 //go:noescape
@@ -1307,11 +1305,11 @@ func TryWebGLRenderingContextDrawArrays(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_DrawElements
 //go:noescape
-func HasWebGLRenderingContextDrawElements(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextDrawElements(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_DrawElements
 //go:noescape
-func WebGLRenderingContextDrawElementsFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextDrawElements(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_DrawElements
 //go:noescape
@@ -1333,11 +1331,11 @@ func TryWebGLRenderingContextDrawElements(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_Enable
 //go:noescape
-func HasWebGLRenderingContextEnable(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextEnable(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_Enable
 //go:noescape
-func WebGLRenderingContextEnableFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextEnable(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_Enable
 //go:noescape
@@ -1353,11 +1351,11 @@ func TryWebGLRenderingContextEnable(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_EnableVertexAttribArray
 //go:noescape
-func HasWebGLRenderingContextEnableVertexAttribArray(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextEnableVertexAttribArray(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_EnableVertexAttribArray
 //go:noescape
-func WebGLRenderingContextEnableVertexAttribArrayFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextEnableVertexAttribArray(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_EnableVertexAttribArray
 //go:noescape
@@ -1373,11 +1371,11 @@ func TryWebGLRenderingContextEnableVertexAttribArray(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_Finish
 //go:noescape
-func HasWebGLRenderingContextFinish(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextFinish(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_Finish
 //go:noescape
-func WebGLRenderingContextFinishFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextFinish(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_Finish
 //go:noescape
@@ -1391,11 +1389,11 @@ func TryWebGLRenderingContextFinish(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_Flush
 //go:noescape
-func HasWebGLRenderingContextFlush(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextFlush(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_Flush
 //go:noescape
-func WebGLRenderingContextFlushFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextFlush(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_Flush
 //go:noescape
@@ -1409,11 +1407,11 @@ func TryWebGLRenderingContextFlush(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_FramebufferRenderbuffer
 //go:noescape
-func HasWebGLRenderingContextFramebufferRenderbuffer(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextFramebufferRenderbuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_FramebufferRenderbuffer
 //go:noescape
-func WebGLRenderingContextFramebufferRenderbufferFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextFramebufferRenderbuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_FramebufferRenderbuffer
 //go:noescape
@@ -1435,11 +1433,11 @@ func TryWebGLRenderingContextFramebufferRenderbuffer(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_FramebufferTexture2D
 //go:noescape
-func HasWebGLRenderingContextFramebufferTexture2D(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextFramebufferTexture2D(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_FramebufferTexture2D
 //go:noescape
-func WebGLRenderingContextFramebufferTexture2DFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextFramebufferTexture2D(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_FramebufferTexture2D
 //go:noescape
@@ -1463,11 +1461,11 @@ func TryWebGLRenderingContextFramebufferTexture2D(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_FrontFace
 //go:noescape
-func HasWebGLRenderingContextFrontFace(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextFrontFace(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_FrontFace
 //go:noescape
-func WebGLRenderingContextFrontFaceFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextFrontFace(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_FrontFace
 //go:noescape
@@ -1483,11 +1481,11 @@ func TryWebGLRenderingContextFrontFace(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_GenerateMipmap
 //go:noescape
-func HasWebGLRenderingContextGenerateMipmap(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextGenerateMipmap(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_GenerateMipmap
 //go:noescape
-func WebGLRenderingContextGenerateMipmapFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextGenerateMipmap(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_GenerateMipmap
 //go:noescape
@@ -1503,11 +1501,11 @@ func TryWebGLRenderingContextGenerateMipmap(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_GetActiveAttrib
 //go:noescape
-func HasWebGLRenderingContextGetActiveAttrib(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextGetActiveAttrib(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_GetActiveAttrib
 //go:noescape
-func WebGLRenderingContextGetActiveAttribFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextGetActiveAttrib(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_GetActiveAttrib
 //go:noescape
@@ -1525,11 +1523,11 @@ func TryWebGLRenderingContextGetActiveAttrib(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_GetActiveUniform
 //go:noescape
-func HasWebGLRenderingContextGetActiveUniform(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextGetActiveUniform(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_GetActiveUniform
 //go:noescape
-func WebGLRenderingContextGetActiveUniformFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextGetActiveUniform(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_GetActiveUniform
 //go:noescape
@@ -1547,11 +1545,11 @@ func TryWebGLRenderingContextGetActiveUniform(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_GetAttachedShaders
 //go:noescape
-func HasWebGLRenderingContextGetAttachedShaders(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextGetAttachedShaders(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_GetAttachedShaders
 //go:noescape
-func WebGLRenderingContextGetAttachedShadersFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextGetAttachedShaders(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_GetAttachedShaders
 //go:noescape
@@ -1567,11 +1565,11 @@ func TryWebGLRenderingContextGetAttachedShaders(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_GetAttribLocation
 //go:noescape
-func HasWebGLRenderingContextGetAttribLocation(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextGetAttribLocation(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_GetAttribLocation
 //go:noescape
-func WebGLRenderingContextGetAttribLocationFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextGetAttribLocation(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_GetAttribLocation
 //go:noescape
@@ -1589,11 +1587,11 @@ func TryWebGLRenderingContextGetAttribLocation(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_GetBufferParameter
 //go:noescape
-func HasWebGLRenderingContextGetBufferParameter(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextGetBufferParameter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_GetBufferParameter
 //go:noescape
-func WebGLRenderingContextGetBufferParameterFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextGetBufferParameter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_GetBufferParameter
 //go:noescape
@@ -1611,11 +1609,11 @@ func TryWebGLRenderingContextGetBufferParameter(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_GetParameter
 //go:noescape
-func HasWebGLRenderingContextGetParameter(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextGetParameter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_GetParameter
 //go:noescape
-func WebGLRenderingContextGetParameterFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextGetParameter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_GetParameter
 //go:noescape
@@ -1631,11 +1629,11 @@ func TryWebGLRenderingContextGetParameter(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_GetError
 //go:noescape
-func HasWebGLRenderingContextGetError(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextGetError(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_GetError
 //go:noescape
-func WebGLRenderingContextGetErrorFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextGetError(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_GetError
 //go:noescape
@@ -1649,11 +1647,11 @@ func TryWebGLRenderingContextGetError(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_GetFramebufferAttachmentParameter
 //go:noescape
-func HasWebGLRenderingContextGetFramebufferAttachmentParameter(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextGetFramebufferAttachmentParameter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_GetFramebufferAttachmentParameter
 //go:noescape
-func WebGLRenderingContextGetFramebufferAttachmentParameterFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextGetFramebufferAttachmentParameter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_GetFramebufferAttachmentParameter
 //go:noescape
@@ -1673,11 +1671,11 @@ func TryWebGLRenderingContextGetFramebufferAttachmentParameter(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_GetProgramParameter
 //go:noescape
-func HasWebGLRenderingContextGetProgramParameter(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextGetProgramParameter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_GetProgramParameter
 //go:noescape
-func WebGLRenderingContextGetProgramParameterFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextGetProgramParameter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_GetProgramParameter
 //go:noescape
@@ -1695,11 +1693,11 @@ func TryWebGLRenderingContextGetProgramParameter(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_GetProgramInfoLog
 //go:noescape
-func HasWebGLRenderingContextGetProgramInfoLog(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextGetProgramInfoLog(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_GetProgramInfoLog
 //go:noescape
-func WebGLRenderingContextGetProgramInfoLogFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextGetProgramInfoLog(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_GetProgramInfoLog
 //go:noescape
@@ -1715,11 +1713,11 @@ func TryWebGLRenderingContextGetProgramInfoLog(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_GetRenderbufferParameter
 //go:noescape
-func HasWebGLRenderingContextGetRenderbufferParameter(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextGetRenderbufferParameter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_GetRenderbufferParameter
 //go:noescape
-func WebGLRenderingContextGetRenderbufferParameterFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextGetRenderbufferParameter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_GetRenderbufferParameter
 //go:noescape
@@ -1737,11 +1735,11 @@ func TryWebGLRenderingContextGetRenderbufferParameter(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_GetShaderParameter
 //go:noescape
-func HasWebGLRenderingContextGetShaderParameter(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextGetShaderParameter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_GetShaderParameter
 //go:noescape
-func WebGLRenderingContextGetShaderParameterFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextGetShaderParameter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_GetShaderParameter
 //go:noescape
@@ -1759,11 +1757,11 @@ func TryWebGLRenderingContextGetShaderParameter(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_GetShaderPrecisionFormat
 //go:noescape
-func HasWebGLRenderingContextGetShaderPrecisionFormat(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextGetShaderPrecisionFormat(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_GetShaderPrecisionFormat
 //go:noescape
-func WebGLRenderingContextGetShaderPrecisionFormatFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextGetShaderPrecisionFormat(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_GetShaderPrecisionFormat
 //go:noescape
@@ -1781,11 +1779,11 @@ func TryWebGLRenderingContextGetShaderPrecisionFormat(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_GetShaderInfoLog
 //go:noescape
-func HasWebGLRenderingContextGetShaderInfoLog(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextGetShaderInfoLog(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_GetShaderInfoLog
 //go:noescape
-func WebGLRenderingContextGetShaderInfoLogFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextGetShaderInfoLog(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_GetShaderInfoLog
 //go:noescape
@@ -1801,11 +1799,11 @@ func TryWebGLRenderingContextGetShaderInfoLog(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_GetShaderSource
 //go:noescape
-func HasWebGLRenderingContextGetShaderSource(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextGetShaderSource(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_GetShaderSource
 //go:noescape
-func WebGLRenderingContextGetShaderSourceFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextGetShaderSource(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_GetShaderSource
 //go:noescape
@@ -1821,11 +1819,11 @@ func TryWebGLRenderingContextGetShaderSource(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_GetTexParameter
 //go:noescape
-func HasWebGLRenderingContextGetTexParameter(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextGetTexParameter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_GetTexParameter
 //go:noescape
-func WebGLRenderingContextGetTexParameterFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextGetTexParameter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_GetTexParameter
 //go:noescape
@@ -1843,11 +1841,11 @@ func TryWebGLRenderingContextGetTexParameter(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_GetUniform
 //go:noescape
-func HasWebGLRenderingContextGetUniform(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextGetUniform(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_GetUniform
 //go:noescape
-func WebGLRenderingContextGetUniformFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextGetUniform(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_GetUniform
 //go:noescape
@@ -1865,11 +1863,11 @@ func TryWebGLRenderingContextGetUniform(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_GetUniformLocation
 //go:noescape
-func HasWebGLRenderingContextGetUniformLocation(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextGetUniformLocation(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_GetUniformLocation
 //go:noescape
-func WebGLRenderingContextGetUniformLocationFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextGetUniformLocation(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_GetUniformLocation
 //go:noescape
@@ -1887,11 +1885,11 @@ func TryWebGLRenderingContextGetUniformLocation(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_GetVertexAttrib
 //go:noescape
-func HasWebGLRenderingContextGetVertexAttrib(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextGetVertexAttrib(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_GetVertexAttrib
 //go:noescape
-func WebGLRenderingContextGetVertexAttribFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextGetVertexAttrib(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_GetVertexAttrib
 //go:noescape
@@ -1909,11 +1907,11 @@ func TryWebGLRenderingContextGetVertexAttrib(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_GetVertexAttribOffset
 //go:noescape
-func HasWebGLRenderingContextGetVertexAttribOffset(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextGetVertexAttribOffset(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_GetVertexAttribOffset
 //go:noescape
-func WebGLRenderingContextGetVertexAttribOffsetFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextGetVertexAttribOffset(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_GetVertexAttribOffset
 //go:noescape
@@ -1931,11 +1929,11 @@ func TryWebGLRenderingContextGetVertexAttribOffset(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_Hint
 //go:noescape
-func HasWebGLRenderingContextHint(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextHint(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_Hint
 //go:noescape
-func WebGLRenderingContextHintFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextHint(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_Hint
 //go:noescape
@@ -1953,11 +1951,11 @@ func TryWebGLRenderingContextHint(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_IsBuffer
 //go:noescape
-func HasWebGLRenderingContextIsBuffer(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextIsBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_IsBuffer
 //go:noescape
-func WebGLRenderingContextIsBufferFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextIsBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_IsBuffer
 //go:noescape
@@ -1973,11 +1971,11 @@ func TryWebGLRenderingContextIsBuffer(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_IsEnabled
 //go:noescape
-func HasWebGLRenderingContextIsEnabled(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextIsEnabled(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_IsEnabled
 //go:noescape
-func WebGLRenderingContextIsEnabledFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextIsEnabled(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_IsEnabled
 //go:noescape
@@ -1993,11 +1991,11 @@ func TryWebGLRenderingContextIsEnabled(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_IsFramebuffer
 //go:noescape
-func HasWebGLRenderingContextIsFramebuffer(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextIsFramebuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_IsFramebuffer
 //go:noescape
-func WebGLRenderingContextIsFramebufferFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextIsFramebuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_IsFramebuffer
 //go:noescape
@@ -2013,11 +2011,11 @@ func TryWebGLRenderingContextIsFramebuffer(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_IsProgram
 //go:noescape
-func HasWebGLRenderingContextIsProgram(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextIsProgram(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_IsProgram
 //go:noescape
-func WebGLRenderingContextIsProgramFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextIsProgram(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_IsProgram
 //go:noescape
@@ -2033,11 +2031,11 @@ func TryWebGLRenderingContextIsProgram(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_IsRenderbuffer
 //go:noescape
-func HasWebGLRenderingContextIsRenderbuffer(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextIsRenderbuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_IsRenderbuffer
 //go:noescape
-func WebGLRenderingContextIsRenderbufferFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextIsRenderbuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_IsRenderbuffer
 //go:noescape
@@ -2053,11 +2051,11 @@ func TryWebGLRenderingContextIsRenderbuffer(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_IsShader
 //go:noescape
-func HasWebGLRenderingContextIsShader(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextIsShader(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_IsShader
 //go:noescape
-func WebGLRenderingContextIsShaderFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextIsShader(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_IsShader
 //go:noescape
@@ -2073,11 +2071,11 @@ func TryWebGLRenderingContextIsShader(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_IsTexture
 //go:noescape
-func HasWebGLRenderingContextIsTexture(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextIsTexture(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_IsTexture
 //go:noescape
-func WebGLRenderingContextIsTextureFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextIsTexture(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_IsTexture
 //go:noescape
@@ -2093,11 +2091,11 @@ func TryWebGLRenderingContextIsTexture(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_LineWidth
 //go:noescape
-func HasWebGLRenderingContextLineWidth(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextLineWidth(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_LineWidth
 //go:noescape
-func WebGLRenderingContextLineWidthFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextLineWidth(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_LineWidth
 //go:noescape
@@ -2113,11 +2111,11 @@ func TryWebGLRenderingContextLineWidth(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_LinkProgram
 //go:noescape
-func HasWebGLRenderingContextLinkProgram(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextLinkProgram(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_LinkProgram
 //go:noescape
-func WebGLRenderingContextLinkProgramFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextLinkProgram(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_LinkProgram
 //go:noescape
@@ -2133,11 +2131,11 @@ func TryWebGLRenderingContextLinkProgram(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_PixelStorei
 //go:noescape
-func HasWebGLRenderingContextPixelStorei(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextPixelStorei(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_PixelStorei
 //go:noescape
-func WebGLRenderingContextPixelStoreiFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextPixelStorei(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_PixelStorei
 //go:noescape
@@ -2155,11 +2153,11 @@ func TryWebGLRenderingContextPixelStorei(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_PolygonOffset
 //go:noescape
-func HasWebGLRenderingContextPolygonOffset(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextPolygonOffset(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_PolygonOffset
 //go:noescape
-func WebGLRenderingContextPolygonOffsetFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextPolygonOffset(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_PolygonOffset
 //go:noescape
@@ -2177,11 +2175,11 @@ func TryWebGLRenderingContextPolygonOffset(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_RenderbufferStorage
 //go:noescape
-func HasWebGLRenderingContextRenderbufferStorage(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextRenderbufferStorage(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_RenderbufferStorage
 //go:noescape
-func WebGLRenderingContextRenderbufferStorageFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextRenderbufferStorage(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_RenderbufferStorage
 //go:noescape
@@ -2203,11 +2201,11 @@ func TryWebGLRenderingContextRenderbufferStorage(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_SampleCoverage
 //go:noescape
-func HasWebGLRenderingContextSampleCoverage(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextSampleCoverage(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_SampleCoverage
 //go:noescape
-func WebGLRenderingContextSampleCoverageFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextSampleCoverage(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_SampleCoverage
 //go:noescape
@@ -2225,11 +2223,11 @@ func TryWebGLRenderingContextSampleCoverage(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_Scissor
 //go:noescape
-func HasWebGLRenderingContextScissor(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextScissor(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_Scissor
 //go:noescape
-func WebGLRenderingContextScissorFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextScissor(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_Scissor
 //go:noescape
@@ -2251,11 +2249,11 @@ func TryWebGLRenderingContextScissor(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_ShaderSource
 //go:noescape
-func HasWebGLRenderingContextShaderSource(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextShaderSource(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_ShaderSource
 //go:noescape
-func WebGLRenderingContextShaderSourceFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextShaderSource(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_ShaderSource
 //go:noescape
@@ -2273,11 +2271,11 @@ func TryWebGLRenderingContextShaderSource(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_StencilFunc
 //go:noescape
-func HasWebGLRenderingContextStencilFunc(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextStencilFunc(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_StencilFunc
 //go:noescape
-func WebGLRenderingContextStencilFuncFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextStencilFunc(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_StencilFunc
 //go:noescape
@@ -2297,11 +2295,11 @@ func TryWebGLRenderingContextStencilFunc(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_StencilFuncSeparate
 //go:noescape
-func HasWebGLRenderingContextStencilFuncSeparate(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextStencilFuncSeparate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_StencilFuncSeparate
 //go:noescape
-func WebGLRenderingContextStencilFuncSeparateFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextStencilFuncSeparate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_StencilFuncSeparate
 //go:noescape
@@ -2323,11 +2321,11 @@ func TryWebGLRenderingContextStencilFuncSeparate(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_StencilMask
 //go:noescape
-func HasWebGLRenderingContextStencilMask(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextStencilMask(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_StencilMask
 //go:noescape
-func WebGLRenderingContextStencilMaskFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextStencilMask(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_StencilMask
 //go:noescape
@@ -2343,11 +2341,11 @@ func TryWebGLRenderingContextStencilMask(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_StencilMaskSeparate
 //go:noescape
-func HasWebGLRenderingContextStencilMaskSeparate(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextStencilMaskSeparate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_StencilMaskSeparate
 //go:noescape
-func WebGLRenderingContextStencilMaskSeparateFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextStencilMaskSeparate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_StencilMaskSeparate
 //go:noescape
@@ -2365,11 +2363,11 @@ func TryWebGLRenderingContextStencilMaskSeparate(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_StencilOp
 //go:noescape
-func HasWebGLRenderingContextStencilOp(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextStencilOp(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_StencilOp
 //go:noescape
-func WebGLRenderingContextStencilOpFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextStencilOp(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_StencilOp
 //go:noescape
@@ -2389,11 +2387,11 @@ func TryWebGLRenderingContextStencilOp(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_StencilOpSeparate
 //go:noescape
-func HasWebGLRenderingContextStencilOpSeparate(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextStencilOpSeparate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_StencilOpSeparate
 //go:noescape
-func WebGLRenderingContextStencilOpSeparateFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextStencilOpSeparate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_StencilOpSeparate
 //go:noescape
@@ -2415,11 +2413,11 @@ func TryWebGLRenderingContextStencilOpSeparate(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_TexParameterf
 //go:noescape
-func HasWebGLRenderingContextTexParameterf(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextTexParameterf(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_TexParameterf
 //go:noescape
-func WebGLRenderingContextTexParameterfFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextTexParameterf(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_TexParameterf
 //go:noescape
@@ -2439,11 +2437,11 @@ func TryWebGLRenderingContextTexParameterf(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_TexParameteri
 //go:noescape
-func HasWebGLRenderingContextTexParameteri(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextTexParameteri(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_TexParameteri
 //go:noescape
-func WebGLRenderingContextTexParameteriFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextTexParameteri(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_TexParameteri
 //go:noescape
@@ -2463,11 +2461,11 @@ func TryWebGLRenderingContextTexParameteri(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_Uniform1f
 //go:noescape
-func HasWebGLRenderingContextUniform1f(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextUniform1f(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_Uniform1f
 //go:noescape
-func WebGLRenderingContextUniform1fFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextUniform1f(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_Uniform1f
 //go:noescape
@@ -2485,11 +2483,11 @@ func TryWebGLRenderingContextUniform1f(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_Uniform2f
 //go:noescape
-func HasWebGLRenderingContextUniform2f(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextUniform2f(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_Uniform2f
 //go:noescape
-func WebGLRenderingContextUniform2fFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextUniform2f(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_Uniform2f
 //go:noescape
@@ -2509,11 +2507,11 @@ func TryWebGLRenderingContextUniform2f(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_Uniform3f
 //go:noescape
-func HasWebGLRenderingContextUniform3f(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextUniform3f(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_Uniform3f
 //go:noescape
-func WebGLRenderingContextUniform3fFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextUniform3f(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_Uniform3f
 //go:noescape
@@ -2535,11 +2533,11 @@ func TryWebGLRenderingContextUniform3f(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_Uniform4f
 //go:noescape
-func HasWebGLRenderingContextUniform4f(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextUniform4f(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_Uniform4f
 //go:noescape
-func WebGLRenderingContextUniform4fFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextUniform4f(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_Uniform4f
 //go:noescape
@@ -2563,11 +2561,11 @@ func TryWebGLRenderingContextUniform4f(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_Uniform1i
 //go:noescape
-func HasWebGLRenderingContextUniform1i(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextUniform1i(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_Uniform1i
 //go:noescape
-func WebGLRenderingContextUniform1iFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextUniform1i(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_Uniform1i
 //go:noescape
@@ -2585,11 +2583,11 @@ func TryWebGLRenderingContextUniform1i(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_Uniform2i
 //go:noescape
-func HasWebGLRenderingContextUniform2i(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextUniform2i(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_Uniform2i
 //go:noescape
-func WebGLRenderingContextUniform2iFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextUniform2i(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_Uniform2i
 //go:noescape
@@ -2609,11 +2607,11 @@ func TryWebGLRenderingContextUniform2i(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_Uniform3i
 //go:noescape
-func HasWebGLRenderingContextUniform3i(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextUniform3i(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_Uniform3i
 //go:noescape
-func WebGLRenderingContextUniform3iFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextUniform3i(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_Uniform3i
 //go:noescape
@@ -2635,11 +2633,11 @@ func TryWebGLRenderingContextUniform3i(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_Uniform4i
 //go:noescape
-func HasWebGLRenderingContextUniform4i(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextUniform4i(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_Uniform4i
 //go:noescape
-func WebGLRenderingContextUniform4iFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextUniform4i(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_Uniform4i
 //go:noescape
@@ -2663,11 +2661,11 @@ func TryWebGLRenderingContextUniform4i(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_UseProgram
 //go:noescape
-func HasWebGLRenderingContextUseProgram(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextUseProgram(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_UseProgram
 //go:noescape
-func WebGLRenderingContextUseProgramFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextUseProgram(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_UseProgram
 //go:noescape
@@ -2683,11 +2681,11 @@ func TryWebGLRenderingContextUseProgram(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_ValidateProgram
 //go:noescape
-func HasWebGLRenderingContextValidateProgram(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextValidateProgram(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_ValidateProgram
 //go:noescape
-func WebGLRenderingContextValidateProgramFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextValidateProgram(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_ValidateProgram
 //go:noescape
@@ -2703,11 +2701,11 @@ func TryWebGLRenderingContextValidateProgram(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_VertexAttrib1f
 //go:noescape
-func HasWebGLRenderingContextVertexAttrib1f(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextVertexAttrib1f(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_VertexAttrib1f
 //go:noescape
-func WebGLRenderingContextVertexAttrib1fFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextVertexAttrib1f(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_VertexAttrib1f
 //go:noescape
@@ -2725,11 +2723,11 @@ func TryWebGLRenderingContextVertexAttrib1f(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_VertexAttrib2f
 //go:noescape
-func HasWebGLRenderingContextVertexAttrib2f(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextVertexAttrib2f(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_VertexAttrib2f
 //go:noescape
-func WebGLRenderingContextVertexAttrib2fFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextVertexAttrib2f(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_VertexAttrib2f
 //go:noescape
@@ -2749,11 +2747,11 @@ func TryWebGLRenderingContextVertexAttrib2f(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_VertexAttrib3f
 //go:noescape
-func HasWebGLRenderingContextVertexAttrib3f(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextVertexAttrib3f(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_VertexAttrib3f
 //go:noescape
-func WebGLRenderingContextVertexAttrib3fFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextVertexAttrib3f(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_VertexAttrib3f
 //go:noescape
@@ -2775,11 +2773,11 @@ func TryWebGLRenderingContextVertexAttrib3f(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_VertexAttrib4f
 //go:noescape
-func HasWebGLRenderingContextVertexAttrib4f(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextVertexAttrib4f(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_VertexAttrib4f
 //go:noescape
-func WebGLRenderingContextVertexAttrib4fFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextVertexAttrib4f(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_VertexAttrib4f
 //go:noescape
@@ -2803,11 +2801,11 @@ func TryWebGLRenderingContextVertexAttrib4f(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_VertexAttrib1fv
 //go:noescape
-func HasWebGLRenderingContextVertexAttrib1fv(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextVertexAttrib1fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_VertexAttrib1fv
 //go:noescape
-func WebGLRenderingContextVertexAttrib1fvFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextVertexAttrib1fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_VertexAttrib1fv
 //go:noescape
@@ -2825,11 +2823,11 @@ func TryWebGLRenderingContextVertexAttrib1fv(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_VertexAttrib2fv
 //go:noescape
-func HasWebGLRenderingContextVertexAttrib2fv(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextVertexAttrib2fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_VertexAttrib2fv
 //go:noescape
-func WebGLRenderingContextVertexAttrib2fvFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextVertexAttrib2fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_VertexAttrib2fv
 //go:noescape
@@ -2847,11 +2845,11 @@ func TryWebGLRenderingContextVertexAttrib2fv(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_VertexAttrib3fv
 //go:noescape
-func HasWebGLRenderingContextVertexAttrib3fv(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextVertexAttrib3fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_VertexAttrib3fv
 //go:noescape
-func WebGLRenderingContextVertexAttrib3fvFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextVertexAttrib3fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_VertexAttrib3fv
 //go:noescape
@@ -2869,11 +2867,11 @@ func TryWebGLRenderingContextVertexAttrib3fv(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_VertexAttrib4fv
 //go:noescape
-func HasWebGLRenderingContextVertexAttrib4fv(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextVertexAttrib4fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_VertexAttrib4fv
 //go:noescape
-func WebGLRenderingContextVertexAttrib4fvFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextVertexAttrib4fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_VertexAttrib4fv
 //go:noescape
@@ -2891,11 +2889,11 @@ func TryWebGLRenderingContextVertexAttrib4fv(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_VertexAttribPointer
 //go:noescape
-func HasWebGLRenderingContextVertexAttribPointer(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextVertexAttribPointer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_VertexAttribPointer
 //go:noescape
-func WebGLRenderingContextVertexAttribPointerFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextVertexAttribPointer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_VertexAttribPointer
 //go:noescape
@@ -2921,11 +2919,11 @@ func TryWebGLRenderingContextVertexAttribPointer(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_Viewport
 //go:noescape
-func HasWebGLRenderingContextViewport(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextViewport(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_Viewport
 //go:noescape
-func WebGLRenderingContextViewportFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextViewport(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_Viewport
 //go:noescape
@@ -2947,11 +2945,11 @@ func TryWebGLRenderingContextViewport(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_MakeXRCompatible
 //go:noescape
-func HasWebGLRenderingContextMakeXRCompatible(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextMakeXRCompatible(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_MakeXRCompatible
 //go:noescape
-func WebGLRenderingContextMakeXRCompatibleFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextMakeXRCompatible(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_MakeXRCompatible
 //go:noescape
@@ -2965,11 +2963,11 @@ func TryWebGLRenderingContextMakeXRCompatible(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_BufferData
 //go:noescape
-func HasWebGLRenderingContextBufferData(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextBufferData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_BufferData
 //go:noescape
-func WebGLRenderingContextBufferDataFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextBufferData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_BufferData
 //go:noescape
@@ -2989,11 +2987,11 @@ func TryWebGLRenderingContextBufferData(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_BufferData1
 //go:noescape
-func HasWebGLRenderingContextBufferData1(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextBufferData1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_BufferData1
 //go:noescape
-func WebGLRenderingContextBufferData1Func(this js.Ref) js.Ref
+func FuncWebGLRenderingContextBufferData1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_BufferData1
 //go:noescape
@@ -3013,11 +3011,11 @@ func TryWebGLRenderingContextBufferData1(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_BufferSubData
 //go:noescape
-func HasWebGLRenderingContextBufferSubData(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextBufferSubData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_BufferSubData
 //go:noescape
-func WebGLRenderingContextBufferSubDataFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextBufferSubData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_BufferSubData
 //go:noescape
@@ -3037,11 +3035,11 @@ func TryWebGLRenderingContextBufferSubData(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_CompressedTexImage2D
 //go:noescape
-func HasWebGLRenderingContextCompressedTexImage2D(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextCompressedTexImage2D(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_CompressedTexImage2D
 //go:noescape
-func WebGLRenderingContextCompressedTexImage2DFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextCompressedTexImage2D(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_CompressedTexImage2D
 //go:noescape
@@ -3069,11 +3067,11 @@ func TryWebGLRenderingContextCompressedTexImage2D(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_CompressedTexSubImage2D
 //go:noescape
-func HasWebGLRenderingContextCompressedTexSubImage2D(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextCompressedTexSubImage2D(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_CompressedTexSubImage2D
 //go:noescape
-func WebGLRenderingContextCompressedTexSubImage2DFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextCompressedTexSubImage2D(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_CompressedTexSubImage2D
 //go:noescape
@@ -3103,11 +3101,11 @@ func TryWebGLRenderingContextCompressedTexSubImage2D(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_ReadPixels
 //go:noescape
-func HasWebGLRenderingContextReadPixels(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextReadPixels(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_ReadPixels
 //go:noescape
-func WebGLRenderingContextReadPixelsFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextReadPixels(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_ReadPixels
 //go:noescape
@@ -3135,11 +3133,11 @@ func TryWebGLRenderingContextReadPixels(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_TexImage2D
 //go:noescape
-func HasWebGLRenderingContextTexImage2D(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextTexImage2D(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_TexImage2D
 //go:noescape
-func WebGLRenderingContextTexImage2DFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextTexImage2D(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_TexImage2D
 //go:noescape
@@ -3171,11 +3169,11 @@ func TryWebGLRenderingContextTexImage2D(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_TexImage2D1
 //go:noescape
-func HasWebGLRenderingContextTexImage2D1(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextTexImage2D1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_TexImage2D1
 //go:noescape
-func WebGLRenderingContextTexImage2D1Func(this js.Ref) js.Ref
+func FuncWebGLRenderingContextTexImage2D1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_TexImage2D1
 //go:noescape
@@ -3201,11 +3199,11 @@ func TryWebGLRenderingContextTexImage2D1(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_TexSubImage2D
 //go:noescape
-func HasWebGLRenderingContextTexSubImage2D(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextTexSubImage2D(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_TexSubImage2D
 //go:noescape
-func WebGLRenderingContextTexSubImage2DFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextTexSubImage2D(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_TexSubImage2D
 //go:noescape
@@ -3237,11 +3235,11 @@ func TryWebGLRenderingContextTexSubImage2D(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_TexSubImage2D1
 //go:noescape
-func HasWebGLRenderingContextTexSubImage2D1(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextTexSubImage2D1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_TexSubImage2D1
 //go:noescape
-func WebGLRenderingContextTexSubImage2D1Func(this js.Ref) js.Ref
+func FuncWebGLRenderingContextTexSubImage2D1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_TexSubImage2D1
 //go:noescape
@@ -3269,11 +3267,11 @@ func TryWebGLRenderingContextTexSubImage2D1(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_Uniform1fv
 //go:noescape
-func HasWebGLRenderingContextUniform1fv(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextUniform1fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_Uniform1fv
 //go:noescape
-func WebGLRenderingContextUniform1fvFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextUniform1fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_Uniform1fv
 //go:noescape
@@ -3291,11 +3289,11 @@ func TryWebGLRenderingContextUniform1fv(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_Uniform2fv
 //go:noescape
-func HasWebGLRenderingContextUniform2fv(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextUniform2fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_Uniform2fv
 //go:noescape
-func WebGLRenderingContextUniform2fvFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextUniform2fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_Uniform2fv
 //go:noescape
@@ -3313,11 +3311,11 @@ func TryWebGLRenderingContextUniform2fv(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_Uniform3fv
 //go:noescape
-func HasWebGLRenderingContextUniform3fv(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextUniform3fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_Uniform3fv
 //go:noescape
-func WebGLRenderingContextUniform3fvFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextUniform3fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_Uniform3fv
 //go:noescape
@@ -3335,11 +3333,11 @@ func TryWebGLRenderingContextUniform3fv(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_Uniform4fv
 //go:noescape
-func HasWebGLRenderingContextUniform4fv(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextUniform4fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_Uniform4fv
 //go:noescape
-func WebGLRenderingContextUniform4fvFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextUniform4fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_Uniform4fv
 //go:noescape
@@ -3357,11 +3355,11 @@ func TryWebGLRenderingContextUniform4fv(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_Uniform1iv
 //go:noescape
-func HasWebGLRenderingContextUniform1iv(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextUniform1iv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_Uniform1iv
 //go:noescape
-func WebGLRenderingContextUniform1ivFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextUniform1iv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_Uniform1iv
 //go:noescape
@@ -3379,11 +3377,11 @@ func TryWebGLRenderingContextUniform1iv(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_Uniform2iv
 //go:noescape
-func HasWebGLRenderingContextUniform2iv(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextUniform2iv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_Uniform2iv
 //go:noescape
-func WebGLRenderingContextUniform2ivFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextUniform2iv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_Uniform2iv
 //go:noescape
@@ -3401,11 +3399,11 @@ func TryWebGLRenderingContextUniform2iv(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_Uniform3iv
 //go:noescape
-func HasWebGLRenderingContextUniform3iv(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextUniform3iv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_Uniform3iv
 //go:noescape
-func WebGLRenderingContextUniform3ivFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextUniform3iv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_Uniform3iv
 //go:noescape
@@ -3423,11 +3421,11 @@ func TryWebGLRenderingContextUniform3iv(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_Uniform4iv
 //go:noescape
-func HasWebGLRenderingContextUniform4iv(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextUniform4iv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_Uniform4iv
 //go:noescape
-func WebGLRenderingContextUniform4ivFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextUniform4iv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_Uniform4iv
 //go:noescape
@@ -3445,11 +3443,11 @@ func TryWebGLRenderingContextUniform4iv(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_UniformMatrix2fv
 //go:noescape
-func HasWebGLRenderingContextUniformMatrix2fv(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextUniformMatrix2fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_UniformMatrix2fv
 //go:noescape
-func WebGLRenderingContextUniformMatrix2fvFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextUniformMatrix2fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_UniformMatrix2fv
 //go:noescape
@@ -3469,11 +3467,11 @@ func TryWebGLRenderingContextUniformMatrix2fv(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_UniformMatrix3fv
 //go:noescape
-func HasWebGLRenderingContextUniformMatrix3fv(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextUniformMatrix3fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_UniformMatrix3fv
 //go:noescape
-func WebGLRenderingContextUniformMatrix3fvFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextUniformMatrix3fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_UniformMatrix3fv
 //go:noescape
@@ -3493,11 +3491,11 @@ func TryWebGLRenderingContextUniformMatrix3fv(
 
 //go:wasmimport plat/js/web has_WebGLRenderingContext_UniformMatrix4fv
 //go:noescape
-func HasWebGLRenderingContextUniformMatrix4fv(this js.Ref) js.Ref
+func HasFuncWebGLRenderingContextUniformMatrix4fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGLRenderingContext_UniformMatrix4fv
 //go:noescape
-func WebGLRenderingContextUniformMatrix4fvFunc(this js.Ref) js.Ref
+func FuncWebGLRenderingContextUniformMatrix4fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGLRenderingContext_UniformMatrix4fv
 //go:noescape
@@ -3556,11 +3554,11 @@ func SetWebGL2RenderingContextUnpackColorSpace(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BufferData
 //go:noescape
-func HasWebGL2RenderingContextBufferData(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBufferData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BufferData
 //go:noescape
-func WebGL2RenderingContextBufferDataFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBufferData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BufferData
 //go:noescape
@@ -3580,11 +3578,11 @@ func TryWebGL2RenderingContextBufferData(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BufferData1
 //go:noescape
-func HasWebGL2RenderingContextBufferData1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBufferData1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BufferData1
 //go:noescape
-func WebGL2RenderingContextBufferData1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBufferData1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BufferData1
 //go:noescape
@@ -3604,11 +3602,11 @@ func TryWebGL2RenderingContextBufferData1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BufferSubData
 //go:noescape
-func HasWebGL2RenderingContextBufferSubData(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBufferSubData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BufferSubData
 //go:noescape
-func WebGL2RenderingContextBufferSubDataFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBufferSubData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BufferSubData
 //go:noescape
@@ -3628,11 +3626,11 @@ func TryWebGL2RenderingContextBufferSubData(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BufferData2
 //go:noescape
-func HasWebGL2RenderingContextBufferData2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBufferData2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BufferData2
 //go:noescape
-func WebGL2RenderingContextBufferData2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBufferData2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BufferData2
 //go:noescape
@@ -3656,11 +3654,11 @@ func TryWebGL2RenderingContextBufferData2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BufferData3
 //go:noescape
-func HasWebGL2RenderingContextBufferData3(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBufferData3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BufferData3
 //go:noescape
-func WebGL2RenderingContextBufferData3Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBufferData3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BufferData3
 //go:noescape
@@ -3682,11 +3680,11 @@ func TryWebGL2RenderingContextBufferData3(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BufferSubData1
 //go:noescape
-func HasWebGL2RenderingContextBufferSubData1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBufferSubData1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BufferSubData1
 //go:noescape
-func WebGL2RenderingContextBufferSubData1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBufferSubData1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BufferSubData1
 //go:noescape
@@ -3710,11 +3708,11 @@ func TryWebGL2RenderingContextBufferSubData1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BufferSubData2
 //go:noescape
-func HasWebGL2RenderingContextBufferSubData2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBufferSubData2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BufferSubData2
 //go:noescape
-func WebGL2RenderingContextBufferSubData2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBufferSubData2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BufferSubData2
 //go:noescape
@@ -3736,11 +3734,11 @@ func TryWebGL2RenderingContextBufferSubData2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_TexImage2D
 //go:noescape
-func HasWebGL2RenderingContextTexImage2D(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextTexImage2D(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_TexImage2D
 //go:noescape
-func WebGL2RenderingContextTexImage2DFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextTexImage2D(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_TexImage2D
 //go:noescape
@@ -3772,11 +3770,11 @@ func TryWebGL2RenderingContextTexImage2D(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_TexImage2D1
 //go:noescape
-func HasWebGL2RenderingContextTexImage2D1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextTexImage2D1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_TexImage2D1
 //go:noescape
-func WebGL2RenderingContextTexImage2D1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextTexImage2D1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_TexImage2D1
 //go:noescape
@@ -3802,11 +3800,11 @@ func TryWebGL2RenderingContextTexImage2D1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_TexSubImage2D
 //go:noescape
-func HasWebGL2RenderingContextTexSubImage2D(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextTexSubImage2D(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_TexSubImage2D
 //go:noescape
-func WebGL2RenderingContextTexSubImage2DFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextTexSubImage2D(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_TexSubImage2D
 //go:noescape
@@ -3838,11 +3836,11 @@ func TryWebGL2RenderingContextTexSubImage2D(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_TexSubImage2D1
 //go:noescape
-func HasWebGL2RenderingContextTexSubImage2D1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextTexSubImage2D1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_TexSubImage2D1
 //go:noescape
-func WebGL2RenderingContextTexSubImage2D1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextTexSubImage2D1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_TexSubImage2D1
 //go:noescape
@@ -3870,11 +3868,11 @@ func TryWebGL2RenderingContextTexSubImage2D1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_TexImage2D2
 //go:noescape
-func HasWebGL2RenderingContextTexImage2D2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextTexImage2D2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_TexImage2D2
 //go:noescape
-func WebGL2RenderingContextTexImage2D2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextTexImage2D2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_TexImage2D2
 //go:noescape
@@ -3906,11 +3904,11 @@ func TryWebGL2RenderingContextTexImage2D2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_TexImage2D3
 //go:noescape
-func HasWebGL2RenderingContextTexImage2D3(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextTexImage2D3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_TexImage2D3
 //go:noescape
-func WebGL2RenderingContextTexImage2D3Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextTexImage2D3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_TexImage2D3
 //go:noescape
@@ -3942,11 +3940,11 @@ func TryWebGL2RenderingContextTexImage2D3(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_TexImage2D4
 //go:noescape
-func HasWebGL2RenderingContextTexImage2D4(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextTexImage2D4(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_TexImage2D4
 //go:noescape
-func WebGL2RenderingContextTexImage2D4Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextTexImage2D4(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_TexImage2D4
 //go:noescape
@@ -3980,11 +3978,11 @@ func TryWebGL2RenderingContextTexImage2D4(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_TexSubImage2D2
 //go:noescape
-func HasWebGL2RenderingContextTexSubImage2D2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextTexSubImage2D2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_TexSubImage2D2
 //go:noescape
-func WebGL2RenderingContextTexSubImage2D2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextTexSubImage2D2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_TexSubImage2D2
 //go:noescape
@@ -4016,11 +4014,11 @@ func TryWebGL2RenderingContextTexSubImage2D2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_TexSubImage2D3
 //go:noescape
-func HasWebGL2RenderingContextTexSubImage2D3(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextTexSubImage2D3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_TexSubImage2D3
 //go:noescape
-func WebGL2RenderingContextTexSubImage2D3Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextTexSubImage2D3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_TexSubImage2D3
 //go:noescape
@@ -4052,11 +4050,11 @@ func TryWebGL2RenderingContextTexSubImage2D3(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_TexSubImage2D4
 //go:noescape
-func HasWebGL2RenderingContextTexSubImage2D4(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextTexSubImage2D4(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_TexSubImage2D4
 //go:noescape
-func WebGL2RenderingContextTexSubImage2D4Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextTexSubImage2D4(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_TexSubImage2D4
 //go:noescape
@@ -4090,11 +4088,11 @@ func TryWebGL2RenderingContextTexSubImage2D4(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CompressedTexImage2D
 //go:noescape
-func HasWebGL2RenderingContextCompressedTexImage2D(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCompressedTexImage2D(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CompressedTexImage2D
 //go:noescape
-func WebGL2RenderingContextCompressedTexImage2DFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCompressedTexImage2D(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CompressedTexImage2D
 //go:noescape
@@ -4124,11 +4122,11 @@ func TryWebGL2RenderingContextCompressedTexImage2D(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CompressedTexImage2D1
 //go:noescape
-func HasWebGL2RenderingContextCompressedTexImage2D1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCompressedTexImage2D1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CompressedTexImage2D1
 //go:noescape
-func WebGL2RenderingContextCompressedTexImage2D1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCompressedTexImage2D1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CompressedTexImage2D1
 //go:noescape
@@ -4160,11 +4158,11 @@ func TryWebGL2RenderingContextCompressedTexImage2D1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CompressedTexImage2D2
 //go:noescape
-func HasWebGL2RenderingContextCompressedTexImage2D2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCompressedTexImage2D2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CompressedTexImage2D2
 //go:noescape
-func WebGL2RenderingContextCompressedTexImage2D2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCompressedTexImage2D2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CompressedTexImage2D2
 //go:noescape
@@ -4194,11 +4192,11 @@ func TryWebGL2RenderingContextCompressedTexImage2D2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CompressedTexImage2D3
 //go:noescape
-func HasWebGL2RenderingContextCompressedTexImage2D3(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCompressedTexImage2D3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CompressedTexImage2D3
 //go:noescape
-func WebGL2RenderingContextCompressedTexImage2D3Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCompressedTexImage2D3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CompressedTexImage2D3
 //go:noescape
@@ -4226,11 +4224,11 @@ func TryWebGL2RenderingContextCompressedTexImage2D3(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CompressedTexSubImage2D
 //go:noescape
-func HasWebGL2RenderingContextCompressedTexSubImage2D(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCompressedTexSubImage2D(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CompressedTexSubImage2D
 //go:noescape
-func WebGL2RenderingContextCompressedTexSubImage2DFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCompressedTexSubImage2D(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CompressedTexSubImage2D
 //go:noescape
@@ -4262,11 +4260,11 @@ func TryWebGL2RenderingContextCompressedTexSubImage2D(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CompressedTexSubImage2D1
 //go:noescape
-func HasWebGL2RenderingContextCompressedTexSubImage2D1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCompressedTexSubImage2D1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CompressedTexSubImage2D1
 //go:noescape
-func WebGL2RenderingContextCompressedTexSubImage2D1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCompressedTexSubImage2D1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CompressedTexSubImage2D1
 //go:noescape
@@ -4300,11 +4298,11 @@ func TryWebGL2RenderingContextCompressedTexSubImage2D1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CompressedTexSubImage2D2
 //go:noescape
-func HasWebGL2RenderingContextCompressedTexSubImage2D2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCompressedTexSubImage2D2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CompressedTexSubImage2D2
 //go:noescape
-func WebGL2RenderingContextCompressedTexSubImage2D2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCompressedTexSubImage2D2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CompressedTexSubImage2D2
 //go:noescape
@@ -4336,11 +4334,11 @@ func TryWebGL2RenderingContextCompressedTexSubImage2D2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CompressedTexSubImage2D3
 //go:noescape
-func HasWebGL2RenderingContextCompressedTexSubImage2D3(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCompressedTexSubImage2D3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CompressedTexSubImage2D3
 //go:noescape
-func WebGL2RenderingContextCompressedTexSubImage2D3Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCompressedTexSubImage2D3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CompressedTexSubImage2D3
 //go:noescape
@@ -4370,11 +4368,11 @@ func TryWebGL2RenderingContextCompressedTexSubImage2D3(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform1fv
 //go:noescape
-func HasWebGL2RenderingContextUniform1fv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform1fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform1fv
 //go:noescape
-func WebGL2RenderingContextUniform1fvFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform1fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform1fv
 //go:noescape
@@ -4396,11 +4394,11 @@ func TryWebGL2RenderingContextUniform1fv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform1fv1
 //go:noescape
-func HasWebGL2RenderingContextUniform1fv1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform1fv1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform1fv1
 //go:noescape
-func WebGL2RenderingContextUniform1fv1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform1fv1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform1fv1
 //go:noescape
@@ -4420,11 +4418,11 @@ func TryWebGL2RenderingContextUniform1fv1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform1fv2
 //go:noescape
-func HasWebGL2RenderingContextUniform1fv2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform1fv2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform1fv2
 //go:noescape
-func WebGL2RenderingContextUniform1fv2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform1fv2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform1fv2
 //go:noescape
@@ -4442,11 +4440,11 @@ func TryWebGL2RenderingContextUniform1fv2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform2fv
 //go:noescape
-func HasWebGL2RenderingContextUniform2fv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform2fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform2fv
 //go:noescape
-func WebGL2RenderingContextUniform2fvFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform2fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform2fv
 //go:noescape
@@ -4468,11 +4466,11 @@ func TryWebGL2RenderingContextUniform2fv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform2fv1
 //go:noescape
-func HasWebGL2RenderingContextUniform2fv1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform2fv1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform2fv1
 //go:noescape
-func WebGL2RenderingContextUniform2fv1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform2fv1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform2fv1
 //go:noescape
@@ -4492,11 +4490,11 @@ func TryWebGL2RenderingContextUniform2fv1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform2fv2
 //go:noescape
-func HasWebGL2RenderingContextUniform2fv2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform2fv2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform2fv2
 //go:noescape
-func WebGL2RenderingContextUniform2fv2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform2fv2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform2fv2
 //go:noescape
@@ -4514,11 +4512,11 @@ func TryWebGL2RenderingContextUniform2fv2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform3fv
 //go:noescape
-func HasWebGL2RenderingContextUniform3fv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform3fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform3fv
 //go:noescape
-func WebGL2RenderingContextUniform3fvFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform3fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform3fv
 //go:noescape
@@ -4540,11 +4538,11 @@ func TryWebGL2RenderingContextUniform3fv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform3fv1
 //go:noescape
-func HasWebGL2RenderingContextUniform3fv1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform3fv1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform3fv1
 //go:noescape
-func WebGL2RenderingContextUniform3fv1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform3fv1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform3fv1
 //go:noescape
@@ -4564,11 +4562,11 @@ func TryWebGL2RenderingContextUniform3fv1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform3fv2
 //go:noescape
-func HasWebGL2RenderingContextUniform3fv2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform3fv2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform3fv2
 //go:noescape
-func WebGL2RenderingContextUniform3fv2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform3fv2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform3fv2
 //go:noescape
@@ -4586,11 +4584,11 @@ func TryWebGL2RenderingContextUniform3fv2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform4fv
 //go:noescape
-func HasWebGL2RenderingContextUniform4fv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform4fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform4fv
 //go:noescape
-func WebGL2RenderingContextUniform4fvFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform4fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform4fv
 //go:noescape
@@ -4612,11 +4610,11 @@ func TryWebGL2RenderingContextUniform4fv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform4fv1
 //go:noescape
-func HasWebGL2RenderingContextUniform4fv1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform4fv1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform4fv1
 //go:noescape
-func WebGL2RenderingContextUniform4fv1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform4fv1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform4fv1
 //go:noescape
@@ -4636,11 +4634,11 @@ func TryWebGL2RenderingContextUniform4fv1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform4fv2
 //go:noescape
-func HasWebGL2RenderingContextUniform4fv2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform4fv2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform4fv2
 //go:noescape
-func WebGL2RenderingContextUniform4fv2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform4fv2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform4fv2
 //go:noescape
@@ -4658,11 +4656,11 @@ func TryWebGL2RenderingContextUniform4fv2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform1iv
 //go:noescape
-func HasWebGL2RenderingContextUniform1iv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform1iv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform1iv
 //go:noescape
-func WebGL2RenderingContextUniform1ivFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform1iv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform1iv
 //go:noescape
@@ -4684,11 +4682,11 @@ func TryWebGL2RenderingContextUniform1iv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform1iv1
 //go:noescape
-func HasWebGL2RenderingContextUniform1iv1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform1iv1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform1iv1
 //go:noescape
-func WebGL2RenderingContextUniform1iv1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform1iv1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform1iv1
 //go:noescape
@@ -4708,11 +4706,11 @@ func TryWebGL2RenderingContextUniform1iv1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform1iv2
 //go:noescape
-func HasWebGL2RenderingContextUniform1iv2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform1iv2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform1iv2
 //go:noescape
-func WebGL2RenderingContextUniform1iv2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform1iv2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform1iv2
 //go:noescape
@@ -4730,11 +4728,11 @@ func TryWebGL2RenderingContextUniform1iv2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform2iv
 //go:noescape
-func HasWebGL2RenderingContextUniform2iv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform2iv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform2iv
 //go:noescape
-func WebGL2RenderingContextUniform2ivFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform2iv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform2iv
 //go:noescape
@@ -4756,11 +4754,11 @@ func TryWebGL2RenderingContextUniform2iv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform2iv1
 //go:noescape
-func HasWebGL2RenderingContextUniform2iv1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform2iv1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform2iv1
 //go:noescape
-func WebGL2RenderingContextUniform2iv1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform2iv1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform2iv1
 //go:noescape
@@ -4780,11 +4778,11 @@ func TryWebGL2RenderingContextUniform2iv1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform2iv2
 //go:noescape
-func HasWebGL2RenderingContextUniform2iv2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform2iv2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform2iv2
 //go:noescape
-func WebGL2RenderingContextUniform2iv2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform2iv2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform2iv2
 //go:noescape
@@ -4802,11 +4800,11 @@ func TryWebGL2RenderingContextUniform2iv2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform3iv
 //go:noescape
-func HasWebGL2RenderingContextUniform3iv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform3iv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform3iv
 //go:noescape
-func WebGL2RenderingContextUniform3ivFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform3iv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform3iv
 //go:noescape
@@ -4828,11 +4826,11 @@ func TryWebGL2RenderingContextUniform3iv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform3iv1
 //go:noescape
-func HasWebGL2RenderingContextUniform3iv1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform3iv1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform3iv1
 //go:noescape
-func WebGL2RenderingContextUniform3iv1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform3iv1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform3iv1
 //go:noescape
@@ -4852,11 +4850,11 @@ func TryWebGL2RenderingContextUniform3iv1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform3iv2
 //go:noescape
-func HasWebGL2RenderingContextUniform3iv2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform3iv2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform3iv2
 //go:noescape
-func WebGL2RenderingContextUniform3iv2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform3iv2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform3iv2
 //go:noescape
@@ -4874,11 +4872,11 @@ func TryWebGL2RenderingContextUniform3iv2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform4iv
 //go:noescape
-func HasWebGL2RenderingContextUniform4iv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform4iv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform4iv
 //go:noescape
-func WebGL2RenderingContextUniform4ivFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform4iv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform4iv
 //go:noescape
@@ -4900,11 +4898,11 @@ func TryWebGL2RenderingContextUniform4iv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform4iv1
 //go:noescape
-func HasWebGL2RenderingContextUniform4iv1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform4iv1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform4iv1
 //go:noescape
-func WebGL2RenderingContextUniform4iv1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform4iv1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform4iv1
 //go:noescape
@@ -4924,11 +4922,11 @@ func TryWebGL2RenderingContextUniform4iv1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform4iv2
 //go:noescape
-func HasWebGL2RenderingContextUniform4iv2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform4iv2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform4iv2
 //go:noescape
-func WebGL2RenderingContextUniform4iv2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform4iv2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform4iv2
 //go:noescape
@@ -4946,11 +4944,11 @@ func TryWebGL2RenderingContextUniform4iv2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix2fv
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix2fv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix2fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix2fv
 //go:noescape
-func WebGL2RenderingContextUniformMatrix2fvFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix2fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix2fv
 //go:noescape
@@ -4974,11 +4972,11 @@ func TryWebGL2RenderingContextUniformMatrix2fv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix2fv1
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix2fv1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix2fv1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix2fv1
 //go:noescape
-func WebGL2RenderingContextUniformMatrix2fv1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix2fv1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix2fv1
 //go:noescape
@@ -5000,11 +4998,11 @@ func TryWebGL2RenderingContextUniformMatrix2fv1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix2fv2
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix2fv2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix2fv2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix2fv2
 //go:noescape
-func WebGL2RenderingContextUniformMatrix2fv2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix2fv2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix2fv2
 //go:noescape
@@ -5024,11 +5022,11 @@ func TryWebGL2RenderingContextUniformMatrix2fv2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix3fv
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix3fv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix3fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix3fv
 //go:noescape
-func WebGL2RenderingContextUniformMatrix3fvFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix3fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix3fv
 //go:noescape
@@ -5052,11 +5050,11 @@ func TryWebGL2RenderingContextUniformMatrix3fv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix3fv1
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix3fv1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix3fv1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix3fv1
 //go:noescape
-func WebGL2RenderingContextUniformMatrix3fv1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix3fv1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix3fv1
 //go:noescape
@@ -5078,11 +5076,11 @@ func TryWebGL2RenderingContextUniformMatrix3fv1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix3fv2
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix3fv2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix3fv2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix3fv2
 //go:noescape
-func WebGL2RenderingContextUniformMatrix3fv2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix3fv2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix3fv2
 //go:noescape
@@ -5102,11 +5100,11 @@ func TryWebGL2RenderingContextUniformMatrix3fv2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix4fv
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix4fv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix4fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix4fv
 //go:noescape
-func WebGL2RenderingContextUniformMatrix4fvFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix4fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix4fv
 //go:noescape
@@ -5130,11 +5128,11 @@ func TryWebGL2RenderingContextUniformMatrix4fv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix4fv1
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix4fv1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix4fv1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix4fv1
 //go:noescape
-func WebGL2RenderingContextUniformMatrix4fv1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix4fv1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix4fv1
 //go:noescape
@@ -5156,11 +5154,11 @@ func TryWebGL2RenderingContextUniformMatrix4fv1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix4fv2
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix4fv2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix4fv2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix4fv2
 //go:noescape
-func WebGL2RenderingContextUniformMatrix4fv2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix4fv2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix4fv2
 //go:noescape
@@ -5180,11 +5178,11 @@ func TryWebGL2RenderingContextUniformMatrix4fv2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_ReadPixels
 //go:noescape
-func HasWebGL2RenderingContextReadPixels(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextReadPixels(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_ReadPixels
 //go:noescape
-func WebGL2RenderingContextReadPixelsFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextReadPixels(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_ReadPixels
 //go:noescape
@@ -5212,11 +5210,11 @@ func TryWebGL2RenderingContextReadPixels(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_ReadPixels1
 //go:noescape
-func HasWebGL2RenderingContextReadPixels1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextReadPixels1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_ReadPixels1
 //go:noescape
-func WebGL2RenderingContextReadPixels1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextReadPixels1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_ReadPixels1
 //go:noescape
@@ -5244,11 +5242,11 @@ func TryWebGL2RenderingContextReadPixels1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_ReadPixels2
 //go:noescape
-func HasWebGL2RenderingContextReadPixels2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextReadPixels2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_ReadPixels2
 //go:noescape
-func WebGL2RenderingContextReadPixels2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextReadPixels2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_ReadPixels2
 //go:noescape
@@ -5278,11 +5276,11 @@ func TryWebGL2RenderingContextReadPixels2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CopyBufferSubData
 //go:noescape
-func HasWebGL2RenderingContextCopyBufferSubData(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCopyBufferSubData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CopyBufferSubData
 //go:noescape
-func WebGL2RenderingContextCopyBufferSubDataFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCopyBufferSubData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CopyBufferSubData
 //go:noescape
@@ -5306,11 +5304,11 @@ func TryWebGL2RenderingContextCopyBufferSubData(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetBufferSubData
 //go:noescape
-func HasWebGL2RenderingContextGetBufferSubData(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetBufferSubData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetBufferSubData
 //go:noescape
-func WebGL2RenderingContextGetBufferSubDataFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetBufferSubData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetBufferSubData
 //go:noescape
@@ -5334,11 +5332,11 @@ func TryWebGL2RenderingContextGetBufferSubData(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetBufferSubData1
 //go:noescape
-func HasWebGL2RenderingContextGetBufferSubData1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetBufferSubData1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetBufferSubData1
 //go:noescape
-func WebGL2RenderingContextGetBufferSubData1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetBufferSubData1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetBufferSubData1
 //go:noescape
@@ -5360,11 +5358,11 @@ func TryWebGL2RenderingContextGetBufferSubData1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetBufferSubData2
 //go:noescape
-func HasWebGL2RenderingContextGetBufferSubData2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetBufferSubData2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetBufferSubData2
 //go:noescape
-func WebGL2RenderingContextGetBufferSubData2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetBufferSubData2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetBufferSubData2
 //go:noescape
@@ -5384,11 +5382,11 @@ func TryWebGL2RenderingContextGetBufferSubData2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BlitFramebuffer
 //go:noescape
-func HasWebGL2RenderingContextBlitFramebuffer(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBlitFramebuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BlitFramebuffer
 //go:noescape
-func WebGL2RenderingContextBlitFramebufferFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBlitFramebuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BlitFramebuffer
 //go:noescape
@@ -5422,11 +5420,11 @@ func TryWebGL2RenderingContextBlitFramebuffer(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_FramebufferTextureLayer
 //go:noescape
-func HasWebGL2RenderingContextFramebufferTextureLayer(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextFramebufferTextureLayer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_FramebufferTextureLayer
 //go:noescape
-func WebGL2RenderingContextFramebufferTextureLayerFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextFramebufferTextureLayer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_FramebufferTextureLayer
 //go:noescape
@@ -5450,11 +5448,11 @@ func TryWebGL2RenderingContextFramebufferTextureLayer(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_InvalidateFramebuffer
 //go:noescape
-func HasWebGL2RenderingContextInvalidateFramebuffer(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextInvalidateFramebuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_InvalidateFramebuffer
 //go:noescape
-func WebGL2RenderingContextInvalidateFramebufferFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextInvalidateFramebuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_InvalidateFramebuffer
 //go:noescape
@@ -5472,11 +5470,11 @@ func TryWebGL2RenderingContextInvalidateFramebuffer(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_InvalidateSubFramebuffer
 //go:noescape
-func HasWebGL2RenderingContextInvalidateSubFramebuffer(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextInvalidateSubFramebuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_InvalidateSubFramebuffer
 //go:noescape
-func WebGL2RenderingContextInvalidateSubFramebufferFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextInvalidateSubFramebuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_InvalidateSubFramebuffer
 //go:noescape
@@ -5502,11 +5500,11 @@ func TryWebGL2RenderingContextInvalidateSubFramebuffer(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_ReadBuffer
 //go:noescape
-func HasWebGL2RenderingContextReadBuffer(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextReadBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_ReadBuffer
 //go:noescape
-func WebGL2RenderingContextReadBufferFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextReadBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_ReadBuffer
 //go:noescape
@@ -5522,11 +5520,11 @@ func TryWebGL2RenderingContextReadBuffer(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetInternalformatParameter
 //go:noescape
-func HasWebGL2RenderingContextGetInternalformatParameter(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetInternalformatParameter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetInternalformatParameter
 //go:noescape
-func WebGL2RenderingContextGetInternalformatParameterFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetInternalformatParameter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetInternalformatParameter
 //go:noescape
@@ -5546,11 +5544,11 @@ func TryWebGL2RenderingContextGetInternalformatParameter(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_RenderbufferStorageMultisample
 //go:noescape
-func HasWebGL2RenderingContextRenderbufferStorageMultisample(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextRenderbufferStorageMultisample(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_RenderbufferStorageMultisample
 //go:noescape
-func WebGL2RenderingContextRenderbufferStorageMultisampleFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextRenderbufferStorageMultisample(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_RenderbufferStorageMultisample
 //go:noescape
@@ -5574,11 +5572,11 @@ func TryWebGL2RenderingContextRenderbufferStorageMultisample(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_TexStorage2D
 //go:noescape
-func HasWebGL2RenderingContextTexStorage2D(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextTexStorage2D(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_TexStorage2D
 //go:noescape
-func WebGL2RenderingContextTexStorage2DFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextTexStorage2D(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_TexStorage2D
 //go:noescape
@@ -5602,11 +5600,11 @@ func TryWebGL2RenderingContextTexStorage2D(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_TexStorage3D
 //go:noescape
-func HasWebGL2RenderingContextTexStorage3D(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextTexStorage3D(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_TexStorage3D
 //go:noescape
-func WebGL2RenderingContextTexStorage3DFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextTexStorage3D(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_TexStorage3D
 //go:noescape
@@ -5632,11 +5630,11 @@ func TryWebGL2RenderingContextTexStorage3D(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_TexImage3D
 //go:noescape
-func HasWebGL2RenderingContextTexImage3D(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextTexImage3D(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_TexImage3D
 //go:noescape
-func WebGL2RenderingContextTexImage3DFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextTexImage3D(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_TexImage3D
 //go:noescape
@@ -5670,11 +5668,11 @@ func TryWebGL2RenderingContextTexImage3D(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_TexImage3D1
 //go:noescape
-func HasWebGL2RenderingContextTexImage3D1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextTexImage3D1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_TexImage3D1
 //go:noescape
-func WebGL2RenderingContextTexImage3D1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextTexImage3D1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_TexImage3D1
 //go:noescape
@@ -5708,11 +5706,11 @@ func TryWebGL2RenderingContextTexImage3D1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_TexImage3D2
 //go:noescape
-func HasWebGL2RenderingContextTexImage3D2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextTexImage3D2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_TexImage3D2
 //go:noescape
-func WebGL2RenderingContextTexImage3D2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextTexImage3D2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_TexImage3D2
 //go:noescape
@@ -5746,11 +5744,11 @@ func TryWebGL2RenderingContextTexImage3D2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_TexImage3D3
 //go:noescape
-func HasWebGL2RenderingContextTexImage3D3(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextTexImage3D3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_TexImage3D3
 //go:noescape
-func WebGL2RenderingContextTexImage3D3Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextTexImage3D3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_TexImage3D3
 //go:noescape
@@ -5786,11 +5784,11 @@ func TryWebGL2RenderingContextTexImage3D3(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_TexSubImage3D
 //go:noescape
-func HasWebGL2RenderingContextTexSubImage3D(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextTexSubImage3D(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_TexSubImage3D
 //go:noescape
-func WebGL2RenderingContextTexSubImage3DFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextTexSubImage3D(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_TexSubImage3D
 //go:noescape
@@ -5826,11 +5824,11 @@ func TryWebGL2RenderingContextTexSubImage3D(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_TexSubImage3D1
 //go:noescape
-func HasWebGL2RenderingContextTexSubImage3D1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextTexSubImage3D1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_TexSubImage3D1
 //go:noescape
-func WebGL2RenderingContextTexSubImage3D1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextTexSubImage3D1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_TexSubImage3D1
 //go:noescape
@@ -5866,11 +5864,11 @@ func TryWebGL2RenderingContextTexSubImage3D1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_TexSubImage3D2
 //go:noescape
-func HasWebGL2RenderingContextTexSubImage3D2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextTexSubImage3D2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_TexSubImage3D2
 //go:noescape
-func WebGL2RenderingContextTexSubImage3D2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextTexSubImage3D2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_TexSubImage3D2
 //go:noescape
@@ -5908,11 +5906,11 @@ func TryWebGL2RenderingContextTexSubImage3D2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_TexSubImage3D3
 //go:noescape
-func HasWebGL2RenderingContextTexSubImage3D3(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextTexSubImage3D3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_TexSubImage3D3
 //go:noescape
-func WebGL2RenderingContextTexSubImage3D3Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextTexSubImage3D3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_TexSubImage3D3
 //go:noescape
@@ -5948,11 +5946,11 @@ func TryWebGL2RenderingContextTexSubImage3D3(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CopyTexSubImage3D
 //go:noescape
-func HasWebGL2RenderingContextCopyTexSubImage3D(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCopyTexSubImage3D(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CopyTexSubImage3D
 //go:noescape
-func WebGL2RenderingContextCopyTexSubImage3DFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCopyTexSubImage3D(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CopyTexSubImage3D
 //go:noescape
@@ -5984,11 +5982,11 @@ func TryWebGL2RenderingContextCopyTexSubImage3D(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CompressedTexImage3D
 //go:noescape
-func HasWebGL2RenderingContextCompressedTexImage3D(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCompressedTexImage3D(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CompressedTexImage3D
 //go:noescape
-func WebGL2RenderingContextCompressedTexImage3DFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCompressedTexImage3D(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CompressedTexImage3D
 //go:noescape
@@ -6020,11 +6018,11 @@ func TryWebGL2RenderingContextCompressedTexImage3D(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CompressedTexImage3D1
 //go:noescape
-func HasWebGL2RenderingContextCompressedTexImage3D1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCompressedTexImage3D1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CompressedTexImage3D1
 //go:noescape
-func WebGL2RenderingContextCompressedTexImage3D1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCompressedTexImage3D1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CompressedTexImage3D1
 //go:noescape
@@ -6058,11 +6056,11 @@ func TryWebGL2RenderingContextCompressedTexImage3D1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CompressedTexImage3D2
 //go:noescape
-func HasWebGL2RenderingContextCompressedTexImage3D2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCompressedTexImage3D2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CompressedTexImage3D2
 //go:noescape
-func WebGL2RenderingContextCompressedTexImage3D2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCompressedTexImage3D2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CompressedTexImage3D2
 //go:noescape
@@ -6094,11 +6092,11 @@ func TryWebGL2RenderingContextCompressedTexImage3D2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CompressedTexImage3D3
 //go:noescape
-func HasWebGL2RenderingContextCompressedTexImage3D3(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCompressedTexImage3D3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CompressedTexImage3D3
 //go:noescape
-func WebGL2RenderingContextCompressedTexImage3D3Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCompressedTexImage3D3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CompressedTexImage3D3
 //go:noescape
@@ -6128,11 +6126,11 @@ func TryWebGL2RenderingContextCompressedTexImage3D3(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CompressedTexSubImage3D
 //go:noescape
-func HasWebGL2RenderingContextCompressedTexSubImage3D(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCompressedTexSubImage3D(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CompressedTexSubImage3D
 //go:noescape
-func WebGL2RenderingContextCompressedTexSubImage3DFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCompressedTexSubImage3D(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CompressedTexSubImage3D
 //go:noescape
@@ -6168,11 +6166,11 @@ func TryWebGL2RenderingContextCompressedTexSubImage3D(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CompressedTexSubImage3D1
 //go:noescape
-func HasWebGL2RenderingContextCompressedTexSubImage3D1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCompressedTexSubImage3D1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CompressedTexSubImage3D1
 //go:noescape
-func WebGL2RenderingContextCompressedTexSubImage3D1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCompressedTexSubImage3D1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CompressedTexSubImage3D1
 //go:noescape
@@ -6210,11 +6208,11 @@ func TryWebGL2RenderingContextCompressedTexSubImage3D1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CompressedTexSubImage3D2
 //go:noescape
-func HasWebGL2RenderingContextCompressedTexSubImage3D2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCompressedTexSubImage3D2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CompressedTexSubImage3D2
 //go:noescape
-func WebGL2RenderingContextCompressedTexSubImage3D2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCompressedTexSubImage3D2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CompressedTexSubImage3D2
 //go:noescape
@@ -6250,11 +6248,11 @@ func TryWebGL2RenderingContextCompressedTexSubImage3D2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CompressedTexSubImage3D3
 //go:noescape
-func HasWebGL2RenderingContextCompressedTexSubImage3D3(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCompressedTexSubImage3D3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CompressedTexSubImage3D3
 //go:noescape
-func WebGL2RenderingContextCompressedTexSubImage3D3Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCompressedTexSubImage3D3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CompressedTexSubImage3D3
 //go:noescape
@@ -6288,11 +6286,11 @@ func TryWebGL2RenderingContextCompressedTexSubImage3D3(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetFragDataLocation
 //go:noescape
-func HasWebGL2RenderingContextGetFragDataLocation(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetFragDataLocation(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetFragDataLocation
 //go:noescape
-func WebGL2RenderingContextGetFragDataLocationFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetFragDataLocation(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetFragDataLocation
 //go:noescape
@@ -6310,11 +6308,11 @@ func TryWebGL2RenderingContextGetFragDataLocation(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform1ui
 //go:noescape
-func HasWebGL2RenderingContextUniform1ui(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform1ui(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform1ui
 //go:noescape
-func WebGL2RenderingContextUniform1uiFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform1ui(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform1ui
 //go:noescape
@@ -6332,11 +6330,11 @@ func TryWebGL2RenderingContextUniform1ui(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform2ui
 //go:noescape
-func HasWebGL2RenderingContextUniform2ui(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform2ui(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform2ui
 //go:noescape
-func WebGL2RenderingContextUniform2uiFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform2ui(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform2ui
 //go:noescape
@@ -6356,11 +6354,11 @@ func TryWebGL2RenderingContextUniform2ui(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform3ui
 //go:noescape
-func HasWebGL2RenderingContextUniform3ui(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform3ui(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform3ui
 //go:noescape
-func WebGL2RenderingContextUniform3uiFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform3ui(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform3ui
 //go:noescape
@@ -6382,11 +6380,11 @@ func TryWebGL2RenderingContextUniform3ui(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform4ui
 //go:noescape
-func HasWebGL2RenderingContextUniform4ui(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform4ui(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform4ui
 //go:noescape
-func WebGL2RenderingContextUniform4uiFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform4ui(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform4ui
 //go:noescape
@@ -6410,11 +6408,11 @@ func TryWebGL2RenderingContextUniform4ui(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform1uiv
 //go:noescape
-func HasWebGL2RenderingContextUniform1uiv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform1uiv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform1uiv
 //go:noescape
-func WebGL2RenderingContextUniform1uivFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform1uiv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform1uiv
 //go:noescape
@@ -6436,11 +6434,11 @@ func TryWebGL2RenderingContextUniform1uiv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform1uiv1
 //go:noescape
-func HasWebGL2RenderingContextUniform1uiv1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform1uiv1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform1uiv1
 //go:noescape
-func WebGL2RenderingContextUniform1uiv1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform1uiv1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform1uiv1
 //go:noescape
@@ -6460,11 +6458,11 @@ func TryWebGL2RenderingContextUniform1uiv1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform1uiv2
 //go:noescape
-func HasWebGL2RenderingContextUniform1uiv2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform1uiv2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform1uiv2
 //go:noescape
-func WebGL2RenderingContextUniform1uiv2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform1uiv2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform1uiv2
 //go:noescape
@@ -6482,11 +6480,11 @@ func TryWebGL2RenderingContextUniform1uiv2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform2uiv
 //go:noescape
-func HasWebGL2RenderingContextUniform2uiv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform2uiv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform2uiv
 //go:noescape
-func WebGL2RenderingContextUniform2uivFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform2uiv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform2uiv
 //go:noescape
@@ -6508,11 +6506,11 @@ func TryWebGL2RenderingContextUniform2uiv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform2uiv1
 //go:noescape
-func HasWebGL2RenderingContextUniform2uiv1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform2uiv1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform2uiv1
 //go:noescape
-func WebGL2RenderingContextUniform2uiv1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform2uiv1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform2uiv1
 //go:noescape
@@ -6532,11 +6530,11 @@ func TryWebGL2RenderingContextUniform2uiv1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform2uiv2
 //go:noescape
-func HasWebGL2RenderingContextUniform2uiv2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform2uiv2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform2uiv2
 //go:noescape
-func WebGL2RenderingContextUniform2uiv2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform2uiv2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform2uiv2
 //go:noescape
@@ -6554,11 +6552,11 @@ func TryWebGL2RenderingContextUniform2uiv2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform3uiv
 //go:noescape
-func HasWebGL2RenderingContextUniform3uiv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform3uiv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform3uiv
 //go:noescape
-func WebGL2RenderingContextUniform3uivFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform3uiv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform3uiv
 //go:noescape
@@ -6580,11 +6578,11 @@ func TryWebGL2RenderingContextUniform3uiv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform3uiv1
 //go:noescape
-func HasWebGL2RenderingContextUniform3uiv1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform3uiv1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform3uiv1
 //go:noescape
-func WebGL2RenderingContextUniform3uiv1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform3uiv1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform3uiv1
 //go:noescape
@@ -6604,11 +6602,11 @@ func TryWebGL2RenderingContextUniform3uiv1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform3uiv2
 //go:noescape
-func HasWebGL2RenderingContextUniform3uiv2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform3uiv2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform3uiv2
 //go:noescape
-func WebGL2RenderingContextUniform3uiv2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform3uiv2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform3uiv2
 //go:noescape
@@ -6626,11 +6624,11 @@ func TryWebGL2RenderingContextUniform3uiv2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform4uiv
 //go:noescape
-func HasWebGL2RenderingContextUniform4uiv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform4uiv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform4uiv
 //go:noescape
-func WebGL2RenderingContextUniform4uivFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform4uiv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform4uiv
 //go:noescape
@@ -6652,11 +6650,11 @@ func TryWebGL2RenderingContextUniform4uiv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform4uiv1
 //go:noescape
-func HasWebGL2RenderingContextUniform4uiv1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform4uiv1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform4uiv1
 //go:noescape
-func WebGL2RenderingContextUniform4uiv1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform4uiv1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform4uiv1
 //go:noescape
@@ -6676,11 +6674,11 @@ func TryWebGL2RenderingContextUniform4uiv1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform4uiv2
 //go:noescape
-func HasWebGL2RenderingContextUniform4uiv2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform4uiv2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform4uiv2
 //go:noescape
-func WebGL2RenderingContextUniform4uiv2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform4uiv2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform4uiv2
 //go:noescape
@@ -6698,11 +6696,11 @@ func TryWebGL2RenderingContextUniform4uiv2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix3x2fv
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix3x2fv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix3x2fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix3x2fv
 //go:noescape
-func WebGL2RenderingContextUniformMatrix3x2fvFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix3x2fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix3x2fv
 //go:noescape
@@ -6726,11 +6724,11 @@ func TryWebGL2RenderingContextUniformMatrix3x2fv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix3x2fv1
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix3x2fv1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix3x2fv1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix3x2fv1
 //go:noescape
-func WebGL2RenderingContextUniformMatrix3x2fv1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix3x2fv1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix3x2fv1
 //go:noescape
@@ -6752,11 +6750,11 @@ func TryWebGL2RenderingContextUniformMatrix3x2fv1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix3x2fv2
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix3x2fv2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix3x2fv2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix3x2fv2
 //go:noescape
-func WebGL2RenderingContextUniformMatrix3x2fv2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix3x2fv2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix3x2fv2
 //go:noescape
@@ -6776,11 +6774,11 @@ func TryWebGL2RenderingContextUniformMatrix3x2fv2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix4x2fv
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix4x2fv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix4x2fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix4x2fv
 //go:noescape
-func WebGL2RenderingContextUniformMatrix4x2fvFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix4x2fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix4x2fv
 //go:noescape
@@ -6804,11 +6802,11 @@ func TryWebGL2RenderingContextUniformMatrix4x2fv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix4x2fv1
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix4x2fv1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix4x2fv1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix4x2fv1
 //go:noescape
-func WebGL2RenderingContextUniformMatrix4x2fv1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix4x2fv1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix4x2fv1
 //go:noescape
@@ -6830,11 +6828,11 @@ func TryWebGL2RenderingContextUniformMatrix4x2fv1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix4x2fv2
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix4x2fv2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix4x2fv2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix4x2fv2
 //go:noescape
-func WebGL2RenderingContextUniformMatrix4x2fv2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix4x2fv2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix4x2fv2
 //go:noescape
@@ -6854,11 +6852,11 @@ func TryWebGL2RenderingContextUniformMatrix4x2fv2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix2x3fv
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix2x3fv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix2x3fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix2x3fv
 //go:noescape
-func WebGL2RenderingContextUniformMatrix2x3fvFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix2x3fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix2x3fv
 //go:noescape
@@ -6882,11 +6880,11 @@ func TryWebGL2RenderingContextUniformMatrix2x3fv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix2x3fv1
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix2x3fv1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix2x3fv1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix2x3fv1
 //go:noescape
-func WebGL2RenderingContextUniformMatrix2x3fv1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix2x3fv1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix2x3fv1
 //go:noescape
@@ -6908,11 +6906,11 @@ func TryWebGL2RenderingContextUniformMatrix2x3fv1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix2x3fv2
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix2x3fv2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix2x3fv2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix2x3fv2
 //go:noescape
-func WebGL2RenderingContextUniformMatrix2x3fv2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix2x3fv2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix2x3fv2
 //go:noescape
@@ -6932,11 +6930,11 @@ func TryWebGL2RenderingContextUniformMatrix2x3fv2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix4x3fv
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix4x3fv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix4x3fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix4x3fv
 //go:noescape
-func WebGL2RenderingContextUniformMatrix4x3fvFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix4x3fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix4x3fv
 //go:noescape
@@ -6960,11 +6958,11 @@ func TryWebGL2RenderingContextUniformMatrix4x3fv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix4x3fv1
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix4x3fv1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix4x3fv1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix4x3fv1
 //go:noescape
-func WebGL2RenderingContextUniformMatrix4x3fv1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix4x3fv1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix4x3fv1
 //go:noescape
@@ -6986,11 +6984,11 @@ func TryWebGL2RenderingContextUniformMatrix4x3fv1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix4x3fv2
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix4x3fv2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix4x3fv2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix4x3fv2
 //go:noescape
-func WebGL2RenderingContextUniformMatrix4x3fv2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix4x3fv2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix4x3fv2
 //go:noescape
@@ -7010,11 +7008,11 @@ func TryWebGL2RenderingContextUniformMatrix4x3fv2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix2x4fv
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix2x4fv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix2x4fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix2x4fv
 //go:noescape
-func WebGL2RenderingContextUniformMatrix2x4fvFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix2x4fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix2x4fv
 //go:noescape
@@ -7038,11 +7036,11 @@ func TryWebGL2RenderingContextUniformMatrix2x4fv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix2x4fv1
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix2x4fv1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix2x4fv1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix2x4fv1
 //go:noescape
-func WebGL2RenderingContextUniformMatrix2x4fv1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix2x4fv1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix2x4fv1
 //go:noescape
@@ -7064,11 +7062,11 @@ func TryWebGL2RenderingContextUniformMatrix2x4fv1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix2x4fv2
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix2x4fv2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix2x4fv2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix2x4fv2
 //go:noescape
-func WebGL2RenderingContextUniformMatrix2x4fv2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix2x4fv2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix2x4fv2
 //go:noescape
@@ -7088,11 +7086,11 @@ func TryWebGL2RenderingContextUniformMatrix2x4fv2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix3x4fv
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix3x4fv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix3x4fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix3x4fv
 //go:noescape
-func WebGL2RenderingContextUniformMatrix3x4fvFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix3x4fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix3x4fv
 //go:noescape
@@ -7116,11 +7114,11 @@ func TryWebGL2RenderingContextUniformMatrix3x4fv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix3x4fv1
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix3x4fv1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix3x4fv1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix3x4fv1
 //go:noescape
-func WebGL2RenderingContextUniformMatrix3x4fv1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix3x4fv1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix3x4fv1
 //go:noescape
@@ -7142,11 +7140,11 @@ func TryWebGL2RenderingContextUniformMatrix3x4fv1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformMatrix3x4fv2
 //go:noescape
-func HasWebGL2RenderingContextUniformMatrix3x4fv2(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformMatrix3x4fv2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformMatrix3x4fv2
 //go:noescape
-func WebGL2RenderingContextUniformMatrix3x4fv2Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformMatrix3x4fv2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformMatrix3x4fv2
 //go:noescape
@@ -7166,11 +7164,11 @@ func TryWebGL2RenderingContextUniformMatrix3x4fv2(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_VertexAttribI4i
 //go:noescape
-func HasWebGL2RenderingContextVertexAttribI4i(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextVertexAttribI4i(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_VertexAttribI4i
 //go:noescape
-func WebGL2RenderingContextVertexAttribI4iFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextVertexAttribI4i(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_VertexAttribI4i
 //go:noescape
@@ -7194,11 +7192,11 @@ func TryWebGL2RenderingContextVertexAttribI4i(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_VertexAttribI4iv
 //go:noescape
-func HasWebGL2RenderingContextVertexAttribI4iv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextVertexAttribI4iv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_VertexAttribI4iv
 //go:noescape
-func WebGL2RenderingContextVertexAttribI4ivFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextVertexAttribI4iv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_VertexAttribI4iv
 //go:noescape
@@ -7216,11 +7214,11 @@ func TryWebGL2RenderingContextVertexAttribI4iv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_VertexAttribI4ui
 //go:noescape
-func HasWebGL2RenderingContextVertexAttribI4ui(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextVertexAttribI4ui(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_VertexAttribI4ui
 //go:noescape
-func WebGL2RenderingContextVertexAttribI4uiFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextVertexAttribI4ui(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_VertexAttribI4ui
 //go:noescape
@@ -7244,11 +7242,11 @@ func TryWebGL2RenderingContextVertexAttribI4ui(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_VertexAttribI4uiv
 //go:noescape
-func HasWebGL2RenderingContextVertexAttribI4uiv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextVertexAttribI4uiv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_VertexAttribI4uiv
 //go:noescape
-func WebGL2RenderingContextVertexAttribI4uivFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextVertexAttribI4uiv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_VertexAttribI4uiv
 //go:noescape
@@ -7266,11 +7264,11 @@ func TryWebGL2RenderingContextVertexAttribI4uiv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_VertexAttribIPointer
 //go:noescape
-func HasWebGL2RenderingContextVertexAttribIPointer(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextVertexAttribIPointer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_VertexAttribIPointer
 //go:noescape
-func WebGL2RenderingContextVertexAttribIPointerFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextVertexAttribIPointer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_VertexAttribIPointer
 //go:noescape
@@ -7294,11 +7292,11 @@ func TryWebGL2RenderingContextVertexAttribIPointer(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_VertexAttribDivisor
 //go:noescape
-func HasWebGL2RenderingContextVertexAttribDivisor(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextVertexAttribDivisor(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_VertexAttribDivisor
 //go:noescape
-func WebGL2RenderingContextVertexAttribDivisorFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextVertexAttribDivisor(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_VertexAttribDivisor
 //go:noescape
@@ -7316,11 +7314,11 @@ func TryWebGL2RenderingContextVertexAttribDivisor(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_DrawArraysInstanced
 //go:noescape
-func HasWebGL2RenderingContextDrawArraysInstanced(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextDrawArraysInstanced(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_DrawArraysInstanced
 //go:noescape
-func WebGL2RenderingContextDrawArraysInstancedFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextDrawArraysInstanced(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_DrawArraysInstanced
 //go:noescape
@@ -7342,11 +7340,11 @@ func TryWebGL2RenderingContextDrawArraysInstanced(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_DrawElementsInstanced
 //go:noescape
-func HasWebGL2RenderingContextDrawElementsInstanced(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextDrawElementsInstanced(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_DrawElementsInstanced
 //go:noescape
-func WebGL2RenderingContextDrawElementsInstancedFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextDrawElementsInstanced(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_DrawElementsInstanced
 //go:noescape
@@ -7370,11 +7368,11 @@ func TryWebGL2RenderingContextDrawElementsInstanced(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_DrawRangeElements
 //go:noescape
-func HasWebGL2RenderingContextDrawRangeElements(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextDrawRangeElements(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_DrawRangeElements
 //go:noescape
-func WebGL2RenderingContextDrawRangeElementsFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextDrawRangeElements(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_DrawRangeElements
 //go:noescape
@@ -7400,11 +7398,11 @@ func TryWebGL2RenderingContextDrawRangeElements(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_DrawBuffers
 //go:noescape
-func HasWebGL2RenderingContextDrawBuffers(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextDrawBuffers(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_DrawBuffers
 //go:noescape
-func WebGL2RenderingContextDrawBuffersFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextDrawBuffers(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_DrawBuffers
 //go:noescape
@@ -7420,11 +7418,11 @@ func TryWebGL2RenderingContextDrawBuffers(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_ClearBufferfv
 //go:noescape
-func HasWebGL2RenderingContextClearBufferfv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextClearBufferfv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_ClearBufferfv
 //go:noescape
-func WebGL2RenderingContextClearBufferfvFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextClearBufferfv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_ClearBufferfv
 //go:noescape
@@ -7446,11 +7444,11 @@ func TryWebGL2RenderingContextClearBufferfv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_ClearBufferfv1
 //go:noescape
-func HasWebGL2RenderingContextClearBufferfv1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextClearBufferfv1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_ClearBufferfv1
 //go:noescape
-func WebGL2RenderingContextClearBufferfv1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextClearBufferfv1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_ClearBufferfv1
 //go:noescape
@@ -7470,11 +7468,11 @@ func TryWebGL2RenderingContextClearBufferfv1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_ClearBufferiv
 //go:noescape
-func HasWebGL2RenderingContextClearBufferiv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextClearBufferiv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_ClearBufferiv
 //go:noescape
-func WebGL2RenderingContextClearBufferivFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextClearBufferiv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_ClearBufferiv
 //go:noescape
@@ -7496,11 +7494,11 @@ func TryWebGL2RenderingContextClearBufferiv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_ClearBufferiv1
 //go:noescape
-func HasWebGL2RenderingContextClearBufferiv1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextClearBufferiv1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_ClearBufferiv1
 //go:noescape
-func WebGL2RenderingContextClearBufferiv1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextClearBufferiv1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_ClearBufferiv1
 //go:noescape
@@ -7520,11 +7518,11 @@ func TryWebGL2RenderingContextClearBufferiv1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_ClearBufferuiv
 //go:noescape
-func HasWebGL2RenderingContextClearBufferuiv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextClearBufferuiv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_ClearBufferuiv
 //go:noescape
-func WebGL2RenderingContextClearBufferuivFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextClearBufferuiv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_ClearBufferuiv
 //go:noescape
@@ -7546,11 +7544,11 @@ func TryWebGL2RenderingContextClearBufferuiv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_ClearBufferuiv1
 //go:noescape
-func HasWebGL2RenderingContextClearBufferuiv1(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextClearBufferuiv1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_ClearBufferuiv1
 //go:noescape
-func WebGL2RenderingContextClearBufferuiv1Func(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextClearBufferuiv1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_ClearBufferuiv1
 //go:noescape
@@ -7570,11 +7568,11 @@ func TryWebGL2RenderingContextClearBufferuiv1(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_ClearBufferfi
 //go:noescape
-func HasWebGL2RenderingContextClearBufferfi(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextClearBufferfi(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_ClearBufferfi
 //go:noescape
-func WebGL2RenderingContextClearBufferfiFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextClearBufferfi(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_ClearBufferfi
 //go:noescape
@@ -7596,11 +7594,11 @@ func TryWebGL2RenderingContextClearBufferfi(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CreateQuery
 //go:noescape
-func HasWebGL2RenderingContextCreateQuery(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCreateQuery(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CreateQuery
 //go:noescape
-func WebGL2RenderingContextCreateQueryFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCreateQuery(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CreateQuery
 //go:noescape
@@ -7614,11 +7612,11 @@ func TryWebGL2RenderingContextCreateQuery(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_DeleteQuery
 //go:noescape
-func HasWebGL2RenderingContextDeleteQuery(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextDeleteQuery(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_DeleteQuery
 //go:noescape
-func WebGL2RenderingContextDeleteQueryFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextDeleteQuery(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_DeleteQuery
 //go:noescape
@@ -7634,11 +7632,11 @@ func TryWebGL2RenderingContextDeleteQuery(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_IsQuery
 //go:noescape
-func HasWebGL2RenderingContextIsQuery(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextIsQuery(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_IsQuery
 //go:noescape
-func WebGL2RenderingContextIsQueryFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextIsQuery(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_IsQuery
 //go:noescape
@@ -7654,11 +7652,11 @@ func TryWebGL2RenderingContextIsQuery(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BeginQuery
 //go:noescape
-func HasWebGL2RenderingContextBeginQuery(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBeginQuery(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BeginQuery
 //go:noescape
-func WebGL2RenderingContextBeginQueryFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBeginQuery(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BeginQuery
 //go:noescape
@@ -7676,11 +7674,11 @@ func TryWebGL2RenderingContextBeginQuery(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_EndQuery
 //go:noescape
-func HasWebGL2RenderingContextEndQuery(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextEndQuery(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_EndQuery
 //go:noescape
-func WebGL2RenderingContextEndQueryFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextEndQuery(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_EndQuery
 //go:noescape
@@ -7696,11 +7694,11 @@ func TryWebGL2RenderingContextEndQuery(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetQuery
 //go:noescape
-func HasWebGL2RenderingContextGetQuery(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetQuery(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetQuery
 //go:noescape
-func WebGL2RenderingContextGetQueryFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetQuery(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetQuery
 //go:noescape
@@ -7718,11 +7716,11 @@ func TryWebGL2RenderingContextGetQuery(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetQueryParameter
 //go:noescape
-func HasWebGL2RenderingContextGetQueryParameter(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetQueryParameter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetQueryParameter
 //go:noescape
-func WebGL2RenderingContextGetQueryParameterFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetQueryParameter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetQueryParameter
 //go:noescape
@@ -7740,11 +7738,11 @@ func TryWebGL2RenderingContextGetQueryParameter(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CreateSampler
 //go:noescape
-func HasWebGL2RenderingContextCreateSampler(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCreateSampler(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CreateSampler
 //go:noescape
-func WebGL2RenderingContextCreateSamplerFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCreateSampler(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CreateSampler
 //go:noescape
@@ -7758,11 +7756,11 @@ func TryWebGL2RenderingContextCreateSampler(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_DeleteSampler
 //go:noescape
-func HasWebGL2RenderingContextDeleteSampler(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextDeleteSampler(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_DeleteSampler
 //go:noescape
-func WebGL2RenderingContextDeleteSamplerFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextDeleteSampler(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_DeleteSampler
 //go:noescape
@@ -7778,11 +7776,11 @@ func TryWebGL2RenderingContextDeleteSampler(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_IsSampler
 //go:noescape
-func HasWebGL2RenderingContextIsSampler(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextIsSampler(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_IsSampler
 //go:noescape
-func WebGL2RenderingContextIsSamplerFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextIsSampler(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_IsSampler
 //go:noescape
@@ -7798,11 +7796,11 @@ func TryWebGL2RenderingContextIsSampler(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BindSampler
 //go:noescape
-func HasWebGL2RenderingContextBindSampler(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBindSampler(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BindSampler
 //go:noescape
-func WebGL2RenderingContextBindSamplerFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBindSampler(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BindSampler
 //go:noescape
@@ -7820,11 +7818,11 @@ func TryWebGL2RenderingContextBindSampler(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_SamplerParameteri
 //go:noescape
-func HasWebGL2RenderingContextSamplerParameteri(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextSamplerParameteri(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_SamplerParameteri
 //go:noescape
-func WebGL2RenderingContextSamplerParameteriFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextSamplerParameteri(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_SamplerParameteri
 //go:noescape
@@ -7844,11 +7842,11 @@ func TryWebGL2RenderingContextSamplerParameteri(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_SamplerParameterf
 //go:noescape
-func HasWebGL2RenderingContextSamplerParameterf(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextSamplerParameterf(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_SamplerParameterf
 //go:noescape
-func WebGL2RenderingContextSamplerParameterfFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextSamplerParameterf(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_SamplerParameterf
 //go:noescape
@@ -7868,11 +7866,11 @@ func TryWebGL2RenderingContextSamplerParameterf(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetSamplerParameter
 //go:noescape
-func HasWebGL2RenderingContextGetSamplerParameter(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetSamplerParameter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetSamplerParameter
 //go:noescape
-func WebGL2RenderingContextGetSamplerParameterFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetSamplerParameter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetSamplerParameter
 //go:noescape
@@ -7890,11 +7888,11 @@ func TryWebGL2RenderingContextGetSamplerParameter(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_FenceSync
 //go:noescape
-func HasWebGL2RenderingContextFenceSync(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextFenceSync(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_FenceSync
 //go:noescape
-func WebGL2RenderingContextFenceSyncFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextFenceSync(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_FenceSync
 //go:noescape
@@ -7912,11 +7910,11 @@ func TryWebGL2RenderingContextFenceSync(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_IsSync
 //go:noescape
-func HasWebGL2RenderingContextIsSync(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextIsSync(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_IsSync
 //go:noescape
-func WebGL2RenderingContextIsSyncFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextIsSync(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_IsSync
 //go:noescape
@@ -7932,11 +7930,11 @@ func TryWebGL2RenderingContextIsSync(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_DeleteSync
 //go:noescape
-func HasWebGL2RenderingContextDeleteSync(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextDeleteSync(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_DeleteSync
 //go:noescape
-func WebGL2RenderingContextDeleteSyncFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextDeleteSync(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_DeleteSync
 //go:noescape
@@ -7952,11 +7950,11 @@ func TryWebGL2RenderingContextDeleteSync(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_ClientWaitSync
 //go:noescape
-func HasWebGL2RenderingContextClientWaitSync(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextClientWaitSync(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_ClientWaitSync
 //go:noescape
-func WebGL2RenderingContextClientWaitSyncFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextClientWaitSync(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_ClientWaitSync
 //go:noescape
@@ -7976,11 +7974,11 @@ func TryWebGL2RenderingContextClientWaitSync(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_WaitSync
 //go:noescape
-func HasWebGL2RenderingContextWaitSync(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextWaitSync(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_WaitSync
 //go:noescape
-func WebGL2RenderingContextWaitSyncFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextWaitSync(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_WaitSync
 //go:noescape
@@ -8000,11 +7998,11 @@ func TryWebGL2RenderingContextWaitSync(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetSyncParameter
 //go:noescape
-func HasWebGL2RenderingContextGetSyncParameter(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetSyncParameter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetSyncParameter
 //go:noescape
-func WebGL2RenderingContextGetSyncParameterFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetSyncParameter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetSyncParameter
 //go:noescape
@@ -8022,11 +8020,11 @@ func TryWebGL2RenderingContextGetSyncParameter(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CreateTransformFeedback
 //go:noescape
-func HasWebGL2RenderingContextCreateTransformFeedback(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCreateTransformFeedback(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CreateTransformFeedback
 //go:noescape
-func WebGL2RenderingContextCreateTransformFeedbackFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCreateTransformFeedback(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CreateTransformFeedback
 //go:noescape
@@ -8040,11 +8038,11 @@ func TryWebGL2RenderingContextCreateTransformFeedback(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_DeleteTransformFeedback
 //go:noescape
-func HasWebGL2RenderingContextDeleteTransformFeedback(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextDeleteTransformFeedback(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_DeleteTransformFeedback
 //go:noescape
-func WebGL2RenderingContextDeleteTransformFeedbackFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextDeleteTransformFeedback(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_DeleteTransformFeedback
 //go:noescape
@@ -8060,11 +8058,11 @@ func TryWebGL2RenderingContextDeleteTransformFeedback(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_IsTransformFeedback
 //go:noescape
-func HasWebGL2RenderingContextIsTransformFeedback(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextIsTransformFeedback(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_IsTransformFeedback
 //go:noescape
-func WebGL2RenderingContextIsTransformFeedbackFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextIsTransformFeedback(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_IsTransformFeedback
 //go:noescape
@@ -8080,11 +8078,11 @@ func TryWebGL2RenderingContextIsTransformFeedback(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BindTransformFeedback
 //go:noescape
-func HasWebGL2RenderingContextBindTransformFeedback(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBindTransformFeedback(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BindTransformFeedback
 //go:noescape
-func WebGL2RenderingContextBindTransformFeedbackFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBindTransformFeedback(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BindTransformFeedback
 //go:noescape
@@ -8102,11 +8100,11 @@ func TryWebGL2RenderingContextBindTransformFeedback(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BeginTransformFeedback
 //go:noescape
-func HasWebGL2RenderingContextBeginTransformFeedback(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBeginTransformFeedback(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BeginTransformFeedback
 //go:noescape
-func WebGL2RenderingContextBeginTransformFeedbackFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBeginTransformFeedback(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BeginTransformFeedback
 //go:noescape
@@ -8122,11 +8120,11 @@ func TryWebGL2RenderingContextBeginTransformFeedback(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_EndTransformFeedback
 //go:noescape
-func HasWebGL2RenderingContextEndTransformFeedback(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextEndTransformFeedback(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_EndTransformFeedback
 //go:noescape
-func WebGL2RenderingContextEndTransformFeedbackFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextEndTransformFeedback(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_EndTransformFeedback
 //go:noescape
@@ -8140,11 +8138,11 @@ func TryWebGL2RenderingContextEndTransformFeedback(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_TransformFeedbackVaryings
 //go:noescape
-func HasWebGL2RenderingContextTransformFeedbackVaryings(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextTransformFeedbackVaryings(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_TransformFeedbackVaryings
 //go:noescape
-func WebGL2RenderingContextTransformFeedbackVaryingsFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextTransformFeedbackVaryings(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_TransformFeedbackVaryings
 //go:noescape
@@ -8164,11 +8162,11 @@ func TryWebGL2RenderingContextTransformFeedbackVaryings(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetTransformFeedbackVarying
 //go:noescape
-func HasWebGL2RenderingContextGetTransformFeedbackVarying(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetTransformFeedbackVarying(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetTransformFeedbackVarying
 //go:noescape
-func WebGL2RenderingContextGetTransformFeedbackVaryingFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetTransformFeedbackVarying(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetTransformFeedbackVarying
 //go:noescape
@@ -8186,11 +8184,11 @@ func TryWebGL2RenderingContextGetTransformFeedbackVarying(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_PauseTransformFeedback
 //go:noescape
-func HasWebGL2RenderingContextPauseTransformFeedback(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextPauseTransformFeedback(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_PauseTransformFeedback
 //go:noescape
-func WebGL2RenderingContextPauseTransformFeedbackFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextPauseTransformFeedback(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_PauseTransformFeedback
 //go:noescape
@@ -8204,11 +8202,11 @@ func TryWebGL2RenderingContextPauseTransformFeedback(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_ResumeTransformFeedback
 //go:noescape
-func HasWebGL2RenderingContextResumeTransformFeedback(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextResumeTransformFeedback(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_ResumeTransformFeedback
 //go:noescape
-func WebGL2RenderingContextResumeTransformFeedbackFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextResumeTransformFeedback(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_ResumeTransformFeedback
 //go:noescape
@@ -8222,11 +8220,11 @@ func TryWebGL2RenderingContextResumeTransformFeedback(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BindBufferBase
 //go:noescape
-func HasWebGL2RenderingContextBindBufferBase(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBindBufferBase(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BindBufferBase
 //go:noescape
-func WebGL2RenderingContextBindBufferBaseFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBindBufferBase(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BindBufferBase
 //go:noescape
@@ -8246,11 +8244,11 @@ func TryWebGL2RenderingContextBindBufferBase(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BindBufferRange
 //go:noescape
-func HasWebGL2RenderingContextBindBufferRange(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBindBufferRange(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BindBufferRange
 //go:noescape
-func WebGL2RenderingContextBindBufferRangeFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBindBufferRange(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BindBufferRange
 //go:noescape
@@ -8274,11 +8272,11 @@ func TryWebGL2RenderingContextBindBufferRange(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetIndexedParameter
 //go:noescape
-func HasWebGL2RenderingContextGetIndexedParameter(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetIndexedParameter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetIndexedParameter
 //go:noescape
-func WebGL2RenderingContextGetIndexedParameterFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetIndexedParameter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetIndexedParameter
 //go:noescape
@@ -8296,11 +8294,11 @@ func TryWebGL2RenderingContextGetIndexedParameter(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetUniformIndices
 //go:noescape
-func HasWebGL2RenderingContextGetUniformIndices(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetUniformIndices(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetUniformIndices
 //go:noescape
-func WebGL2RenderingContextGetUniformIndicesFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetUniformIndices(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetUniformIndices
 //go:noescape
@@ -8318,11 +8316,11 @@ func TryWebGL2RenderingContextGetUniformIndices(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetActiveUniforms
 //go:noescape
-func HasWebGL2RenderingContextGetActiveUniforms(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetActiveUniforms(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetActiveUniforms
 //go:noescape
-func WebGL2RenderingContextGetActiveUniformsFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetActiveUniforms(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetActiveUniforms
 //go:noescape
@@ -8342,11 +8340,11 @@ func TryWebGL2RenderingContextGetActiveUniforms(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetUniformBlockIndex
 //go:noescape
-func HasWebGL2RenderingContextGetUniformBlockIndex(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetUniformBlockIndex(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetUniformBlockIndex
 //go:noescape
-func WebGL2RenderingContextGetUniformBlockIndexFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetUniformBlockIndex(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetUniformBlockIndex
 //go:noescape
@@ -8364,11 +8362,11 @@ func TryWebGL2RenderingContextGetUniformBlockIndex(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetActiveUniformBlockParameter
 //go:noescape
-func HasWebGL2RenderingContextGetActiveUniformBlockParameter(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetActiveUniformBlockParameter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetActiveUniformBlockParameter
 //go:noescape
-func WebGL2RenderingContextGetActiveUniformBlockParameterFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetActiveUniformBlockParameter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetActiveUniformBlockParameter
 //go:noescape
@@ -8388,11 +8386,11 @@ func TryWebGL2RenderingContextGetActiveUniformBlockParameter(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetActiveUniformBlockName
 //go:noescape
-func HasWebGL2RenderingContextGetActiveUniformBlockName(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetActiveUniformBlockName(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetActiveUniformBlockName
 //go:noescape
-func WebGL2RenderingContextGetActiveUniformBlockNameFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetActiveUniformBlockName(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetActiveUniformBlockName
 //go:noescape
@@ -8410,11 +8408,11 @@ func TryWebGL2RenderingContextGetActiveUniformBlockName(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UniformBlockBinding
 //go:noescape
-func HasWebGL2RenderingContextUniformBlockBinding(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniformBlockBinding(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UniformBlockBinding
 //go:noescape
-func WebGL2RenderingContextUniformBlockBindingFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniformBlockBinding(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UniformBlockBinding
 //go:noescape
@@ -8434,11 +8432,11 @@ func TryWebGL2RenderingContextUniformBlockBinding(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CreateVertexArray
 //go:noescape
-func HasWebGL2RenderingContextCreateVertexArray(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCreateVertexArray(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CreateVertexArray
 //go:noescape
-func WebGL2RenderingContextCreateVertexArrayFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCreateVertexArray(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CreateVertexArray
 //go:noescape
@@ -8452,11 +8450,11 @@ func TryWebGL2RenderingContextCreateVertexArray(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_DeleteVertexArray
 //go:noescape
-func HasWebGL2RenderingContextDeleteVertexArray(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextDeleteVertexArray(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_DeleteVertexArray
 //go:noescape
-func WebGL2RenderingContextDeleteVertexArrayFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextDeleteVertexArray(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_DeleteVertexArray
 //go:noescape
@@ -8472,11 +8470,11 @@ func TryWebGL2RenderingContextDeleteVertexArray(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_IsVertexArray
 //go:noescape
-func HasWebGL2RenderingContextIsVertexArray(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextIsVertexArray(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_IsVertexArray
 //go:noescape
-func WebGL2RenderingContextIsVertexArrayFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextIsVertexArray(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_IsVertexArray
 //go:noescape
@@ -8492,11 +8490,11 @@ func TryWebGL2RenderingContextIsVertexArray(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BindVertexArray
 //go:noescape
-func HasWebGL2RenderingContextBindVertexArray(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBindVertexArray(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BindVertexArray
 //go:noescape
-func WebGL2RenderingContextBindVertexArrayFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBindVertexArray(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BindVertexArray
 //go:noescape
@@ -8512,11 +8510,11 @@ func TryWebGL2RenderingContextBindVertexArray(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetContextAttributes
 //go:noescape
-func HasWebGL2RenderingContextGetContextAttributes(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetContextAttributes(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetContextAttributes
 //go:noescape
-func WebGL2RenderingContextGetContextAttributesFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetContextAttributes(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetContextAttributes
 //go:noescape
@@ -8530,11 +8528,11 @@ func TryWebGL2RenderingContextGetContextAttributes(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_IsContextLost
 //go:noescape
-func HasWebGL2RenderingContextIsContextLost(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextIsContextLost(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_IsContextLost
 //go:noescape
-func WebGL2RenderingContextIsContextLostFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextIsContextLost(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_IsContextLost
 //go:noescape
@@ -8548,11 +8546,11 @@ func TryWebGL2RenderingContextIsContextLost(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetSupportedExtensions
 //go:noescape
-func HasWebGL2RenderingContextGetSupportedExtensions(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetSupportedExtensions(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetSupportedExtensions
 //go:noescape
-func WebGL2RenderingContextGetSupportedExtensionsFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetSupportedExtensions(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetSupportedExtensions
 //go:noescape
@@ -8566,11 +8564,11 @@ func TryWebGL2RenderingContextGetSupportedExtensions(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetExtension
 //go:noescape
-func HasWebGL2RenderingContextGetExtension(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetExtension(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetExtension
 //go:noescape
-func WebGL2RenderingContextGetExtensionFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetExtension(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetExtension
 //go:noescape
@@ -8586,11 +8584,11 @@ func TryWebGL2RenderingContextGetExtension(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_ActiveTexture
 //go:noescape
-func HasWebGL2RenderingContextActiveTexture(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextActiveTexture(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_ActiveTexture
 //go:noescape
-func WebGL2RenderingContextActiveTextureFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextActiveTexture(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_ActiveTexture
 //go:noescape
@@ -8606,11 +8604,11 @@ func TryWebGL2RenderingContextActiveTexture(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_AttachShader
 //go:noescape
-func HasWebGL2RenderingContextAttachShader(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextAttachShader(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_AttachShader
 //go:noescape
-func WebGL2RenderingContextAttachShaderFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextAttachShader(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_AttachShader
 //go:noescape
@@ -8628,11 +8626,11 @@ func TryWebGL2RenderingContextAttachShader(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BindAttribLocation
 //go:noescape
-func HasWebGL2RenderingContextBindAttribLocation(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBindAttribLocation(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BindAttribLocation
 //go:noescape
-func WebGL2RenderingContextBindAttribLocationFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBindAttribLocation(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BindAttribLocation
 //go:noescape
@@ -8652,11 +8650,11 @@ func TryWebGL2RenderingContextBindAttribLocation(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BindBuffer
 //go:noescape
-func HasWebGL2RenderingContextBindBuffer(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBindBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BindBuffer
 //go:noescape
-func WebGL2RenderingContextBindBufferFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBindBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BindBuffer
 //go:noescape
@@ -8674,11 +8672,11 @@ func TryWebGL2RenderingContextBindBuffer(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BindFramebuffer
 //go:noescape
-func HasWebGL2RenderingContextBindFramebuffer(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBindFramebuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BindFramebuffer
 //go:noescape
-func WebGL2RenderingContextBindFramebufferFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBindFramebuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BindFramebuffer
 //go:noescape
@@ -8696,11 +8694,11 @@ func TryWebGL2RenderingContextBindFramebuffer(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BindRenderbuffer
 //go:noescape
-func HasWebGL2RenderingContextBindRenderbuffer(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBindRenderbuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BindRenderbuffer
 //go:noescape
-func WebGL2RenderingContextBindRenderbufferFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBindRenderbuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BindRenderbuffer
 //go:noescape
@@ -8718,11 +8716,11 @@ func TryWebGL2RenderingContextBindRenderbuffer(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BindTexture
 //go:noescape
-func HasWebGL2RenderingContextBindTexture(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBindTexture(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BindTexture
 //go:noescape
-func WebGL2RenderingContextBindTextureFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBindTexture(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BindTexture
 //go:noescape
@@ -8740,11 +8738,11 @@ func TryWebGL2RenderingContextBindTexture(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BlendColor
 //go:noescape
-func HasWebGL2RenderingContextBlendColor(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBlendColor(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BlendColor
 //go:noescape
-func WebGL2RenderingContextBlendColorFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBlendColor(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BlendColor
 //go:noescape
@@ -8766,11 +8764,11 @@ func TryWebGL2RenderingContextBlendColor(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BlendEquation
 //go:noescape
-func HasWebGL2RenderingContextBlendEquation(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBlendEquation(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BlendEquation
 //go:noescape
-func WebGL2RenderingContextBlendEquationFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBlendEquation(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BlendEquation
 //go:noescape
@@ -8786,11 +8784,11 @@ func TryWebGL2RenderingContextBlendEquation(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BlendEquationSeparate
 //go:noescape
-func HasWebGL2RenderingContextBlendEquationSeparate(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBlendEquationSeparate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BlendEquationSeparate
 //go:noescape
-func WebGL2RenderingContextBlendEquationSeparateFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBlendEquationSeparate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BlendEquationSeparate
 //go:noescape
@@ -8808,11 +8806,11 @@ func TryWebGL2RenderingContextBlendEquationSeparate(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BlendFunc
 //go:noescape
-func HasWebGL2RenderingContextBlendFunc(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBlendFunc(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BlendFunc
 //go:noescape
-func WebGL2RenderingContextBlendFuncFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBlendFunc(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BlendFunc
 //go:noescape
@@ -8830,11 +8828,11 @@ func TryWebGL2RenderingContextBlendFunc(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_BlendFuncSeparate
 //go:noescape
-func HasWebGL2RenderingContextBlendFuncSeparate(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextBlendFuncSeparate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_BlendFuncSeparate
 //go:noescape
-func WebGL2RenderingContextBlendFuncSeparateFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextBlendFuncSeparate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_BlendFuncSeparate
 //go:noescape
@@ -8856,11 +8854,11 @@ func TryWebGL2RenderingContextBlendFuncSeparate(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CheckFramebufferStatus
 //go:noescape
-func HasWebGL2RenderingContextCheckFramebufferStatus(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCheckFramebufferStatus(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CheckFramebufferStatus
 //go:noescape
-func WebGL2RenderingContextCheckFramebufferStatusFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCheckFramebufferStatus(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CheckFramebufferStatus
 //go:noescape
@@ -8876,11 +8874,11 @@ func TryWebGL2RenderingContextCheckFramebufferStatus(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Clear
 //go:noescape
-func HasWebGL2RenderingContextClear(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextClear(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Clear
 //go:noescape
-func WebGL2RenderingContextClearFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextClear(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Clear
 //go:noescape
@@ -8896,11 +8894,11 @@ func TryWebGL2RenderingContextClear(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_ClearColor
 //go:noescape
-func HasWebGL2RenderingContextClearColor(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextClearColor(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_ClearColor
 //go:noescape
-func WebGL2RenderingContextClearColorFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextClearColor(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_ClearColor
 //go:noescape
@@ -8922,11 +8920,11 @@ func TryWebGL2RenderingContextClearColor(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_ClearDepth
 //go:noescape
-func HasWebGL2RenderingContextClearDepth(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextClearDepth(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_ClearDepth
 //go:noescape
-func WebGL2RenderingContextClearDepthFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextClearDepth(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_ClearDepth
 //go:noescape
@@ -8942,11 +8940,11 @@ func TryWebGL2RenderingContextClearDepth(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_ClearStencil
 //go:noescape
-func HasWebGL2RenderingContextClearStencil(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextClearStencil(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_ClearStencil
 //go:noescape
-func WebGL2RenderingContextClearStencilFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextClearStencil(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_ClearStencil
 //go:noescape
@@ -8962,11 +8960,11 @@ func TryWebGL2RenderingContextClearStencil(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_ColorMask
 //go:noescape
-func HasWebGL2RenderingContextColorMask(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextColorMask(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_ColorMask
 //go:noescape
-func WebGL2RenderingContextColorMaskFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextColorMask(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_ColorMask
 //go:noescape
@@ -8988,11 +8986,11 @@ func TryWebGL2RenderingContextColorMask(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CompileShader
 //go:noescape
-func HasWebGL2RenderingContextCompileShader(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCompileShader(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CompileShader
 //go:noescape
-func WebGL2RenderingContextCompileShaderFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCompileShader(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CompileShader
 //go:noescape
@@ -9008,11 +9006,11 @@ func TryWebGL2RenderingContextCompileShader(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CopyTexImage2D
 //go:noescape
-func HasWebGL2RenderingContextCopyTexImage2D(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCopyTexImage2D(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CopyTexImage2D
 //go:noescape
-func WebGL2RenderingContextCopyTexImage2DFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCopyTexImage2D(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CopyTexImage2D
 //go:noescape
@@ -9042,11 +9040,11 @@ func TryWebGL2RenderingContextCopyTexImage2D(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CopyTexSubImage2D
 //go:noescape
-func HasWebGL2RenderingContextCopyTexSubImage2D(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCopyTexSubImage2D(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CopyTexSubImage2D
 //go:noescape
-func WebGL2RenderingContextCopyTexSubImage2DFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCopyTexSubImage2D(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CopyTexSubImage2D
 //go:noescape
@@ -9076,11 +9074,11 @@ func TryWebGL2RenderingContextCopyTexSubImage2D(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CreateBuffer
 //go:noescape
-func HasWebGL2RenderingContextCreateBuffer(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCreateBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CreateBuffer
 //go:noescape
-func WebGL2RenderingContextCreateBufferFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCreateBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CreateBuffer
 //go:noescape
@@ -9094,11 +9092,11 @@ func TryWebGL2RenderingContextCreateBuffer(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CreateFramebuffer
 //go:noescape
-func HasWebGL2RenderingContextCreateFramebuffer(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCreateFramebuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CreateFramebuffer
 //go:noescape
-func WebGL2RenderingContextCreateFramebufferFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCreateFramebuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CreateFramebuffer
 //go:noescape
@@ -9112,11 +9110,11 @@ func TryWebGL2RenderingContextCreateFramebuffer(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CreateProgram
 //go:noescape
-func HasWebGL2RenderingContextCreateProgram(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCreateProgram(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CreateProgram
 //go:noescape
-func WebGL2RenderingContextCreateProgramFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCreateProgram(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CreateProgram
 //go:noescape
@@ -9130,11 +9128,11 @@ func TryWebGL2RenderingContextCreateProgram(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CreateRenderbuffer
 //go:noescape
-func HasWebGL2RenderingContextCreateRenderbuffer(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCreateRenderbuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CreateRenderbuffer
 //go:noescape
-func WebGL2RenderingContextCreateRenderbufferFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCreateRenderbuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CreateRenderbuffer
 //go:noescape
@@ -9148,11 +9146,11 @@ func TryWebGL2RenderingContextCreateRenderbuffer(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CreateShader
 //go:noescape
-func HasWebGL2RenderingContextCreateShader(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCreateShader(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CreateShader
 //go:noescape
-func WebGL2RenderingContextCreateShaderFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCreateShader(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CreateShader
 //go:noescape
@@ -9168,11 +9166,11 @@ func TryWebGL2RenderingContextCreateShader(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CreateTexture
 //go:noescape
-func HasWebGL2RenderingContextCreateTexture(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCreateTexture(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CreateTexture
 //go:noescape
-func WebGL2RenderingContextCreateTextureFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCreateTexture(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CreateTexture
 //go:noescape
@@ -9186,11 +9184,11 @@ func TryWebGL2RenderingContextCreateTexture(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_CullFace
 //go:noescape
-func HasWebGL2RenderingContextCullFace(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextCullFace(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_CullFace
 //go:noescape
-func WebGL2RenderingContextCullFaceFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextCullFace(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_CullFace
 //go:noescape
@@ -9206,11 +9204,11 @@ func TryWebGL2RenderingContextCullFace(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_DeleteBuffer
 //go:noescape
-func HasWebGL2RenderingContextDeleteBuffer(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextDeleteBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_DeleteBuffer
 //go:noescape
-func WebGL2RenderingContextDeleteBufferFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextDeleteBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_DeleteBuffer
 //go:noescape
@@ -9226,11 +9224,11 @@ func TryWebGL2RenderingContextDeleteBuffer(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_DeleteFramebuffer
 //go:noescape
-func HasWebGL2RenderingContextDeleteFramebuffer(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextDeleteFramebuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_DeleteFramebuffer
 //go:noescape
-func WebGL2RenderingContextDeleteFramebufferFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextDeleteFramebuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_DeleteFramebuffer
 //go:noescape
@@ -9246,11 +9244,11 @@ func TryWebGL2RenderingContextDeleteFramebuffer(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_DeleteProgram
 //go:noescape
-func HasWebGL2RenderingContextDeleteProgram(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextDeleteProgram(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_DeleteProgram
 //go:noescape
-func WebGL2RenderingContextDeleteProgramFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextDeleteProgram(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_DeleteProgram
 //go:noescape
@@ -9266,11 +9264,11 @@ func TryWebGL2RenderingContextDeleteProgram(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_DeleteRenderbuffer
 //go:noescape
-func HasWebGL2RenderingContextDeleteRenderbuffer(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextDeleteRenderbuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_DeleteRenderbuffer
 //go:noescape
-func WebGL2RenderingContextDeleteRenderbufferFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextDeleteRenderbuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_DeleteRenderbuffer
 //go:noescape
@@ -9286,11 +9284,11 @@ func TryWebGL2RenderingContextDeleteRenderbuffer(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_DeleteShader
 //go:noescape
-func HasWebGL2RenderingContextDeleteShader(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextDeleteShader(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_DeleteShader
 //go:noescape
-func WebGL2RenderingContextDeleteShaderFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextDeleteShader(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_DeleteShader
 //go:noescape
@@ -9306,11 +9304,11 @@ func TryWebGL2RenderingContextDeleteShader(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_DeleteTexture
 //go:noescape
-func HasWebGL2RenderingContextDeleteTexture(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextDeleteTexture(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_DeleteTexture
 //go:noescape
-func WebGL2RenderingContextDeleteTextureFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextDeleteTexture(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_DeleteTexture
 //go:noescape
@@ -9326,11 +9324,11 @@ func TryWebGL2RenderingContextDeleteTexture(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_DepthFunc
 //go:noescape
-func HasWebGL2RenderingContextDepthFunc(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextDepthFunc(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_DepthFunc
 //go:noescape
-func WebGL2RenderingContextDepthFuncFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextDepthFunc(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_DepthFunc
 //go:noescape
@@ -9346,11 +9344,11 @@ func TryWebGL2RenderingContextDepthFunc(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_DepthMask
 //go:noescape
-func HasWebGL2RenderingContextDepthMask(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextDepthMask(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_DepthMask
 //go:noescape
-func WebGL2RenderingContextDepthMaskFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextDepthMask(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_DepthMask
 //go:noescape
@@ -9366,11 +9364,11 @@ func TryWebGL2RenderingContextDepthMask(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_DepthRange
 //go:noescape
-func HasWebGL2RenderingContextDepthRange(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextDepthRange(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_DepthRange
 //go:noescape
-func WebGL2RenderingContextDepthRangeFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextDepthRange(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_DepthRange
 //go:noescape
@@ -9388,11 +9386,11 @@ func TryWebGL2RenderingContextDepthRange(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_DetachShader
 //go:noescape
-func HasWebGL2RenderingContextDetachShader(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextDetachShader(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_DetachShader
 //go:noescape
-func WebGL2RenderingContextDetachShaderFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextDetachShader(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_DetachShader
 //go:noescape
@@ -9410,11 +9408,11 @@ func TryWebGL2RenderingContextDetachShader(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Disable
 //go:noescape
-func HasWebGL2RenderingContextDisable(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextDisable(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Disable
 //go:noescape
-func WebGL2RenderingContextDisableFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextDisable(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Disable
 //go:noescape
@@ -9430,11 +9428,11 @@ func TryWebGL2RenderingContextDisable(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_DisableVertexAttribArray
 //go:noescape
-func HasWebGL2RenderingContextDisableVertexAttribArray(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextDisableVertexAttribArray(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_DisableVertexAttribArray
 //go:noescape
-func WebGL2RenderingContextDisableVertexAttribArrayFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextDisableVertexAttribArray(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_DisableVertexAttribArray
 //go:noescape
@@ -9450,11 +9448,11 @@ func TryWebGL2RenderingContextDisableVertexAttribArray(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_DrawArrays
 //go:noescape
-func HasWebGL2RenderingContextDrawArrays(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextDrawArrays(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_DrawArrays
 //go:noescape
-func WebGL2RenderingContextDrawArraysFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextDrawArrays(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_DrawArrays
 //go:noescape
@@ -9474,11 +9472,11 @@ func TryWebGL2RenderingContextDrawArrays(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_DrawElements
 //go:noescape
-func HasWebGL2RenderingContextDrawElements(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextDrawElements(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_DrawElements
 //go:noescape
-func WebGL2RenderingContextDrawElementsFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextDrawElements(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_DrawElements
 //go:noescape
@@ -9500,11 +9498,11 @@ func TryWebGL2RenderingContextDrawElements(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Enable
 //go:noescape
-func HasWebGL2RenderingContextEnable(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextEnable(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Enable
 //go:noescape
-func WebGL2RenderingContextEnableFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextEnable(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Enable
 //go:noescape
@@ -9520,11 +9518,11 @@ func TryWebGL2RenderingContextEnable(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_EnableVertexAttribArray
 //go:noescape
-func HasWebGL2RenderingContextEnableVertexAttribArray(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextEnableVertexAttribArray(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_EnableVertexAttribArray
 //go:noescape
-func WebGL2RenderingContextEnableVertexAttribArrayFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextEnableVertexAttribArray(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_EnableVertexAttribArray
 //go:noescape
@@ -9540,11 +9538,11 @@ func TryWebGL2RenderingContextEnableVertexAttribArray(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Finish
 //go:noescape
-func HasWebGL2RenderingContextFinish(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextFinish(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Finish
 //go:noescape
-func WebGL2RenderingContextFinishFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextFinish(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Finish
 //go:noescape
@@ -9558,11 +9556,11 @@ func TryWebGL2RenderingContextFinish(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Flush
 //go:noescape
-func HasWebGL2RenderingContextFlush(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextFlush(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Flush
 //go:noescape
-func WebGL2RenderingContextFlushFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextFlush(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Flush
 //go:noescape
@@ -9576,11 +9574,11 @@ func TryWebGL2RenderingContextFlush(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_FramebufferRenderbuffer
 //go:noescape
-func HasWebGL2RenderingContextFramebufferRenderbuffer(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextFramebufferRenderbuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_FramebufferRenderbuffer
 //go:noescape
-func WebGL2RenderingContextFramebufferRenderbufferFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextFramebufferRenderbuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_FramebufferRenderbuffer
 //go:noescape
@@ -9602,11 +9600,11 @@ func TryWebGL2RenderingContextFramebufferRenderbuffer(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_FramebufferTexture2D
 //go:noescape
-func HasWebGL2RenderingContextFramebufferTexture2D(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextFramebufferTexture2D(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_FramebufferTexture2D
 //go:noescape
-func WebGL2RenderingContextFramebufferTexture2DFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextFramebufferTexture2D(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_FramebufferTexture2D
 //go:noescape
@@ -9630,11 +9628,11 @@ func TryWebGL2RenderingContextFramebufferTexture2D(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_FrontFace
 //go:noescape
-func HasWebGL2RenderingContextFrontFace(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextFrontFace(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_FrontFace
 //go:noescape
-func WebGL2RenderingContextFrontFaceFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextFrontFace(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_FrontFace
 //go:noescape
@@ -9650,11 +9648,11 @@ func TryWebGL2RenderingContextFrontFace(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GenerateMipmap
 //go:noescape
-func HasWebGL2RenderingContextGenerateMipmap(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGenerateMipmap(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GenerateMipmap
 //go:noescape
-func WebGL2RenderingContextGenerateMipmapFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGenerateMipmap(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GenerateMipmap
 //go:noescape
@@ -9670,11 +9668,11 @@ func TryWebGL2RenderingContextGenerateMipmap(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetActiveAttrib
 //go:noescape
-func HasWebGL2RenderingContextGetActiveAttrib(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetActiveAttrib(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetActiveAttrib
 //go:noescape
-func WebGL2RenderingContextGetActiveAttribFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetActiveAttrib(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetActiveAttrib
 //go:noescape
@@ -9692,11 +9690,11 @@ func TryWebGL2RenderingContextGetActiveAttrib(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetActiveUniform
 //go:noescape
-func HasWebGL2RenderingContextGetActiveUniform(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetActiveUniform(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetActiveUniform
 //go:noescape
-func WebGL2RenderingContextGetActiveUniformFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetActiveUniform(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetActiveUniform
 //go:noescape
@@ -9714,11 +9712,11 @@ func TryWebGL2RenderingContextGetActiveUniform(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetAttachedShaders
 //go:noescape
-func HasWebGL2RenderingContextGetAttachedShaders(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetAttachedShaders(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetAttachedShaders
 //go:noescape
-func WebGL2RenderingContextGetAttachedShadersFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetAttachedShaders(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetAttachedShaders
 //go:noescape
@@ -9734,11 +9732,11 @@ func TryWebGL2RenderingContextGetAttachedShaders(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetAttribLocation
 //go:noescape
-func HasWebGL2RenderingContextGetAttribLocation(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetAttribLocation(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetAttribLocation
 //go:noescape
-func WebGL2RenderingContextGetAttribLocationFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetAttribLocation(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetAttribLocation
 //go:noescape
@@ -9756,11 +9754,11 @@ func TryWebGL2RenderingContextGetAttribLocation(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetBufferParameter
 //go:noescape
-func HasWebGL2RenderingContextGetBufferParameter(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetBufferParameter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetBufferParameter
 //go:noescape
-func WebGL2RenderingContextGetBufferParameterFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetBufferParameter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetBufferParameter
 //go:noescape
@@ -9778,11 +9776,11 @@ func TryWebGL2RenderingContextGetBufferParameter(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetParameter
 //go:noescape
-func HasWebGL2RenderingContextGetParameter(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetParameter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetParameter
 //go:noescape
-func WebGL2RenderingContextGetParameterFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetParameter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetParameter
 //go:noescape
@@ -9798,11 +9796,11 @@ func TryWebGL2RenderingContextGetParameter(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetError
 //go:noescape
-func HasWebGL2RenderingContextGetError(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetError(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetError
 //go:noescape
-func WebGL2RenderingContextGetErrorFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetError(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetError
 //go:noescape
@@ -9816,11 +9814,11 @@ func TryWebGL2RenderingContextGetError(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetFramebufferAttachmentParameter
 //go:noescape
-func HasWebGL2RenderingContextGetFramebufferAttachmentParameter(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetFramebufferAttachmentParameter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetFramebufferAttachmentParameter
 //go:noescape
-func WebGL2RenderingContextGetFramebufferAttachmentParameterFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetFramebufferAttachmentParameter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetFramebufferAttachmentParameter
 //go:noescape
@@ -9840,11 +9838,11 @@ func TryWebGL2RenderingContextGetFramebufferAttachmentParameter(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetProgramParameter
 //go:noescape
-func HasWebGL2RenderingContextGetProgramParameter(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetProgramParameter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetProgramParameter
 //go:noescape
-func WebGL2RenderingContextGetProgramParameterFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetProgramParameter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetProgramParameter
 //go:noescape
@@ -9862,11 +9860,11 @@ func TryWebGL2RenderingContextGetProgramParameter(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetProgramInfoLog
 //go:noescape
-func HasWebGL2RenderingContextGetProgramInfoLog(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetProgramInfoLog(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetProgramInfoLog
 //go:noescape
-func WebGL2RenderingContextGetProgramInfoLogFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetProgramInfoLog(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetProgramInfoLog
 //go:noescape
@@ -9882,11 +9880,11 @@ func TryWebGL2RenderingContextGetProgramInfoLog(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetRenderbufferParameter
 //go:noescape
-func HasWebGL2RenderingContextGetRenderbufferParameter(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetRenderbufferParameter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetRenderbufferParameter
 //go:noescape
-func WebGL2RenderingContextGetRenderbufferParameterFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetRenderbufferParameter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetRenderbufferParameter
 //go:noescape
@@ -9904,11 +9902,11 @@ func TryWebGL2RenderingContextGetRenderbufferParameter(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetShaderParameter
 //go:noescape
-func HasWebGL2RenderingContextGetShaderParameter(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetShaderParameter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetShaderParameter
 //go:noescape
-func WebGL2RenderingContextGetShaderParameterFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetShaderParameter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetShaderParameter
 //go:noescape
@@ -9926,11 +9924,11 @@ func TryWebGL2RenderingContextGetShaderParameter(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetShaderPrecisionFormat
 //go:noescape
-func HasWebGL2RenderingContextGetShaderPrecisionFormat(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetShaderPrecisionFormat(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetShaderPrecisionFormat
 //go:noescape
-func WebGL2RenderingContextGetShaderPrecisionFormatFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetShaderPrecisionFormat(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetShaderPrecisionFormat
 //go:noescape
@@ -9948,11 +9946,11 @@ func TryWebGL2RenderingContextGetShaderPrecisionFormat(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetShaderInfoLog
 //go:noescape
-func HasWebGL2RenderingContextGetShaderInfoLog(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetShaderInfoLog(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetShaderInfoLog
 //go:noescape
-func WebGL2RenderingContextGetShaderInfoLogFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetShaderInfoLog(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetShaderInfoLog
 //go:noescape
@@ -9968,11 +9966,11 @@ func TryWebGL2RenderingContextGetShaderInfoLog(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetShaderSource
 //go:noescape
-func HasWebGL2RenderingContextGetShaderSource(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetShaderSource(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetShaderSource
 //go:noescape
-func WebGL2RenderingContextGetShaderSourceFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetShaderSource(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetShaderSource
 //go:noescape
@@ -9988,11 +9986,11 @@ func TryWebGL2RenderingContextGetShaderSource(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetTexParameter
 //go:noescape
-func HasWebGL2RenderingContextGetTexParameter(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetTexParameter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetTexParameter
 //go:noescape
-func WebGL2RenderingContextGetTexParameterFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetTexParameter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetTexParameter
 //go:noescape
@@ -10010,11 +10008,11 @@ func TryWebGL2RenderingContextGetTexParameter(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetUniform
 //go:noescape
-func HasWebGL2RenderingContextGetUniform(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetUniform(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetUniform
 //go:noescape
-func WebGL2RenderingContextGetUniformFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetUniform(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetUniform
 //go:noescape
@@ -10032,11 +10030,11 @@ func TryWebGL2RenderingContextGetUniform(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetUniformLocation
 //go:noescape
-func HasWebGL2RenderingContextGetUniformLocation(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetUniformLocation(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetUniformLocation
 //go:noescape
-func WebGL2RenderingContextGetUniformLocationFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetUniformLocation(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetUniformLocation
 //go:noescape
@@ -10054,11 +10052,11 @@ func TryWebGL2RenderingContextGetUniformLocation(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetVertexAttrib
 //go:noescape
-func HasWebGL2RenderingContextGetVertexAttrib(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetVertexAttrib(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetVertexAttrib
 //go:noescape
-func WebGL2RenderingContextGetVertexAttribFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetVertexAttrib(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetVertexAttrib
 //go:noescape
@@ -10076,11 +10074,11 @@ func TryWebGL2RenderingContextGetVertexAttrib(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_GetVertexAttribOffset
 //go:noescape
-func HasWebGL2RenderingContextGetVertexAttribOffset(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextGetVertexAttribOffset(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_GetVertexAttribOffset
 //go:noescape
-func WebGL2RenderingContextGetVertexAttribOffsetFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextGetVertexAttribOffset(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_GetVertexAttribOffset
 //go:noescape
@@ -10098,11 +10096,11 @@ func TryWebGL2RenderingContextGetVertexAttribOffset(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Hint
 //go:noescape
-func HasWebGL2RenderingContextHint(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextHint(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Hint
 //go:noescape
-func WebGL2RenderingContextHintFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextHint(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Hint
 //go:noescape
@@ -10120,11 +10118,11 @@ func TryWebGL2RenderingContextHint(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_IsBuffer
 //go:noescape
-func HasWebGL2RenderingContextIsBuffer(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextIsBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_IsBuffer
 //go:noescape
-func WebGL2RenderingContextIsBufferFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextIsBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_IsBuffer
 //go:noescape
@@ -10140,11 +10138,11 @@ func TryWebGL2RenderingContextIsBuffer(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_IsEnabled
 //go:noescape
-func HasWebGL2RenderingContextIsEnabled(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextIsEnabled(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_IsEnabled
 //go:noescape
-func WebGL2RenderingContextIsEnabledFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextIsEnabled(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_IsEnabled
 //go:noescape
@@ -10160,11 +10158,11 @@ func TryWebGL2RenderingContextIsEnabled(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_IsFramebuffer
 //go:noescape
-func HasWebGL2RenderingContextIsFramebuffer(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextIsFramebuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_IsFramebuffer
 //go:noescape
-func WebGL2RenderingContextIsFramebufferFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextIsFramebuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_IsFramebuffer
 //go:noescape
@@ -10180,11 +10178,11 @@ func TryWebGL2RenderingContextIsFramebuffer(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_IsProgram
 //go:noescape
-func HasWebGL2RenderingContextIsProgram(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextIsProgram(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_IsProgram
 //go:noescape
-func WebGL2RenderingContextIsProgramFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextIsProgram(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_IsProgram
 //go:noescape
@@ -10200,11 +10198,11 @@ func TryWebGL2RenderingContextIsProgram(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_IsRenderbuffer
 //go:noescape
-func HasWebGL2RenderingContextIsRenderbuffer(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextIsRenderbuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_IsRenderbuffer
 //go:noescape
-func WebGL2RenderingContextIsRenderbufferFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextIsRenderbuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_IsRenderbuffer
 //go:noescape
@@ -10220,11 +10218,11 @@ func TryWebGL2RenderingContextIsRenderbuffer(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_IsShader
 //go:noescape
-func HasWebGL2RenderingContextIsShader(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextIsShader(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_IsShader
 //go:noescape
-func WebGL2RenderingContextIsShaderFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextIsShader(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_IsShader
 //go:noescape
@@ -10240,11 +10238,11 @@ func TryWebGL2RenderingContextIsShader(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_IsTexture
 //go:noescape
-func HasWebGL2RenderingContextIsTexture(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextIsTexture(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_IsTexture
 //go:noescape
-func WebGL2RenderingContextIsTextureFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextIsTexture(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_IsTexture
 //go:noescape
@@ -10260,11 +10258,11 @@ func TryWebGL2RenderingContextIsTexture(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_LineWidth
 //go:noescape
-func HasWebGL2RenderingContextLineWidth(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextLineWidth(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_LineWidth
 //go:noescape
-func WebGL2RenderingContextLineWidthFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextLineWidth(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_LineWidth
 //go:noescape
@@ -10280,11 +10278,11 @@ func TryWebGL2RenderingContextLineWidth(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_LinkProgram
 //go:noescape
-func HasWebGL2RenderingContextLinkProgram(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextLinkProgram(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_LinkProgram
 //go:noescape
-func WebGL2RenderingContextLinkProgramFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextLinkProgram(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_LinkProgram
 //go:noescape
@@ -10300,11 +10298,11 @@ func TryWebGL2RenderingContextLinkProgram(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_PixelStorei
 //go:noescape
-func HasWebGL2RenderingContextPixelStorei(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextPixelStorei(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_PixelStorei
 //go:noescape
-func WebGL2RenderingContextPixelStoreiFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextPixelStorei(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_PixelStorei
 //go:noescape
@@ -10322,11 +10320,11 @@ func TryWebGL2RenderingContextPixelStorei(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_PolygonOffset
 //go:noescape
-func HasWebGL2RenderingContextPolygonOffset(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextPolygonOffset(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_PolygonOffset
 //go:noescape
-func WebGL2RenderingContextPolygonOffsetFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextPolygonOffset(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_PolygonOffset
 //go:noescape
@@ -10344,11 +10342,11 @@ func TryWebGL2RenderingContextPolygonOffset(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_RenderbufferStorage
 //go:noescape
-func HasWebGL2RenderingContextRenderbufferStorage(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextRenderbufferStorage(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_RenderbufferStorage
 //go:noescape
-func WebGL2RenderingContextRenderbufferStorageFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextRenderbufferStorage(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_RenderbufferStorage
 //go:noescape
@@ -10370,11 +10368,11 @@ func TryWebGL2RenderingContextRenderbufferStorage(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_SampleCoverage
 //go:noescape
-func HasWebGL2RenderingContextSampleCoverage(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextSampleCoverage(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_SampleCoverage
 //go:noescape
-func WebGL2RenderingContextSampleCoverageFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextSampleCoverage(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_SampleCoverage
 //go:noescape
@@ -10392,11 +10390,11 @@ func TryWebGL2RenderingContextSampleCoverage(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Scissor
 //go:noescape
-func HasWebGL2RenderingContextScissor(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextScissor(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Scissor
 //go:noescape
-func WebGL2RenderingContextScissorFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextScissor(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Scissor
 //go:noescape
@@ -10418,11 +10416,11 @@ func TryWebGL2RenderingContextScissor(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_ShaderSource
 //go:noescape
-func HasWebGL2RenderingContextShaderSource(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextShaderSource(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_ShaderSource
 //go:noescape
-func WebGL2RenderingContextShaderSourceFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextShaderSource(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_ShaderSource
 //go:noescape
@@ -10440,11 +10438,11 @@ func TryWebGL2RenderingContextShaderSource(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_StencilFunc
 //go:noescape
-func HasWebGL2RenderingContextStencilFunc(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextStencilFunc(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_StencilFunc
 //go:noescape
-func WebGL2RenderingContextStencilFuncFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextStencilFunc(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_StencilFunc
 //go:noescape
@@ -10464,11 +10462,11 @@ func TryWebGL2RenderingContextStencilFunc(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_StencilFuncSeparate
 //go:noescape
-func HasWebGL2RenderingContextStencilFuncSeparate(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextStencilFuncSeparate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_StencilFuncSeparate
 //go:noescape
-func WebGL2RenderingContextStencilFuncSeparateFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextStencilFuncSeparate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_StencilFuncSeparate
 //go:noescape
@@ -10490,11 +10488,11 @@ func TryWebGL2RenderingContextStencilFuncSeparate(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_StencilMask
 //go:noescape
-func HasWebGL2RenderingContextStencilMask(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextStencilMask(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_StencilMask
 //go:noescape
-func WebGL2RenderingContextStencilMaskFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextStencilMask(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_StencilMask
 //go:noescape
@@ -10510,11 +10508,11 @@ func TryWebGL2RenderingContextStencilMask(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_StencilMaskSeparate
 //go:noescape
-func HasWebGL2RenderingContextStencilMaskSeparate(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextStencilMaskSeparate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_StencilMaskSeparate
 //go:noescape
-func WebGL2RenderingContextStencilMaskSeparateFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextStencilMaskSeparate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_StencilMaskSeparate
 //go:noescape
@@ -10532,11 +10530,11 @@ func TryWebGL2RenderingContextStencilMaskSeparate(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_StencilOp
 //go:noescape
-func HasWebGL2RenderingContextStencilOp(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextStencilOp(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_StencilOp
 //go:noescape
-func WebGL2RenderingContextStencilOpFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextStencilOp(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_StencilOp
 //go:noescape
@@ -10556,11 +10554,11 @@ func TryWebGL2RenderingContextStencilOp(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_StencilOpSeparate
 //go:noescape
-func HasWebGL2RenderingContextStencilOpSeparate(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextStencilOpSeparate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_StencilOpSeparate
 //go:noescape
-func WebGL2RenderingContextStencilOpSeparateFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextStencilOpSeparate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_StencilOpSeparate
 //go:noescape
@@ -10582,11 +10580,11 @@ func TryWebGL2RenderingContextStencilOpSeparate(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_TexParameterf
 //go:noescape
-func HasWebGL2RenderingContextTexParameterf(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextTexParameterf(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_TexParameterf
 //go:noescape
-func WebGL2RenderingContextTexParameterfFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextTexParameterf(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_TexParameterf
 //go:noescape
@@ -10606,11 +10604,11 @@ func TryWebGL2RenderingContextTexParameterf(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_TexParameteri
 //go:noescape
-func HasWebGL2RenderingContextTexParameteri(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextTexParameteri(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_TexParameteri
 //go:noescape
-func WebGL2RenderingContextTexParameteriFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextTexParameteri(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_TexParameteri
 //go:noescape
@@ -10630,11 +10628,11 @@ func TryWebGL2RenderingContextTexParameteri(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform1f
 //go:noescape
-func HasWebGL2RenderingContextUniform1f(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform1f(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform1f
 //go:noescape
-func WebGL2RenderingContextUniform1fFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform1f(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform1f
 //go:noescape
@@ -10652,11 +10650,11 @@ func TryWebGL2RenderingContextUniform1f(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform2f
 //go:noescape
-func HasWebGL2RenderingContextUniform2f(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform2f(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform2f
 //go:noescape
-func WebGL2RenderingContextUniform2fFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform2f(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform2f
 //go:noescape
@@ -10676,11 +10674,11 @@ func TryWebGL2RenderingContextUniform2f(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform3f
 //go:noescape
-func HasWebGL2RenderingContextUniform3f(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform3f(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform3f
 //go:noescape
-func WebGL2RenderingContextUniform3fFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform3f(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform3f
 //go:noescape
@@ -10702,11 +10700,11 @@ func TryWebGL2RenderingContextUniform3f(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform4f
 //go:noescape
-func HasWebGL2RenderingContextUniform4f(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform4f(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform4f
 //go:noescape
-func WebGL2RenderingContextUniform4fFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform4f(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform4f
 //go:noescape
@@ -10730,11 +10728,11 @@ func TryWebGL2RenderingContextUniform4f(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform1i
 //go:noescape
-func HasWebGL2RenderingContextUniform1i(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform1i(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform1i
 //go:noescape
-func WebGL2RenderingContextUniform1iFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform1i(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform1i
 //go:noescape
@@ -10752,11 +10750,11 @@ func TryWebGL2RenderingContextUniform1i(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform2i
 //go:noescape
-func HasWebGL2RenderingContextUniform2i(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform2i(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform2i
 //go:noescape
-func WebGL2RenderingContextUniform2iFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform2i(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform2i
 //go:noescape
@@ -10776,11 +10774,11 @@ func TryWebGL2RenderingContextUniform2i(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform3i
 //go:noescape
-func HasWebGL2RenderingContextUniform3i(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform3i(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform3i
 //go:noescape
-func WebGL2RenderingContextUniform3iFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform3i(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform3i
 //go:noescape
@@ -10802,11 +10800,11 @@ func TryWebGL2RenderingContextUniform3i(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Uniform4i
 //go:noescape
-func HasWebGL2RenderingContextUniform4i(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUniform4i(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Uniform4i
 //go:noescape
-func WebGL2RenderingContextUniform4iFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUniform4i(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Uniform4i
 //go:noescape
@@ -10830,11 +10828,11 @@ func TryWebGL2RenderingContextUniform4i(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_UseProgram
 //go:noescape
-func HasWebGL2RenderingContextUseProgram(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextUseProgram(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_UseProgram
 //go:noescape
-func WebGL2RenderingContextUseProgramFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextUseProgram(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_UseProgram
 //go:noescape
@@ -10850,11 +10848,11 @@ func TryWebGL2RenderingContextUseProgram(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_ValidateProgram
 //go:noescape
-func HasWebGL2RenderingContextValidateProgram(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextValidateProgram(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_ValidateProgram
 //go:noescape
-func WebGL2RenderingContextValidateProgramFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextValidateProgram(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_ValidateProgram
 //go:noescape
@@ -10870,11 +10868,11 @@ func TryWebGL2RenderingContextValidateProgram(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_VertexAttrib1f
 //go:noescape
-func HasWebGL2RenderingContextVertexAttrib1f(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextVertexAttrib1f(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_VertexAttrib1f
 //go:noescape
-func WebGL2RenderingContextVertexAttrib1fFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextVertexAttrib1f(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_VertexAttrib1f
 //go:noescape
@@ -10892,11 +10890,11 @@ func TryWebGL2RenderingContextVertexAttrib1f(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_VertexAttrib2f
 //go:noescape
-func HasWebGL2RenderingContextVertexAttrib2f(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextVertexAttrib2f(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_VertexAttrib2f
 //go:noescape
-func WebGL2RenderingContextVertexAttrib2fFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextVertexAttrib2f(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_VertexAttrib2f
 //go:noescape
@@ -10916,11 +10914,11 @@ func TryWebGL2RenderingContextVertexAttrib2f(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_VertexAttrib3f
 //go:noescape
-func HasWebGL2RenderingContextVertexAttrib3f(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextVertexAttrib3f(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_VertexAttrib3f
 //go:noescape
-func WebGL2RenderingContextVertexAttrib3fFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextVertexAttrib3f(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_VertexAttrib3f
 //go:noescape
@@ -10942,11 +10940,11 @@ func TryWebGL2RenderingContextVertexAttrib3f(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_VertexAttrib4f
 //go:noescape
-func HasWebGL2RenderingContextVertexAttrib4f(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextVertexAttrib4f(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_VertexAttrib4f
 //go:noescape
-func WebGL2RenderingContextVertexAttrib4fFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextVertexAttrib4f(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_VertexAttrib4f
 //go:noescape
@@ -10970,11 +10968,11 @@ func TryWebGL2RenderingContextVertexAttrib4f(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_VertexAttrib1fv
 //go:noescape
-func HasWebGL2RenderingContextVertexAttrib1fv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextVertexAttrib1fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_VertexAttrib1fv
 //go:noescape
-func WebGL2RenderingContextVertexAttrib1fvFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextVertexAttrib1fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_VertexAttrib1fv
 //go:noescape
@@ -10992,11 +10990,11 @@ func TryWebGL2RenderingContextVertexAttrib1fv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_VertexAttrib2fv
 //go:noescape
-func HasWebGL2RenderingContextVertexAttrib2fv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextVertexAttrib2fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_VertexAttrib2fv
 //go:noescape
-func WebGL2RenderingContextVertexAttrib2fvFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextVertexAttrib2fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_VertexAttrib2fv
 //go:noescape
@@ -11014,11 +11012,11 @@ func TryWebGL2RenderingContextVertexAttrib2fv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_VertexAttrib3fv
 //go:noescape
-func HasWebGL2RenderingContextVertexAttrib3fv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextVertexAttrib3fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_VertexAttrib3fv
 //go:noescape
-func WebGL2RenderingContextVertexAttrib3fvFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextVertexAttrib3fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_VertexAttrib3fv
 //go:noescape
@@ -11036,11 +11034,11 @@ func TryWebGL2RenderingContextVertexAttrib3fv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_VertexAttrib4fv
 //go:noescape
-func HasWebGL2RenderingContextVertexAttrib4fv(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextVertexAttrib4fv(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_VertexAttrib4fv
 //go:noescape
-func WebGL2RenderingContextVertexAttrib4fvFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextVertexAttrib4fv(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_VertexAttrib4fv
 //go:noescape
@@ -11058,11 +11056,11 @@ func TryWebGL2RenderingContextVertexAttrib4fv(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_VertexAttribPointer
 //go:noescape
-func HasWebGL2RenderingContextVertexAttribPointer(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextVertexAttribPointer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_VertexAttribPointer
 //go:noescape
-func WebGL2RenderingContextVertexAttribPointerFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextVertexAttribPointer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_VertexAttribPointer
 //go:noescape
@@ -11088,11 +11086,11 @@ func TryWebGL2RenderingContextVertexAttribPointer(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_Viewport
 //go:noescape
-func HasWebGL2RenderingContextViewport(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextViewport(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_Viewport
 //go:noescape
-func WebGL2RenderingContextViewportFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextViewport(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_Viewport
 //go:noescape
@@ -11114,11 +11112,11 @@ func TryWebGL2RenderingContextViewport(
 
 //go:wasmimport plat/js/web has_WebGL2RenderingContext_MakeXRCompatible
 //go:noescape
-func HasWebGL2RenderingContextMakeXRCompatible(this js.Ref) js.Ref
+func HasFuncWebGL2RenderingContextMakeXRCompatible(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WebGL2RenderingContext_MakeXRCompatible
 //go:noescape
-func WebGL2RenderingContextMakeXRCompatibleFunc(this js.Ref) js.Ref
+func FuncWebGL2RenderingContextMakeXRCompatible(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WebGL2RenderingContext_MakeXRCompatible
 //go:noescape
@@ -11163,11 +11161,11 @@ func SetGPUBufferLabel(
 
 //go:wasmimport plat/js/web has_GPUBuffer_MapAsync
 //go:noescape
-func HasGPUBufferMapAsync(this js.Ref) js.Ref
+func HasFuncGPUBufferMapAsync(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUBuffer_MapAsync
 //go:noescape
-func GPUBufferMapAsyncFunc(this js.Ref) js.Ref
+func FuncGPUBufferMapAsync(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUBuffer_MapAsync
 //go:noescape
@@ -11187,11 +11185,11 @@ func TryGPUBufferMapAsync(
 
 //go:wasmimport plat/js/web has_GPUBuffer_MapAsync1
 //go:noescape
-func HasGPUBufferMapAsync1(this js.Ref) js.Ref
+func HasFuncGPUBufferMapAsync1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUBuffer_MapAsync1
 //go:noescape
-func GPUBufferMapAsync1Func(this js.Ref) js.Ref
+func FuncGPUBufferMapAsync1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUBuffer_MapAsync1
 //go:noescape
@@ -11209,11 +11207,11 @@ func TryGPUBufferMapAsync1(
 
 //go:wasmimport plat/js/web has_GPUBuffer_MapAsync2
 //go:noescape
-func HasGPUBufferMapAsync2(this js.Ref) js.Ref
+func HasFuncGPUBufferMapAsync2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUBuffer_MapAsync2
 //go:noescape
-func GPUBufferMapAsync2Func(this js.Ref) js.Ref
+func FuncGPUBufferMapAsync2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUBuffer_MapAsync2
 //go:noescape
@@ -11229,11 +11227,11 @@ func TryGPUBufferMapAsync2(
 
 //go:wasmimport plat/js/web has_GPUBuffer_GetMappedRange
 //go:noescape
-func HasGPUBufferGetMappedRange(this js.Ref) js.Ref
+func HasFuncGPUBufferGetMappedRange(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUBuffer_GetMappedRange
 //go:noescape
-func GPUBufferGetMappedRangeFunc(this js.Ref) js.Ref
+func FuncGPUBufferGetMappedRange(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUBuffer_GetMappedRange
 //go:noescape
@@ -11251,11 +11249,11 @@ func TryGPUBufferGetMappedRange(
 
 //go:wasmimport plat/js/web has_GPUBuffer_GetMappedRange1
 //go:noescape
-func HasGPUBufferGetMappedRange1(this js.Ref) js.Ref
+func HasFuncGPUBufferGetMappedRange1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUBuffer_GetMappedRange1
 //go:noescape
-func GPUBufferGetMappedRange1Func(this js.Ref) js.Ref
+func FuncGPUBufferGetMappedRange1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUBuffer_GetMappedRange1
 //go:noescape
@@ -11271,11 +11269,11 @@ func TryGPUBufferGetMappedRange1(
 
 //go:wasmimport plat/js/web has_GPUBuffer_GetMappedRange2
 //go:noescape
-func HasGPUBufferGetMappedRange2(this js.Ref) js.Ref
+func HasFuncGPUBufferGetMappedRange2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUBuffer_GetMappedRange2
 //go:noescape
-func GPUBufferGetMappedRange2Func(this js.Ref) js.Ref
+func FuncGPUBufferGetMappedRange2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUBuffer_GetMappedRange2
 //go:noescape
@@ -11289,11 +11287,11 @@ func TryGPUBufferGetMappedRange2(
 
 //go:wasmimport plat/js/web has_GPUBuffer_Unmap
 //go:noescape
-func HasGPUBufferUnmap(this js.Ref) js.Ref
+func HasFuncGPUBufferUnmap(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUBuffer_Unmap
 //go:noescape
-func GPUBufferUnmapFunc(this js.Ref) js.Ref
+func FuncGPUBufferUnmap(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUBuffer_Unmap
 //go:noescape
@@ -11307,11 +11305,11 @@ func TryGPUBufferUnmap(
 
 //go:wasmimport plat/js/web has_GPUBuffer_Destroy
 //go:noescape
-func HasGPUBufferDestroy(this js.Ref) js.Ref
+func HasFuncGPUBufferDestroy(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUBuffer_Destroy
 //go:noescape
-func GPUBufferDestroyFunc(this js.Ref) js.Ref
+func FuncGPUBufferDestroy(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUBuffer_Destroy
 //go:noescape
@@ -11425,11 +11423,11 @@ func SetGPUTextureLabel(
 
 //go:wasmimport plat/js/web has_GPUTexture_CreateView
 //go:noescape
-func HasGPUTextureCreateView(this js.Ref) js.Ref
+func HasFuncGPUTextureCreateView(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUTexture_CreateView
 //go:noescape
-func GPUTextureCreateViewFunc(this js.Ref) js.Ref
+func FuncGPUTextureCreateView(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUTexture_CreateView
 //go:noescape
@@ -11445,11 +11443,11 @@ func TryGPUTextureCreateView(
 
 //go:wasmimport plat/js/web has_GPUTexture_CreateView1
 //go:noescape
-func HasGPUTextureCreateView1(this js.Ref) js.Ref
+func HasFuncGPUTextureCreateView1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUTexture_CreateView1
 //go:noescape
-func GPUTextureCreateView1Func(this js.Ref) js.Ref
+func FuncGPUTextureCreateView1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUTexture_CreateView1
 //go:noescape
@@ -11463,11 +11461,11 @@ func TryGPUTextureCreateView1(
 
 //go:wasmimport plat/js/web has_GPUTexture_Destroy
 //go:noescape
-func HasGPUTextureDestroy(this js.Ref) js.Ref
+func HasFuncGPUTextureDestroy(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUTexture_Destroy
 //go:noescape
-func GPUTextureDestroyFunc(this js.Ref) js.Ref
+func FuncGPUTextureDestroy(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUTexture_Destroy
 //go:noescape

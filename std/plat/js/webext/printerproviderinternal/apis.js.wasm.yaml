@@ -1,0 +1,256 @@
+- File: webext/printer_provider_internal.idl
+  Callback:
+    Name: BlobCallback
+    Args:
+      - Name: blob
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProviderInternal
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - Blob
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProviderInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProviderInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printerProviderInternal
+- File: webext/printer_provider_internal.idl
+  Enum:
+    Name: PrintError
+    Values:
+      - OK
+      - FAILED
+      - INVALID_TICKET
+      - INVALID_DATA
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printerProviderInternal
+- File: webext/printer_provider_internal.idl
+  WebextFunc:
+    Name: getPrintData
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProviderInternal
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: object
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - printerProviderInternal
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - printerProviderInternal
+- File: webext/printer_provider_internal.idl
+  WebextFunc:
+    Name: reportPrintResult
+    Args:
+      - Name: request_id
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProviderInternal
+      - Name: error
+        Optional: true
+        Type:
+          Name: PrintError
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProviderInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProviderInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printerProviderInternal
+- File: webext/printer_provider_internal.idl
+  WebextFunc:
+    Name: reportPrinterCapability
+    Args:
+      - Name: request_id
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProviderInternal
+      - Name: capability
+        Optional: true
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProviderInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProviderInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printerProviderInternal
+- File: webext/printer_provider_internal.idl
+  WebextFunc:
+    Name: reportPrinters
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProviderInternal
+      - Name: printers
+        Optional: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: PrinterInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - printerProvider
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProviderInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printerProviderInternal
+- File: webext/printer_provider_internal.idl
+  WebextFunc:
+    Name: reportUsbPrinterInfo
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProviderInternal
+      - Name: printerInfo
+        Optional: true
+        Type:
+          Name: PrinterInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - printerProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - printerProviderInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - printerProviderInternal

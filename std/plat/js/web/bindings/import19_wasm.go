@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web store_BluetoothServiceDataFilterInit
 //go:noescape
@@ -55,11 +53,11 @@ func GetBluetoothReferringDevice(
 
 //go:wasmimport plat/js/web has_Bluetooth_GetAvailability
 //go:noescape
-func HasBluetoothGetAvailability(this js.Ref) js.Ref
+func HasFuncBluetoothGetAvailability(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Bluetooth_GetAvailability
 //go:noescape
-func BluetoothGetAvailabilityFunc(this js.Ref) js.Ref
+func FuncBluetoothGetAvailability(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Bluetooth_GetAvailability
 //go:noescape
@@ -73,11 +71,11 @@ func TryBluetoothGetAvailability(
 
 //go:wasmimport plat/js/web has_Bluetooth_GetDevices
 //go:noescape
-func HasBluetoothGetDevices(this js.Ref) js.Ref
+func HasFuncBluetoothGetDevices(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Bluetooth_GetDevices
 //go:noescape
-func BluetoothGetDevicesFunc(this js.Ref) js.Ref
+func FuncBluetoothGetDevices(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Bluetooth_GetDevices
 //go:noescape
@@ -91,11 +89,11 @@ func TryBluetoothGetDevices(
 
 //go:wasmimport plat/js/web has_Bluetooth_RequestDevice
 //go:noescape
-func HasBluetoothRequestDevice(this js.Ref) js.Ref
+func HasFuncBluetoothRequestDevice(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Bluetooth_RequestDevice
 //go:noescape
-func BluetoothRequestDeviceFunc(this js.Ref) js.Ref
+func FuncBluetoothRequestDevice(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Bluetooth_RequestDevice
 //go:noescape
@@ -111,11 +109,11 @@ func TryBluetoothRequestDevice(
 
 //go:wasmimport plat/js/web has_Bluetooth_RequestDevice1
 //go:noescape
-func HasBluetoothRequestDevice1(this js.Ref) js.Ref
+func HasFuncBluetoothRequestDevice1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Bluetooth_RequestDevice1
 //go:noescape
-func BluetoothRequestDevice1Func(this js.Ref) js.Ref
+func FuncBluetoothRequestDevice1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Bluetooth_RequestDevice1
 //go:noescape
@@ -227,11 +225,11 @@ func BluetoothPermissionStorageJSLoad(
 
 //go:wasmimport plat/js/web has_BluetoothUUID_GetService
 //go:noescape
-func HasBluetoothUUIDGetService(this js.Ref) js.Ref
+func HasFuncBluetoothUUIDGetService(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothUUID_GetService
 //go:noescape
-func BluetoothUUIDGetServiceFunc(this js.Ref) js.Ref
+func FuncBluetoothUUIDGetService(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothUUID_GetService
 //go:noescape
@@ -247,11 +245,11 @@ func TryBluetoothUUIDGetService(
 
 //go:wasmimport plat/js/web has_BluetoothUUID_GetCharacteristic
 //go:noescape
-func HasBluetoothUUIDGetCharacteristic(this js.Ref) js.Ref
+func HasFuncBluetoothUUIDGetCharacteristic(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothUUID_GetCharacteristic
 //go:noescape
-func BluetoothUUIDGetCharacteristicFunc(this js.Ref) js.Ref
+func FuncBluetoothUUIDGetCharacteristic(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothUUID_GetCharacteristic
 //go:noescape
@@ -267,11 +265,11 @@ func TryBluetoothUUIDGetCharacteristic(
 
 //go:wasmimport plat/js/web has_BluetoothUUID_GetDescriptor
 //go:noescape
-func HasBluetoothUUIDGetDescriptor(this js.Ref) js.Ref
+func HasFuncBluetoothUUIDGetDescriptor(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothUUID_GetDescriptor
 //go:noescape
-func BluetoothUUIDGetDescriptorFunc(this js.Ref) js.Ref
+func FuncBluetoothUUIDGetDescriptor(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothUUID_GetDescriptor
 //go:noescape
@@ -287,11 +285,11 @@ func TryBluetoothUUIDGetDescriptor(
 
 //go:wasmimport plat/js/web has_BluetoothUUID_CanonicalUUID
 //go:noescape
-func HasBluetoothUUIDCanonicalUUID(this js.Ref) js.Ref
+func HasFuncBluetoothUUIDCanonicalUUID(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothUUID_CanonicalUUID
 //go:noescape
-func BluetoothUUIDCanonicalUUIDFunc(this js.Ref) js.Ref
+func FuncBluetoothUUIDCanonicalUUID(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothUUID_CanonicalUUID
 //go:noescape
@@ -380,11 +378,11 @@ func GetLayoutChildStyleMap(
 
 //go:wasmimport plat/js/web has_LayoutChild_IntrinsicSizes
 //go:noescape
-func HasLayoutChildIntrinsicSizes(this js.Ref) js.Ref
+func HasFuncLayoutChildIntrinsicSizes(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_LayoutChild_IntrinsicSizes
 //go:noescape
-func LayoutChildIntrinsicSizesFunc(this js.Ref) js.Ref
+func FuncLayoutChildIntrinsicSizes(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_LayoutChild_IntrinsicSizes
 //go:noescape
@@ -398,11 +396,11 @@ func TryLayoutChildIntrinsicSizes(
 
 //go:wasmimport plat/js/web has_LayoutChild_LayoutNextFragment
 //go:noescape
-func HasLayoutChildLayoutNextFragment(this js.Ref) js.Ref
+func HasFuncLayoutChildLayoutNextFragment(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_LayoutChild_LayoutNextFragment
 //go:noescape
-func LayoutChildLayoutNextFragmentFunc(this js.Ref) js.Ref
+func FuncLayoutChildLayoutNextFragment(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_LayoutChild_LayoutNextFragment
 //go:noescape
@@ -460,11 +458,11 @@ func GetBroadcastChannelName(
 
 //go:wasmimport plat/js/web has_BroadcastChannel_PostMessage
 //go:noescape
-func HasBroadcastChannelPostMessage(this js.Ref) js.Ref
+func HasFuncBroadcastChannelPostMessage(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BroadcastChannel_PostMessage
 //go:noescape
-func BroadcastChannelPostMessageFunc(this js.Ref) js.Ref
+func FuncBroadcastChannelPostMessage(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BroadcastChannel_PostMessage
 //go:noescape
@@ -480,11 +478,11 @@ func TryBroadcastChannelPostMessage(
 
 //go:wasmimport plat/js/web has_BroadcastChannel_Close
 //go:noescape
-func HasBroadcastChannelClose(this js.Ref) js.Ref
+func HasFuncBroadcastChannelClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BroadcastChannel_Close
 //go:noescape
-func BroadcastChannelCloseFunc(this js.Ref) js.Ref
+func FuncBroadcastChannelClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BroadcastChannel_Close
 //go:noescape
@@ -498,11 +496,11 @@ func TryBroadcastChannelClose(
 
 //go:wasmimport plat/js/web has_CropTarget_FromElement
 //go:noescape
-func HasCropTargetFromElement(this js.Ref) js.Ref
+func HasFuncCropTargetFromElement(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CropTarget_FromElement
 //go:noescape
-func CropTargetFromElementFunc(this js.Ref) js.Ref
+func FuncCropTargetFromElement(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CropTarget_FromElement
 //go:noescape
@@ -518,11 +516,11 @@ func TryCropTargetFromElement(
 
 //go:wasmimport plat/js/web has_RestrictionTarget_FromElement
 //go:noescape
-func HasRestrictionTargetFromElement(this js.Ref) js.Ref
+func HasFuncRestrictionTargetFromElement(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RestrictionTarget_FromElement
 //go:noescape
-func RestrictionTargetFromElementFunc(this js.Ref) js.Ref
+func FuncRestrictionTargetFromElement(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RestrictionTarget_FromElement
 //go:noescape
@@ -538,11 +536,11 @@ func TryRestrictionTargetFromElement(
 
 //go:wasmimport plat/js/web has_BrowserCaptureMediaStreamTrack_CropTo
 //go:noescape
-func HasBrowserCaptureMediaStreamTrackCropTo(this js.Ref) js.Ref
+func HasFuncBrowserCaptureMediaStreamTrackCropTo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BrowserCaptureMediaStreamTrack_CropTo
 //go:noescape
-func BrowserCaptureMediaStreamTrackCropToFunc(this js.Ref) js.Ref
+func FuncBrowserCaptureMediaStreamTrackCropTo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BrowserCaptureMediaStreamTrack_CropTo
 //go:noescape
@@ -558,11 +556,11 @@ func TryBrowserCaptureMediaStreamTrackCropTo(
 
 //go:wasmimport plat/js/web has_BrowserCaptureMediaStreamTrack_Clone
 //go:noescape
-func HasBrowserCaptureMediaStreamTrackClone(this js.Ref) js.Ref
+func HasFuncBrowserCaptureMediaStreamTrackClone(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BrowserCaptureMediaStreamTrack_Clone
 //go:noescape
-func BrowserCaptureMediaStreamTrackCloneFunc(this js.Ref) js.Ref
+func FuncBrowserCaptureMediaStreamTrackClone(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BrowserCaptureMediaStreamTrack_Clone
 //go:noescape
@@ -576,11 +574,11 @@ func TryBrowserCaptureMediaStreamTrackClone(
 
 //go:wasmimport plat/js/web has_BrowserCaptureMediaStreamTrack_RestrictTo
 //go:noescape
-func HasBrowserCaptureMediaStreamTrackRestrictTo(this js.Ref) js.Ref
+func HasFuncBrowserCaptureMediaStreamTrackRestrictTo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BrowserCaptureMediaStreamTrack_RestrictTo
 //go:noescape
-func BrowserCaptureMediaStreamTrackRestrictToFunc(this js.Ref) js.Ref
+func FuncBrowserCaptureMediaStreamTrackRestrictTo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BrowserCaptureMediaStreamTrack_RestrictTo
 //go:noescape
@@ -680,11 +678,11 @@ func GetCSPViolationReportBodyColumnNumber(
 
 //go:wasmimport plat/js/web has_CSPViolationReportBody_ToJSON
 //go:noescape
-func HasCSPViolationReportBodyToJSON(this js.Ref) js.Ref
+func HasFuncCSPViolationReportBodyToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSPViolationReportBody_ToJSON
 //go:noescape
-func CSPViolationReportBodyToJSONFunc(this js.Ref) js.Ref
+func FuncCSPViolationReportBodyToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSPViolationReportBody_ToJSON
 //go:noescape
@@ -739,11 +737,11 @@ func GetCSSParserDeclarationBody(
 
 //go:wasmimport plat/js/web has_CSSParserDeclaration_ToString
 //go:noescape
-func HasCSSParserDeclarationToString(this js.Ref) js.Ref
+func HasFuncCSSParserDeclarationToString(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSParserDeclaration_ToString
 //go:noescape
-func CSSParserDeclarationToStringFunc(this js.Ref) js.Ref
+func FuncCSSParserDeclarationToString(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSParserDeclaration_ToString
 //go:noescape
@@ -767,11 +765,11 @@ func WorkletOptionsJSLoad(
 
 //go:wasmimport plat/js/web has_Worklet_AddModule
 //go:noescape
-func HasWorkletAddModule(this js.Ref) js.Ref
+func HasFuncWorkletAddModule(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Worklet_AddModule
 //go:noescape
-func WorkletAddModuleFunc(this js.Ref) js.Ref
+func FuncWorkletAddModule(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Worklet_AddModule
 //go:noescape
@@ -789,11 +787,11 @@ func TryWorkletAddModule(
 
 //go:wasmimport plat/js/web has_Worklet_AddModule1
 //go:noescape
-func HasWorkletAddModule1(this js.Ref) js.Ref
+func HasFuncWorkletAddModule1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Worklet_AddModule1
 //go:noescape
-func WorkletAddModule1Func(this js.Ref) js.Ref
+func FuncWorkletAddModule1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Worklet_AddModule1
 //go:noescape
@@ -809,36 +807,31 @@ func TryWorkletAddModule1(
 
 //go:wasmimport plat/js/web get_CSS_ElementSources
 //go:noescape
-func GetCSSElementSources(
-	retPtr unsafe.Pointer) js.Ref
+func GetCSSElementSources(retPtr unsafe.Pointer) js.Ref
 
 //go:wasmimport plat/js/web get_CSS_AnimationWorklet
 //go:noescape
-func GetCSSAnimationWorklet(
-	retPtr unsafe.Pointer) js.Ref
+func GetCSSAnimationWorklet(retPtr unsafe.Pointer) js.Ref
 
 //go:wasmimport plat/js/web get_CSS_PaintWorklet
 //go:noescape
-func GetCSSPaintWorklet(
-	retPtr unsafe.Pointer) js.Ref
+func GetCSSPaintWorklet(retPtr unsafe.Pointer) js.Ref
 
 //go:wasmimport plat/js/web get_CSS_LayoutWorklet
 //go:noescape
-func GetCSSLayoutWorklet(
-	retPtr unsafe.Pointer) js.Ref
+func GetCSSLayoutWorklet(retPtr unsafe.Pointer) js.Ref
 
 //go:wasmimport plat/js/web get_CSS_Highlights
 //go:noescape
-func GetCSSHighlights(
-	retPtr unsafe.Pointer) js.Ref
+func GetCSSHighlights(retPtr unsafe.Pointer) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Escape
 //go:noescape
-func HasCSSEscape() js.Ref
+func HasFuncCSSEscape() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Escape
 //go:noescape
-func CSSEscapeFunc() js.Ref
+func FuncCSSEscape(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Escape
 //go:noescape
@@ -850,15 +843,15 @@ func CallCSSEscape(
 //go:noescape
 func TryCSSEscape(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	ident js.Ref) (ok js.Ref)
+	ident js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_RegisterProperty
 //go:noescape
-func HasCSSRegisterProperty() js.Ref
+func HasFuncCSSRegisterProperty() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_RegisterProperty
 //go:noescape
-func CSSRegisterPropertyFunc() js.Ref
+func FuncCSSRegisterProperty(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_RegisterProperty
 //go:noescape
@@ -870,15 +863,15 @@ func CallCSSRegisterProperty(
 //go:noescape
 func TryCSSRegisterProperty(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	definition unsafe.Pointer) (ok js.Ref)
+	definition unsafe.Pointer) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Supports
 //go:noescape
-func HasCSSSupports() js.Ref
+func HasFuncCSSSupports() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Supports
 //go:noescape
-func CSSSupportsFunc() js.Ref
+func FuncCSSSupports(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Supports
 //go:noescape
@@ -892,15 +885,15 @@ func CallCSSSupports(
 func TryCSSSupports(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	property js.Ref,
-	value js.Ref) (ok js.Ref)
+	value js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Supports1
 //go:noescape
-func HasCSSSupports1() js.Ref
+func HasFuncCSSSupports1() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Supports1
 //go:noescape
-func CSSSupports1Func() js.Ref
+func FuncCSSSupports1(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Supports1
 //go:noescape
@@ -912,15 +905,15 @@ func CallCSSSupports1(
 //go:noescape
 func TryCSSSupports1(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	conditionText js.Ref) (ok js.Ref)
+	conditionText js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Number
 //go:noescape
-func HasCSSNumber() js.Ref
+func HasFuncCSSNumber() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Number
 //go:noescape
-func CSSNumberFunc() js.Ref
+func FuncCSSNumber(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Number
 //go:noescape
@@ -932,15 +925,15 @@ func CallCSSNumber(
 //go:noescape
 func TryCSSNumber(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Percent
 //go:noescape
-func HasCSSPercent() js.Ref
+func HasFuncCSSPercent() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Percent
 //go:noescape
-func CSSPercentFunc() js.Ref
+func FuncCSSPercent(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Percent
 //go:noescape
@@ -952,15 +945,15 @@ func CallCSSPercent(
 //go:noescape
 func TryCSSPercent(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Cap
 //go:noescape
-func HasCSSCap() js.Ref
+func HasFuncCSSCap() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Cap
 //go:noescape
-func CSSCapFunc() js.Ref
+func FuncCSSCap(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Cap
 //go:noescape
@@ -972,15 +965,15 @@ func CallCSSCap(
 //go:noescape
 func TryCSSCap(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Ch
 //go:noescape
-func HasCSSCh() js.Ref
+func HasFuncCSSCh() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Ch
 //go:noescape
-func CSSChFunc() js.Ref
+func FuncCSSCh(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Ch
 //go:noescape
@@ -992,15 +985,15 @@ func CallCSSCh(
 //go:noescape
 func TryCSSCh(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Em
 //go:noescape
-func HasCSSEm() js.Ref
+func HasFuncCSSEm() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Em
 //go:noescape
-func CSSEmFunc() js.Ref
+func FuncCSSEm(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Em
 //go:noescape
@@ -1012,15 +1005,15 @@ func CallCSSEm(
 //go:noescape
 func TryCSSEm(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Ex
 //go:noescape
-func HasCSSEx() js.Ref
+func HasFuncCSSEx() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Ex
 //go:noescape
-func CSSExFunc() js.Ref
+func FuncCSSEx(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Ex
 //go:noescape
@@ -1032,15 +1025,15 @@ func CallCSSEx(
 //go:noescape
 func TryCSSEx(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Ic
 //go:noescape
-func HasCSSIc() js.Ref
+func HasFuncCSSIc() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Ic
 //go:noescape
-func CSSIcFunc() js.Ref
+func FuncCSSIc(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Ic
 //go:noescape
@@ -1052,15 +1045,15 @@ func CallCSSIc(
 //go:noescape
 func TryCSSIc(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Lh
 //go:noescape
-func HasCSSLh() js.Ref
+func HasFuncCSSLh() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Lh
 //go:noescape
-func CSSLhFunc() js.Ref
+func FuncCSSLh(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Lh
 //go:noescape
@@ -1072,15 +1065,15 @@ func CallCSSLh(
 //go:noescape
 func TryCSSLh(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Rcap
 //go:noescape
-func HasCSSRcap() js.Ref
+func HasFuncCSSRcap() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Rcap
 //go:noescape
-func CSSRcapFunc() js.Ref
+func FuncCSSRcap(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Rcap
 //go:noescape
@@ -1092,15 +1085,15 @@ func CallCSSRcap(
 //go:noescape
 func TryCSSRcap(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Rch
 //go:noescape
-func HasCSSRch() js.Ref
+func HasFuncCSSRch() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Rch
 //go:noescape
-func CSSRchFunc() js.Ref
+func FuncCSSRch(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Rch
 //go:noescape
@@ -1112,15 +1105,15 @@ func CallCSSRch(
 //go:noescape
 func TryCSSRch(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Rem
 //go:noescape
-func HasCSSRem() js.Ref
+func HasFuncCSSRem() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Rem
 //go:noescape
-func CSSRemFunc() js.Ref
+func FuncCSSRem(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Rem
 //go:noescape
@@ -1132,15 +1125,15 @@ func CallCSSRem(
 //go:noescape
 func TryCSSRem(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Rex
 //go:noescape
-func HasCSSRex() js.Ref
+func HasFuncCSSRex() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Rex
 //go:noescape
-func CSSRexFunc() js.Ref
+func FuncCSSRex(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Rex
 //go:noescape
@@ -1152,15 +1145,15 @@ func CallCSSRex(
 //go:noescape
 func TryCSSRex(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Ric
 //go:noescape
-func HasCSSRic() js.Ref
+func HasFuncCSSRic() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Ric
 //go:noescape
-func CSSRicFunc() js.Ref
+func FuncCSSRic(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Ric
 //go:noescape
@@ -1172,15 +1165,15 @@ func CallCSSRic(
 //go:noescape
 func TryCSSRic(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Rlh
 //go:noescape
-func HasCSSRlh() js.Ref
+func HasFuncCSSRlh() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Rlh
 //go:noescape
-func CSSRlhFunc() js.Ref
+func FuncCSSRlh(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Rlh
 //go:noescape
@@ -1192,15 +1185,15 @@ func CallCSSRlh(
 //go:noescape
 func TryCSSRlh(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Vw
 //go:noescape
-func HasCSSVw() js.Ref
+func HasFuncCSSVw() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Vw
 //go:noescape
-func CSSVwFunc() js.Ref
+func FuncCSSVw(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Vw
 //go:noescape
@@ -1212,15 +1205,15 @@ func CallCSSVw(
 //go:noescape
 func TryCSSVw(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Vh
 //go:noescape
-func HasCSSVh() js.Ref
+func HasFuncCSSVh() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Vh
 //go:noescape
-func CSSVhFunc() js.Ref
+func FuncCSSVh(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Vh
 //go:noescape
@@ -1232,15 +1225,15 @@ func CallCSSVh(
 //go:noescape
 func TryCSSVh(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Vi
 //go:noescape
-func HasCSSVi() js.Ref
+func HasFuncCSSVi() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Vi
 //go:noescape
-func CSSViFunc() js.Ref
+func FuncCSSVi(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Vi
 //go:noescape
@@ -1252,15 +1245,15 @@ func CallCSSVi(
 //go:noescape
 func TryCSSVi(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Vb
 //go:noescape
-func HasCSSVb() js.Ref
+func HasFuncCSSVb() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Vb
 //go:noescape
-func CSSVbFunc() js.Ref
+func FuncCSSVb(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Vb
 //go:noescape
@@ -1272,15 +1265,15 @@ func CallCSSVb(
 //go:noescape
 func TryCSSVb(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Vmin
 //go:noescape
-func HasCSSVmin() js.Ref
+func HasFuncCSSVmin() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Vmin
 //go:noescape
-func CSSVminFunc() js.Ref
+func FuncCSSVmin(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Vmin
 //go:noescape
@@ -1292,15 +1285,15 @@ func CallCSSVmin(
 //go:noescape
 func TryCSSVmin(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Vmax
 //go:noescape
-func HasCSSVmax() js.Ref
+func HasFuncCSSVmax() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Vmax
 //go:noescape
-func CSSVmaxFunc() js.Ref
+func FuncCSSVmax(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Vmax
 //go:noescape
@@ -1312,15 +1305,15 @@ func CallCSSVmax(
 //go:noescape
 func TryCSSVmax(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Svw
 //go:noescape
-func HasCSSSvw() js.Ref
+func HasFuncCSSSvw() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Svw
 //go:noescape
-func CSSSvwFunc() js.Ref
+func FuncCSSSvw(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Svw
 //go:noescape
@@ -1332,15 +1325,15 @@ func CallCSSSvw(
 //go:noescape
 func TryCSSSvw(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Svh
 //go:noescape
-func HasCSSSvh() js.Ref
+func HasFuncCSSSvh() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Svh
 //go:noescape
-func CSSSvhFunc() js.Ref
+func FuncCSSSvh(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Svh
 //go:noescape
@@ -1352,15 +1345,15 @@ func CallCSSSvh(
 //go:noescape
 func TryCSSSvh(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Svi
 //go:noescape
-func HasCSSSvi() js.Ref
+func HasFuncCSSSvi() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Svi
 //go:noescape
-func CSSSviFunc() js.Ref
+func FuncCSSSvi(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Svi
 //go:noescape
@@ -1372,15 +1365,15 @@ func CallCSSSvi(
 //go:noescape
 func TryCSSSvi(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Svb
 //go:noescape
-func HasCSSSvb() js.Ref
+func HasFuncCSSSvb() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Svb
 //go:noescape
-func CSSSvbFunc() js.Ref
+func FuncCSSSvb(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Svb
 //go:noescape
@@ -1392,15 +1385,15 @@ func CallCSSSvb(
 //go:noescape
 func TryCSSSvb(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Svmin
 //go:noescape
-func HasCSSSvmin() js.Ref
+func HasFuncCSSSvmin() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Svmin
 //go:noescape
-func CSSSvminFunc() js.Ref
+func FuncCSSSvmin(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Svmin
 //go:noescape
@@ -1412,15 +1405,15 @@ func CallCSSSvmin(
 //go:noescape
 func TryCSSSvmin(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Svmax
 //go:noescape
-func HasCSSSvmax() js.Ref
+func HasFuncCSSSvmax() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Svmax
 //go:noescape
-func CSSSvmaxFunc() js.Ref
+func FuncCSSSvmax(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Svmax
 //go:noescape
@@ -1432,15 +1425,15 @@ func CallCSSSvmax(
 //go:noescape
 func TryCSSSvmax(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Lvw
 //go:noescape
-func HasCSSLvw() js.Ref
+func HasFuncCSSLvw() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Lvw
 //go:noescape
-func CSSLvwFunc() js.Ref
+func FuncCSSLvw(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Lvw
 //go:noescape
@@ -1452,15 +1445,15 @@ func CallCSSLvw(
 //go:noescape
 func TryCSSLvw(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Lvh
 //go:noescape
-func HasCSSLvh() js.Ref
+func HasFuncCSSLvh() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Lvh
 //go:noescape
-func CSSLvhFunc() js.Ref
+func FuncCSSLvh(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Lvh
 //go:noescape
@@ -1472,15 +1465,15 @@ func CallCSSLvh(
 //go:noescape
 func TryCSSLvh(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Lvi
 //go:noescape
-func HasCSSLvi() js.Ref
+func HasFuncCSSLvi() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Lvi
 //go:noescape
-func CSSLviFunc() js.Ref
+func FuncCSSLvi(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Lvi
 //go:noescape
@@ -1492,15 +1485,15 @@ func CallCSSLvi(
 //go:noescape
 func TryCSSLvi(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Lvb
 //go:noescape
-func HasCSSLvb() js.Ref
+func HasFuncCSSLvb() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Lvb
 //go:noescape
-func CSSLvbFunc() js.Ref
+func FuncCSSLvb(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Lvb
 //go:noescape
@@ -1512,15 +1505,15 @@ func CallCSSLvb(
 //go:noescape
 func TryCSSLvb(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Lvmin
 //go:noescape
-func HasCSSLvmin() js.Ref
+func HasFuncCSSLvmin() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Lvmin
 //go:noescape
-func CSSLvminFunc() js.Ref
+func FuncCSSLvmin(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Lvmin
 //go:noescape
@@ -1532,15 +1525,15 @@ func CallCSSLvmin(
 //go:noescape
 func TryCSSLvmin(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Lvmax
 //go:noescape
-func HasCSSLvmax() js.Ref
+func HasFuncCSSLvmax() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Lvmax
 //go:noescape
-func CSSLvmaxFunc() js.Ref
+func FuncCSSLvmax(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Lvmax
 //go:noescape
@@ -1552,15 +1545,15 @@ func CallCSSLvmax(
 //go:noescape
 func TryCSSLvmax(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Dvw
 //go:noescape
-func HasCSSDvw() js.Ref
+func HasFuncCSSDvw() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Dvw
 //go:noescape
-func CSSDvwFunc() js.Ref
+func FuncCSSDvw(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Dvw
 //go:noescape
@@ -1572,15 +1565,15 @@ func CallCSSDvw(
 //go:noescape
 func TryCSSDvw(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Dvh
 //go:noescape
-func HasCSSDvh() js.Ref
+func HasFuncCSSDvh() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Dvh
 //go:noescape
-func CSSDvhFunc() js.Ref
+func FuncCSSDvh(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Dvh
 //go:noescape
@@ -1592,15 +1585,15 @@ func CallCSSDvh(
 //go:noescape
 func TryCSSDvh(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Dvi
 //go:noescape
-func HasCSSDvi() js.Ref
+func HasFuncCSSDvi() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Dvi
 //go:noescape
-func CSSDviFunc() js.Ref
+func FuncCSSDvi(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Dvi
 //go:noescape
@@ -1612,15 +1605,15 @@ func CallCSSDvi(
 //go:noescape
 func TryCSSDvi(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Dvb
 //go:noescape
-func HasCSSDvb() js.Ref
+func HasFuncCSSDvb() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Dvb
 //go:noescape
-func CSSDvbFunc() js.Ref
+func FuncCSSDvb(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Dvb
 //go:noescape
@@ -1632,15 +1625,15 @@ func CallCSSDvb(
 //go:noescape
 func TryCSSDvb(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Dvmin
 //go:noescape
-func HasCSSDvmin() js.Ref
+func HasFuncCSSDvmin() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Dvmin
 //go:noescape
-func CSSDvminFunc() js.Ref
+func FuncCSSDvmin(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Dvmin
 //go:noescape
@@ -1652,15 +1645,15 @@ func CallCSSDvmin(
 //go:noescape
 func TryCSSDvmin(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Dvmax
 //go:noescape
-func HasCSSDvmax() js.Ref
+func HasFuncCSSDvmax() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Dvmax
 //go:noescape
-func CSSDvmaxFunc() js.Ref
+func FuncCSSDvmax(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Dvmax
 //go:noescape
@@ -1672,15 +1665,15 @@ func CallCSSDvmax(
 //go:noescape
 func TryCSSDvmax(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Cqw
 //go:noescape
-func HasCSSCqw() js.Ref
+func HasFuncCSSCqw() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Cqw
 //go:noescape
-func CSSCqwFunc() js.Ref
+func FuncCSSCqw(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Cqw
 //go:noescape
@@ -1692,15 +1685,15 @@ func CallCSSCqw(
 //go:noescape
 func TryCSSCqw(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Cqh
 //go:noescape
-func HasCSSCqh() js.Ref
+func HasFuncCSSCqh() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Cqh
 //go:noescape
-func CSSCqhFunc() js.Ref
+func FuncCSSCqh(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Cqh
 //go:noescape
@@ -1712,15 +1705,15 @@ func CallCSSCqh(
 //go:noescape
 func TryCSSCqh(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Cqi
 //go:noescape
-func HasCSSCqi() js.Ref
+func HasFuncCSSCqi() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Cqi
 //go:noescape
-func CSSCqiFunc() js.Ref
+func FuncCSSCqi(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Cqi
 //go:noescape
@@ -1732,15 +1725,15 @@ func CallCSSCqi(
 //go:noescape
 func TryCSSCqi(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Cqb
 //go:noescape
-func HasCSSCqb() js.Ref
+func HasFuncCSSCqb() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Cqb
 //go:noescape
-func CSSCqbFunc() js.Ref
+func FuncCSSCqb(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Cqb
 //go:noescape
@@ -1752,15 +1745,15 @@ func CallCSSCqb(
 //go:noescape
 func TryCSSCqb(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Cqmin
 //go:noescape
-func HasCSSCqmin() js.Ref
+func HasFuncCSSCqmin() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Cqmin
 //go:noescape
-func CSSCqminFunc() js.Ref
+func FuncCSSCqmin(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Cqmin
 //go:noescape
@@ -1772,15 +1765,15 @@ func CallCSSCqmin(
 //go:noescape
 func TryCSSCqmin(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Cqmax
 //go:noescape
-func HasCSSCqmax() js.Ref
+func HasFuncCSSCqmax() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Cqmax
 //go:noescape
-func CSSCqmaxFunc() js.Ref
+func FuncCSSCqmax(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Cqmax
 //go:noescape
@@ -1792,15 +1785,15 @@ func CallCSSCqmax(
 //go:noescape
 func TryCSSCqmax(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Cm
 //go:noescape
-func HasCSSCm() js.Ref
+func HasFuncCSSCm() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Cm
 //go:noescape
-func CSSCmFunc() js.Ref
+func FuncCSSCm(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Cm
 //go:noescape
@@ -1812,15 +1805,15 @@ func CallCSSCm(
 //go:noescape
 func TryCSSCm(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Mm
 //go:noescape
-func HasCSSMm() js.Ref
+func HasFuncCSSMm() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Mm
 //go:noescape
-func CSSMmFunc() js.Ref
+func FuncCSSMm(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Mm
 //go:noescape
@@ -1832,15 +1825,15 @@ func CallCSSMm(
 //go:noescape
 func TryCSSMm(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Q
 //go:noescape
-func HasCSSQ() js.Ref
+func HasFuncCSSQ() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Q
 //go:noescape
-func CSSQFunc() js.Ref
+func FuncCSSQ(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Q
 //go:noescape
@@ -1852,15 +1845,15 @@ func CallCSSQ(
 //go:noescape
 func TryCSSQ(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_In
 //go:noescape
-func HasCSSIn() js.Ref
+func HasFuncCSSIn() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_In
 //go:noescape
-func CSSInFunc() js.Ref
+func FuncCSSIn(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_In
 //go:noescape
@@ -1872,15 +1865,15 @@ func CallCSSIn(
 //go:noescape
 func TryCSSIn(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Pt
 //go:noescape
-func HasCSSPt() js.Ref
+func HasFuncCSSPt() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Pt
 //go:noescape
-func CSSPtFunc() js.Ref
+func FuncCSSPt(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Pt
 //go:noescape
@@ -1892,15 +1885,15 @@ func CallCSSPt(
 //go:noescape
 func TryCSSPt(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Pc
 //go:noescape
-func HasCSSPc() js.Ref
+func HasFuncCSSPc() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Pc
 //go:noescape
-func CSSPcFunc() js.Ref
+func FuncCSSPc(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Pc
 //go:noescape
@@ -1912,15 +1905,15 @@ func CallCSSPc(
 //go:noescape
 func TryCSSPc(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Px
 //go:noescape
-func HasCSSPx() js.Ref
+func HasFuncCSSPx() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Px
 //go:noescape
-func CSSPxFunc() js.Ref
+func FuncCSSPx(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Px
 //go:noescape
@@ -1932,15 +1925,15 @@ func CallCSSPx(
 //go:noescape
 func TryCSSPx(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Deg
 //go:noescape
-func HasCSSDeg() js.Ref
+func HasFuncCSSDeg() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Deg
 //go:noescape
-func CSSDegFunc() js.Ref
+func FuncCSSDeg(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Deg
 //go:noescape
@@ -1952,15 +1945,15 @@ func CallCSSDeg(
 //go:noescape
 func TryCSSDeg(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Grad
 //go:noescape
-func HasCSSGrad() js.Ref
+func HasFuncCSSGrad() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Grad
 //go:noescape
-func CSSGradFunc() js.Ref
+func FuncCSSGrad(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Grad
 //go:noescape
@@ -1972,15 +1965,15 @@ func CallCSSGrad(
 //go:noescape
 func TryCSSGrad(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Rad
 //go:noescape
-func HasCSSRad() js.Ref
+func HasFuncCSSRad() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Rad
 //go:noescape
-func CSSRadFunc() js.Ref
+func FuncCSSRad(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Rad
 //go:noescape
@@ -1992,15 +1985,15 @@ func CallCSSRad(
 //go:noescape
 func TryCSSRad(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Turn
 //go:noescape
-func HasCSSTurn() js.Ref
+func HasFuncCSSTurn() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Turn
 //go:noescape
-func CSSTurnFunc() js.Ref
+func FuncCSSTurn(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Turn
 //go:noescape
@@ -2012,15 +2005,15 @@ func CallCSSTurn(
 //go:noescape
 func TryCSSTurn(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_S
 //go:noescape
-func HasCSSS() js.Ref
+func HasFuncCSSS() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_S
 //go:noescape
-func CSSSFunc() js.Ref
+func FuncCSSS(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_S
 //go:noescape
@@ -2032,15 +2025,15 @@ func CallCSSS(
 //go:noescape
 func TryCSSS(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Ms
 //go:noescape
-func HasCSSMs() js.Ref
+func HasFuncCSSMs() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Ms
 //go:noescape
-func CSSMsFunc() js.Ref
+func FuncCSSMs(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Ms
 //go:noescape
@@ -2052,15 +2045,15 @@ func CallCSSMs(
 //go:noescape
 func TryCSSMs(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Hz
 //go:noescape
-func HasCSSHz() js.Ref
+func HasFuncCSSHz() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Hz
 //go:noescape
-func CSSHzFunc() js.Ref
+func FuncCSSHz(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Hz
 //go:noescape
@@ -2072,15 +2065,15 @@ func CallCSSHz(
 //go:noescape
 func TryCSSHz(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_KHz
 //go:noescape
-func HasCSSKHz() js.Ref
+func HasFuncCSSKHz() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_KHz
 //go:noescape
-func CSSKHzFunc() js.Ref
+func FuncCSSKHz(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_KHz
 //go:noescape
@@ -2092,15 +2085,15 @@ func CallCSSKHz(
 //go:noescape
 func TryCSSKHz(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Dpi
 //go:noescape
-func HasCSSDpi() js.Ref
+func HasFuncCSSDpi() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Dpi
 //go:noescape
-func CSSDpiFunc() js.Ref
+func FuncCSSDpi(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Dpi
 //go:noescape
@@ -2112,15 +2105,15 @@ func CallCSSDpi(
 //go:noescape
 func TryCSSDpi(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Dpcm
 //go:noescape
-func HasCSSDpcm() js.Ref
+func HasFuncCSSDpcm() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Dpcm
 //go:noescape
-func CSSDpcmFunc() js.Ref
+func FuncCSSDpcm(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Dpcm
 //go:noescape
@@ -2132,15 +2125,15 @@ func CallCSSDpcm(
 //go:noescape
 func TryCSSDpcm(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Dppx
 //go:noescape
-func HasCSSDppx() js.Ref
+func HasFuncCSSDppx() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Dppx
 //go:noescape
-func CSSDppxFunc() js.Ref
+func FuncCSSDppx(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Dppx
 //go:noescape
@@ -2152,15 +2145,15 @@ func CallCSSDppx(
 //go:noescape
 func TryCSSDppx(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_Fr
 //go:noescape
-func HasCSSFr() js.Ref
+func HasFuncCSSFr() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_Fr
 //go:noescape
-func CSSFrFunc() js.Ref
+func FuncCSSFr(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_Fr
 //go:noescape
@@ -2172,15 +2165,15 @@ func CallCSSFr(
 //go:noescape
 func TryCSSFr(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	value float64) (ok js.Ref)
+	value float64) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_ParseStylesheet
 //go:noescape
-func HasCSSParseStylesheet() js.Ref
+func HasFuncCSSParseStylesheet() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_ParseStylesheet
 //go:noescape
-func CSSParseStylesheetFunc() js.Ref
+func FuncCSSParseStylesheet(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_ParseStylesheet
 //go:noescape
@@ -2194,15 +2187,15 @@ func CallCSSParseStylesheet(
 func TryCSSParseStylesheet(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	css js.Ref,
-	options unsafe.Pointer) (ok js.Ref)
+	options unsafe.Pointer) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_ParseStylesheet1
 //go:noescape
-func HasCSSParseStylesheet1() js.Ref
+func HasFuncCSSParseStylesheet1() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_ParseStylesheet1
 //go:noescape
-func CSSParseStylesheet1Func() js.Ref
+func FuncCSSParseStylesheet1(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_ParseStylesheet1
 //go:noescape
@@ -2214,15 +2207,15 @@ func CallCSSParseStylesheet1(
 //go:noescape
 func TryCSSParseStylesheet1(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	css js.Ref) (ok js.Ref)
+	css js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_ParseRuleList
 //go:noescape
-func HasCSSParseRuleList() js.Ref
+func HasFuncCSSParseRuleList() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_ParseRuleList
 //go:noescape
-func CSSParseRuleListFunc() js.Ref
+func FuncCSSParseRuleList(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_ParseRuleList
 //go:noescape
@@ -2236,15 +2229,15 @@ func CallCSSParseRuleList(
 func TryCSSParseRuleList(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	css js.Ref,
-	options unsafe.Pointer) (ok js.Ref)
+	options unsafe.Pointer) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_ParseRuleList1
 //go:noescape
-func HasCSSParseRuleList1() js.Ref
+func HasFuncCSSParseRuleList1() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_ParseRuleList1
 //go:noescape
-func CSSParseRuleList1Func() js.Ref
+func FuncCSSParseRuleList1(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_ParseRuleList1
 //go:noescape
@@ -2256,15 +2249,15 @@ func CallCSSParseRuleList1(
 //go:noescape
 func TryCSSParseRuleList1(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	css js.Ref) (ok js.Ref)
+	css js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_ParseRule
 //go:noescape
-func HasCSSParseRule() js.Ref
+func HasFuncCSSParseRule() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_ParseRule
 //go:noescape
-func CSSParseRuleFunc() js.Ref
+func FuncCSSParseRule(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_ParseRule
 //go:noescape
@@ -2278,15 +2271,15 @@ func CallCSSParseRule(
 func TryCSSParseRule(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	css js.Ref,
-	options unsafe.Pointer) (ok js.Ref)
+	options unsafe.Pointer) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_ParseRule1
 //go:noescape
-func HasCSSParseRule1() js.Ref
+func HasFuncCSSParseRule1() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_ParseRule1
 //go:noescape
-func CSSParseRule1Func() js.Ref
+func FuncCSSParseRule1(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_ParseRule1
 //go:noescape
@@ -2298,15 +2291,15 @@ func CallCSSParseRule1(
 //go:noescape
 func TryCSSParseRule1(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	css js.Ref) (ok js.Ref)
+	css js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_ParseDeclarationList
 //go:noescape
-func HasCSSParseDeclarationList() js.Ref
+func HasFuncCSSParseDeclarationList() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_ParseDeclarationList
 //go:noescape
-func CSSParseDeclarationListFunc() js.Ref
+func FuncCSSParseDeclarationList(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_ParseDeclarationList
 //go:noescape
@@ -2320,15 +2313,15 @@ func CallCSSParseDeclarationList(
 func TryCSSParseDeclarationList(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	css js.Ref,
-	options unsafe.Pointer) (ok js.Ref)
+	options unsafe.Pointer) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_ParseDeclarationList1
 //go:noescape
-func HasCSSParseDeclarationList1() js.Ref
+func HasFuncCSSParseDeclarationList1() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_ParseDeclarationList1
 //go:noescape
-func CSSParseDeclarationList1Func() js.Ref
+func FuncCSSParseDeclarationList1(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_ParseDeclarationList1
 //go:noescape
@@ -2340,15 +2333,15 @@ func CallCSSParseDeclarationList1(
 //go:noescape
 func TryCSSParseDeclarationList1(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	css js.Ref) (ok js.Ref)
+	css js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_ParseDeclaration
 //go:noescape
-func HasCSSParseDeclaration() js.Ref
+func HasFuncCSSParseDeclaration() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_ParseDeclaration
 //go:noescape
-func CSSParseDeclarationFunc() js.Ref
+func FuncCSSParseDeclaration(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_ParseDeclaration
 //go:noescape
@@ -2362,15 +2355,15 @@ func CallCSSParseDeclaration(
 func TryCSSParseDeclaration(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	css js.Ref,
-	options unsafe.Pointer) (ok js.Ref)
+	options unsafe.Pointer) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_ParseDeclaration1
 //go:noescape
-func HasCSSParseDeclaration1() js.Ref
+func HasFuncCSSParseDeclaration1() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_ParseDeclaration1
 //go:noescape
-func CSSParseDeclaration1Func() js.Ref
+func FuncCSSParseDeclaration1(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_ParseDeclaration1
 //go:noescape
@@ -2382,15 +2375,15 @@ func CallCSSParseDeclaration1(
 //go:noescape
 func TryCSSParseDeclaration1(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	css js.Ref) (ok js.Ref)
+	css js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_ParseValue
 //go:noescape
-func HasCSSParseValue() js.Ref
+func HasFuncCSSParseValue() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_ParseValue
 //go:noescape
-func CSSParseValueFunc() js.Ref
+func FuncCSSParseValue(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_ParseValue
 //go:noescape
@@ -2402,15 +2395,15 @@ func CallCSSParseValue(
 //go:noescape
 func TryCSSParseValue(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	css js.Ref) (ok js.Ref)
+	css js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_ParseValueList
 //go:noescape
-func HasCSSParseValueList() js.Ref
+func HasFuncCSSParseValueList() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_ParseValueList
 //go:noescape
-func CSSParseValueListFunc() js.Ref
+func FuncCSSParseValueList(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_ParseValueList
 //go:noescape
@@ -2422,15 +2415,15 @@ func CallCSSParseValueList(
 //go:noescape
 func TryCSSParseValueList(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	css js.Ref) (ok js.Ref)
+	css js.Ref) js.Ref
 
 //go:wasmimport plat/js/web has_CSS_ParseCommaValueList
 //go:noescape
-func HasCSSParseCommaValueList() js.Ref
+func HasFuncCSSParseCommaValueList() js.Ref
 
 //go:wasmimport plat/js/web func_CSS_ParseCommaValueList
 //go:noescape
-func CSSParseCommaValueListFunc() js.Ref
+func FuncCSSParseCommaValueList(fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSS_ParseCommaValueList
 //go:noescape
@@ -2442,7 +2435,7 @@ func CallCSSParseCommaValueList(
 //go:noescape
 func TryCSSParseCommaValueList(
 	retPtr unsafe.Pointer, errPtr unsafe.Pointer,
-	css js.Ref) (ok js.Ref)
+	css js.Ref) js.Ref
 
 //go:wasmimport plat/js/web new_CSSAnimation_CSSAnimation
 //go:noescape

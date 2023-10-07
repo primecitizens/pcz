@@ -1,0 +1,280 @@
+- File: webext/chrome/webstore_private.json
+  Enum:
+    Name: ExtensionInstallStatus
+    Values:
+      - can_request
+      - request_pending
+      - blocked_by_policy
+      - installable
+      - enabled
+      - disabled
+      - terminated
+      - blacklisted
+      - custodian_approval_required
+      - force_installed
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webstorePrivate
+- File: webext/chrome/webstore_private.json
+  Dict:
+    Name: GetBrowserLoginReturnType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webstorePrivate
+    Fields:
+      - Name: login
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webstorePrivate
+- File: webext/chrome/webstore_private.json
+  Enum:
+    Name: Result
+    Values:
+      - ""
+      - success
+      - user_gesture_required
+      - unknown_error
+      - feature_disabled
+      - unsupported_extension_type
+      - missing_dependencies
+      - install_error
+      - user_cancelled
+      - invalid_id
+      - blacklisted
+      - blocked_by_policy
+      - install_in_progress
+      - launch_in_progress
+      - manifest_error
+      - icon_error
+      - invalid_icon_url
+      - already_installed
+      - blocked_for_child_account
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webstorePrivate
+- File: webext/chrome/webstore_private.json
+  Enum:
+    Name: WebGlStatus
+    Values:
+      - webgl_allowed
+      - webgl_blocked
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webstorePrivate
+- File: webext/chrome/webstore_private.json
+  WebextFunc:
+    Name: beginInstallWithManifest3
+    Args:
+      - Name: details
+        Type:
+          Name: any
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Result
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - webstorePrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webstorePrivate
+- File: webext/chrome/webstore_private.json
+  WebextFunc:
+    Name: completeInstall
+    Args:
+      - Name: expected_id
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webstorePrivate
+- File: webext/chrome/webstore_private.json
+  WebextFunc:
+    Name: enableAppLauncher
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webstorePrivate
+- File: webext/chrome/webstore_private.json
+  WebextFunc:
+    Name: getBrowserLogin
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: GetBrowserLoginReturnType
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - webstorePrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webstorePrivate
+- File: webext/chrome/webstore_private.json
+  WebextFunc:
+    Name: getExtensionStatus
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: manifest
+        Optional: true
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ExtensionInstallStatus
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - webstorePrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webstorePrivate
+- File: webext/chrome/webstore_private.json
+  WebextFunc:
+    Name: getIsLauncherEnabled
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webstorePrivate
+- File: webext/chrome/webstore_private.json
+  WebextFunc:
+    Name: getReferrerChain
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webstorePrivate
+- File: webext/chrome/webstore_private.json
+  WebextFunc:
+    Name: getStoreLogin
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webstorePrivate
+- File: webext/chrome/webstore_private.json
+  WebextFunc:
+    Name: getWebGLStatus
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: WebGlStatus
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - webstorePrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webstorePrivate
+- File: webext/chrome/webstore_private.json
+  WebextFunc:
+    Name: install
+    Args:
+      - Name: expected_id
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webstorePrivate
+- File: webext/chrome/webstore_private.json
+  WebextFunc:
+    Name: isInIncognitoMode
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webstorePrivate
+- File: webext/chrome/webstore_private.json
+  WebextFunc:
+    Name: isPendingCustodianApproval
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webstorePrivate
+- File: webext/chrome/webstore_private.json
+  WebextFunc:
+    Name: setStoreLogin
+    Args:
+      - Name: login
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webstorePrivate

@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web constof_RequestDestination
 //go:noescape
@@ -125,11 +123,11 @@ func GetRequestBodyUsed(
 
 //go:wasmimport plat/js/web has_Request_Clone
 //go:noescape
-func HasRequestClone(this js.Ref) js.Ref
+func HasFuncRequestClone(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Request_Clone
 //go:noescape
-func RequestCloneFunc(this js.Ref) js.Ref
+func FuncRequestClone(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Request_Clone
 //go:noescape
@@ -143,11 +141,11 @@ func TryRequestClone(
 
 //go:wasmimport plat/js/web has_Request_ArrayBuffer
 //go:noescape
-func HasRequestArrayBuffer(this js.Ref) js.Ref
+func HasFuncRequestArrayBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Request_ArrayBuffer
 //go:noescape
-func RequestArrayBufferFunc(this js.Ref) js.Ref
+func FuncRequestArrayBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Request_ArrayBuffer
 //go:noescape
@@ -161,11 +159,11 @@ func TryRequestArrayBuffer(
 
 //go:wasmimport plat/js/web has_Request_Blob
 //go:noescape
-func HasRequestBlob(this js.Ref) js.Ref
+func HasFuncRequestBlob(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Request_Blob
 //go:noescape
-func RequestBlobFunc(this js.Ref) js.Ref
+func FuncRequestBlob(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Request_Blob
 //go:noescape
@@ -179,11 +177,11 @@ func TryRequestBlob(
 
 //go:wasmimport plat/js/web has_Request_FormData
 //go:noescape
-func HasRequestFormData(this js.Ref) js.Ref
+func HasFuncRequestFormData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Request_FormData
 //go:noescape
-func RequestFormDataFunc(this js.Ref) js.Ref
+func FuncRequestFormData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Request_FormData
 //go:noescape
@@ -197,11 +195,11 @@ func TryRequestFormData(
 
 //go:wasmimport plat/js/web has_Request_Json
 //go:noescape
-func HasRequestJson(this js.Ref) js.Ref
+func HasFuncRequestJson(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Request_Json
 //go:noescape
-func RequestJsonFunc(this js.Ref) js.Ref
+func FuncRequestJson(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Request_Json
 //go:noescape
@@ -215,11 +213,11 @@ func TryRequestJson(
 
 //go:wasmimport plat/js/web has_Request_Text
 //go:noescape
-func HasRequestText(this js.Ref) js.Ref
+func HasFuncRequestText(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Request_Text
 //go:noescape
-func RequestTextFunc(this js.Ref) js.Ref
+func FuncRequestText(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Request_Text
 //go:noescape
@@ -307,11 +305,11 @@ func GetResponseBodyUsed(
 
 //go:wasmimport plat/js/web has_Response_Error
 //go:noescape
-func HasResponseError(this js.Ref) js.Ref
+func HasFuncResponseError(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Response_Error
 //go:noescape
-func ResponseErrorFunc(this js.Ref) js.Ref
+func FuncResponseError(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Response_Error
 //go:noescape
@@ -325,11 +323,11 @@ func TryResponseError(
 
 //go:wasmimport plat/js/web has_Response_Redirect
 //go:noescape
-func HasResponseRedirect(this js.Ref) js.Ref
+func HasFuncResponseRedirect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Response_Redirect
 //go:noescape
-func ResponseRedirectFunc(this js.Ref) js.Ref
+func FuncResponseRedirect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Response_Redirect
 //go:noescape
@@ -347,11 +345,11 @@ func TryResponseRedirect(
 
 //go:wasmimport plat/js/web has_Response_Redirect1
 //go:noescape
-func HasResponseRedirect1(this js.Ref) js.Ref
+func HasFuncResponseRedirect1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Response_Redirect1
 //go:noescape
-func ResponseRedirect1Func(this js.Ref) js.Ref
+func FuncResponseRedirect1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Response_Redirect1
 //go:noescape
@@ -367,11 +365,11 @@ func TryResponseRedirect1(
 
 //go:wasmimport plat/js/web has_Response_Json
 //go:noescape
-func HasResponseJson(this js.Ref) js.Ref
+func HasFuncResponseJson(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Response_Json
 //go:noescape
-func ResponseJsonFunc(this js.Ref) js.Ref
+func FuncResponseJson(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Response_Json
 //go:noescape
@@ -389,11 +387,11 @@ func TryResponseJson(
 
 //go:wasmimport plat/js/web has_Response_Json1
 //go:noescape
-func HasResponseJson1(this js.Ref) js.Ref
+func HasFuncResponseJson1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Response_Json1
 //go:noescape
-func ResponseJson1Func(this js.Ref) js.Ref
+func FuncResponseJson1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Response_Json1
 //go:noescape
@@ -409,11 +407,11 @@ func TryResponseJson1(
 
 //go:wasmimport plat/js/web has_Response_Clone
 //go:noescape
-func HasResponseClone(this js.Ref) js.Ref
+func HasFuncResponseClone(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Response_Clone
 //go:noescape
-func ResponseCloneFunc(this js.Ref) js.Ref
+func FuncResponseClone(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Response_Clone
 //go:noescape
@@ -427,11 +425,11 @@ func TryResponseClone(
 
 //go:wasmimport plat/js/web has_Response_ArrayBuffer
 //go:noescape
-func HasResponseArrayBuffer(this js.Ref) js.Ref
+func HasFuncResponseArrayBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Response_ArrayBuffer
 //go:noescape
-func ResponseArrayBufferFunc(this js.Ref) js.Ref
+func FuncResponseArrayBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Response_ArrayBuffer
 //go:noescape
@@ -445,11 +443,11 @@ func TryResponseArrayBuffer(
 
 //go:wasmimport plat/js/web has_Response_Blob
 //go:noescape
-func HasResponseBlob(this js.Ref) js.Ref
+func HasFuncResponseBlob(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Response_Blob
 //go:noescape
-func ResponseBlobFunc(this js.Ref) js.Ref
+func FuncResponseBlob(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Response_Blob
 //go:noescape
@@ -463,11 +461,11 @@ func TryResponseBlob(
 
 //go:wasmimport plat/js/web has_Response_FormData
 //go:noescape
-func HasResponseFormData(this js.Ref) js.Ref
+func HasFuncResponseFormData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Response_FormData
 //go:noescape
-func ResponseFormDataFunc(this js.Ref) js.Ref
+func FuncResponseFormData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Response_FormData
 //go:noescape
@@ -481,11 +479,11 @@ func TryResponseFormData(
 
 //go:wasmimport plat/js/web has_Response_Json2
 //go:noescape
-func HasResponseJson2(this js.Ref) js.Ref
+func HasFuncResponseJson2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Response_Json2
 //go:noescape
-func ResponseJson2Func(this js.Ref) js.Ref
+func FuncResponseJson2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Response_Json2
 //go:noescape
@@ -499,11 +497,11 @@ func TryResponseJson2(
 
 //go:wasmimport plat/js/web has_Response_Text
 //go:noescape
-func HasResponseText(this js.Ref) js.Ref
+func HasFuncResponseText(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Response_Text
 //go:noescape
-func ResponseTextFunc(this js.Ref) js.Ref
+func FuncResponseText(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Response_Text
 //go:noescape
@@ -585,11 +583,11 @@ func GetBackgroundFetchRegistrationRecordsAvailable(
 
 //go:wasmimport plat/js/web has_BackgroundFetchRegistration_Abort
 //go:noescape
-func HasBackgroundFetchRegistrationAbort(this js.Ref) js.Ref
+func HasFuncBackgroundFetchRegistrationAbort(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BackgroundFetchRegistration_Abort
 //go:noescape
-func BackgroundFetchRegistrationAbortFunc(this js.Ref) js.Ref
+func FuncBackgroundFetchRegistrationAbort(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BackgroundFetchRegistration_Abort
 //go:noescape
@@ -603,11 +601,11 @@ func TryBackgroundFetchRegistrationAbort(
 
 //go:wasmimport plat/js/web has_BackgroundFetchRegistration_Match
 //go:noescape
-func HasBackgroundFetchRegistrationMatch(this js.Ref) js.Ref
+func HasFuncBackgroundFetchRegistrationMatch(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BackgroundFetchRegistration_Match
 //go:noescape
-func BackgroundFetchRegistrationMatchFunc(this js.Ref) js.Ref
+func FuncBackgroundFetchRegistrationMatch(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BackgroundFetchRegistration_Match
 //go:noescape
@@ -625,11 +623,11 @@ func TryBackgroundFetchRegistrationMatch(
 
 //go:wasmimport plat/js/web has_BackgroundFetchRegistration_Match1
 //go:noescape
-func HasBackgroundFetchRegistrationMatch1(this js.Ref) js.Ref
+func HasFuncBackgroundFetchRegistrationMatch1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BackgroundFetchRegistration_Match1
 //go:noescape
-func BackgroundFetchRegistrationMatch1Func(this js.Ref) js.Ref
+func FuncBackgroundFetchRegistrationMatch1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BackgroundFetchRegistration_Match1
 //go:noescape
@@ -645,11 +643,11 @@ func TryBackgroundFetchRegistrationMatch1(
 
 //go:wasmimport plat/js/web has_BackgroundFetchRegistration_MatchAll
 //go:noescape
-func HasBackgroundFetchRegistrationMatchAll(this js.Ref) js.Ref
+func HasFuncBackgroundFetchRegistrationMatchAll(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BackgroundFetchRegistration_MatchAll
 //go:noescape
-func BackgroundFetchRegistrationMatchAllFunc(this js.Ref) js.Ref
+func FuncBackgroundFetchRegistrationMatchAll(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BackgroundFetchRegistration_MatchAll
 //go:noescape
@@ -667,11 +665,11 @@ func TryBackgroundFetchRegistrationMatchAll(
 
 //go:wasmimport plat/js/web has_BackgroundFetchRegistration_MatchAll1
 //go:noescape
-func HasBackgroundFetchRegistrationMatchAll1(this js.Ref) js.Ref
+func HasFuncBackgroundFetchRegistrationMatchAll1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BackgroundFetchRegistration_MatchAll1
 //go:noescape
-func BackgroundFetchRegistrationMatchAll1Func(this js.Ref) js.Ref
+func FuncBackgroundFetchRegistrationMatchAll1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BackgroundFetchRegistration_MatchAll1
 //go:noescape
@@ -687,11 +685,11 @@ func TryBackgroundFetchRegistrationMatchAll1(
 
 //go:wasmimport plat/js/web has_BackgroundFetchRegistration_MatchAll2
 //go:noescape
-func HasBackgroundFetchRegistrationMatchAll2(this js.Ref) js.Ref
+func HasFuncBackgroundFetchRegistrationMatchAll2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BackgroundFetchRegistration_MatchAll2
 //go:noescape
-func BackgroundFetchRegistrationMatchAll2Func(this js.Ref) js.Ref
+func FuncBackgroundFetchRegistrationMatchAll2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BackgroundFetchRegistration_MatchAll2
 //go:noescape
@@ -746,11 +744,11 @@ func BackgroundFetchOptionsJSLoad(
 
 //go:wasmimport plat/js/web has_BackgroundFetchManager_Fetch
 //go:noescape
-func HasBackgroundFetchManagerFetch(this js.Ref) js.Ref
+func HasFuncBackgroundFetchManagerFetch(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BackgroundFetchManager_Fetch
 //go:noescape
-func BackgroundFetchManagerFetchFunc(this js.Ref) js.Ref
+func FuncBackgroundFetchManagerFetch(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BackgroundFetchManager_Fetch
 //go:noescape
@@ -770,11 +768,11 @@ func TryBackgroundFetchManagerFetch(
 
 //go:wasmimport plat/js/web has_BackgroundFetchManager_Fetch1
 //go:noescape
-func HasBackgroundFetchManagerFetch1(this js.Ref) js.Ref
+func HasFuncBackgroundFetchManagerFetch1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BackgroundFetchManager_Fetch1
 //go:noescape
-func BackgroundFetchManagerFetch1Func(this js.Ref) js.Ref
+func FuncBackgroundFetchManagerFetch1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BackgroundFetchManager_Fetch1
 //go:noescape
@@ -792,11 +790,11 @@ func TryBackgroundFetchManagerFetch1(
 
 //go:wasmimport plat/js/web has_BackgroundFetchManager_Get
 //go:noescape
-func HasBackgroundFetchManagerGet(this js.Ref) js.Ref
+func HasFuncBackgroundFetchManagerGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BackgroundFetchManager_Get
 //go:noescape
-func BackgroundFetchManagerGetFunc(this js.Ref) js.Ref
+func FuncBackgroundFetchManagerGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BackgroundFetchManager_Get
 //go:noescape
@@ -812,11 +810,11 @@ func TryBackgroundFetchManagerGet(
 
 //go:wasmimport plat/js/web has_BackgroundFetchManager_GetIds
 //go:noescape
-func HasBackgroundFetchManagerGetIds(this js.Ref) js.Ref
+func HasFuncBackgroundFetchManagerGetIds(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BackgroundFetchManager_GetIds
 //go:noescape
-func BackgroundFetchManagerGetIdsFunc(this js.Ref) js.Ref
+func FuncBackgroundFetchManagerGetIds(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BackgroundFetchManager_GetIds
 //go:noescape
@@ -846,11 +844,11 @@ func NewBackgroundFetchUpdateUIEventByBackgroundFetchUpdateUIEvent(
 
 //go:wasmimport plat/js/web has_BackgroundFetchUpdateUIEvent_UpdateUI
 //go:noescape
-func HasBackgroundFetchUpdateUIEventUpdateUI(this js.Ref) js.Ref
+func HasFuncBackgroundFetchUpdateUIEventUpdateUI(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BackgroundFetchUpdateUIEvent_UpdateUI
 //go:noescape
-func BackgroundFetchUpdateUIEventUpdateUIFunc(this js.Ref) js.Ref
+func FuncBackgroundFetchUpdateUIEventUpdateUI(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BackgroundFetchUpdateUIEvent_UpdateUI
 //go:noescape
@@ -866,11 +864,11 @@ func TryBackgroundFetchUpdateUIEventUpdateUI(
 
 //go:wasmimport plat/js/web has_BackgroundFetchUpdateUIEvent_UpdateUI1
 //go:noescape
-func HasBackgroundFetchUpdateUIEventUpdateUI1(this js.Ref) js.Ref
+func HasFuncBackgroundFetchUpdateUIEventUpdateUI1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BackgroundFetchUpdateUIEvent_UpdateUI1
 //go:noescape
-func BackgroundFetchUpdateUIEventUpdateUI1Func(this js.Ref) js.Ref
+func FuncBackgroundFetchUpdateUIEventUpdateUI1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BackgroundFetchUpdateUIEvent_UpdateUI1
 //go:noescape
@@ -920,10 +918,6 @@ func DetectedBarcodeJSStore(
 //go:noescape
 func DetectedBarcodeJSLoad(
 	ptr unsafe.Pointer, create, ref js.Ref) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLImageElement_HTMLImageElement
-//go:noescape
-func NewHTMLImageElementByHTMLImageElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLImageElement_Alt
 //go:noescape
@@ -1209,11 +1203,11 @@ func SetHTMLImageElementAttributionSrc(
 
 //go:wasmimport plat/js/web has_HTMLImageElement_Decode
 //go:noescape
-func HasHTMLImageElementDecode(this js.Ref) js.Ref
+func HasFuncHTMLImageElementDecode(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLImageElement_Decode
 //go:noescape
-func HTMLImageElementDecodeFunc(this js.Ref) js.Ref
+func FuncHTMLImageElementDecode(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLImageElement_Decode
 //go:noescape
@@ -1307,10 +1301,6 @@ func GetVideoPlaybackQualityTotalVideoFrames(
 func GetVideoPlaybackQualityCorruptedVideoFrames(
 	this js.Ref, retPtr unsafe.Pointer) (ok js.Ref)
 
-//go:wasmimport plat/js/web new_HTMLVideoElement_HTMLVideoElement
-//go:noescape
-func NewHTMLVideoElementByHTMLVideoElement() js.Ref
-
 //go:wasmimport plat/js/web get_HTMLVideoElement_Width
 //go:noescape
 func GetHTMLVideoElementWidth(
@@ -1383,11 +1373,11 @@ func SetHTMLVideoElementDisablePictureInPicture(
 
 //go:wasmimport plat/js/web has_HTMLVideoElement_RequestVideoFrameCallback
 //go:noescape
-func HasHTMLVideoElementRequestVideoFrameCallback(this js.Ref) js.Ref
+func HasFuncHTMLVideoElementRequestVideoFrameCallback(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLVideoElement_RequestVideoFrameCallback
 //go:noescape
-func HTMLVideoElementRequestVideoFrameCallbackFunc(this js.Ref) js.Ref
+func FuncHTMLVideoElementRequestVideoFrameCallback(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLVideoElement_RequestVideoFrameCallback
 //go:noescape
@@ -1403,11 +1393,11 @@ func TryHTMLVideoElementRequestVideoFrameCallback(
 
 //go:wasmimport plat/js/web has_HTMLVideoElement_CancelVideoFrameCallback
 //go:noescape
-func HasHTMLVideoElementCancelVideoFrameCallback(this js.Ref) js.Ref
+func HasFuncHTMLVideoElementCancelVideoFrameCallback(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLVideoElement_CancelVideoFrameCallback
 //go:noescape
-func HTMLVideoElementCancelVideoFrameCallbackFunc(this js.Ref) js.Ref
+func FuncHTMLVideoElementCancelVideoFrameCallback(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLVideoElement_CancelVideoFrameCallback
 //go:noescape
@@ -1423,11 +1413,11 @@ func TryHTMLVideoElementCancelVideoFrameCallback(
 
 //go:wasmimport plat/js/web has_HTMLVideoElement_RequestPictureInPicture
 //go:noescape
-func HasHTMLVideoElementRequestPictureInPicture(this js.Ref) js.Ref
+func HasFuncHTMLVideoElementRequestPictureInPicture(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLVideoElement_RequestPictureInPicture
 //go:noescape
-func HTMLVideoElementRequestPictureInPictureFunc(this js.Ref) js.Ref
+func FuncHTMLVideoElementRequestPictureInPicture(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLVideoElement_RequestPictureInPicture
 //go:noescape
@@ -1441,11 +1431,11 @@ func TryHTMLVideoElementRequestPictureInPicture(
 
 //go:wasmimport plat/js/web has_HTMLVideoElement_GetVideoPlaybackQuality
 //go:noescape
-func HasHTMLVideoElementGetVideoPlaybackQuality(this js.Ref) js.Ref
+func HasFuncHTMLVideoElementGetVideoPlaybackQuality(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLVideoElement_GetVideoPlaybackQuality
 //go:noescape
-func HTMLVideoElementGetVideoPlaybackQualityFunc(this js.Ref) js.Ref
+func FuncHTMLVideoElementGetVideoPlaybackQuality(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLVideoElement_GetVideoPlaybackQuality
 //go:noescape
@@ -1473,11 +1463,11 @@ func CanvasRenderingContext2DSettingsJSLoad(
 
 //go:wasmimport plat/js/web has_CanvasGradient_AddColorStop
 //go:noescape
-func HasCanvasGradientAddColorStop(this js.Ref) js.Ref
+func HasFuncCanvasGradientAddColorStop(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasGradient_AddColorStop
 //go:noescape
-func CanvasGradientAddColorStopFunc(this js.Ref) js.Ref
+func FuncCanvasGradientAddColorStop(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasGradient_AddColorStop
 //go:noescape
@@ -1495,11 +1485,11 @@ func TryCanvasGradientAddColorStop(
 
 //go:wasmimport plat/js/web has_CanvasPattern_SetTransform
 //go:noescape
-func HasCanvasPatternSetTransform(this js.Ref) js.Ref
+func HasFuncCanvasPatternSetTransform(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasPattern_SetTransform
 //go:noescape
-func CanvasPatternSetTransformFunc(this js.Ref) js.Ref
+func FuncCanvasPatternSetTransform(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasPattern_SetTransform
 //go:noescape
@@ -1515,11 +1505,11 @@ func TryCanvasPatternSetTransform(
 
 //go:wasmimport plat/js/web has_CanvasPattern_SetTransform1
 //go:noescape
-func HasCanvasPatternSetTransform1(this js.Ref) js.Ref
+func HasFuncCanvasPatternSetTransform1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasPattern_SetTransform1
 //go:noescape
-func CanvasPatternSetTransform1Func(this js.Ref) js.Ref
+func FuncCanvasPatternSetTransform1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasPattern_SetTransform1
 //go:noescape
@@ -1543,11 +1533,11 @@ func GetImageBitmapHeight(
 
 //go:wasmimport plat/js/web has_ImageBitmap_Close
 //go:noescape
-func HasImageBitmapClose(this js.Ref) js.Ref
+func HasFuncImageBitmapClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ImageBitmap_Close
 //go:noescape
-func ImageBitmapCloseFunc(this js.Ref) js.Ref
+func FuncImageBitmapClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ImageBitmap_Close
 //go:noescape
@@ -1574,11 +1564,11 @@ func NewPath2DByPath2D1() js.Ref
 
 //go:wasmimport plat/js/web has_Path2D_AddPath
 //go:noescape
-func HasPath2DAddPath(this js.Ref) js.Ref
+func HasFuncPath2DAddPath(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Path2D_AddPath
 //go:noescape
-func Path2DAddPathFunc(this js.Ref) js.Ref
+func FuncPath2DAddPath(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Path2D_AddPath
 //go:noescape
@@ -1596,11 +1586,11 @@ func TryPath2DAddPath(
 
 //go:wasmimport plat/js/web has_Path2D_AddPath1
 //go:noescape
-func HasPath2DAddPath1(this js.Ref) js.Ref
+func HasFuncPath2DAddPath1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Path2D_AddPath1
 //go:noescape
-func Path2DAddPath1Func(this js.Ref) js.Ref
+func FuncPath2DAddPath1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Path2D_AddPath1
 //go:noescape
@@ -1616,11 +1606,11 @@ func TryPath2DAddPath1(
 
 //go:wasmimport plat/js/web has_Path2D_ClosePath
 //go:noescape
-func HasPath2DClosePath(this js.Ref) js.Ref
+func HasFuncPath2DClosePath(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Path2D_ClosePath
 //go:noescape
-func Path2DClosePathFunc(this js.Ref) js.Ref
+func FuncPath2DClosePath(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Path2D_ClosePath
 //go:noescape
@@ -1634,11 +1624,11 @@ func TryPath2DClosePath(
 
 //go:wasmimport plat/js/web has_Path2D_MoveTo
 //go:noescape
-func HasPath2DMoveTo(this js.Ref) js.Ref
+func HasFuncPath2DMoveTo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Path2D_MoveTo
 //go:noescape
-func Path2DMoveToFunc(this js.Ref) js.Ref
+func FuncPath2DMoveTo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Path2D_MoveTo
 //go:noescape
@@ -1656,11 +1646,11 @@ func TryPath2DMoveTo(
 
 //go:wasmimport plat/js/web has_Path2D_LineTo
 //go:noescape
-func HasPath2DLineTo(this js.Ref) js.Ref
+func HasFuncPath2DLineTo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Path2D_LineTo
 //go:noescape
-func Path2DLineToFunc(this js.Ref) js.Ref
+func FuncPath2DLineTo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Path2D_LineTo
 //go:noescape
@@ -1678,11 +1668,11 @@ func TryPath2DLineTo(
 
 //go:wasmimport plat/js/web has_Path2D_QuadraticCurveTo
 //go:noescape
-func HasPath2DQuadraticCurveTo(this js.Ref) js.Ref
+func HasFuncPath2DQuadraticCurveTo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Path2D_QuadraticCurveTo
 //go:noescape
-func Path2DQuadraticCurveToFunc(this js.Ref) js.Ref
+func FuncPath2DQuadraticCurveTo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Path2D_QuadraticCurveTo
 //go:noescape
@@ -1704,11 +1694,11 @@ func TryPath2DQuadraticCurveTo(
 
 //go:wasmimport plat/js/web has_Path2D_BezierCurveTo
 //go:noescape
-func HasPath2DBezierCurveTo(this js.Ref) js.Ref
+func HasFuncPath2DBezierCurveTo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Path2D_BezierCurveTo
 //go:noescape
-func Path2DBezierCurveToFunc(this js.Ref) js.Ref
+func FuncPath2DBezierCurveTo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Path2D_BezierCurveTo
 //go:noescape
@@ -1734,11 +1724,11 @@ func TryPath2DBezierCurveTo(
 
 //go:wasmimport plat/js/web has_Path2D_ArcTo
 //go:noescape
-func HasPath2DArcTo(this js.Ref) js.Ref
+func HasFuncPath2DArcTo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Path2D_ArcTo
 //go:noescape
-func Path2DArcToFunc(this js.Ref) js.Ref
+func FuncPath2DArcTo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Path2D_ArcTo
 //go:noescape
@@ -1762,11 +1752,11 @@ func TryPath2DArcTo(
 
 //go:wasmimport plat/js/web has_Path2D_Rect
 //go:noescape
-func HasPath2DRect(this js.Ref) js.Ref
+func HasFuncPath2DRect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Path2D_Rect
 //go:noescape
-func Path2DRectFunc(this js.Ref) js.Ref
+func FuncPath2DRect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Path2D_Rect
 //go:noescape
@@ -1788,11 +1778,11 @@ func TryPath2DRect(
 
 //go:wasmimport plat/js/web has_Path2D_RoundRect
 //go:noescape
-func HasPath2DRoundRect(this js.Ref) js.Ref
+func HasFuncPath2DRoundRect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Path2D_RoundRect
 //go:noescape
-func Path2DRoundRectFunc(this js.Ref) js.Ref
+func FuncPath2DRoundRect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Path2D_RoundRect
 //go:noescape
@@ -1816,11 +1806,11 @@ func TryPath2DRoundRect(
 
 //go:wasmimport plat/js/web has_Path2D_RoundRect1
 //go:noescape
-func HasPath2DRoundRect1(this js.Ref) js.Ref
+func HasFuncPath2DRoundRect1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Path2D_RoundRect1
 //go:noescape
-func Path2DRoundRect1Func(this js.Ref) js.Ref
+func FuncPath2DRoundRect1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Path2D_RoundRect1
 //go:noescape
@@ -1842,11 +1832,11 @@ func TryPath2DRoundRect1(
 
 //go:wasmimport plat/js/web has_Path2D_Arc
 //go:noescape
-func HasPath2DArc(this js.Ref) js.Ref
+func HasFuncPath2DArc(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Path2D_Arc
 //go:noescape
-func Path2DArcFunc(this js.Ref) js.Ref
+func FuncPath2DArc(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Path2D_Arc
 //go:noescape
@@ -1872,11 +1862,11 @@ func TryPath2DArc(
 
 //go:wasmimport plat/js/web has_Path2D_Arc1
 //go:noescape
-func HasPath2DArc1(this js.Ref) js.Ref
+func HasFuncPath2DArc1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Path2D_Arc1
 //go:noescape
-func Path2DArc1Func(this js.Ref) js.Ref
+func FuncPath2DArc1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Path2D_Arc1
 //go:noescape
@@ -1900,11 +1890,11 @@ func TryPath2DArc1(
 
 //go:wasmimport plat/js/web has_Path2D_Ellipse
 //go:noescape
-func HasPath2DEllipse(this js.Ref) js.Ref
+func HasFuncPath2DEllipse(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Path2D_Ellipse
 //go:noescape
-func Path2DEllipseFunc(this js.Ref) js.Ref
+func FuncPath2DEllipse(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Path2D_Ellipse
 //go:noescape
@@ -1934,11 +1924,11 @@ func TryPath2DEllipse(
 
 //go:wasmimport plat/js/web has_Path2D_Ellipse1
 //go:noescape
-func HasPath2DEllipse1(this js.Ref) js.Ref
+func HasFuncPath2DEllipse1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Path2D_Ellipse1
 //go:noescape
-func Path2DEllipse1Func(this js.Ref) js.Ref
+func FuncPath2DEllipse1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Path2D_Ellipse1
 //go:noescape

@@ -4,25 +4,16 @@
 package web
 
 import (
-	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 type GPURenderPassEncoder struct {
 	ref js.Ref
 }
 
 func (this GPURenderPassEncoder) Once() GPURenderPassEncoder {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -36,7 +27,7 @@ func (this GPURenderPassEncoder) FromRef(ref js.Ref) GPURenderPassEncoder {
 }
 
 func (this GPURenderPassEncoder) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Label returns the value of property "GPURenderPassEncoder.label".
@@ -44,7 +35,7 @@ func (this GPURenderPassEncoder) Free() {
 // It returns ok=false if there is no such property.
 func (this GPURenderPassEncoder) Label() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGPURenderPassEncoderLabel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -54,31 +45,30 @@ func (this GPURenderPassEncoder) Label() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this GPURenderPassEncoder) SetLabel(val js.String) bool {
 	return js.True == bindings.SetGPURenderPassEncoderLabel(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
 
-// HasSetViewport returns true if the method "GPURenderPassEncoder.setViewport" exists.
-func (this GPURenderPassEncoder) HasSetViewport() bool {
-	return js.True == bindings.HasGPURenderPassEncoderSetViewport(
-		this.Ref(),
+// HasFuncSetViewport returns true if the method "GPURenderPassEncoder.setViewport" exists.
+func (this GPURenderPassEncoder) HasFuncSetViewport() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderSetViewport(
+		this.ref,
 	)
 }
 
-// SetViewportFunc returns the method "GPURenderPassEncoder.setViewport".
-func (this GPURenderPassEncoder) SetViewportFunc() (fn js.Func[func(x float32, y float32, width float32, height float32, minDepth float32, maxDepth float32)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderSetViewportFunc(
-			this.Ref(),
-		),
+// FuncSetViewport returns the method "GPURenderPassEncoder.setViewport".
+func (this GPURenderPassEncoder) FuncSetViewport() (fn js.Func[func(x float32, y float32, width float32, height float32, minDepth float32, maxDepth float32)]) {
+	bindings.FuncGPURenderPassEncoderSetViewport(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetViewport calls the method "GPURenderPassEncoder.setViewport".
 func (this GPURenderPassEncoder) SetViewport(x float32, y float32, width float32, height float32, minDepth float32, maxDepth float32) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderSetViewport(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float32(x),
 		float32(y),
 		float32(width),
@@ -95,7 +85,7 @@ func (this GPURenderPassEncoder) SetViewport(x float32, y float32, width float32
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetViewport(x float32, y float32, width float32, height float32, minDepth float32, maxDepth float32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetViewport(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float32(x),
 		float32(y),
 		float32(width),
@@ -107,26 +97,25 @@ func (this GPURenderPassEncoder) TrySetViewport(x float32, y float32, width floa
 	return
 }
 
-// HasSetScissorRect returns true if the method "GPURenderPassEncoder.setScissorRect" exists.
-func (this GPURenderPassEncoder) HasSetScissorRect() bool {
-	return js.True == bindings.HasGPURenderPassEncoderSetScissorRect(
-		this.Ref(),
+// HasFuncSetScissorRect returns true if the method "GPURenderPassEncoder.setScissorRect" exists.
+func (this GPURenderPassEncoder) HasFuncSetScissorRect() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderSetScissorRect(
+		this.ref,
 	)
 }
 
-// SetScissorRectFunc returns the method "GPURenderPassEncoder.setScissorRect".
-func (this GPURenderPassEncoder) SetScissorRectFunc() (fn js.Func[func(x GPUIntegerCoordinate, y GPUIntegerCoordinate, width GPUIntegerCoordinate, height GPUIntegerCoordinate)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderSetScissorRectFunc(
-			this.Ref(),
-		),
+// FuncSetScissorRect returns the method "GPURenderPassEncoder.setScissorRect".
+func (this GPURenderPassEncoder) FuncSetScissorRect() (fn js.Func[func(x GPUIntegerCoordinate, y GPUIntegerCoordinate, width GPUIntegerCoordinate, height GPUIntegerCoordinate)]) {
+	bindings.FuncGPURenderPassEncoderSetScissorRect(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetScissorRect calls the method "GPURenderPassEncoder.setScissorRect".
 func (this GPURenderPassEncoder) SetScissorRect(x GPUIntegerCoordinate, y GPUIntegerCoordinate, width GPUIntegerCoordinate, height GPUIntegerCoordinate) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderSetScissorRect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(x),
 		uint32(y),
 		uint32(width),
@@ -141,7 +130,7 @@ func (this GPURenderPassEncoder) SetScissorRect(x GPUIntegerCoordinate, y GPUInt
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetScissorRect(x GPUIntegerCoordinate, y GPUIntegerCoordinate, width GPUIntegerCoordinate, height GPUIntegerCoordinate) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetScissorRect(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(x),
 		uint32(y),
 		uint32(width),
@@ -151,26 +140,25 @@ func (this GPURenderPassEncoder) TrySetScissorRect(x GPUIntegerCoordinate, y GPU
 	return
 }
 
-// HasSetBlendConstant returns true if the method "GPURenderPassEncoder.setBlendConstant" exists.
-func (this GPURenderPassEncoder) HasSetBlendConstant() bool {
-	return js.True == bindings.HasGPURenderPassEncoderSetBlendConstant(
-		this.Ref(),
+// HasFuncSetBlendConstant returns true if the method "GPURenderPassEncoder.setBlendConstant" exists.
+func (this GPURenderPassEncoder) HasFuncSetBlendConstant() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderSetBlendConstant(
+		this.ref,
 	)
 }
 
-// SetBlendConstantFunc returns the method "GPURenderPassEncoder.setBlendConstant".
-func (this GPURenderPassEncoder) SetBlendConstantFunc() (fn js.Func[func(color GPUColor)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderSetBlendConstantFunc(
-			this.Ref(),
-		),
+// FuncSetBlendConstant returns the method "GPURenderPassEncoder.setBlendConstant".
+func (this GPURenderPassEncoder) FuncSetBlendConstant() (fn js.Func[func(color GPUColor)]) {
+	bindings.FuncGPURenderPassEncoderSetBlendConstant(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetBlendConstant calls the method "GPURenderPassEncoder.setBlendConstant".
 func (this GPURenderPassEncoder) SetBlendConstant(color GPUColor) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderSetBlendConstant(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		color.Ref(),
 	)
 
@@ -182,33 +170,32 @@ func (this GPURenderPassEncoder) SetBlendConstant(color GPUColor) (ret js.Void) 
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetBlendConstant(color GPUColor) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetBlendConstant(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		color.Ref(),
 	)
 
 	return
 }
 
-// HasSetStencilReference returns true if the method "GPURenderPassEncoder.setStencilReference" exists.
-func (this GPURenderPassEncoder) HasSetStencilReference() bool {
-	return js.True == bindings.HasGPURenderPassEncoderSetStencilReference(
-		this.Ref(),
+// HasFuncSetStencilReference returns true if the method "GPURenderPassEncoder.setStencilReference" exists.
+func (this GPURenderPassEncoder) HasFuncSetStencilReference() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderSetStencilReference(
+		this.ref,
 	)
 }
 
-// SetStencilReferenceFunc returns the method "GPURenderPassEncoder.setStencilReference".
-func (this GPURenderPassEncoder) SetStencilReferenceFunc() (fn js.Func[func(reference GPUStencilValue)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderSetStencilReferenceFunc(
-			this.Ref(),
-		),
+// FuncSetStencilReference returns the method "GPURenderPassEncoder.setStencilReference".
+func (this GPURenderPassEncoder) FuncSetStencilReference() (fn js.Func[func(reference GPUStencilValue)]) {
+	bindings.FuncGPURenderPassEncoderSetStencilReference(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetStencilReference calls the method "GPURenderPassEncoder.setStencilReference".
 func (this GPURenderPassEncoder) SetStencilReference(reference GPUStencilValue) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderSetStencilReference(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(reference),
 	)
 
@@ -220,33 +207,32 @@ func (this GPURenderPassEncoder) SetStencilReference(reference GPUStencilValue) 
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetStencilReference(reference GPUStencilValue) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetStencilReference(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(reference),
 	)
 
 	return
 }
 
-// HasBeginOcclusionQuery returns true if the method "GPURenderPassEncoder.beginOcclusionQuery" exists.
-func (this GPURenderPassEncoder) HasBeginOcclusionQuery() bool {
-	return js.True == bindings.HasGPURenderPassEncoderBeginOcclusionQuery(
-		this.Ref(),
+// HasFuncBeginOcclusionQuery returns true if the method "GPURenderPassEncoder.beginOcclusionQuery" exists.
+func (this GPURenderPassEncoder) HasFuncBeginOcclusionQuery() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderBeginOcclusionQuery(
+		this.ref,
 	)
 }
 
-// BeginOcclusionQueryFunc returns the method "GPURenderPassEncoder.beginOcclusionQuery".
-func (this GPURenderPassEncoder) BeginOcclusionQueryFunc() (fn js.Func[func(queryIndex GPUSize32)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderBeginOcclusionQueryFunc(
-			this.Ref(),
-		),
+// FuncBeginOcclusionQuery returns the method "GPURenderPassEncoder.beginOcclusionQuery".
+func (this GPURenderPassEncoder) FuncBeginOcclusionQuery() (fn js.Func[func(queryIndex GPUSize32)]) {
+	bindings.FuncGPURenderPassEncoderBeginOcclusionQuery(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BeginOcclusionQuery calls the method "GPURenderPassEncoder.beginOcclusionQuery".
 func (this GPURenderPassEncoder) BeginOcclusionQuery(queryIndex GPUSize32) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderBeginOcclusionQuery(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(queryIndex),
 	)
 
@@ -258,33 +244,32 @@ func (this GPURenderPassEncoder) BeginOcclusionQuery(queryIndex GPUSize32) (ret 
 // the catch clause.
 func (this GPURenderPassEncoder) TryBeginOcclusionQuery(queryIndex GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderBeginOcclusionQuery(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(queryIndex),
 	)
 
 	return
 }
 
-// HasEndOcclusionQuery returns true if the method "GPURenderPassEncoder.endOcclusionQuery" exists.
-func (this GPURenderPassEncoder) HasEndOcclusionQuery() bool {
-	return js.True == bindings.HasGPURenderPassEncoderEndOcclusionQuery(
-		this.Ref(),
+// HasFuncEndOcclusionQuery returns true if the method "GPURenderPassEncoder.endOcclusionQuery" exists.
+func (this GPURenderPassEncoder) HasFuncEndOcclusionQuery() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderEndOcclusionQuery(
+		this.ref,
 	)
 }
 
-// EndOcclusionQueryFunc returns the method "GPURenderPassEncoder.endOcclusionQuery".
-func (this GPURenderPassEncoder) EndOcclusionQueryFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderEndOcclusionQueryFunc(
-			this.Ref(),
-		),
+// FuncEndOcclusionQuery returns the method "GPURenderPassEncoder.endOcclusionQuery".
+func (this GPURenderPassEncoder) FuncEndOcclusionQuery() (fn js.Func[func()]) {
+	bindings.FuncGPURenderPassEncoderEndOcclusionQuery(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // EndOcclusionQuery calls the method "GPURenderPassEncoder.endOcclusionQuery".
 func (this GPURenderPassEncoder) EndOcclusionQuery() (ret js.Void) {
 	bindings.CallGPURenderPassEncoderEndOcclusionQuery(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -295,32 +280,31 @@ func (this GPURenderPassEncoder) EndOcclusionQuery() (ret js.Void) {
 // the catch clause.
 func (this GPURenderPassEncoder) TryEndOcclusionQuery() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderEndOcclusionQuery(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasExecuteBundles returns true if the method "GPURenderPassEncoder.executeBundles" exists.
-func (this GPURenderPassEncoder) HasExecuteBundles() bool {
-	return js.True == bindings.HasGPURenderPassEncoderExecuteBundles(
-		this.Ref(),
+// HasFuncExecuteBundles returns true if the method "GPURenderPassEncoder.executeBundles" exists.
+func (this GPURenderPassEncoder) HasFuncExecuteBundles() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderExecuteBundles(
+		this.ref,
 	)
 }
 
-// ExecuteBundlesFunc returns the method "GPURenderPassEncoder.executeBundles".
-func (this GPURenderPassEncoder) ExecuteBundlesFunc() (fn js.Func[func(bundles js.Array[GPURenderBundle])]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderExecuteBundlesFunc(
-			this.Ref(),
-		),
+// FuncExecuteBundles returns the method "GPURenderPassEncoder.executeBundles".
+func (this GPURenderPassEncoder) FuncExecuteBundles() (fn js.Func[func(bundles js.Array[GPURenderBundle])]) {
+	bindings.FuncGPURenderPassEncoderExecuteBundles(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ExecuteBundles calls the method "GPURenderPassEncoder.executeBundles".
 func (this GPURenderPassEncoder) ExecuteBundles(bundles js.Array[GPURenderBundle]) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderExecuteBundles(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		bundles.Ref(),
 	)
 
@@ -332,33 +316,32 @@ func (this GPURenderPassEncoder) ExecuteBundles(bundles js.Array[GPURenderBundle
 // the catch clause.
 func (this GPURenderPassEncoder) TryExecuteBundles(bundles js.Array[GPURenderBundle]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderExecuteBundles(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		bundles.Ref(),
 	)
 
 	return
 }
 
-// HasEnd returns true if the method "GPURenderPassEncoder.end" exists.
-func (this GPURenderPassEncoder) HasEnd() bool {
-	return js.True == bindings.HasGPURenderPassEncoderEnd(
-		this.Ref(),
+// HasFuncEnd returns true if the method "GPURenderPassEncoder.end" exists.
+func (this GPURenderPassEncoder) HasFuncEnd() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderEnd(
+		this.ref,
 	)
 }
 
-// EndFunc returns the method "GPURenderPassEncoder.end".
-func (this GPURenderPassEncoder) EndFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderEndFunc(
-			this.Ref(),
-		),
+// FuncEnd returns the method "GPURenderPassEncoder.end".
+func (this GPURenderPassEncoder) FuncEnd() (fn js.Func[func()]) {
+	bindings.FuncGPURenderPassEncoderEnd(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // End calls the method "GPURenderPassEncoder.end".
 func (this GPURenderPassEncoder) End() (ret js.Void) {
 	bindings.CallGPURenderPassEncoderEnd(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -369,32 +352,31 @@ func (this GPURenderPassEncoder) End() (ret js.Void) {
 // the catch clause.
 func (this GPURenderPassEncoder) TryEnd() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderEnd(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSetPipeline returns true if the method "GPURenderPassEncoder.setPipeline" exists.
-func (this GPURenderPassEncoder) HasSetPipeline() bool {
-	return js.True == bindings.HasGPURenderPassEncoderSetPipeline(
-		this.Ref(),
+// HasFuncSetPipeline returns true if the method "GPURenderPassEncoder.setPipeline" exists.
+func (this GPURenderPassEncoder) HasFuncSetPipeline() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderSetPipeline(
+		this.ref,
 	)
 }
 
-// SetPipelineFunc returns the method "GPURenderPassEncoder.setPipeline".
-func (this GPURenderPassEncoder) SetPipelineFunc() (fn js.Func[func(pipeline GPURenderPipeline)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderSetPipelineFunc(
-			this.Ref(),
-		),
+// FuncSetPipeline returns the method "GPURenderPassEncoder.setPipeline".
+func (this GPURenderPassEncoder) FuncSetPipeline() (fn js.Func[func(pipeline GPURenderPipeline)]) {
+	bindings.FuncGPURenderPassEncoderSetPipeline(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetPipeline calls the method "GPURenderPassEncoder.setPipeline".
 func (this GPURenderPassEncoder) SetPipeline(pipeline GPURenderPipeline) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderSetPipeline(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		pipeline.Ref(),
 	)
 
@@ -406,33 +388,32 @@ func (this GPURenderPassEncoder) SetPipeline(pipeline GPURenderPipeline) (ret js
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetPipeline(pipeline GPURenderPipeline) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetPipeline(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		pipeline.Ref(),
 	)
 
 	return
 }
 
-// HasSetIndexBuffer returns true if the method "GPURenderPassEncoder.setIndexBuffer" exists.
-func (this GPURenderPassEncoder) HasSetIndexBuffer() bool {
-	return js.True == bindings.HasGPURenderPassEncoderSetIndexBuffer(
-		this.Ref(),
+// HasFuncSetIndexBuffer returns true if the method "GPURenderPassEncoder.setIndexBuffer" exists.
+func (this GPURenderPassEncoder) HasFuncSetIndexBuffer() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderSetIndexBuffer(
+		this.ref,
 	)
 }
 
-// SetIndexBufferFunc returns the method "GPURenderPassEncoder.setIndexBuffer".
-func (this GPURenderPassEncoder) SetIndexBufferFunc() (fn js.Func[func(buffer GPUBuffer, indexFormat GPUIndexFormat, offset GPUSize64, size GPUSize64)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderSetIndexBufferFunc(
-			this.Ref(),
-		),
+// FuncSetIndexBuffer returns the method "GPURenderPassEncoder.setIndexBuffer".
+func (this GPURenderPassEncoder) FuncSetIndexBuffer() (fn js.Func[func(buffer GPUBuffer, indexFormat GPUIndexFormat, offset GPUSize64, size GPUSize64)]) {
+	bindings.FuncGPURenderPassEncoderSetIndexBuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetIndexBuffer calls the method "GPURenderPassEncoder.setIndexBuffer".
 func (this GPURenderPassEncoder) SetIndexBuffer(buffer GPUBuffer, indexFormat GPUIndexFormat, offset GPUSize64, size GPUSize64) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderSetIndexBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		buffer.Ref(),
 		uint32(indexFormat),
 		float64(offset),
@@ -447,7 +428,7 @@ func (this GPURenderPassEncoder) SetIndexBuffer(buffer GPUBuffer, indexFormat GP
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetIndexBuffer(buffer GPUBuffer, indexFormat GPUIndexFormat, offset GPUSize64, size GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetIndexBuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		buffer.Ref(),
 		uint32(indexFormat),
 		float64(offset),
@@ -457,26 +438,25 @@ func (this GPURenderPassEncoder) TrySetIndexBuffer(buffer GPUBuffer, indexFormat
 	return
 }
 
-// HasSetIndexBuffer1 returns true if the method "GPURenderPassEncoder.setIndexBuffer" exists.
-func (this GPURenderPassEncoder) HasSetIndexBuffer1() bool {
-	return js.True == bindings.HasGPURenderPassEncoderSetIndexBuffer1(
-		this.Ref(),
+// HasFuncSetIndexBuffer1 returns true if the method "GPURenderPassEncoder.setIndexBuffer" exists.
+func (this GPURenderPassEncoder) HasFuncSetIndexBuffer1() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderSetIndexBuffer1(
+		this.ref,
 	)
 }
 
-// SetIndexBuffer1Func returns the method "GPURenderPassEncoder.setIndexBuffer".
-func (this GPURenderPassEncoder) SetIndexBuffer1Func() (fn js.Func[func(buffer GPUBuffer, indexFormat GPUIndexFormat, offset GPUSize64)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderSetIndexBuffer1Func(
-			this.Ref(),
-		),
+// FuncSetIndexBuffer1 returns the method "GPURenderPassEncoder.setIndexBuffer".
+func (this GPURenderPassEncoder) FuncSetIndexBuffer1() (fn js.Func[func(buffer GPUBuffer, indexFormat GPUIndexFormat, offset GPUSize64)]) {
+	bindings.FuncGPURenderPassEncoderSetIndexBuffer1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetIndexBuffer1 calls the method "GPURenderPassEncoder.setIndexBuffer".
 func (this GPURenderPassEncoder) SetIndexBuffer1(buffer GPUBuffer, indexFormat GPUIndexFormat, offset GPUSize64) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderSetIndexBuffer1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		buffer.Ref(),
 		uint32(indexFormat),
 		float64(offset),
@@ -490,7 +470,7 @@ func (this GPURenderPassEncoder) SetIndexBuffer1(buffer GPUBuffer, indexFormat G
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetIndexBuffer1(buffer GPUBuffer, indexFormat GPUIndexFormat, offset GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetIndexBuffer1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		buffer.Ref(),
 		uint32(indexFormat),
 		float64(offset),
@@ -499,26 +479,25 @@ func (this GPURenderPassEncoder) TrySetIndexBuffer1(buffer GPUBuffer, indexForma
 	return
 }
 
-// HasSetIndexBuffer2 returns true if the method "GPURenderPassEncoder.setIndexBuffer" exists.
-func (this GPURenderPassEncoder) HasSetIndexBuffer2() bool {
-	return js.True == bindings.HasGPURenderPassEncoderSetIndexBuffer2(
-		this.Ref(),
+// HasFuncSetIndexBuffer2 returns true if the method "GPURenderPassEncoder.setIndexBuffer" exists.
+func (this GPURenderPassEncoder) HasFuncSetIndexBuffer2() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderSetIndexBuffer2(
+		this.ref,
 	)
 }
 
-// SetIndexBuffer2Func returns the method "GPURenderPassEncoder.setIndexBuffer".
-func (this GPURenderPassEncoder) SetIndexBuffer2Func() (fn js.Func[func(buffer GPUBuffer, indexFormat GPUIndexFormat)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderSetIndexBuffer2Func(
-			this.Ref(),
-		),
+// FuncSetIndexBuffer2 returns the method "GPURenderPassEncoder.setIndexBuffer".
+func (this GPURenderPassEncoder) FuncSetIndexBuffer2() (fn js.Func[func(buffer GPUBuffer, indexFormat GPUIndexFormat)]) {
+	bindings.FuncGPURenderPassEncoderSetIndexBuffer2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetIndexBuffer2 calls the method "GPURenderPassEncoder.setIndexBuffer".
 func (this GPURenderPassEncoder) SetIndexBuffer2(buffer GPUBuffer, indexFormat GPUIndexFormat) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderSetIndexBuffer2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		buffer.Ref(),
 		uint32(indexFormat),
 	)
@@ -531,7 +510,7 @@ func (this GPURenderPassEncoder) SetIndexBuffer2(buffer GPUBuffer, indexFormat G
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetIndexBuffer2(buffer GPUBuffer, indexFormat GPUIndexFormat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetIndexBuffer2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		buffer.Ref(),
 		uint32(indexFormat),
 	)
@@ -539,26 +518,25 @@ func (this GPURenderPassEncoder) TrySetIndexBuffer2(buffer GPUBuffer, indexForma
 	return
 }
 
-// HasSetVertexBuffer returns true if the method "GPURenderPassEncoder.setVertexBuffer" exists.
-func (this GPURenderPassEncoder) HasSetVertexBuffer() bool {
-	return js.True == bindings.HasGPURenderPassEncoderSetVertexBuffer(
-		this.Ref(),
+// HasFuncSetVertexBuffer returns true if the method "GPURenderPassEncoder.setVertexBuffer" exists.
+func (this GPURenderPassEncoder) HasFuncSetVertexBuffer() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderSetVertexBuffer(
+		this.ref,
 	)
 }
 
-// SetVertexBufferFunc returns the method "GPURenderPassEncoder.setVertexBuffer".
-func (this GPURenderPassEncoder) SetVertexBufferFunc() (fn js.Func[func(slot GPUIndex32, buffer GPUBuffer, offset GPUSize64, size GPUSize64)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderSetVertexBufferFunc(
-			this.Ref(),
-		),
+// FuncSetVertexBuffer returns the method "GPURenderPassEncoder.setVertexBuffer".
+func (this GPURenderPassEncoder) FuncSetVertexBuffer() (fn js.Func[func(slot GPUIndex32, buffer GPUBuffer, offset GPUSize64, size GPUSize64)]) {
+	bindings.FuncGPURenderPassEncoderSetVertexBuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetVertexBuffer calls the method "GPURenderPassEncoder.setVertexBuffer".
 func (this GPURenderPassEncoder) SetVertexBuffer(slot GPUIndex32, buffer GPUBuffer, offset GPUSize64, size GPUSize64) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderSetVertexBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(slot),
 		buffer.Ref(),
 		float64(offset),
@@ -573,7 +551,7 @@ func (this GPURenderPassEncoder) SetVertexBuffer(slot GPUIndex32, buffer GPUBuff
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetVertexBuffer(slot GPUIndex32, buffer GPUBuffer, offset GPUSize64, size GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetVertexBuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(slot),
 		buffer.Ref(),
 		float64(offset),
@@ -583,26 +561,25 @@ func (this GPURenderPassEncoder) TrySetVertexBuffer(slot GPUIndex32, buffer GPUB
 	return
 }
 
-// HasSetVertexBuffer1 returns true if the method "GPURenderPassEncoder.setVertexBuffer" exists.
-func (this GPURenderPassEncoder) HasSetVertexBuffer1() bool {
-	return js.True == bindings.HasGPURenderPassEncoderSetVertexBuffer1(
-		this.Ref(),
+// HasFuncSetVertexBuffer1 returns true if the method "GPURenderPassEncoder.setVertexBuffer" exists.
+func (this GPURenderPassEncoder) HasFuncSetVertexBuffer1() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderSetVertexBuffer1(
+		this.ref,
 	)
 }
 
-// SetVertexBuffer1Func returns the method "GPURenderPassEncoder.setVertexBuffer".
-func (this GPURenderPassEncoder) SetVertexBuffer1Func() (fn js.Func[func(slot GPUIndex32, buffer GPUBuffer, offset GPUSize64)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderSetVertexBuffer1Func(
-			this.Ref(),
-		),
+// FuncSetVertexBuffer1 returns the method "GPURenderPassEncoder.setVertexBuffer".
+func (this GPURenderPassEncoder) FuncSetVertexBuffer1() (fn js.Func[func(slot GPUIndex32, buffer GPUBuffer, offset GPUSize64)]) {
+	bindings.FuncGPURenderPassEncoderSetVertexBuffer1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetVertexBuffer1 calls the method "GPURenderPassEncoder.setVertexBuffer".
 func (this GPURenderPassEncoder) SetVertexBuffer1(slot GPUIndex32, buffer GPUBuffer, offset GPUSize64) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderSetVertexBuffer1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(slot),
 		buffer.Ref(),
 		float64(offset),
@@ -616,7 +593,7 @@ func (this GPURenderPassEncoder) SetVertexBuffer1(slot GPUIndex32, buffer GPUBuf
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetVertexBuffer1(slot GPUIndex32, buffer GPUBuffer, offset GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetVertexBuffer1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(slot),
 		buffer.Ref(),
 		float64(offset),
@@ -625,26 +602,25 @@ func (this GPURenderPassEncoder) TrySetVertexBuffer1(slot GPUIndex32, buffer GPU
 	return
 }
 
-// HasSetVertexBuffer2 returns true if the method "GPURenderPassEncoder.setVertexBuffer" exists.
-func (this GPURenderPassEncoder) HasSetVertexBuffer2() bool {
-	return js.True == bindings.HasGPURenderPassEncoderSetVertexBuffer2(
-		this.Ref(),
+// HasFuncSetVertexBuffer2 returns true if the method "GPURenderPassEncoder.setVertexBuffer" exists.
+func (this GPURenderPassEncoder) HasFuncSetVertexBuffer2() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderSetVertexBuffer2(
+		this.ref,
 	)
 }
 
-// SetVertexBuffer2Func returns the method "GPURenderPassEncoder.setVertexBuffer".
-func (this GPURenderPassEncoder) SetVertexBuffer2Func() (fn js.Func[func(slot GPUIndex32, buffer GPUBuffer)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderSetVertexBuffer2Func(
-			this.Ref(),
-		),
+// FuncSetVertexBuffer2 returns the method "GPURenderPassEncoder.setVertexBuffer".
+func (this GPURenderPassEncoder) FuncSetVertexBuffer2() (fn js.Func[func(slot GPUIndex32, buffer GPUBuffer)]) {
+	bindings.FuncGPURenderPassEncoderSetVertexBuffer2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetVertexBuffer2 calls the method "GPURenderPassEncoder.setVertexBuffer".
 func (this GPURenderPassEncoder) SetVertexBuffer2(slot GPUIndex32, buffer GPUBuffer) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderSetVertexBuffer2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(slot),
 		buffer.Ref(),
 	)
@@ -657,7 +633,7 @@ func (this GPURenderPassEncoder) SetVertexBuffer2(slot GPUIndex32, buffer GPUBuf
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetVertexBuffer2(slot GPUIndex32, buffer GPUBuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetVertexBuffer2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(slot),
 		buffer.Ref(),
 	)
@@ -665,26 +641,25 @@ func (this GPURenderPassEncoder) TrySetVertexBuffer2(slot GPUIndex32, buffer GPU
 	return
 }
 
-// HasDraw returns true if the method "GPURenderPassEncoder.draw" exists.
-func (this GPURenderPassEncoder) HasDraw() bool {
-	return js.True == bindings.HasGPURenderPassEncoderDraw(
-		this.Ref(),
+// HasFuncDraw returns true if the method "GPURenderPassEncoder.draw" exists.
+func (this GPURenderPassEncoder) HasFuncDraw() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderDraw(
+		this.ref,
 	)
 }
 
-// DrawFunc returns the method "GPURenderPassEncoder.draw".
-func (this GPURenderPassEncoder) DrawFunc() (fn js.Func[func(vertexCount GPUSize32, instanceCount GPUSize32, firstVertex GPUSize32, firstInstance GPUSize32)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderDrawFunc(
-			this.Ref(),
-		),
+// FuncDraw returns the method "GPURenderPassEncoder.draw".
+func (this GPURenderPassEncoder) FuncDraw() (fn js.Func[func(vertexCount GPUSize32, instanceCount GPUSize32, firstVertex GPUSize32, firstInstance GPUSize32)]) {
+	bindings.FuncGPURenderPassEncoderDraw(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Draw calls the method "GPURenderPassEncoder.draw".
 func (this GPURenderPassEncoder) Draw(vertexCount GPUSize32, instanceCount GPUSize32, firstVertex GPUSize32, firstInstance GPUSize32) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderDraw(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(vertexCount),
 		uint32(instanceCount),
 		uint32(firstVertex),
@@ -699,7 +674,7 @@ func (this GPURenderPassEncoder) Draw(vertexCount GPUSize32, instanceCount GPUSi
 // the catch clause.
 func (this GPURenderPassEncoder) TryDraw(vertexCount GPUSize32, instanceCount GPUSize32, firstVertex GPUSize32, firstInstance GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderDraw(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(vertexCount),
 		uint32(instanceCount),
 		uint32(firstVertex),
@@ -709,26 +684,25 @@ func (this GPURenderPassEncoder) TryDraw(vertexCount GPUSize32, instanceCount GP
 	return
 }
 
-// HasDraw1 returns true if the method "GPURenderPassEncoder.draw" exists.
-func (this GPURenderPassEncoder) HasDraw1() bool {
-	return js.True == bindings.HasGPURenderPassEncoderDraw1(
-		this.Ref(),
+// HasFuncDraw1 returns true if the method "GPURenderPassEncoder.draw" exists.
+func (this GPURenderPassEncoder) HasFuncDraw1() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderDraw1(
+		this.ref,
 	)
 }
 
-// Draw1Func returns the method "GPURenderPassEncoder.draw".
-func (this GPURenderPassEncoder) Draw1Func() (fn js.Func[func(vertexCount GPUSize32, instanceCount GPUSize32, firstVertex GPUSize32)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderDraw1Func(
-			this.Ref(),
-		),
+// FuncDraw1 returns the method "GPURenderPassEncoder.draw".
+func (this GPURenderPassEncoder) FuncDraw1() (fn js.Func[func(vertexCount GPUSize32, instanceCount GPUSize32, firstVertex GPUSize32)]) {
+	bindings.FuncGPURenderPassEncoderDraw1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Draw1 calls the method "GPURenderPassEncoder.draw".
 func (this GPURenderPassEncoder) Draw1(vertexCount GPUSize32, instanceCount GPUSize32, firstVertex GPUSize32) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderDraw1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(vertexCount),
 		uint32(instanceCount),
 		uint32(firstVertex),
@@ -742,7 +716,7 @@ func (this GPURenderPassEncoder) Draw1(vertexCount GPUSize32, instanceCount GPUS
 // the catch clause.
 func (this GPURenderPassEncoder) TryDraw1(vertexCount GPUSize32, instanceCount GPUSize32, firstVertex GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderDraw1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(vertexCount),
 		uint32(instanceCount),
 		uint32(firstVertex),
@@ -751,26 +725,25 @@ func (this GPURenderPassEncoder) TryDraw1(vertexCount GPUSize32, instanceCount G
 	return
 }
 
-// HasDraw2 returns true if the method "GPURenderPassEncoder.draw" exists.
-func (this GPURenderPassEncoder) HasDraw2() bool {
-	return js.True == bindings.HasGPURenderPassEncoderDraw2(
-		this.Ref(),
+// HasFuncDraw2 returns true if the method "GPURenderPassEncoder.draw" exists.
+func (this GPURenderPassEncoder) HasFuncDraw2() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderDraw2(
+		this.ref,
 	)
 }
 
-// Draw2Func returns the method "GPURenderPassEncoder.draw".
-func (this GPURenderPassEncoder) Draw2Func() (fn js.Func[func(vertexCount GPUSize32, instanceCount GPUSize32)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderDraw2Func(
-			this.Ref(),
-		),
+// FuncDraw2 returns the method "GPURenderPassEncoder.draw".
+func (this GPURenderPassEncoder) FuncDraw2() (fn js.Func[func(vertexCount GPUSize32, instanceCount GPUSize32)]) {
+	bindings.FuncGPURenderPassEncoderDraw2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Draw2 calls the method "GPURenderPassEncoder.draw".
 func (this GPURenderPassEncoder) Draw2(vertexCount GPUSize32, instanceCount GPUSize32) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderDraw2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(vertexCount),
 		uint32(instanceCount),
 	)
@@ -783,7 +756,7 @@ func (this GPURenderPassEncoder) Draw2(vertexCount GPUSize32, instanceCount GPUS
 // the catch clause.
 func (this GPURenderPassEncoder) TryDraw2(vertexCount GPUSize32, instanceCount GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderDraw2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(vertexCount),
 		uint32(instanceCount),
 	)
@@ -791,26 +764,25 @@ func (this GPURenderPassEncoder) TryDraw2(vertexCount GPUSize32, instanceCount G
 	return
 }
 
-// HasDraw3 returns true if the method "GPURenderPassEncoder.draw" exists.
-func (this GPURenderPassEncoder) HasDraw3() bool {
-	return js.True == bindings.HasGPURenderPassEncoderDraw3(
-		this.Ref(),
+// HasFuncDraw3 returns true if the method "GPURenderPassEncoder.draw" exists.
+func (this GPURenderPassEncoder) HasFuncDraw3() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderDraw3(
+		this.ref,
 	)
 }
 
-// Draw3Func returns the method "GPURenderPassEncoder.draw".
-func (this GPURenderPassEncoder) Draw3Func() (fn js.Func[func(vertexCount GPUSize32)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderDraw3Func(
-			this.Ref(),
-		),
+// FuncDraw3 returns the method "GPURenderPassEncoder.draw".
+func (this GPURenderPassEncoder) FuncDraw3() (fn js.Func[func(vertexCount GPUSize32)]) {
+	bindings.FuncGPURenderPassEncoderDraw3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Draw3 calls the method "GPURenderPassEncoder.draw".
 func (this GPURenderPassEncoder) Draw3(vertexCount GPUSize32) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderDraw3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(vertexCount),
 	)
 
@@ -822,33 +794,32 @@ func (this GPURenderPassEncoder) Draw3(vertexCount GPUSize32) (ret js.Void) {
 // the catch clause.
 func (this GPURenderPassEncoder) TryDraw3(vertexCount GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderDraw3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(vertexCount),
 	)
 
 	return
 }
 
-// HasDrawIndexed returns true if the method "GPURenderPassEncoder.drawIndexed" exists.
-func (this GPURenderPassEncoder) HasDrawIndexed() bool {
-	return js.True == bindings.HasGPURenderPassEncoderDrawIndexed(
-		this.Ref(),
+// HasFuncDrawIndexed returns true if the method "GPURenderPassEncoder.drawIndexed" exists.
+func (this GPURenderPassEncoder) HasFuncDrawIndexed() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderDrawIndexed(
+		this.ref,
 	)
 }
 
-// DrawIndexedFunc returns the method "GPURenderPassEncoder.drawIndexed".
-func (this GPURenderPassEncoder) DrawIndexedFunc() (fn js.Func[func(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32, baseVertex GPUSignedOffset32, firstInstance GPUSize32)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderDrawIndexedFunc(
-			this.Ref(),
-		),
+// FuncDrawIndexed returns the method "GPURenderPassEncoder.drawIndexed".
+func (this GPURenderPassEncoder) FuncDrawIndexed() (fn js.Func[func(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32, baseVertex GPUSignedOffset32, firstInstance GPUSize32)]) {
+	bindings.FuncGPURenderPassEncoderDrawIndexed(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawIndexed calls the method "GPURenderPassEncoder.drawIndexed".
 func (this GPURenderPassEncoder) DrawIndexed(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32, baseVertex GPUSignedOffset32, firstInstance GPUSize32) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderDrawIndexed(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(indexCount),
 		uint32(instanceCount),
 		uint32(firstIndex),
@@ -864,7 +835,7 @@ func (this GPURenderPassEncoder) DrawIndexed(indexCount GPUSize32, instanceCount
 // the catch clause.
 func (this GPURenderPassEncoder) TryDrawIndexed(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32, baseVertex GPUSignedOffset32, firstInstance GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderDrawIndexed(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(indexCount),
 		uint32(instanceCount),
 		uint32(firstIndex),
@@ -875,26 +846,25 @@ func (this GPURenderPassEncoder) TryDrawIndexed(indexCount GPUSize32, instanceCo
 	return
 }
 
-// HasDrawIndexed1 returns true if the method "GPURenderPassEncoder.drawIndexed" exists.
-func (this GPURenderPassEncoder) HasDrawIndexed1() bool {
-	return js.True == bindings.HasGPURenderPassEncoderDrawIndexed1(
-		this.Ref(),
+// HasFuncDrawIndexed1 returns true if the method "GPURenderPassEncoder.drawIndexed" exists.
+func (this GPURenderPassEncoder) HasFuncDrawIndexed1() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderDrawIndexed1(
+		this.ref,
 	)
 }
 
-// DrawIndexed1Func returns the method "GPURenderPassEncoder.drawIndexed".
-func (this GPURenderPassEncoder) DrawIndexed1Func() (fn js.Func[func(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32, baseVertex GPUSignedOffset32)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderDrawIndexed1Func(
-			this.Ref(),
-		),
+// FuncDrawIndexed1 returns the method "GPURenderPassEncoder.drawIndexed".
+func (this GPURenderPassEncoder) FuncDrawIndexed1() (fn js.Func[func(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32, baseVertex GPUSignedOffset32)]) {
+	bindings.FuncGPURenderPassEncoderDrawIndexed1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawIndexed1 calls the method "GPURenderPassEncoder.drawIndexed".
 func (this GPURenderPassEncoder) DrawIndexed1(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32, baseVertex GPUSignedOffset32) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderDrawIndexed1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(indexCount),
 		uint32(instanceCount),
 		uint32(firstIndex),
@@ -909,7 +879,7 @@ func (this GPURenderPassEncoder) DrawIndexed1(indexCount GPUSize32, instanceCoun
 // the catch clause.
 func (this GPURenderPassEncoder) TryDrawIndexed1(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32, baseVertex GPUSignedOffset32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderDrawIndexed1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(indexCount),
 		uint32(instanceCount),
 		uint32(firstIndex),
@@ -919,26 +889,25 @@ func (this GPURenderPassEncoder) TryDrawIndexed1(indexCount GPUSize32, instanceC
 	return
 }
 
-// HasDrawIndexed2 returns true if the method "GPURenderPassEncoder.drawIndexed" exists.
-func (this GPURenderPassEncoder) HasDrawIndexed2() bool {
-	return js.True == bindings.HasGPURenderPassEncoderDrawIndexed2(
-		this.Ref(),
+// HasFuncDrawIndexed2 returns true if the method "GPURenderPassEncoder.drawIndexed" exists.
+func (this GPURenderPassEncoder) HasFuncDrawIndexed2() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderDrawIndexed2(
+		this.ref,
 	)
 }
 
-// DrawIndexed2Func returns the method "GPURenderPassEncoder.drawIndexed".
-func (this GPURenderPassEncoder) DrawIndexed2Func() (fn js.Func[func(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderDrawIndexed2Func(
-			this.Ref(),
-		),
+// FuncDrawIndexed2 returns the method "GPURenderPassEncoder.drawIndexed".
+func (this GPURenderPassEncoder) FuncDrawIndexed2() (fn js.Func[func(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32)]) {
+	bindings.FuncGPURenderPassEncoderDrawIndexed2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawIndexed2 calls the method "GPURenderPassEncoder.drawIndexed".
 func (this GPURenderPassEncoder) DrawIndexed2(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderDrawIndexed2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(indexCount),
 		uint32(instanceCount),
 		uint32(firstIndex),
@@ -952,7 +921,7 @@ func (this GPURenderPassEncoder) DrawIndexed2(indexCount GPUSize32, instanceCoun
 // the catch clause.
 func (this GPURenderPassEncoder) TryDrawIndexed2(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderDrawIndexed2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(indexCount),
 		uint32(instanceCount),
 		uint32(firstIndex),
@@ -961,26 +930,25 @@ func (this GPURenderPassEncoder) TryDrawIndexed2(indexCount GPUSize32, instanceC
 	return
 }
 
-// HasDrawIndexed3 returns true if the method "GPURenderPassEncoder.drawIndexed" exists.
-func (this GPURenderPassEncoder) HasDrawIndexed3() bool {
-	return js.True == bindings.HasGPURenderPassEncoderDrawIndexed3(
-		this.Ref(),
+// HasFuncDrawIndexed3 returns true if the method "GPURenderPassEncoder.drawIndexed" exists.
+func (this GPURenderPassEncoder) HasFuncDrawIndexed3() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderDrawIndexed3(
+		this.ref,
 	)
 }
 
-// DrawIndexed3Func returns the method "GPURenderPassEncoder.drawIndexed".
-func (this GPURenderPassEncoder) DrawIndexed3Func() (fn js.Func[func(indexCount GPUSize32, instanceCount GPUSize32)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderDrawIndexed3Func(
-			this.Ref(),
-		),
+// FuncDrawIndexed3 returns the method "GPURenderPassEncoder.drawIndexed".
+func (this GPURenderPassEncoder) FuncDrawIndexed3() (fn js.Func[func(indexCount GPUSize32, instanceCount GPUSize32)]) {
+	bindings.FuncGPURenderPassEncoderDrawIndexed3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawIndexed3 calls the method "GPURenderPassEncoder.drawIndexed".
 func (this GPURenderPassEncoder) DrawIndexed3(indexCount GPUSize32, instanceCount GPUSize32) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderDrawIndexed3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(indexCount),
 		uint32(instanceCount),
 	)
@@ -993,7 +961,7 @@ func (this GPURenderPassEncoder) DrawIndexed3(indexCount GPUSize32, instanceCoun
 // the catch clause.
 func (this GPURenderPassEncoder) TryDrawIndexed3(indexCount GPUSize32, instanceCount GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderDrawIndexed3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(indexCount),
 		uint32(instanceCount),
 	)
@@ -1001,26 +969,25 @@ func (this GPURenderPassEncoder) TryDrawIndexed3(indexCount GPUSize32, instanceC
 	return
 }
 
-// HasDrawIndexed4 returns true if the method "GPURenderPassEncoder.drawIndexed" exists.
-func (this GPURenderPassEncoder) HasDrawIndexed4() bool {
-	return js.True == bindings.HasGPURenderPassEncoderDrawIndexed4(
-		this.Ref(),
+// HasFuncDrawIndexed4 returns true if the method "GPURenderPassEncoder.drawIndexed" exists.
+func (this GPURenderPassEncoder) HasFuncDrawIndexed4() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderDrawIndexed4(
+		this.ref,
 	)
 }
 
-// DrawIndexed4Func returns the method "GPURenderPassEncoder.drawIndexed".
-func (this GPURenderPassEncoder) DrawIndexed4Func() (fn js.Func[func(indexCount GPUSize32)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderDrawIndexed4Func(
-			this.Ref(),
-		),
+// FuncDrawIndexed4 returns the method "GPURenderPassEncoder.drawIndexed".
+func (this GPURenderPassEncoder) FuncDrawIndexed4() (fn js.Func[func(indexCount GPUSize32)]) {
+	bindings.FuncGPURenderPassEncoderDrawIndexed4(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawIndexed4 calls the method "GPURenderPassEncoder.drawIndexed".
 func (this GPURenderPassEncoder) DrawIndexed4(indexCount GPUSize32) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderDrawIndexed4(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(indexCount),
 	)
 
@@ -1032,33 +999,32 @@ func (this GPURenderPassEncoder) DrawIndexed4(indexCount GPUSize32) (ret js.Void
 // the catch clause.
 func (this GPURenderPassEncoder) TryDrawIndexed4(indexCount GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderDrawIndexed4(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(indexCount),
 	)
 
 	return
 }
 
-// HasDrawIndirect returns true if the method "GPURenderPassEncoder.drawIndirect" exists.
-func (this GPURenderPassEncoder) HasDrawIndirect() bool {
-	return js.True == bindings.HasGPURenderPassEncoderDrawIndirect(
-		this.Ref(),
+// HasFuncDrawIndirect returns true if the method "GPURenderPassEncoder.drawIndirect" exists.
+func (this GPURenderPassEncoder) HasFuncDrawIndirect() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderDrawIndirect(
+		this.ref,
 	)
 }
 
-// DrawIndirectFunc returns the method "GPURenderPassEncoder.drawIndirect".
-func (this GPURenderPassEncoder) DrawIndirectFunc() (fn js.Func[func(indirectBuffer GPUBuffer, indirectOffset GPUSize64)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderDrawIndirectFunc(
-			this.Ref(),
-		),
+// FuncDrawIndirect returns the method "GPURenderPassEncoder.drawIndirect".
+func (this GPURenderPassEncoder) FuncDrawIndirect() (fn js.Func[func(indirectBuffer GPUBuffer, indirectOffset GPUSize64)]) {
+	bindings.FuncGPURenderPassEncoderDrawIndirect(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawIndirect calls the method "GPURenderPassEncoder.drawIndirect".
 func (this GPURenderPassEncoder) DrawIndirect(indirectBuffer GPUBuffer, indirectOffset GPUSize64) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderDrawIndirect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		indirectBuffer.Ref(),
 		float64(indirectOffset),
 	)
@@ -1071,7 +1037,7 @@ func (this GPURenderPassEncoder) DrawIndirect(indirectBuffer GPUBuffer, indirect
 // the catch clause.
 func (this GPURenderPassEncoder) TryDrawIndirect(indirectBuffer GPUBuffer, indirectOffset GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderDrawIndirect(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		indirectBuffer.Ref(),
 		float64(indirectOffset),
 	)
@@ -1079,26 +1045,25 @@ func (this GPURenderPassEncoder) TryDrawIndirect(indirectBuffer GPUBuffer, indir
 	return
 }
 
-// HasDrawIndexedIndirect returns true if the method "GPURenderPassEncoder.drawIndexedIndirect" exists.
-func (this GPURenderPassEncoder) HasDrawIndexedIndirect() bool {
-	return js.True == bindings.HasGPURenderPassEncoderDrawIndexedIndirect(
-		this.Ref(),
+// HasFuncDrawIndexedIndirect returns true if the method "GPURenderPassEncoder.drawIndexedIndirect" exists.
+func (this GPURenderPassEncoder) HasFuncDrawIndexedIndirect() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderDrawIndexedIndirect(
+		this.ref,
 	)
 }
 
-// DrawIndexedIndirectFunc returns the method "GPURenderPassEncoder.drawIndexedIndirect".
-func (this GPURenderPassEncoder) DrawIndexedIndirectFunc() (fn js.Func[func(indirectBuffer GPUBuffer, indirectOffset GPUSize64)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderDrawIndexedIndirectFunc(
-			this.Ref(),
-		),
+// FuncDrawIndexedIndirect returns the method "GPURenderPassEncoder.drawIndexedIndirect".
+func (this GPURenderPassEncoder) FuncDrawIndexedIndirect() (fn js.Func[func(indirectBuffer GPUBuffer, indirectOffset GPUSize64)]) {
+	bindings.FuncGPURenderPassEncoderDrawIndexedIndirect(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawIndexedIndirect calls the method "GPURenderPassEncoder.drawIndexedIndirect".
 func (this GPURenderPassEncoder) DrawIndexedIndirect(indirectBuffer GPUBuffer, indirectOffset GPUSize64) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderDrawIndexedIndirect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		indirectBuffer.Ref(),
 		float64(indirectOffset),
 	)
@@ -1111,7 +1076,7 @@ func (this GPURenderPassEncoder) DrawIndexedIndirect(indirectBuffer GPUBuffer, i
 // the catch clause.
 func (this GPURenderPassEncoder) TryDrawIndexedIndirect(indirectBuffer GPUBuffer, indirectOffset GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderDrawIndexedIndirect(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		indirectBuffer.Ref(),
 		float64(indirectOffset),
 	)
@@ -1119,26 +1084,25 @@ func (this GPURenderPassEncoder) TryDrawIndexedIndirect(indirectBuffer GPUBuffer
 	return
 }
 
-// HasSetBindGroup returns true if the method "GPURenderPassEncoder.setBindGroup" exists.
-func (this GPURenderPassEncoder) HasSetBindGroup() bool {
-	return js.True == bindings.HasGPURenderPassEncoderSetBindGroup(
-		this.Ref(),
+// HasFuncSetBindGroup returns true if the method "GPURenderPassEncoder.setBindGroup" exists.
+func (this GPURenderPassEncoder) HasFuncSetBindGroup() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderSetBindGroup(
+		this.ref,
 	)
 }
 
-// SetBindGroupFunc returns the method "GPURenderPassEncoder.setBindGroup".
-func (this GPURenderPassEncoder) SetBindGroupFunc() (fn js.Func[func(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsets js.Array[GPUBufferDynamicOffset])]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderSetBindGroupFunc(
-			this.Ref(),
-		),
+// FuncSetBindGroup returns the method "GPURenderPassEncoder.setBindGroup".
+func (this GPURenderPassEncoder) FuncSetBindGroup() (fn js.Func[func(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsets js.Array[GPUBufferDynamicOffset])]) {
+	bindings.FuncGPURenderPassEncoderSetBindGroup(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetBindGroup calls the method "GPURenderPassEncoder.setBindGroup".
 func (this GPURenderPassEncoder) SetBindGroup(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsets js.Array[GPUBufferDynamicOffset]) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderSetBindGroup(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		bindGroup.Ref(),
 		dynamicOffsets.Ref(),
@@ -1152,7 +1116,7 @@ func (this GPURenderPassEncoder) SetBindGroup(index GPUIndex32, bindGroup GPUBin
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetBindGroup(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsets js.Array[GPUBufferDynamicOffset]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetBindGroup(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		bindGroup.Ref(),
 		dynamicOffsets.Ref(),
@@ -1161,26 +1125,25 @@ func (this GPURenderPassEncoder) TrySetBindGroup(index GPUIndex32, bindGroup GPU
 	return
 }
 
-// HasSetBindGroup1 returns true if the method "GPURenderPassEncoder.setBindGroup" exists.
-func (this GPURenderPassEncoder) HasSetBindGroup1() bool {
-	return js.True == bindings.HasGPURenderPassEncoderSetBindGroup1(
-		this.Ref(),
+// HasFuncSetBindGroup1 returns true if the method "GPURenderPassEncoder.setBindGroup" exists.
+func (this GPURenderPassEncoder) HasFuncSetBindGroup1() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderSetBindGroup1(
+		this.ref,
 	)
 }
 
-// SetBindGroup1Func returns the method "GPURenderPassEncoder.setBindGroup".
-func (this GPURenderPassEncoder) SetBindGroup1Func() (fn js.Func[func(index GPUIndex32, bindGroup GPUBindGroup)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderSetBindGroup1Func(
-			this.Ref(),
-		),
+// FuncSetBindGroup1 returns the method "GPURenderPassEncoder.setBindGroup".
+func (this GPURenderPassEncoder) FuncSetBindGroup1() (fn js.Func[func(index GPUIndex32, bindGroup GPUBindGroup)]) {
+	bindings.FuncGPURenderPassEncoderSetBindGroup1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetBindGroup1 calls the method "GPURenderPassEncoder.setBindGroup".
 func (this GPURenderPassEncoder) SetBindGroup1(index GPUIndex32, bindGroup GPUBindGroup) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderSetBindGroup1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		bindGroup.Ref(),
 	)
@@ -1193,7 +1156,7 @@ func (this GPURenderPassEncoder) SetBindGroup1(index GPUIndex32, bindGroup GPUBi
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetBindGroup1(index GPUIndex32, bindGroup GPUBindGroup) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetBindGroup1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		bindGroup.Ref(),
 	)
@@ -1201,26 +1164,25 @@ func (this GPURenderPassEncoder) TrySetBindGroup1(index GPUIndex32, bindGroup GP
 	return
 }
 
-// HasSetBindGroup2 returns true if the method "GPURenderPassEncoder.setBindGroup" exists.
-func (this GPURenderPassEncoder) HasSetBindGroup2() bool {
-	return js.True == bindings.HasGPURenderPassEncoderSetBindGroup2(
-		this.Ref(),
+// HasFuncSetBindGroup2 returns true if the method "GPURenderPassEncoder.setBindGroup" exists.
+func (this GPURenderPassEncoder) HasFuncSetBindGroup2() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderSetBindGroup2(
+		this.ref,
 	)
 }
 
-// SetBindGroup2Func returns the method "GPURenderPassEncoder.setBindGroup".
-func (this GPURenderPassEncoder) SetBindGroup2Func() (fn js.Func[func(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsetsData js.TypedArray[uint32], dynamicOffsetsDataStart GPUSize64, dynamicOffsetsDataLength GPUSize32)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderSetBindGroup2Func(
-			this.Ref(),
-		),
+// FuncSetBindGroup2 returns the method "GPURenderPassEncoder.setBindGroup".
+func (this GPURenderPassEncoder) FuncSetBindGroup2() (fn js.Func[func(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsetsData js.TypedArray[uint32], dynamicOffsetsDataStart GPUSize64, dynamicOffsetsDataLength GPUSize32)]) {
+	bindings.FuncGPURenderPassEncoderSetBindGroup2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetBindGroup2 calls the method "GPURenderPassEncoder.setBindGroup".
 func (this GPURenderPassEncoder) SetBindGroup2(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsetsData js.TypedArray[uint32], dynamicOffsetsDataStart GPUSize64, dynamicOffsetsDataLength GPUSize32) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderSetBindGroup2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		bindGroup.Ref(),
 		dynamicOffsetsData.Ref(),
@@ -1236,7 +1198,7 @@ func (this GPURenderPassEncoder) SetBindGroup2(index GPUIndex32, bindGroup GPUBi
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetBindGroup2(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsetsData js.TypedArray[uint32], dynamicOffsetsDataStart GPUSize64, dynamicOffsetsDataLength GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetBindGroup2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		bindGroup.Ref(),
 		dynamicOffsetsData.Ref(),
@@ -1247,26 +1209,25 @@ func (this GPURenderPassEncoder) TrySetBindGroup2(index GPUIndex32, bindGroup GP
 	return
 }
 
-// HasPushDebugGroup returns true if the method "GPURenderPassEncoder.pushDebugGroup" exists.
-func (this GPURenderPassEncoder) HasPushDebugGroup() bool {
-	return js.True == bindings.HasGPURenderPassEncoderPushDebugGroup(
-		this.Ref(),
+// HasFuncPushDebugGroup returns true if the method "GPURenderPassEncoder.pushDebugGroup" exists.
+func (this GPURenderPassEncoder) HasFuncPushDebugGroup() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderPushDebugGroup(
+		this.ref,
 	)
 }
 
-// PushDebugGroupFunc returns the method "GPURenderPassEncoder.pushDebugGroup".
-func (this GPURenderPassEncoder) PushDebugGroupFunc() (fn js.Func[func(groupLabel js.String)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderPushDebugGroupFunc(
-			this.Ref(),
-		),
+// FuncPushDebugGroup returns the method "GPURenderPassEncoder.pushDebugGroup".
+func (this GPURenderPassEncoder) FuncPushDebugGroup() (fn js.Func[func(groupLabel js.String)]) {
+	bindings.FuncGPURenderPassEncoderPushDebugGroup(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PushDebugGroup calls the method "GPURenderPassEncoder.pushDebugGroup".
 func (this GPURenderPassEncoder) PushDebugGroup(groupLabel js.String) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderPushDebugGroup(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		groupLabel.Ref(),
 	)
 
@@ -1278,33 +1239,32 @@ func (this GPURenderPassEncoder) PushDebugGroup(groupLabel js.String) (ret js.Vo
 // the catch clause.
 func (this GPURenderPassEncoder) TryPushDebugGroup(groupLabel js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderPushDebugGroup(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		groupLabel.Ref(),
 	)
 
 	return
 }
 
-// HasPopDebugGroup returns true if the method "GPURenderPassEncoder.popDebugGroup" exists.
-func (this GPURenderPassEncoder) HasPopDebugGroup() bool {
-	return js.True == bindings.HasGPURenderPassEncoderPopDebugGroup(
-		this.Ref(),
+// HasFuncPopDebugGroup returns true if the method "GPURenderPassEncoder.popDebugGroup" exists.
+func (this GPURenderPassEncoder) HasFuncPopDebugGroup() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderPopDebugGroup(
+		this.ref,
 	)
 }
 
-// PopDebugGroupFunc returns the method "GPURenderPassEncoder.popDebugGroup".
-func (this GPURenderPassEncoder) PopDebugGroupFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderPopDebugGroupFunc(
-			this.Ref(),
-		),
+// FuncPopDebugGroup returns the method "GPURenderPassEncoder.popDebugGroup".
+func (this GPURenderPassEncoder) FuncPopDebugGroup() (fn js.Func[func()]) {
+	bindings.FuncGPURenderPassEncoderPopDebugGroup(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PopDebugGroup calls the method "GPURenderPassEncoder.popDebugGroup".
 func (this GPURenderPassEncoder) PopDebugGroup() (ret js.Void) {
 	bindings.CallGPURenderPassEncoderPopDebugGroup(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1315,32 +1275,31 @@ func (this GPURenderPassEncoder) PopDebugGroup() (ret js.Void) {
 // the catch clause.
 func (this GPURenderPassEncoder) TryPopDebugGroup() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderPopDebugGroup(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasInsertDebugMarker returns true if the method "GPURenderPassEncoder.insertDebugMarker" exists.
-func (this GPURenderPassEncoder) HasInsertDebugMarker() bool {
-	return js.True == bindings.HasGPURenderPassEncoderInsertDebugMarker(
-		this.Ref(),
+// HasFuncInsertDebugMarker returns true if the method "GPURenderPassEncoder.insertDebugMarker" exists.
+func (this GPURenderPassEncoder) HasFuncInsertDebugMarker() bool {
+	return js.True == bindings.HasFuncGPURenderPassEncoderInsertDebugMarker(
+		this.ref,
 	)
 }
 
-// InsertDebugMarkerFunc returns the method "GPURenderPassEncoder.insertDebugMarker".
-func (this GPURenderPassEncoder) InsertDebugMarkerFunc() (fn js.Func[func(markerLabel js.String)]) {
-	return fn.FromRef(
-		bindings.GPURenderPassEncoderInsertDebugMarkerFunc(
-			this.Ref(),
-		),
+// FuncInsertDebugMarker returns the method "GPURenderPassEncoder.insertDebugMarker".
+func (this GPURenderPassEncoder) FuncInsertDebugMarker() (fn js.Func[func(markerLabel js.String)]) {
+	bindings.FuncGPURenderPassEncoderInsertDebugMarker(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InsertDebugMarker calls the method "GPURenderPassEncoder.insertDebugMarker".
 func (this GPURenderPassEncoder) InsertDebugMarker(markerLabel js.String) (ret js.Void) {
 	bindings.CallGPURenderPassEncoderInsertDebugMarker(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		markerLabel.Ref(),
 	)
 
@@ -1352,7 +1311,7 @@ func (this GPURenderPassEncoder) InsertDebugMarker(markerLabel js.String) (ret j
 // the catch clause.
 func (this GPURenderPassEncoder) TryInsertDebugMarker(markerLabel js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderInsertDebugMarker(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		markerLabel.Ref(),
 	)
 
@@ -1446,17 +1405,30 @@ func (p GPURenderPassColorAttachment) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPURenderPassColorAttachment) UpdateFrom(ref js.Ref) {
+func (p *GPURenderPassColorAttachment) UpdateFrom(ref js.Ref) {
 	bindings.GPURenderPassColorAttachmentJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPURenderPassColorAttachment) Update(ref js.Ref) {
+func (p *GPURenderPassColorAttachment) Update(ref js.Ref) {
 	bindings.GPURenderPassColorAttachmentJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPURenderPassColorAttachment) FreeMembers(recursive bool) {
+	js.Free(
+		p.View.Ref(),
+		p.ResolveTarget.Ref(),
+		p.ClearValue.Ref(),
+	)
+	p.View = p.View.FromRef(js.Undefined)
+	p.ResolveTarget = p.ResolveTarget.FromRef(js.Undefined)
+	p.ClearValue = p.ClearValue.FromRef(js.Undefined)
 }
 
 type GPURenderPassDepthStencilAttachment struct {
@@ -1527,17 +1499,26 @@ func (p GPURenderPassDepthStencilAttachment) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPURenderPassDepthStencilAttachment) UpdateFrom(ref js.Ref) {
+func (p *GPURenderPassDepthStencilAttachment) UpdateFrom(ref js.Ref) {
 	bindings.GPURenderPassDepthStencilAttachmentJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPURenderPassDepthStencilAttachment) Update(ref js.Ref) {
+func (p *GPURenderPassDepthStencilAttachment) Update(ref js.Ref) {
 	bindings.GPURenderPassDepthStencilAttachmentJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPURenderPassDepthStencilAttachment) FreeMembers(recursive bool) {
+	js.Free(
+		p.View.Ref(),
+	)
+	p.View = p.View.FromRef(js.Undefined)
 }
 
 type GPUQueryType uint32
@@ -1569,7 +1550,7 @@ type GPUQuerySet struct {
 }
 
 func (this GPUQuerySet) Once() GPUQuerySet {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1583,7 +1564,7 @@ func (this GPUQuerySet) FromRef(ref js.Ref) GPUQuerySet {
 }
 
 func (this GPUQuerySet) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Type returns the value of property "GPUQuerySet.type".
@@ -1591,7 +1572,7 @@ func (this GPUQuerySet) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUQuerySet) Type() (ret GPUQueryType, ok bool) {
 	ok = js.True == bindings.GetGPUQuerySetType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1601,7 +1582,7 @@ func (this GPUQuerySet) Type() (ret GPUQueryType, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUQuerySet) Count() (ret GPUSize32Out, ok bool) {
 	ok = js.True == bindings.GetGPUQuerySetCount(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1611,7 +1592,7 @@ func (this GPUQuerySet) Count() (ret GPUSize32Out, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUQuerySet) Label() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGPUQuerySetLabel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1621,31 +1602,30 @@ func (this GPUQuerySet) Label() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this GPUQuerySet) SetLabel(val js.String) bool {
 	return js.True == bindings.SetGPUQuerySetLabel(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
 
-// HasDestroy returns true if the method "GPUQuerySet.destroy" exists.
-func (this GPUQuerySet) HasDestroy() bool {
-	return js.True == bindings.HasGPUQuerySetDestroy(
-		this.Ref(),
+// HasFuncDestroy returns true if the method "GPUQuerySet.destroy" exists.
+func (this GPUQuerySet) HasFuncDestroy() bool {
+	return js.True == bindings.HasFuncGPUQuerySetDestroy(
+		this.ref,
 	)
 }
 
-// DestroyFunc returns the method "GPUQuerySet.destroy".
-func (this GPUQuerySet) DestroyFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.GPUQuerySetDestroyFunc(
-			this.Ref(),
-		),
+// FuncDestroy returns the method "GPUQuerySet.destroy".
+func (this GPUQuerySet) FuncDestroy() (fn js.Func[func()]) {
+	bindings.FuncGPUQuerySetDestroy(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Destroy calls the method "GPUQuerySet.destroy".
 func (this GPUQuerySet) Destroy() (ret js.Void) {
 	bindings.CallGPUQuerySetDestroy(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1656,7 +1636,7 @@ func (this GPUQuerySet) Destroy() (ret js.Void) {
 // the catch clause.
 func (this GPUQuerySet) TryDestroy() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUQuerySetDestroy(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1700,17 +1680,26 @@ func (p GPURenderPassTimestampWrites) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPURenderPassTimestampWrites) UpdateFrom(ref js.Ref) {
+func (p *GPURenderPassTimestampWrites) UpdateFrom(ref js.Ref) {
 	bindings.GPURenderPassTimestampWritesJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPURenderPassTimestampWrites) Update(ref js.Ref) {
+func (p *GPURenderPassTimestampWrites) Update(ref js.Ref) {
 	bindings.GPURenderPassTimestampWritesJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPURenderPassTimestampWrites) FreeMembers(recursive bool) {
+	js.Free(
+		p.QuerySet.Ref(),
+	)
+	p.QuerySet = p.QuerySet.FromRef(js.Undefined)
 }
 
 type GPURenderPassDescriptor struct {
@@ -1764,17 +1753,34 @@ func (p GPURenderPassDescriptor) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPURenderPassDescriptor) UpdateFrom(ref js.Ref) {
+func (p *GPURenderPassDescriptor) UpdateFrom(ref js.Ref) {
 	bindings.GPURenderPassDescriptorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPURenderPassDescriptor) Update(ref js.Ref) {
+func (p *GPURenderPassDescriptor) Update(ref js.Ref) {
 	bindings.GPURenderPassDescriptorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPURenderPassDescriptor) FreeMembers(recursive bool) {
+	js.Free(
+		p.ColorAttachments.Ref(),
+		p.OcclusionQuerySet.Ref(),
+		p.Label.Ref(),
+	)
+	p.ColorAttachments = p.ColorAttachments.FromRef(js.Undefined)
+	p.OcclusionQuerySet = p.OcclusionQuerySet.FromRef(js.Undefined)
+	p.Label = p.Label.FromRef(js.Undefined)
+	if recursive {
+		p.DepthStencilAttachment.FreeMembers(true)
+		p.TimestampWrites.FreeMembers(true)
+	}
 }
 
 type GPUComputePassEncoder struct {
@@ -1782,7 +1788,7 @@ type GPUComputePassEncoder struct {
 }
 
 func (this GPUComputePassEncoder) Once() GPUComputePassEncoder {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1796,7 +1802,7 @@ func (this GPUComputePassEncoder) FromRef(ref js.Ref) GPUComputePassEncoder {
 }
 
 func (this GPUComputePassEncoder) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Label returns the value of property "GPUComputePassEncoder.label".
@@ -1804,7 +1810,7 @@ func (this GPUComputePassEncoder) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUComputePassEncoder) Label() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGPUComputePassEncoderLabel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1814,31 +1820,30 @@ func (this GPUComputePassEncoder) Label() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this GPUComputePassEncoder) SetLabel(val js.String) bool {
 	return js.True == bindings.SetGPUComputePassEncoderLabel(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
 
-// HasSetPipeline returns true if the method "GPUComputePassEncoder.setPipeline" exists.
-func (this GPUComputePassEncoder) HasSetPipeline() bool {
-	return js.True == bindings.HasGPUComputePassEncoderSetPipeline(
-		this.Ref(),
+// HasFuncSetPipeline returns true if the method "GPUComputePassEncoder.setPipeline" exists.
+func (this GPUComputePassEncoder) HasFuncSetPipeline() bool {
+	return js.True == bindings.HasFuncGPUComputePassEncoderSetPipeline(
+		this.ref,
 	)
 }
 
-// SetPipelineFunc returns the method "GPUComputePassEncoder.setPipeline".
-func (this GPUComputePassEncoder) SetPipelineFunc() (fn js.Func[func(pipeline GPUComputePipeline)]) {
-	return fn.FromRef(
-		bindings.GPUComputePassEncoderSetPipelineFunc(
-			this.Ref(),
-		),
+// FuncSetPipeline returns the method "GPUComputePassEncoder.setPipeline".
+func (this GPUComputePassEncoder) FuncSetPipeline() (fn js.Func[func(pipeline GPUComputePipeline)]) {
+	bindings.FuncGPUComputePassEncoderSetPipeline(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetPipeline calls the method "GPUComputePassEncoder.setPipeline".
 func (this GPUComputePassEncoder) SetPipeline(pipeline GPUComputePipeline) (ret js.Void) {
 	bindings.CallGPUComputePassEncoderSetPipeline(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		pipeline.Ref(),
 	)
 
@@ -1850,33 +1855,32 @@ func (this GPUComputePassEncoder) SetPipeline(pipeline GPUComputePipeline) (ret 
 // the catch clause.
 func (this GPUComputePassEncoder) TrySetPipeline(pipeline GPUComputePipeline) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePassEncoderSetPipeline(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		pipeline.Ref(),
 	)
 
 	return
 }
 
-// HasDispatchWorkgroups returns true if the method "GPUComputePassEncoder.dispatchWorkgroups" exists.
-func (this GPUComputePassEncoder) HasDispatchWorkgroups() bool {
-	return js.True == bindings.HasGPUComputePassEncoderDispatchWorkgroups(
-		this.Ref(),
+// HasFuncDispatchWorkgroups returns true if the method "GPUComputePassEncoder.dispatchWorkgroups" exists.
+func (this GPUComputePassEncoder) HasFuncDispatchWorkgroups() bool {
+	return js.True == bindings.HasFuncGPUComputePassEncoderDispatchWorkgroups(
+		this.ref,
 	)
 }
 
-// DispatchWorkgroupsFunc returns the method "GPUComputePassEncoder.dispatchWorkgroups".
-func (this GPUComputePassEncoder) DispatchWorkgroupsFunc() (fn js.Func[func(workgroupCountX GPUSize32, workgroupCountY GPUSize32, workgroupCountZ GPUSize32)]) {
-	return fn.FromRef(
-		bindings.GPUComputePassEncoderDispatchWorkgroupsFunc(
-			this.Ref(),
-		),
+// FuncDispatchWorkgroups returns the method "GPUComputePassEncoder.dispatchWorkgroups".
+func (this GPUComputePassEncoder) FuncDispatchWorkgroups() (fn js.Func[func(workgroupCountX GPUSize32, workgroupCountY GPUSize32, workgroupCountZ GPUSize32)]) {
+	bindings.FuncGPUComputePassEncoderDispatchWorkgroups(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DispatchWorkgroups calls the method "GPUComputePassEncoder.dispatchWorkgroups".
 func (this GPUComputePassEncoder) DispatchWorkgroups(workgroupCountX GPUSize32, workgroupCountY GPUSize32, workgroupCountZ GPUSize32) (ret js.Void) {
 	bindings.CallGPUComputePassEncoderDispatchWorkgroups(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(workgroupCountX),
 		uint32(workgroupCountY),
 		uint32(workgroupCountZ),
@@ -1890,7 +1894,7 @@ func (this GPUComputePassEncoder) DispatchWorkgroups(workgroupCountX GPUSize32, 
 // the catch clause.
 func (this GPUComputePassEncoder) TryDispatchWorkgroups(workgroupCountX GPUSize32, workgroupCountY GPUSize32, workgroupCountZ GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePassEncoderDispatchWorkgroups(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(workgroupCountX),
 		uint32(workgroupCountY),
 		uint32(workgroupCountZ),
@@ -1899,26 +1903,25 @@ func (this GPUComputePassEncoder) TryDispatchWorkgroups(workgroupCountX GPUSize3
 	return
 }
 
-// HasDispatchWorkgroups1 returns true if the method "GPUComputePassEncoder.dispatchWorkgroups" exists.
-func (this GPUComputePassEncoder) HasDispatchWorkgroups1() bool {
-	return js.True == bindings.HasGPUComputePassEncoderDispatchWorkgroups1(
-		this.Ref(),
+// HasFuncDispatchWorkgroups1 returns true if the method "GPUComputePassEncoder.dispatchWorkgroups" exists.
+func (this GPUComputePassEncoder) HasFuncDispatchWorkgroups1() bool {
+	return js.True == bindings.HasFuncGPUComputePassEncoderDispatchWorkgroups1(
+		this.ref,
 	)
 }
 
-// DispatchWorkgroups1Func returns the method "GPUComputePassEncoder.dispatchWorkgroups".
-func (this GPUComputePassEncoder) DispatchWorkgroups1Func() (fn js.Func[func(workgroupCountX GPUSize32, workgroupCountY GPUSize32)]) {
-	return fn.FromRef(
-		bindings.GPUComputePassEncoderDispatchWorkgroups1Func(
-			this.Ref(),
-		),
+// FuncDispatchWorkgroups1 returns the method "GPUComputePassEncoder.dispatchWorkgroups".
+func (this GPUComputePassEncoder) FuncDispatchWorkgroups1() (fn js.Func[func(workgroupCountX GPUSize32, workgroupCountY GPUSize32)]) {
+	bindings.FuncGPUComputePassEncoderDispatchWorkgroups1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DispatchWorkgroups1 calls the method "GPUComputePassEncoder.dispatchWorkgroups".
 func (this GPUComputePassEncoder) DispatchWorkgroups1(workgroupCountX GPUSize32, workgroupCountY GPUSize32) (ret js.Void) {
 	bindings.CallGPUComputePassEncoderDispatchWorkgroups1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(workgroupCountX),
 		uint32(workgroupCountY),
 	)
@@ -1931,7 +1934,7 @@ func (this GPUComputePassEncoder) DispatchWorkgroups1(workgroupCountX GPUSize32,
 // the catch clause.
 func (this GPUComputePassEncoder) TryDispatchWorkgroups1(workgroupCountX GPUSize32, workgroupCountY GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePassEncoderDispatchWorkgroups1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(workgroupCountX),
 		uint32(workgroupCountY),
 	)
@@ -1939,26 +1942,25 @@ func (this GPUComputePassEncoder) TryDispatchWorkgroups1(workgroupCountX GPUSize
 	return
 }
 
-// HasDispatchWorkgroups2 returns true if the method "GPUComputePassEncoder.dispatchWorkgroups" exists.
-func (this GPUComputePassEncoder) HasDispatchWorkgroups2() bool {
-	return js.True == bindings.HasGPUComputePassEncoderDispatchWorkgroups2(
-		this.Ref(),
+// HasFuncDispatchWorkgroups2 returns true if the method "GPUComputePassEncoder.dispatchWorkgroups" exists.
+func (this GPUComputePassEncoder) HasFuncDispatchWorkgroups2() bool {
+	return js.True == bindings.HasFuncGPUComputePassEncoderDispatchWorkgroups2(
+		this.ref,
 	)
 }
 
-// DispatchWorkgroups2Func returns the method "GPUComputePassEncoder.dispatchWorkgroups".
-func (this GPUComputePassEncoder) DispatchWorkgroups2Func() (fn js.Func[func(workgroupCountX GPUSize32)]) {
-	return fn.FromRef(
-		bindings.GPUComputePassEncoderDispatchWorkgroups2Func(
-			this.Ref(),
-		),
+// FuncDispatchWorkgroups2 returns the method "GPUComputePassEncoder.dispatchWorkgroups".
+func (this GPUComputePassEncoder) FuncDispatchWorkgroups2() (fn js.Func[func(workgroupCountX GPUSize32)]) {
+	bindings.FuncGPUComputePassEncoderDispatchWorkgroups2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DispatchWorkgroups2 calls the method "GPUComputePassEncoder.dispatchWorkgroups".
 func (this GPUComputePassEncoder) DispatchWorkgroups2(workgroupCountX GPUSize32) (ret js.Void) {
 	bindings.CallGPUComputePassEncoderDispatchWorkgroups2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(workgroupCountX),
 	)
 
@@ -1970,33 +1972,32 @@ func (this GPUComputePassEncoder) DispatchWorkgroups2(workgroupCountX GPUSize32)
 // the catch clause.
 func (this GPUComputePassEncoder) TryDispatchWorkgroups2(workgroupCountX GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePassEncoderDispatchWorkgroups2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(workgroupCountX),
 	)
 
 	return
 }
 
-// HasDispatchWorkgroupsIndirect returns true if the method "GPUComputePassEncoder.dispatchWorkgroupsIndirect" exists.
-func (this GPUComputePassEncoder) HasDispatchWorkgroupsIndirect() bool {
-	return js.True == bindings.HasGPUComputePassEncoderDispatchWorkgroupsIndirect(
-		this.Ref(),
+// HasFuncDispatchWorkgroupsIndirect returns true if the method "GPUComputePassEncoder.dispatchWorkgroupsIndirect" exists.
+func (this GPUComputePassEncoder) HasFuncDispatchWorkgroupsIndirect() bool {
+	return js.True == bindings.HasFuncGPUComputePassEncoderDispatchWorkgroupsIndirect(
+		this.ref,
 	)
 }
 
-// DispatchWorkgroupsIndirectFunc returns the method "GPUComputePassEncoder.dispatchWorkgroupsIndirect".
-func (this GPUComputePassEncoder) DispatchWorkgroupsIndirectFunc() (fn js.Func[func(indirectBuffer GPUBuffer, indirectOffset GPUSize64)]) {
-	return fn.FromRef(
-		bindings.GPUComputePassEncoderDispatchWorkgroupsIndirectFunc(
-			this.Ref(),
-		),
+// FuncDispatchWorkgroupsIndirect returns the method "GPUComputePassEncoder.dispatchWorkgroupsIndirect".
+func (this GPUComputePassEncoder) FuncDispatchWorkgroupsIndirect() (fn js.Func[func(indirectBuffer GPUBuffer, indirectOffset GPUSize64)]) {
+	bindings.FuncGPUComputePassEncoderDispatchWorkgroupsIndirect(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DispatchWorkgroupsIndirect calls the method "GPUComputePassEncoder.dispatchWorkgroupsIndirect".
 func (this GPUComputePassEncoder) DispatchWorkgroupsIndirect(indirectBuffer GPUBuffer, indirectOffset GPUSize64) (ret js.Void) {
 	bindings.CallGPUComputePassEncoderDispatchWorkgroupsIndirect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		indirectBuffer.Ref(),
 		float64(indirectOffset),
 	)
@@ -2009,7 +2010,7 @@ func (this GPUComputePassEncoder) DispatchWorkgroupsIndirect(indirectBuffer GPUB
 // the catch clause.
 func (this GPUComputePassEncoder) TryDispatchWorkgroupsIndirect(indirectBuffer GPUBuffer, indirectOffset GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePassEncoderDispatchWorkgroupsIndirect(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		indirectBuffer.Ref(),
 		float64(indirectOffset),
 	)
@@ -2017,26 +2018,25 @@ func (this GPUComputePassEncoder) TryDispatchWorkgroupsIndirect(indirectBuffer G
 	return
 }
 
-// HasEnd returns true if the method "GPUComputePassEncoder.end" exists.
-func (this GPUComputePassEncoder) HasEnd() bool {
-	return js.True == bindings.HasGPUComputePassEncoderEnd(
-		this.Ref(),
+// HasFuncEnd returns true if the method "GPUComputePassEncoder.end" exists.
+func (this GPUComputePassEncoder) HasFuncEnd() bool {
+	return js.True == bindings.HasFuncGPUComputePassEncoderEnd(
+		this.ref,
 	)
 }
 
-// EndFunc returns the method "GPUComputePassEncoder.end".
-func (this GPUComputePassEncoder) EndFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.GPUComputePassEncoderEndFunc(
-			this.Ref(),
-		),
+// FuncEnd returns the method "GPUComputePassEncoder.end".
+func (this GPUComputePassEncoder) FuncEnd() (fn js.Func[func()]) {
+	bindings.FuncGPUComputePassEncoderEnd(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // End calls the method "GPUComputePassEncoder.end".
 func (this GPUComputePassEncoder) End() (ret js.Void) {
 	bindings.CallGPUComputePassEncoderEnd(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2047,32 +2047,31 @@ func (this GPUComputePassEncoder) End() (ret js.Void) {
 // the catch clause.
 func (this GPUComputePassEncoder) TryEnd() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePassEncoderEnd(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasPushDebugGroup returns true if the method "GPUComputePassEncoder.pushDebugGroup" exists.
-func (this GPUComputePassEncoder) HasPushDebugGroup() bool {
-	return js.True == bindings.HasGPUComputePassEncoderPushDebugGroup(
-		this.Ref(),
+// HasFuncPushDebugGroup returns true if the method "GPUComputePassEncoder.pushDebugGroup" exists.
+func (this GPUComputePassEncoder) HasFuncPushDebugGroup() bool {
+	return js.True == bindings.HasFuncGPUComputePassEncoderPushDebugGroup(
+		this.ref,
 	)
 }
 
-// PushDebugGroupFunc returns the method "GPUComputePassEncoder.pushDebugGroup".
-func (this GPUComputePassEncoder) PushDebugGroupFunc() (fn js.Func[func(groupLabel js.String)]) {
-	return fn.FromRef(
-		bindings.GPUComputePassEncoderPushDebugGroupFunc(
-			this.Ref(),
-		),
+// FuncPushDebugGroup returns the method "GPUComputePassEncoder.pushDebugGroup".
+func (this GPUComputePassEncoder) FuncPushDebugGroup() (fn js.Func[func(groupLabel js.String)]) {
+	bindings.FuncGPUComputePassEncoderPushDebugGroup(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PushDebugGroup calls the method "GPUComputePassEncoder.pushDebugGroup".
 func (this GPUComputePassEncoder) PushDebugGroup(groupLabel js.String) (ret js.Void) {
 	bindings.CallGPUComputePassEncoderPushDebugGroup(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		groupLabel.Ref(),
 	)
 
@@ -2084,33 +2083,32 @@ func (this GPUComputePassEncoder) PushDebugGroup(groupLabel js.String) (ret js.V
 // the catch clause.
 func (this GPUComputePassEncoder) TryPushDebugGroup(groupLabel js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePassEncoderPushDebugGroup(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		groupLabel.Ref(),
 	)
 
 	return
 }
 
-// HasPopDebugGroup returns true if the method "GPUComputePassEncoder.popDebugGroup" exists.
-func (this GPUComputePassEncoder) HasPopDebugGroup() bool {
-	return js.True == bindings.HasGPUComputePassEncoderPopDebugGroup(
-		this.Ref(),
+// HasFuncPopDebugGroup returns true if the method "GPUComputePassEncoder.popDebugGroup" exists.
+func (this GPUComputePassEncoder) HasFuncPopDebugGroup() bool {
+	return js.True == bindings.HasFuncGPUComputePassEncoderPopDebugGroup(
+		this.ref,
 	)
 }
 
-// PopDebugGroupFunc returns the method "GPUComputePassEncoder.popDebugGroup".
-func (this GPUComputePassEncoder) PopDebugGroupFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.GPUComputePassEncoderPopDebugGroupFunc(
-			this.Ref(),
-		),
+// FuncPopDebugGroup returns the method "GPUComputePassEncoder.popDebugGroup".
+func (this GPUComputePassEncoder) FuncPopDebugGroup() (fn js.Func[func()]) {
+	bindings.FuncGPUComputePassEncoderPopDebugGroup(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PopDebugGroup calls the method "GPUComputePassEncoder.popDebugGroup".
 func (this GPUComputePassEncoder) PopDebugGroup() (ret js.Void) {
 	bindings.CallGPUComputePassEncoderPopDebugGroup(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2121,32 +2119,31 @@ func (this GPUComputePassEncoder) PopDebugGroup() (ret js.Void) {
 // the catch clause.
 func (this GPUComputePassEncoder) TryPopDebugGroup() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePassEncoderPopDebugGroup(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasInsertDebugMarker returns true if the method "GPUComputePassEncoder.insertDebugMarker" exists.
-func (this GPUComputePassEncoder) HasInsertDebugMarker() bool {
-	return js.True == bindings.HasGPUComputePassEncoderInsertDebugMarker(
-		this.Ref(),
+// HasFuncInsertDebugMarker returns true if the method "GPUComputePassEncoder.insertDebugMarker" exists.
+func (this GPUComputePassEncoder) HasFuncInsertDebugMarker() bool {
+	return js.True == bindings.HasFuncGPUComputePassEncoderInsertDebugMarker(
+		this.ref,
 	)
 }
 
-// InsertDebugMarkerFunc returns the method "GPUComputePassEncoder.insertDebugMarker".
-func (this GPUComputePassEncoder) InsertDebugMarkerFunc() (fn js.Func[func(markerLabel js.String)]) {
-	return fn.FromRef(
-		bindings.GPUComputePassEncoderInsertDebugMarkerFunc(
-			this.Ref(),
-		),
+// FuncInsertDebugMarker returns the method "GPUComputePassEncoder.insertDebugMarker".
+func (this GPUComputePassEncoder) FuncInsertDebugMarker() (fn js.Func[func(markerLabel js.String)]) {
+	bindings.FuncGPUComputePassEncoderInsertDebugMarker(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InsertDebugMarker calls the method "GPUComputePassEncoder.insertDebugMarker".
 func (this GPUComputePassEncoder) InsertDebugMarker(markerLabel js.String) (ret js.Void) {
 	bindings.CallGPUComputePassEncoderInsertDebugMarker(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		markerLabel.Ref(),
 	)
 
@@ -2158,33 +2155,32 @@ func (this GPUComputePassEncoder) InsertDebugMarker(markerLabel js.String) (ret 
 // the catch clause.
 func (this GPUComputePassEncoder) TryInsertDebugMarker(markerLabel js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePassEncoderInsertDebugMarker(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		markerLabel.Ref(),
 	)
 
 	return
 }
 
-// HasSetBindGroup returns true if the method "GPUComputePassEncoder.setBindGroup" exists.
-func (this GPUComputePassEncoder) HasSetBindGroup() bool {
-	return js.True == bindings.HasGPUComputePassEncoderSetBindGroup(
-		this.Ref(),
+// HasFuncSetBindGroup returns true if the method "GPUComputePassEncoder.setBindGroup" exists.
+func (this GPUComputePassEncoder) HasFuncSetBindGroup() bool {
+	return js.True == bindings.HasFuncGPUComputePassEncoderSetBindGroup(
+		this.ref,
 	)
 }
 
-// SetBindGroupFunc returns the method "GPUComputePassEncoder.setBindGroup".
-func (this GPUComputePassEncoder) SetBindGroupFunc() (fn js.Func[func(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsets js.Array[GPUBufferDynamicOffset])]) {
-	return fn.FromRef(
-		bindings.GPUComputePassEncoderSetBindGroupFunc(
-			this.Ref(),
-		),
+// FuncSetBindGroup returns the method "GPUComputePassEncoder.setBindGroup".
+func (this GPUComputePassEncoder) FuncSetBindGroup() (fn js.Func[func(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsets js.Array[GPUBufferDynamicOffset])]) {
+	bindings.FuncGPUComputePassEncoderSetBindGroup(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetBindGroup calls the method "GPUComputePassEncoder.setBindGroup".
 func (this GPUComputePassEncoder) SetBindGroup(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsets js.Array[GPUBufferDynamicOffset]) (ret js.Void) {
 	bindings.CallGPUComputePassEncoderSetBindGroup(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		bindGroup.Ref(),
 		dynamicOffsets.Ref(),
@@ -2198,7 +2194,7 @@ func (this GPUComputePassEncoder) SetBindGroup(index GPUIndex32, bindGroup GPUBi
 // the catch clause.
 func (this GPUComputePassEncoder) TrySetBindGroup(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsets js.Array[GPUBufferDynamicOffset]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePassEncoderSetBindGroup(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		bindGroup.Ref(),
 		dynamicOffsets.Ref(),
@@ -2207,26 +2203,25 @@ func (this GPUComputePassEncoder) TrySetBindGroup(index GPUIndex32, bindGroup GP
 	return
 }
 
-// HasSetBindGroup1 returns true if the method "GPUComputePassEncoder.setBindGroup" exists.
-func (this GPUComputePassEncoder) HasSetBindGroup1() bool {
-	return js.True == bindings.HasGPUComputePassEncoderSetBindGroup1(
-		this.Ref(),
+// HasFuncSetBindGroup1 returns true if the method "GPUComputePassEncoder.setBindGroup" exists.
+func (this GPUComputePassEncoder) HasFuncSetBindGroup1() bool {
+	return js.True == bindings.HasFuncGPUComputePassEncoderSetBindGroup1(
+		this.ref,
 	)
 }
 
-// SetBindGroup1Func returns the method "GPUComputePassEncoder.setBindGroup".
-func (this GPUComputePassEncoder) SetBindGroup1Func() (fn js.Func[func(index GPUIndex32, bindGroup GPUBindGroup)]) {
-	return fn.FromRef(
-		bindings.GPUComputePassEncoderSetBindGroup1Func(
-			this.Ref(),
-		),
+// FuncSetBindGroup1 returns the method "GPUComputePassEncoder.setBindGroup".
+func (this GPUComputePassEncoder) FuncSetBindGroup1() (fn js.Func[func(index GPUIndex32, bindGroup GPUBindGroup)]) {
+	bindings.FuncGPUComputePassEncoderSetBindGroup1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetBindGroup1 calls the method "GPUComputePassEncoder.setBindGroup".
 func (this GPUComputePassEncoder) SetBindGroup1(index GPUIndex32, bindGroup GPUBindGroup) (ret js.Void) {
 	bindings.CallGPUComputePassEncoderSetBindGroup1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		bindGroup.Ref(),
 	)
@@ -2239,7 +2234,7 @@ func (this GPUComputePassEncoder) SetBindGroup1(index GPUIndex32, bindGroup GPUB
 // the catch clause.
 func (this GPUComputePassEncoder) TrySetBindGroup1(index GPUIndex32, bindGroup GPUBindGroup) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePassEncoderSetBindGroup1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		bindGroup.Ref(),
 	)
@@ -2247,26 +2242,25 @@ func (this GPUComputePassEncoder) TrySetBindGroup1(index GPUIndex32, bindGroup G
 	return
 }
 
-// HasSetBindGroup2 returns true if the method "GPUComputePassEncoder.setBindGroup" exists.
-func (this GPUComputePassEncoder) HasSetBindGroup2() bool {
-	return js.True == bindings.HasGPUComputePassEncoderSetBindGroup2(
-		this.Ref(),
+// HasFuncSetBindGroup2 returns true if the method "GPUComputePassEncoder.setBindGroup" exists.
+func (this GPUComputePassEncoder) HasFuncSetBindGroup2() bool {
+	return js.True == bindings.HasFuncGPUComputePassEncoderSetBindGroup2(
+		this.ref,
 	)
 }
 
-// SetBindGroup2Func returns the method "GPUComputePassEncoder.setBindGroup".
-func (this GPUComputePassEncoder) SetBindGroup2Func() (fn js.Func[func(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsetsData js.TypedArray[uint32], dynamicOffsetsDataStart GPUSize64, dynamicOffsetsDataLength GPUSize32)]) {
-	return fn.FromRef(
-		bindings.GPUComputePassEncoderSetBindGroup2Func(
-			this.Ref(),
-		),
+// FuncSetBindGroup2 returns the method "GPUComputePassEncoder.setBindGroup".
+func (this GPUComputePassEncoder) FuncSetBindGroup2() (fn js.Func[func(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsetsData js.TypedArray[uint32], dynamicOffsetsDataStart GPUSize64, dynamicOffsetsDataLength GPUSize32)]) {
+	bindings.FuncGPUComputePassEncoderSetBindGroup2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetBindGroup2 calls the method "GPUComputePassEncoder.setBindGroup".
 func (this GPUComputePassEncoder) SetBindGroup2(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsetsData js.TypedArray[uint32], dynamicOffsetsDataStart GPUSize64, dynamicOffsetsDataLength GPUSize32) (ret js.Void) {
 	bindings.CallGPUComputePassEncoderSetBindGroup2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		bindGroup.Ref(),
 		dynamicOffsetsData.Ref(),
@@ -2282,7 +2276,7 @@ func (this GPUComputePassEncoder) SetBindGroup2(index GPUIndex32, bindGroup GPUB
 // the catch clause.
 func (this GPUComputePassEncoder) TrySetBindGroup2(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsetsData js.TypedArray[uint32], dynamicOffsetsDataStart GPUSize64, dynamicOffsetsDataLength GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePassEncoderSetBindGroup2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		bindGroup.Ref(),
 		dynamicOffsetsData.Ref(),
@@ -2331,17 +2325,26 @@ func (p GPUComputePassTimestampWrites) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUComputePassTimestampWrites) UpdateFrom(ref js.Ref) {
+func (p *GPUComputePassTimestampWrites) UpdateFrom(ref js.Ref) {
 	bindings.GPUComputePassTimestampWritesJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUComputePassTimestampWrites) Update(ref js.Ref) {
+func (p *GPUComputePassTimestampWrites) Update(ref js.Ref) {
 	bindings.GPUComputePassTimestampWritesJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUComputePassTimestampWrites) FreeMembers(recursive bool) {
+	js.Free(
+		p.QuerySet.Ref(),
+	)
+	p.QuerySet = p.QuerySet.FromRef(js.Undefined)
 }
 
 type GPUComputePassDescriptor struct {
@@ -2373,17 +2376,29 @@ func (p GPUComputePassDescriptor) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUComputePassDescriptor) UpdateFrom(ref js.Ref) {
+func (p *GPUComputePassDescriptor) UpdateFrom(ref js.Ref) {
 	bindings.GPUComputePassDescriptorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUComputePassDescriptor) Update(ref js.Ref) {
+func (p *GPUComputePassDescriptor) Update(ref js.Ref) {
 	bindings.GPUComputePassDescriptorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUComputePassDescriptor) FreeMembers(recursive bool) {
+	js.Free(
+		p.Label.Ref(),
+	)
+	p.Label = p.Label.FromRef(js.Undefined)
+	if recursive {
+		p.TimestampWrites.FreeMembers(true)
+	}
 }
 
 type GPUImageCopyBuffer struct {
@@ -2431,17 +2446,26 @@ func (p GPUImageCopyBuffer) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUImageCopyBuffer) UpdateFrom(ref js.Ref) {
+func (p *GPUImageCopyBuffer) UpdateFrom(ref js.Ref) {
 	bindings.GPUImageCopyBufferJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUImageCopyBuffer) Update(ref js.Ref) {
+func (p *GPUImageCopyBuffer) Update(ref js.Ref) {
 	bindings.GPUImageCopyBufferJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUImageCopyBuffer) FreeMembers(recursive bool) {
+	js.Free(
+		p.Buffer.Ref(),
+	)
+	p.Buffer = p.Buffer.FromRef(js.Undefined)
 }
 
 type GPUOrigin3DDict struct {
@@ -2485,17 +2509,22 @@ func (p GPUOrigin3DDict) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUOrigin3DDict) UpdateFrom(ref js.Ref) {
+func (p *GPUOrigin3DDict) UpdateFrom(ref js.Ref) {
 	bindings.GPUOrigin3DDictJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUOrigin3DDict) Update(ref js.Ref) {
+func (p *GPUOrigin3DDict) Update(ref js.Ref) {
 	bindings.GPUOrigin3DDictJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUOrigin3DDict) FreeMembers(recursive bool) {
 }
 
 type OneOf_ArrayGPUIntegerCoordinate_GPUOrigin3DDict struct {
@@ -2567,17 +2596,28 @@ func (p GPUImageCopyTexture) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUImageCopyTexture) UpdateFrom(ref js.Ref) {
+func (p *GPUImageCopyTexture) UpdateFrom(ref js.Ref) {
 	bindings.GPUImageCopyTextureJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUImageCopyTexture) Update(ref js.Ref) {
+func (p *GPUImageCopyTexture) Update(ref js.Ref) {
 	bindings.GPUImageCopyTextureJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUImageCopyTexture) FreeMembers(recursive bool) {
+	js.Free(
+		p.Texture.Ref(),
+		p.Origin.Ref(),
+	)
+	p.Texture = p.Texture.FromRef(js.Undefined)
+	p.Origin = p.Origin.FromRef(js.Undefined)
 }
 
 type GPUCommandBuffer struct {
@@ -2585,7 +2625,7 @@ type GPUCommandBuffer struct {
 }
 
 func (this GPUCommandBuffer) Once() GPUCommandBuffer {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2599,7 +2639,7 @@ func (this GPUCommandBuffer) FromRef(ref js.Ref) GPUCommandBuffer {
 }
 
 func (this GPUCommandBuffer) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Label returns the value of property "GPUCommandBuffer.label".
@@ -2607,7 +2647,7 @@ func (this GPUCommandBuffer) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUCommandBuffer) Label() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGPUCommandBufferLabel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2617,7 +2657,7 @@ func (this GPUCommandBuffer) Label() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this GPUCommandBuffer) SetLabel(val js.String) bool {
 	return js.True == bindings.SetGPUCommandBufferLabel(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2645,17 +2685,26 @@ func (p GPUCommandBufferDescriptor) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUCommandBufferDescriptor) UpdateFrom(ref js.Ref) {
+func (p *GPUCommandBufferDescriptor) UpdateFrom(ref js.Ref) {
 	bindings.GPUCommandBufferDescriptorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUCommandBufferDescriptor) Update(ref js.Ref) {
+func (p *GPUCommandBufferDescriptor) Update(ref js.Ref) {
 	bindings.GPUCommandBufferDescriptorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUCommandBufferDescriptor) FreeMembers(recursive bool) {
+	js.Free(
+		p.Label.Ref(),
+	)
+	p.Label = p.Label.FromRef(js.Undefined)
 }
 
 type GPUCommandEncoder struct {
@@ -2663,7 +2712,7 @@ type GPUCommandEncoder struct {
 }
 
 func (this GPUCommandEncoder) Once() GPUCommandEncoder {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2677,7 +2726,7 @@ func (this GPUCommandEncoder) FromRef(ref js.Ref) GPUCommandEncoder {
 }
 
 func (this GPUCommandEncoder) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Label returns the value of property "GPUCommandEncoder.label".
@@ -2685,7 +2734,7 @@ func (this GPUCommandEncoder) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUCommandEncoder) Label() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGPUCommandEncoderLabel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2695,31 +2744,30 @@ func (this GPUCommandEncoder) Label() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this GPUCommandEncoder) SetLabel(val js.String) bool {
 	return js.True == bindings.SetGPUCommandEncoderLabel(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
 
-// HasBeginRenderPass returns true if the method "GPUCommandEncoder.beginRenderPass" exists.
-func (this GPUCommandEncoder) HasBeginRenderPass() bool {
-	return js.True == bindings.HasGPUCommandEncoderBeginRenderPass(
-		this.Ref(),
+// HasFuncBeginRenderPass returns true if the method "GPUCommandEncoder.beginRenderPass" exists.
+func (this GPUCommandEncoder) HasFuncBeginRenderPass() bool {
+	return js.True == bindings.HasFuncGPUCommandEncoderBeginRenderPass(
+		this.ref,
 	)
 }
 
-// BeginRenderPassFunc returns the method "GPUCommandEncoder.beginRenderPass".
-func (this GPUCommandEncoder) BeginRenderPassFunc() (fn js.Func[func(descriptor GPURenderPassDescriptor) GPURenderPassEncoder]) {
-	return fn.FromRef(
-		bindings.GPUCommandEncoderBeginRenderPassFunc(
-			this.Ref(),
-		),
+// FuncBeginRenderPass returns the method "GPUCommandEncoder.beginRenderPass".
+func (this GPUCommandEncoder) FuncBeginRenderPass() (fn js.Func[func(descriptor GPURenderPassDescriptor) GPURenderPassEncoder]) {
+	bindings.FuncGPUCommandEncoderBeginRenderPass(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BeginRenderPass calls the method "GPUCommandEncoder.beginRenderPass".
 func (this GPUCommandEncoder) BeginRenderPass(descriptor GPURenderPassDescriptor) (ret GPURenderPassEncoder) {
 	bindings.CallGPUCommandEncoderBeginRenderPass(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&descriptor),
 	)
 
@@ -2731,33 +2779,32 @@ func (this GPUCommandEncoder) BeginRenderPass(descriptor GPURenderPassDescriptor
 // the catch clause.
 func (this GPUCommandEncoder) TryBeginRenderPass(descriptor GPURenderPassDescriptor) (ret GPURenderPassEncoder, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderBeginRenderPass(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&descriptor),
 	)
 
 	return
 }
 
-// HasBeginComputePass returns true if the method "GPUCommandEncoder.beginComputePass" exists.
-func (this GPUCommandEncoder) HasBeginComputePass() bool {
-	return js.True == bindings.HasGPUCommandEncoderBeginComputePass(
-		this.Ref(),
+// HasFuncBeginComputePass returns true if the method "GPUCommandEncoder.beginComputePass" exists.
+func (this GPUCommandEncoder) HasFuncBeginComputePass() bool {
+	return js.True == bindings.HasFuncGPUCommandEncoderBeginComputePass(
+		this.ref,
 	)
 }
 
-// BeginComputePassFunc returns the method "GPUCommandEncoder.beginComputePass".
-func (this GPUCommandEncoder) BeginComputePassFunc() (fn js.Func[func(descriptor GPUComputePassDescriptor) GPUComputePassEncoder]) {
-	return fn.FromRef(
-		bindings.GPUCommandEncoderBeginComputePassFunc(
-			this.Ref(),
-		),
+// FuncBeginComputePass returns the method "GPUCommandEncoder.beginComputePass".
+func (this GPUCommandEncoder) FuncBeginComputePass() (fn js.Func[func(descriptor GPUComputePassDescriptor) GPUComputePassEncoder]) {
+	bindings.FuncGPUCommandEncoderBeginComputePass(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BeginComputePass calls the method "GPUCommandEncoder.beginComputePass".
 func (this GPUCommandEncoder) BeginComputePass(descriptor GPUComputePassDescriptor) (ret GPUComputePassEncoder) {
 	bindings.CallGPUCommandEncoderBeginComputePass(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&descriptor),
 	)
 
@@ -2769,33 +2816,32 @@ func (this GPUCommandEncoder) BeginComputePass(descriptor GPUComputePassDescript
 // the catch clause.
 func (this GPUCommandEncoder) TryBeginComputePass(descriptor GPUComputePassDescriptor) (ret GPUComputePassEncoder, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderBeginComputePass(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&descriptor),
 	)
 
 	return
 }
 
-// HasBeginComputePass1 returns true if the method "GPUCommandEncoder.beginComputePass" exists.
-func (this GPUCommandEncoder) HasBeginComputePass1() bool {
-	return js.True == bindings.HasGPUCommandEncoderBeginComputePass1(
-		this.Ref(),
+// HasFuncBeginComputePass1 returns true if the method "GPUCommandEncoder.beginComputePass" exists.
+func (this GPUCommandEncoder) HasFuncBeginComputePass1() bool {
+	return js.True == bindings.HasFuncGPUCommandEncoderBeginComputePass1(
+		this.ref,
 	)
 }
 
-// BeginComputePass1Func returns the method "GPUCommandEncoder.beginComputePass".
-func (this GPUCommandEncoder) BeginComputePass1Func() (fn js.Func[func() GPUComputePassEncoder]) {
-	return fn.FromRef(
-		bindings.GPUCommandEncoderBeginComputePass1Func(
-			this.Ref(),
-		),
+// FuncBeginComputePass1 returns the method "GPUCommandEncoder.beginComputePass".
+func (this GPUCommandEncoder) FuncBeginComputePass1() (fn js.Func[func() GPUComputePassEncoder]) {
+	bindings.FuncGPUCommandEncoderBeginComputePass1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BeginComputePass1 calls the method "GPUCommandEncoder.beginComputePass".
 func (this GPUCommandEncoder) BeginComputePass1() (ret GPUComputePassEncoder) {
 	bindings.CallGPUCommandEncoderBeginComputePass1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2806,32 +2852,31 @@ func (this GPUCommandEncoder) BeginComputePass1() (ret GPUComputePassEncoder) {
 // the catch clause.
 func (this GPUCommandEncoder) TryBeginComputePass1() (ret GPUComputePassEncoder, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderBeginComputePass1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCopyBufferToBuffer returns true if the method "GPUCommandEncoder.copyBufferToBuffer" exists.
-func (this GPUCommandEncoder) HasCopyBufferToBuffer() bool {
-	return js.True == bindings.HasGPUCommandEncoderCopyBufferToBuffer(
-		this.Ref(),
+// HasFuncCopyBufferToBuffer returns true if the method "GPUCommandEncoder.copyBufferToBuffer" exists.
+func (this GPUCommandEncoder) HasFuncCopyBufferToBuffer() bool {
+	return js.True == bindings.HasFuncGPUCommandEncoderCopyBufferToBuffer(
+		this.ref,
 	)
 }
 
-// CopyBufferToBufferFunc returns the method "GPUCommandEncoder.copyBufferToBuffer".
-func (this GPUCommandEncoder) CopyBufferToBufferFunc() (fn js.Func[func(source GPUBuffer, sourceOffset GPUSize64, destination GPUBuffer, destinationOffset GPUSize64, size GPUSize64)]) {
-	return fn.FromRef(
-		bindings.GPUCommandEncoderCopyBufferToBufferFunc(
-			this.Ref(),
-		),
+// FuncCopyBufferToBuffer returns the method "GPUCommandEncoder.copyBufferToBuffer".
+func (this GPUCommandEncoder) FuncCopyBufferToBuffer() (fn js.Func[func(source GPUBuffer, sourceOffset GPUSize64, destination GPUBuffer, destinationOffset GPUSize64, size GPUSize64)]) {
+	bindings.FuncGPUCommandEncoderCopyBufferToBuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CopyBufferToBuffer calls the method "GPUCommandEncoder.copyBufferToBuffer".
 func (this GPUCommandEncoder) CopyBufferToBuffer(source GPUBuffer, sourceOffset GPUSize64, destination GPUBuffer, destinationOffset GPUSize64, size GPUSize64) (ret js.Void) {
 	bindings.CallGPUCommandEncoderCopyBufferToBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		source.Ref(),
 		float64(sourceOffset),
 		destination.Ref(),
@@ -2847,7 +2892,7 @@ func (this GPUCommandEncoder) CopyBufferToBuffer(source GPUBuffer, sourceOffset 
 // the catch clause.
 func (this GPUCommandEncoder) TryCopyBufferToBuffer(source GPUBuffer, sourceOffset GPUSize64, destination GPUBuffer, destinationOffset GPUSize64, size GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderCopyBufferToBuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		source.Ref(),
 		float64(sourceOffset),
 		destination.Ref(),
@@ -2858,26 +2903,25 @@ func (this GPUCommandEncoder) TryCopyBufferToBuffer(source GPUBuffer, sourceOffs
 	return
 }
 
-// HasCopyBufferToTexture returns true if the method "GPUCommandEncoder.copyBufferToTexture" exists.
-func (this GPUCommandEncoder) HasCopyBufferToTexture() bool {
-	return js.True == bindings.HasGPUCommandEncoderCopyBufferToTexture(
-		this.Ref(),
+// HasFuncCopyBufferToTexture returns true if the method "GPUCommandEncoder.copyBufferToTexture" exists.
+func (this GPUCommandEncoder) HasFuncCopyBufferToTexture() bool {
+	return js.True == bindings.HasFuncGPUCommandEncoderCopyBufferToTexture(
+		this.ref,
 	)
 }
 
-// CopyBufferToTextureFunc returns the method "GPUCommandEncoder.copyBufferToTexture".
-func (this GPUCommandEncoder) CopyBufferToTextureFunc() (fn js.Func[func(source GPUImageCopyBuffer, destination GPUImageCopyTexture, copySize GPUExtent3D)]) {
-	return fn.FromRef(
-		bindings.GPUCommandEncoderCopyBufferToTextureFunc(
-			this.Ref(),
-		),
+// FuncCopyBufferToTexture returns the method "GPUCommandEncoder.copyBufferToTexture".
+func (this GPUCommandEncoder) FuncCopyBufferToTexture() (fn js.Func[func(source GPUImageCopyBuffer, destination GPUImageCopyTexture, copySize GPUExtent3D)]) {
+	bindings.FuncGPUCommandEncoderCopyBufferToTexture(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CopyBufferToTexture calls the method "GPUCommandEncoder.copyBufferToTexture".
 func (this GPUCommandEncoder) CopyBufferToTexture(source GPUImageCopyBuffer, destination GPUImageCopyTexture, copySize GPUExtent3D) (ret js.Void) {
 	bindings.CallGPUCommandEncoderCopyBufferToTexture(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&source),
 		js.Pointer(&destination),
 		copySize.Ref(),
@@ -2891,7 +2935,7 @@ func (this GPUCommandEncoder) CopyBufferToTexture(source GPUImageCopyBuffer, des
 // the catch clause.
 func (this GPUCommandEncoder) TryCopyBufferToTexture(source GPUImageCopyBuffer, destination GPUImageCopyTexture, copySize GPUExtent3D) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderCopyBufferToTexture(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&source),
 		js.Pointer(&destination),
 		copySize.Ref(),
@@ -2900,26 +2944,25 @@ func (this GPUCommandEncoder) TryCopyBufferToTexture(source GPUImageCopyBuffer, 
 	return
 }
 
-// HasCopyTextureToBuffer returns true if the method "GPUCommandEncoder.copyTextureToBuffer" exists.
-func (this GPUCommandEncoder) HasCopyTextureToBuffer() bool {
-	return js.True == bindings.HasGPUCommandEncoderCopyTextureToBuffer(
-		this.Ref(),
+// HasFuncCopyTextureToBuffer returns true if the method "GPUCommandEncoder.copyTextureToBuffer" exists.
+func (this GPUCommandEncoder) HasFuncCopyTextureToBuffer() bool {
+	return js.True == bindings.HasFuncGPUCommandEncoderCopyTextureToBuffer(
+		this.ref,
 	)
 }
 
-// CopyTextureToBufferFunc returns the method "GPUCommandEncoder.copyTextureToBuffer".
-func (this GPUCommandEncoder) CopyTextureToBufferFunc() (fn js.Func[func(source GPUImageCopyTexture, destination GPUImageCopyBuffer, copySize GPUExtent3D)]) {
-	return fn.FromRef(
-		bindings.GPUCommandEncoderCopyTextureToBufferFunc(
-			this.Ref(),
-		),
+// FuncCopyTextureToBuffer returns the method "GPUCommandEncoder.copyTextureToBuffer".
+func (this GPUCommandEncoder) FuncCopyTextureToBuffer() (fn js.Func[func(source GPUImageCopyTexture, destination GPUImageCopyBuffer, copySize GPUExtent3D)]) {
+	bindings.FuncGPUCommandEncoderCopyTextureToBuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CopyTextureToBuffer calls the method "GPUCommandEncoder.copyTextureToBuffer".
 func (this GPUCommandEncoder) CopyTextureToBuffer(source GPUImageCopyTexture, destination GPUImageCopyBuffer, copySize GPUExtent3D) (ret js.Void) {
 	bindings.CallGPUCommandEncoderCopyTextureToBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&source),
 		js.Pointer(&destination),
 		copySize.Ref(),
@@ -2933,7 +2976,7 @@ func (this GPUCommandEncoder) CopyTextureToBuffer(source GPUImageCopyTexture, de
 // the catch clause.
 func (this GPUCommandEncoder) TryCopyTextureToBuffer(source GPUImageCopyTexture, destination GPUImageCopyBuffer, copySize GPUExtent3D) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderCopyTextureToBuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&source),
 		js.Pointer(&destination),
 		copySize.Ref(),
@@ -2942,26 +2985,25 @@ func (this GPUCommandEncoder) TryCopyTextureToBuffer(source GPUImageCopyTexture,
 	return
 }
 
-// HasCopyTextureToTexture returns true if the method "GPUCommandEncoder.copyTextureToTexture" exists.
-func (this GPUCommandEncoder) HasCopyTextureToTexture() bool {
-	return js.True == bindings.HasGPUCommandEncoderCopyTextureToTexture(
-		this.Ref(),
+// HasFuncCopyTextureToTexture returns true if the method "GPUCommandEncoder.copyTextureToTexture" exists.
+func (this GPUCommandEncoder) HasFuncCopyTextureToTexture() bool {
+	return js.True == bindings.HasFuncGPUCommandEncoderCopyTextureToTexture(
+		this.ref,
 	)
 }
 
-// CopyTextureToTextureFunc returns the method "GPUCommandEncoder.copyTextureToTexture".
-func (this GPUCommandEncoder) CopyTextureToTextureFunc() (fn js.Func[func(source GPUImageCopyTexture, destination GPUImageCopyTexture, copySize GPUExtent3D)]) {
-	return fn.FromRef(
-		bindings.GPUCommandEncoderCopyTextureToTextureFunc(
-			this.Ref(),
-		),
+// FuncCopyTextureToTexture returns the method "GPUCommandEncoder.copyTextureToTexture".
+func (this GPUCommandEncoder) FuncCopyTextureToTexture() (fn js.Func[func(source GPUImageCopyTexture, destination GPUImageCopyTexture, copySize GPUExtent3D)]) {
+	bindings.FuncGPUCommandEncoderCopyTextureToTexture(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CopyTextureToTexture calls the method "GPUCommandEncoder.copyTextureToTexture".
 func (this GPUCommandEncoder) CopyTextureToTexture(source GPUImageCopyTexture, destination GPUImageCopyTexture, copySize GPUExtent3D) (ret js.Void) {
 	bindings.CallGPUCommandEncoderCopyTextureToTexture(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&source),
 		js.Pointer(&destination),
 		copySize.Ref(),
@@ -2975,7 +3017,7 @@ func (this GPUCommandEncoder) CopyTextureToTexture(source GPUImageCopyTexture, d
 // the catch clause.
 func (this GPUCommandEncoder) TryCopyTextureToTexture(source GPUImageCopyTexture, destination GPUImageCopyTexture, copySize GPUExtent3D) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderCopyTextureToTexture(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&source),
 		js.Pointer(&destination),
 		copySize.Ref(),
@@ -2984,26 +3026,25 @@ func (this GPUCommandEncoder) TryCopyTextureToTexture(source GPUImageCopyTexture
 	return
 }
 
-// HasClearBuffer returns true if the method "GPUCommandEncoder.clearBuffer" exists.
-func (this GPUCommandEncoder) HasClearBuffer() bool {
-	return js.True == bindings.HasGPUCommandEncoderClearBuffer(
-		this.Ref(),
+// HasFuncClearBuffer returns true if the method "GPUCommandEncoder.clearBuffer" exists.
+func (this GPUCommandEncoder) HasFuncClearBuffer() bool {
+	return js.True == bindings.HasFuncGPUCommandEncoderClearBuffer(
+		this.ref,
 	)
 }
 
-// ClearBufferFunc returns the method "GPUCommandEncoder.clearBuffer".
-func (this GPUCommandEncoder) ClearBufferFunc() (fn js.Func[func(buffer GPUBuffer, offset GPUSize64, size GPUSize64)]) {
-	return fn.FromRef(
-		bindings.GPUCommandEncoderClearBufferFunc(
-			this.Ref(),
-		),
+// FuncClearBuffer returns the method "GPUCommandEncoder.clearBuffer".
+func (this GPUCommandEncoder) FuncClearBuffer() (fn js.Func[func(buffer GPUBuffer, offset GPUSize64, size GPUSize64)]) {
+	bindings.FuncGPUCommandEncoderClearBuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ClearBuffer calls the method "GPUCommandEncoder.clearBuffer".
 func (this GPUCommandEncoder) ClearBuffer(buffer GPUBuffer, offset GPUSize64, size GPUSize64) (ret js.Void) {
 	bindings.CallGPUCommandEncoderClearBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		buffer.Ref(),
 		float64(offset),
 		float64(size),
@@ -3017,7 +3058,7 @@ func (this GPUCommandEncoder) ClearBuffer(buffer GPUBuffer, offset GPUSize64, si
 // the catch clause.
 func (this GPUCommandEncoder) TryClearBuffer(buffer GPUBuffer, offset GPUSize64, size GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderClearBuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		buffer.Ref(),
 		float64(offset),
 		float64(size),
@@ -3026,26 +3067,25 @@ func (this GPUCommandEncoder) TryClearBuffer(buffer GPUBuffer, offset GPUSize64,
 	return
 }
 
-// HasClearBuffer1 returns true if the method "GPUCommandEncoder.clearBuffer" exists.
-func (this GPUCommandEncoder) HasClearBuffer1() bool {
-	return js.True == bindings.HasGPUCommandEncoderClearBuffer1(
-		this.Ref(),
+// HasFuncClearBuffer1 returns true if the method "GPUCommandEncoder.clearBuffer" exists.
+func (this GPUCommandEncoder) HasFuncClearBuffer1() bool {
+	return js.True == bindings.HasFuncGPUCommandEncoderClearBuffer1(
+		this.ref,
 	)
 }
 
-// ClearBuffer1Func returns the method "GPUCommandEncoder.clearBuffer".
-func (this GPUCommandEncoder) ClearBuffer1Func() (fn js.Func[func(buffer GPUBuffer, offset GPUSize64)]) {
-	return fn.FromRef(
-		bindings.GPUCommandEncoderClearBuffer1Func(
-			this.Ref(),
-		),
+// FuncClearBuffer1 returns the method "GPUCommandEncoder.clearBuffer".
+func (this GPUCommandEncoder) FuncClearBuffer1() (fn js.Func[func(buffer GPUBuffer, offset GPUSize64)]) {
+	bindings.FuncGPUCommandEncoderClearBuffer1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ClearBuffer1 calls the method "GPUCommandEncoder.clearBuffer".
 func (this GPUCommandEncoder) ClearBuffer1(buffer GPUBuffer, offset GPUSize64) (ret js.Void) {
 	bindings.CallGPUCommandEncoderClearBuffer1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		buffer.Ref(),
 		float64(offset),
 	)
@@ -3058,7 +3098,7 @@ func (this GPUCommandEncoder) ClearBuffer1(buffer GPUBuffer, offset GPUSize64) (
 // the catch clause.
 func (this GPUCommandEncoder) TryClearBuffer1(buffer GPUBuffer, offset GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderClearBuffer1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		buffer.Ref(),
 		float64(offset),
 	)
@@ -3066,26 +3106,25 @@ func (this GPUCommandEncoder) TryClearBuffer1(buffer GPUBuffer, offset GPUSize64
 	return
 }
 
-// HasClearBuffer2 returns true if the method "GPUCommandEncoder.clearBuffer" exists.
-func (this GPUCommandEncoder) HasClearBuffer2() bool {
-	return js.True == bindings.HasGPUCommandEncoderClearBuffer2(
-		this.Ref(),
+// HasFuncClearBuffer2 returns true if the method "GPUCommandEncoder.clearBuffer" exists.
+func (this GPUCommandEncoder) HasFuncClearBuffer2() bool {
+	return js.True == bindings.HasFuncGPUCommandEncoderClearBuffer2(
+		this.ref,
 	)
 }
 
-// ClearBuffer2Func returns the method "GPUCommandEncoder.clearBuffer".
-func (this GPUCommandEncoder) ClearBuffer2Func() (fn js.Func[func(buffer GPUBuffer)]) {
-	return fn.FromRef(
-		bindings.GPUCommandEncoderClearBuffer2Func(
-			this.Ref(),
-		),
+// FuncClearBuffer2 returns the method "GPUCommandEncoder.clearBuffer".
+func (this GPUCommandEncoder) FuncClearBuffer2() (fn js.Func[func(buffer GPUBuffer)]) {
+	bindings.FuncGPUCommandEncoderClearBuffer2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ClearBuffer2 calls the method "GPUCommandEncoder.clearBuffer".
 func (this GPUCommandEncoder) ClearBuffer2(buffer GPUBuffer) (ret js.Void) {
 	bindings.CallGPUCommandEncoderClearBuffer2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		buffer.Ref(),
 	)
 
@@ -3097,33 +3136,32 @@ func (this GPUCommandEncoder) ClearBuffer2(buffer GPUBuffer) (ret js.Void) {
 // the catch clause.
 func (this GPUCommandEncoder) TryClearBuffer2(buffer GPUBuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderClearBuffer2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		buffer.Ref(),
 	)
 
 	return
 }
 
-// HasWriteTimestamp returns true if the method "GPUCommandEncoder.writeTimestamp" exists.
-func (this GPUCommandEncoder) HasWriteTimestamp() bool {
-	return js.True == bindings.HasGPUCommandEncoderWriteTimestamp(
-		this.Ref(),
+// HasFuncWriteTimestamp returns true if the method "GPUCommandEncoder.writeTimestamp" exists.
+func (this GPUCommandEncoder) HasFuncWriteTimestamp() bool {
+	return js.True == bindings.HasFuncGPUCommandEncoderWriteTimestamp(
+		this.ref,
 	)
 }
 
-// WriteTimestampFunc returns the method "GPUCommandEncoder.writeTimestamp".
-func (this GPUCommandEncoder) WriteTimestampFunc() (fn js.Func[func(querySet GPUQuerySet, queryIndex GPUSize32)]) {
-	return fn.FromRef(
-		bindings.GPUCommandEncoderWriteTimestampFunc(
-			this.Ref(),
-		),
+// FuncWriteTimestamp returns the method "GPUCommandEncoder.writeTimestamp".
+func (this GPUCommandEncoder) FuncWriteTimestamp() (fn js.Func[func(querySet GPUQuerySet, queryIndex GPUSize32)]) {
+	bindings.FuncGPUCommandEncoderWriteTimestamp(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // WriteTimestamp calls the method "GPUCommandEncoder.writeTimestamp".
 func (this GPUCommandEncoder) WriteTimestamp(querySet GPUQuerySet, queryIndex GPUSize32) (ret js.Void) {
 	bindings.CallGPUCommandEncoderWriteTimestamp(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		querySet.Ref(),
 		uint32(queryIndex),
 	)
@@ -3136,7 +3174,7 @@ func (this GPUCommandEncoder) WriteTimestamp(querySet GPUQuerySet, queryIndex GP
 // the catch clause.
 func (this GPUCommandEncoder) TryWriteTimestamp(querySet GPUQuerySet, queryIndex GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderWriteTimestamp(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		querySet.Ref(),
 		uint32(queryIndex),
 	)
@@ -3144,26 +3182,25 @@ func (this GPUCommandEncoder) TryWriteTimestamp(querySet GPUQuerySet, queryIndex
 	return
 }
 
-// HasResolveQuerySet returns true if the method "GPUCommandEncoder.resolveQuerySet" exists.
-func (this GPUCommandEncoder) HasResolveQuerySet() bool {
-	return js.True == bindings.HasGPUCommandEncoderResolveQuerySet(
-		this.Ref(),
+// HasFuncResolveQuerySet returns true if the method "GPUCommandEncoder.resolveQuerySet" exists.
+func (this GPUCommandEncoder) HasFuncResolveQuerySet() bool {
+	return js.True == bindings.HasFuncGPUCommandEncoderResolveQuerySet(
+		this.ref,
 	)
 }
 
-// ResolveQuerySetFunc returns the method "GPUCommandEncoder.resolveQuerySet".
-func (this GPUCommandEncoder) ResolveQuerySetFunc() (fn js.Func[func(querySet GPUQuerySet, firstQuery GPUSize32, queryCount GPUSize32, destination GPUBuffer, destinationOffset GPUSize64)]) {
-	return fn.FromRef(
-		bindings.GPUCommandEncoderResolveQuerySetFunc(
-			this.Ref(),
-		),
+// FuncResolveQuerySet returns the method "GPUCommandEncoder.resolveQuerySet".
+func (this GPUCommandEncoder) FuncResolveQuerySet() (fn js.Func[func(querySet GPUQuerySet, firstQuery GPUSize32, queryCount GPUSize32, destination GPUBuffer, destinationOffset GPUSize64)]) {
+	bindings.FuncGPUCommandEncoderResolveQuerySet(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ResolveQuerySet calls the method "GPUCommandEncoder.resolveQuerySet".
 func (this GPUCommandEncoder) ResolveQuerySet(querySet GPUQuerySet, firstQuery GPUSize32, queryCount GPUSize32, destination GPUBuffer, destinationOffset GPUSize64) (ret js.Void) {
 	bindings.CallGPUCommandEncoderResolveQuerySet(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		querySet.Ref(),
 		uint32(firstQuery),
 		uint32(queryCount),
@@ -3179,7 +3216,7 @@ func (this GPUCommandEncoder) ResolveQuerySet(querySet GPUQuerySet, firstQuery G
 // the catch clause.
 func (this GPUCommandEncoder) TryResolveQuerySet(querySet GPUQuerySet, firstQuery GPUSize32, queryCount GPUSize32, destination GPUBuffer, destinationOffset GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderResolveQuerySet(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		querySet.Ref(),
 		uint32(firstQuery),
 		uint32(queryCount),
@@ -3190,26 +3227,25 @@ func (this GPUCommandEncoder) TryResolveQuerySet(querySet GPUQuerySet, firstQuer
 	return
 }
 
-// HasFinish returns true if the method "GPUCommandEncoder.finish" exists.
-func (this GPUCommandEncoder) HasFinish() bool {
-	return js.True == bindings.HasGPUCommandEncoderFinish(
-		this.Ref(),
+// HasFuncFinish returns true if the method "GPUCommandEncoder.finish" exists.
+func (this GPUCommandEncoder) HasFuncFinish() bool {
+	return js.True == bindings.HasFuncGPUCommandEncoderFinish(
+		this.ref,
 	)
 }
 
-// FinishFunc returns the method "GPUCommandEncoder.finish".
-func (this GPUCommandEncoder) FinishFunc() (fn js.Func[func(descriptor GPUCommandBufferDescriptor) GPUCommandBuffer]) {
-	return fn.FromRef(
-		bindings.GPUCommandEncoderFinishFunc(
-			this.Ref(),
-		),
+// FuncFinish returns the method "GPUCommandEncoder.finish".
+func (this GPUCommandEncoder) FuncFinish() (fn js.Func[func(descriptor GPUCommandBufferDescriptor) GPUCommandBuffer]) {
+	bindings.FuncGPUCommandEncoderFinish(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Finish calls the method "GPUCommandEncoder.finish".
 func (this GPUCommandEncoder) Finish(descriptor GPUCommandBufferDescriptor) (ret GPUCommandBuffer) {
 	bindings.CallGPUCommandEncoderFinish(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&descriptor),
 	)
 
@@ -3221,33 +3257,32 @@ func (this GPUCommandEncoder) Finish(descriptor GPUCommandBufferDescriptor) (ret
 // the catch clause.
 func (this GPUCommandEncoder) TryFinish(descriptor GPUCommandBufferDescriptor) (ret GPUCommandBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderFinish(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&descriptor),
 	)
 
 	return
 }
 
-// HasFinish1 returns true if the method "GPUCommandEncoder.finish" exists.
-func (this GPUCommandEncoder) HasFinish1() bool {
-	return js.True == bindings.HasGPUCommandEncoderFinish1(
-		this.Ref(),
+// HasFuncFinish1 returns true if the method "GPUCommandEncoder.finish" exists.
+func (this GPUCommandEncoder) HasFuncFinish1() bool {
+	return js.True == bindings.HasFuncGPUCommandEncoderFinish1(
+		this.ref,
 	)
 }
 
-// Finish1Func returns the method "GPUCommandEncoder.finish".
-func (this GPUCommandEncoder) Finish1Func() (fn js.Func[func() GPUCommandBuffer]) {
-	return fn.FromRef(
-		bindings.GPUCommandEncoderFinish1Func(
-			this.Ref(),
-		),
+// FuncFinish1 returns the method "GPUCommandEncoder.finish".
+func (this GPUCommandEncoder) FuncFinish1() (fn js.Func[func() GPUCommandBuffer]) {
+	bindings.FuncGPUCommandEncoderFinish1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Finish1 calls the method "GPUCommandEncoder.finish".
 func (this GPUCommandEncoder) Finish1() (ret GPUCommandBuffer) {
 	bindings.CallGPUCommandEncoderFinish1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3258,32 +3293,31 @@ func (this GPUCommandEncoder) Finish1() (ret GPUCommandBuffer) {
 // the catch clause.
 func (this GPUCommandEncoder) TryFinish1() (ret GPUCommandBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderFinish1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasPushDebugGroup returns true if the method "GPUCommandEncoder.pushDebugGroup" exists.
-func (this GPUCommandEncoder) HasPushDebugGroup() bool {
-	return js.True == bindings.HasGPUCommandEncoderPushDebugGroup(
-		this.Ref(),
+// HasFuncPushDebugGroup returns true if the method "GPUCommandEncoder.pushDebugGroup" exists.
+func (this GPUCommandEncoder) HasFuncPushDebugGroup() bool {
+	return js.True == bindings.HasFuncGPUCommandEncoderPushDebugGroup(
+		this.ref,
 	)
 }
 
-// PushDebugGroupFunc returns the method "GPUCommandEncoder.pushDebugGroup".
-func (this GPUCommandEncoder) PushDebugGroupFunc() (fn js.Func[func(groupLabel js.String)]) {
-	return fn.FromRef(
-		bindings.GPUCommandEncoderPushDebugGroupFunc(
-			this.Ref(),
-		),
+// FuncPushDebugGroup returns the method "GPUCommandEncoder.pushDebugGroup".
+func (this GPUCommandEncoder) FuncPushDebugGroup() (fn js.Func[func(groupLabel js.String)]) {
+	bindings.FuncGPUCommandEncoderPushDebugGroup(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PushDebugGroup calls the method "GPUCommandEncoder.pushDebugGroup".
 func (this GPUCommandEncoder) PushDebugGroup(groupLabel js.String) (ret js.Void) {
 	bindings.CallGPUCommandEncoderPushDebugGroup(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		groupLabel.Ref(),
 	)
 
@@ -3295,33 +3329,32 @@ func (this GPUCommandEncoder) PushDebugGroup(groupLabel js.String) (ret js.Void)
 // the catch clause.
 func (this GPUCommandEncoder) TryPushDebugGroup(groupLabel js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderPushDebugGroup(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		groupLabel.Ref(),
 	)
 
 	return
 }
 
-// HasPopDebugGroup returns true if the method "GPUCommandEncoder.popDebugGroup" exists.
-func (this GPUCommandEncoder) HasPopDebugGroup() bool {
-	return js.True == bindings.HasGPUCommandEncoderPopDebugGroup(
-		this.Ref(),
+// HasFuncPopDebugGroup returns true if the method "GPUCommandEncoder.popDebugGroup" exists.
+func (this GPUCommandEncoder) HasFuncPopDebugGroup() bool {
+	return js.True == bindings.HasFuncGPUCommandEncoderPopDebugGroup(
+		this.ref,
 	)
 }
 
-// PopDebugGroupFunc returns the method "GPUCommandEncoder.popDebugGroup".
-func (this GPUCommandEncoder) PopDebugGroupFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.GPUCommandEncoderPopDebugGroupFunc(
-			this.Ref(),
-		),
+// FuncPopDebugGroup returns the method "GPUCommandEncoder.popDebugGroup".
+func (this GPUCommandEncoder) FuncPopDebugGroup() (fn js.Func[func()]) {
+	bindings.FuncGPUCommandEncoderPopDebugGroup(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PopDebugGroup calls the method "GPUCommandEncoder.popDebugGroup".
 func (this GPUCommandEncoder) PopDebugGroup() (ret js.Void) {
 	bindings.CallGPUCommandEncoderPopDebugGroup(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3332,32 +3365,31 @@ func (this GPUCommandEncoder) PopDebugGroup() (ret js.Void) {
 // the catch clause.
 func (this GPUCommandEncoder) TryPopDebugGroup() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderPopDebugGroup(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasInsertDebugMarker returns true if the method "GPUCommandEncoder.insertDebugMarker" exists.
-func (this GPUCommandEncoder) HasInsertDebugMarker() bool {
-	return js.True == bindings.HasGPUCommandEncoderInsertDebugMarker(
-		this.Ref(),
+// HasFuncInsertDebugMarker returns true if the method "GPUCommandEncoder.insertDebugMarker" exists.
+func (this GPUCommandEncoder) HasFuncInsertDebugMarker() bool {
+	return js.True == bindings.HasFuncGPUCommandEncoderInsertDebugMarker(
+		this.ref,
 	)
 }
 
-// InsertDebugMarkerFunc returns the method "GPUCommandEncoder.insertDebugMarker".
-func (this GPUCommandEncoder) InsertDebugMarkerFunc() (fn js.Func[func(markerLabel js.String)]) {
-	return fn.FromRef(
-		bindings.GPUCommandEncoderInsertDebugMarkerFunc(
-			this.Ref(),
-		),
+// FuncInsertDebugMarker returns the method "GPUCommandEncoder.insertDebugMarker".
+func (this GPUCommandEncoder) FuncInsertDebugMarker() (fn js.Func[func(markerLabel js.String)]) {
+	bindings.FuncGPUCommandEncoderInsertDebugMarker(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InsertDebugMarker calls the method "GPUCommandEncoder.insertDebugMarker".
 func (this GPUCommandEncoder) InsertDebugMarker(markerLabel js.String) (ret js.Void) {
 	bindings.CallGPUCommandEncoderInsertDebugMarker(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		markerLabel.Ref(),
 	)
 
@@ -3369,7 +3401,7 @@ func (this GPUCommandEncoder) InsertDebugMarker(markerLabel js.String) (ret js.V
 // the catch clause.
 func (this GPUCommandEncoder) TryInsertDebugMarker(markerLabel js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderInsertDebugMarker(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		markerLabel.Ref(),
 	)
 
@@ -3399,17 +3431,26 @@ func (p GPUCommandEncoderDescriptor) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUCommandEncoderDescriptor) UpdateFrom(ref js.Ref) {
+func (p *GPUCommandEncoderDescriptor) UpdateFrom(ref js.Ref) {
 	bindings.GPUCommandEncoderDescriptorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUCommandEncoderDescriptor) Update(ref js.Ref) {
+func (p *GPUCommandEncoderDescriptor) Update(ref js.Ref) {
 	bindings.GPUCommandEncoderDescriptorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUCommandEncoderDescriptor) FreeMembers(recursive bool) {
+	js.Free(
+		p.Label.Ref(),
+	)
+	p.Label = p.Label.FromRef(js.Undefined)
 }
 
 type GPURenderBundleDescriptor struct {
@@ -3435,17 +3476,26 @@ func (p GPURenderBundleDescriptor) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPURenderBundleDescriptor) UpdateFrom(ref js.Ref) {
+func (p *GPURenderBundleDescriptor) UpdateFrom(ref js.Ref) {
 	bindings.GPURenderBundleDescriptorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPURenderBundleDescriptor) Update(ref js.Ref) {
+func (p *GPURenderBundleDescriptor) Update(ref js.Ref) {
 	bindings.GPURenderBundleDescriptorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPURenderBundleDescriptor) FreeMembers(recursive bool) {
+	js.Free(
+		p.Label.Ref(),
+	)
+	p.Label = p.Label.FromRef(js.Undefined)
 }
 
 type GPURenderBundleEncoder struct {
@@ -3453,7 +3503,7 @@ type GPURenderBundleEncoder struct {
 }
 
 func (this GPURenderBundleEncoder) Once() GPURenderBundleEncoder {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3467,7 +3517,7 @@ func (this GPURenderBundleEncoder) FromRef(ref js.Ref) GPURenderBundleEncoder {
 }
 
 func (this GPURenderBundleEncoder) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Label returns the value of property "GPURenderBundleEncoder.label".
@@ -3475,7 +3525,7 @@ func (this GPURenderBundleEncoder) Free() {
 // It returns ok=false if there is no such property.
 func (this GPURenderBundleEncoder) Label() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGPURenderBundleEncoderLabel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3485,31 +3535,30 @@ func (this GPURenderBundleEncoder) Label() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this GPURenderBundleEncoder) SetLabel(val js.String) bool {
 	return js.True == bindings.SetGPURenderBundleEncoderLabel(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
 
-// HasFinish returns true if the method "GPURenderBundleEncoder.finish" exists.
-func (this GPURenderBundleEncoder) HasFinish() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderFinish(
-		this.Ref(),
+// HasFuncFinish returns true if the method "GPURenderBundleEncoder.finish" exists.
+func (this GPURenderBundleEncoder) HasFuncFinish() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderFinish(
+		this.ref,
 	)
 }
 
-// FinishFunc returns the method "GPURenderBundleEncoder.finish".
-func (this GPURenderBundleEncoder) FinishFunc() (fn js.Func[func(descriptor GPURenderBundleDescriptor) GPURenderBundle]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderFinishFunc(
-			this.Ref(),
-		),
+// FuncFinish returns the method "GPURenderBundleEncoder.finish".
+func (this GPURenderBundleEncoder) FuncFinish() (fn js.Func[func(descriptor GPURenderBundleDescriptor) GPURenderBundle]) {
+	bindings.FuncGPURenderBundleEncoderFinish(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Finish calls the method "GPURenderBundleEncoder.finish".
 func (this GPURenderBundleEncoder) Finish(descriptor GPURenderBundleDescriptor) (ret GPURenderBundle) {
 	bindings.CallGPURenderBundleEncoderFinish(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&descriptor),
 	)
 
@@ -3521,33 +3570,32 @@ func (this GPURenderBundleEncoder) Finish(descriptor GPURenderBundleDescriptor) 
 // the catch clause.
 func (this GPURenderBundleEncoder) TryFinish(descriptor GPURenderBundleDescriptor) (ret GPURenderBundle, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderFinish(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&descriptor),
 	)
 
 	return
 }
 
-// HasFinish1 returns true if the method "GPURenderBundleEncoder.finish" exists.
-func (this GPURenderBundleEncoder) HasFinish1() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderFinish1(
-		this.Ref(),
+// HasFuncFinish1 returns true if the method "GPURenderBundleEncoder.finish" exists.
+func (this GPURenderBundleEncoder) HasFuncFinish1() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderFinish1(
+		this.ref,
 	)
 }
 
-// Finish1Func returns the method "GPURenderBundleEncoder.finish".
-func (this GPURenderBundleEncoder) Finish1Func() (fn js.Func[func() GPURenderBundle]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderFinish1Func(
-			this.Ref(),
-		),
+// FuncFinish1 returns the method "GPURenderBundleEncoder.finish".
+func (this GPURenderBundleEncoder) FuncFinish1() (fn js.Func[func() GPURenderBundle]) {
+	bindings.FuncGPURenderBundleEncoderFinish1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Finish1 calls the method "GPURenderBundleEncoder.finish".
 func (this GPURenderBundleEncoder) Finish1() (ret GPURenderBundle) {
 	bindings.CallGPURenderBundleEncoderFinish1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3558,32 +3606,31 @@ func (this GPURenderBundleEncoder) Finish1() (ret GPURenderBundle) {
 // the catch clause.
 func (this GPURenderBundleEncoder) TryFinish1() (ret GPURenderBundle, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderFinish1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSetPipeline returns true if the method "GPURenderBundleEncoder.setPipeline" exists.
-func (this GPURenderBundleEncoder) HasSetPipeline() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderSetPipeline(
-		this.Ref(),
+// HasFuncSetPipeline returns true if the method "GPURenderBundleEncoder.setPipeline" exists.
+func (this GPURenderBundleEncoder) HasFuncSetPipeline() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderSetPipeline(
+		this.ref,
 	)
 }
 
-// SetPipelineFunc returns the method "GPURenderBundleEncoder.setPipeline".
-func (this GPURenderBundleEncoder) SetPipelineFunc() (fn js.Func[func(pipeline GPURenderPipeline)]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderSetPipelineFunc(
-			this.Ref(),
-		),
+// FuncSetPipeline returns the method "GPURenderBundleEncoder.setPipeline".
+func (this GPURenderBundleEncoder) FuncSetPipeline() (fn js.Func[func(pipeline GPURenderPipeline)]) {
+	bindings.FuncGPURenderBundleEncoderSetPipeline(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetPipeline calls the method "GPURenderBundleEncoder.setPipeline".
 func (this GPURenderBundleEncoder) SetPipeline(pipeline GPURenderPipeline) (ret js.Void) {
 	bindings.CallGPURenderBundleEncoderSetPipeline(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		pipeline.Ref(),
 	)
 
@@ -3595,33 +3642,32 @@ func (this GPURenderBundleEncoder) SetPipeline(pipeline GPURenderPipeline) (ret 
 // the catch clause.
 func (this GPURenderBundleEncoder) TrySetPipeline(pipeline GPURenderPipeline) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderSetPipeline(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		pipeline.Ref(),
 	)
 
 	return
 }
 
-// HasSetIndexBuffer returns true if the method "GPURenderBundleEncoder.setIndexBuffer" exists.
-func (this GPURenderBundleEncoder) HasSetIndexBuffer() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderSetIndexBuffer(
-		this.Ref(),
+// HasFuncSetIndexBuffer returns true if the method "GPURenderBundleEncoder.setIndexBuffer" exists.
+func (this GPURenderBundleEncoder) HasFuncSetIndexBuffer() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderSetIndexBuffer(
+		this.ref,
 	)
 }
 
-// SetIndexBufferFunc returns the method "GPURenderBundleEncoder.setIndexBuffer".
-func (this GPURenderBundleEncoder) SetIndexBufferFunc() (fn js.Func[func(buffer GPUBuffer, indexFormat GPUIndexFormat, offset GPUSize64, size GPUSize64)]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderSetIndexBufferFunc(
-			this.Ref(),
-		),
+// FuncSetIndexBuffer returns the method "GPURenderBundleEncoder.setIndexBuffer".
+func (this GPURenderBundleEncoder) FuncSetIndexBuffer() (fn js.Func[func(buffer GPUBuffer, indexFormat GPUIndexFormat, offset GPUSize64, size GPUSize64)]) {
+	bindings.FuncGPURenderBundleEncoderSetIndexBuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetIndexBuffer calls the method "GPURenderBundleEncoder.setIndexBuffer".
 func (this GPURenderBundleEncoder) SetIndexBuffer(buffer GPUBuffer, indexFormat GPUIndexFormat, offset GPUSize64, size GPUSize64) (ret js.Void) {
 	bindings.CallGPURenderBundleEncoderSetIndexBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		buffer.Ref(),
 		uint32(indexFormat),
 		float64(offset),
@@ -3636,7 +3682,7 @@ func (this GPURenderBundleEncoder) SetIndexBuffer(buffer GPUBuffer, indexFormat 
 // the catch clause.
 func (this GPURenderBundleEncoder) TrySetIndexBuffer(buffer GPUBuffer, indexFormat GPUIndexFormat, offset GPUSize64, size GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderSetIndexBuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		buffer.Ref(),
 		uint32(indexFormat),
 		float64(offset),
@@ -3646,26 +3692,25 @@ func (this GPURenderBundleEncoder) TrySetIndexBuffer(buffer GPUBuffer, indexForm
 	return
 }
 
-// HasSetIndexBuffer1 returns true if the method "GPURenderBundleEncoder.setIndexBuffer" exists.
-func (this GPURenderBundleEncoder) HasSetIndexBuffer1() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderSetIndexBuffer1(
-		this.Ref(),
+// HasFuncSetIndexBuffer1 returns true if the method "GPURenderBundleEncoder.setIndexBuffer" exists.
+func (this GPURenderBundleEncoder) HasFuncSetIndexBuffer1() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderSetIndexBuffer1(
+		this.ref,
 	)
 }
 
-// SetIndexBuffer1Func returns the method "GPURenderBundleEncoder.setIndexBuffer".
-func (this GPURenderBundleEncoder) SetIndexBuffer1Func() (fn js.Func[func(buffer GPUBuffer, indexFormat GPUIndexFormat, offset GPUSize64)]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderSetIndexBuffer1Func(
-			this.Ref(),
-		),
+// FuncSetIndexBuffer1 returns the method "GPURenderBundleEncoder.setIndexBuffer".
+func (this GPURenderBundleEncoder) FuncSetIndexBuffer1() (fn js.Func[func(buffer GPUBuffer, indexFormat GPUIndexFormat, offset GPUSize64)]) {
+	bindings.FuncGPURenderBundleEncoderSetIndexBuffer1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetIndexBuffer1 calls the method "GPURenderBundleEncoder.setIndexBuffer".
 func (this GPURenderBundleEncoder) SetIndexBuffer1(buffer GPUBuffer, indexFormat GPUIndexFormat, offset GPUSize64) (ret js.Void) {
 	bindings.CallGPURenderBundleEncoderSetIndexBuffer1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		buffer.Ref(),
 		uint32(indexFormat),
 		float64(offset),
@@ -3679,7 +3724,7 @@ func (this GPURenderBundleEncoder) SetIndexBuffer1(buffer GPUBuffer, indexFormat
 // the catch clause.
 func (this GPURenderBundleEncoder) TrySetIndexBuffer1(buffer GPUBuffer, indexFormat GPUIndexFormat, offset GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderSetIndexBuffer1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		buffer.Ref(),
 		uint32(indexFormat),
 		float64(offset),
@@ -3688,26 +3733,25 @@ func (this GPURenderBundleEncoder) TrySetIndexBuffer1(buffer GPUBuffer, indexFor
 	return
 }
 
-// HasSetIndexBuffer2 returns true if the method "GPURenderBundleEncoder.setIndexBuffer" exists.
-func (this GPURenderBundleEncoder) HasSetIndexBuffer2() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderSetIndexBuffer2(
-		this.Ref(),
+// HasFuncSetIndexBuffer2 returns true if the method "GPURenderBundleEncoder.setIndexBuffer" exists.
+func (this GPURenderBundleEncoder) HasFuncSetIndexBuffer2() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderSetIndexBuffer2(
+		this.ref,
 	)
 }
 
-// SetIndexBuffer2Func returns the method "GPURenderBundleEncoder.setIndexBuffer".
-func (this GPURenderBundleEncoder) SetIndexBuffer2Func() (fn js.Func[func(buffer GPUBuffer, indexFormat GPUIndexFormat)]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderSetIndexBuffer2Func(
-			this.Ref(),
-		),
+// FuncSetIndexBuffer2 returns the method "GPURenderBundleEncoder.setIndexBuffer".
+func (this GPURenderBundleEncoder) FuncSetIndexBuffer2() (fn js.Func[func(buffer GPUBuffer, indexFormat GPUIndexFormat)]) {
+	bindings.FuncGPURenderBundleEncoderSetIndexBuffer2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetIndexBuffer2 calls the method "GPURenderBundleEncoder.setIndexBuffer".
 func (this GPURenderBundleEncoder) SetIndexBuffer2(buffer GPUBuffer, indexFormat GPUIndexFormat) (ret js.Void) {
 	bindings.CallGPURenderBundleEncoderSetIndexBuffer2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		buffer.Ref(),
 		uint32(indexFormat),
 	)
@@ -3720,7 +3764,7 @@ func (this GPURenderBundleEncoder) SetIndexBuffer2(buffer GPUBuffer, indexFormat
 // the catch clause.
 func (this GPURenderBundleEncoder) TrySetIndexBuffer2(buffer GPUBuffer, indexFormat GPUIndexFormat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderSetIndexBuffer2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		buffer.Ref(),
 		uint32(indexFormat),
 	)
@@ -3728,26 +3772,25 @@ func (this GPURenderBundleEncoder) TrySetIndexBuffer2(buffer GPUBuffer, indexFor
 	return
 }
 
-// HasSetVertexBuffer returns true if the method "GPURenderBundleEncoder.setVertexBuffer" exists.
-func (this GPURenderBundleEncoder) HasSetVertexBuffer() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderSetVertexBuffer(
-		this.Ref(),
+// HasFuncSetVertexBuffer returns true if the method "GPURenderBundleEncoder.setVertexBuffer" exists.
+func (this GPURenderBundleEncoder) HasFuncSetVertexBuffer() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderSetVertexBuffer(
+		this.ref,
 	)
 }
 
-// SetVertexBufferFunc returns the method "GPURenderBundleEncoder.setVertexBuffer".
-func (this GPURenderBundleEncoder) SetVertexBufferFunc() (fn js.Func[func(slot GPUIndex32, buffer GPUBuffer, offset GPUSize64, size GPUSize64)]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderSetVertexBufferFunc(
-			this.Ref(),
-		),
+// FuncSetVertexBuffer returns the method "GPURenderBundleEncoder.setVertexBuffer".
+func (this GPURenderBundleEncoder) FuncSetVertexBuffer() (fn js.Func[func(slot GPUIndex32, buffer GPUBuffer, offset GPUSize64, size GPUSize64)]) {
+	bindings.FuncGPURenderBundleEncoderSetVertexBuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetVertexBuffer calls the method "GPURenderBundleEncoder.setVertexBuffer".
 func (this GPURenderBundleEncoder) SetVertexBuffer(slot GPUIndex32, buffer GPUBuffer, offset GPUSize64, size GPUSize64) (ret js.Void) {
 	bindings.CallGPURenderBundleEncoderSetVertexBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(slot),
 		buffer.Ref(),
 		float64(offset),
@@ -3762,7 +3805,7 @@ func (this GPURenderBundleEncoder) SetVertexBuffer(slot GPUIndex32, buffer GPUBu
 // the catch clause.
 func (this GPURenderBundleEncoder) TrySetVertexBuffer(slot GPUIndex32, buffer GPUBuffer, offset GPUSize64, size GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderSetVertexBuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(slot),
 		buffer.Ref(),
 		float64(offset),
@@ -3772,26 +3815,25 @@ func (this GPURenderBundleEncoder) TrySetVertexBuffer(slot GPUIndex32, buffer GP
 	return
 }
 
-// HasSetVertexBuffer1 returns true if the method "GPURenderBundleEncoder.setVertexBuffer" exists.
-func (this GPURenderBundleEncoder) HasSetVertexBuffer1() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderSetVertexBuffer1(
-		this.Ref(),
+// HasFuncSetVertexBuffer1 returns true if the method "GPURenderBundleEncoder.setVertexBuffer" exists.
+func (this GPURenderBundleEncoder) HasFuncSetVertexBuffer1() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderSetVertexBuffer1(
+		this.ref,
 	)
 }
 
-// SetVertexBuffer1Func returns the method "GPURenderBundleEncoder.setVertexBuffer".
-func (this GPURenderBundleEncoder) SetVertexBuffer1Func() (fn js.Func[func(slot GPUIndex32, buffer GPUBuffer, offset GPUSize64)]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderSetVertexBuffer1Func(
-			this.Ref(),
-		),
+// FuncSetVertexBuffer1 returns the method "GPURenderBundleEncoder.setVertexBuffer".
+func (this GPURenderBundleEncoder) FuncSetVertexBuffer1() (fn js.Func[func(slot GPUIndex32, buffer GPUBuffer, offset GPUSize64)]) {
+	bindings.FuncGPURenderBundleEncoderSetVertexBuffer1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetVertexBuffer1 calls the method "GPURenderBundleEncoder.setVertexBuffer".
 func (this GPURenderBundleEncoder) SetVertexBuffer1(slot GPUIndex32, buffer GPUBuffer, offset GPUSize64) (ret js.Void) {
 	bindings.CallGPURenderBundleEncoderSetVertexBuffer1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(slot),
 		buffer.Ref(),
 		float64(offset),
@@ -3805,7 +3847,7 @@ func (this GPURenderBundleEncoder) SetVertexBuffer1(slot GPUIndex32, buffer GPUB
 // the catch clause.
 func (this GPURenderBundleEncoder) TrySetVertexBuffer1(slot GPUIndex32, buffer GPUBuffer, offset GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderSetVertexBuffer1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(slot),
 		buffer.Ref(),
 		float64(offset),
@@ -3814,26 +3856,25 @@ func (this GPURenderBundleEncoder) TrySetVertexBuffer1(slot GPUIndex32, buffer G
 	return
 }
 
-// HasSetVertexBuffer2 returns true if the method "GPURenderBundleEncoder.setVertexBuffer" exists.
-func (this GPURenderBundleEncoder) HasSetVertexBuffer2() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderSetVertexBuffer2(
-		this.Ref(),
+// HasFuncSetVertexBuffer2 returns true if the method "GPURenderBundleEncoder.setVertexBuffer" exists.
+func (this GPURenderBundleEncoder) HasFuncSetVertexBuffer2() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderSetVertexBuffer2(
+		this.ref,
 	)
 }
 
-// SetVertexBuffer2Func returns the method "GPURenderBundleEncoder.setVertexBuffer".
-func (this GPURenderBundleEncoder) SetVertexBuffer2Func() (fn js.Func[func(slot GPUIndex32, buffer GPUBuffer)]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderSetVertexBuffer2Func(
-			this.Ref(),
-		),
+// FuncSetVertexBuffer2 returns the method "GPURenderBundleEncoder.setVertexBuffer".
+func (this GPURenderBundleEncoder) FuncSetVertexBuffer2() (fn js.Func[func(slot GPUIndex32, buffer GPUBuffer)]) {
+	bindings.FuncGPURenderBundleEncoderSetVertexBuffer2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetVertexBuffer2 calls the method "GPURenderBundleEncoder.setVertexBuffer".
 func (this GPURenderBundleEncoder) SetVertexBuffer2(slot GPUIndex32, buffer GPUBuffer) (ret js.Void) {
 	bindings.CallGPURenderBundleEncoderSetVertexBuffer2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(slot),
 		buffer.Ref(),
 	)
@@ -3846,7 +3887,7 @@ func (this GPURenderBundleEncoder) SetVertexBuffer2(slot GPUIndex32, buffer GPUB
 // the catch clause.
 func (this GPURenderBundleEncoder) TrySetVertexBuffer2(slot GPUIndex32, buffer GPUBuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderSetVertexBuffer2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(slot),
 		buffer.Ref(),
 	)
@@ -3854,26 +3895,25 @@ func (this GPURenderBundleEncoder) TrySetVertexBuffer2(slot GPUIndex32, buffer G
 	return
 }
 
-// HasDraw returns true if the method "GPURenderBundleEncoder.draw" exists.
-func (this GPURenderBundleEncoder) HasDraw() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderDraw(
-		this.Ref(),
+// HasFuncDraw returns true if the method "GPURenderBundleEncoder.draw" exists.
+func (this GPURenderBundleEncoder) HasFuncDraw() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderDraw(
+		this.ref,
 	)
 }
 
-// DrawFunc returns the method "GPURenderBundleEncoder.draw".
-func (this GPURenderBundleEncoder) DrawFunc() (fn js.Func[func(vertexCount GPUSize32, instanceCount GPUSize32, firstVertex GPUSize32, firstInstance GPUSize32)]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderDrawFunc(
-			this.Ref(),
-		),
+// FuncDraw returns the method "GPURenderBundleEncoder.draw".
+func (this GPURenderBundleEncoder) FuncDraw() (fn js.Func[func(vertexCount GPUSize32, instanceCount GPUSize32, firstVertex GPUSize32, firstInstance GPUSize32)]) {
+	bindings.FuncGPURenderBundleEncoderDraw(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Draw calls the method "GPURenderBundleEncoder.draw".
 func (this GPURenderBundleEncoder) Draw(vertexCount GPUSize32, instanceCount GPUSize32, firstVertex GPUSize32, firstInstance GPUSize32) (ret js.Void) {
 	bindings.CallGPURenderBundleEncoderDraw(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(vertexCount),
 		uint32(instanceCount),
 		uint32(firstVertex),
@@ -3888,7 +3928,7 @@ func (this GPURenderBundleEncoder) Draw(vertexCount GPUSize32, instanceCount GPU
 // the catch clause.
 func (this GPURenderBundleEncoder) TryDraw(vertexCount GPUSize32, instanceCount GPUSize32, firstVertex GPUSize32, firstInstance GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderDraw(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(vertexCount),
 		uint32(instanceCount),
 		uint32(firstVertex),
@@ -3898,26 +3938,25 @@ func (this GPURenderBundleEncoder) TryDraw(vertexCount GPUSize32, instanceCount 
 	return
 }
 
-// HasDraw1 returns true if the method "GPURenderBundleEncoder.draw" exists.
-func (this GPURenderBundleEncoder) HasDraw1() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderDraw1(
-		this.Ref(),
+// HasFuncDraw1 returns true if the method "GPURenderBundleEncoder.draw" exists.
+func (this GPURenderBundleEncoder) HasFuncDraw1() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderDraw1(
+		this.ref,
 	)
 }
 
-// Draw1Func returns the method "GPURenderBundleEncoder.draw".
-func (this GPURenderBundleEncoder) Draw1Func() (fn js.Func[func(vertexCount GPUSize32, instanceCount GPUSize32, firstVertex GPUSize32)]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderDraw1Func(
-			this.Ref(),
-		),
+// FuncDraw1 returns the method "GPURenderBundleEncoder.draw".
+func (this GPURenderBundleEncoder) FuncDraw1() (fn js.Func[func(vertexCount GPUSize32, instanceCount GPUSize32, firstVertex GPUSize32)]) {
+	bindings.FuncGPURenderBundleEncoderDraw1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Draw1 calls the method "GPURenderBundleEncoder.draw".
 func (this GPURenderBundleEncoder) Draw1(vertexCount GPUSize32, instanceCount GPUSize32, firstVertex GPUSize32) (ret js.Void) {
 	bindings.CallGPURenderBundleEncoderDraw1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(vertexCount),
 		uint32(instanceCount),
 		uint32(firstVertex),
@@ -3931,7 +3970,7 @@ func (this GPURenderBundleEncoder) Draw1(vertexCount GPUSize32, instanceCount GP
 // the catch clause.
 func (this GPURenderBundleEncoder) TryDraw1(vertexCount GPUSize32, instanceCount GPUSize32, firstVertex GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderDraw1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(vertexCount),
 		uint32(instanceCount),
 		uint32(firstVertex),
@@ -3940,26 +3979,25 @@ func (this GPURenderBundleEncoder) TryDraw1(vertexCount GPUSize32, instanceCount
 	return
 }
 
-// HasDraw2 returns true if the method "GPURenderBundleEncoder.draw" exists.
-func (this GPURenderBundleEncoder) HasDraw2() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderDraw2(
-		this.Ref(),
+// HasFuncDraw2 returns true if the method "GPURenderBundleEncoder.draw" exists.
+func (this GPURenderBundleEncoder) HasFuncDraw2() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderDraw2(
+		this.ref,
 	)
 }
 
-// Draw2Func returns the method "GPURenderBundleEncoder.draw".
-func (this GPURenderBundleEncoder) Draw2Func() (fn js.Func[func(vertexCount GPUSize32, instanceCount GPUSize32)]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderDraw2Func(
-			this.Ref(),
-		),
+// FuncDraw2 returns the method "GPURenderBundleEncoder.draw".
+func (this GPURenderBundleEncoder) FuncDraw2() (fn js.Func[func(vertexCount GPUSize32, instanceCount GPUSize32)]) {
+	bindings.FuncGPURenderBundleEncoderDraw2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Draw2 calls the method "GPURenderBundleEncoder.draw".
 func (this GPURenderBundleEncoder) Draw2(vertexCount GPUSize32, instanceCount GPUSize32) (ret js.Void) {
 	bindings.CallGPURenderBundleEncoderDraw2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(vertexCount),
 		uint32(instanceCount),
 	)
@@ -3972,7 +4010,7 @@ func (this GPURenderBundleEncoder) Draw2(vertexCount GPUSize32, instanceCount GP
 // the catch clause.
 func (this GPURenderBundleEncoder) TryDraw2(vertexCount GPUSize32, instanceCount GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderDraw2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(vertexCount),
 		uint32(instanceCount),
 	)
@@ -3980,26 +4018,25 @@ func (this GPURenderBundleEncoder) TryDraw2(vertexCount GPUSize32, instanceCount
 	return
 }
 
-// HasDraw3 returns true if the method "GPURenderBundleEncoder.draw" exists.
-func (this GPURenderBundleEncoder) HasDraw3() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderDraw3(
-		this.Ref(),
+// HasFuncDraw3 returns true if the method "GPURenderBundleEncoder.draw" exists.
+func (this GPURenderBundleEncoder) HasFuncDraw3() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderDraw3(
+		this.ref,
 	)
 }
 
-// Draw3Func returns the method "GPURenderBundleEncoder.draw".
-func (this GPURenderBundleEncoder) Draw3Func() (fn js.Func[func(vertexCount GPUSize32)]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderDraw3Func(
-			this.Ref(),
-		),
+// FuncDraw3 returns the method "GPURenderBundleEncoder.draw".
+func (this GPURenderBundleEncoder) FuncDraw3() (fn js.Func[func(vertexCount GPUSize32)]) {
+	bindings.FuncGPURenderBundleEncoderDraw3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Draw3 calls the method "GPURenderBundleEncoder.draw".
 func (this GPURenderBundleEncoder) Draw3(vertexCount GPUSize32) (ret js.Void) {
 	bindings.CallGPURenderBundleEncoderDraw3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(vertexCount),
 	)
 
@@ -4011,33 +4048,32 @@ func (this GPURenderBundleEncoder) Draw3(vertexCount GPUSize32) (ret js.Void) {
 // the catch clause.
 func (this GPURenderBundleEncoder) TryDraw3(vertexCount GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderDraw3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(vertexCount),
 	)
 
 	return
 }
 
-// HasDrawIndexed returns true if the method "GPURenderBundleEncoder.drawIndexed" exists.
-func (this GPURenderBundleEncoder) HasDrawIndexed() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderDrawIndexed(
-		this.Ref(),
+// HasFuncDrawIndexed returns true if the method "GPURenderBundleEncoder.drawIndexed" exists.
+func (this GPURenderBundleEncoder) HasFuncDrawIndexed() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderDrawIndexed(
+		this.ref,
 	)
 }
 
-// DrawIndexedFunc returns the method "GPURenderBundleEncoder.drawIndexed".
-func (this GPURenderBundleEncoder) DrawIndexedFunc() (fn js.Func[func(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32, baseVertex GPUSignedOffset32, firstInstance GPUSize32)]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderDrawIndexedFunc(
-			this.Ref(),
-		),
+// FuncDrawIndexed returns the method "GPURenderBundleEncoder.drawIndexed".
+func (this GPURenderBundleEncoder) FuncDrawIndexed() (fn js.Func[func(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32, baseVertex GPUSignedOffset32, firstInstance GPUSize32)]) {
+	bindings.FuncGPURenderBundleEncoderDrawIndexed(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawIndexed calls the method "GPURenderBundleEncoder.drawIndexed".
 func (this GPURenderBundleEncoder) DrawIndexed(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32, baseVertex GPUSignedOffset32, firstInstance GPUSize32) (ret js.Void) {
 	bindings.CallGPURenderBundleEncoderDrawIndexed(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(indexCount),
 		uint32(instanceCount),
 		uint32(firstIndex),
@@ -4053,7 +4089,7 @@ func (this GPURenderBundleEncoder) DrawIndexed(indexCount GPUSize32, instanceCou
 // the catch clause.
 func (this GPURenderBundleEncoder) TryDrawIndexed(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32, baseVertex GPUSignedOffset32, firstInstance GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderDrawIndexed(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(indexCount),
 		uint32(instanceCount),
 		uint32(firstIndex),
@@ -4064,26 +4100,25 @@ func (this GPURenderBundleEncoder) TryDrawIndexed(indexCount GPUSize32, instance
 	return
 }
 
-// HasDrawIndexed1 returns true if the method "GPURenderBundleEncoder.drawIndexed" exists.
-func (this GPURenderBundleEncoder) HasDrawIndexed1() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderDrawIndexed1(
-		this.Ref(),
+// HasFuncDrawIndexed1 returns true if the method "GPURenderBundleEncoder.drawIndexed" exists.
+func (this GPURenderBundleEncoder) HasFuncDrawIndexed1() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderDrawIndexed1(
+		this.ref,
 	)
 }
 
-// DrawIndexed1Func returns the method "GPURenderBundleEncoder.drawIndexed".
-func (this GPURenderBundleEncoder) DrawIndexed1Func() (fn js.Func[func(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32, baseVertex GPUSignedOffset32)]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderDrawIndexed1Func(
-			this.Ref(),
-		),
+// FuncDrawIndexed1 returns the method "GPURenderBundleEncoder.drawIndexed".
+func (this GPURenderBundleEncoder) FuncDrawIndexed1() (fn js.Func[func(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32, baseVertex GPUSignedOffset32)]) {
+	bindings.FuncGPURenderBundleEncoderDrawIndexed1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawIndexed1 calls the method "GPURenderBundleEncoder.drawIndexed".
 func (this GPURenderBundleEncoder) DrawIndexed1(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32, baseVertex GPUSignedOffset32) (ret js.Void) {
 	bindings.CallGPURenderBundleEncoderDrawIndexed1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(indexCount),
 		uint32(instanceCount),
 		uint32(firstIndex),
@@ -4098,7 +4133,7 @@ func (this GPURenderBundleEncoder) DrawIndexed1(indexCount GPUSize32, instanceCo
 // the catch clause.
 func (this GPURenderBundleEncoder) TryDrawIndexed1(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32, baseVertex GPUSignedOffset32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderDrawIndexed1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(indexCount),
 		uint32(instanceCount),
 		uint32(firstIndex),
@@ -4108,26 +4143,25 @@ func (this GPURenderBundleEncoder) TryDrawIndexed1(indexCount GPUSize32, instanc
 	return
 }
 
-// HasDrawIndexed2 returns true if the method "GPURenderBundleEncoder.drawIndexed" exists.
-func (this GPURenderBundleEncoder) HasDrawIndexed2() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderDrawIndexed2(
-		this.Ref(),
+// HasFuncDrawIndexed2 returns true if the method "GPURenderBundleEncoder.drawIndexed" exists.
+func (this GPURenderBundleEncoder) HasFuncDrawIndexed2() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderDrawIndexed2(
+		this.ref,
 	)
 }
 
-// DrawIndexed2Func returns the method "GPURenderBundleEncoder.drawIndexed".
-func (this GPURenderBundleEncoder) DrawIndexed2Func() (fn js.Func[func(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32)]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderDrawIndexed2Func(
-			this.Ref(),
-		),
+// FuncDrawIndexed2 returns the method "GPURenderBundleEncoder.drawIndexed".
+func (this GPURenderBundleEncoder) FuncDrawIndexed2() (fn js.Func[func(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32)]) {
+	bindings.FuncGPURenderBundleEncoderDrawIndexed2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawIndexed2 calls the method "GPURenderBundleEncoder.drawIndexed".
 func (this GPURenderBundleEncoder) DrawIndexed2(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32) (ret js.Void) {
 	bindings.CallGPURenderBundleEncoderDrawIndexed2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(indexCount),
 		uint32(instanceCount),
 		uint32(firstIndex),
@@ -4141,7 +4175,7 @@ func (this GPURenderBundleEncoder) DrawIndexed2(indexCount GPUSize32, instanceCo
 // the catch clause.
 func (this GPURenderBundleEncoder) TryDrawIndexed2(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderDrawIndexed2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(indexCount),
 		uint32(instanceCount),
 		uint32(firstIndex),
@@ -4150,26 +4184,25 @@ func (this GPURenderBundleEncoder) TryDrawIndexed2(indexCount GPUSize32, instanc
 	return
 }
 
-// HasDrawIndexed3 returns true if the method "GPURenderBundleEncoder.drawIndexed" exists.
-func (this GPURenderBundleEncoder) HasDrawIndexed3() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderDrawIndexed3(
-		this.Ref(),
+// HasFuncDrawIndexed3 returns true if the method "GPURenderBundleEncoder.drawIndexed" exists.
+func (this GPURenderBundleEncoder) HasFuncDrawIndexed3() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderDrawIndexed3(
+		this.ref,
 	)
 }
 
-// DrawIndexed3Func returns the method "GPURenderBundleEncoder.drawIndexed".
-func (this GPURenderBundleEncoder) DrawIndexed3Func() (fn js.Func[func(indexCount GPUSize32, instanceCount GPUSize32)]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderDrawIndexed3Func(
-			this.Ref(),
-		),
+// FuncDrawIndexed3 returns the method "GPURenderBundleEncoder.drawIndexed".
+func (this GPURenderBundleEncoder) FuncDrawIndexed3() (fn js.Func[func(indexCount GPUSize32, instanceCount GPUSize32)]) {
+	bindings.FuncGPURenderBundleEncoderDrawIndexed3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawIndexed3 calls the method "GPURenderBundleEncoder.drawIndexed".
 func (this GPURenderBundleEncoder) DrawIndexed3(indexCount GPUSize32, instanceCount GPUSize32) (ret js.Void) {
 	bindings.CallGPURenderBundleEncoderDrawIndexed3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(indexCount),
 		uint32(instanceCount),
 	)
@@ -4182,7 +4215,7 @@ func (this GPURenderBundleEncoder) DrawIndexed3(indexCount GPUSize32, instanceCo
 // the catch clause.
 func (this GPURenderBundleEncoder) TryDrawIndexed3(indexCount GPUSize32, instanceCount GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderDrawIndexed3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(indexCount),
 		uint32(instanceCount),
 	)
@@ -4190,26 +4223,25 @@ func (this GPURenderBundleEncoder) TryDrawIndexed3(indexCount GPUSize32, instanc
 	return
 }
 
-// HasDrawIndexed4 returns true if the method "GPURenderBundleEncoder.drawIndexed" exists.
-func (this GPURenderBundleEncoder) HasDrawIndexed4() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderDrawIndexed4(
-		this.Ref(),
+// HasFuncDrawIndexed4 returns true if the method "GPURenderBundleEncoder.drawIndexed" exists.
+func (this GPURenderBundleEncoder) HasFuncDrawIndexed4() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderDrawIndexed4(
+		this.ref,
 	)
 }
 
-// DrawIndexed4Func returns the method "GPURenderBundleEncoder.drawIndexed".
-func (this GPURenderBundleEncoder) DrawIndexed4Func() (fn js.Func[func(indexCount GPUSize32)]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderDrawIndexed4Func(
-			this.Ref(),
-		),
+// FuncDrawIndexed4 returns the method "GPURenderBundleEncoder.drawIndexed".
+func (this GPURenderBundleEncoder) FuncDrawIndexed4() (fn js.Func[func(indexCount GPUSize32)]) {
+	bindings.FuncGPURenderBundleEncoderDrawIndexed4(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawIndexed4 calls the method "GPURenderBundleEncoder.drawIndexed".
 func (this GPURenderBundleEncoder) DrawIndexed4(indexCount GPUSize32) (ret js.Void) {
 	bindings.CallGPURenderBundleEncoderDrawIndexed4(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(indexCount),
 	)
 
@@ -4221,33 +4253,32 @@ func (this GPURenderBundleEncoder) DrawIndexed4(indexCount GPUSize32) (ret js.Vo
 // the catch clause.
 func (this GPURenderBundleEncoder) TryDrawIndexed4(indexCount GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderDrawIndexed4(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(indexCount),
 	)
 
 	return
 }
 
-// HasDrawIndirect returns true if the method "GPURenderBundleEncoder.drawIndirect" exists.
-func (this GPURenderBundleEncoder) HasDrawIndirect() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderDrawIndirect(
-		this.Ref(),
+// HasFuncDrawIndirect returns true if the method "GPURenderBundleEncoder.drawIndirect" exists.
+func (this GPURenderBundleEncoder) HasFuncDrawIndirect() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderDrawIndirect(
+		this.ref,
 	)
 }
 
-// DrawIndirectFunc returns the method "GPURenderBundleEncoder.drawIndirect".
-func (this GPURenderBundleEncoder) DrawIndirectFunc() (fn js.Func[func(indirectBuffer GPUBuffer, indirectOffset GPUSize64)]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderDrawIndirectFunc(
-			this.Ref(),
-		),
+// FuncDrawIndirect returns the method "GPURenderBundleEncoder.drawIndirect".
+func (this GPURenderBundleEncoder) FuncDrawIndirect() (fn js.Func[func(indirectBuffer GPUBuffer, indirectOffset GPUSize64)]) {
+	bindings.FuncGPURenderBundleEncoderDrawIndirect(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawIndirect calls the method "GPURenderBundleEncoder.drawIndirect".
 func (this GPURenderBundleEncoder) DrawIndirect(indirectBuffer GPUBuffer, indirectOffset GPUSize64) (ret js.Void) {
 	bindings.CallGPURenderBundleEncoderDrawIndirect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		indirectBuffer.Ref(),
 		float64(indirectOffset),
 	)
@@ -4260,7 +4291,7 @@ func (this GPURenderBundleEncoder) DrawIndirect(indirectBuffer GPUBuffer, indire
 // the catch clause.
 func (this GPURenderBundleEncoder) TryDrawIndirect(indirectBuffer GPUBuffer, indirectOffset GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderDrawIndirect(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		indirectBuffer.Ref(),
 		float64(indirectOffset),
 	)
@@ -4268,26 +4299,25 @@ func (this GPURenderBundleEncoder) TryDrawIndirect(indirectBuffer GPUBuffer, ind
 	return
 }
 
-// HasDrawIndexedIndirect returns true if the method "GPURenderBundleEncoder.drawIndexedIndirect" exists.
-func (this GPURenderBundleEncoder) HasDrawIndexedIndirect() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderDrawIndexedIndirect(
-		this.Ref(),
+// HasFuncDrawIndexedIndirect returns true if the method "GPURenderBundleEncoder.drawIndexedIndirect" exists.
+func (this GPURenderBundleEncoder) HasFuncDrawIndexedIndirect() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderDrawIndexedIndirect(
+		this.ref,
 	)
 }
 
-// DrawIndexedIndirectFunc returns the method "GPURenderBundleEncoder.drawIndexedIndirect".
-func (this GPURenderBundleEncoder) DrawIndexedIndirectFunc() (fn js.Func[func(indirectBuffer GPUBuffer, indirectOffset GPUSize64)]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderDrawIndexedIndirectFunc(
-			this.Ref(),
-		),
+// FuncDrawIndexedIndirect returns the method "GPURenderBundleEncoder.drawIndexedIndirect".
+func (this GPURenderBundleEncoder) FuncDrawIndexedIndirect() (fn js.Func[func(indirectBuffer GPUBuffer, indirectOffset GPUSize64)]) {
+	bindings.FuncGPURenderBundleEncoderDrawIndexedIndirect(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawIndexedIndirect calls the method "GPURenderBundleEncoder.drawIndexedIndirect".
 func (this GPURenderBundleEncoder) DrawIndexedIndirect(indirectBuffer GPUBuffer, indirectOffset GPUSize64) (ret js.Void) {
 	bindings.CallGPURenderBundleEncoderDrawIndexedIndirect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		indirectBuffer.Ref(),
 		float64(indirectOffset),
 	)
@@ -4300,7 +4330,7 @@ func (this GPURenderBundleEncoder) DrawIndexedIndirect(indirectBuffer GPUBuffer,
 // the catch clause.
 func (this GPURenderBundleEncoder) TryDrawIndexedIndirect(indirectBuffer GPUBuffer, indirectOffset GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderDrawIndexedIndirect(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		indirectBuffer.Ref(),
 		float64(indirectOffset),
 	)
@@ -4308,26 +4338,25 @@ func (this GPURenderBundleEncoder) TryDrawIndexedIndirect(indirectBuffer GPUBuff
 	return
 }
 
-// HasSetBindGroup returns true if the method "GPURenderBundleEncoder.setBindGroup" exists.
-func (this GPURenderBundleEncoder) HasSetBindGroup() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderSetBindGroup(
-		this.Ref(),
+// HasFuncSetBindGroup returns true if the method "GPURenderBundleEncoder.setBindGroup" exists.
+func (this GPURenderBundleEncoder) HasFuncSetBindGroup() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderSetBindGroup(
+		this.ref,
 	)
 }
 
-// SetBindGroupFunc returns the method "GPURenderBundleEncoder.setBindGroup".
-func (this GPURenderBundleEncoder) SetBindGroupFunc() (fn js.Func[func(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsets js.Array[GPUBufferDynamicOffset])]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderSetBindGroupFunc(
-			this.Ref(),
-		),
+// FuncSetBindGroup returns the method "GPURenderBundleEncoder.setBindGroup".
+func (this GPURenderBundleEncoder) FuncSetBindGroup() (fn js.Func[func(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsets js.Array[GPUBufferDynamicOffset])]) {
+	bindings.FuncGPURenderBundleEncoderSetBindGroup(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetBindGroup calls the method "GPURenderBundleEncoder.setBindGroup".
 func (this GPURenderBundleEncoder) SetBindGroup(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsets js.Array[GPUBufferDynamicOffset]) (ret js.Void) {
 	bindings.CallGPURenderBundleEncoderSetBindGroup(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		bindGroup.Ref(),
 		dynamicOffsets.Ref(),
@@ -4341,7 +4370,7 @@ func (this GPURenderBundleEncoder) SetBindGroup(index GPUIndex32, bindGroup GPUB
 // the catch clause.
 func (this GPURenderBundleEncoder) TrySetBindGroup(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsets js.Array[GPUBufferDynamicOffset]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderSetBindGroup(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		bindGroup.Ref(),
 		dynamicOffsets.Ref(),
@@ -4350,26 +4379,25 @@ func (this GPURenderBundleEncoder) TrySetBindGroup(index GPUIndex32, bindGroup G
 	return
 }
 
-// HasSetBindGroup1 returns true if the method "GPURenderBundleEncoder.setBindGroup" exists.
-func (this GPURenderBundleEncoder) HasSetBindGroup1() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderSetBindGroup1(
-		this.Ref(),
+// HasFuncSetBindGroup1 returns true if the method "GPURenderBundleEncoder.setBindGroup" exists.
+func (this GPURenderBundleEncoder) HasFuncSetBindGroup1() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderSetBindGroup1(
+		this.ref,
 	)
 }
 
-// SetBindGroup1Func returns the method "GPURenderBundleEncoder.setBindGroup".
-func (this GPURenderBundleEncoder) SetBindGroup1Func() (fn js.Func[func(index GPUIndex32, bindGroup GPUBindGroup)]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderSetBindGroup1Func(
-			this.Ref(),
-		),
+// FuncSetBindGroup1 returns the method "GPURenderBundleEncoder.setBindGroup".
+func (this GPURenderBundleEncoder) FuncSetBindGroup1() (fn js.Func[func(index GPUIndex32, bindGroup GPUBindGroup)]) {
+	bindings.FuncGPURenderBundleEncoderSetBindGroup1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetBindGroup1 calls the method "GPURenderBundleEncoder.setBindGroup".
 func (this GPURenderBundleEncoder) SetBindGroup1(index GPUIndex32, bindGroup GPUBindGroup) (ret js.Void) {
 	bindings.CallGPURenderBundleEncoderSetBindGroup1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		bindGroup.Ref(),
 	)
@@ -4382,7 +4410,7 @@ func (this GPURenderBundleEncoder) SetBindGroup1(index GPUIndex32, bindGroup GPU
 // the catch clause.
 func (this GPURenderBundleEncoder) TrySetBindGroup1(index GPUIndex32, bindGroup GPUBindGroup) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderSetBindGroup1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		bindGroup.Ref(),
 	)
@@ -4390,26 +4418,25 @@ func (this GPURenderBundleEncoder) TrySetBindGroup1(index GPUIndex32, bindGroup 
 	return
 }
 
-// HasSetBindGroup2 returns true if the method "GPURenderBundleEncoder.setBindGroup" exists.
-func (this GPURenderBundleEncoder) HasSetBindGroup2() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderSetBindGroup2(
-		this.Ref(),
+// HasFuncSetBindGroup2 returns true if the method "GPURenderBundleEncoder.setBindGroup" exists.
+func (this GPURenderBundleEncoder) HasFuncSetBindGroup2() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderSetBindGroup2(
+		this.ref,
 	)
 }
 
-// SetBindGroup2Func returns the method "GPURenderBundleEncoder.setBindGroup".
-func (this GPURenderBundleEncoder) SetBindGroup2Func() (fn js.Func[func(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsetsData js.TypedArray[uint32], dynamicOffsetsDataStart GPUSize64, dynamicOffsetsDataLength GPUSize32)]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderSetBindGroup2Func(
-			this.Ref(),
-		),
+// FuncSetBindGroup2 returns the method "GPURenderBundleEncoder.setBindGroup".
+func (this GPURenderBundleEncoder) FuncSetBindGroup2() (fn js.Func[func(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsetsData js.TypedArray[uint32], dynamicOffsetsDataStart GPUSize64, dynamicOffsetsDataLength GPUSize32)]) {
+	bindings.FuncGPURenderBundleEncoderSetBindGroup2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetBindGroup2 calls the method "GPURenderBundleEncoder.setBindGroup".
 func (this GPURenderBundleEncoder) SetBindGroup2(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsetsData js.TypedArray[uint32], dynamicOffsetsDataStart GPUSize64, dynamicOffsetsDataLength GPUSize32) (ret js.Void) {
 	bindings.CallGPURenderBundleEncoderSetBindGroup2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		bindGroup.Ref(),
 		dynamicOffsetsData.Ref(),
@@ -4425,7 +4452,7 @@ func (this GPURenderBundleEncoder) SetBindGroup2(index GPUIndex32, bindGroup GPU
 // the catch clause.
 func (this GPURenderBundleEncoder) TrySetBindGroup2(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsetsData js.TypedArray[uint32], dynamicOffsetsDataStart GPUSize64, dynamicOffsetsDataLength GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderSetBindGroup2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		bindGroup.Ref(),
 		dynamicOffsetsData.Ref(),
@@ -4436,26 +4463,25 @@ func (this GPURenderBundleEncoder) TrySetBindGroup2(index GPUIndex32, bindGroup 
 	return
 }
 
-// HasPushDebugGroup returns true if the method "GPURenderBundleEncoder.pushDebugGroup" exists.
-func (this GPURenderBundleEncoder) HasPushDebugGroup() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderPushDebugGroup(
-		this.Ref(),
+// HasFuncPushDebugGroup returns true if the method "GPURenderBundleEncoder.pushDebugGroup" exists.
+func (this GPURenderBundleEncoder) HasFuncPushDebugGroup() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderPushDebugGroup(
+		this.ref,
 	)
 }
 
-// PushDebugGroupFunc returns the method "GPURenderBundleEncoder.pushDebugGroup".
-func (this GPURenderBundleEncoder) PushDebugGroupFunc() (fn js.Func[func(groupLabel js.String)]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderPushDebugGroupFunc(
-			this.Ref(),
-		),
+// FuncPushDebugGroup returns the method "GPURenderBundleEncoder.pushDebugGroup".
+func (this GPURenderBundleEncoder) FuncPushDebugGroup() (fn js.Func[func(groupLabel js.String)]) {
+	bindings.FuncGPURenderBundleEncoderPushDebugGroup(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PushDebugGroup calls the method "GPURenderBundleEncoder.pushDebugGroup".
 func (this GPURenderBundleEncoder) PushDebugGroup(groupLabel js.String) (ret js.Void) {
 	bindings.CallGPURenderBundleEncoderPushDebugGroup(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		groupLabel.Ref(),
 	)
 
@@ -4467,33 +4493,32 @@ func (this GPURenderBundleEncoder) PushDebugGroup(groupLabel js.String) (ret js.
 // the catch clause.
 func (this GPURenderBundleEncoder) TryPushDebugGroup(groupLabel js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderPushDebugGroup(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		groupLabel.Ref(),
 	)
 
 	return
 }
 
-// HasPopDebugGroup returns true if the method "GPURenderBundleEncoder.popDebugGroup" exists.
-func (this GPURenderBundleEncoder) HasPopDebugGroup() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderPopDebugGroup(
-		this.Ref(),
+// HasFuncPopDebugGroup returns true if the method "GPURenderBundleEncoder.popDebugGroup" exists.
+func (this GPURenderBundleEncoder) HasFuncPopDebugGroup() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderPopDebugGroup(
+		this.ref,
 	)
 }
 
-// PopDebugGroupFunc returns the method "GPURenderBundleEncoder.popDebugGroup".
-func (this GPURenderBundleEncoder) PopDebugGroupFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderPopDebugGroupFunc(
-			this.Ref(),
-		),
+// FuncPopDebugGroup returns the method "GPURenderBundleEncoder.popDebugGroup".
+func (this GPURenderBundleEncoder) FuncPopDebugGroup() (fn js.Func[func()]) {
+	bindings.FuncGPURenderBundleEncoderPopDebugGroup(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PopDebugGroup calls the method "GPURenderBundleEncoder.popDebugGroup".
 func (this GPURenderBundleEncoder) PopDebugGroup() (ret js.Void) {
 	bindings.CallGPURenderBundleEncoderPopDebugGroup(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -4504,32 +4529,31 @@ func (this GPURenderBundleEncoder) PopDebugGroup() (ret js.Void) {
 // the catch clause.
 func (this GPURenderBundleEncoder) TryPopDebugGroup() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderPopDebugGroup(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasInsertDebugMarker returns true if the method "GPURenderBundleEncoder.insertDebugMarker" exists.
-func (this GPURenderBundleEncoder) HasInsertDebugMarker() bool {
-	return js.True == bindings.HasGPURenderBundleEncoderInsertDebugMarker(
-		this.Ref(),
+// HasFuncInsertDebugMarker returns true if the method "GPURenderBundleEncoder.insertDebugMarker" exists.
+func (this GPURenderBundleEncoder) HasFuncInsertDebugMarker() bool {
+	return js.True == bindings.HasFuncGPURenderBundleEncoderInsertDebugMarker(
+		this.ref,
 	)
 }
 
-// InsertDebugMarkerFunc returns the method "GPURenderBundleEncoder.insertDebugMarker".
-func (this GPURenderBundleEncoder) InsertDebugMarkerFunc() (fn js.Func[func(markerLabel js.String)]) {
-	return fn.FromRef(
-		bindings.GPURenderBundleEncoderInsertDebugMarkerFunc(
-			this.Ref(),
-		),
+// FuncInsertDebugMarker returns the method "GPURenderBundleEncoder.insertDebugMarker".
+func (this GPURenderBundleEncoder) FuncInsertDebugMarker() (fn js.Func[func(markerLabel js.String)]) {
+	bindings.FuncGPURenderBundleEncoderInsertDebugMarker(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InsertDebugMarker calls the method "GPURenderBundleEncoder.insertDebugMarker".
 func (this GPURenderBundleEncoder) InsertDebugMarker(markerLabel js.String) (ret js.Void) {
 	bindings.CallGPURenderBundleEncoderInsertDebugMarker(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		markerLabel.Ref(),
 	)
 
@@ -4541,7 +4565,7 @@ func (this GPURenderBundleEncoder) InsertDebugMarker(markerLabel js.String) (ret
 // the catch clause.
 func (this GPURenderBundleEncoder) TryInsertDebugMarker(markerLabel js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderInsertDebugMarker(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		markerLabel.Ref(),
 	)
 
@@ -4601,17 +4625,28 @@ func (p GPURenderBundleEncoderDescriptor) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPURenderBundleEncoderDescriptor) UpdateFrom(ref js.Ref) {
+func (p *GPURenderBundleEncoderDescriptor) UpdateFrom(ref js.Ref) {
 	bindings.GPURenderBundleEncoderDescriptorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPURenderBundleEncoderDescriptor) Update(ref js.Ref) {
+func (p *GPURenderBundleEncoderDescriptor) Update(ref js.Ref) {
 	bindings.GPURenderBundleEncoderDescriptorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPURenderBundleEncoderDescriptor) FreeMembers(recursive bool) {
+	js.Free(
+		p.ColorFormats.Ref(),
+		p.Label.Ref(),
+	)
+	p.ColorFormats = p.ColorFormats.FromRef(js.Undefined)
+	p.Label = p.Label.FromRef(js.Undefined)
 }
 
 type GPUQuerySetDescriptor struct {
@@ -4645,17 +4680,26 @@ func (p GPUQuerySetDescriptor) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUQuerySetDescriptor) UpdateFrom(ref js.Ref) {
+func (p *GPUQuerySetDescriptor) UpdateFrom(ref js.Ref) {
 	bindings.GPUQuerySetDescriptorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUQuerySetDescriptor) Update(ref js.Ref) {
+func (p *GPUQuerySetDescriptor) Update(ref js.Ref) {
 	bindings.GPUQuerySetDescriptorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUQuerySetDescriptor) FreeMembers(recursive bool) {
+	js.Free(
+		p.Label.Ref(),
+	)
+	p.Label = p.Label.FromRef(js.Undefined)
 }
 
 type GPUErrorFilter uint32
@@ -4690,7 +4734,7 @@ type GPUError struct {
 }
 
 func (this GPUError) Once() GPUError {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -4704,7 +4748,7 @@ func (this GPUError) FromRef(ref js.Ref) GPUError {
 }
 
 func (this GPUError) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Message returns the value of property "GPUError.message".
@@ -4712,7 +4756,7 @@ func (this GPUError) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUError) Message() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGPUErrorMessage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4722,7 +4766,7 @@ type GPUSupportedFeatures struct {
 }
 
 func (this GPUSupportedFeatures) Once() GPUSupportedFeatures {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -4736,7 +4780,7 @@ func (this GPUSupportedFeatures) FromRef(ref js.Ref) GPUSupportedFeatures {
 }
 
 func (this GPUSupportedFeatures) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type GPUSupportedLimits struct {
@@ -4744,7 +4788,7 @@ type GPUSupportedLimits struct {
 }
 
 func (this GPUSupportedLimits) Once() GPUSupportedLimits {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -4758,7 +4802,7 @@ func (this GPUSupportedLimits) FromRef(ref js.Ref) GPUSupportedLimits {
 }
 
 func (this GPUSupportedLimits) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // MaxTextureDimension1D returns the value of property "GPUSupportedLimits.maxTextureDimension1D".
@@ -4766,7 +4810,7 @@ func (this GPUSupportedLimits) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxTextureDimension1D() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxTextureDimension1D(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4776,7 +4820,7 @@ func (this GPUSupportedLimits) MaxTextureDimension1D() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxTextureDimension2D() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxTextureDimension2D(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4786,7 +4830,7 @@ func (this GPUSupportedLimits) MaxTextureDimension2D() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxTextureDimension3D() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxTextureDimension3D(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4796,7 +4840,7 @@ func (this GPUSupportedLimits) MaxTextureDimension3D() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxTextureArrayLayers() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxTextureArrayLayers(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4806,7 +4850,7 @@ func (this GPUSupportedLimits) MaxTextureArrayLayers() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxBindGroups() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxBindGroups(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4816,7 +4860,7 @@ func (this GPUSupportedLimits) MaxBindGroups() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxBindGroupsPlusVertexBuffers() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxBindGroupsPlusVertexBuffers(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4826,7 +4870,7 @@ func (this GPUSupportedLimits) MaxBindGroupsPlusVertexBuffers() (ret uint32, ok 
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxBindingsPerBindGroup() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxBindingsPerBindGroup(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4836,7 +4880,7 @@ func (this GPUSupportedLimits) MaxBindingsPerBindGroup() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxDynamicUniformBuffersPerPipelineLayout() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxDynamicUniformBuffersPerPipelineLayout(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4846,7 +4890,7 @@ func (this GPUSupportedLimits) MaxDynamicUniformBuffersPerPipelineLayout() (ret 
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxDynamicStorageBuffersPerPipelineLayout() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxDynamicStorageBuffersPerPipelineLayout(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4856,7 +4900,7 @@ func (this GPUSupportedLimits) MaxDynamicStorageBuffersPerPipelineLayout() (ret 
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxSampledTexturesPerShaderStage() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxSampledTexturesPerShaderStage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4866,7 +4910,7 @@ func (this GPUSupportedLimits) MaxSampledTexturesPerShaderStage() (ret uint32, o
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxSamplersPerShaderStage() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxSamplersPerShaderStage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4876,7 +4920,7 @@ func (this GPUSupportedLimits) MaxSamplersPerShaderStage() (ret uint32, ok bool)
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxStorageBuffersPerShaderStage() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxStorageBuffersPerShaderStage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4886,7 +4930,7 @@ func (this GPUSupportedLimits) MaxStorageBuffersPerShaderStage() (ret uint32, ok
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxStorageTexturesPerShaderStage() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxStorageTexturesPerShaderStage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4896,7 +4940,7 @@ func (this GPUSupportedLimits) MaxStorageTexturesPerShaderStage() (ret uint32, o
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxUniformBuffersPerShaderStage() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxUniformBuffersPerShaderStage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4906,7 +4950,7 @@ func (this GPUSupportedLimits) MaxUniformBuffersPerShaderStage() (ret uint32, ok
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxUniformBufferBindingSize() (ret uint64, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxUniformBufferBindingSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4916,7 +4960,7 @@ func (this GPUSupportedLimits) MaxUniformBufferBindingSize() (ret uint64, ok boo
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxStorageBufferBindingSize() (ret uint64, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxStorageBufferBindingSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4926,7 +4970,7 @@ func (this GPUSupportedLimits) MaxStorageBufferBindingSize() (ret uint64, ok boo
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MinUniformBufferOffsetAlignment() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMinUniformBufferOffsetAlignment(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4936,7 +4980,7 @@ func (this GPUSupportedLimits) MinUniformBufferOffsetAlignment() (ret uint32, ok
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MinStorageBufferOffsetAlignment() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMinStorageBufferOffsetAlignment(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4946,7 +4990,7 @@ func (this GPUSupportedLimits) MinStorageBufferOffsetAlignment() (ret uint32, ok
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxVertexBuffers() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxVertexBuffers(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4956,7 +5000,7 @@ func (this GPUSupportedLimits) MaxVertexBuffers() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxBufferSize() (ret uint64, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxBufferSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4966,7 +5010,7 @@ func (this GPUSupportedLimits) MaxBufferSize() (ret uint64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxVertexAttributes() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxVertexAttributes(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4976,7 +5020,7 @@ func (this GPUSupportedLimits) MaxVertexAttributes() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxVertexBufferArrayStride() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxVertexBufferArrayStride(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4986,7 +5030,7 @@ func (this GPUSupportedLimits) MaxVertexBufferArrayStride() (ret uint32, ok bool
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxInterStageShaderComponents() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxInterStageShaderComponents(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4996,7 +5040,7 @@ func (this GPUSupportedLimits) MaxInterStageShaderComponents() (ret uint32, ok b
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxInterStageShaderVariables() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxInterStageShaderVariables(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5006,7 +5050,7 @@ func (this GPUSupportedLimits) MaxInterStageShaderVariables() (ret uint32, ok bo
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxColorAttachments() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxColorAttachments(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5016,7 +5060,7 @@ func (this GPUSupportedLimits) MaxColorAttachments() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxColorAttachmentBytesPerSample() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxColorAttachmentBytesPerSample(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5026,7 +5070,7 @@ func (this GPUSupportedLimits) MaxColorAttachmentBytesPerSample() (ret uint32, o
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxComputeWorkgroupStorageSize() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxComputeWorkgroupStorageSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5036,7 +5080,7 @@ func (this GPUSupportedLimits) MaxComputeWorkgroupStorageSize() (ret uint32, ok 
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxComputeInvocationsPerWorkgroup() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxComputeInvocationsPerWorkgroup(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5046,7 +5090,7 @@ func (this GPUSupportedLimits) MaxComputeInvocationsPerWorkgroup() (ret uint32, 
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxComputeWorkgroupSizeX() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxComputeWorkgroupSizeX(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5056,7 +5100,7 @@ func (this GPUSupportedLimits) MaxComputeWorkgroupSizeX() (ret uint32, ok bool) 
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxComputeWorkgroupSizeY() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxComputeWorkgroupSizeY(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5066,7 +5110,7 @@ func (this GPUSupportedLimits) MaxComputeWorkgroupSizeY() (ret uint32, ok bool) 
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxComputeWorkgroupSizeZ() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxComputeWorkgroupSizeZ(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5076,7 +5120,7 @@ func (this GPUSupportedLimits) MaxComputeWorkgroupSizeZ() (ret uint32, ok bool) 
 // It returns ok=false if there is no such property.
 func (this GPUSupportedLimits) MaxComputeWorkgroupsPerDimension() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetGPUSupportedLimitsMaxComputeWorkgroupsPerDimension(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5122,17 +5166,22 @@ func (p GPUImageDataLayout) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUImageDataLayout) UpdateFrom(ref js.Ref) {
+func (p *GPUImageDataLayout) UpdateFrom(ref js.Ref) {
 	bindings.GPUImageDataLayoutJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUImageDataLayout) Update(ref js.Ref) {
+func (p *GPUImageDataLayout) Update(ref js.Ref) {
 	bindings.GPUImageDataLayoutJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUImageDataLayout) FreeMembers(recursive bool) {
 }
 
 type OneOf_ImageBitmap_ImageData_HTMLImageElement_HTMLVideoElement_VideoFrame_HTMLCanvasElement_OffscreenCanvas struct {
@@ -5217,17 +5266,22 @@ func (p GPUOrigin2DDict) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUOrigin2DDict) UpdateFrom(ref js.Ref) {
+func (p *GPUOrigin2DDict) UpdateFrom(ref js.Ref) {
 	bindings.GPUOrigin2DDictJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUOrigin2DDict) Update(ref js.Ref) {
+func (p *GPUOrigin2DDict) Update(ref js.Ref) {
 	bindings.GPUOrigin2DDictJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUOrigin2DDict) FreeMembers(recursive bool) {
 }
 
 type OneOf_ArrayGPUIntegerCoordinate_GPUOrigin2DDict struct {
@@ -5295,17 +5349,28 @@ func (p GPUImageCopyExternalImage) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUImageCopyExternalImage) UpdateFrom(ref js.Ref) {
+func (p *GPUImageCopyExternalImage) UpdateFrom(ref js.Ref) {
 	bindings.GPUImageCopyExternalImageJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUImageCopyExternalImage) Update(ref js.Ref) {
+func (p *GPUImageCopyExternalImage) Update(ref js.Ref) {
 	bindings.GPUImageCopyExternalImageJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUImageCopyExternalImage) FreeMembers(recursive bool) {
+	js.Free(
+		p.Source.Ref(),
+		p.Origin.Ref(),
+	)
+	p.Source = p.Source.FromRef(js.Undefined)
+	p.Origin = p.Origin.FromRef(js.Undefined)
 }
 
 type GPUImageCopyTextureTagged struct {
@@ -5358,17 +5423,28 @@ func (p GPUImageCopyTextureTagged) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUImageCopyTextureTagged) UpdateFrom(ref js.Ref) {
+func (p *GPUImageCopyTextureTagged) UpdateFrom(ref js.Ref) {
 	bindings.GPUImageCopyTextureTaggedJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUImageCopyTextureTagged) Update(ref js.Ref) {
+func (p *GPUImageCopyTextureTagged) Update(ref js.Ref) {
 	bindings.GPUImageCopyTextureTaggedJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUImageCopyTextureTagged) FreeMembers(recursive bool) {
+	js.Free(
+		p.Texture.Ref(),
+		p.Origin.Ref(),
+	)
+	p.Texture = p.Texture.FromRef(js.Undefined)
+	p.Origin = p.Origin.FromRef(js.Undefined)
 }
 
 type GPUQueue struct {
@@ -5376,7 +5452,7 @@ type GPUQueue struct {
 }
 
 func (this GPUQueue) Once() GPUQueue {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -5390,7 +5466,7 @@ func (this GPUQueue) FromRef(ref js.Ref) GPUQueue {
 }
 
 func (this GPUQueue) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Label returns the value of property "GPUQueue.label".
@@ -5398,7 +5474,7 @@ func (this GPUQueue) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUQueue) Label() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGPUQueueLabel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5408,31 +5484,30 @@ func (this GPUQueue) Label() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this GPUQueue) SetLabel(val js.String) bool {
 	return js.True == bindings.SetGPUQueueLabel(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
 
-// HasSubmit returns true if the method "GPUQueue.submit" exists.
-func (this GPUQueue) HasSubmit() bool {
-	return js.True == bindings.HasGPUQueueSubmit(
-		this.Ref(),
+// HasFuncSubmit returns true if the method "GPUQueue.submit" exists.
+func (this GPUQueue) HasFuncSubmit() bool {
+	return js.True == bindings.HasFuncGPUQueueSubmit(
+		this.ref,
 	)
 }
 
-// SubmitFunc returns the method "GPUQueue.submit".
-func (this GPUQueue) SubmitFunc() (fn js.Func[func(commandBuffers js.Array[GPUCommandBuffer])]) {
-	return fn.FromRef(
-		bindings.GPUQueueSubmitFunc(
-			this.Ref(),
-		),
+// FuncSubmit returns the method "GPUQueue.submit".
+func (this GPUQueue) FuncSubmit() (fn js.Func[func(commandBuffers js.Array[GPUCommandBuffer])]) {
+	bindings.FuncGPUQueueSubmit(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Submit calls the method "GPUQueue.submit".
 func (this GPUQueue) Submit(commandBuffers js.Array[GPUCommandBuffer]) (ret js.Void) {
 	bindings.CallGPUQueueSubmit(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		commandBuffers.Ref(),
 	)
 
@@ -5444,33 +5519,32 @@ func (this GPUQueue) Submit(commandBuffers js.Array[GPUCommandBuffer]) (ret js.V
 // the catch clause.
 func (this GPUQueue) TrySubmit(commandBuffers js.Array[GPUCommandBuffer]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUQueueSubmit(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		commandBuffers.Ref(),
 	)
 
 	return
 }
 
-// HasOnSubmittedWorkDone returns true if the method "GPUQueue.onSubmittedWorkDone" exists.
-func (this GPUQueue) HasOnSubmittedWorkDone() bool {
-	return js.True == bindings.HasGPUQueueOnSubmittedWorkDone(
-		this.Ref(),
+// HasFuncOnSubmittedWorkDone returns true if the method "GPUQueue.onSubmittedWorkDone" exists.
+func (this GPUQueue) HasFuncOnSubmittedWorkDone() bool {
+	return js.True == bindings.HasFuncGPUQueueOnSubmittedWorkDone(
+		this.ref,
 	)
 }
 
-// OnSubmittedWorkDoneFunc returns the method "GPUQueue.onSubmittedWorkDone".
-func (this GPUQueue) OnSubmittedWorkDoneFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.GPUQueueOnSubmittedWorkDoneFunc(
-			this.Ref(),
-		),
+// FuncOnSubmittedWorkDone returns the method "GPUQueue.onSubmittedWorkDone".
+func (this GPUQueue) FuncOnSubmittedWorkDone() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncGPUQueueOnSubmittedWorkDone(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // OnSubmittedWorkDone calls the method "GPUQueue.onSubmittedWorkDone".
 func (this GPUQueue) OnSubmittedWorkDone() (ret js.Promise[js.Void]) {
 	bindings.CallGPUQueueOnSubmittedWorkDone(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -5481,32 +5555,31 @@ func (this GPUQueue) OnSubmittedWorkDone() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this GPUQueue) TryOnSubmittedWorkDone() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUQueueOnSubmittedWorkDone(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasWriteBuffer returns true if the method "GPUQueue.writeBuffer" exists.
-func (this GPUQueue) HasWriteBuffer() bool {
-	return js.True == bindings.HasGPUQueueWriteBuffer(
-		this.Ref(),
+// HasFuncWriteBuffer returns true if the method "GPUQueue.writeBuffer" exists.
+func (this GPUQueue) HasFuncWriteBuffer() bool {
+	return js.True == bindings.HasFuncGPUQueueWriteBuffer(
+		this.ref,
 	)
 }
 
-// WriteBufferFunc returns the method "GPUQueue.writeBuffer".
-func (this GPUQueue) WriteBufferFunc() (fn js.Func[func(buffer GPUBuffer, bufferOffset GPUSize64, data AllowSharedBufferSource, dataOffset GPUSize64, size GPUSize64)]) {
-	return fn.FromRef(
-		bindings.GPUQueueWriteBufferFunc(
-			this.Ref(),
-		),
+// FuncWriteBuffer returns the method "GPUQueue.writeBuffer".
+func (this GPUQueue) FuncWriteBuffer() (fn js.Func[func(buffer GPUBuffer, bufferOffset GPUSize64, data AllowSharedBufferSource, dataOffset GPUSize64, size GPUSize64)]) {
+	bindings.FuncGPUQueueWriteBuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // WriteBuffer calls the method "GPUQueue.writeBuffer".
 func (this GPUQueue) WriteBuffer(buffer GPUBuffer, bufferOffset GPUSize64, data AllowSharedBufferSource, dataOffset GPUSize64, size GPUSize64) (ret js.Void) {
 	bindings.CallGPUQueueWriteBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		buffer.Ref(),
 		float64(bufferOffset),
 		data.Ref(),
@@ -5522,7 +5595,7 @@ func (this GPUQueue) WriteBuffer(buffer GPUBuffer, bufferOffset GPUSize64, data 
 // the catch clause.
 func (this GPUQueue) TryWriteBuffer(buffer GPUBuffer, bufferOffset GPUSize64, data AllowSharedBufferSource, dataOffset GPUSize64, size GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUQueueWriteBuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		buffer.Ref(),
 		float64(bufferOffset),
 		data.Ref(),
@@ -5533,26 +5606,25 @@ func (this GPUQueue) TryWriteBuffer(buffer GPUBuffer, bufferOffset GPUSize64, da
 	return
 }
 
-// HasWriteBuffer1 returns true if the method "GPUQueue.writeBuffer" exists.
-func (this GPUQueue) HasWriteBuffer1() bool {
-	return js.True == bindings.HasGPUQueueWriteBuffer1(
-		this.Ref(),
+// HasFuncWriteBuffer1 returns true if the method "GPUQueue.writeBuffer" exists.
+func (this GPUQueue) HasFuncWriteBuffer1() bool {
+	return js.True == bindings.HasFuncGPUQueueWriteBuffer1(
+		this.ref,
 	)
 }
 
-// WriteBuffer1Func returns the method "GPUQueue.writeBuffer".
-func (this GPUQueue) WriteBuffer1Func() (fn js.Func[func(buffer GPUBuffer, bufferOffset GPUSize64, data AllowSharedBufferSource, dataOffset GPUSize64)]) {
-	return fn.FromRef(
-		bindings.GPUQueueWriteBuffer1Func(
-			this.Ref(),
-		),
+// FuncWriteBuffer1 returns the method "GPUQueue.writeBuffer".
+func (this GPUQueue) FuncWriteBuffer1() (fn js.Func[func(buffer GPUBuffer, bufferOffset GPUSize64, data AllowSharedBufferSource, dataOffset GPUSize64)]) {
+	bindings.FuncGPUQueueWriteBuffer1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // WriteBuffer1 calls the method "GPUQueue.writeBuffer".
 func (this GPUQueue) WriteBuffer1(buffer GPUBuffer, bufferOffset GPUSize64, data AllowSharedBufferSource, dataOffset GPUSize64) (ret js.Void) {
 	bindings.CallGPUQueueWriteBuffer1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		buffer.Ref(),
 		float64(bufferOffset),
 		data.Ref(),
@@ -5567,7 +5639,7 @@ func (this GPUQueue) WriteBuffer1(buffer GPUBuffer, bufferOffset GPUSize64, data
 // the catch clause.
 func (this GPUQueue) TryWriteBuffer1(buffer GPUBuffer, bufferOffset GPUSize64, data AllowSharedBufferSource, dataOffset GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUQueueWriteBuffer1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		buffer.Ref(),
 		float64(bufferOffset),
 		data.Ref(),
@@ -5577,26 +5649,25 @@ func (this GPUQueue) TryWriteBuffer1(buffer GPUBuffer, bufferOffset GPUSize64, d
 	return
 }
 
-// HasWriteBuffer2 returns true if the method "GPUQueue.writeBuffer" exists.
-func (this GPUQueue) HasWriteBuffer2() bool {
-	return js.True == bindings.HasGPUQueueWriteBuffer2(
-		this.Ref(),
+// HasFuncWriteBuffer2 returns true if the method "GPUQueue.writeBuffer" exists.
+func (this GPUQueue) HasFuncWriteBuffer2() bool {
+	return js.True == bindings.HasFuncGPUQueueWriteBuffer2(
+		this.ref,
 	)
 }
 
-// WriteBuffer2Func returns the method "GPUQueue.writeBuffer".
-func (this GPUQueue) WriteBuffer2Func() (fn js.Func[func(buffer GPUBuffer, bufferOffset GPUSize64, data AllowSharedBufferSource)]) {
-	return fn.FromRef(
-		bindings.GPUQueueWriteBuffer2Func(
-			this.Ref(),
-		),
+// FuncWriteBuffer2 returns the method "GPUQueue.writeBuffer".
+func (this GPUQueue) FuncWriteBuffer2() (fn js.Func[func(buffer GPUBuffer, bufferOffset GPUSize64, data AllowSharedBufferSource)]) {
+	bindings.FuncGPUQueueWriteBuffer2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // WriteBuffer2 calls the method "GPUQueue.writeBuffer".
 func (this GPUQueue) WriteBuffer2(buffer GPUBuffer, bufferOffset GPUSize64, data AllowSharedBufferSource) (ret js.Void) {
 	bindings.CallGPUQueueWriteBuffer2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		buffer.Ref(),
 		float64(bufferOffset),
 		data.Ref(),
@@ -5610,7 +5681,7 @@ func (this GPUQueue) WriteBuffer2(buffer GPUBuffer, bufferOffset GPUSize64, data
 // the catch clause.
 func (this GPUQueue) TryWriteBuffer2(buffer GPUBuffer, bufferOffset GPUSize64, data AllowSharedBufferSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUQueueWriteBuffer2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		buffer.Ref(),
 		float64(bufferOffset),
 		data.Ref(),
@@ -5619,26 +5690,25 @@ func (this GPUQueue) TryWriteBuffer2(buffer GPUBuffer, bufferOffset GPUSize64, d
 	return
 }
 
-// HasWriteTexture returns true if the method "GPUQueue.writeTexture" exists.
-func (this GPUQueue) HasWriteTexture() bool {
-	return js.True == bindings.HasGPUQueueWriteTexture(
-		this.Ref(),
+// HasFuncWriteTexture returns true if the method "GPUQueue.writeTexture" exists.
+func (this GPUQueue) HasFuncWriteTexture() bool {
+	return js.True == bindings.HasFuncGPUQueueWriteTexture(
+		this.ref,
 	)
 }
 
-// WriteTextureFunc returns the method "GPUQueue.writeTexture".
-func (this GPUQueue) WriteTextureFunc() (fn js.Func[func(destination GPUImageCopyTexture, data AllowSharedBufferSource, dataLayout GPUImageDataLayout, size GPUExtent3D)]) {
-	return fn.FromRef(
-		bindings.GPUQueueWriteTextureFunc(
-			this.Ref(),
-		),
+// FuncWriteTexture returns the method "GPUQueue.writeTexture".
+func (this GPUQueue) FuncWriteTexture() (fn js.Func[func(destination GPUImageCopyTexture, data AllowSharedBufferSource, dataLayout GPUImageDataLayout, size GPUExtent3D)]) {
+	bindings.FuncGPUQueueWriteTexture(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // WriteTexture calls the method "GPUQueue.writeTexture".
 func (this GPUQueue) WriteTexture(destination GPUImageCopyTexture, data AllowSharedBufferSource, dataLayout GPUImageDataLayout, size GPUExtent3D) (ret js.Void) {
 	bindings.CallGPUQueueWriteTexture(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&destination),
 		data.Ref(),
 		js.Pointer(&dataLayout),
@@ -5653,7 +5723,7 @@ func (this GPUQueue) WriteTexture(destination GPUImageCopyTexture, data AllowSha
 // the catch clause.
 func (this GPUQueue) TryWriteTexture(destination GPUImageCopyTexture, data AllowSharedBufferSource, dataLayout GPUImageDataLayout, size GPUExtent3D) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUQueueWriteTexture(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&destination),
 		data.Ref(),
 		js.Pointer(&dataLayout),
@@ -5663,26 +5733,25 @@ func (this GPUQueue) TryWriteTexture(destination GPUImageCopyTexture, data Allow
 	return
 }
 
-// HasCopyExternalImageToTexture returns true if the method "GPUQueue.copyExternalImageToTexture" exists.
-func (this GPUQueue) HasCopyExternalImageToTexture() bool {
-	return js.True == bindings.HasGPUQueueCopyExternalImageToTexture(
-		this.Ref(),
+// HasFuncCopyExternalImageToTexture returns true if the method "GPUQueue.copyExternalImageToTexture" exists.
+func (this GPUQueue) HasFuncCopyExternalImageToTexture() bool {
+	return js.True == bindings.HasFuncGPUQueueCopyExternalImageToTexture(
+		this.ref,
 	)
 }
 
-// CopyExternalImageToTextureFunc returns the method "GPUQueue.copyExternalImageToTexture".
-func (this GPUQueue) CopyExternalImageToTextureFunc() (fn js.Func[func(source GPUImageCopyExternalImage, destination GPUImageCopyTextureTagged, copySize GPUExtent3D)]) {
-	return fn.FromRef(
-		bindings.GPUQueueCopyExternalImageToTextureFunc(
-			this.Ref(),
-		),
+// FuncCopyExternalImageToTexture returns the method "GPUQueue.copyExternalImageToTexture".
+func (this GPUQueue) FuncCopyExternalImageToTexture() (fn js.Func[func(source GPUImageCopyExternalImage, destination GPUImageCopyTextureTagged, copySize GPUExtent3D)]) {
+	bindings.FuncGPUQueueCopyExternalImageToTexture(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CopyExternalImageToTexture calls the method "GPUQueue.copyExternalImageToTexture".
 func (this GPUQueue) CopyExternalImageToTexture(source GPUImageCopyExternalImage, destination GPUImageCopyTextureTagged, copySize GPUExtent3D) (ret js.Void) {
 	bindings.CallGPUQueueCopyExternalImageToTexture(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&source),
 		js.Pointer(&destination),
 		copySize.Ref(),
@@ -5696,7 +5765,7 @@ func (this GPUQueue) CopyExternalImageToTexture(source GPUImageCopyExternalImage
 // the catch clause.
 func (this GPUQueue) TryCopyExternalImageToTexture(source GPUImageCopyExternalImage, destination GPUImageCopyTextureTagged, copySize GPUExtent3D) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUQueueCopyExternalImageToTexture(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&source),
 		js.Pointer(&destination),
 		copySize.Ref(),
@@ -5734,7 +5803,7 @@ type GPUDeviceLostInfo struct {
 }
 
 func (this GPUDeviceLostInfo) Once() GPUDeviceLostInfo {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -5748,7 +5817,7 @@ func (this GPUDeviceLostInfo) FromRef(ref js.Ref) GPUDeviceLostInfo {
 }
 
 func (this GPUDeviceLostInfo) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Reason returns the value of property "GPUDeviceLostInfo.reason".
@@ -5756,7 +5825,7 @@ func (this GPUDeviceLostInfo) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUDeviceLostInfo) Reason() (ret GPUDeviceLostReason, ok bool) {
 	ok = js.True == bindings.GetGPUDeviceLostInfoReason(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5766,7 +5835,7 @@ func (this GPUDeviceLostInfo) Reason() (ret GPUDeviceLostReason, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUDeviceLostInfo) Message() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGPUDeviceLostInfoMessage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5776,7 +5845,7 @@ type GPUDevice struct {
 }
 
 func (this GPUDevice) Once() GPUDevice {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -5790,7 +5859,7 @@ func (this GPUDevice) FromRef(ref js.Ref) GPUDevice {
 }
 
 func (this GPUDevice) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Features returns the value of property "GPUDevice.features".
@@ -5798,7 +5867,7 @@ func (this GPUDevice) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUDevice) Features() (ret GPUSupportedFeatures, ok bool) {
 	ok = js.True == bindings.GetGPUDeviceFeatures(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5808,7 +5877,7 @@ func (this GPUDevice) Features() (ret GPUSupportedFeatures, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUDevice) Limits() (ret GPUSupportedLimits, ok bool) {
 	ok = js.True == bindings.GetGPUDeviceLimits(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5818,7 +5887,7 @@ func (this GPUDevice) Limits() (ret GPUSupportedLimits, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUDevice) Queue() (ret GPUQueue, ok bool) {
 	ok = js.True == bindings.GetGPUDeviceQueue(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5828,7 +5897,7 @@ func (this GPUDevice) Queue() (ret GPUQueue, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUDevice) Lost() (ret js.Promise[GPUDeviceLostInfo], ok bool) {
 	ok = js.True == bindings.GetGPUDeviceLost(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5838,7 +5907,7 @@ func (this GPUDevice) Lost() (ret js.Promise[GPUDeviceLostInfo], ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUDevice) Label() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGPUDeviceLabel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5848,31 +5917,30 @@ func (this GPUDevice) Label() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this GPUDevice) SetLabel(val js.String) bool {
 	return js.True == bindings.SetGPUDeviceLabel(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
 
-// HasDestroy returns true if the method "GPUDevice.destroy" exists.
-func (this GPUDevice) HasDestroy() bool {
-	return js.True == bindings.HasGPUDeviceDestroy(
-		this.Ref(),
+// HasFuncDestroy returns true if the method "GPUDevice.destroy" exists.
+func (this GPUDevice) HasFuncDestroy() bool {
+	return js.True == bindings.HasFuncGPUDeviceDestroy(
+		this.ref,
 	)
 }
 
-// DestroyFunc returns the method "GPUDevice.destroy".
-func (this GPUDevice) DestroyFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.GPUDeviceDestroyFunc(
-			this.Ref(),
-		),
+// FuncDestroy returns the method "GPUDevice.destroy".
+func (this GPUDevice) FuncDestroy() (fn js.Func[func()]) {
+	bindings.FuncGPUDeviceDestroy(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Destroy calls the method "GPUDevice.destroy".
 func (this GPUDevice) Destroy() (ret js.Void) {
 	bindings.CallGPUDeviceDestroy(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -5883,32 +5951,31 @@ func (this GPUDevice) Destroy() (ret js.Void) {
 // the catch clause.
 func (this GPUDevice) TryDestroy() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceDestroy(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCreateBuffer returns true if the method "GPUDevice.createBuffer" exists.
-func (this GPUDevice) HasCreateBuffer() bool {
-	return js.True == bindings.HasGPUDeviceCreateBuffer(
-		this.Ref(),
+// HasFuncCreateBuffer returns true if the method "GPUDevice.createBuffer" exists.
+func (this GPUDevice) HasFuncCreateBuffer() bool {
+	return js.True == bindings.HasFuncGPUDeviceCreateBuffer(
+		this.ref,
 	)
 }
 
-// CreateBufferFunc returns the method "GPUDevice.createBuffer".
-func (this GPUDevice) CreateBufferFunc() (fn js.Func[func(descriptor GPUBufferDescriptor) GPUBuffer]) {
-	return fn.FromRef(
-		bindings.GPUDeviceCreateBufferFunc(
-			this.Ref(),
-		),
+// FuncCreateBuffer returns the method "GPUDevice.createBuffer".
+func (this GPUDevice) FuncCreateBuffer() (fn js.Func[func(descriptor GPUBufferDescriptor) GPUBuffer]) {
+	bindings.FuncGPUDeviceCreateBuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateBuffer calls the method "GPUDevice.createBuffer".
 func (this GPUDevice) CreateBuffer(descriptor GPUBufferDescriptor) (ret GPUBuffer) {
 	bindings.CallGPUDeviceCreateBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&descriptor),
 	)
 
@@ -5920,33 +5987,32 @@ func (this GPUDevice) CreateBuffer(descriptor GPUBufferDescriptor) (ret GPUBuffe
 // the catch clause.
 func (this GPUDevice) TryCreateBuffer(descriptor GPUBufferDescriptor) (ret GPUBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateBuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&descriptor),
 	)
 
 	return
 }
 
-// HasCreateTexture returns true if the method "GPUDevice.createTexture" exists.
-func (this GPUDevice) HasCreateTexture() bool {
-	return js.True == bindings.HasGPUDeviceCreateTexture(
-		this.Ref(),
+// HasFuncCreateTexture returns true if the method "GPUDevice.createTexture" exists.
+func (this GPUDevice) HasFuncCreateTexture() bool {
+	return js.True == bindings.HasFuncGPUDeviceCreateTexture(
+		this.ref,
 	)
 }
 
-// CreateTextureFunc returns the method "GPUDevice.createTexture".
-func (this GPUDevice) CreateTextureFunc() (fn js.Func[func(descriptor GPUTextureDescriptor) GPUTexture]) {
-	return fn.FromRef(
-		bindings.GPUDeviceCreateTextureFunc(
-			this.Ref(),
-		),
+// FuncCreateTexture returns the method "GPUDevice.createTexture".
+func (this GPUDevice) FuncCreateTexture() (fn js.Func[func(descriptor GPUTextureDescriptor) GPUTexture]) {
+	bindings.FuncGPUDeviceCreateTexture(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateTexture calls the method "GPUDevice.createTexture".
 func (this GPUDevice) CreateTexture(descriptor GPUTextureDescriptor) (ret GPUTexture) {
 	bindings.CallGPUDeviceCreateTexture(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&descriptor),
 	)
 
@@ -5958,33 +6024,32 @@ func (this GPUDevice) CreateTexture(descriptor GPUTextureDescriptor) (ret GPUTex
 // the catch clause.
 func (this GPUDevice) TryCreateTexture(descriptor GPUTextureDescriptor) (ret GPUTexture, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateTexture(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&descriptor),
 	)
 
 	return
 }
 
-// HasCreateSampler returns true if the method "GPUDevice.createSampler" exists.
-func (this GPUDevice) HasCreateSampler() bool {
-	return js.True == bindings.HasGPUDeviceCreateSampler(
-		this.Ref(),
+// HasFuncCreateSampler returns true if the method "GPUDevice.createSampler" exists.
+func (this GPUDevice) HasFuncCreateSampler() bool {
+	return js.True == bindings.HasFuncGPUDeviceCreateSampler(
+		this.ref,
 	)
 }
 
-// CreateSamplerFunc returns the method "GPUDevice.createSampler".
-func (this GPUDevice) CreateSamplerFunc() (fn js.Func[func(descriptor GPUSamplerDescriptor) GPUSampler]) {
-	return fn.FromRef(
-		bindings.GPUDeviceCreateSamplerFunc(
-			this.Ref(),
-		),
+// FuncCreateSampler returns the method "GPUDevice.createSampler".
+func (this GPUDevice) FuncCreateSampler() (fn js.Func[func(descriptor GPUSamplerDescriptor) GPUSampler]) {
+	bindings.FuncGPUDeviceCreateSampler(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateSampler calls the method "GPUDevice.createSampler".
 func (this GPUDevice) CreateSampler(descriptor GPUSamplerDescriptor) (ret GPUSampler) {
 	bindings.CallGPUDeviceCreateSampler(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&descriptor),
 	)
 
@@ -5996,33 +6061,32 @@ func (this GPUDevice) CreateSampler(descriptor GPUSamplerDescriptor) (ret GPUSam
 // the catch clause.
 func (this GPUDevice) TryCreateSampler(descriptor GPUSamplerDescriptor) (ret GPUSampler, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateSampler(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&descriptor),
 	)
 
 	return
 }
 
-// HasCreateSampler1 returns true if the method "GPUDevice.createSampler" exists.
-func (this GPUDevice) HasCreateSampler1() bool {
-	return js.True == bindings.HasGPUDeviceCreateSampler1(
-		this.Ref(),
+// HasFuncCreateSampler1 returns true if the method "GPUDevice.createSampler" exists.
+func (this GPUDevice) HasFuncCreateSampler1() bool {
+	return js.True == bindings.HasFuncGPUDeviceCreateSampler1(
+		this.ref,
 	)
 }
 
-// CreateSampler1Func returns the method "GPUDevice.createSampler".
-func (this GPUDevice) CreateSampler1Func() (fn js.Func[func() GPUSampler]) {
-	return fn.FromRef(
-		bindings.GPUDeviceCreateSampler1Func(
-			this.Ref(),
-		),
+// FuncCreateSampler1 returns the method "GPUDevice.createSampler".
+func (this GPUDevice) FuncCreateSampler1() (fn js.Func[func() GPUSampler]) {
+	bindings.FuncGPUDeviceCreateSampler1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateSampler1 calls the method "GPUDevice.createSampler".
 func (this GPUDevice) CreateSampler1() (ret GPUSampler) {
 	bindings.CallGPUDeviceCreateSampler1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -6033,32 +6097,31 @@ func (this GPUDevice) CreateSampler1() (ret GPUSampler) {
 // the catch clause.
 func (this GPUDevice) TryCreateSampler1() (ret GPUSampler, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateSampler1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasImportExternalTexture returns true if the method "GPUDevice.importExternalTexture" exists.
-func (this GPUDevice) HasImportExternalTexture() bool {
-	return js.True == bindings.HasGPUDeviceImportExternalTexture(
-		this.Ref(),
+// HasFuncImportExternalTexture returns true if the method "GPUDevice.importExternalTexture" exists.
+func (this GPUDevice) HasFuncImportExternalTexture() bool {
+	return js.True == bindings.HasFuncGPUDeviceImportExternalTexture(
+		this.ref,
 	)
 }
 
-// ImportExternalTextureFunc returns the method "GPUDevice.importExternalTexture".
-func (this GPUDevice) ImportExternalTextureFunc() (fn js.Func[func(descriptor GPUExternalTextureDescriptor) GPUExternalTexture]) {
-	return fn.FromRef(
-		bindings.GPUDeviceImportExternalTextureFunc(
-			this.Ref(),
-		),
+// FuncImportExternalTexture returns the method "GPUDevice.importExternalTexture".
+func (this GPUDevice) FuncImportExternalTexture() (fn js.Func[func(descriptor GPUExternalTextureDescriptor) GPUExternalTexture]) {
+	bindings.FuncGPUDeviceImportExternalTexture(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ImportExternalTexture calls the method "GPUDevice.importExternalTexture".
 func (this GPUDevice) ImportExternalTexture(descriptor GPUExternalTextureDescriptor) (ret GPUExternalTexture) {
 	bindings.CallGPUDeviceImportExternalTexture(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&descriptor),
 	)
 
@@ -6070,33 +6133,32 @@ func (this GPUDevice) ImportExternalTexture(descriptor GPUExternalTextureDescrip
 // the catch clause.
 func (this GPUDevice) TryImportExternalTexture(descriptor GPUExternalTextureDescriptor) (ret GPUExternalTexture, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceImportExternalTexture(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&descriptor),
 	)
 
 	return
 }
 
-// HasCreateBindGroupLayout returns true if the method "GPUDevice.createBindGroupLayout" exists.
-func (this GPUDevice) HasCreateBindGroupLayout() bool {
-	return js.True == bindings.HasGPUDeviceCreateBindGroupLayout(
-		this.Ref(),
+// HasFuncCreateBindGroupLayout returns true if the method "GPUDevice.createBindGroupLayout" exists.
+func (this GPUDevice) HasFuncCreateBindGroupLayout() bool {
+	return js.True == bindings.HasFuncGPUDeviceCreateBindGroupLayout(
+		this.ref,
 	)
 }
 
-// CreateBindGroupLayoutFunc returns the method "GPUDevice.createBindGroupLayout".
-func (this GPUDevice) CreateBindGroupLayoutFunc() (fn js.Func[func(descriptor GPUBindGroupLayoutDescriptor) GPUBindGroupLayout]) {
-	return fn.FromRef(
-		bindings.GPUDeviceCreateBindGroupLayoutFunc(
-			this.Ref(),
-		),
+// FuncCreateBindGroupLayout returns the method "GPUDevice.createBindGroupLayout".
+func (this GPUDevice) FuncCreateBindGroupLayout() (fn js.Func[func(descriptor GPUBindGroupLayoutDescriptor) GPUBindGroupLayout]) {
+	bindings.FuncGPUDeviceCreateBindGroupLayout(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateBindGroupLayout calls the method "GPUDevice.createBindGroupLayout".
 func (this GPUDevice) CreateBindGroupLayout(descriptor GPUBindGroupLayoutDescriptor) (ret GPUBindGroupLayout) {
 	bindings.CallGPUDeviceCreateBindGroupLayout(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&descriptor),
 	)
 
@@ -6108,33 +6170,32 @@ func (this GPUDevice) CreateBindGroupLayout(descriptor GPUBindGroupLayoutDescrip
 // the catch clause.
 func (this GPUDevice) TryCreateBindGroupLayout(descriptor GPUBindGroupLayoutDescriptor) (ret GPUBindGroupLayout, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateBindGroupLayout(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&descriptor),
 	)
 
 	return
 }
 
-// HasCreatePipelineLayout returns true if the method "GPUDevice.createPipelineLayout" exists.
-func (this GPUDevice) HasCreatePipelineLayout() bool {
-	return js.True == bindings.HasGPUDeviceCreatePipelineLayout(
-		this.Ref(),
+// HasFuncCreatePipelineLayout returns true if the method "GPUDevice.createPipelineLayout" exists.
+func (this GPUDevice) HasFuncCreatePipelineLayout() bool {
+	return js.True == bindings.HasFuncGPUDeviceCreatePipelineLayout(
+		this.ref,
 	)
 }
 
-// CreatePipelineLayoutFunc returns the method "GPUDevice.createPipelineLayout".
-func (this GPUDevice) CreatePipelineLayoutFunc() (fn js.Func[func(descriptor GPUPipelineLayoutDescriptor) GPUPipelineLayout]) {
-	return fn.FromRef(
-		bindings.GPUDeviceCreatePipelineLayoutFunc(
-			this.Ref(),
-		),
+// FuncCreatePipelineLayout returns the method "GPUDevice.createPipelineLayout".
+func (this GPUDevice) FuncCreatePipelineLayout() (fn js.Func[func(descriptor GPUPipelineLayoutDescriptor) GPUPipelineLayout]) {
+	bindings.FuncGPUDeviceCreatePipelineLayout(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreatePipelineLayout calls the method "GPUDevice.createPipelineLayout".
 func (this GPUDevice) CreatePipelineLayout(descriptor GPUPipelineLayoutDescriptor) (ret GPUPipelineLayout) {
 	bindings.CallGPUDeviceCreatePipelineLayout(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&descriptor),
 	)
 
@@ -6146,33 +6207,32 @@ func (this GPUDevice) CreatePipelineLayout(descriptor GPUPipelineLayoutDescripto
 // the catch clause.
 func (this GPUDevice) TryCreatePipelineLayout(descriptor GPUPipelineLayoutDescriptor) (ret GPUPipelineLayout, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreatePipelineLayout(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&descriptor),
 	)
 
 	return
 }
 
-// HasCreateBindGroup returns true if the method "GPUDevice.createBindGroup" exists.
-func (this GPUDevice) HasCreateBindGroup() bool {
-	return js.True == bindings.HasGPUDeviceCreateBindGroup(
-		this.Ref(),
+// HasFuncCreateBindGroup returns true if the method "GPUDevice.createBindGroup" exists.
+func (this GPUDevice) HasFuncCreateBindGroup() bool {
+	return js.True == bindings.HasFuncGPUDeviceCreateBindGroup(
+		this.ref,
 	)
 }
 
-// CreateBindGroupFunc returns the method "GPUDevice.createBindGroup".
-func (this GPUDevice) CreateBindGroupFunc() (fn js.Func[func(descriptor GPUBindGroupDescriptor) GPUBindGroup]) {
-	return fn.FromRef(
-		bindings.GPUDeviceCreateBindGroupFunc(
-			this.Ref(),
-		),
+// FuncCreateBindGroup returns the method "GPUDevice.createBindGroup".
+func (this GPUDevice) FuncCreateBindGroup() (fn js.Func[func(descriptor GPUBindGroupDescriptor) GPUBindGroup]) {
+	bindings.FuncGPUDeviceCreateBindGroup(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateBindGroup calls the method "GPUDevice.createBindGroup".
 func (this GPUDevice) CreateBindGroup(descriptor GPUBindGroupDescriptor) (ret GPUBindGroup) {
 	bindings.CallGPUDeviceCreateBindGroup(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&descriptor),
 	)
 
@@ -6184,33 +6244,32 @@ func (this GPUDevice) CreateBindGroup(descriptor GPUBindGroupDescriptor) (ret GP
 // the catch clause.
 func (this GPUDevice) TryCreateBindGroup(descriptor GPUBindGroupDescriptor) (ret GPUBindGroup, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateBindGroup(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&descriptor),
 	)
 
 	return
 }
 
-// HasCreateShaderModule returns true if the method "GPUDevice.createShaderModule" exists.
-func (this GPUDevice) HasCreateShaderModule() bool {
-	return js.True == bindings.HasGPUDeviceCreateShaderModule(
-		this.Ref(),
+// HasFuncCreateShaderModule returns true if the method "GPUDevice.createShaderModule" exists.
+func (this GPUDevice) HasFuncCreateShaderModule() bool {
+	return js.True == bindings.HasFuncGPUDeviceCreateShaderModule(
+		this.ref,
 	)
 }
 
-// CreateShaderModuleFunc returns the method "GPUDevice.createShaderModule".
-func (this GPUDevice) CreateShaderModuleFunc() (fn js.Func[func(descriptor GPUShaderModuleDescriptor) GPUShaderModule]) {
-	return fn.FromRef(
-		bindings.GPUDeviceCreateShaderModuleFunc(
-			this.Ref(),
-		),
+// FuncCreateShaderModule returns the method "GPUDevice.createShaderModule".
+func (this GPUDevice) FuncCreateShaderModule() (fn js.Func[func(descriptor GPUShaderModuleDescriptor) GPUShaderModule]) {
+	bindings.FuncGPUDeviceCreateShaderModule(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateShaderModule calls the method "GPUDevice.createShaderModule".
 func (this GPUDevice) CreateShaderModule(descriptor GPUShaderModuleDescriptor) (ret GPUShaderModule) {
 	bindings.CallGPUDeviceCreateShaderModule(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&descriptor),
 	)
 
@@ -6222,33 +6281,32 @@ func (this GPUDevice) CreateShaderModule(descriptor GPUShaderModuleDescriptor) (
 // the catch clause.
 func (this GPUDevice) TryCreateShaderModule(descriptor GPUShaderModuleDescriptor) (ret GPUShaderModule, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateShaderModule(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&descriptor),
 	)
 
 	return
 }
 
-// HasCreateComputePipeline returns true if the method "GPUDevice.createComputePipeline" exists.
-func (this GPUDevice) HasCreateComputePipeline() bool {
-	return js.True == bindings.HasGPUDeviceCreateComputePipeline(
-		this.Ref(),
+// HasFuncCreateComputePipeline returns true if the method "GPUDevice.createComputePipeline" exists.
+func (this GPUDevice) HasFuncCreateComputePipeline() bool {
+	return js.True == bindings.HasFuncGPUDeviceCreateComputePipeline(
+		this.ref,
 	)
 }
 
-// CreateComputePipelineFunc returns the method "GPUDevice.createComputePipeline".
-func (this GPUDevice) CreateComputePipelineFunc() (fn js.Func[func(descriptor GPUComputePipelineDescriptor) GPUComputePipeline]) {
-	return fn.FromRef(
-		bindings.GPUDeviceCreateComputePipelineFunc(
-			this.Ref(),
-		),
+// FuncCreateComputePipeline returns the method "GPUDevice.createComputePipeline".
+func (this GPUDevice) FuncCreateComputePipeline() (fn js.Func[func(descriptor GPUComputePipelineDescriptor) GPUComputePipeline]) {
+	bindings.FuncGPUDeviceCreateComputePipeline(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateComputePipeline calls the method "GPUDevice.createComputePipeline".
 func (this GPUDevice) CreateComputePipeline(descriptor GPUComputePipelineDescriptor) (ret GPUComputePipeline) {
 	bindings.CallGPUDeviceCreateComputePipeline(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&descriptor),
 	)
 
@@ -6260,33 +6318,32 @@ func (this GPUDevice) CreateComputePipeline(descriptor GPUComputePipelineDescrip
 // the catch clause.
 func (this GPUDevice) TryCreateComputePipeline(descriptor GPUComputePipelineDescriptor) (ret GPUComputePipeline, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateComputePipeline(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&descriptor),
 	)
 
 	return
 }
 
-// HasCreateRenderPipeline returns true if the method "GPUDevice.createRenderPipeline" exists.
-func (this GPUDevice) HasCreateRenderPipeline() bool {
-	return js.True == bindings.HasGPUDeviceCreateRenderPipeline(
-		this.Ref(),
+// HasFuncCreateRenderPipeline returns true if the method "GPUDevice.createRenderPipeline" exists.
+func (this GPUDevice) HasFuncCreateRenderPipeline() bool {
+	return js.True == bindings.HasFuncGPUDeviceCreateRenderPipeline(
+		this.ref,
 	)
 }
 
-// CreateRenderPipelineFunc returns the method "GPUDevice.createRenderPipeline".
-func (this GPUDevice) CreateRenderPipelineFunc() (fn js.Func[func(descriptor GPURenderPipelineDescriptor) GPURenderPipeline]) {
-	return fn.FromRef(
-		bindings.GPUDeviceCreateRenderPipelineFunc(
-			this.Ref(),
-		),
+// FuncCreateRenderPipeline returns the method "GPUDevice.createRenderPipeline".
+func (this GPUDevice) FuncCreateRenderPipeline() (fn js.Func[func(descriptor GPURenderPipelineDescriptor) GPURenderPipeline]) {
+	bindings.FuncGPUDeviceCreateRenderPipeline(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateRenderPipeline calls the method "GPUDevice.createRenderPipeline".
 func (this GPUDevice) CreateRenderPipeline(descriptor GPURenderPipelineDescriptor) (ret GPURenderPipeline) {
 	bindings.CallGPUDeviceCreateRenderPipeline(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&descriptor),
 	)
 
@@ -6298,33 +6355,32 @@ func (this GPUDevice) CreateRenderPipeline(descriptor GPURenderPipelineDescripto
 // the catch clause.
 func (this GPUDevice) TryCreateRenderPipeline(descriptor GPURenderPipelineDescriptor) (ret GPURenderPipeline, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateRenderPipeline(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&descriptor),
 	)
 
 	return
 }
 
-// HasCreateComputePipelineAsync returns true if the method "GPUDevice.createComputePipelineAsync" exists.
-func (this GPUDevice) HasCreateComputePipelineAsync() bool {
-	return js.True == bindings.HasGPUDeviceCreateComputePipelineAsync(
-		this.Ref(),
+// HasFuncCreateComputePipelineAsync returns true if the method "GPUDevice.createComputePipelineAsync" exists.
+func (this GPUDevice) HasFuncCreateComputePipelineAsync() bool {
+	return js.True == bindings.HasFuncGPUDeviceCreateComputePipelineAsync(
+		this.ref,
 	)
 }
 
-// CreateComputePipelineAsyncFunc returns the method "GPUDevice.createComputePipelineAsync".
-func (this GPUDevice) CreateComputePipelineAsyncFunc() (fn js.Func[func(descriptor GPUComputePipelineDescriptor) js.Promise[GPUComputePipeline]]) {
-	return fn.FromRef(
-		bindings.GPUDeviceCreateComputePipelineAsyncFunc(
-			this.Ref(),
-		),
+// FuncCreateComputePipelineAsync returns the method "GPUDevice.createComputePipelineAsync".
+func (this GPUDevice) FuncCreateComputePipelineAsync() (fn js.Func[func(descriptor GPUComputePipelineDescriptor) js.Promise[GPUComputePipeline]]) {
+	bindings.FuncGPUDeviceCreateComputePipelineAsync(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateComputePipelineAsync calls the method "GPUDevice.createComputePipelineAsync".
 func (this GPUDevice) CreateComputePipelineAsync(descriptor GPUComputePipelineDescriptor) (ret js.Promise[GPUComputePipeline]) {
 	bindings.CallGPUDeviceCreateComputePipelineAsync(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&descriptor),
 	)
 
@@ -6336,33 +6392,32 @@ func (this GPUDevice) CreateComputePipelineAsync(descriptor GPUComputePipelineDe
 // the catch clause.
 func (this GPUDevice) TryCreateComputePipelineAsync(descriptor GPUComputePipelineDescriptor) (ret js.Promise[GPUComputePipeline], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateComputePipelineAsync(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&descriptor),
 	)
 
 	return
 }
 
-// HasCreateRenderPipelineAsync returns true if the method "GPUDevice.createRenderPipelineAsync" exists.
-func (this GPUDevice) HasCreateRenderPipelineAsync() bool {
-	return js.True == bindings.HasGPUDeviceCreateRenderPipelineAsync(
-		this.Ref(),
+// HasFuncCreateRenderPipelineAsync returns true if the method "GPUDevice.createRenderPipelineAsync" exists.
+func (this GPUDevice) HasFuncCreateRenderPipelineAsync() bool {
+	return js.True == bindings.HasFuncGPUDeviceCreateRenderPipelineAsync(
+		this.ref,
 	)
 }
 
-// CreateRenderPipelineAsyncFunc returns the method "GPUDevice.createRenderPipelineAsync".
-func (this GPUDevice) CreateRenderPipelineAsyncFunc() (fn js.Func[func(descriptor GPURenderPipelineDescriptor) js.Promise[GPURenderPipeline]]) {
-	return fn.FromRef(
-		bindings.GPUDeviceCreateRenderPipelineAsyncFunc(
-			this.Ref(),
-		),
+// FuncCreateRenderPipelineAsync returns the method "GPUDevice.createRenderPipelineAsync".
+func (this GPUDevice) FuncCreateRenderPipelineAsync() (fn js.Func[func(descriptor GPURenderPipelineDescriptor) js.Promise[GPURenderPipeline]]) {
+	bindings.FuncGPUDeviceCreateRenderPipelineAsync(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateRenderPipelineAsync calls the method "GPUDevice.createRenderPipelineAsync".
 func (this GPUDevice) CreateRenderPipelineAsync(descriptor GPURenderPipelineDescriptor) (ret js.Promise[GPURenderPipeline]) {
 	bindings.CallGPUDeviceCreateRenderPipelineAsync(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&descriptor),
 	)
 
@@ -6374,33 +6429,32 @@ func (this GPUDevice) CreateRenderPipelineAsync(descriptor GPURenderPipelineDesc
 // the catch clause.
 func (this GPUDevice) TryCreateRenderPipelineAsync(descriptor GPURenderPipelineDescriptor) (ret js.Promise[GPURenderPipeline], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateRenderPipelineAsync(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&descriptor),
 	)
 
 	return
 }
 
-// HasCreateCommandEncoder returns true if the method "GPUDevice.createCommandEncoder" exists.
-func (this GPUDevice) HasCreateCommandEncoder() bool {
-	return js.True == bindings.HasGPUDeviceCreateCommandEncoder(
-		this.Ref(),
+// HasFuncCreateCommandEncoder returns true if the method "GPUDevice.createCommandEncoder" exists.
+func (this GPUDevice) HasFuncCreateCommandEncoder() bool {
+	return js.True == bindings.HasFuncGPUDeviceCreateCommandEncoder(
+		this.ref,
 	)
 }
 
-// CreateCommandEncoderFunc returns the method "GPUDevice.createCommandEncoder".
-func (this GPUDevice) CreateCommandEncoderFunc() (fn js.Func[func(descriptor GPUCommandEncoderDescriptor) GPUCommandEncoder]) {
-	return fn.FromRef(
-		bindings.GPUDeviceCreateCommandEncoderFunc(
-			this.Ref(),
-		),
+// FuncCreateCommandEncoder returns the method "GPUDevice.createCommandEncoder".
+func (this GPUDevice) FuncCreateCommandEncoder() (fn js.Func[func(descriptor GPUCommandEncoderDescriptor) GPUCommandEncoder]) {
+	bindings.FuncGPUDeviceCreateCommandEncoder(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateCommandEncoder calls the method "GPUDevice.createCommandEncoder".
 func (this GPUDevice) CreateCommandEncoder(descriptor GPUCommandEncoderDescriptor) (ret GPUCommandEncoder) {
 	bindings.CallGPUDeviceCreateCommandEncoder(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&descriptor),
 	)
 
@@ -6412,33 +6466,32 @@ func (this GPUDevice) CreateCommandEncoder(descriptor GPUCommandEncoderDescripto
 // the catch clause.
 func (this GPUDevice) TryCreateCommandEncoder(descriptor GPUCommandEncoderDescriptor) (ret GPUCommandEncoder, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateCommandEncoder(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&descriptor),
 	)
 
 	return
 }
 
-// HasCreateCommandEncoder1 returns true if the method "GPUDevice.createCommandEncoder" exists.
-func (this GPUDevice) HasCreateCommandEncoder1() bool {
-	return js.True == bindings.HasGPUDeviceCreateCommandEncoder1(
-		this.Ref(),
+// HasFuncCreateCommandEncoder1 returns true if the method "GPUDevice.createCommandEncoder" exists.
+func (this GPUDevice) HasFuncCreateCommandEncoder1() bool {
+	return js.True == bindings.HasFuncGPUDeviceCreateCommandEncoder1(
+		this.ref,
 	)
 }
 
-// CreateCommandEncoder1Func returns the method "GPUDevice.createCommandEncoder".
-func (this GPUDevice) CreateCommandEncoder1Func() (fn js.Func[func() GPUCommandEncoder]) {
-	return fn.FromRef(
-		bindings.GPUDeviceCreateCommandEncoder1Func(
-			this.Ref(),
-		),
+// FuncCreateCommandEncoder1 returns the method "GPUDevice.createCommandEncoder".
+func (this GPUDevice) FuncCreateCommandEncoder1() (fn js.Func[func() GPUCommandEncoder]) {
+	bindings.FuncGPUDeviceCreateCommandEncoder1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateCommandEncoder1 calls the method "GPUDevice.createCommandEncoder".
 func (this GPUDevice) CreateCommandEncoder1() (ret GPUCommandEncoder) {
 	bindings.CallGPUDeviceCreateCommandEncoder1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -6449,32 +6502,31 @@ func (this GPUDevice) CreateCommandEncoder1() (ret GPUCommandEncoder) {
 // the catch clause.
 func (this GPUDevice) TryCreateCommandEncoder1() (ret GPUCommandEncoder, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateCommandEncoder1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCreateRenderBundleEncoder returns true if the method "GPUDevice.createRenderBundleEncoder" exists.
-func (this GPUDevice) HasCreateRenderBundleEncoder() bool {
-	return js.True == bindings.HasGPUDeviceCreateRenderBundleEncoder(
-		this.Ref(),
+// HasFuncCreateRenderBundleEncoder returns true if the method "GPUDevice.createRenderBundleEncoder" exists.
+func (this GPUDevice) HasFuncCreateRenderBundleEncoder() bool {
+	return js.True == bindings.HasFuncGPUDeviceCreateRenderBundleEncoder(
+		this.ref,
 	)
 }
 
-// CreateRenderBundleEncoderFunc returns the method "GPUDevice.createRenderBundleEncoder".
-func (this GPUDevice) CreateRenderBundleEncoderFunc() (fn js.Func[func(descriptor GPURenderBundleEncoderDescriptor) GPURenderBundleEncoder]) {
-	return fn.FromRef(
-		bindings.GPUDeviceCreateRenderBundleEncoderFunc(
-			this.Ref(),
-		),
+// FuncCreateRenderBundleEncoder returns the method "GPUDevice.createRenderBundleEncoder".
+func (this GPUDevice) FuncCreateRenderBundleEncoder() (fn js.Func[func(descriptor GPURenderBundleEncoderDescriptor) GPURenderBundleEncoder]) {
+	bindings.FuncGPUDeviceCreateRenderBundleEncoder(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateRenderBundleEncoder calls the method "GPUDevice.createRenderBundleEncoder".
 func (this GPUDevice) CreateRenderBundleEncoder(descriptor GPURenderBundleEncoderDescriptor) (ret GPURenderBundleEncoder) {
 	bindings.CallGPUDeviceCreateRenderBundleEncoder(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&descriptor),
 	)
 
@@ -6486,33 +6538,32 @@ func (this GPUDevice) CreateRenderBundleEncoder(descriptor GPURenderBundleEncode
 // the catch clause.
 func (this GPUDevice) TryCreateRenderBundleEncoder(descriptor GPURenderBundleEncoderDescriptor) (ret GPURenderBundleEncoder, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateRenderBundleEncoder(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&descriptor),
 	)
 
 	return
 }
 
-// HasCreateQuerySet returns true if the method "GPUDevice.createQuerySet" exists.
-func (this GPUDevice) HasCreateQuerySet() bool {
-	return js.True == bindings.HasGPUDeviceCreateQuerySet(
-		this.Ref(),
+// HasFuncCreateQuerySet returns true if the method "GPUDevice.createQuerySet" exists.
+func (this GPUDevice) HasFuncCreateQuerySet() bool {
+	return js.True == bindings.HasFuncGPUDeviceCreateQuerySet(
+		this.ref,
 	)
 }
 
-// CreateQuerySetFunc returns the method "GPUDevice.createQuerySet".
-func (this GPUDevice) CreateQuerySetFunc() (fn js.Func[func(descriptor GPUQuerySetDescriptor) GPUQuerySet]) {
-	return fn.FromRef(
-		bindings.GPUDeviceCreateQuerySetFunc(
-			this.Ref(),
-		),
+// FuncCreateQuerySet returns the method "GPUDevice.createQuerySet".
+func (this GPUDevice) FuncCreateQuerySet() (fn js.Func[func(descriptor GPUQuerySetDescriptor) GPUQuerySet]) {
+	bindings.FuncGPUDeviceCreateQuerySet(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateQuerySet calls the method "GPUDevice.createQuerySet".
 func (this GPUDevice) CreateQuerySet(descriptor GPUQuerySetDescriptor) (ret GPUQuerySet) {
 	bindings.CallGPUDeviceCreateQuerySet(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&descriptor),
 	)
 
@@ -6524,33 +6575,32 @@ func (this GPUDevice) CreateQuerySet(descriptor GPUQuerySetDescriptor) (ret GPUQ
 // the catch clause.
 func (this GPUDevice) TryCreateQuerySet(descriptor GPUQuerySetDescriptor) (ret GPUQuerySet, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateQuerySet(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&descriptor),
 	)
 
 	return
 }
 
-// HasPushErrorScope returns true if the method "GPUDevice.pushErrorScope" exists.
-func (this GPUDevice) HasPushErrorScope() bool {
-	return js.True == bindings.HasGPUDevicePushErrorScope(
-		this.Ref(),
+// HasFuncPushErrorScope returns true if the method "GPUDevice.pushErrorScope" exists.
+func (this GPUDevice) HasFuncPushErrorScope() bool {
+	return js.True == bindings.HasFuncGPUDevicePushErrorScope(
+		this.ref,
 	)
 }
 
-// PushErrorScopeFunc returns the method "GPUDevice.pushErrorScope".
-func (this GPUDevice) PushErrorScopeFunc() (fn js.Func[func(filter GPUErrorFilter)]) {
-	return fn.FromRef(
-		bindings.GPUDevicePushErrorScopeFunc(
-			this.Ref(),
-		),
+// FuncPushErrorScope returns the method "GPUDevice.pushErrorScope".
+func (this GPUDevice) FuncPushErrorScope() (fn js.Func[func(filter GPUErrorFilter)]) {
+	bindings.FuncGPUDevicePushErrorScope(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PushErrorScope calls the method "GPUDevice.pushErrorScope".
 func (this GPUDevice) PushErrorScope(filter GPUErrorFilter) (ret js.Void) {
 	bindings.CallGPUDevicePushErrorScope(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(filter),
 	)
 
@@ -6562,33 +6612,32 @@ func (this GPUDevice) PushErrorScope(filter GPUErrorFilter) (ret js.Void) {
 // the catch clause.
 func (this GPUDevice) TryPushErrorScope(filter GPUErrorFilter) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDevicePushErrorScope(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(filter),
 	)
 
 	return
 }
 
-// HasPopErrorScope returns true if the method "GPUDevice.popErrorScope" exists.
-func (this GPUDevice) HasPopErrorScope() bool {
-	return js.True == bindings.HasGPUDevicePopErrorScope(
-		this.Ref(),
+// HasFuncPopErrorScope returns true if the method "GPUDevice.popErrorScope" exists.
+func (this GPUDevice) HasFuncPopErrorScope() bool {
+	return js.True == bindings.HasFuncGPUDevicePopErrorScope(
+		this.ref,
 	)
 }
 
-// PopErrorScopeFunc returns the method "GPUDevice.popErrorScope".
-func (this GPUDevice) PopErrorScopeFunc() (fn js.Func[func() js.Promise[GPUError]]) {
-	return fn.FromRef(
-		bindings.GPUDevicePopErrorScopeFunc(
-			this.Ref(),
-		),
+// FuncPopErrorScope returns the method "GPUDevice.popErrorScope".
+func (this GPUDevice) FuncPopErrorScope() (fn js.Func[func() js.Promise[GPUError]]) {
+	bindings.FuncGPUDevicePopErrorScope(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PopErrorScope calls the method "GPUDevice.popErrorScope".
 func (this GPUDevice) PopErrorScope() (ret js.Promise[GPUError]) {
 	bindings.CallGPUDevicePopErrorScope(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -6599,7 +6648,7 @@ func (this GPUDevice) PopErrorScope() (ret js.Promise[GPUError]) {
 // the catch clause.
 func (this GPUDevice) TryPopErrorScope() (ret js.Promise[GPUError], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDevicePopErrorScope(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -6676,17 +6725,28 @@ func (p GPUCanvasConfiguration) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUCanvasConfiguration) UpdateFrom(ref js.Ref) {
+func (p *GPUCanvasConfiguration) UpdateFrom(ref js.Ref) {
 	bindings.GPUCanvasConfigurationJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUCanvasConfiguration) Update(ref js.Ref) {
+func (p *GPUCanvasConfiguration) Update(ref js.Ref) {
 	bindings.GPUCanvasConfigurationJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUCanvasConfiguration) FreeMembers(recursive bool) {
+	js.Free(
+		p.Device.Ref(),
+		p.ViewFormats.Ref(),
+	)
+	p.Device = p.Device.FromRef(js.Undefined)
+	p.ViewFormats = p.ViewFormats.FromRef(js.Undefined)
 }
 
 type GPUCanvasContext struct {
@@ -6694,7 +6754,7 @@ type GPUCanvasContext struct {
 }
 
 func (this GPUCanvasContext) Once() GPUCanvasContext {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -6708,7 +6768,7 @@ func (this GPUCanvasContext) FromRef(ref js.Ref) GPUCanvasContext {
 }
 
 func (this GPUCanvasContext) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Canvas returns the value of property "GPUCanvasContext.canvas".
@@ -6716,31 +6776,30 @@ func (this GPUCanvasContext) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUCanvasContext) Canvas() (ret OneOf_HTMLCanvasElement_OffscreenCanvas, ok bool) {
 	ok = js.True == bindings.GetGPUCanvasContextCanvas(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasConfigure returns true if the method "GPUCanvasContext.configure" exists.
-func (this GPUCanvasContext) HasConfigure() bool {
-	return js.True == bindings.HasGPUCanvasContextConfigure(
-		this.Ref(),
+// HasFuncConfigure returns true if the method "GPUCanvasContext.configure" exists.
+func (this GPUCanvasContext) HasFuncConfigure() bool {
+	return js.True == bindings.HasFuncGPUCanvasContextConfigure(
+		this.ref,
 	)
 }
 
-// ConfigureFunc returns the method "GPUCanvasContext.configure".
-func (this GPUCanvasContext) ConfigureFunc() (fn js.Func[func(configuration GPUCanvasConfiguration)]) {
-	return fn.FromRef(
-		bindings.GPUCanvasContextConfigureFunc(
-			this.Ref(),
-		),
+// FuncConfigure returns the method "GPUCanvasContext.configure".
+func (this GPUCanvasContext) FuncConfigure() (fn js.Func[func(configuration GPUCanvasConfiguration)]) {
+	bindings.FuncGPUCanvasContextConfigure(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Configure calls the method "GPUCanvasContext.configure".
 func (this GPUCanvasContext) Configure(configuration GPUCanvasConfiguration) (ret js.Void) {
 	bindings.CallGPUCanvasContextConfigure(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&configuration),
 	)
 
@@ -6752,33 +6811,32 @@ func (this GPUCanvasContext) Configure(configuration GPUCanvasConfiguration) (re
 // the catch clause.
 func (this GPUCanvasContext) TryConfigure(configuration GPUCanvasConfiguration) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCanvasContextConfigure(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&configuration),
 	)
 
 	return
 }
 
-// HasUnconfigure returns true if the method "GPUCanvasContext.unconfigure" exists.
-func (this GPUCanvasContext) HasUnconfigure() bool {
-	return js.True == bindings.HasGPUCanvasContextUnconfigure(
-		this.Ref(),
+// HasFuncUnconfigure returns true if the method "GPUCanvasContext.unconfigure" exists.
+func (this GPUCanvasContext) HasFuncUnconfigure() bool {
+	return js.True == bindings.HasFuncGPUCanvasContextUnconfigure(
+		this.ref,
 	)
 }
 
-// UnconfigureFunc returns the method "GPUCanvasContext.unconfigure".
-func (this GPUCanvasContext) UnconfigureFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.GPUCanvasContextUnconfigureFunc(
-			this.Ref(),
-		),
+// FuncUnconfigure returns the method "GPUCanvasContext.unconfigure".
+func (this GPUCanvasContext) FuncUnconfigure() (fn js.Func[func()]) {
+	bindings.FuncGPUCanvasContextUnconfigure(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Unconfigure calls the method "GPUCanvasContext.unconfigure".
 func (this GPUCanvasContext) Unconfigure() (ret js.Void) {
 	bindings.CallGPUCanvasContextUnconfigure(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -6789,32 +6847,31 @@ func (this GPUCanvasContext) Unconfigure() (ret js.Void) {
 // the catch clause.
 func (this GPUCanvasContext) TryUnconfigure() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCanvasContextUnconfigure(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetCurrentTexture returns true if the method "GPUCanvasContext.getCurrentTexture" exists.
-func (this GPUCanvasContext) HasGetCurrentTexture() bool {
-	return js.True == bindings.HasGPUCanvasContextGetCurrentTexture(
-		this.Ref(),
+// HasFuncGetCurrentTexture returns true if the method "GPUCanvasContext.getCurrentTexture" exists.
+func (this GPUCanvasContext) HasFuncGetCurrentTexture() bool {
+	return js.True == bindings.HasFuncGPUCanvasContextGetCurrentTexture(
+		this.ref,
 	)
 }
 
-// GetCurrentTextureFunc returns the method "GPUCanvasContext.getCurrentTexture".
-func (this GPUCanvasContext) GetCurrentTextureFunc() (fn js.Func[func() GPUTexture]) {
-	return fn.FromRef(
-		bindings.GPUCanvasContextGetCurrentTextureFunc(
-			this.Ref(),
-		),
+// FuncGetCurrentTexture returns the method "GPUCanvasContext.getCurrentTexture".
+func (this GPUCanvasContext) FuncGetCurrentTexture() (fn js.Func[func() GPUTexture]) {
+	bindings.FuncGPUCanvasContextGetCurrentTexture(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetCurrentTexture calls the method "GPUCanvasContext.getCurrentTexture".
 func (this GPUCanvasContext) GetCurrentTexture() (ret GPUTexture) {
 	bindings.CallGPUCanvasContextGetCurrentTexture(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -6825,7 +6882,7 @@ func (this GPUCanvasContext) GetCurrentTexture() (ret GPUTexture) {
 // the catch clause.
 func (this GPUCanvasContext) TryGetCurrentTexture() (ret GPUTexture, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCanvasContextGetCurrentTexture(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return

@@ -1,0 +1,110 @@
+- File: webext/shared_module.idl
+  Dict:
+    Name: Export
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sharedModule
+    Fields:
+      - Name: allowlist
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - sharedModule
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sharedModule
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sharedModule
+- File: webext/shared_module.idl
+  Dict:
+    Name: Import
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sharedModule
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sharedModule
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sharedModule
+      - Name: minimum_version
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sharedModule
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sharedModule
+- File: webext/shared_module.idl
+  Dict:
+    Name: ManifestKeys
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sharedModule
+    Fields:
+      - Name: import
+        Type:
+          Name: sequence
+          Params:
+            - Name: Import
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - sharedModule
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sharedModule
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sharedModule
+      - Name: export
+        Type:
+          Name: Export
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sharedModule
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sharedModule

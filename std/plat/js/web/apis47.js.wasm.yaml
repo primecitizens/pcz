@@ -1,4 +1,4 @@
-- File: webxr-hit-test.idl
+- File: webref/webxr-hit-test.idl
   Interface:
     Name: XRRay
     ExtAttrs:
@@ -63,7 +63,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxr-hit-test.idl
+- File: webref/webxr-hit-test.idl
   Dict:
     Name: XRRayDirectionInit
     Fields:
@@ -83,7 +83,7 @@
         Default: "0"
         Type:
           Name: double
-- File: webxr.idl
+- File: webref/webxr.idl
   Interface:
     Name: XRReferenceSpace
     Inherits: XRSpace
@@ -115,7 +115,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxr.idl
+- File: webref/webxr.idl
   Interface:
     Name: XRReferenceSpaceEvent
     Inherits: Event
@@ -159,7 +159,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxr.idl
+- File: webref/webxr.idl
   Dict:
     Name: XRReferenceSpaceEventInit
     Inherits: EventInit
@@ -185,7 +185,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webxr.idl
+- File: webref/webxr.idl
   Enum:
     Name: XRReferenceSpaceType
     Values:
@@ -194,13 +194,13 @@
       - local-floor
       - bounded-floor
       - unbounded
-- File: webxr-lighting-estimation.idl
+- File: webref/webxr-lighting-estimation.idl
   Enum:
     Name: XRReflectionFormat
     Values:
       - srgba8
       - rgba16f
-- File: webxr.idl
+- File: webref/webxr.idl
   Interface:
     Name: XRRenderState
     ExtAttrs:
@@ -258,7 +258,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxr.idl
+- File: webref/webxr.idl
   Dict:
     Name: XRRenderStateInit
     Fields:
@@ -281,7 +281,7 @@
           Params:
             - Name: XRLayer
           Nullable: true
-- File: webxr.idl
+- File: webref/webxr.idl
   Interface:
     Name: XRRigidTransform
     ExtAttrs:
@@ -346,7 +346,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxr.idl
+- File: webref/webxr.idl
   Interface:
     Name: XRSession
     Inherits: EventTarget
@@ -661,7 +661,7 @@
           - Name: Promise
             Params:
               - Name: XRTransientInputHitTestSource
-- File: webxr.idl
+- File: webref/webxr.idl
   Interface:
     Name: XRSessionEvent
     Inherits: Event
@@ -694,7 +694,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxr.idl
+- File: webref/webxr.idl
   Dict:
     Name: XRSessionEventInit
     Inherits: EventInit
@@ -715,7 +715,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webxr.idl
+- File: webref/webxr.idl
   Dict:
     Name: XRSessionInit
     Fields:
@@ -736,14 +736,14 @@
       - Name: depthSensing
         Type:
           Name: XRDepthStateInit
-- File: webxr.idl
+- File: webref/webxr.idl
   Enum:
     Name: XRSessionMode
     Values:
       - inline
       - immersive-vr
       - immersive-ar
-- File: webxr.idl
+- File: webref/webxr.idl
   Dict:
     Name: XRSessionSupportedPermissionDescriptor
     Inherits: PermissionDescriptor
@@ -755,7 +755,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: webxr.idl
+- File: webref/webxr.idl
   Interface:
     Name: XRSpace
     Inherits: EventTarget
@@ -764,7 +764,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Interface:
     Name: XRSubImage
     ExtAttrs:
@@ -781,7 +781,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxr.idl
+- File: webref/webxr.idl
   Interface:
     Name: XRSystem
     Inherits: EventTarget
@@ -834,20 +834,20 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxr.idl
+- File: webref/webxr.idl
   Enum:
     Name: XRTargetRayMode
     Values:
       - gaze
       - tracked-pointer
       - screen
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Enum:
     Name: XRTextureType
     Values:
       - texture
       - texture-array
-- File: webxr-hit-test.idl
+- File: webref/webxr-hit-test.idl
   Dict:
     Name: XRTransientInputHitTestOptionsInit
     Fields:
@@ -863,7 +863,7 @@
       - Name: offsetRay
         Type:
           Name: XRRay
-- File: webxr-hit-test.idl
+- File: webref/webxr-hit-test.idl
   Interface:
     Name: XRTransientInputHitTestResult
     ExtAttrs:
@@ -893,7 +893,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxr-hit-test.idl
+- File: webref/webxr-hit-test.idl
   Interface:
     Name: XRTransientInputHitTestSource
     ExtAttrs:
@@ -910,7 +910,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxr.idl
+- File: webref/webxr.idl
   Interface:
     Name: XRView
     ExtAttrs:
@@ -982,7 +982,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxr.idl
+- File: webref/webxr.idl
   Interface:
     Name: XRViewerPose
     Inherits: XRPose
@@ -1004,7 +1004,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxr.idl
+- File: webref/webxr.idl
   Interface:
     Name: XRViewport
     ExtAttrs:
@@ -1049,14 +1049,14 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxr.idl
+- File: webref/webxr.idl
   Enum:
     Name: XRVisibilityState
     Values:
       - visible
       - visible-blurred
       - hidden
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Interface:
     Name: XRWebGLBinding
     ExtAttrs:
@@ -1215,7 +1215,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxr-depth-sensing.idl
+- File: webref/webxr-depth-sensing.idl
   Interface:
     Name: XRWebGLDepthInformation
     Inherits: XRDepthInformation
@@ -1235,7 +1235,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: webxr.idl
+- File: webref/webxr.idl
   Interface:
     Name: XRWebGLLayer
     Inherits: XRLayer
@@ -1346,7 +1346,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxr.idl
+- File: webref/webxr.idl
   Dict:
     Name: XRWebGLLayerInit
     Fields:
@@ -1374,14 +1374,14 @@
         Default: "1.0"
         Type:
           Name: double
-- File: webxr.idl
+- File: webref/webxr.idl
   Typedef:
     Name: XRWebGLRenderingContext
     Type:
       Union:
         - Name: WebGLRenderingContext
         - Name: WebGL2RenderingContext
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Interface:
     Name: XRWebGLSubImage
     Inherits: XRSubImage
@@ -1480,7 +1480,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: XSLTProcessor
     ExtAttrs:
@@ -1591,7 +1591,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: console.idl
+- File: webref/console.idl
   Namespace:
     Name: console
     ExtAttrs:

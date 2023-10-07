@@ -1,0 +1,33 @@
+- File: webext/app_view_guest_internal.json
+  WebextFunc:
+    Name: attachFrame
+    Args:
+      - Name: url
+        Type:
+          Name: DOMString
+      - Name: guestInstanceId
+        Type:
+          Name: long long
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: long long
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - appViewGuestInternal
+- File: webext/app_view_guest_internal.json
+  WebextFunc:
+    Name: denyRequest
+    Args:
+      - Name: guestInstanceId
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - appViewGuestInternal

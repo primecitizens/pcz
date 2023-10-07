@@ -1,0 +1,94 @@
+- File: webext/chrome/enterprise_hardware_platform.idl
+  Dict:
+    Name: HardwarePlatformInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - hardwarePlatform
+    Fields:
+      - Name: model
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - hardwarePlatform
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - hardwarePlatform
+      - Name: manufacturer
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - hardwarePlatform
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - hardwarePlatform
+- File: webext/chrome/enterprise_hardware_platform.idl
+  Callback:
+    Name: HardwarePlatformInfoCallback
+    Args:
+      - Name: info
+        Type:
+          Name: HardwarePlatformInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - hardwarePlatform
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - hardwarePlatform
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - hardwarePlatform
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - hardwarePlatform
+- File: webext/chrome/enterprise_hardware_platform.idl
+  WebextFunc:
+    Name: getHardwarePlatformInfo
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: HardwarePlatformInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - enterprise
+                  - hardwarePlatform
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - hardwarePlatform

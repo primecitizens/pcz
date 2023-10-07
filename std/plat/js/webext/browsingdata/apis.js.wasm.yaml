@@ -1,0 +1,613 @@
+- File: webext/chrome/browsing_data.json
+  Dict:
+    Name: DataTypeSet
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - browsingData
+    Fields:
+      - Name: appcache
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+      - Name: cache
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+      - Name: cacheStorage
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+      - Name: cookies
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+      - Name: downloads
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+      - Name: fileSystems
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+      - Name: formData
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+      - Name: history
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+      - Name: indexedDB
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+      - Name: localStorage
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+      - Name: passwords
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+      - Name: pluginData
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+      - Name: serverBoundCertificates
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+      - Name: serviceWorkers
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+      - Name: webSQL
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+- File: webext/chrome/browsing_data.json
+  Dict:
+    Name: RemovalOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - browsingData
+    Fields:
+      - Name: excludeOrigins
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - browsingData
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+      - Name: originTypes
+        Type:
+          Name: RemovalOptionsFieldOriginTypes
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - browsingData
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+      - Name: origins
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - browsingData
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+      - Name: since
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+- File: webext/chrome/browsing_data.json
+  Dict:
+    Name: RemovalOptionsFieldOriginTypes
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - browsingData
+    Fields:
+      - Name: extension
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+      - Name: protectedWeb
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+      - Name: unprotectedWeb
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+- File: webext/chrome/browsing_data.json
+  Dict:
+    Name: SettingsReturnType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - browsingData
+    Fields:
+      - Name: dataRemovalPermitted
+        Required: true
+        Type:
+          Name: DataTypeSet
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - browsingData
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+      - Name: dataToRemove
+        Required: true
+        Type:
+          Name: DataTypeSet
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - browsingData
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+      - Name: options
+        Required: true
+        Type:
+          Name: RemovalOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - browsingData
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - browsingData
+- File: webext/chrome/browsing_data.json
+  WebextFunc:
+    Name: remove
+    Args:
+      - Name: options
+        Type:
+          Name: RemovalOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - browsingData
+      - Name: dataToRemove
+        Type:
+          Name: DataTypeSet
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - browsingData
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - browsingData
+- File: webext/chrome/browsing_data.json
+  WebextFunc:
+    Name: removeAppcache
+    Args:
+      - Name: options
+        Type:
+          Name: RemovalOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - browsingData
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - browsingData
+- File: webext/chrome/browsing_data.json
+  WebextFunc:
+    Name: removeCache
+    Args:
+      - Name: options
+        Type:
+          Name: RemovalOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - browsingData
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - browsingData
+- File: webext/chrome/browsing_data.json
+  WebextFunc:
+    Name: removeCacheStorage
+    Args:
+      - Name: options
+        Type:
+          Name: RemovalOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - browsingData
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - browsingData
+- File: webext/chrome/browsing_data.json
+  WebextFunc:
+    Name: removeCookies
+    Args:
+      - Name: options
+        Type:
+          Name: RemovalOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - browsingData
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - browsingData
+- File: webext/chrome/browsing_data.json
+  WebextFunc:
+    Name: removeDownloads
+    Args:
+      - Name: options
+        Type:
+          Name: RemovalOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - browsingData
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - browsingData
+- File: webext/chrome/browsing_data.json
+  WebextFunc:
+    Name: removeFileSystems
+    Args:
+      - Name: options
+        Type:
+          Name: RemovalOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - browsingData
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - browsingData
+- File: webext/chrome/browsing_data.json
+  WebextFunc:
+    Name: removeFormData
+    Args:
+      - Name: options
+        Type:
+          Name: RemovalOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - browsingData
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - browsingData
+- File: webext/chrome/browsing_data.json
+  WebextFunc:
+    Name: removeHistory
+    Args:
+      - Name: options
+        Type:
+          Name: RemovalOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - browsingData
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - browsingData
+- File: webext/chrome/browsing_data.json
+  WebextFunc:
+    Name: removeIndexedDB
+    Args:
+      - Name: options
+        Type:
+          Name: RemovalOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - browsingData
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - browsingData
+- File: webext/chrome/browsing_data.json
+  WebextFunc:
+    Name: removeLocalStorage
+    Args:
+      - Name: options
+        Type:
+          Name: RemovalOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - browsingData
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - browsingData
+- File: webext/chrome/browsing_data.json
+  WebextFunc:
+    Name: removePasswords
+    Args:
+      - Name: options
+        Type:
+          Name: RemovalOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - browsingData
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - browsingData
+- File: webext/chrome/browsing_data.json
+  WebextFunc:
+    Name: removePluginData
+    Args:
+      - Name: options
+        Type:
+          Name: RemovalOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - browsingData
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - browsingData
+- File: webext/chrome/browsing_data.json
+  WebextFunc:
+    Name: removeServiceWorkers
+    Args:
+      - Name: options
+        Type:
+          Name: RemovalOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - browsingData
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - browsingData
+- File: webext/chrome/browsing_data.json
+  WebextFunc:
+    Name: removeWebSQL
+    Args:
+      - Name: options
+        Type:
+          Name: RemovalOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - browsingData
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - browsingData
+- File: webext/chrome/browsing_data.json
+  WebextFunc:
+    Name: settings
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: SettingsReturnType
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - browsingData
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - browsingData

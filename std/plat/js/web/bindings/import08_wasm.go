@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web constof_TextTrackMode
 //go:noescape
@@ -29,11 +27,11 @@ func GetTextTrackCueListLength(
 
 //go:wasmimport plat/js/web has_TextTrackCueList_Get
 //go:noescape
-func HasTextTrackCueListGet(this js.Ref) js.Ref
+func HasFuncTextTrackCueListGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TextTrackCueList_Get
 //go:noescape
-func TextTrackCueListGetFunc(this js.Ref) js.Ref
+func FuncTextTrackCueListGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TextTrackCueList_Get
 //go:noescape
@@ -49,11 +47,11 @@ func TryTextTrackCueListGet(
 
 //go:wasmimport plat/js/web has_TextTrackCueList_GetCueById
 //go:noescape
-func HasTextTrackCueListGetCueById(this js.Ref) js.Ref
+func HasFuncTextTrackCueListGetCueById(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TextTrackCueList_GetCueById
 //go:noescape
-func TextTrackCueListGetCueByIdFunc(this js.Ref) js.Ref
+func FuncTextTrackCueListGetCueById(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TextTrackCueList_GetCueById
 //go:noescape
@@ -74,11 +72,11 @@ func GetTimeRangesLength(
 
 //go:wasmimport plat/js/web has_TimeRanges_Start
 //go:noescape
-func HasTimeRangesStart(this js.Ref) js.Ref
+func HasFuncTimeRangesStart(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TimeRanges_Start
 //go:noescape
-func TimeRangesStartFunc(this js.Ref) js.Ref
+func FuncTimeRangesStart(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TimeRanges_Start
 //go:noescape
@@ -94,11 +92,11 @@ func TryTimeRangesStart(
 
 //go:wasmimport plat/js/web has_TimeRanges_End
 //go:noescape
-func HasTimeRangesEnd(this js.Ref) js.Ref
+func HasFuncTimeRangesEnd(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TimeRanges_End
 //go:noescape
-func TimeRangesEndFunc(this js.Ref) js.Ref
+func FuncTimeRangesEnd(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TimeRanges_End
 //go:noescape
@@ -156,11 +154,11 @@ func GetAudioTrackListLength(
 
 //go:wasmimport plat/js/web has_AudioTrackList_Get
 //go:noescape
-func HasAudioTrackListGet(this js.Ref) js.Ref
+func HasFuncAudioTrackListGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioTrackList_Get
 //go:noescape
-func AudioTrackListGetFunc(this js.Ref) js.Ref
+func FuncAudioTrackListGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioTrackList_Get
 //go:noescape
@@ -176,11 +174,11 @@ func TryAudioTrackListGet(
 
 //go:wasmimport plat/js/web has_AudioTrackList_GetTrackById
 //go:noescape
-func HasAudioTrackListGetTrackById(this js.Ref) js.Ref
+func HasFuncAudioTrackListGetTrackById(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioTrackList_GetTrackById
 //go:noescape
-func AudioTrackListGetTrackByIdFunc(this js.Ref) js.Ref
+func FuncAudioTrackListGetTrackById(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioTrackList_GetTrackById
 //go:noescape
@@ -243,11 +241,11 @@ func GetVideoTrackListSelectedIndex(
 
 //go:wasmimport plat/js/web has_VideoTrackList_Get
 //go:noescape
-func HasVideoTrackListGet(this js.Ref) js.Ref
+func HasFuncVideoTrackListGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_VideoTrackList_Get
 //go:noescape
-func VideoTrackListGetFunc(this js.Ref) js.Ref
+func FuncVideoTrackListGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_VideoTrackList_Get
 //go:noescape
@@ -263,11 +261,11 @@ func TryVideoTrackListGet(
 
 //go:wasmimport plat/js/web has_VideoTrackList_GetTrackById
 //go:noescape
-func HasVideoTrackListGetTrackById(this js.Ref) js.Ref
+func HasFuncVideoTrackListGetTrackById(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_VideoTrackList_GetTrackById
 //go:noescape
-func VideoTrackListGetTrackByIdFunc(this js.Ref) js.Ref
+func FuncVideoTrackListGetTrackById(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_VideoTrackList_GetTrackById
 //go:noescape
@@ -288,11 +286,11 @@ func GetTextTrackListLength(
 
 //go:wasmimport plat/js/web has_TextTrackList_Get
 //go:noescape
-func HasTextTrackListGet(this js.Ref) js.Ref
+func HasFuncTextTrackListGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TextTrackList_Get
 //go:noescape
-func TextTrackListGetFunc(this js.Ref) js.Ref
+func FuncTextTrackListGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TextTrackList_Get
 //go:noescape
@@ -308,11 +306,11 @@ func TryTextTrackListGet(
 
 //go:wasmimport plat/js/web has_TextTrackList_GetTrackById
 //go:noescape
-func HasTextTrackListGetTrackById(this js.Ref) js.Ref
+func HasFuncTextTrackListGetTrackById(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TextTrackList_GetTrackById
 //go:noescape
-func TextTrackListGetTrackByIdFunc(this js.Ref) js.Ref
+func FuncTextTrackListGetTrackById(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TextTrackList_GetTrackById
 //go:noescape
@@ -401,11 +399,11 @@ func SetSourceBufferAppendWindowEnd(
 
 //go:wasmimport plat/js/web has_SourceBuffer_AppendBuffer
 //go:noescape
-func HasSourceBufferAppendBuffer(this js.Ref) js.Ref
+func HasFuncSourceBufferAppendBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SourceBuffer_AppendBuffer
 //go:noescape
-func SourceBufferAppendBufferFunc(this js.Ref) js.Ref
+func FuncSourceBufferAppendBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SourceBuffer_AppendBuffer
 //go:noescape
@@ -421,11 +419,11 @@ func TrySourceBufferAppendBuffer(
 
 //go:wasmimport plat/js/web has_SourceBuffer_Abort
 //go:noescape
-func HasSourceBufferAbort(this js.Ref) js.Ref
+func HasFuncSourceBufferAbort(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SourceBuffer_Abort
 //go:noescape
-func SourceBufferAbortFunc(this js.Ref) js.Ref
+func FuncSourceBufferAbort(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SourceBuffer_Abort
 //go:noescape
@@ -439,11 +437,11 @@ func TrySourceBufferAbort(
 
 //go:wasmimport plat/js/web has_SourceBuffer_ChangeType
 //go:noescape
-func HasSourceBufferChangeType(this js.Ref) js.Ref
+func HasFuncSourceBufferChangeType(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SourceBuffer_ChangeType
 //go:noescape
-func SourceBufferChangeTypeFunc(this js.Ref) js.Ref
+func FuncSourceBufferChangeType(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SourceBuffer_ChangeType
 //go:noescape
@@ -459,11 +457,11 @@ func TrySourceBufferChangeType(
 
 //go:wasmimport plat/js/web has_SourceBuffer_Remove
 //go:noescape
-func HasSourceBufferRemove(this js.Ref) js.Ref
+func HasFuncSourceBufferRemove(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SourceBuffer_Remove
 //go:noescape
-func SourceBufferRemoveFunc(this js.Ref) js.Ref
+func FuncSourceBufferRemove(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SourceBuffer_Remove
 //go:noescape
@@ -533,11 +531,11 @@ func GetTextTrackSourceBuffer(
 
 //go:wasmimport plat/js/web has_TextTrack_AddCue
 //go:noescape
-func HasTextTrackAddCue(this js.Ref) js.Ref
+func HasFuncTextTrackAddCue(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TextTrack_AddCue
 //go:noescape
-func TextTrackAddCueFunc(this js.Ref) js.Ref
+func FuncTextTrackAddCue(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TextTrack_AddCue
 //go:noescape
@@ -553,11 +551,11 @@ func TryTextTrackAddCue(
 
 //go:wasmimport plat/js/web has_TextTrack_RemoveCue
 //go:noescape
-func HasTextTrackRemoveCue(this js.Ref) js.Ref
+func HasFuncTextTrackRemoveCue(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TextTrack_RemoveCue
 //go:noescape
-func TextTrackRemoveCueFunc(this js.Ref) js.Ref
+func FuncTextTrackRemoveCue(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TextTrack_RemoveCue
 //go:noescape
@@ -586,11 +584,11 @@ func GetMediaKeyStatusMapSize(
 
 //go:wasmimport plat/js/web has_MediaKeyStatusMap_Has
 //go:noescape
-func HasMediaKeyStatusMapHas(this js.Ref) js.Ref
+func HasFuncMediaKeyStatusMapHas(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaKeyStatusMap_Has
 //go:noescape
-func MediaKeyStatusMapHasFunc(this js.Ref) js.Ref
+func FuncMediaKeyStatusMapHas(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaKeyStatusMap_Has
 //go:noescape
@@ -606,11 +604,11 @@ func TryMediaKeyStatusMapHas(
 
 //go:wasmimport plat/js/web has_MediaKeyStatusMap_Get
 //go:noescape
-func HasMediaKeyStatusMapGet(this js.Ref) js.Ref
+func HasFuncMediaKeyStatusMapGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaKeyStatusMap_Get
 //go:noescape
-func MediaKeyStatusMapGetFunc(this js.Ref) js.Ref
+func FuncMediaKeyStatusMapGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaKeyStatusMap_Get
 //go:noescape
@@ -646,11 +644,11 @@ func GetMediaKeySessionKeyStatuses(
 
 //go:wasmimport plat/js/web has_MediaKeySession_GenerateRequest
 //go:noescape
-func HasMediaKeySessionGenerateRequest(this js.Ref) js.Ref
+func HasFuncMediaKeySessionGenerateRequest(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaKeySession_GenerateRequest
 //go:noescape
-func MediaKeySessionGenerateRequestFunc(this js.Ref) js.Ref
+func FuncMediaKeySessionGenerateRequest(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaKeySession_GenerateRequest
 //go:noescape
@@ -668,11 +666,11 @@ func TryMediaKeySessionGenerateRequest(
 
 //go:wasmimport plat/js/web has_MediaKeySession_Load
 //go:noescape
-func HasMediaKeySessionLoad(this js.Ref) js.Ref
+func HasFuncMediaKeySessionLoad(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaKeySession_Load
 //go:noescape
-func MediaKeySessionLoadFunc(this js.Ref) js.Ref
+func FuncMediaKeySessionLoad(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaKeySession_Load
 //go:noescape
@@ -688,11 +686,11 @@ func TryMediaKeySessionLoad(
 
 //go:wasmimport plat/js/web has_MediaKeySession_Update
 //go:noescape
-func HasMediaKeySessionUpdate(this js.Ref) js.Ref
+func HasFuncMediaKeySessionUpdate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaKeySession_Update
 //go:noescape
-func MediaKeySessionUpdateFunc(this js.Ref) js.Ref
+func FuncMediaKeySessionUpdate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaKeySession_Update
 //go:noescape
@@ -708,11 +706,11 @@ func TryMediaKeySessionUpdate(
 
 //go:wasmimport plat/js/web has_MediaKeySession_Close
 //go:noescape
-func HasMediaKeySessionClose(this js.Ref) js.Ref
+func HasFuncMediaKeySessionClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaKeySession_Close
 //go:noescape
-func MediaKeySessionCloseFunc(this js.Ref) js.Ref
+func FuncMediaKeySessionClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaKeySession_Close
 //go:noescape
@@ -726,11 +724,11 @@ func TryMediaKeySessionClose(
 
 //go:wasmimport plat/js/web has_MediaKeySession_Remove
 //go:noescape
-func HasMediaKeySessionRemove(this js.Ref) js.Ref
+func HasFuncMediaKeySessionRemove(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaKeySession_Remove
 //go:noescape
-func MediaKeySessionRemoveFunc(this js.Ref) js.Ref
+func FuncMediaKeySessionRemove(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaKeySession_Remove
 //go:noescape
@@ -748,11 +746,11 @@ func ConstOfMediaKeySessionType(str js.Ref) uint32
 
 //go:wasmimport plat/js/web has_MediaKeys_CreateSession
 //go:noescape
-func HasMediaKeysCreateSession(this js.Ref) js.Ref
+func HasFuncMediaKeysCreateSession(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaKeys_CreateSession
 //go:noescape
-func MediaKeysCreateSessionFunc(this js.Ref) js.Ref
+func FuncMediaKeysCreateSession(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaKeys_CreateSession
 //go:noescape
@@ -768,11 +766,11 @@ func TryMediaKeysCreateSession(
 
 //go:wasmimport plat/js/web has_MediaKeys_CreateSession1
 //go:noescape
-func HasMediaKeysCreateSession1(this js.Ref) js.Ref
+func HasFuncMediaKeysCreateSession1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaKeys_CreateSession1
 //go:noescape
-func MediaKeysCreateSession1Func(this js.Ref) js.Ref
+func FuncMediaKeysCreateSession1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaKeys_CreateSession1
 //go:noescape
@@ -786,11 +784,11 @@ func TryMediaKeysCreateSession1(
 
 //go:wasmimport plat/js/web has_MediaKeys_SetServerCertificate
 //go:noescape
-func HasMediaKeysSetServerCertificate(this js.Ref) js.Ref
+func HasFuncMediaKeysSetServerCertificate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaKeys_SetServerCertificate
 //go:noescape
-func MediaKeysSetServerCertificateFunc(this js.Ref) js.Ref
+func FuncMediaKeysSetServerCertificate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaKeys_SetServerCertificate
 //go:noescape

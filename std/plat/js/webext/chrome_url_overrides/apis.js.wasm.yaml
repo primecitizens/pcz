@@ -1,0 +1,109 @@
+- File: webext/chrome/chrome_url_overrides.idl
+  Dict:
+    Name: ManifestKeys
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chrome_url_overrides
+    Fields:
+      - Name: chrome_url_overrides
+        Type:
+          Name: UrlOverrideInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chrome_url_overrides
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chrome_url_overrides
+- File: webext/chrome/chrome_url_overrides.idl
+  Dict:
+    Name: UrlOverrideInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chrome_url_overrides
+    Fields:
+      - Name: newtab
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chrome_url_overrides
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chrome_url_overrides
+      - Name: bookmarks
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chrome_url_overrides
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chrome_url_overrides
+      - Name: history
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chrome_url_overrides
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chrome_url_overrides
+      - Name: activationmessage
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chrome_url_overrides
+        ExtAttrs:
+          - Name: nodoc
+          - Name: platforms
+            Values:
+              - chromeos
+          - Name: Namespace
+            Values:
+              - chrome
+              - chrome_url_overrides
+      - Name: keyboard
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chrome_url_overrides
+        ExtAttrs:
+          - Name: nodoc
+          - Name: platforms
+            Values:
+              - chromeos
+          - Name: Namespace
+            Values:
+              - chrome
+              - chrome_url_overrides

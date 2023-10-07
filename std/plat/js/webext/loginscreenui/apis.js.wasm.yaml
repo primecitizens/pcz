@@ -1,0 +1,99 @@
+- File: webext/chrome/login_screen_ui.idl
+  Dict:
+    Name: ShowOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - loginScreenUi
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - loginScreenUi
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - loginScreenUi
+      - Name: userCanClose
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - loginScreenUi
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - loginScreenUi
+- File: webext/chrome/login_screen_ui.idl
+  Callback:
+    Name: SimpleCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - loginScreenUi
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - loginScreenUi
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/login_screen_ui.idl
+  WebextFunc:
+    Name: close
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - loginScreenUi
+- File: webext/chrome/login_screen_ui.idl
+  WebextFunc:
+    Name: show
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: ShowOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - loginScreenUi
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - loginScreenUi
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - loginScreenUi

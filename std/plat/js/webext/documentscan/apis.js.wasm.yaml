@@ -1,0 +1,160 @@
+- File: webext/chrome/document_scan.idl
+  Callback:
+    Name: ScanCallback
+    Args:
+      - Name: result
+        Type:
+          Name: ScanResults
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - documentScan
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - documentScan
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - documentScan
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - documentScan
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/document_scan.idl
+  Dict:
+    Name: ScanOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - documentScan
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: mimeTypes
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - documentScan
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - documentScan
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - documentScan
+      - Name: maxImages
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - documentScan
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - documentScan
+- File: webext/chrome/document_scan.idl
+  Dict:
+    Name: ScanResults
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - documentScan
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: dataUrls
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - documentScan
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - documentScan
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - documentScan
+      - Name: mimeType
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - documentScan
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - documentScan
+- File: webext/chrome/document_scan.idl
+  WebextFunc:
+    Name: scan
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: ScanOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - documentScan
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - documentScan
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ScanResults
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - documentScan
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - documentScan

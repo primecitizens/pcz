@@ -3,6 +3,8 @@
 
 // Package webext provides access to apis exposed by web browsers for web
 // extensions (Manifest Version 3).
+//
+// NOTE:
+//   - The `tabs` namepsace is spread in package `tabs` and `tabs1`.
+//   - The `os` namespace is hosted by package `chromeos`.
 package webext
-
-// Comming soon

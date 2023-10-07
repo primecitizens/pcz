@@ -4,18 +4,9 @@
 package web
 
 import (
-	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 type OptionalEffectTiming struct {
 	// Delay is "OptionalEffectTiming.delay"
@@ -88,17 +79,28 @@ func (p OptionalEffectTiming) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p OptionalEffectTiming) UpdateFrom(ref js.Ref) {
+func (p *OptionalEffectTiming) UpdateFrom(ref js.Ref) {
 	bindings.OptionalEffectTimingJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p OptionalEffectTiming) Update(ref js.Ref) {
+func (p *OptionalEffectTiming) Update(ref js.Ref) {
 	bindings.OptionalEffectTimingJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *OptionalEffectTiming) FreeMembers(recursive bool) {
+	js.Free(
+		p.Duration.Ref(),
+		p.Easing.Ref(),
+	)
+	p.Duration = p.Duration.FromRef(js.Undefined)
+	p.Easing = p.Easing.FromRef(js.Undefined)
 }
 
 type OneOf_Float64_EffectTiming struct {
@@ -134,7 +136,7 @@ type AnimationNodeList struct {
 }
 
 func (this AnimationNodeList) Once() AnimationNodeList {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -148,7 +150,7 @@ func (this AnimationNodeList) FromRef(ref js.Ref) AnimationNodeList {
 }
 
 func (this AnimationNodeList) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Length returns the value of property "AnimationNodeList.length".
@@ -156,31 +158,30 @@ func (this AnimationNodeList) Free() {
 // It returns ok=false if there is no such property.
 func (this AnimationNodeList) Length() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetAnimationNodeListLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasItem returns true if the method "AnimationNodeList.item" exists.
-func (this AnimationNodeList) HasItem() bool {
-	return js.True == bindings.HasAnimationNodeListItem(
-		this.Ref(),
+// HasFuncItem returns true if the method "AnimationNodeList.item" exists.
+func (this AnimationNodeList) HasFuncItem() bool {
+	return js.True == bindings.HasFuncAnimationNodeListItem(
+		this.ref,
 	)
 }
 
-// ItemFunc returns the method "AnimationNodeList.item".
-func (this AnimationNodeList) ItemFunc() (fn js.Func[func(index uint32) AnimationEffect]) {
-	return fn.FromRef(
-		bindings.AnimationNodeListItemFunc(
-			this.Ref(),
-		),
+// FuncItem returns the method "AnimationNodeList.item".
+func (this AnimationNodeList) FuncItem() (fn js.Func[func(index uint32) AnimationEffect]) {
+	bindings.FuncAnimationNodeListItem(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Item calls the method "AnimationNodeList.item".
 func (this AnimationNodeList) Item(index uint32) (ret AnimationEffect) {
 	bindings.CallAnimationNodeListItem(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 	)
 
@@ -192,7 +193,7 @@ func (this AnimationNodeList) Item(index uint32) (ret AnimationEffect) {
 // the catch clause.
 func (this AnimationNodeList) TryItem(index uint32) (ret AnimationEffect, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationNodeListItem(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 	)
 
@@ -217,7 +218,7 @@ type GroupEffect struct {
 }
 
 func (this GroupEffect) Once() GroupEffect {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -231,7 +232,7 @@ func (this GroupEffect) FromRef(ref js.Ref) GroupEffect {
 }
 
 func (this GroupEffect) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Children returns the value of property "GroupEffect.children".
@@ -239,7 +240,7 @@ func (this GroupEffect) Free() {
 // It returns ok=false if there is no such property.
 func (this GroupEffect) Children() (ret AnimationNodeList, ok bool) {
 	ok = js.True == bindings.GetGroupEffectChildren(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -249,7 +250,7 @@ func (this GroupEffect) Children() (ret AnimationNodeList, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GroupEffect) FirstChild() (ret AnimationEffect, ok bool) {
 	ok = js.True == bindings.GetGroupEffectFirstChild(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -259,31 +260,30 @@ func (this GroupEffect) FirstChild() (ret AnimationEffect, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GroupEffect) LastChild() (ret AnimationEffect, ok bool) {
 	ok = js.True == bindings.GetGroupEffectLastChild(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasClone returns true if the method "GroupEffect.clone" exists.
-func (this GroupEffect) HasClone() bool {
-	return js.True == bindings.HasGroupEffectClone(
-		this.Ref(),
+// HasFuncClone returns true if the method "GroupEffect.clone" exists.
+func (this GroupEffect) HasFuncClone() bool {
+	return js.True == bindings.HasFuncGroupEffectClone(
+		this.ref,
 	)
 }
 
-// CloneFunc returns the method "GroupEffect.clone".
-func (this GroupEffect) CloneFunc() (fn js.Func[func() GroupEffect]) {
-	return fn.FromRef(
-		bindings.GroupEffectCloneFunc(
-			this.Ref(),
-		),
+// FuncClone returns the method "GroupEffect.clone".
+func (this GroupEffect) FuncClone() (fn js.Func[func() GroupEffect]) {
+	bindings.FuncGroupEffectClone(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Clone calls the method "GroupEffect.clone".
 func (this GroupEffect) Clone() (ret GroupEffect) {
 	bindings.CallGroupEffectClone(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -294,32 +294,31 @@ func (this GroupEffect) Clone() (ret GroupEffect) {
 // the catch clause.
 func (this GroupEffect) TryClone() (ret GroupEffect, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGroupEffectClone(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasPrepend returns true if the method "GroupEffect.prepend" exists.
-func (this GroupEffect) HasPrepend() bool {
-	return js.True == bindings.HasGroupEffectPrepend(
-		this.Ref(),
+// HasFuncPrepend returns true if the method "GroupEffect.prepend" exists.
+func (this GroupEffect) HasFuncPrepend() bool {
+	return js.True == bindings.HasFuncGroupEffectPrepend(
+		this.ref,
 	)
 }
 
-// PrependFunc returns the method "GroupEffect.prepend".
-func (this GroupEffect) PrependFunc() (fn js.Func[func(effects ...AnimationEffect)]) {
-	return fn.FromRef(
-		bindings.GroupEffectPrependFunc(
-			this.Ref(),
-		),
+// FuncPrepend returns the method "GroupEffect.prepend".
+func (this GroupEffect) FuncPrepend() (fn js.Func[func(effects ...AnimationEffect)]) {
+	bindings.FuncGroupEffectPrepend(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Prepend calls the method "GroupEffect.prepend".
 func (this GroupEffect) Prepend(effects ...AnimationEffect) (ret js.Void) {
 	bindings.CallGroupEffectPrepend(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.SliceData(effects),
 		js.SizeU(len(effects)),
 	)
@@ -332,7 +331,7 @@ func (this GroupEffect) Prepend(effects ...AnimationEffect) (ret js.Void) {
 // the catch clause.
 func (this GroupEffect) TryPrepend(effects ...AnimationEffect) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGroupEffectPrepend(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.SliceData(effects),
 		js.SizeU(len(effects)),
 	)
@@ -340,26 +339,25 @@ func (this GroupEffect) TryPrepend(effects ...AnimationEffect) (ret js.Void, exc
 	return
 }
 
-// HasAppend returns true if the method "GroupEffect.append" exists.
-func (this GroupEffect) HasAppend() bool {
-	return js.True == bindings.HasGroupEffectAppend(
-		this.Ref(),
+// HasFuncAppend returns true if the method "GroupEffect.append" exists.
+func (this GroupEffect) HasFuncAppend() bool {
+	return js.True == bindings.HasFuncGroupEffectAppend(
+		this.ref,
 	)
 }
 
-// AppendFunc returns the method "GroupEffect.append".
-func (this GroupEffect) AppendFunc() (fn js.Func[func(effects ...AnimationEffect)]) {
-	return fn.FromRef(
-		bindings.GroupEffectAppendFunc(
-			this.Ref(),
-		),
+// FuncAppend returns the method "GroupEffect.append".
+func (this GroupEffect) FuncAppend() (fn js.Func[func(effects ...AnimationEffect)]) {
+	bindings.FuncGroupEffectAppend(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Append calls the method "GroupEffect.append".
 func (this GroupEffect) Append(effects ...AnimationEffect) (ret js.Void) {
 	bindings.CallGroupEffectAppend(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.SliceData(effects),
 		js.SizeU(len(effects)),
 	)
@@ -372,7 +370,7 @@ func (this GroupEffect) Append(effects ...AnimationEffect) (ret js.Void) {
 // the catch clause.
 func (this GroupEffect) TryAppend(effects ...AnimationEffect) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGroupEffectAppend(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.SliceData(effects),
 		js.SizeU(len(effects)),
 	)
@@ -385,7 +383,7 @@ type AnimationEffect struct {
 }
 
 func (this AnimationEffect) Once() AnimationEffect {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -399,7 +397,7 @@ func (this AnimationEffect) FromRef(ref js.Ref) AnimationEffect {
 }
 
 func (this AnimationEffect) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Parent returns the value of property "AnimationEffect.parent".
@@ -407,7 +405,7 @@ func (this AnimationEffect) Free() {
 // It returns ok=false if there is no such property.
 func (this AnimationEffect) Parent() (ret GroupEffect, ok bool) {
 	ok = js.True == bindings.GetAnimationEffectParent(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -417,7 +415,7 @@ func (this AnimationEffect) Parent() (ret GroupEffect, ok bool) {
 // It returns ok=false if there is no such property.
 func (this AnimationEffect) PreviousSibling() (ret AnimationEffect, ok bool) {
 	ok = js.True == bindings.GetAnimationEffectPreviousSibling(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -427,31 +425,30 @@ func (this AnimationEffect) PreviousSibling() (ret AnimationEffect, ok bool) {
 // It returns ok=false if there is no such property.
 func (this AnimationEffect) NextSibling() (ret AnimationEffect, ok bool) {
 	ok = js.True == bindings.GetAnimationEffectNextSibling(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGetTiming returns true if the method "AnimationEffect.getTiming" exists.
-func (this AnimationEffect) HasGetTiming() bool {
-	return js.True == bindings.HasAnimationEffectGetTiming(
-		this.Ref(),
+// HasFuncGetTiming returns true if the method "AnimationEffect.getTiming" exists.
+func (this AnimationEffect) HasFuncGetTiming() bool {
+	return js.True == bindings.HasFuncAnimationEffectGetTiming(
+		this.ref,
 	)
 }
 
-// GetTimingFunc returns the method "AnimationEffect.getTiming".
-func (this AnimationEffect) GetTimingFunc() (fn js.Func[func() EffectTiming]) {
-	return fn.FromRef(
-		bindings.AnimationEffectGetTimingFunc(
-			this.Ref(),
-		),
+// FuncGetTiming returns the method "AnimationEffect.getTiming".
+func (this AnimationEffect) FuncGetTiming() (fn js.Func[func() EffectTiming]) {
+	bindings.FuncAnimationEffectGetTiming(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetTiming calls the method "AnimationEffect.getTiming".
 func (this AnimationEffect) GetTiming() (ret EffectTiming) {
 	bindings.CallAnimationEffectGetTiming(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -462,32 +459,31 @@ func (this AnimationEffect) GetTiming() (ret EffectTiming) {
 // the catch clause.
 func (this AnimationEffect) TryGetTiming() (ret EffectTiming, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationEffectGetTiming(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetComputedTiming returns true if the method "AnimationEffect.getComputedTiming" exists.
-func (this AnimationEffect) HasGetComputedTiming() bool {
-	return js.True == bindings.HasAnimationEffectGetComputedTiming(
-		this.Ref(),
+// HasFuncGetComputedTiming returns true if the method "AnimationEffect.getComputedTiming" exists.
+func (this AnimationEffect) HasFuncGetComputedTiming() bool {
+	return js.True == bindings.HasFuncAnimationEffectGetComputedTiming(
+		this.ref,
 	)
 }
 
-// GetComputedTimingFunc returns the method "AnimationEffect.getComputedTiming".
-func (this AnimationEffect) GetComputedTimingFunc() (fn js.Func[func() ComputedEffectTiming]) {
-	return fn.FromRef(
-		bindings.AnimationEffectGetComputedTimingFunc(
-			this.Ref(),
-		),
+// FuncGetComputedTiming returns the method "AnimationEffect.getComputedTiming".
+func (this AnimationEffect) FuncGetComputedTiming() (fn js.Func[func() ComputedEffectTiming]) {
+	bindings.FuncAnimationEffectGetComputedTiming(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetComputedTiming calls the method "AnimationEffect.getComputedTiming".
 func (this AnimationEffect) GetComputedTiming() (ret ComputedEffectTiming) {
 	bindings.CallAnimationEffectGetComputedTiming(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -498,32 +494,31 @@ func (this AnimationEffect) GetComputedTiming() (ret ComputedEffectTiming) {
 // the catch clause.
 func (this AnimationEffect) TryGetComputedTiming() (ret ComputedEffectTiming, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationEffectGetComputedTiming(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasUpdateTiming returns true if the method "AnimationEffect.updateTiming" exists.
-func (this AnimationEffect) HasUpdateTiming() bool {
-	return js.True == bindings.HasAnimationEffectUpdateTiming(
-		this.Ref(),
+// HasFuncUpdateTiming returns true if the method "AnimationEffect.updateTiming" exists.
+func (this AnimationEffect) HasFuncUpdateTiming() bool {
+	return js.True == bindings.HasFuncAnimationEffectUpdateTiming(
+		this.ref,
 	)
 }
 
-// UpdateTimingFunc returns the method "AnimationEffect.updateTiming".
-func (this AnimationEffect) UpdateTimingFunc() (fn js.Func[func(timing OptionalEffectTiming)]) {
-	return fn.FromRef(
-		bindings.AnimationEffectUpdateTimingFunc(
-			this.Ref(),
-		),
+// FuncUpdateTiming returns the method "AnimationEffect.updateTiming".
+func (this AnimationEffect) FuncUpdateTiming() (fn js.Func[func(timing OptionalEffectTiming)]) {
+	bindings.FuncAnimationEffectUpdateTiming(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UpdateTiming calls the method "AnimationEffect.updateTiming".
 func (this AnimationEffect) UpdateTiming(timing OptionalEffectTiming) (ret js.Void) {
 	bindings.CallAnimationEffectUpdateTiming(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&timing),
 	)
 
@@ -535,33 +530,32 @@ func (this AnimationEffect) UpdateTiming(timing OptionalEffectTiming) (ret js.Vo
 // the catch clause.
 func (this AnimationEffect) TryUpdateTiming(timing OptionalEffectTiming) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationEffectUpdateTiming(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&timing),
 	)
 
 	return
 }
 
-// HasUpdateTiming1 returns true if the method "AnimationEffect.updateTiming" exists.
-func (this AnimationEffect) HasUpdateTiming1() bool {
-	return js.True == bindings.HasAnimationEffectUpdateTiming1(
-		this.Ref(),
+// HasFuncUpdateTiming1 returns true if the method "AnimationEffect.updateTiming" exists.
+func (this AnimationEffect) HasFuncUpdateTiming1() bool {
+	return js.True == bindings.HasFuncAnimationEffectUpdateTiming1(
+		this.ref,
 	)
 }
 
-// UpdateTiming1Func returns the method "AnimationEffect.updateTiming".
-func (this AnimationEffect) UpdateTiming1Func() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.AnimationEffectUpdateTiming1Func(
-			this.Ref(),
-		),
+// FuncUpdateTiming1 returns the method "AnimationEffect.updateTiming".
+func (this AnimationEffect) FuncUpdateTiming1() (fn js.Func[func()]) {
+	bindings.FuncAnimationEffectUpdateTiming1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UpdateTiming1 calls the method "AnimationEffect.updateTiming".
 func (this AnimationEffect) UpdateTiming1() (ret js.Void) {
 	bindings.CallAnimationEffectUpdateTiming1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -572,32 +566,31 @@ func (this AnimationEffect) UpdateTiming1() (ret js.Void) {
 // the catch clause.
 func (this AnimationEffect) TryUpdateTiming1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationEffectUpdateTiming1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasBefore returns true if the method "AnimationEffect.before" exists.
-func (this AnimationEffect) HasBefore() bool {
-	return js.True == bindings.HasAnimationEffectBefore(
-		this.Ref(),
+// HasFuncBefore returns true if the method "AnimationEffect.before" exists.
+func (this AnimationEffect) HasFuncBefore() bool {
+	return js.True == bindings.HasFuncAnimationEffectBefore(
+		this.ref,
 	)
 }
 
-// BeforeFunc returns the method "AnimationEffect.before".
-func (this AnimationEffect) BeforeFunc() (fn js.Func[func(effects ...AnimationEffect)]) {
-	return fn.FromRef(
-		bindings.AnimationEffectBeforeFunc(
-			this.Ref(),
-		),
+// FuncBefore returns the method "AnimationEffect.before".
+func (this AnimationEffect) FuncBefore() (fn js.Func[func(effects ...AnimationEffect)]) {
+	bindings.FuncAnimationEffectBefore(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Before calls the method "AnimationEffect.before".
 func (this AnimationEffect) Before(effects ...AnimationEffect) (ret js.Void) {
 	bindings.CallAnimationEffectBefore(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.SliceData(effects),
 		js.SizeU(len(effects)),
 	)
@@ -610,7 +603,7 @@ func (this AnimationEffect) Before(effects ...AnimationEffect) (ret js.Void) {
 // the catch clause.
 func (this AnimationEffect) TryBefore(effects ...AnimationEffect) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationEffectBefore(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.SliceData(effects),
 		js.SizeU(len(effects)),
 	)
@@ -618,26 +611,25 @@ func (this AnimationEffect) TryBefore(effects ...AnimationEffect) (ret js.Void, 
 	return
 }
 
-// HasAfter returns true if the method "AnimationEffect.after" exists.
-func (this AnimationEffect) HasAfter() bool {
-	return js.True == bindings.HasAnimationEffectAfter(
-		this.Ref(),
+// HasFuncAfter returns true if the method "AnimationEffect.after" exists.
+func (this AnimationEffect) HasFuncAfter() bool {
+	return js.True == bindings.HasFuncAnimationEffectAfter(
+		this.ref,
 	)
 }
 
-// AfterFunc returns the method "AnimationEffect.after".
-func (this AnimationEffect) AfterFunc() (fn js.Func[func(effects ...AnimationEffect)]) {
-	return fn.FromRef(
-		bindings.AnimationEffectAfterFunc(
-			this.Ref(),
-		),
+// FuncAfter returns the method "AnimationEffect.after".
+func (this AnimationEffect) FuncAfter() (fn js.Func[func(effects ...AnimationEffect)]) {
+	bindings.FuncAnimationEffectAfter(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // After calls the method "AnimationEffect.after".
 func (this AnimationEffect) After(effects ...AnimationEffect) (ret js.Void) {
 	bindings.CallAnimationEffectAfter(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.SliceData(effects),
 		js.SizeU(len(effects)),
 	)
@@ -650,7 +642,7 @@ func (this AnimationEffect) After(effects ...AnimationEffect) (ret js.Void) {
 // the catch clause.
 func (this AnimationEffect) TryAfter(effects ...AnimationEffect) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationEffectAfter(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.SliceData(effects),
 		js.SizeU(len(effects)),
 	)
@@ -658,26 +650,25 @@ func (this AnimationEffect) TryAfter(effects ...AnimationEffect) (ret js.Void, e
 	return
 }
 
-// HasReplace returns true if the method "AnimationEffect.replace" exists.
-func (this AnimationEffect) HasReplace() bool {
-	return js.True == bindings.HasAnimationEffectReplace(
-		this.Ref(),
+// HasFuncReplace returns true if the method "AnimationEffect.replace" exists.
+func (this AnimationEffect) HasFuncReplace() bool {
+	return js.True == bindings.HasFuncAnimationEffectReplace(
+		this.ref,
 	)
 }
 
-// ReplaceFunc returns the method "AnimationEffect.replace".
-func (this AnimationEffect) ReplaceFunc() (fn js.Func[func(effects ...AnimationEffect)]) {
-	return fn.FromRef(
-		bindings.AnimationEffectReplaceFunc(
-			this.Ref(),
-		),
+// FuncReplace returns the method "AnimationEffect.replace".
+func (this AnimationEffect) FuncReplace() (fn js.Func[func(effects ...AnimationEffect)]) {
+	bindings.FuncAnimationEffectReplace(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Replace calls the method "AnimationEffect.replace".
 func (this AnimationEffect) Replace(effects ...AnimationEffect) (ret js.Void) {
 	bindings.CallAnimationEffectReplace(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.SliceData(effects),
 		js.SizeU(len(effects)),
 	)
@@ -690,7 +681,7 @@ func (this AnimationEffect) Replace(effects ...AnimationEffect) (ret js.Void) {
 // the catch clause.
 func (this AnimationEffect) TryReplace(effects ...AnimationEffect) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationEffectReplace(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.SliceData(effects),
 		js.SizeU(len(effects)),
 	)
@@ -698,26 +689,25 @@ func (this AnimationEffect) TryReplace(effects ...AnimationEffect) (ret js.Void,
 	return
 }
 
-// HasRemove returns true if the method "AnimationEffect.remove" exists.
-func (this AnimationEffect) HasRemove() bool {
-	return js.True == bindings.HasAnimationEffectRemove(
-		this.Ref(),
+// HasFuncRemove returns true if the method "AnimationEffect.remove" exists.
+func (this AnimationEffect) HasFuncRemove() bool {
+	return js.True == bindings.HasFuncAnimationEffectRemove(
+		this.ref,
 	)
 }
 
-// RemoveFunc returns the method "AnimationEffect.remove".
-func (this AnimationEffect) RemoveFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.AnimationEffectRemoveFunc(
-			this.Ref(),
-		),
+// FuncRemove returns the method "AnimationEffect.remove".
+func (this AnimationEffect) FuncRemove() (fn js.Func[func()]) {
+	bindings.FuncAnimationEffectRemove(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Remove calls the method "AnimationEffect.remove".
 func (this AnimationEffect) Remove() (ret js.Void) {
 	bindings.CallAnimationEffectRemove(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -728,7 +718,7 @@ func (this AnimationEffect) Remove() (ret js.Void) {
 // the catch clause.
 func (this AnimationEffect) TryRemove() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationEffectRemove(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -739,7 +729,7 @@ type AnimationTimeline struct {
 }
 
 func (this AnimationTimeline) Once() AnimationTimeline {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -753,7 +743,7 @@ func (this AnimationTimeline) FromRef(ref js.Ref) AnimationTimeline {
 }
 
 func (this AnimationTimeline) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // CurrentTime returns the value of property "AnimationTimeline.currentTime".
@@ -761,7 +751,7 @@ func (this AnimationTimeline) Free() {
 // It returns ok=false if there is no such property.
 func (this AnimationTimeline) CurrentTime() (ret CSSNumberish, ok bool) {
 	ok = js.True == bindings.GetAnimationTimelineCurrentTime(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -771,31 +761,30 @@ func (this AnimationTimeline) CurrentTime() (ret CSSNumberish, ok bool) {
 // It returns ok=false if there is no such property.
 func (this AnimationTimeline) Duration() (ret CSSNumberish, ok bool) {
 	ok = js.True == bindings.GetAnimationTimelineDuration(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasPlay returns true if the method "AnimationTimeline.play" exists.
-func (this AnimationTimeline) HasPlay() bool {
-	return js.True == bindings.HasAnimationTimelinePlay(
-		this.Ref(),
+// HasFuncPlay returns true if the method "AnimationTimeline.play" exists.
+func (this AnimationTimeline) HasFuncPlay() bool {
+	return js.True == bindings.HasFuncAnimationTimelinePlay(
+		this.ref,
 	)
 }
 
-// PlayFunc returns the method "AnimationTimeline.play".
-func (this AnimationTimeline) PlayFunc() (fn js.Func[func(effect AnimationEffect) Animation]) {
-	return fn.FromRef(
-		bindings.AnimationTimelinePlayFunc(
-			this.Ref(),
-		),
+// FuncPlay returns the method "AnimationTimeline.play".
+func (this AnimationTimeline) FuncPlay() (fn js.Func[func(effect AnimationEffect) Animation]) {
+	bindings.FuncAnimationTimelinePlay(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Play calls the method "AnimationTimeline.play".
 func (this AnimationTimeline) Play(effect AnimationEffect) (ret Animation) {
 	bindings.CallAnimationTimelinePlay(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		effect.Ref(),
 	)
 
@@ -807,33 +796,32 @@ func (this AnimationTimeline) Play(effect AnimationEffect) (ret Animation) {
 // the catch clause.
 func (this AnimationTimeline) TryPlay(effect AnimationEffect) (ret Animation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationTimelinePlay(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		effect.Ref(),
 	)
 
 	return
 }
 
-// HasPlay1 returns true if the method "AnimationTimeline.play" exists.
-func (this AnimationTimeline) HasPlay1() bool {
-	return js.True == bindings.HasAnimationTimelinePlay1(
-		this.Ref(),
+// HasFuncPlay1 returns true if the method "AnimationTimeline.play" exists.
+func (this AnimationTimeline) HasFuncPlay1() bool {
+	return js.True == bindings.HasFuncAnimationTimelinePlay1(
+		this.ref,
 	)
 }
 
-// Play1Func returns the method "AnimationTimeline.play".
-func (this AnimationTimeline) Play1Func() (fn js.Func[func() Animation]) {
-	return fn.FromRef(
-		bindings.AnimationTimelinePlay1Func(
-			this.Ref(),
-		),
+// FuncPlay1 returns the method "AnimationTimeline.play".
+func (this AnimationTimeline) FuncPlay1() (fn js.Func[func() Animation]) {
+	bindings.FuncAnimationTimelinePlay1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Play1 calls the method "AnimationTimeline.play".
 func (this AnimationTimeline) Play1() (ret Animation) {
 	bindings.CallAnimationTimelinePlay1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -844,7 +832,7 @@ func (this AnimationTimeline) Play1() (ret Animation) {
 // the catch clause.
 func (this AnimationTimeline) TryPlay1() (ret Animation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationTimelinePlay1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -930,7 +918,7 @@ type Animation struct {
 }
 
 func (this Animation) Once() Animation {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -944,7 +932,7 @@ func (this Animation) FromRef(ref js.Ref) Animation {
 }
 
 func (this Animation) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Id returns the value of property "Animation.id".
@@ -952,7 +940,7 @@ func (this Animation) Free() {
 // It returns ok=false if there is no such property.
 func (this Animation) Id() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetAnimationId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -962,7 +950,7 @@ func (this Animation) Id() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this Animation) SetId(val js.String) bool {
 	return js.True == bindings.SetAnimationId(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -972,7 +960,7 @@ func (this Animation) SetId(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this Animation) Effect() (ret AnimationEffect, ok bool) {
 	ok = js.True == bindings.GetAnimationEffect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -982,7 +970,7 @@ func (this Animation) Effect() (ret AnimationEffect, ok bool) {
 // It returns false if the property cannot be set.
 func (this Animation) SetEffect(val AnimationEffect) bool {
 	return js.True == bindings.SetAnimationEffect(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -992,7 +980,7 @@ func (this Animation) SetEffect(val AnimationEffect) bool {
 // It returns ok=false if there is no such property.
 func (this Animation) Timeline() (ret AnimationTimeline, ok bool) {
 	ok = js.True == bindings.GetAnimationTimeline(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1002,7 +990,7 @@ func (this Animation) Timeline() (ret AnimationTimeline, ok bool) {
 // It returns false if the property cannot be set.
 func (this Animation) SetTimeline(val AnimationTimeline) bool {
 	return js.True == bindings.SetAnimationTimeline(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1012,7 +1000,7 @@ func (this Animation) SetTimeline(val AnimationTimeline) bool {
 // It returns ok=false if there is no such property.
 func (this Animation) PlaybackRate() (ret float64, ok bool) {
 	ok = js.True == bindings.GetAnimationPlaybackRate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1022,7 +1010,7 @@ func (this Animation) PlaybackRate() (ret float64, ok bool) {
 // It returns false if the property cannot be set.
 func (this Animation) SetPlaybackRate(val float64) bool {
 	return js.True == bindings.SetAnimationPlaybackRate(
-		this.Ref(),
+		this.ref,
 		float64(val),
 	)
 }
@@ -1032,7 +1020,7 @@ func (this Animation) SetPlaybackRate(val float64) bool {
 // It returns ok=false if there is no such property.
 func (this Animation) PlayState() (ret AnimationPlayState, ok bool) {
 	ok = js.True == bindings.GetAnimationPlayState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1042,7 +1030,7 @@ func (this Animation) PlayState() (ret AnimationPlayState, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Animation) ReplaceState() (ret AnimationReplaceState, ok bool) {
 	ok = js.True == bindings.GetAnimationReplaceState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1052,7 +1040,7 @@ func (this Animation) ReplaceState() (ret AnimationReplaceState, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Animation) Pending() (ret bool, ok bool) {
 	ok = js.True == bindings.GetAnimationPending(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1062,7 +1050,7 @@ func (this Animation) Pending() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Animation) Ready() (ret js.Promise[Animation], ok bool) {
 	ok = js.True == bindings.GetAnimationReady(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1072,7 +1060,7 @@ func (this Animation) Ready() (ret js.Promise[Animation], ok bool) {
 // It returns ok=false if there is no such property.
 func (this Animation) Finished() (ret js.Promise[Animation], ok bool) {
 	ok = js.True == bindings.GetAnimationFinished(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1082,7 +1070,7 @@ func (this Animation) Finished() (ret js.Promise[Animation], ok bool) {
 // It returns ok=false if there is no such property.
 func (this Animation) StartTime() (ret CSSNumberish, ok bool) {
 	ok = js.True == bindings.GetAnimationStartTime(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1092,7 +1080,7 @@ func (this Animation) StartTime() (ret CSSNumberish, ok bool) {
 // It returns false if the property cannot be set.
 func (this Animation) SetStartTime(val CSSNumberish) bool {
 	return js.True == bindings.SetAnimationStartTime(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1102,7 +1090,7 @@ func (this Animation) SetStartTime(val CSSNumberish) bool {
 // It returns ok=false if there is no such property.
 func (this Animation) CurrentTime() (ret CSSNumberish, ok bool) {
 	ok = js.True == bindings.GetAnimationCurrentTime(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1112,31 +1100,30 @@ func (this Animation) CurrentTime() (ret CSSNumberish, ok bool) {
 // It returns false if the property cannot be set.
 func (this Animation) SetCurrentTime(val CSSNumberish) bool {
 	return js.True == bindings.SetAnimationCurrentTime(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
 
-// HasCancel returns true if the method "Animation.cancel" exists.
-func (this Animation) HasCancel() bool {
-	return js.True == bindings.HasAnimationCancel(
-		this.Ref(),
+// HasFuncCancel returns true if the method "Animation.cancel" exists.
+func (this Animation) HasFuncCancel() bool {
+	return js.True == bindings.HasFuncAnimationCancel(
+		this.ref,
 	)
 }
 
-// CancelFunc returns the method "Animation.cancel".
-func (this Animation) CancelFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.AnimationCancelFunc(
-			this.Ref(),
-		),
+// FuncCancel returns the method "Animation.cancel".
+func (this Animation) FuncCancel() (fn js.Func[func()]) {
+	bindings.FuncAnimationCancel(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Cancel calls the method "Animation.cancel".
 func (this Animation) Cancel() (ret js.Void) {
 	bindings.CallAnimationCancel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1147,32 +1134,31 @@ func (this Animation) Cancel() (ret js.Void) {
 // the catch clause.
 func (this Animation) TryCancel() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationCancel(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasFinish returns true if the method "Animation.finish" exists.
-func (this Animation) HasFinish() bool {
-	return js.True == bindings.HasAnimationFinish(
-		this.Ref(),
+// HasFuncFinish returns true if the method "Animation.finish" exists.
+func (this Animation) HasFuncFinish() bool {
+	return js.True == bindings.HasFuncAnimationFinish(
+		this.ref,
 	)
 }
 
-// FinishFunc returns the method "Animation.finish".
-func (this Animation) FinishFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.AnimationFinishFunc(
-			this.Ref(),
-		),
+// FuncFinish returns the method "Animation.finish".
+func (this Animation) FuncFinish() (fn js.Func[func()]) {
+	bindings.FuncAnimationFinish(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Finish calls the method "Animation.finish".
 func (this Animation) Finish() (ret js.Void) {
 	bindings.CallAnimationFinish(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1183,32 +1169,31 @@ func (this Animation) Finish() (ret js.Void) {
 // the catch clause.
 func (this Animation) TryFinish() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationFinish(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasPlay returns true if the method "Animation.play" exists.
-func (this Animation) HasPlay() bool {
-	return js.True == bindings.HasAnimationPlay(
-		this.Ref(),
+// HasFuncPlay returns true if the method "Animation.play" exists.
+func (this Animation) HasFuncPlay() bool {
+	return js.True == bindings.HasFuncAnimationPlay(
+		this.ref,
 	)
 }
 
-// PlayFunc returns the method "Animation.play".
-func (this Animation) PlayFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.AnimationPlayFunc(
-			this.Ref(),
-		),
+// FuncPlay returns the method "Animation.play".
+func (this Animation) FuncPlay() (fn js.Func[func()]) {
+	bindings.FuncAnimationPlay(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Play calls the method "Animation.play".
 func (this Animation) Play() (ret js.Void) {
 	bindings.CallAnimationPlay(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1219,32 +1204,31 @@ func (this Animation) Play() (ret js.Void) {
 // the catch clause.
 func (this Animation) TryPlay() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationPlay(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasPause returns true if the method "Animation.pause" exists.
-func (this Animation) HasPause() bool {
-	return js.True == bindings.HasAnimationPause(
-		this.Ref(),
+// HasFuncPause returns true if the method "Animation.pause" exists.
+func (this Animation) HasFuncPause() bool {
+	return js.True == bindings.HasFuncAnimationPause(
+		this.ref,
 	)
 }
 
-// PauseFunc returns the method "Animation.pause".
-func (this Animation) PauseFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.AnimationPauseFunc(
-			this.Ref(),
-		),
+// FuncPause returns the method "Animation.pause".
+func (this Animation) FuncPause() (fn js.Func[func()]) {
+	bindings.FuncAnimationPause(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Pause calls the method "Animation.pause".
 func (this Animation) Pause() (ret js.Void) {
 	bindings.CallAnimationPause(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1255,32 +1239,31 @@ func (this Animation) Pause() (ret js.Void) {
 // the catch clause.
 func (this Animation) TryPause() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationPause(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasUpdatePlaybackRate returns true if the method "Animation.updatePlaybackRate" exists.
-func (this Animation) HasUpdatePlaybackRate() bool {
-	return js.True == bindings.HasAnimationUpdatePlaybackRate(
-		this.Ref(),
+// HasFuncUpdatePlaybackRate returns true if the method "Animation.updatePlaybackRate" exists.
+func (this Animation) HasFuncUpdatePlaybackRate() bool {
+	return js.True == bindings.HasFuncAnimationUpdatePlaybackRate(
+		this.ref,
 	)
 }
 
-// UpdatePlaybackRateFunc returns the method "Animation.updatePlaybackRate".
-func (this Animation) UpdatePlaybackRateFunc() (fn js.Func[func(playbackRate float64)]) {
-	return fn.FromRef(
-		bindings.AnimationUpdatePlaybackRateFunc(
-			this.Ref(),
-		),
+// FuncUpdatePlaybackRate returns the method "Animation.updatePlaybackRate".
+func (this Animation) FuncUpdatePlaybackRate() (fn js.Func[func(playbackRate float64)]) {
+	bindings.FuncAnimationUpdatePlaybackRate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UpdatePlaybackRate calls the method "Animation.updatePlaybackRate".
 func (this Animation) UpdatePlaybackRate(playbackRate float64) (ret js.Void) {
 	bindings.CallAnimationUpdatePlaybackRate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(playbackRate),
 	)
 
@@ -1292,33 +1275,32 @@ func (this Animation) UpdatePlaybackRate(playbackRate float64) (ret js.Void) {
 // the catch clause.
 func (this Animation) TryUpdatePlaybackRate(playbackRate float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationUpdatePlaybackRate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(playbackRate),
 	)
 
 	return
 }
 
-// HasReverse returns true if the method "Animation.reverse" exists.
-func (this Animation) HasReverse() bool {
-	return js.True == bindings.HasAnimationReverse(
-		this.Ref(),
+// HasFuncReverse returns true if the method "Animation.reverse" exists.
+func (this Animation) HasFuncReverse() bool {
+	return js.True == bindings.HasFuncAnimationReverse(
+		this.ref,
 	)
 }
 
-// ReverseFunc returns the method "Animation.reverse".
-func (this Animation) ReverseFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.AnimationReverseFunc(
-			this.Ref(),
-		),
+// FuncReverse returns the method "Animation.reverse".
+func (this Animation) FuncReverse() (fn js.Func[func()]) {
+	bindings.FuncAnimationReverse(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Reverse calls the method "Animation.reverse".
 func (this Animation) Reverse() (ret js.Void) {
 	bindings.CallAnimationReverse(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1329,32 +1311,31 @@ func (this Animation) Reverse() (ret js.Void) {
 // the catch clause.
 func (this Animation) TryReverse() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationReverse(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasPersist returns true if the method "Animation.persist" exists.
-func (this Animation) HasPersist() bool {
-	return js.True == bindings.HasAnimationPersist(
-		this.Ref(),
+// HasFuncPersist returns true if the method "Animation.persist" exists.
+func (this Animation) HasFuncPersist() bool {
+	return js.True == bindings.HasFuncAnimationPersist(
+		this.ref,
 	)
 }
 
-// PersistFunc returns the method "Animation.persist".
-func (this Animation) PersistFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.AnimationPersistFunc(
-			this.Ref(),
-		),
+// FuncPersist returns the method "Animation.persist".
+func (this Animation) FuncPersist() (fn js.Func[func()]) {
+	bindings.FuncAnimationPersist(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Persist calls the method "Animation.persist".
 func (this Animation) Persist() (ret js.Void) {
 	bindings.CallAnimationPersist(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1365,32 +1346,31 @@ func (this Animation) Persist() (ret js.Void) {
 // the catch clause.
 func (this Animation) TryPersist() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationPersist(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCommitStyles returns true if the method "Animation.commitStyles" exists.
-func (this Animation) HasCommitStyles() bool {
-	return js.True == bindings.HasAnimationCommitStyles(
-		this.Ref(),
+// HasFuncCommitStyles returns true if the method "Animation.commitStyles" exists.
+func (this Animation) HasFuncCommitStyles() bool {
+	return js.True == bindings.HasFuncAnimationCommitStyles(
+		this.ref,
 	)
 }
 
-// CommitStylesFunc returns the method "Animation.commitStyles".
-func (this Animation) CommitStylesFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.AnimationCommitStylesFunc(
-			this.Ref(),
-		),
+// FuncCommitStyles returns the method "Animation.commitStyles".
+func (this Animation) FuncCommitStyles() (fn js.Func[func()]) {
+	bindings.FuncAnimationCommitStyles(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CommitStyles calls the method "Animation.commitStyles".
 func (this Animation) CommitStyles() (ret js.Void) {
 	bindings.CallAnimationCommitStyles(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1401,7 +1381,7 @@ func (this Animation) CommitStyles() (ret js.Void) {
 // the catch clause.
 func (this Animation) TryCommitStyles() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationCommitStyles(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1460,7 +1440,7 @@ type MediaList struct {
 }
 
 func (this MediaList) Once() MediaList {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1474,7 +1454,7 @@ func (this MediaList) FromRef(ref js.Ref) MediaList {
 }
 
 func (this MediaList) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // MediaText returns the value of property "MediaList.mediaText".
@@ -1482,7 +1462,7 @@ func (this MediaList) Free() {
 // It returns ok=false if there is no such property.
 func (this MediaList) MediaText() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetMediaListMediaText(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1492,7 +1472,7 @@ func (this MediaList) MediaText() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this MediaList) SetMediaText(val js.String) bool {
 	return js.True == bindings.SetMediaListMediaText(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1502,31 +1482,30 @@ func (this MediaList) SetMediaText(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this MediaList) Length() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetMediaListLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasItem returns true if the method "MediaList.item" exists.
-func (this MediaList) HasItem() bool {
-	return js.True == bindings.HasMediaListItem(
-		this.Ref(),
+// HasFuncItem returns true if the method "MediaList.item" exists.
+func (this MediaList) HasFuncItem() bool {
+	return js.True == bindings.HasFuncMediaListItem(
+		this.ref,
 	)
 }
 
-// ItemFunc returns the method "MediaList.item".
-func (this MediaList) ItemFunc() (fn js.Func[func(index uint32) js.String]) {
-	return fn.FromRef(
-		bindings.MediaListItemFunc(
-			this.Ref(),
-		),
+// FuncItem returns the method "MediaList.item".
+func (this MediaList) FuncItem() (fn js.Func[func(index uint32) js.String]) {
+	bindings.FuncMediaListItem(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Item calls the method "MediaList.item".
 func (this MediaList) Item(index uint32) (ret js.String) {
 	bindings.CallMediaListItem(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 	)
 
@@ -1538,33 +1517,32 @@ func (this MediaList) Item(index uint32) (ret js.String) {
 // the catch clause.
 func (this MediaList) TryItem(index uint32) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaListItem(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 	)
 
 	return
 }
 
-// HasAppendMedium returns true if the method "MediaList.appendMedium" exists.
-func (this MediaList) HasAppendMedium() bool {
-	return js.True == bindings.HasMediaListAppendMedium(
-		this.Ref(),
+// HasFuncAppendMedium returns true if the method "MediaList.appendMedium" exists.
+func (this MediaList) HasFuncAppendMedium() bool {
+	return js.True == bindings.HasFuncMediaListAppendMedium(
+		this.ref,
 	)
 }
 
-// AppendMediumFunc returns the method "MediaList.appendMedium".
-func (this MediaList) AppendMediumFunc() (fn js.Func[func(medium js.String)]) {
-	return fn.FromRef(
-		bindings.MediaListAppendMediumFunc(
-			this.Ref(),
-		),
+// FuncAppendMedium returns the method "MediaList.appendMedium".
+func (this MediaList) FuncAppendMedium() (fn js.Func[func(medium js.String)]) {
+	bindings.FuncMediaListAppendMedium(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AppendMedium calls the method "MediaList.appendMedium".
 func (this MediaList) AppendMedium(medium js.String) (ret js.Void) {
 	bindings.CallMediaListAppendMedium(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		medium.Ref(),
 	)
 
@@ -1576,33 +1554,32 @@ func (this MediaList) AppendMedium(medium js.String) (ret js.Void) {
 // the catch clause.
 func (this MediaList) TryAppendMedium(medium js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaListAppendMedium(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		medium.Ref(),
 	)
 
 	return
 }
 
-// HasDeleteMedium returns true if the method "MediaList.deleteMedium" exists.
-func (this MediaList) HasDeleteMedium() bool {
-	return js.True == bindings.HasMediaListDeleteMedium(
-		this.Ref(),
+// HasFuncDeleteMedium returns true if the method "MediaList.deleteMedium" exists.
+func (this MediaList) HasFuncDeleteMedium() bool {
+	return js.True == bindings.HasFuncMediaListDeleteMedium(
+		this.ref,
 	)
 }
 
-// DeleteMediumFunc returns the method "MediaList.deleteMedium".
-func (this MediaList) DeleteMediumFunc() (fn js.Func[func(medium js.String)]) {
-	return fn.FromRef(
-		bindings.MediaListDeleteMediumFunc(
-			this.Ref(),
-		),
+// FuncDeleteMedium returns the method "MediaList.deleteMedium".
+func (this MediaList) FuncDeleteMedium() (fn js.Func[func(medium js.String)]) {
+	bindings.FuncMediaListDeleteMedium(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteMedium calls the method "MediaList.deleteMedium".
 func (this MediaList) DeleteMedium(medium js.String) (ret js.Void) {
 	bindings.CallMediaListDeleteMedium(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		medium.Ref(),
 	)
 
@@ -1614,7 +1591,7 @@ func (this MediaList) DeleteMedium(medium js.String) (ret js.Void) {
 // the catch clause.
 func (this MediaList) TryDeleteMedium(medium js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaListDeleteMedium(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		medium.Ref(),
 	)
 
@@ -1682,17 +1659,28 @@ func (p CSSStyleSheetInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p CSSStyleSheetInit) UpdateFrom(ref js.Ref) {
+func (p *CSSStyleSheetInit) UpdateFrom(ref js.Ref) {
 	bindings.CSSStyleSheetInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p CSSStyleSheetInit) Update(ref js.Ref) {
+func (p *CSSStyleSheetInit) Update(ref js.Ref) {
 	bindings.CSSStyleSheetInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *CSSStyleSheetInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.BaseURL.Ref(),
+		p.Media.Ref(),
+	)
+	p.BaseURL = p.BaseURL.FromRef(js.Undefined)
+	p.Media = p.Media.FromRef(js.Undefined)
 }
 
 const (
@@ -1716,7 +1704,7 @@ type CSSRule struct {
 }
 
 func (this CSSRule) Once() CSSRule {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1730,7 +1718,7 @@ func (this CSSRule) FromRef(ref js.Ref) CSSRule {
 }
 
 func (this CSSRule) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // CssText returns the value of property "CSSRule.cssText".
@@ -1738,7 +1726,7 @@ func (this CSSRule) Free() {
 // It returns ok=false if there is no such property.
 func (this CSSRule) CssText() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetCSSRuleCssText(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1748,7 +1736,7 @@ func (this CSSRule) CssText() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this CSSRule) SetCssText(val js.String) bool {
 	return js.True == bindings.SetCSSRuleCssText(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1758,7 +1746,7 @@ func (this CSSRule) SetCssText(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this CSSRule) ParentRule() (ret CSSRule, ok bool) {
 	ok = js.True == bindings.GetCSSRuleParentRule(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1768,7 +1756,7 @@ func (this CSSRule) ParentRule() (ret CSSRule, ok bool) {
 // It returns ok=false if there is no such property.
 func (this CSSRule) ParentStyleSheet() (ret CSSStyleSheet, ok bool) {
 	ok = js.True == bindings.GetCSSRuleParentStyleSheet(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1778,7 +1766,7 @@ func (this CSSRule) ParentStyleSheet() (ret CSSStyleSheet, ok bool) {
 // It returns ok=false if there is no such property.
 func (this CSSRule) Type() (ret uint16, ok bool) {
 	ok = js.True == bindings.GetCSSRuleType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1788,7 +1776,7 @@ type CSSRuleList struct {
 }
 
 func (this CSSRuleList) Once() CSSRuleList {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1802,7 +1790,7 @@ func (this CSSRuleList) FromRef(ref js.Ref) CSSRuleList {
 }
 
 func (this CSSRuleList) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Length returns the value of property "CSSRuleList.length".
@@ -1810,31 +1798,30 @@ func (this CSSRuleList) Free() {
 // It returns ok=false if there is no such property.
 func (this CSSRuleList) Length() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetCSSRuleListLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasItem returns true if the method "CSSRuleList.item" exists.
-func (this CSSRuleList) HasItem() bool {
-	return js.True == bindings.HasCSSRuleListItem(
-		this.Ref(),
+// HasFuncItem returns true if the method "CSSRuleList.item" exists.
+func (this CSSRuleList) HasFuncItem() bool {
+	return js.True == bindings.HasFuncCSSRuleListItem(
+		this.ref,
 	)
 }
 
-// ItemFunc returns the method "CSSRuleList.item".
-func (this CSSRuleList) ItemFunc() (fn js.Func[func(index uint32) CSSRule]) {
-	return fn.FromRef(
-		bindings.CSSRuleListItemFunc(
-			this.Ref(),
-		),
+// FuncItem returns the method "CSSRuleList.item".
+func (this CSSRuleList) FuncItem() (fn js.Func[func(index uint32) CSSRule]) {
+	bindings.FuncCSSRuleListItem(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Item calls the method "CSSRuleList.item".
 func (this CSSRuleList) Item(index uint32) (ret CSSRule) {
 	bindings.CallCSSRuleListItem(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 	)
 
@@ -1846,7 +1833,7 @@ func (this CSSRuleList) Item(index uint32) (ret CSSRule) {
 // the catch clause.
 func (this CSSRuleList) TryItem(index uint32) (ret CSSRule, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSRuleListItem(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 	)
 
@@ -1869,7 +1856,7 @@ type CSSStyleSheet struct {
 }
 
 func (this CSSStyleSheet) Once() CSSStyleSheet {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1883,7 +1870,7 @@ func (this CSSStyleSheet) FromRef(ref js.Ref) CSSStyleSheet {
 }
 
 func (this CSSStyleSheet) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // OwnerRule returns the value of property "CSSStyleSheet.ownerRule".
@@ -1891,7 +1878,7 @@ func (this CSSStyleSheet) Free() {
 // It returns ok=false if there is no such property.
 func (this CSSStyleSheet) OwnerRule() (ret CSSRule, ok bool) {
 	ok = js.True == bindings.GetCSSStyleSheetOwnerRule(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1901,7 +1888,7 @@ func (this CSSStyleSheet) OwnerRule() (ret CSSRule, ok bool) {
 // It returns ok=false if there is no such property.
 func (this CSSStyleSheet) CssRules() (ret CSSRuleList, ok bool) {
 	ok = js.True == bindings.GetCSSStyleSheetCssRules(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1911,31 +1898,30 @@ func (this CSSStyleSheet) CssRules() (ret CSSRuleList, ok bool) {
 // It returns ok=false if there is no such property.
 func (this CSSStyleSheet) Rules() (ret CSSRuleList, ok bool) {
 	ok = js.True == bindings.GetCSSStyleSheetRules(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasInsertRule returns true if the method "CSSStyleSheet.insertRule" exists.
-func (this CSSStyleSheet) HasInsertRule() bool {
-	return js.True == bindings.HasCSSStyleSheetInsertRule(
-		this.Ref(),
+// HasFuncInsertRule returns true if the method "CSSStyleSheet.insertRule" exists.
+func (this CSSStyleSheet) HasFuncInsertRule() bool {
+	return js.True == bindings.HasFuncCSSStyleSheetInsertRule(
+		this.ref,
 	)
 }
 
-// InsertRuleFunc returns the method "CSSStyleSheet.insertRule".
-func (this CSSStyleSheet) InsertRuleFunc() (fn js.Func[func(rule js.String, index uint32) uint32]) {
-	return fn.FromRef(
-		bindings.CSSStyleSheetInsertRuleFunc(
-			this.Ref(),
-		),
+// FuncInsertRule returns the method "CSSStyleSheet.insertRule".
+func (this CSSStyleSheet) FuncInsertRule() (fn js.Func[func(rule js.String, index uint32) uint32]) {
+	bindings.FuncCSSStyleSheetInsertRule(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InsertRule calls the method "CSSStyleSheet.insertRule".
 func (this CSSStyleSheet) InsertRule(rule js.String, index uint32) (ret uint32) {
 	bindings.CallCSSStyleSheetInsertRule(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		rule.Ref(),
 		uint32(index),
 	)
@@ -1948,7 +1934,7 @@ func (this CSSStyleSheet) InsertRule(rule js.String, index uint32) (ret uint32) 
 // the catch clause.
 func (this CSSStyleSheet) TryInsertRule(rule js.String, index uint32) (ret uint32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleSheetInsertRule(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		rule.Ref(),
 		uint32(index),
 	)
@@ -1956,26 +1942,25 @@ func (this CSSStyleSheet) TryInsertRule(rule js.String, index uint32) (ret uint3
 	return
 }
 
-// HasInsertRule1 returns true if the method "CSSStyleSheet.insertRule" exists.
-func (this CSSStyleSheet) HasInsertRule1() bool {
-	return js.True == bindings.HasCSSStyleSheetInsertRule1(
-		this.Ref(),
+// HasFuncInsertRule1 returns true if the method "CSSStyleSheet.insertRule" exists.
+func (this CSSStyleSheet) HasFuncInsertRule1() bool {
+	return js.True == bindings.HasFuncCSSStyleSheetInsertRule1(
+		this.ref,
 	)
 }
 
-// InsertRule1Func returns the method "CSSStyleSheet.insertRule".
-func (this CSSStyleSheet) InsertRule1Func() (fn js.Func[func(rule js.String) uint32]) {
-	return fn.FromRef(
-		bindings.CSSStyleSheetInsertRule1Func(
-			this.Ref(),
-		),
+// FuncInsertRule1 returns the method "CSSStyleSheet.insertRule".
+func (this CSSStyleSheet) FuncInsertRule1() (fn js.Func[func(rule js.String) uint32]) {
+	bindings.FuncCSSStyleSheetInsertRule1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InsertRule1 calls the method "CSSStyleSheet.insertRule".
 func (this CSSStyleSheet) InsertRule1(rule js.String) (ret uint32) {
 	bindings.CallCSSStyleSheetInsertRule1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		rule.Ref(),
 	)
 
@@ -1987,33 +1972,32 @@ func (this CSSStyleSheet) InsertRule1(rule js.String) (ret uint32) {
 // the catch clause.
 func (this CSSStyleSheet) TryInsertRule1(rule js.String) (ret uint32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleSheetInsertRule1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		rule.Ref(),
 	)
 
 	return
 }
 
-// HasDeleteRule returns true if the method "CSSStyleSheet.deleteRule" exists.
-func (this CSSStyleSheet) HasDeleteRule() bool {
-	return js.True == bindings.HasCSSStyleSheetDeleteRule(
-		this.Ref(),
+// HasFuncDeleteRule returns true if the method "CSSStyleSheet.deleteRule" exists.
+func (this CSSStyleSheet) HasFuncDeleteRule() bool {
+	return js.True == bindings.HasFuncCSSStyleSheetDeleteRule(
+		this.ref,
 	)
 }
 
-// DeleteRuleFunc returns the method "CSSStyleSheet.deleteRule".
-func (this CSSStyleSheet) DeleteRuleFunc() (fn js.Func[func(index uint32)]) {
-	return fn.FromRef(
-		bindings.CSSStyleSheetDeleteRuleFunc(
-			this.Ref(),
-		),
+// FuncDeleteRule returns the method "CSSStyleSheet.deleteRule".
+func (this CSSStyleSheet) FuncDeleteRule() (fn js.Func[func(index uint32)]) {
+	bindings.FuncCSSStyleSheetDeleteRule(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteRule calls the method "CSSStyleSheet.deleteRule".
 func (this CSSStyleSheet) DeleteRule(index uint32) (ret js.Void) {
 	bindings.CallCSSStyleSheetDeleteRule(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 	)
 
@@ -2025,33 +2009,32 @@ func (this CSSStyleSheet) DeleteRule(index uint32) (ret js.Void) {
 // the catch clause.
 func (this CSSStyleSheet) TryDeleteRule(index uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleSheetDeleteRule(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 	)
 
 	return
 }
 
-// HasReplace returns true if the method "CSSStyleSheet.replace" exists.
-func (this CSSStyleSheet) HasReplace() bool {
-	return js.True == bindings.HasCSSStyleSheetReplace(
-		this.Ref(),
+// HasFuncReplace returns true if the method "CSSStyleSheet.replace" exists.
+func (this CSSStyleSheet) HasFuncReplace() bool {
+	return js.True == bindings.HasFuncCSSStyleSheetReplace(
+		this.ref,
 	)
 }
 
-// ReplaceFunc returns the method "CSSStyleSheet.replace".
-func (this CSSStyleSheet) ReplaceFunc() (fn js.Func[func(text js.String) js.Promise[CSSStyleSheet]]) {
-	return fn.FromRef(
-		bindings.CSSStyleSheetReplaceFunc(
-			this.Ref(),
-		),
+// FuncReplace returns the method "CSSStyleSheet.replace".
+func (this CSSStyleSheet) FuncReplace() (fn js.Func[func(text js.String) js.Promise[CSSStyleSheet]]) {
+	bindings.FuncCSSStyleSheetReplace(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Replace calls the method "CSSStyleSheet.replace".
 func (this CSSStyleSheet) Replace(text js.String) (ret js.Promise[CSSStyleSheet]) {
 	bindings.CallCSSStyleSheetReplace(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		text.Ref(),
 	)
 
@@ -2063,33 +2046,32 @@ func (this CSSStyleSheet) Replace(text js.String) (ret js.Promise[CSSStyleSheet]
 // the catch clause.
 func (this CSSStyleSheet) TryReplace(text js.String) (ret js.Promise[CSSStyleSheet], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleSheetReplace(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		text.Ref(),
 	)
 
 	return
 }
 
-// HasReplaceSync returns true if the method "CSSStyleSheet.replaceSync" exists.
-func (this CSSStyleSheet) HasReplaceSync() bool {
-	return js.True == bindings.HasCSSStyleSheetReplaceSync(
-		this.Ref(),
+// HasFuncReplaceSync returns true if the method "CSSStyleSheet.replaceSync" exists.
+func (this CSSStyleSheet) HasFuncReplaceSync() bool {
+	return js.True == bindings.HasFuncCSSStyleSheetReplaceSync(
+		this.ref,
 	)
 }
 
-// ReplaceSyncFunc returns the method "CSSStyleSheet.replaceSync".
-func (this CSSStyleSheet) ReplaceSyncFunc() (fn js.Func[func(text js.String)]) {
-	return fn.FromRef(
-		bindings.CSSStyleSheetReplaceSyncFunc(
-			this.Ref(),
-		),
+// FuncReplaceSync returns the method "CSSStyleSheet.replaceSync".
+func (this CSSStyleSheet) FuncReplaceSync() (fn js.Func[func(text js.String)]) {
+	bindings.FuncCSSStyleSheetReplaceSync(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReplaceSync calls the method "CSSStyleSheet.replaceSync".
 func (this CSSStyleSheet) ReplaceSync(text js.String) (ret js.Void) {
 	bindings.CallCSSStyleSheetReplaceSync(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		text.Ref(),
 	)
 
@@ -2101,33 +2083,32 @@ func (this CSSStyleSheet) ReplaceSync(text js.String) (ret js.Void) {
 // the catch clause.
 func (this CSSStyleSheet) TryReplaceSync(text js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleSheetReplaceSync(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		text.Ref(),
 	)
 
 	return
 }
 
-// HasAddRule returns true if the method "CSSStyleSheet.addRule" exists.
-func (this CSSStyleSheet) HasAddRule() bool {
-	return js.True == bindings.HasCSSStyleSheetAddRule(
-		this.Ref(),
+// HasFuncAddRule returns true if the method "CSSStyleSheet.addRule" exists.
+func (this CSSStyleSheet) HasFuncAddRule() bool {
+	return js.True == bindings.HasFuncCSSStyleSheetAddRule(
+		this.ref,
 	)
 }
 
-// AddRuleFunc returns the method "CSSStyleSheet.addRule".
-func (this CSSStyleSheet) AddRuleFunc() (fn js.Func[func(selector js.String, style js.String, index uint32) int32]) {
-	return fn.FromRef(
-		bindings.CSSStyleSheetAddRuleFunc(
-			this.Ref(),
-		),
+// FuncAddRule returns the method "CSSStyleSheet.addRule".
+func (this CSSStyleSheet) FuncAddRule() (fn js.Func[func(selector js.String, style js.String, index uint32) int32]) {
+	bindings.FuncCSSStyleSheetAddRule(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AddRule calls the method "CSSStyleSheet.addRule".
 func (this CSSStyleSheet) AddRule(selector js.String, style js.String, index uint32) (ret int32) {
 	bindings.CallCSSStyleSheetAddRule(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		selector.Ref(),
 		style.Ref(),
 		uint32(index),
@@ -2141,7 +2122,7 @@ func (this CSSStyleSheet) AddRule(selector js.String, style js.String, index uin
 // the catch clause.
 func (this CSSStyleSheet) TryAddRule(selector js.String, style js.String, index uint32) (ret int32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleSheetAddRule(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		selector.Ref(),
 		style.Ref(),
 		uint32(index),
@@ -2150,26 +2131,25 @@ func (this CSSStyleSheet) TryAddRule(selector js.String, style js.String, index 
 	return
 }
 
-// HasAddRule1 returns true if the method "CSSStyleSheet.addRule" exists.
-func (this CSSStyleSheet) HasAddRule1() bool {
-	return js.True == bindings.HasCSSStyleSheetAddRule1(
-		this.Ref(),
+// HasFuncAddRule1 returns true if the method "CSSStyleSheet.addRule" exists.
+func (this CSSStyleSheet) HasFuncAddRule1() bool {
+	return js.True == bindings.HasFuncCSSStyleSheetAddRule1(
+		this.ref,
 	)
 }
 
-// AddRule1Func returns the method "CSSStyleSheet.addRule".
-func (this CSSStyleSheet) AddRule1Func() (fn js.Func[func(selector js.String, style js.String) int32]) {
-	return fn.FromRef(
-		bindings.CSSStyleSheetAddRule1Func(
-			this.Ref(),
-		),
+// FuncAddRule1 returns the method "CSSStyleSheet.addRule".
+func (this CSSStyleSheet) FuncAddRule1() (fn js.Func[func(selector js.String, style js.String) int32]) {
+	bindings.FuncCSSStyleSheetAddRule1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AddRule1 calls the method "CSSStyleSheet.addRule".
 func (this CSSStyleSheet) AddRule1(selector js.String, style js.String) (ret int32) {
 	bindings.CallCSSStyleSheetAddRule1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		selector.Ref(),
 		style.Ref(),
 	)
@@ -2182,7 +2162,7 @@ func (this CSSStyleSheet) AddRule1(selector js.String, style js.String) (ret int
 // the catch clause.
 func (this CSSStyleSheet) TryAddRule1(selector js.String, style js.String) (ret int32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleSheetAddRule1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		selector.Ref(),
 		style.Ref(),
 	)
@@ -2190,26 +2170,25 @@ func (this CSSStyleSheet) TryAddRule1(selector js.String, style js.String) (ret 
 	return
 }
 
-// HasAddRule2 returns true if the method "CSSStyleSheet.addRule" exists.
-func (this CSSStyleSheet) HasAddRule2() bool {
-	return js.True == bindings.HasCSSStyleSheetAddRule2(
-		this.Ref(),
+// HasFuncAddRule2 returns true if the method "CSSStyleSheet.addRule" exists.
+func (this CSSStyleSheet) HasFuncAddRule2() bool {
+	return js.True == bindings.HasFuncCSSStyleSheetAddRule2(
+		this.ref,
 	)
 }
 
-// AddRule2Func returns the method "CSSStyleSheet.addRule".
-func (this CSSStyleSheet) AddRule2Func() (fn js.Func[func(selector js.String) int32]) {
-	return fn.FromRef(
-		bindings.CSSStyleSheetAddRule2Func(
-			this.Ref(),
-		),
+// FuncAddRule2 returns the method "CSSStyleSheet.addRule".
+func (this CSSStyleSheet) FuncAddRule2() (fn js.Func[func(selector js.String) int32]) {
+	bindings.FuncCSSStyleSheetAddRule2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AddRule2 calls the method "CSSStyleSheet.addRule".
 func (this CSSStyleSheet) AddRule2(selector js.String) (ret int32) {
 	bindings.CallCSSStyleSheetAddRule2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		selector.Ref(),
 	)
 
@@ -2221,33 +2200,32 @@ func (this CSSStyleSheet) AddRule2(selector js.String) (ret int32) {
 // the catch clause.
 func (this CSSStyleSheet) TryAddRule2(selector js.String) (ret int32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleSheetAddRule2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		selector.Ref(),
 	)
 
 	return
 }
 
-// HasAddRule3 returns true if the method "CSSStyleSheet.addRule" exists.
-func (this CSSStyleSheet) HasAddRule3() bool {
-	return js.True == bindings.HasCSSStyleSheetAddRule3(
-		this.Ref(),
+// HasFuncAddRule3 returns true if the method "CSSStyleSheet.addRule" exists.
+func (this CSSStyleSheet) HasFuncAddRule3() bool {
+	return js.True == bindings.HasFuncCSSStyleSheetAddRule3(
+		this.ref,
 	)
 }
 
-// AddRule3Func returns the method "CSSStyleSheet.addRule".
-func (this CSSStyleSheet) AddRule3Func() (fn js.Func[func() int32]) {
-	return fn.FromRef(
-		bindings.CSSStyleSheetAddRule3Func(
-			this.Ref(),
-		),
+// FuncAddRule3 returns the method "CSSStyleSheet.addRule".
+func (this CSSStyleSheet) FuncAddRule3() (fn js.Func[func() int32]) {
+	bindings.FuncCSSStyleSheetAddRule3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AddRule3 calls the method "CSSStyleSheet.addRule".
 func (this CSSStyleSheet) AddRule3() (ret int32) {
 	bindings.CallCSSStyleSheetAddRule3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2258,32 +2236,31 @@ func (this CSSStyleSheet) AddRule3() (ret int32) {
 // the catch clause.
 func (this CSSStyleSheet) TryAddRule3() (ret int32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleSheetAddRule3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasRemoveRule returns true if the method "CSSStyleSheet.removeRule" exists.
-func (this CSSStyleSheet) HasRemoveRule() bool {
-	return js.True == bindings.HasCSSStyleSheetRemoveRule(
-		this.Ref(),
+// HasFuncRemoveRule returns true if the method "CSSStyleSheet.removeRule" exists.
+func (this CSSStyleSheet) HasFuncRemoveRule() bool {
+	return js.True == bindings.HasFuncCSSStyleSheetRemoveRule(
+		this.ref,
 	)
 }
 
-// RemoveRuleFunc returns the method "CSSStyleSheet.removeRule".
-func (this CSSStyleSheet) RemoveRuleFunc() (fn js.Func[func(index uint32)]) {
-	return fn.FromRef(
-		bindings.CSSStyleSheetRemoveRuleFunc(
-			this.Ref(),
-		),
+// FuncRemoveRule returns the method "CSSStyleSheet.removeRule".
+func (this CSSStyleSheet) FuncRemoveRule() (fn js.Func[func(index uint32)]) {
+	bindings.FuncCSSStyleSheetRemoveRule(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RemoveRule calls the method "CSSStyleSheet.removeRule".
 func (this CSSStyleSheet) RemoveRule(index uint32) (ret js.Void) {
 	bindings.CallCSSStyleSheetRemoveRule(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 	)
 
@@ -2295,33 +2272,32 @@ func (this CSSStyleSheet) RemoveRule(index uint32) (ret js.Void) {
 // the catch clause.
 func (this CSSStyleSheet) TryRemoveRule(index uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleSheetRemoveRule(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 	)
 
 	return
 }
 
-// HasRemoveRule1 returns true if the method "CSSStyleSheet.removeRule" exists.
-func (this CSSStyleSheet) HasRemoveRule1() bool {
-	return js.True == bindings.HasCSSStyleSheetRemoveRule1(
-		this.Ref(),
+// HasFuncRemoveRule1 returns true if the method "CSSStyleSheet.removeRule" exists.
+func (this CSSStyleSheet) HasFuncRemoveRule1() bool {
+	return js.True == bindings.HasFuncCSSStyleSheetRemoveRule1(
+		this.ref,
 	)
 }
 
-// RemoveRule1Func returns the method "CSSStyleSheet.removeRule".
-func (this CSSStyleSheet) RemoveRule1Func() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.CSSStyleSheetRemoveRule1Func(
-			this.Ref(),
-		),
+// FuncRemoveRule1 returns the method "CSSStyleSheet.removeRule".
+func (this CSSStyleSheet) FuncRemoveRule1() (fn js.Func[func()]) {
+	bindings.FuncCSSStyleSheetRemoveRule1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RemoveRule1 calls the method "CSSStyleSheet.removeRule".
 func (this CSSStyleSheet) RemoveRule1() (ret js.Void) {
 	bindings.CallCSSStyleSheetRemoveRule1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2332,7 +2308,7 @@ func (this CSSStyleSheet) RemoveRule1() (ret js.Void) {
 // the catch clause.
 func (this CSSStyleSheet) TryRemoveRule1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleSheetRemoveRule1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -2343,7 +2319,7 @@ type StyleSheetList struct {
 }
 
 func (this StyleSheetList) Once() StyleSheetList {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2357,7 +2333,7 @@ func (this StyleSheetList) FromRef(ref js.Ref) StyleSheetList {
 }
 
 func (this StyleSheetList) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Length returns the value of property "StyleSheetList.length".
@@ -2365,31 +2341,30 @@ func (this StyleSheetList) Free() {
 // It returns ok=false if there is no such property.
 func (this StyleSheetList) Length() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetStyleSheetListLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasItem returns true if the method "StyleSheetList.item" exists.
-func (this StyleSheetList) HasItem() bool {
-	return js.True == bindings.HasStyleSheetListItem(
-		this.Ref(),
+// HasFuncItem returns true if the method "StyleSheetList.item" exists.
+func (this StyleSheetList) HasFuncItem() bool {
+	return js.True == bindings.HasFuncStyleSheetListItem(
+		this.ref,
 	)
 }
 
-// ItemFunc returns the method "StyleSheetList.item".
-func (this StyleSheetList) ItemFunc() (fn js.Func[func(index uint32) CSSStyleSheet]) {
-	return fn.FromRef(
-		bindings.StyleSheetListItemFunc(
-			this.Ref(),
-		),
+// FuncItem returns the method "StyleSheetList.item".
+func (this StyleSheetList) FuncItem() (fn js.Func[func(index uint32) CSSStyleSheet]) {
+	bindings.FuncStyleSheetListItem(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Item calls the method "StyleSheetList.item".
 func (this StyleSheetList) Item(index uint32) (ret CSSStyleSheet) {
 	bindings.CallStyleSheetListItem(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 	)
 
@@ -2401,7 +2376,7 @@ func (this StyleSheetList) Item(index uint32) (ret CSSStyleSheet) {
 // the catch clause.
 func (this StyleSheetList) TryItem(index uint32) (ret CSSStyleSheet, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStyleSheetListItem(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 	)
 
@@ -2413,7 +2388,7 @@ type ShadowRoot struct {
 }
 
 func (this ShadowRoot) Once() ShadowRoot {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2427,7 +2402,7 @@ func (this ShadowRoot) FromRef(ref js.Ref) ShadowRoot {
 }
 
 func (this ShadowRoot) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Mode returns the value of property "ShadowRoot.mode".
@@ -2435,7 +2410,7 @@ func (this ShadowRoot) Free() {
 // It returns ok=false if there is no such property.
 func (this ShadowRoot) Mode() (ret ShadowRootMode, ok bool) {
 	ok = js.True == bindings.GetShadowRootMode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2445,7 +2420,7 @@ func (this ShadowRoot) Mode() (ret ShadowRootMode, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ShadowRoot) DelegatesFocus() (ret bool, ok bool) {
 	ok = js.True == bindings.GetShadowRootDelegatesFocus(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2455,7 +2430,7 @@ func (this ShadowRoot) DelegatesFocus() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ShadowRoot) SlotAssignment() (ret SlotAssignmentMode, ok bool) {
 	ok = js.True == bindings.GetShadowRootSlotAssignment(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2465,7 +2440,7 @@ func (this ShadowRoot) SlotAssignment() (ret SlotAssignmentMode, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ShadowRoot) Host() (ret Element, ok bool) {
 	ok = js.True == bindings.GetShadowRootHost(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2475,7 +2450,7 @@ func (this ShadowRoot) Host() (ret Element, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ShadowRoot) InnerHTML() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetShadowRootInnerHTML(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2485,7 +2460,7 @@ func (this ShadowRoot) InnerHTML() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this ShadowRoot) SetInnerHTML(val js.String) bool {
 	return js.True == bindings.SetShadowRootInnerHTML(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2495,7 +2470,7 @@ func (this ShadowRoot) SetInnerHTML(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this ShadowRoot) FullscreenElement() (ret Element, ok bool) {
 	ok = js.True == bindings.GetShadowRootFullscreenElement(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2505,7 +2480,7 @@ func (this ShadowRoot) FullscreenElement() (ret Element, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ShadowRoot) StyleSheets() (ret StyleSheetList, ok bool) {
 	ok = js.True == bindings.GetShadowRootStyleSheets(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2515,7 +2490,7 @@ func (this ShadowRoot) StyleSheets() (ret StyleSheetList, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ShadowRoot) AdoptedStyleSheets() (ret js.ObservableArray[CSSStyleSheet], ok bool) {
 	ok = js.True == bindings.GetShadowRootAdoptedStyleSheets(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2525,7 +2500,7 @@ func (this ShadowRoot) AdoptedStyleSheets() (ret js.ObservableArray[CSSStyleShee
 // It returns false if the property cannot be set.
 func (this ShadowRoot) SetAdoptedStyleSheets(val js.ObservableArray[CSSStyleSheet]) bool {
 	return js.True == bindings.SetShadowRootAdoptedStyleSheets(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2535,7 +2510,7 @@ func (this ShadowRoot) SetAdoptedStyleSheets(val js.ObservableArray[CSSStyleShee
 // It returns ok=false if there is no such property.
 func (this ShadowRoot) PictureInPictureElement() (ret Element, ok bool) {
 	ok = js.True == bindings.GetShadowRootPictureInPictureElement(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2545,7 +2520,7 @@ func (this ShadowRoot) PictureInPictureElement() (ret Element, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ShadowRoot) ActiveElement() (ret Element, ok bool) {
 	ok = js.True == bindings.GetShadowRootActiveElement(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2555,31 +2530,30 @@ func (this ShadowRoot) ActiveElement() (ret Element, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ShadowRoot) PointerLockElement() (ret Element, ok bool) {
 	ok = js.True == bindings.GetShadowRootPointerLockElement(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGetAnimations returns true if the method "ShadowRoot.getAnimations" exists.
-func (this ShadowRoot) HasGetAnimations() bool {
-	return js.True == bindings.HasShadowRootGetAnimations(
-		this.Ref(),
+// HasFuncGetAnimations returns true if the method "ShadowRoot.getAnimations" exists.
+func (this ShadowRoot) HasFuncGetAnimations() bool {
+	return js.True == bindings.HasFuncShadowRootGetAnimations(
+		this.ref,
 	)
 }
 
-// GetAnimationsFunc returns the method "ShadowRoot.getAnimations".
-func (this ShadowRoot) GetAnimationsFunc() (fn js.Func[func() js.Array[Animation]]) {
-	return fn.FromRef(
-		bindings.ShadowRootGetAnimationsFunc(
-			this.Ref(),
-		),
+// FuncGetAnimations returns the method "ShadowRoot.getAnimations".
+func (this ShadowRoot) FuncGetAnimations() (fn js.Func[func() js.Array[Animation]]) {
+	bindings.FuncShadowRootGetAnimations(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAnimations calls the method "ShadowRoot.getAnimations".
 func (this ShadowRoot) GetAnimations() (ret js.Array[Animation]) {
 	bindings.CallShadowRootGetAnimations(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2590,7 +2564,7 @@ func (this ShadowRoot) GetAnimations() (ret js.Array[Animation]) {
 // the catch clause.
 func (this ShadowRoot) TryGetAnimations() (ret js.Array[Animation], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryShadowRootGetAnimations(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -2631,17 +2605,22 @@ func (p ShadowRootInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ShadowRootInit) UpdateFrom(ref js.Ref) {
+func (p *ShadowRootInit) UpdateFrom(ref js.Ref) {
 	bindings.ShadowRootInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ShadowRootInit) Update(ref js.Ref) {
+func (p *ShadowRootInit) Update(ref js.Ref) {
 	bindings.ShadowRootInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ShadowRootInit) FreeMembers(recursive bool) {
 }
 
 type FullscreenNavigationUI uint32
@@ -2676,7 +2655,7 @@ type ScreenDetailed struct {
 }
 
 func (this ScreenDetailed) Once() ScreenDetailed {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2690,7 +2669,7 @@ func (this ScreenDetailed) FromRef(ref js.Ref) ScreenDetailed {
 }
 
 func (this ScreenDetailed) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // AvailLeft returns the value of property "ScreenDetailed.availLeft".
@@ -2698,7 +2677,7 @@ func (this ScreenDetailed) Free() {
 // It returns ok=false if there is no such property.
 func (this ScreenDetailed) AvailLeft() (ret int32, ok bool) {
 	ok = js.True == bindings.GetScreenDetailedAvailLeft(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2708,7 +2687,7 @@ func (this ScreenDetailed) AvailLeft() (ret int32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ScreenDetailed) AvailTop() (ret int32, ok bool) {
 	ok = js.True == bindings.GetScreenDetailedAvailTop(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2718,7 +2697,7 @@ func (this ScreenDetailed) AvailTop() (ret int32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ScreenDetailed) Left() (ret int32, ok bool) {
 	ok = js.True == bindings.GetScreenDetailedLeft(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2728,7 +2707,7 @@ func (this ScreenDetailed) Left() (ret int32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ScreenDetailed) Top() (ret int32, ok bool) {
 	ok = js.True == bindings.GetScreenDetailedTop(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2738,7 +2717,7 @@ func (this ScreenDetailed) Top() (ret int32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ScreenDetailed) IsPrimary() (ret bool, ok bool) {
 	ok = js.True == bindings.GetScreenDetailedIsPrimary(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2748,7 +2727,7 @@ func (this ScreenDetailed) IsPrimary() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ScreenDetailed) IsInternal() (ret bool, ok bool) {
 	ok = js.True == bindings.GetScreenDetailedIsInternal(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2758,7 +2737,7 @@ func (this ScreenDetailed) IsInternal() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ScreenDetailed) DevicePixelRatio() (ret float32, ok bool) {
 	ok = js.True == bindings.GetScreenDetailedDevicePixelRatio(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2768,7 +2747,7 @@ func (this ScreenDetailed) DevicePixelRatio() (ret float32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ScreenDetailed) Label() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetScreenDetailedLabel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2800,17 +2779,26 @@ func (p FullscreenOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p FullscreenOptions) UpdateFrom(ref js.Ref) {
+func (p *FullscreenOptions) UpdateFrom(ref js.Ref) {
 	bindings.FullscreenOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p FullscreenOptions) Update(ref js.Ref) {
+func (p *FullscreenOptions) Update(ref js.Ref) {
 	bindings.FullscreenOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *FullscreenOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Screen.Ref(),
+	)
+	p.Screen = p.Screen.FromRef(js.Undefined)
 }
 
 type CSSStyleValue struct {
@@ -2818,7 +2806,7 @@ type CSSStyleValue struct {
 }
 
 func (this CSSStyleValue) Once() CSSStyleValue {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2832,29 +2820,28 @@ func (this CSSStyleValue) FromRef(ref js.Ref) CSSStyleValue {
 }
 
 func (this CSSStyleValue) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasToString returns true if the method "CSSStyleValue.toString" exists.
-func (this CSSStyleValue) HasToString() bool {
-	return js.True == bindings.HasCSSStyleValueToString(
-		this.Ref(),
+// HasFuncToString returns true if the method "CSSStyleValue.toString" exists.
+func (this CSSStyleValue) HasFuncToString() bool {
+	return js.True == bindings.HasFuncCSSStyleValueToString(
+		this.ref,
 	)
 }
 
-// ToStringFunc returns the method "CSSStyleValue.toString".
-func (this CSSStyleValue) ToStringFunc() (fn js.Func[func() js.String]) {
-	return fn.FromRef(
-		bindings.CSSStyleValueToStringFunc(
-			this.Ref(),
-		),
+// FuncToString returns the method "CSSStyleValue.toString".
+func (this CSSStyleValue) FuncToString() (fn js.Func[func() js.String]) {
+	bindings.FuncCSSStyleValueToString(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ToString calls the method "CSSStyleValue.toString".
 func (this CSSStyleValue) ToString() (ret js.String) {
 	bindings.CallCSSStyleValueToString(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2865,32 +2852,31 @@ func (this CSSStyleValue) ToString() (ret js.String) {
 // the catch clause.
 func (this CSSStyleValue) TryToString() (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleValueToString(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasParse returns true if the staticmethod "CSSStyleValue.parse" exists.
-func (this CSSStyleValue) HasParse() bool {
-	return js.True == bindings.HasCSSStyleValueParse(
-		this.Ref(),
+// HasFuncParse returns true if the static method "CSSStyleValue.parse" exists.
+func (this CSSStyleValue) HasFuncParse() bool {
+	return js.True == bindings.HasFuncCSSStyleValueParse(
+		this.ref,
 	)
 }
 
-// ParseFunc returns the staticmethod "CSSStyleValue.parse".
-func (this CSSStyleValue) ParseFunc() (fn js.Func[func(property js.String, cssText js.String) CSSStyleValue]) {
-	return fn.FromRef(
-		bindings.CSSStyleValueParseFunc(
-			this.Ref(),
-		),
+// FuncParse returns the static method "CSSStyleValue.parse".
+func (this CSSStyleValue) FuncParse() (fn js.Func[func(property js.String, cssText js.String) CSSStyleValue]) {
+	bindings.FuncCSSStyleValueParse(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// Parse calls the staticmethod "CSSStyleValue.parse".
+// Parse calls the static method "CSSStyleValue.parse".
 func (this CSSStyleValue) Parse(property js.String, cssText js.String) (ret CSSStyleValue) {
 	bindings.CallCSSStyleValueParse(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		property.Ref(),
 		cssText.Ref(),
 	)
@@ -2898,12 +2884,12 @@ func (this CSSStyleValue) Parse(property js.String, cssText js.String) (ret CSSS
 	return
 }
 
-// TryParse calls the staticmethod "CSSStyleValue.parse"
+// TryParse calls the static method "CSSStyleValue.parse"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSStyleValue) TryParse(property js.String, cssText js.String) (ret CSSStyleValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleValueParse(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		property.Ref(),
 		cssText.Ref(),
 	)
@@ -2911,26 +2897,25 @@ func (this CSSStyleValue) TryParse(property js.String, cssText js.String) (ret C
 	return
 }
 
-// HasParseAll returns true if the staticmethod "CSSStyleValue.parseAll" exists.
-func (this CSSStyleValue) HasParseAll() bool {
-	return js.True == bindings.HasCSSStyleValueParseAll(
-		this.Ref(),
+// HasFuncParseAll returns true if the static method "CSSStyleValue.parseAll" exists.
+func (this CSSStyleValue) HasFuncParseAll() bool {
+	return js.True == bindings.HasFuncCSSStyleValueParseAll(
+		this.ref,
 	)
 }
 
-// ParseAllFunc returns the staticmethod "CSSStyleValue.parseAll".
-func (this CSSStyleValue) ParseAllFunc() (fn js.Func[func(property js.String, cssText js.String) js.Array[CSSStyleValue]]) {
-	return fn.FromRef(
-		bindings.CSSStyleValueParseAllFunc(
-			this.Ref(),
-		),
+// FuncParseAll returns the static method "CSSStyleValue.parseAll".
+func (this CSSStyleValue) FuncParseAll() (fn js.Func[func(property js.String, cssText js.String) js.Array[CSSStyleValue]]) {
+	bindings.FuncCSSStyleValueParseAll(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// ParseAll calls the staticmethod "CSSStyleValue.parseAll".
+// ParseAll calls the static method "CSSStyleValue.parseAll".
 func (this CSSStyleValue) ParseAll(property js.String, cssText js.String) (ret js.Array[CSSStyleValue]) {
 	bindings.CallCSSStyleValueParseAll(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		property.Ref(),
 		cssText.Ref(),
 	)
@@ -2938,12 +2923,12 @@ func (this CSSStyleValue) ParseAll(property js.String, cssText js.String) (ret j
 	return
 }
 
-// TryParseAll calls the staticmethod "CSSStyleValue.parseAll"
+// TryParseAll calls the static method "CSSStyleValue.parseAll"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSStyleValue) TryParseAll(property js.String, cssText js.String) (ret js.Array[CSSStyleValue], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleValueParseAll(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		property.Ref(),
 		cssText.Ref(),
 	)
@@ -2982,7 +2967,7 @@ type StylePropertyMapReadOnly struct {
 }
 
 func (this StylePropertyMapReadOnly) Once() StylePropertyMapReadOnly {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2996,7 +2981,7 @@ func (this StylePropertyMapReadOnly) FromRef(ref js.Ref) StylePropertyMapReadOnl
 }
 
 func (this StylePropertyMapReadOnly) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Size returns the value of property "StylePropertyMapReadOnly.size".
@@ -3004,31 +2989,30 @@ func (this StylePropertyMapReadOnly) Free() {
 // It returns ok=false if there is no such property.
 func (this StylePropertyMapReadOnly) Size() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetStylePropertyMapReadOnlySize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGet returns true if the method "StylePropertyMapReadOnly.get" exists.
-func (this StylePropertyMapReadOnly) HasGet() bool {
-	return js.True == bindings.HasStylePropertyMapReadOnlyGet(
-		this.Ref(),
+// HasFuncGet returns true if the method "StylePropertyMapReadOnly.get" exists.
+func (this StylePropertyMapReadOnly) HasFuncGet() bool {
+	return js.True == bindings.HasFuncStylePropertyMapReadOnlyGet(
+		this.ref,
 	)
 }
 
-// GetFunc returns the method "StylePropertyMapReadOnly.get".
-func (this StylePropertyMapReadOnly) GetFunc() (fn js.Func[func(property js.String) OneOf_undefined_CSSStyleValue]) {
-	return fn.FromRef(
-		bindings.StylePropertyMapReadOnlyGetFunc(
-			this.Ref(),
-		),
+// FuncGet returns the method "StylePropertyMapReadOnly.get".
+func (this StylePropertyMapReadOnly) FuncGet() (fn js.Func[func(property js.String) OneOf_undefined_CSSStyleValue]) {
+	bindings.FuncStylePropertyMapReadOnlyGet(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Get calls the method "StylePropertyMapReadOnly.get".
 func (this StylePropertyMapReadOnly) Get(property js.String) (ret OneOf_undefined_CSSStyleValue) {
 	bindings.CallStylePropertyMapReadOnlyGet(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		property.Ref(),
 	)
 
@@ -3040,33 +3024,32 @@ func (this StylePropertyMapReadOnly) Get(property js.String) (ret OneOf_undefine
 // the catch clause.
 func (this StylePropertyMapReadOnly) TryGet(property js.String) (ret OneOf_undefined_CSSStyleValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStylePropertyMapReadOnlyGet(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		property.Ref(),
 	)
 
 	return
 }
 
-// HasGetAll returns true if the method "StylePropertyMapReadOnly.getAll" exists.
-func (this StylePropertyMapReadOnly) HasGetAll() bool {
-	return js.True == bindings.HasStylePropertyMapReadOnlyGetAll(
-		this.Ref(),
+// HasFuncGetAll returns true if the method "StylePropertyMapReadOnly.getAll" exists.
+func (this StylePropertyMapReadOnly) HasFuncGetAll() bool {
+	return js.True == bindings.HasFuncStylePropertyMapReadOnlyGetAll(
+		this.ref,
 	)
 }
 
-// GetAllFunc returns the method "StylePropertyMapReadOnly.getAll".
-func (this StylePropertyMapReadOnly) GetAllFunc() (fn js.Func[func(property js.String) js.Array[CSSStyleValue]]) {
-	return fn.FromRef(
-		bindings.StylePropertyMapReadOnlyGetAllFunc(
-			this.Ref(),
-		),
+// FuncGetAll returns the method "StylePropertyMapReadOnly.getAll".
+func (this StylePropertyMapReadOnly) FuncGetAll() (fn js.Func[func(property js.String) js.Array[CSSStyleValue]]) {
+	bindings.FuncStylePropertyMapReadOnlyGetAll(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAll calls the method "StylePropertyMapReadOnly.getAll".
 func (this StylePropertyMapReadOnly) GetAll(property js.String) (ret js.Array[CSSStyleValue]) {
 	bindings.CallStylePropertyMapReadOnlyGetAll(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		property.Ref(),
 	)
 
@@ -3078,33 +3061,32 @@ func (this StylePropertyMapReadOnly) GetAll(property js.String) (ret js.Array[CS
 // the catch clause.
 func (this StylePropertyMapReadOnly) TryGetAll(property js.String) (ret js.Array[CSSStyleValue], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStylePropertyMapReadOnlyGetAll(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		property.Ref(),
 	)
 
 	return
 }
 
-// HasHas returns true if the method "StylePropertyMapReadOnly.has" exists.
-func (this StylePropertyMapReadOnly) HasHas() bool {
-	return js.True == bindings.HasStylePropertyMapReadOnlyHas(
-		this.Ref(),
+// HasFuncHas returns true if the method "StylePropertyMapReadOnly.has" exists.
+func (this StylePropertyMapReadOnly) HasFuncHas() bool {
+	return js.True == bindings.HasFuncStylePropertyMapReadOnlyHas(
+		this.ref,
 	)
 }
 
-// HasFunc returns the method "StylePropertyMapReadOnly.has".
-func (this StylePropertyMapReadOnly) HasFunc() (fn js.Func[func(property js.String) bool]) {
-	return fn.FromRef(
-		bindings.StylePropertyMapReadOnlyHasFunc(
-			this.Ref(),
-		),
+// FuncHas returns the method "StylePropertyMapReadOnly.has".
+func (this StylePropertyMapReadOnly) FuncHas() (fn js.Func[func(property js.String) bool]) {
+	bindings.FuncStylePropertyMapReadOnlyHas(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Has calls the method "StylePropertyMapReadOnly.has".
 func (this StylePropertyMapReadOnly) Has(property js.String) (ret bool) {
 	bindings.CallStylePropertyMapReadOnlyHas(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		property.Ref(),
 	)
 
@@ -3116,7 +3098,7 @@ func (this StylePropertyMapReadOnly) Has(property js.String) (ret bool) {
 // the catch clause.
 func (this StylePropertyMapReadOnly) TryHas(property js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStylePropertyMapReadOnlyHas(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		property.Ref(),
 	)
 
@@ -3170,17 +3152,22 @@ func (p FocusableAreasOption) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p FocusableAreasOption) UpdateFrom(ref js.Ref) {
+func (p *FocusableAreasOption) UpdateFrom(ref js.Ref) {
 	bindings.FocusableAreasOptionJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p FocusableAreasOption) Update(ref js.Ref) {
+func (p *FocusableAreasOption) Update(ref js.Ref) {
 	bindings.FocusableAreasOptionJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *FocusableAreasOption) FreeMembers(recursive bool) {
 }
 
 type SpatialNavigationDirection uint32
@@ -3240,17 +3227,28 @@ func (p SpatialNavigationSearchOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p SpatialNavigationSearchOptions) UpdateFrom(ref js.Ref) {
+func (p *SpatialNavigationSearchOptions) UpdateFrom(ref js.Ref) {
 	bindings.SpatialNavigationSearchOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p SpatialNavigationSearchOptions) Update(ref js.Ref) {
+func (p *SpatialNavigationSearchOptions) Update(ref js.Ref) {
 	bindings.SpatialNavigationSearchOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *SpatialNavigationSearchOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Candidates.Ref(),
+		p.Container.Ref(),
+	)
+	p.Candidates = p.Candidates.FromRef(js.Undefined)
+	p.Container = p.Container.FromRef(js.Undefined)
 }
 
 type DOMPointInit struct {
@@ -3301,17 +3299,22 @@ func (p DOMPointInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p DOMPointInit) UpdateFrom(ref js.Ref) {
+func (p *DOMPointInit) UpdateFrom(ref js.Ref) {
 	bindings.DOMPointInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p DOMPointInit) Update(ref js.Ref) {
+func (p *DOMPointInit) Update(ref js.Ref) {
 	bindings.DOMPointInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *DOMPointInit) FreeMembers(recursive bool) {
 }
 
 type DOMRectInit struct {
@@ -3362,17 +3365,22 @@ func (p DOMRectInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p DOMRectInit) UpdateFrom(ref js.Ref) {
+func (p *DOMRectInit) UpdateFrom(ref js.Ref) {
 	bindings.DOMRectInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p DOMRectInit) Update(ref js.Ref) {
+func (p *DOMRectInit) Update(ref js.Ref) {
 	bindings.DOMRectInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *DOMRectInit) FreeMembers(recursive bool) {
 }
 
 type DOMQuadInit struct {
@@ -3418,17 +3426,28 @@ func (p DOMQuadInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p DOMQuadInit) UpdateFrom(ref js.Ref) {
+func (p *DOMQuadInit) UpdateFrom(ref js.Ref) {
 	bindings.DOMQuadInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p DOMQuadInit) Update(ref js.Ref) {
+func (p *DOMQuadInit) Update(ref js.Ref) {
 	bindings.DOMQuadInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *DOMQuadInit) FreeMembers(recursive bool) {
+	if recursive {
+		p.P1.FreeMembers(true)
+		p.P2.FreeMembers(true)
+		p.P3.FreeMembers(true)
+		p.P4.FreeMembers(true)
+	}
 }
 
 func NewDOMRect(x float64, y float64, width float64, height float64) (ret DOMRect) {
@@ -3471,7 +3490,7 @@ type DOMRect struct {
 }
 
 func (this DOMRect) Once() DOMRect {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3485,7 +3504,7 @@ func (this DOMRect) FromRef(ref js.Ref) DOMRect {
 }
 
 func (this DOMRect) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // X returns the value of property "DOMRect.x".
@@ -3493,7 +3512,7 @@ func (this DOMRect) Free() {
 // It returns ok=false if there is no such property.
 func (this DOMRect) X() (ret float64, ok bool) {
 	ok = js.True == bindings.GetDOMRectX(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3503,7 +3522,7 @@ func (this DOMRect) X() (ret float64, ok bool) {
 // It returns false if the property cannot be set.
 func (this DOMRect) SetX(val float64) bool {
 	return js.True == bindings.SetDOMRectX(
-		this.Ref(),
+		this.ref,
 		float64(val),
 	)
 }
@@ -3513,7 +3532,7 @@ func (this DOMRect) SetX(val float64) bool {
 // It returns ok=false if there is no such property.
 func (this DOMRect) Y() (ret float64, ok bool) {
 	ok = js.True == bindings.GetDOMRectY(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3523,7 +3542,7 @@ func (this DOMRect) Y() (ret float64, ok bool) {
 // It returns false if the property cannot be set.
 func (this DOMRect) SetY(val float64) bool {
 	return js.True == bindings.SetDOMRectY(
-		this.Ref(),
+		this.ref,
 		float64(val),
 	)
 }
@@ -3533,7 +3552,7 @@ func (this DOMRect) SetY(val float64) bool {
 // It returns ok=false if there is no such property.
 func (this DOMRect) Width() (ret float64, ok bool) {
 	ok = js.True == bindings.GetDOMRectWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3543,7 +3562,7 @@ func (this DOMRect) Width() (ret float64, ok bool) {
 // It returns false if the property cannot be set.
 func (this DOMRect) SetWidth(val float64) bool {
 	return js.True == bindings.SetDOMRectWidth(
-		this.Ref(),
+		this.ref,
 		float64(val),
 	)
 }
@@ -3553,7 +3572,7 @@ func (this DOMRect) SetWidth(val float64) bool {
 // It returns ok=false if there is no such property.
 func (this DOMRect) Height() (ret float64, ok bool) {
 	ok = js.True == bindings.GetDOMRectHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3563,80 +3582,78 @@ func (this DOMRect) Height() (ret float64, ok bool) {
 // It returns false if the property cannot be set.
 func (this DOMRect) SetHeight(val float64) bool {
 	return js.True == bindings.SetDOMRectHeight(
-		this.Ref(),
+		this.ref,
 		float64(val),
 	)
 }
 
-// HasFromRect returns true if the staticmethod "DOMRect.fromRect" exists.
-func (this DOMRect) HasFromRect() bool {
-	return js.True == bindings.HasDOMRectFromRect(
-		this.Ref(),
+// HasFuncFromRect returns true if the static method "DOMRect.fromRect" exists.
+func (this DOMRect) HasFuncFromRect() bool {
+	return js.True == bindings.HasFuncDOMRectFromRect(
+		this.ref,
 	)
 }
 
-// FromRectFunc returns the staticmethod "DOMRect.fromRect".
-func (this DOMRect) FromRectFunc() (fn js.Func[func(other DOMRectInit) DOMRect]) {
-	return fn.FromRef(
-		bindings.DOMRectFromRectFunc(
-			this.Ref(),
-		),
+// FuncFromRect returns the static method "DOMRect.fromRect".
+func (this DOMRect) FuncFromRect() (fn js.Func[func(other DOMRectInit) DOMRect]) {
+	bindings.FuncDOMRectFromRect(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// FromRect calls the staticmethod "DOMRect.fromRect".
+// FromRect calls the static method "DOMRect.fromRect".
 func (this DOMRect) FromRect(other DOMRectInit) (ret DOMRect) {
 	bindings.CallDOMRectFromRect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&other),
 	)
 
 	return
 }
 
-// TryFromRect calls the staticmethod "DOMRect.fromRect"
+// TryFromRect calls the static method "DOMRect.fromRect"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMRect) TryFromRect(other DOMRectInit) (ret DOMRect, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMRectFromRect(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&other),
 	)
 
 	return
 }
 
-// HasFromRect1 returns true if the staticmethod "DOMRect.fromRect" exists.
-func (this DOMRect) HasFromRect1() bool {
-	return js.True == bindings.HasDOMRectFromRect1(
-		this.Ref(),
+// HasFuncFromRect1 returns true if the static method "DOMRect.fromRect" exists.
+func (this DOMRect) HasFuncFromRect1() bool {
+	return js.True == bindings.HasFuncDOMRectFromRect1(
+		this.ref,
 	)
 }
 
-// FromRect1Func returns the staticmethod "DOMRect.fromRect".
-func (this DOMRect) FromRect1Func() (fn js.Func[func() DOMRect]) {
-	return fn.FromRef(
-		bindings.DOMRectFromRect1Func(
-			this.Ref(),
-		),
+// FuncFromRect1 returns the static method "DOMRect.fromRect".
+func (this DOMRect) FuncFromRect1() (fn js.Func[func() DOMRect]) {
+	bindings.FuncDOMRectFromRect1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// FromRect1 calls the staticmethod "DOMRect.fromRect".
+// FromRect1 calls the static method "DOMRect.fromRect".
 func (this DOMRect) FromRect1() (ret DOMRect) {
 	bindings.CallDOMRectFromRect1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
 }
 
-// TryFromRect1 calls the staticmethod "DOMRect.fromRect"
+// TryFromRect1 calls the static method "DOMRect.fromRect"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMRect) TryFromRect1() (ret DOMRect, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMRectFromRect1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -3682,7 +3699,7 @@ type DOMPoint struct {
 }
 
 func (this DOMPoint) Once() DOMPoint {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3696,7 +3713,7 @@ func (this DOMPoint) FromRef(ref js.Ref) DOMPoint {
 }
 
 func (this DOMPoint) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // X returns the value of property "DOMPoint.x".
@@ -3704,7 +3721,7 @@ func (this DOMPoint) Free() {
 // It returns ok=false if there is no such property.
 func (this DOMPoint) X() (ret float64, ok bool) {
 	ok = js.True == bindings.GetDOMPointX(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3714,7 +3731,7 @@ func (this DOMPoint) X() (ret float64, ok bool) {
 // It returns false if the property cannot be set.
 func (this DOMPoint) SetX(val float64) bool {
 	return js.True == bindings.SetDOMPointX(
-		this.Ref(),
+		this.ref,
 		float64(val),
 	)
 }
@@ -3724,7 +3741,7 @@ func (this DOMPoint) SetX(val float64) bool {
 // It returns ok=false if there is no such property.
 func (this DOMPoint) Y() (ret float64, ok bool) {
 	ok = js.True == bindings.GetDOMPointY(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3734,7 +3751,7 @@ func (this DOMPoint) Y() (ret float64, ok bool) {
 // It returns false if the property cannot be set.
 func (this DOMPoint) SetY(val float64) bool {
 	return js.True == bindings.SetDOMPointY(
-		this.Ref(),
+		this.ref,
 		float64(val),
 	)
 }
@@ -3744,7 +3761,7 @@ func (this DOMPoint) SetY(val float64) bool {
 // It returns ok=false if there is no such property.
 func (this DOMPoint) Z() (ret float64, ok bool) {
 	ok = js.True == bindings.GetDOMPointZ(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3754,7 +3771,7 @@ func (this DOMPoint) Z() (ret float64, ok bool) {
 // It returns false if the property cannot be set.
 func (this DOMPoint) SetZ(val float64) bool {
 	return js.True == bindings.SetDOMPointZ(
-		this.Ref(),
+		this.ref,
 		float64(val),
 	)
 }
@@ -3764,7 +3781,7 @@ func (this DOMPoint) SetZ(val float64) bool {
 // It returns ok=false if there is no such property.
 func (this DOMPoint) W() (ret float64, ok bool) {
 	ok = js.True == bindings.GetDOMPointW(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3774,80 +3791,78 @@ func (this DOMPoint) W() (ret float64, ok bool) {
 // It returns false if the property cannot be set.
 func (this DOMPoint) SetW(val float64) bool {
 	return js.True == bindings.SetDOMPointW(
-		this.Ref(),
+		this.ref,
 		float64(val),
 	)
 }
 
-// HasFromPoint returns true if the staticmethod "DOMPoint.fromPoint" exists.
-func (this DOMPoint) HasFromPoint() bool {
-	return js.True == bindings.HasDOMPointFromPoint(
-		this.Ref(),
+// HasFuncFromPoint returns true if the static method "DOMPoint.fromPoint" exists.
+func (this DOMPoint) HasFuncFromPoint() bool {
+	return js.True == bindings.HasFuncDOMPointFromPoint(
+		this.ref,
 	)
 }
 
-// FromPointFunc returns the staticmethod "DOMPoint.fromPoint".
-func (this DOMPoint) FromPointFunc() (fn js.Func[func(other DOMPointInit) DOMPoint]) {
-	return fn.FromRef(
-		bindings.DOMPointFromPointFunc(
-			this.Ref(),
-		),
+// FuncFromPoint returns the static method "DOMPoint.fromPoint".
+func (this DOMPoint) FuncFromPoint() (fn js.Func[func(other DOMPointInit) DOMPoint]) {
+	bindings.FuncDOMPointFromPoint(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// FromPoint calls the staticmethod "DOMPoint.fromPoint".
+// FromPoint calls the static method "DOMPoint.fromPoint".
 func (this DOMPoint) FromPoint(other DOMPointInit) (ret DOMPoint) {
 	bindings.CallDOMPointFromPoint(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&other),
 	)
 
 	return
 }
 
-// TryFromPoint calls the staticmethod "DOMPoint.fromPoint"
+// TryFromPoint calls the static method "DOMPoint.fromPoint"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMPoint) TryFromPoint(other DOMPointInit) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMPointFromPoint(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&other),
 	)
 
 	return
 }
 
-// HasFromPoint1 returns true if the staticmethod "DOMPoint.fromPoint" exists.
-func (this DOMPoint) HasFromPoint1() bool {
-	return js.True == bindings.HasDOMPointFromPoint1(
-		this.Ref(),
+// HasFuncFromPoint1 returns true if the static method "DOMPoint.fromPoint" exists.
+func (this DOMPoint) HasFuncFromPoint1() bool {
+	return js.True == bindings.HasFuncDOMPointFromPoint1(
+		this.ref,
 	)
 }
 
-// FromPoint1Func returns the staticmethod "DOMPoint.fromPoint".
-func (this DOMPoint) FromPoint1Func() (fn js.Func[func() DOMPoint]) {
-	return fn.FromRef(
-		bindings.DOMPointFromPoint1Func(
-			this.Ref(),
-		),
+// FuncFromPoint1 returns the static method "DOMPoint.fromPoint".
+func (this DOMPoint) FuncFromPoint1() (fn js.Func[func() DOMPoint]) {
+	bindings.FuncDOMPointFromPoint1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// FromPoint1 calls the staticmethod "DOMPoint.fromPoint".
+// FromPoint1 calls the static method "DOMPoint.fromPoint".
 func (this DOMPoint) FromPoint1() (ret DOMPoint) {
 	bindings.CallDOMPointFromPoint1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
 }
 
-// TryFromPoint1 calls the staticmethod "DOMPoint.fromPoint"
+// TryFromPoint1 calls the static method "DOMPoint.fromPoint"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMPoint) TryFromPoint1() (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMPointFromPoint1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -3893,7 +3908,7 @@ type DOMQuad struct {
 }
 
 func (this DOMQuad) Once() DOMQuad {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3907,7 +3922,7 @@ func (this DOMQuad) FromRef(ref js.Ref) DOMQuad {
 }
 
 func (this DOMQuad) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // P1 returns the value of property "DOMQuad.p1".
@@ -3915,7 +3930,7 @@ func (this DOMQuad) Free() {
 // It returns ok=false if there is no such property.
 func (this DOMQuad) P1() (ret DOMPoint, ok bool) {
 	ok = js.True == bindings.GetDOMQuadP1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3925,7 +3940,7 @@ func (this DOMQuad) P1() (ret DOMPoint, ok bool) {
 // It returns ok=false if there is no such property.
 func (this DOMQuad) P2() (ret DOMPoint, ok bool) {
 	ok = js.True == bindings.GetDOMQuadP2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3935,7 +3950,7 @@ func (this DOMQuad) P2() (ret DOMPoint, ok bool) {
 // It returns ok=false if there is no such property.
 func (this DOMQuad) P3() (ret DOMPoint, ok bool) {
 	ok = js.True == bindings.GetDOMQuadP3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3945,179 +3960,174 @@ func (this DOMQuad) P3() (ret DOMPoint, ok bool) {
 // It returns ok=false if there is no such property.
 func (this DOMQuad) P4() (ret DOMPoint, ok bool) {
 	ok = js.True == bindings.GetDOMQuadP4(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasFromRect returns true if the staticmethod "DOMQuad.fromRect" exists.
-func (this DOMQuad) HasFromRect() bool {
-	return js.True == bindings.HasDOMQuadFromRect(
-		this.Ref(),
+// HasFuncFromRect returns true if the static method "DOMQuad.fromRect" exists.
+func (this DOMQuad) HasFuncFromRect() bool {
+	return js.True == bindings.HasFuncDOMQuadFromRect(
+		this.ref,
 	)
 }
 
-// FromRectFunc returns the staticmethod "DOMQuad.fromRect".
-func (this DOMQuad) FromRectFunc() (fn js.Func[func(other DOMRectInit) DOMQuad]) {
-	return fn.FromRef(
-		bindings.DOMQuadFromRectFunc(
-			this.Ref(),
-		),
+// FuncFromRect returns the static method "DOMQuad.fromRect".
+func (this DOMQuad) FuncFromRect() (fn js.Func[func(other DOMRectInit) DOMQuad]) {
+	bindings.FuncDOMQuadFromRect(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// FromRect calls the staticmethod "DOMQuad.fromRect".
+// FromRect calls the static method "DOMQuad.fromRect".
 func (this DOMQuad) FromRect(other DOMRectInit) (ret DOMQuad) {
 	bindings.CallDOMQuadFromRect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&other),
 	)
 
 	return
 }
 
-// TryFromRect calls the staticmethod "DOMQuad.fromRect"
+// TryFromRect calls the static method "DOMQuad.fromRect"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMQuad) TryFromRect(other DOMRectInit) (ret DOMQuad, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMQuadFromRect(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&other),
 	)
 
 	return
 }
 
-// HasFromRect1 returns true if the staticmethod "DOMQuad.fromRect" exists.
-func (this DOMQuad) HasFromRect1() bool {
-	return js.True == bindings.HasDOMQuadFromRect1(
-		this.Ref(),
+// HasFuncFromRect1 returns true if the static method "DOMQuad.fromRect" exists.
+func (this DOMQuad) HasFuncFromRect1() bool {
+	return js.True == bindings.HasFuncDOMQuadFromRect1(
+		this.ref,
 	)
 }
 
-// FromRect1Func returns the staticmethod "DOMQuad.fromRect".
-func (this DOMQuad) FromRect1Func() (fn js.Func[func() DOMQuad]) {
-	return fn.FromRef(
-		bindings.DOMQuadFromRect1Func(
-			this.Ref(),
-		),
+// FuncFromRect1 returns the static method "DOMQuad.fromRect".
+func (this DOMQuad) FuncFromRect1() (fn js.Func[func() DOMQuad]) {
+	bindings.FuncDOMQuadFromRect1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// FromRect1 calls the staticmethod "DOMQuad.fromRect".
+// FromRect1 calls the static method "DOMQuad.fromRect".
 func (this DOMQuad) FromRect1() (ret DOMQuad) {
 	bindings.CallDOMQuadFromRect1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
 }
 
-// TryFromRect1 calls the staticmethod "DOMQuad.fromRect"
+// TryFromRect1 calls the static method "DOMQuad.fromRect"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMQuad) TryFromRect1() (ret DOMQuad, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMQuadFromRect1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasFromQuad returns true if the staticmethod "DOMQuad.fromQuad" exists.
-func (this DOMQuad) HasFromQuad() bool {
-	return js.True == bindings.HasDOMQuadFromQuad(
-		this.Ref(),
+// HasFuncFromQuad returns true if the static method "DOMQuad.fromQuad" exists.
+func (this DOMQuad) HasFuncFromQuad() bool {
+	return js.True == bindings.HasFuncDOMQuadFromQuad(
+		this.ref,
 	)
 }
 
-// FromQuadFunc returns the staticmethod "DOMQuad.fromQuad".
-func (this DOMQuad) FromQuadFunc() (fn js.Func[func(other DOMQuadInit) DOMQuad]) {
-	return fn.FromRef(
-		bindings.DOMQuadFromQuadFunc(
-			this.Ref(),
-		),
+// FuncFromQuad returns the static method "DOMQuad.fromQuad".
+func (this DOMQuad) FuncFromQuad() (fn js.Func[func(other DOMQuadInit) DOMQuad]) {
+	bindings.FuncDOMQuadFromQuad(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// FromQuad calls the staticmethod "DOMQuad.fromQuad".
+// FromQuad calls the static method "DOMQuad.fromQuad".
 func (this DOMQuad) FromQuad(other DOMQuadInit) (ret DOMQuad) {
 	bindings.CallDOMQuadFromQuad(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&other),
 	)
 
 	return
 }
 
-// TryFromQuad calls the staticmethod "DOMQuad.fromQuad"
+// TryFromQuad calls the static method "DOMQuad.fromQuad"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMQuad) TryFromQuad(other DOMQuadInit) (ret DOMQuad, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMQuadFromQuad(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&other),
 	)
 
 	return
 }
 
-// HasFromQuad1 returns true if the staticmethod "DOMQuad.fromQuad" exists.
-func (this DOMQuad) HasFromQuad1() bool {
-	return js.True == bindings.HasDOMQuadFromQuad1(
-		this.Ref(),
+// HasFuncFromQuad1 returns true if the static method "DOMQuad.fromQuad" exists.
+func (this DOMQuad) HasFuncFromQuad1() bool {
+	return js.True == bindings.HasFuncDOMQuadFromQuad1(
+		this.ref,
 	)
 }
 
-// FromQuad1Func returns the staticmethod "DOMQuad.fromQuad".
-func (this DOMQuad) FromQuad1Func() (fn js.Func[func() DOMQuad]) {
-	return fn.FromRef(
-		bindings.DOMQuadFromQuad1Func(
-			this.Ref(),
-		),
+// FuncFromQuad1 returns the static method "DOMQuad.fromQuad".
+func (this DOMQuad) FuncFromQuad1() (fn js.Func[func() DOMQuad]) {
+	bindings.FuncDOMQuadFromQuad1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// FromQuad1 calls the staticmethod "DOMQuad.fromQuad".
+// FromQuad1 calls the static method "DOMQuad.fromQuad".
 func (this DOMQuad) FromQuad1() (ret DOMQuad) {
 	bindings.CallDOMQuadFromQuad1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
 }
 
-// TryFromQuad1 calls the staticmethod "DOMQuad.fromQuad"
+// TryFromQuad1 calls the static method "DOMQuad.fromQuad"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMQuad) TryFromQuad1() (ret DOMQuad, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMQuadFromQuad1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetBounds returns true if the method "DOMQuad.getBounds" exists.
-func (this DOMQuad) HasGetBounds() bool {
-	return js.True == bindings.HasDOMQuadGetBounds(
-		this.Ref(),
+// HasFuncGetBounds returns true if the method "DOMQuad.getBounds" exists.
+func (this DOMQuad) HasFuncGetBounds() bool {
+	return js.True == bindings.HasFuncDOMQuadGetBounds(
+		this.ref,
 	)
 }
 
-// GetBoundsFunc returns the method "DOMQuad.getBounds".
-func (this DOMQuad) GetBoundsFunc() (fn js.Func[func() DOMRect]) {
-	return fn.FromRef(
-		bindings.DOMQuadGetBoundsFunc(
-			this.Ref(),
-		),
+// FuncGetBounds returns the method "DOMQuad.getBounds".
+func (this DOMQuad) FuncGetBounds() (fn js.Func[func() DOMRect]) {
+	bindings.FuncDOMQuadGetBounds(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetBounds calls the method "DOMQuad.getBounds".
 func (this DOMQuad) GetBounds() (ret DOMRect) {
 	bindings.CallDOMQuadGetBounds(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -4128,32 +4138,31 @@ func (this DOMQuad) GetBounds() (ret DOMRect) {
 // the catch clause.
 func (this DOMQuad) TryGetBounds() (ret DOMRect, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMQuadGetBounds(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasToJSON returns true if the method "DOMQuad.toJSON" exists.
-func (this DOMQuad) HasToJSON() bool {
-	return js.True == bindings.HasDOMQuadToJSON(
-		this.Ref(),
+// HasFuncToJSON returns true if the method "DOMQuad.toJSON" exists.
+func (this DOMQuad) HasFuncToJSON() bool {
+	return js.True == bindings.HasFuncDOMQuadToJSON(
+		this.ref,
 	)
 }
 
-// ToJSONFunc returns the method "DOMQuad.toJSON".
-func (this DOMQuad) ToJSONFunc() (fn js.Func[func() js.Object]) {
-	return fn.FromRef(
-		bindings.DOMQuadToJSONFunc(
-			this.Ref(),
-		),
+// FuncToJSON returns the method "DOMQuad.toJSON".
+func (this DOMQuad) FuncToJSON() (fn js.Func[func() js.Object]) {
+	bindings.FuncDOMQuadToJSON(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ToJSON calls the method "DOMQuad.toJSON".
 func (this DOMQuad) ToJSON() (ret js.Object) {
 	bindings.CallDOMQuadToJSON(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -4164,7 +4173,7 @@ func (this DOMQuad) ToJSON() (ret js.Object) {
 // the catch clause.
 func (this DOMQuad) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMQuadToJSON(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -4227,17 +4236,22 @@ func (p ConvertCoordinateOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ConvertCoordinateOptions) UpdateFrom(ref js.Ref) {
+func (p *ConvertCoordinateOptions) UpdateFrom(ref js.Ref) {
 	bindings.ConvertCoordinateOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ConvertCoordinateOptions) Update(ref js.Ref) {
+func (p *ConvertCoordinateOptions) Update(ref js.Ref) {
 	bindings.ConvertCoordinateOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ConvertCoordinateOptions) FreeMembers(recursive bool) {
 }
 
 func NewDOMRectReadOnly(x float64, y float64, width float64, height float64) (ret DOMRectReadOnly) {
@@ -4280,7 +4294,7 @@ type DOMRectReadOnly struct {
 }
 
 func (this DOMRectReadOnly) Once() DOMRectReadOnly {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -4294,7 +4308,7 @@ func (this DOMRectReadOnly) FromRef(ref js.Ref) DOMRectReadOnly {
 }
 
 func (this DOMRectReadOnly) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // X returns the value of property "DOMRectReadOnly.x".
@@ -4302,7 +4316,7 @@ func (this DOMRectReadOnly) Free() {
 // It returns ok=false if there is no such property.
 func (this DOMRectReadOnly) X() (ret float64, ok bool) {
 	ok = js.True == bindings.GetDOMRectReadOnlyX(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4312,7 +4326,7 @@ func (this DOMRectReadOnly) X() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this DOMRectReadOnly) Y() (ret float64, ok bool) {
 	ok = js.True == bindings.GetDOMRectReadOnlyY(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4322,7 +4336,7 @@ func (this DOMRectReadOnly) Y() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this DOMRectReadOnly) Width() (ret float64, ok bool) {
 	ok = js.True == bindings.GetDOMRectReadOnlyWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4332,7 +4346,7 @@ func (this DOMRectReadOnly) Width() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this DOMRectReadOnly) Height() (ret float64, ok bool) {
 	ok = js.True == bindings.GetDOMRectReadOnlyHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4342,7 +4356,7 @@ func (this DOMRectReadOnly) Height() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this DOMRectReadOnly) Top() (ret float64, ok bool) {
 	ok = js.True == bindings.GetDOMRectReadOnlyTop(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4352,7 +4366,7 @@ func (this DOMRectReadOnly) Top() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this DOMRectReadOnly) Right() (ret float64, ok bool) {
 	ok = js.True == bindings.GetDOMRectReadOnlyRight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4362,7 +4376,7 @@ func (this DOMRectReadOnly) Right() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this DOMRectReadOnly) Bottom() (ret float64, ok bool) {
 	ok = js.True == bindings.GetDOMRectReadOnlyBottom(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4372,105 +4386,102 @@ func (this DOMRectReadOnly) Bottom() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this DOMRectReadOnly) Left() (ret float64, ok bool) {
 	ok = js.True == bindings.GetDOMRectReadOnlyLeft(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasFromRect returns true if the staticmethod "DOMRectReadOnly.fromRect" exists.
-func (this DOMRectReadOnly) HasFromRect() bool {
-	return js.True == bindings.HasDOMRectReadOnlyFromRect(
-		this.Ref(),
+// HasFuncFromRect returns true if the static method "DOMRectReadOnly.fromRect" exists.
+func (this DOMRectReadOnly) HasFuncFromRect() bool {
+	return js.True == bindings.HasFuncDOMRectReadOnlyFromRect(
+		this.ref,
 	)
 }
 
-// FromRectFunc returns the staticmethod "DOMRectReadOnly.fromRect".
-func (this DOMRectReadOnly) FromRectFunc() (fn js.Func[func(other DOMRectInit) DOMRectReadOnly]) {
-	return fn.FromRef(
-		bindings.DOMRectReadOnlyFromRectFunc(
-			this.Ref(),
-		),
+// FuncFromRect returns the static method "DOMRectReadOnly.fromRect".
+func (this DOMRectReadOnly) FuncFromRect() (fn js.Func[func(other DOMRectInit) DOMRectReadOnly]) {
+	bindings.FuncDOMRectReadOnlyFromRect(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// FromRect calls the staticmethod "DOMRectReadOnly.fromRect".
+// FromRect calls the static method "DOMRectReadOnly.fromRect".
 func (this DOMRectReadOnly) FromRect(other DOMRectInit) (ret DOMRectReadOnly) {
 	bindings.CallDOMRectReadOnlyFromRect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&other),
 	)
 
 	return
 }
 
-// TryFromRect calls the staticmethod "DOMRectReadOnly.fromRect"
+// TryFromRect calls the static method "DOMRectReadOnly.fromRect"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMRectReadOnly) TryFromRect(other DOMRectInit) (ret DOMRectReadOnly, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMRectReadOnlyFromRect(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&other),
 	)
 
 	return
 }
 
-// HasFromRect1 returns true if the staticmethod "DOMRectReadOnly.fromRect" exists.
-func (this DOMRectReadOnly) HasFromRect1() bool {
-	return js.True == bindings.HasDOMRectReadOnlyFromRect1(
-		this.Ref(),
+// HasFuncFromRect1 returns true if the static method "DOMRectReadOnly.fromRect" exists.
+func (this DOMRectReadOnly) HasFuncFromRect1() bool {
+	return js.True == bindings.HasFuncDOMRectReadOnlyFromRect1(
+		this.ref,
 	)
 }
 
-// FromRect1Func returns the staticmethod "DOMRectReadOnly.fromRect".
-func (this DOMRectReadOnly) FromRect1Func() (fn js.Func[func() DOMRectReadOnly]) {
-	return fn.FromRef(
-		bindings.DOMRectReadOnlyFromRect1Func(
-			this.Ref(),
-		),
+// FuncFromRect1 returns the static method "DOMRectReadOnly.fromRect".
+func (this DOMRectReadOnly) FuncFromRect1() (fn js.Func[func() DOMRectReadOnly]) {
+	bindings.FuncDOMRectReadOnlyFromRect1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// FromRect1 calls the staticmethod "DOMRectReadOnly.fromRect".
+// FromRect1 calls the static method "DOMRectReadOnly.fromRect".
 func (this DOMRectReadOnly) FromRect1() (ret DOMRectReadOnly) {
 	bindings.CallDOMRectReadOnlyFromRect1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
 }
 
-// TryFromRect1 calls the staticmethod "DOMRectReadOnly.fromRect"
+// TryFromRect1 calls the static method "DOMRectReadOnly.fromRect"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMRectReadOnly) TryFromRect1() (ret DOMRectReadOnly, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMRectReadOnlyFromRect1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasToJSON returns true if the method "DOMRectReadOnly.toJSON" exists.
-func (this DOMRectReadOnly) HasToJSON() bool {
-	return js.True == bindings.HasDOMRectReadOnlyToJSON(
-		this.Ref(),
+// HasFuncToJSON returns true if the method "DOMRectReadOnly.toJSON" exists.
+func (this DOMRectReadOnly) HasFuncToJSON() bool {
+	return js.True == bindings.HasFuncDOMRectReadOnlyToJSON(
+		this.ref,
 	)
 }
 
-// ToJSONFunc returns the method "DOMRectReadOnly.toJSON".
-func (this DOMRectReadOnly) ToJSONFunc() (fn js.Func[func() js.Object]) {
-	return fn.FromRef(
-		bindings.DOMRectReadOnlyToJSONFunc(
-			this.Ref(),
-		),
+// FuncToJSON returns the method "DOMRectReadOnly.toJSON".
+func (this DOMRectReadOnly) FuncToJSON() (fn js.Func[func() js.Object]) {
+	bindings.FuncDOMRectReadOnlyToJSON(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ToJSON calls the method "DOMRectReadOnly.toJSON".
 func (this DOMRectReadOnly) ToJSON() (ret js.Object) {
 	bindings.CallDOMRectReadOnlyToJSON(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -4481,7 +4492,7 @@ func (this DOMRectReadOnly) ToJSON() (ret js.Object) {
 // the catch clause.
 func (this DOMRectReadOnly) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMRectReadOnlyToJSON(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -4514,17 +4525,22 @@ func (p AssignedNodesOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AssignedNodesOptions) UpdateFrom(ref js.Ref) {
+func (p *AssignedNodesOptions) UpdateFrom(ref js.Ref) {
 	bindings.AssignedNodesOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AssignedNodesOptions) Update(ref js.Ref) {
+func (p *AssignedNodesOptions) Update(ref js.Ref) {
 	bindings.AssignedNodesOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AssignedNodesOptions) FreeMembers(recursive bool) {
 }
 
 type OneOf_Element_Text struct {

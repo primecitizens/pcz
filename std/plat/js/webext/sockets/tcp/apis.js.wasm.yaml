@@ -1,0 +1,1590 @@
+- File: webext/sockets_tcp.idl
+  Callback:
+    Name: CloseCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  Callback:
+    Name: ConnectCallback
+    Args:
+      - Name: result
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  Callback:
+    Name: CreateCallback
+    Args:
+      - Name: createInfo
+        Type:
+          Name: CreateInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  Dict:
+    Name: CreateInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+    Fields:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+- File: webext/sockets_tcp.idl
+  Callback:
+    Name: DisconnectCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  Enum:
+    Name: DnsQueryType
+    Values:
+      - any
+      - ipv4
+      - ipv6
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  Callback:
+    Name: GetInfoCallback
+    Args:
+      - Name: socketInfo
+        Type:
+          Name: SocketInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  Callback:
+    Name: GetSocketsCallback
+    Args:
+      - Name: socketInfos
+        Type:
+          Name: sequence
+          Params:
+            - Name: SocketInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - sockets
+                    - tcp
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  Dict:
+    Name: ReceiveErrorInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+    Fields:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: resultCode
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+- File: webext/sockets_tcp.idl
+  Dict:
+    Name: ReceiveInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+    Fields:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+- File: webext/sockets_tcp.idl
+  Callback:
+    Name: SecureCallback
+    Args:
+      - Name: result
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  Dict:
+    Name: SecureOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+    Fields:
+      - Name: tlsVersion
+        Type:
+          Name: TLSVersionConstraints
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+- File: webext/sockets_tcp.idl
+  Callback:
+    Name: SendCallback
+    Args:
+      - Name: sendInfo
+        Type:
+          Name: SendInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  Dict:
+    Name: SendInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+    Fields:
+      - Name: resultCode
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: bytesSent
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+- File: webext/sockets_tcp.idl
+  Callback:
+    Name: SetKeepAliveCallback
+    Args:
+      - Name: result
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  Callback:
+    Name: SetNoDelayCallback
+    Args:
+      - Name: result
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  Callback:
+    Name: SetPausedCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  Dict:
+    Name: SocketInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+    Fields:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: persistent
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: name
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: bufferSize
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: paused
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: connected
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: localAddress
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: localPort
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: peerAddress
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: peerPort
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+- File: webext/sockets_tcp.idl
+  Dict:
+    Name: SocketProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+    Fields:
+      - Name: persistent
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: name
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: bufferSize
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+- File: webext/sockets_tcp.idl
+  Dict:
+    Name: TLSVersionConstraints
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+    Fields:
+      - Name: min
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: max
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+- File: webext/sockets_tcp.idl
+  Callback:
+    Name: UpdateCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  WebextFunc:
+    Name: close
+    Modifier: static
+    Args:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: callback
+        Optional: true
+        Type:
+          Name: CloseCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  WebextFunc:
+    Name: connect
+    Modifier: static
+    Args:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: peerAddress
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: peerPort
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: dnsQueryType
+        Optional: true
+        Type:
+          Name: DnsQueryType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: callback
+        Type:
+          Name: ConnectCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  WebextFunc:
+    Name: create
+    Modifier: static
+    Args:
+      - Name: properties
+        Optional: true
+        Type:
+          Name: SocketProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: callback
+        Type:
+          Name: CreateCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  WebextFunc:
+    Name: disconnect
+    Modifier: static
+    Args:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: callback
+        Optional: true
+        Type:
+          Name: DisconnectCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  WebextFunc:
+    Name: getInfo
+    Modifier: static
+    Args:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: callback
+        Type:
+          Name: GetInfoCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  WebextFunc:
+    Name: getSockets
+    Modifier: static
+    Args:
+      - Name: callback
+        Type:
+          Name: GetSocketsCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  WebextEvent:
+    Name: onReceive
+    Modifier: static
+    Args:
+      - Name: info
+        Type:
+          Name: ReceiveInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  WebextEvent:
+    Name: onReceiveError
+    Modifier: static
+    Args:
+      - Name: info
+        Type:
+          Name: ReceiveErrorInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  WebextFunc:
+    Name: secure
+    Modifier: static
+    Args:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: options
+        Optional: true
+        Type:
+          Name: SecureOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: callback
+        Type:
+          Name: SecureCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  WebextFunc:
+    Name: send
+    Modifier: static
+    Args:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: callback
+        Type:
+          Name: SendCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  WebextFunc:
+    Name: setKeepAlive
+    Modifier: static
+    Args:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: enable
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: delay
+        Optional: true
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: callback
+        Type:
+          Name: SetKeepAliveCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  WebextFunc:
+    Name: setNoDelay
+    Modifier: static
+    Args:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: noDelay
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: callback
+        Type:
+          Name: SetNoDelayCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  WebextFunc:
+    Name: setPaused
+    Modifier: static
+    Args:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: paused
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: callback
+        Optional: true
+        Type:
+          Name: SetPausedCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp
+- File: webext/sockets_tcp.idl
+  WebextFunc:
+    Name: update
+    Modifier: static
+    Args:
+      - Name: socketId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: properties
+        Type:
+          Name: SocketProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+      - Name: callback
+        Optional: true
+        Type:
+          Name: UpdateCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - sockets
+                - tcp
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - sockets
+              - tcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - sockets
+          - tcp

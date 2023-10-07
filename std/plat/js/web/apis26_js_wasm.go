@@ -5,17 +5,9 @@ package web
 
 import (
 	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 const (
 	_ USBRecipient = iota
@@ -84,17 +76,22 @@ func (p USBControlTransferParameters) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p USBControlTransferParameters) UpdateFrom(ref js.Ref) {
+func (p *USBControlTransferParameters) UpdateFrom(ref js.Ref) {
 	bindings.USBControlTransferParametersJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p USBControlTransferParameters) Update(ref js.Ref) {
+func (p *USBControlTransferParameters) Update(ref js.Ref) {
 	bindings.USBControlTransferParametersJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *USBControlTransferParameters) FreeMembers(recursive bool) {
 }
 
 func NewUSBOutTransferResult(status USBTransferStatus, bytesWritten uint32) (ret USBOutTransferResult) {
@@ -115,7 +112,7 @@ type USBOutTransferResult struct {
 }
 
 func (this USBOutTransferResult) Once() USBOutTransferResult {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -129,7 +126,7 @@ func (this USBOutTransferResult) FromRef(ref js.Ref) USBOutTransferResult {
 }
 
 func (this USBOutTransferResult) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // BytesWritten returns the value of property "USBOutTransferResult.bytesWritten".
@@ -137,7 +134,7 @@ func (this USBOutTransferResult) Free() {
 // It returns ok=false if there is no such property.
 func (this USBOutTransferResult) BytesWritten() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetUSBOutTransferResultBytesWritten(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -147,7 +144,7 @@ func (this USBOutTransferResult) BytesWritten() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBOutTransferResult) Status() (ret USBTransferStatus, ok bool) {
 	ok = js.True == bindings.GetUSBOutTransferResultStatus(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -194,7 +191,7 @@ type USBIsochronousInTransferPacket struct {
 }
 
 func (this USBIsochronousInTransferPacket) Once() USBIsochronousInTransferPacket {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -208,7 +205,7 @@ func (this USBIsochronousInTransferPacket) FromRef(ref js.Ref) USBIsochronousInT
 }
 
 func (this USBIsochronousInTransferPacket) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Data returns the value of property "USBIsochronousInTransferPacket.data".
@@ -216,7 +213,7 @@ func (this USBIsochronousInTransferPacket) Free() {
 // It returns ok=false if there is no such property.
 func (this USBIsochronousInTransferPacket) Data() (ret js.DataView, ok bool) {
 	ok = js.True == bindings.GetUSBIsochronousInTransferPacketData(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -226,7 +223,7 @@ func (this USBIsochronousInTransferPacket) Data() (ret js.DataView, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBIsochronousInTransferPacket) Status() (ret USBTransferStatus, ok bool) {
 	ok = js.True == bindings.GetUSBIsochronousInTransferPacketStatus(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -249,7 +246,7 @@ type USBIsochronousInTransferResult struct {
 }
 
 func (this USBIsochronousInTransferResult) Once() USBIsochronousInTransferResult {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -263,7 +260,7 @@ func (this USBIsochronousInTransferResult) FromRef(ref js.Ref) USBIsochronousInT
 }
 
 func (this USBIsochronousInTransferResult) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Data returns the value of property "USBIsochronousInTransferResult.data".
@@ -271,7 +268,7 @@ func (this USBIsochronousInTransferResult) Free() {
 // It returns ok=false if there is no such property.
 func (this USBIsochronousInTransferResult) Data() (ret js.DataView, ok bool) {
 	ok = js.True == bindings.GetUSBIsochronousInTransferResultData(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -281,7 +278,7 @@ func (this USBIsochronousInTransferResult) Data() (ret js.DataView, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBIsochronousInTransferResult) Packets() (ret js.FrozenArray[USBIsochronousInTransferPacket], ok bool) {
 	ok = js.True == bindings.GetUSBIsochronousInTransferResultPackets(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -304,7 +301,7 @@ type USBIsochronousOutTransferPacket struct {
 }
 
 func (this USBIsochronousOutTransferPacket) Once() USBIsochronousOutTransferPacket {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -318,7 +315,7 @@ func (this USBIsochronousOutTransferPacket) FromRef(ref js.Ref) USBIsochronousOu
 }
 
 func (this USBIsochronousOutTransferPacket) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // BytesWritten returns the value of property "USBIsochronousOutTransferPacket.bytesWritten".
@@ -326,7 +323,7 @@ func (this USBIsochronousOutTransferPacket) Free() {
 // It returns ok=false if there is no such property.
 func (this USBIsochronousOutTransferPacket) BytesWritten() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetUSBIsochronousOutTransferPacketBytesWritten(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -336,7 +333,7 @@ func (this USBIsochronousOutTransferPacket) BytesWritten() (ret uint32, ok bool)
 // It returns ok=false if there is no such property.
 func (this USBIsochronousOutTransferPacket) Status() (ret USBTransferStatus, ok bool) {
 	ok = js.True == bindings.GetUSBIsochronousOutTransferPacketStatus(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -352,7 +349,7 @@ type USBIsochronousOutTransferResult struct {
 }
 
 func (this USBIsochronousOutTransferResult) Once() USBIsochronousOutTransferResult {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -366,7 +363,7 @@ func (this USBIsochronousOutTransferResult) FromRef(ref js.Ref) USBIsochronousOu
 }
 
 func (this USBIsochronousOutTransferResult) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Packets returns the value of property "USBIsochronousOutTransferResult.packets".
@@ -374,7 +371,7 @@ func (this USBIsochronousOutTransferResult) Free() {
 // It returns ok=false if there is no such property.
 func (this USBIsochronousOutTransferResult) Packets() (ret js.FrozenArray[USBIsochronousOutTransferPacket], ok bool) {
 	ok = js.True == bindings.GetUSBIsochronousOutTransferResultPackets(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -419,7 +416,7 @@ type USBEndpoint struct {
 }
 
 func (this USBEndpoint) Once() USBEndpoint {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -433,7 +430,7 @@ func (this USBEndpoint) FromRef(ref js.Ref) USBEndpoint {
 }
 
 func (this USBEndpoint) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // EndpointNumber returns the value of property "USBEndpoint.endpointNumber".
@@ -441,7 +438,7 @@ func (this USBEndpoint) Free() {
 // It returns ok=false if there is no such property.
 func (this USBEndpoint) EndpointNumber() (ret uint8, ok bool) {
 	ok = js.True == bindings.GetUSBEndpointEndpointNumber(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -451,7 +448,7 @@ func (this USBEndpoint) EndpointNumber() (ret uint8, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBEndpoint) Direction() (ret USBDirection, ok bool) {
 	ok = js.True == bindings.GetUSBEndpointDirection(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -461,7 +458,7 @@ func (this USBEndpoint) Direction() (ret USBDirection, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBEndpoint) Type() (ret USBEndpointType, ok bool) {
 	ok = js.True == bindings.GetUSBEndpointType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -471,7 +468,7 @@ func (this USBEndpoint) Type() (ret USBEndpointType, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBEndpoint) PacketSize() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetUSBEndpointPacketSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -488,7 +485,7 @@ type USBAlternateInterface struct {
 }
 
 func (this USBAlternateInterface) Once() USBAlternateInterface {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -502,7 +499,7 @@ func (this USBAlternateInterface) FromRef(ref js.Ref) USBAlternateInterface {
 }
 
 func (this USBAlternateInterface) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // AlternateSetting returns the value of property "USBAlternateInterface.alternateSetting".
@@ -510,7 +507,7 @@ func (this USBAlternateInterface) Free() {
 // It returns ok=false if there is no such property.
 func (this USBAlternateInterface) AlternateSetting() (ret uint8, ok bool) {
 	ok = js.True == bindings.GetUSBAlternateInterfaceAlternateSetting(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -520,7 +517,7 @@ func (this USBAlternateInterface) AlternateSetting() (ret uint8, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBAlternateInterface) InterfaceClass() (ret uint8, ok bool) {
 	ok = js.True == bindings.GetUSBAlternateInterfaceInterfaceClass(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -530,7 +527,7 @@ func (this USBAlternateInterface) InterfaceClass() (ret uint8, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBAlternateInterface) InterfaceSubclass() (ret uint8, ok bool) {
 	ok = js.True == bindings.GetUSBAlternateInterfaceInterfaceSubclass(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -540,7 +537,7 @@ func (this USBAlternateInterface) InterfaceSubclass() (ret uint8, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBAlternateInterface) InterfaceProtocol() (ret uint8, ok bool) {
 	ok = js.True == bindings.GetUSBAlternateInterfaceInterfaceProtocol(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -550,7 +547,7 @@ func (this USBAlternateInterface) InterfaceProtocol() (ret uint8, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBAlternateInterface) InterfaceName() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetUSBAlternateInterfaceInterfaceName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -560,7 +557,7 @@ func (this USBAlternateInterface) InterfaceName() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBAlternateInterface) Endpoints() (ret js.FrozenArray[USBEndpoint], ok bool) {
 	ok = js.True == bindings.GetUSBAlternateInterfaceEndpoints(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -577,7 +574,7 @@ type USBInterface struct {
 }
 
 func (this USBInterface) Once() USBInterface {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -591,7 +588,7 @@ func (this USBInterface) FromRef(ref js.Ref) USBInterface {
 }
 
 func (this USBInterface) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // InterfaceNumber returns the value of property "USBInterface.interfaceNumber".
@@ -599,7 +596,7 @@ func (this USBInterface) Free() {
 // It returns ok=false if there is no such property.
 func (this USBInterface) InterfaceNumber() (ret uint8, ok bool) {
 	ok = js.True == bindings.GetUSBInterfaceInterfaceNumber(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -609,7 +606,7 @@ func (this USBInterface) InterfaceNumber() (ret uint8, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBInterface) Alternate() (ret USBAlternateInterface, ok bool) {
 	ok = js.True == bindings.GetUSBInterfaceAlternate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -619,7 +616,7 @@ func (this USBInterface) Alternate() (ret USBAlternateInterface, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBInterface) Alternates() (ret js.FrozenArray[USBAlternateInterface], ok bool) {
 	ok = js.True == bindings.GetUSBInterfaceAlternates(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -629,7 +626,7 @@ func (this USBInterface) Alternates() (ret js.FrozenArray[USBAlternateInterface]
 // It returns ok=false if there is no such property.
 func (this USBInterface) Claimed() (ret bool, ok bool) {
 	ok = js.True == bindings.GetUSBInterfaceClaimed(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -646,7 +643,7 @@ type USBConfiguration struct {
 }
 
 func (this USBConfiguration) Once() USBConfiguration {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -660,7 +657,7 @@ func (this USBConfiguration) FromRef(ref js.Ref) USBConfiguration {
 }
 
 func (this USBConfiguration) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // ConfigurationValue returns the value of property "USBConfiguration.configurationValue".
@@ -668,7 +665,7 @@ func (this USBConfiguration) Free() {
 // It returns ok=false if there is no such property.
 func (this USBConfiguration) ConfigurationValue() (ret uint8, ok bool) {
 	ok = js.True == bindings.GetUSBConfigurationConfigurationValue(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -678,7 +675,7 @@ func (this USBConfiguration) ConfigurationValue() (ret uint8, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBConfiguration) ConfigurationName() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetUSBConfigurationConfigurationName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -688,7 +685,7 @@ func (this USBConfiguration) ConfigurationName() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBConfiguration) Interfaces() (ret js.FrozenArray[USBInterface], ok bool) {
 	ok = js.True == bindings.GetUSBConfigurationInterfaces(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -698,7 +695,7 @@ type USBDevice struct {
 }
 
 func (this USBDevice) Once() USBDevice {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -712,7 +709,7 @@ func (this USBDevice) FromRef(ref js.Ref) USBDevice {
 }
 
 func (this USBDevice) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // UsbVersionMajor returns the value of property "USBDevice.usbVersionMajor".
@@ -720,7 +717,7 @@ func (this USBDevice) Free() {
 // It returns ok=false if there is no such property.
 func (this USBDevice) UsbVersionMajor() (ret uint8, ok bool) {
 	ok = js.True == bindings.GetUSBDeviceUsbVersionMajor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -730,7 +727,7 @@ func (this USBDevice) UsbVersionMajor() (ret uint8, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBDevice) UsbVersionMinor() (ret uint8, ok bool) {
 	ok = js.True == bindings.GetUSBDeviceUsbVersionMinor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -740,7 +737,7 @@ func (this USBDevice) UsbVersionMinor() (ret uint8, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBDevice) UsbVersionSubminor() (ret uint8, ok bool) {
 	ok = js.True == bindings.GetUSBDeviceUsbVersionSubminor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -750,7 +747,7 @@ func (this USBDevice) UsbVersionSubminor() (ret uint8, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBDevice) DeviceClass() (ret uint8, ok bool) {
 	ok = js.True == bindings.GetUSBDeviceDeviceClass(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -760,7 +757,7 @@ func (this USBDevice) DeviceClass() (ret uint8, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBDevice) DeviceSubclass() (ret uint8, ok bool) {
 	ok = js.True == bindings.GetUSBDeviceDeviceSubclass(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -770,7 +767,7 @@ func (this USBDevice) DeviceSubclass() (ret uint8, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBDevice) DeviceProtocol() (ret uint8, ok bool) {
 	ok = js.True == bindings.GetUSBDeviceDeviceProtocol(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -780,7 +777,7 @@ func (this USBDevice) DeviceProtocol() (ret uint8, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBDevice) VendorId() (ret uint16, ok bool) {
 	ok = js.True == bindings.GetUSBDeviceVendorId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -790,7 +787,7 @@ func (this USBDevice) VendorId() (ret uint16, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBDevice) ProductId() (ret uint16, ok bool) {
 	ok = js.True == bindings.GetUSBDeviceProductId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -800,7 +797,7 @@ func (this USBDevice) ProductId() (ret uint16, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBDevice) DeviceVersionMajor() (ret uint8, ok bool) {
 	ok = js.True == bindings.GetUSBDeviceDeviceVersionMajor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -810,7 +807,7 @@ func (this USBDevice) DeviceVersionMajor() (ret uint8, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBDevice) DeviceVersionMinor() (ret uint8, ok bool) {
 	ok = js.True == bindings.GetUSBDeviceDeviceVersionMinor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -820,7 +817,7 @@ func (this USBDevice) DeviceVersionMinor() (ret uint8, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBDevice) DeviceVersionSubminor() (ret uint8, ok bool) {
 	ok = js.True == bindings.GetUSBDeviceDeviceVersionSubminor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -830,7 +827,7 @@ func (this USBDevice) DeviceVersionSubminor() (ret uint8, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBDevice) ManufacturerName() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetUSBDeviceManufacturerName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -840,7 +837,7 @@ func (this USBDevice) ManufacturerName() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBDevice) ProductName() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetUSBDeviceProductName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -850,7 +847,7 @@ func (this USBDevice) ProductName() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBDevice) SerialNumber() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetUSBDeviceSerialNumber(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -860,7 +857,7 @@ func (this USBDevice) SerialNumber() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBDevice) Configuration() (ret USBConfiguration, ok bool) {
 	ok = js.True == bindings.GetUSBDeviceConfiguration(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -870,7 +867,7 @@ func (this USBDevice) Configuration() (ret USBConfiguration, ok bool) {
 // It returns ok=false if there is no such property.
 func (this USBDevice) Configurations() (ret js.FrozenArray[USBConfiguration], ok bool) {
 	ok = js.True == bindings.GetUSBDeviceConfigurations(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -880,31 +877,30 @@ func (this USBDevice) Configurations() (ret js.FrozenArray[USBConfiguration], ok
 // It returns ok=false if there is no such property.
 func (this USBDevice) Opened() (ret bool, ok bool) {
 	ok = js.True == bindings.GetUSBDeviceOpened(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasOpen returns true if the method "USBDevice.open" exists.
-func (this USBDevice) HasOpen() bool {
-	return js.True == bindings.HasUSBDeviceOpen(
-		this.Ref(),
+// HasFuncOpen returns true if the method "USBDevice.open" exists.
+func (this USBDevice) HasFuncOpen() bool {
+	return js.True == bindings.HasFuncUSBDeviceOpen(
+		this.ref,
 	)
 }
 
-// OpenFunc returns the method "USBDevice.open".
-func (this USBDevice) OpenFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.USBDeviceOpenFunc(
-			this.Ref(),
-		),
+// FuncOpen returns the method "USBDevice.open".
+func (this USBDevice) FuncOpen() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncUSBDeviceOpen(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Open calls the method "USBDevice.open".
 func (this USBDevice) Open() (ret js.Promise[js.Void]) {
 	bindings.CallUSBDeviceOpen(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -915,32 +911,31 @@ func (this USBDevice) Open() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this USBDevice) TryOpen() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceOpen(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasClose returns true if the method "USBDevice.close" exists.
-func (this USBDevice) HasClose() bool {
-	return js.True == bindings.HasUSBDeviceClose(
-		this.Ref(),
+// HasFuncClose returns true if the method "USBDevice.close" exists.
+func (this USBDevice) HasFuncClose() bool {
+	return js.True == bindings.HasFuncUSBDeviceClose(
+		this.ref,
 	)
 }
 
-// CloseFunc returns the method "USBDevice.close".
-func (this USBDevice) CloseFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.USBDeviceCloseFunc(
-			this.Ref(),
-		),
+// FuncClose returns the method "USBDevice.close".
+func (this USBDevice) FuncClose() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncUSBDeviceClose(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Close calls the method "USBDevice.close".
 func (this USBDevice) Close() (ret js.Promise[js.Void]) {
 	bindings.CallUSBDeviceClose(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -951,32 +946,31 @@ func (this USBDevice) Close() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this USBDevice) TryClose() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceClose(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasForget returns true if the method "USBDevice.forget" exists.
-func (this USBDevice) HasForget() bool {
-	return js.True == bindings.HasUSBDeviceForget(
-		this.Ref(),
+// HasFuncForget returns true if the method "USBDevice.forget" exists.
+func (this USBDevice) HasFuncForget() bool {
+	return js.True == bindings.HasFuncUSBDeviceForget(
+		this.ref,
 	)
 }
 
-// ForgetFunc returns the method "USBDevice.forget".
-func (this USBDevice) ForgetFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.USBDeviceForgetFunc(
-			this.Ref(),
-		),
+// FuncForget returns the method "USBDevice.forget".
+func (this USBDevice) FuncForget() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncUSBDeviceForget(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Forget calls the method "USBDevice.forget".
 func (this USBDevice) Forget() (ret js.Promise[js.Void]) {
 	bindings.CallUSBDeviceForget(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -987,32 +981,31 @@ func (this USBDevice) Forget() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this USBDevice) TryForget() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceForget(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSelectConfiguration returns true if the method "USBDevice.selectConfiguration" exists.
-func (this USBDevice) HasSelectConfiguration() bool {
-	return js.True == bindings.HasUSBDeviceSelectConfiguration(
-		this.Ref(),
+// HasFuncSelectConfiguration returns true if the method "USBDevice.selectConfiguration" exists.
+func (this USBDevice) HasFuncSelectConfiguration() bool {
+	return js.True == bindings.HasFuncUSBDeviceSelectConfiguration(
+		this.ref,
 	)
 }
 
-// SelectConfigurationFunc returns the method "USBDevice.selectConfiguration".
-func (this USBDevice) SelectConfigurationFunc() (fn js.Func[func(configurationValue uint8) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.USBDeviceSelectConfigurationFunc(
-			this.Ref(),
-		),
+// FuncSelectConfiguration returns the method "USBDevice.selectConfiguration".
+func (this USBDevice) FuncSelectConfiguration() (fn js.Func[func(configurationValue uint8) js.Promise[js.Void]]) {
+	bindings.FuncUSBDeviceSelectConfiguration(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SelectConfiguration calls the method "USBDevice.selectConfiguration".
 func (this USBDevice) SelectConfiguration(configurationValue uint8) (ret js.Promise[js.Void]) {
 	bindings.CallUSBDeviceSelectConfiguration(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(configurationValue),
 	)
 
@@ -1024,33 +1017,32 @@ func (this USBDevice) SelectConfiguration(configurationValue uint8) (ret js.Prom
 // the catch clause.
 func (this USBDevice) TrySelectConfiguration(configurationValue uint8) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceSelectConfiguration(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(configurationValue),
 	)
 
 	return
 }
 
-// HasClaimInterface returns true if the method "USBDevice.claimInterface" exists.
-func (this USBDevice) HasClaimInterface() bool {
-	return js.True == bindings.HasUSBDeviceClaimInterface(
-		this.Ref(),
+// HasFuncClaimInterface returns true if the method "USBDevice.claimInterface" exists.
+func (this USBDevice) HasFuncClaimInterface() bool {
+	return js.True == bindings.HasFuncUSBDeviceClaimInterface(
+		this.ref,
 	)
 }
 
-// ClaimInterfaceFunc returns the method "USBDevice.claimInterface".
-func (this USBDevice) ClaimInterfaceFunc() (fn js.Func[func(interfaceNumber uint8) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.USBDeviceClaimInterfaceFunc(
-			this.Ref(),
-		),
+// FuncClaimInterface returns the method "USBDevice.claimInterface".
+func (this USBDevice) FuncClaimInterface() (fn js.Func[func(interfaceNumber uint8) js.Promise[js.Void]]) {
+	bindings.FuncUSBDeviceClaimInterface(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ClaimInterface calls the method "USBDevice.claimInterface".
 func (this USBDevice) ClaimInterface(interfaceNumber uint8) (ret js.Promise[js.Void]) {
 	bindings.CallUSBDeviceClaimInterface(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(interfaceNumber),
 	)
 
@@ -1062,33 +1054,32 @@ func (this USBDevice) ClaimInterface(interfaceNumber uint8) (ret js.Promise[js.V
 // the catch clause.
 func (this USBDevice) TryClaimInterface(interfaceNumber uint8) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceClaimInterface(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(interfaceNumber),
 	)
 
 	return
 }
 
-// HasReleaseInterface returns true if the method "USBDevice.releaseInterface" exists.
-func (this USBDevice) HasReleaseInterface() bool {
-	return js.True == bindings.HasUSBDeviceReleaseInterface(
-		this.Ref(),
+// HasFuncReleaseInterface returns true if the method "USBDevice.releaseInterface" exists.
+func (this USBDevice) HasFuncReleaseInterface() bool {
+	return js.True == bindings.HasFuncUSBDeviceReleaseInterface(
+		this.ref,
 	)
 }
 
-// ReleaseInterfaceFunc returns the method "USBDevice.releaseInterface".
-func (this USBDevice) ReleaseInterfaceFunc() (fn js.Func[func(interfaceNumber uint8) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.USBDeviceReleaseInterfaceFunc(
-			this.Ref(),
-		),
+// FuncReleaseInterface returns the method "USBDevice.releaseInterface".
+func (this USBDevice) FuncReleaseInterface() (fn js.Func[func(interfaceNumber uint8) js.Promise[js.Void]]) {
+	bindings.FuncUSBDeviceReleaseInterface(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReleaseInterface calls the method "USBDevice.releaseInterface".
 func (this USBDevice) ReleaseInterface(interfaceNumber uint8) (ret js.Promise[js.Void]) {
 	bindings.CallUSBDeviceReleaseInterface(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(interfaceNumber),
 	)
 
@@ -1100,33 +1091,32 @@ func (this USBDevice) ReleaseInterface(interfaceNumber uint8) (ret js.Promise[js
 // the catch clause.
 func (this USBDevice) TryReleaseInterface(interfaceNumber uint8) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceReleaseInterface(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(interfaceNumber),
 	)
 
 	return
 }
 
-// HasSelectAlternateInterface returns true if the method "USBDevice.selectAlternateInterface" exists.
-func (this USBDevice) HasSelectAlternateInterface() bool {
-	return js.True == bindings.HasUSBDeviceSelectAlternateInterface(
-		this.Ref(),
+// HasFuncSelectAlternateInterface returns true if the method "USBDevice.selectAlternateInterface" exists.
+func (this USBDevice) HasFuncSelectAlternateInterface() bool {
+	return js.True == bindings.HasFuncUSBDeviceSelectAlternateInterface(
+		this.ref,
 	)
 }
 
-// SelectAlternateInterfaceFunc returns the method "USBDevice.selectAlternateInterface".
-func (this USBDevice) SelectAlternateInterfaceFunc() (fn js.Func[func(interfaceNumber uint8, alternateSetting uint8) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.USBDeviceSelectAlternateInterfaceFunc(
-			this.Ref(),
-		),
+// FuncSelectAlternateInterface returns the method "USBDevice.selectAlternateInterface".
+func (this USBDevice) FuncSelectAlternateInterface() (fn js.Func[func(interfaceNumber uint8, alternateSetting uint8) js.Promise[js.Void]]) {
+	bindings.FuncUSBDeviceSelectAlternateInterface(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SelectAlternateInterface calls the method "USBDevice.selectAlternateInterface".
 func (this USBDevice) SelectAlternateInterface(interfaceNumber uint8, alternateSetting uint8) (ret js.Promise[js.Void]) {
 	bindings.CallUSBDeviceSelectAlternateInterface(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(interfaceNumber),
 		uint32(alternateSetting),
 	)
@@ -1139,7 +1129,7 @@ func (this USBDevice) SelectAlternateInterface(interfaceNumber uint8, alternateS
 // the catch clause.
 func (this USBDevice) TrySelectAlternateInterface(interfaceNumber uint8, alternateSetting uint8) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceSelectAlternateInterface(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(interfaceNumber),
 		uint32(alternateSetting),
 	)
@@ -1147,26 +1137,25 @@ func (this USBDevice) TrySelectAlternateInterface(interfaceNumber uint8, alterna
 	return
 }
 
-// HasControlTransferIn returns true if the method "USBDevice.controlTransferIn" exists.
-func (this USBDevice) HasControlTransferIn() bool {
-	return js.True == bindings.HasUSBDeviceControlTransferIn(
-		this.Ref(),
+// HasFuncControlTransferIn returns true if the method "USBDevice.controlTransferIn" exists.
+func (this USBDevice) HasFuncControlTransferIn() bool {
+	return js.True == bindings.HasFuncUSBDeviceControlTransferIn(
+		this.ref,
 	)
 }
 
-// ControlTransferInFunc returns the method "USBDevice.controlTransferIn".
-func (this USBDevice) ControlTransferInFunc() (fn js.Func[func(setup USBControlTransferParameters, length uint16) js.Promise[USBInTransferResult]]) {
-	return fn.FromRef(
-		bindings.USBDeviceControlTransferInFunc(
-			this.Ref(),
-		),
+// FuncControlTransferIn returns the method "USBDevice.controlTransferIn".
+func (this USBDevice) FuncControlTransferIn() (fn js.Func[func(setup USBControlTransferParameters, length uint16) js.Promise[USBInTransferResult]]) {
+	bindings.FuncUSBDeviceControlTransferIn(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ControlTransferIn calls the method "USBDevice.controlTransferIn".
 func (this USBDevice) ControlTransferIn(setup USBControlTransferParameters, length uint16) (ret js.Promise[USBInTransferResult]) {
 	bindings.CallUSBDeviceControlTransferIn(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&setup),
 		uint32(length),
 	)
@@ -1179,7 +1168,7 @@ func (this USBDevice) ControlTransferIn(setup USBControlTransferParameters, leng
 // the catch clause.
 func (this USBDevice) TryControlTransferIn(setup USBControlTransferParameters, length uint16) (ret js.Promise[USBInTransferResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceControlTransferIn(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&setup),
 		uint32(length),
 	)
@@ -1187,26 +1176,25 @@ func (this USBDevice) TryControlTransferIn(setup USBControlTransferParameters, l
 	return
 }
 
-// HasControlTransferOut returns true if the method "USBDevice.controlTransferOut" exists.
-func (this USBDevice) HasControlTransferOut() bool {
-	return js.True == bindings.HasUSBDeviceControlTransferOut(
-		this.Ref(),
+// HasFuncControlTransferOut returns true if the method "USBDevice.controlTransferOut" exists.
+func (this USBDevice) HasFuncControlTransferOut() bool {
+	return js.True == bindings.HasFuncUSBDeviceControlTransferOut(
+		this.ref,
 	)
 }
 
-// ControlTransferOutFunc returns the method "USBDevice.controlTransferOut".
-func (this USBDevice) ControlTransferOutFunc() (fn js.Func[func(setup USBControlTransferParameters, data BufferSource) js.Promise[USBOutTransferResult]]) {
-	return fn.FromRef(
-		bindings.USBDeviceControlTransferOutFunc(
-			this.Ref(),
-		),
+// FuncControlTransferOut returns the method "USBDevice.controlTransferOut".
+func (this USBDevice) FuncControlTransferOut() (fn js.Func[func(setup USBControlTransferParameters, data BufferSource) js.Promise[USBOutTransferResult]]) {
+	bindings.FuncUSBDeviceControlTransferOut(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ControlTransferOut calls the method "USBDevice.controlTransferOut".
 func (this USBDevice) ControlTransferOut(setup USBControlTransferParameters, data BufferSource) (ret js.Promise[USBOutTransferResult]) {
 	bindings.CallUSBDeviceControlTransferOut(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&setup),
 		data.Ref(),
 	)
@@ -1219,7 +1207,7 @@ func (this USBDevice) ControlTransferOut(setup USBControlTransferParameters, dat
 // the catch clause.
 func (this USBDevice) TryControlTransferOut(setup USBControlTransferParameters, data BufferSource) (ret js.Promise[USBOutTransferResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceControlTransferOut(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&setup),
 		data.Ref(),
 	)
@@ -1227,26 +1215,25 @@ func (this USBDevice) TryControlTransferOut(setup USBControlTransferParameters, 
 	return
 }
 
-// HasControlTransferOut1 returns true if the method "USBDevice.controlTransferOut" exists.
-func (this USBDevice) HasControlTransferOut1() bool {
-	return js.True == bindings.HasUSBDeviceControlTransferOut1(
-		this.Ref(),
+// HasFuncControlTransferOut1 returns true if the method "USBDevice.controlTransferOut" exists.
+func (this USBDevice) HasFuncControlTransferOut1() bool {
+	return js.True == bindings.HasFuncUSBDeviceControlTransferOut1(
+		this.ref,
 	)
 }
 
-// ControlTransferOut1Func returns the method "USBDevice.controlTransferOut".
-func (this USBDevice) ControlTransferOut1Func() (fn js.Func[func(setup USBControlTransferParameters) js.Promise[USBOutTransferResult]]) {
-	return fn.FromRef(
-		bindings.USBDeviceControlTransferOut1Func(
-			this.Ref(),
-		),
+// FuncControlTransferOut1 returns the method "USBDevice.controlTransferOut".
+func (this USBDevice) FuncControlTransferOut1() (fn js.Func[func(setup USBControlTransferParameters) js.Promise[USBOutTransferResult]]) {
+	bindings.FuncUSBDeviceControlTransferOut1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ControlTransferOut1 calls the method "USBDevice.controlTransferOut".
 func (this USBDevice) ControlTransferOut1(setup USBControlTransferParameters) (ret js.Promise[USBOutTransferResult]) {
 	bindings.CallUSBDeviceControlTransferOut1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&setup),
 	)
 
@@ -1258,33 +1245,32 @@ func (this USBDevice) ControlTransferOut1(setup USBControlTransferParameters) (r
 // the catch clause.
 func (this USBDevice) TryControlTransferOut1(setup USBControlTransferParameters) (ret js.Promise[USBOutTransferResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceControlTransferOut1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&setup),
 	)
 
 	return
 }
 
-// HasClearHalt returns true if the method "USBDevice.clearHalt" exists.
-func (this USBDevice) HasClearHalt() bool {
-	return js.True == bindings.HasUSBDeviceClearHalt(
-		this.Ref(),
+// HasFuncClearHalt returns true if the method "USBDevice.clearHalt" exists.
+func (this USBDevice) HasFuncClearHalt() bool {
+	return js.True == bindings.HasFuncUSBDeviceClearHalt(
+		this.ref,
 	)
 }
 
-// ClearHaltFunc returns the method "USBDevice.clearHalt".
-func (this USBDevice) ClearHaltFunc() (fn js.Func[func(direction USBDirection, endpointNumber uint8) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.USBDeviceClearHaltFunc(
-			this.Ref(),
-		),
+// FuncClearHalt returns the method "USBDevice.clearHalt".
+func (this USBDevice) FuncClearHalt() (fn js.Func[func(direction USBDirection, endpointNumber uint8) js.Promise[js.Void]]) {
+	bindings.FuncUSBDeviceClearHalt(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ClearHalt calls the method "USBDevice.clearHalt".
 func (this USBDevice) ClearHalt(direction USBDirection, endpointNumber uint8) (ret js.Promise[js.Void]) {
 	bindings.CallUSBDeviceClearHalt(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(direction),
 		uint32(endpointNumber),
 	)
@@ -1297,7 +1283,7 @@ func (this USBDevice) ClearHalt(direction USBDirection, endpointNumber uint8) (r
 // the catch clause.
 func (this USBDevice) TryClearHalt(direction USBDirection, endpointNumber uint8) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceClearHalt(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(direction),
 		uint32(endpointNumber),
 	)
@@ -1305,26 +1291,25 @@ func (this USBDevice) TryClearHalt(direction USBDirection, endpointNumber uint8)
 	return
 }
 
-// HasTransferIn returns true if the method "USBDevice.transferIn" exists.
-func (this USBDevice) HasTransferIn() bool {
-	return js.True == bindings.HasUSBDeviceTransferIn(
-		this.Ref(),
+// HasFuncTransferIn returns true if the method "USBDevice.transferIn" exists.
+func (this USBDevice) HasFuncTransferIn() bool {
+	return js.True == bindings.HasFuncUSBDeviceTransferIn(
+		this.ref,
 	)
 }
 
-// TransferInFunc returns the method "USBDevice.transferIn".
-func (this USBDevice) TransferInFunc() (fn js.Func[func(endpointNumber uint8, length uint32) js.Promise[USBInTransferResult]]) {
-	return fn.FromRef(
-		bindings.USBDeviceTransferInFunc(
-			this.Ref(),
-		),
+// FuncTransferIn returns the method "USBDevice.transferIn".
+func (this USBDevice) FuncTransferIn() (fn js.Func[func(endpointNumber uint8, length uint32) js.Promise[USBInTransferResult]]) {
+	bindings.FuncUSBDeviceTransferIn(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TransferIn calls the method "USBDevice.transferIn".
 func (this USBDevice) TransferIn(endpointNumber uint8, length uint32) (ret js.Promise[USBInTransferResult]) {
 	bindings.CallUSBDeviceTransferIn(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(endpointNumber),
 		uint32(length),
 	)
@@ -1337,7 +1322,7 @@ func (this USBDevice) TransferIn(endpointNumber uint8, length uint32) (ret js.Pr
 // the catch clause.
 func (this USBDevice) TryTransferIn(endpointNumber uint8, length uint32) (ret js.Promise[USBInTransferResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceTransferIn(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(endpointNumber),
 		uint32(length),
 	)
@@ -1345,26 +1330,25 @@ func (this USBDevice) TryTransferIn(endpointNumber uint8, length uint32) (ret js
 	return
 }
 
-// HasTransferOut returns true if the method "USBDevice.transferOut" exists.
-func (this USBDevice) HasTransferOut() bool {
-	return js.True == bindings.HasUSBDeviceTransferOut(
-		this.Ref(),
+// HasFuncTransferOut returns true if the method "USBDevice.transferOut" exists.
+func (this USBDevice) HasFuncTransferOut() bool {
+	return js.True == bindings.HasFuncUSBDeviceTransferOut(
+		this.ref,
 	)
 }
 
-// TransferOutFunc returns the method "USBDevice.transferOut".
-func (this USBDevice) TransferOutFunc() (fn js.Func[func(endpointNumber uint8, data BufferSource) js.Promise[USBOutTransferResult]]) {
-	return fn.FromRef(
-		bindings.USBDeviceTransferOutFunc(
-			this.Ref(),
-		),
+// FuncTransferOut returns the method "USBDevice.transferOut".
+func (this USBDevice) FuncTransferOut() (fn js.Func[func(endpointNumber uint8, data BufferSource) js.Promise[USBOutTransferResult]]) {
+	bindings.FuncUSBDeviceTransferOut(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TransferOut calls the method "USBDevice.transferOut".
 func (this USBDevice) TransferOut(endpointNumber uint8, data BufferSource) (ret js.Promise[USBOutTransferResult]) {
 	bindings.CallUSBDeviceTransferOut(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(endpointNumber),
 		data.Ref(),
 	)
@@ -1377,7 +1361,7 @@ func (this USBDevice) TransferOut(endpointNumber uint8, data BufferSource) (ret 
 // the catch clause.
 func (this USBDevice) TryTransferOut(endpointNumber uint8, data BufferSource) (ret js.Promise[USBOutTransferResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceTransferOut(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(endpointNumber),
 		data.Ref(),
 	)
@@ -1385,26 +1369,25 @@ func (this USBDevice) TryTransferOut(endpointNumber uint8, data BufferSource) (r
 	return
 }
 
-// HasIsochronousTransferIn returns true if the method "USBDevice.isochronousTransferIn" exists.
-func (this USBDevice) HasIsochronousTransferIn() bool {
-	return js.True == bindings.HasUSBDeviceIsochronousTransferIn(
-		this.Ref(),
+// HasFuncIsochronousTransferIn returns true if the method "USBDevice.isochronousTransferIn" exists.
+func (this USBDevice) HasFuncIsochronousTransferIn() bool {
+	return js.True == bindings.HasFuncUSBDeviceIsochronousTransferIn(
+		this.ref,
 	)
 }
 
-// IsochronousTransferInFunc returns the method "USBDevice.isochronousTransferIn".
-func (this USBDevice) IsochronousTransferInFunc() (fn js.Func[func(endpointNumber uint8, packetLengths js.Array[uint32]) js.Promise[USBIsochronousInTransferResult]]) {
-	return fn.FromRef(
-		bindings.USBDeviceIsochronousTransferInFunc(
-			this.Ref(),
-		),
+// FuncIsochronousTransferIn returns the method "USBDevice.isochronousTransferIn".
+func (this USBDevice) FuncIsochronousTransferIn() (fn js.Func[func(endpointNumber uint8, packetLengths js.Array[uint32]) js.Promise[USBIsochronousInTransferResult]]) {
+	bindings.FuncUSBDeviceIsochronousTransferIn(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsochronousTransferIn calls the method "USBDevice.isochronousTransferIn".
 func (this USBDevice) IsochronousTransferIn(endpointNumber uint8, packetLengths js.Array[uint32]) (ret js.Promise[USBIsochronousInTransferResult]) {
 	bindings.CallUSBDeviceIsochronousTransferIn(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(endpointNumber),
 		packetLengths.Ref(),
 	)
@@ -1417,7 +1400,7 @@ func (this USBDevice) IsochronousTransferIn(endpointNumber uint8, packetLengths 
 // the catch clause.
 func (this USBDevice) TryIsochronousTransferIn(endpointNumber uint8, packetLengths js.Array[uint32]) (ret js.Promise[USBIsochronousInTransferResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceIsochronousTransferIn(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(endpointNumber),
 		packetLengths.Ref(),
 	)
@@ -1425,26 +1408,25 @@ func (this USBDevice) TryIsochronousTransferIn(endpointNumber uint8, packetLengt
 	return
 }
 
-// HasIsochronousTransferOut returns true if the method "USBDevice.isochronousTransferOut" exists.
-func (this USBDevice) HasIsochronousTransferOut() bool {
-	return js.True == bindings.HasUSBDeviceIsochronousTransferOut(
-		this.Ref(),
+// HasFuncIsochronousTransferOut returns true if the method "USBDevice.isochronousTransferOut" exists.
+func (this USBDevice) HasFuncIsochronousTransferOut() bool {
+	return js.True == bindings.HasFuncUSBDeviceIsochronousTransferOut(
+		this.ref,
 	)
 }
 
-// IsochronousTransferOutFunc returns the method "USBDevice.isochronousTransferOut".
-func (this USBDevice) IsochronousTransferOutFunc() (fn js.Func[func(endpointNumber uint8, data BufferSource, packetLengths js.Array[uint32]) js.Promise[USBIsochronousOutTransferResult]]) {
-	return fn.FromRef(
-		bindings.USBDeviceIsochronousTransferOutFunc(
-			this.Ref(),
-		),
+// FuncIsochronousTransferOut returns the method "USBDevice.isochronousTransferOut".
+func (this USBDevice) FuncIsochronousTransferOut() (fn js.Func[func(endpointNumber uint8, data BufferSource, packetLengths js.Array[uint32]) js.Promise[USBIsochronousOutTransferResult]]) {
+	bindings.FuncUSBDeviceIsochronousTransferOut(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsochronousTransferOut calls the method "USBDevice.isochronousTransferOut".
 func (this USBDevice) IsochronousTransferOut(endpointNumber uint8, data BufferSource, packetLengths js.Array[uint32]) (ret js.Promise[USBIsochronousOutTransferResult]) {
 	bindings.CallUSBDeviceIsochronousTransferOut(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(endpointNumber),
 		data.Ref(),
 		packetLengths.Ref(),
@@ -1458,7 +1440,7 @@ func (this USBDevice) IsochronousTransferOut(endpointNumber uint8, data BufferSo
 // the catch clause.
 func (this USBDevice) TryIsochronousTransferOut(endpointNumber uint8, data BufferSource, packetLengths js.Array[uint32]) (ret js.Promise[USBIsochronousOutTransferResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceIsochronousTransferOut(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(endpointNumber),
 		data.Ref(),
 		packetLengths.Ref(),
@@ -1467,26 +1449,25 @@ func (this USBDevice) TryIsochronousTransferOut(endpointNumber uint8, data Buffe
 	return
 }
 
-// HasReset returns true if the method "USBDevice.reset" exists.
-func (this USBDevice) HasReset() bool {
-	return js.True == bindings.HasUSBDeviceReset(
-		this.Ref(),
+// HasFuncReset returns true if the method "USBDevice.reset" exists.
+func (this USBDevice) HasFuncReset() bool {
+	return js.True == bindings.HasFuncUSBDeviceReset(
+		this.ref,
 	)
 }
 
-// ResetFunc returns the method "USBDevice.reset".
-func (this USBDevice) ResetFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.USBDeviceResetFunc(
-			this.Ref(),
-		),
+// FuncReset returns the method "USBDevice.reset".
+func (this USBDevice) FuncReset() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncUSBDeviceReset(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Reset calls the method "USBDevice.reset".
 func (this USBDevice) Reset() (ret js.Promise[js.Void]) {
 	bindings.CallUSBDeviceReset(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1497,7 +1478,7 @@ func (this USBDevice) Reset() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this USBDevice) TryReset() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceReset(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1562,17 +1543,26 @@ func (p USBDeviceFilter) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p USBDeviceFilter) UpdateFrom(ref js.Ref) {
+func (p *USBDeviceFilter) UpdateFrom(ref js.Ref) {
 	bindings.USBDeviceFilterJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p USBDeviceFilter) Update(ref js.Ref) {
+func (p *USBDeviceFilter) Update(ref js.Ref) {
 	bindings.USBDeviceFilterJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *USBDeviceFilter) FreeMembers(recursive bool) {
+	js.Free(
+		p.SerialNumber.Ref(),
+	)
+	p.SerialNumber = p.SerialNumber.FromRef(js.Undefined)
 }
 
 type USBDeviceRequestOptions struct {
@@ -1602,17 +1592,28 @@ func (p USBDeviceRequestOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p USBDeviceRequestOptions) UpdateFrom(ref js.Ref) {
+func (p *USBDeviceRequestOptions) UpdateFrom(ref js.Ref) {
 	bindings.USBDeviceRequestOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p USBDeviceRequestOptions) Update(ref js.Ref) {
+func (p *USBDeviceRequestOptions) Update(ref js.Ref) {
 	bindings.USBDeviceRequestOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *USBDeviceRequestOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Filters.Ref(),
+		p.ExclusionFilters.Ref(),
+	)
+	p.Filters = p.Filters.FromRef(js.Undefined)
+	p.ExclusionFilters = p.ExclusionFilters.FromRef(js.Undefined)
 }
 
 type USB struct {
@@ -1620,7 +1621,7 @@ type USB struct {
 }
 
 func (this USB) Once() USB {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1634,29 +1635,28 @@ func (this USB) FromRef(ref js.Ref) USB {
 }
 
 func (this USB) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasGetDevices returns true if the method "USB.getDevices" exists.
-func (this USB) HasGetDevices() bool {
-	return js.True == bindings.HasUSBGetDevices(
-		this.Ref(),
+// HasFuncGetDevices returns true if the method "USB.getDevices" exists.
+func (this USB) HasFuncGetDevices() bool {
+	return js.True == bindings.HasFuncUSBGetDevices(
+		this.ref,
 	)
 }
 
-// GetDevicesFunc returns the method "USB.getDevices".
-func (this USB) GetDevicesFunc() (fn js.Func[func() js.Promise[js.Array[USBDevice]]]) {
-	return fn.FromRef(
-		bindings.USBGetDevicesFunc(
-			this.Ref(),
-		),
+// FuncGetDevices returns the method "USB.getDevices".
+func (this USB) FuncGetDevices() (fn js.Func[func() js.Promise[js.Array[USBDevice]]]) {
+	bindings.FuncUSBGetDevices(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetDevices calls the method "USB.getDevices".
 func (this USB) GetDevices() (ret js.Promise[js.Array[USBDevice]]) {
 	bindings.CallUSBGetDevices(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1667,32 +1667,31 @@ func (this USB) GetDevices() (ret js.Promise[js.Array[USBDevice]]) {
 // the catch clause.
 func (this USB) TryGetDevices() (ret js.Promise[js.Array[USBDevice]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBGetDevices(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasRequestDevice returns true if the method "USB.requestDevice" exists.
-func (this USB) HasRequestDevice() bool {
-	return js.True == bindings.HasUSBRequestDevice(
-		this.Ref(),
+// HasFuncRequestDevice returns true if the method "USB.requestDevice" exists.
+func (this USB) HasFuncRequestDevice() bool {
+	return js.True == bindings.HasFuncUSBRequestDevice(
+		this.ref,
 	)
 }
 
-// RequestDeviceFunc returns the method "USB.requestDevice".
-func (this USB) RequestDeviceFunc() (fn js.Func[func(options USBDeviceRequestOptions) js.Promise[USBDevice]]) {
-	return fn.FromRef(
-		bindings.USBRequestDeviceFunc(
-			this.Ref(),
-		),
+// FuncRequestDevice returns the method "USB.requestDevice".
+func (this USB) FuncRequestDevice() (fn js.Func[func(options USBDeviceRequestOptions) js.Promise[USBDevice]]) {
+	bindings.FuncUSBRequestDevice(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RequestDevice calls the method "USB.requestDevice".
 func (this USB) RequestDevice(options USBDeviceRequestOptions) (ret js.Promise[USBDevice]) {
 	bindings.CallUSBRequestDevice(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -1704,7 +1703,7 @@ func (this USB) RequestDevice(options USBDeviceRequestOptions) (ret js.Promise[U
 // the catch clause.
 func (this USB) TryRequestDevice(options USBDeviceRequestOptions) (ret js.Promise[USBDevice], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBRequestDevice(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
@@ -1716,7 +1715,7 @@ type EpubReadingSystem struct {
 }
 
 func (this EpubReadingSystem) Once() EpubReadingSystem {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1730,29 +1729,28 @@ func (this EpubReadingSystem) FromRef(ref js.Ref) EpubReadingSystem {
 }
 
 func (this EpubReadingSystem) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasHasFeature returns true if the method "EpubReadingSystem.hasFeature" exists.
-func (this EpubReadingSystem) HasHasFeature() bool {
-	return js.True == bindings.HasEpubReadingSystemHasFeature(
-		this.Ref(),
+// HasFuncHasFeature returns true if the method "EpubReadingSystem.hasFeature" exists.
+func (this EpubReadingSystem) HasFuncHasFeature() bool {
+	return js.True == bindings.HasFuncEpubReadingSystemHasFeature(
+		this.ref,
 	)
 }
 
-// HasFeatureFunc returns the method "EpubReadingSystem.hasFeature".
-func (this EpubReadingSystem) HasFeatureFunc() (fn js.Func[func(feature js.String, version js.String) bool]) {
-	return fn.FromRef(
-		bindings.EpubReadingSystemHasFeatureFunc(
-			this.Ref(),
-		),
+// FuncHasFeature returns the method "EpubReadingSystem.hasFeature".
+func (this EpubReadingSystem) FuncHasFeature() (fn js.Func[func(feature js.String, version js.String) bool]) {
+	bindings.FuncEpubReadingSystemHasFeature(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // HasFeature calls the method "EpubReadingSystem.hasFeature".
 func (this EpubReadingSystem) HasFeature(feature js.String, version js.String) (ret bool) {
 	bindings.CallEpubReadingSystemHasFeature(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		feature.Ref(),
 		version.Ref(),
 	)
@@ -1765,7 +1763,7 @@ func (this EpubReadingSystem) HasFeature(feature js.String, version js.String) (
 // the catch clause.
 func (this EpubReadingSystem) TryHasFeature(feature js.String, version js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEpubReadingSystemHasFeature(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		feature.Ref(),
 		version.Ref(),
 	)
@@ -1773,26 +1771,25 @@ func (this EpubReadingSystem) TryHasFeature(feature js.String, version js.String
 	return
 }
 
-// HasHasFeature1 returns true if the method "EpubReadingSystem.hasFeature" exists.
-func (this EpubReadingSystem) HasHasFeature1() bool {
-	return js.True == bindings.HasEpubReadingSystemHasFeature1(
-		this.Ref(),
+// HasFuncHasFeature1 returns true if the method "EpubReadingSystem.hasFeature" exists.
+func (this EpubReadingSystem) HasFuncHasFeature1() bool {
+	return js.True == bindings.HasFuncEpubReadingSystemHasFeature1(
+		this.ref,
 	)
 }
 
-// HasFeature1Func returns the method "EpubReadingSystem.hasFeature".
-func (this EpubReadingSystem) HasFeature1Func() (fn js.Func[func(feature js.String) bool]) {
-	return fn.FromRef(
-		bindings.EpubReadingSystemHasFeature1Func(
-			this.Ref(),
-		),
+// FuncHasFeature1 returns the method "EpubReadingSystem.hasFeature".
+func (this EpubReadingSystem) FuncHasFeature1() (fn js.Func[func(feature js.String) bool]) {
+	bindings.FuncEpubReadingSystemHasFeature1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // HasFeature1 calls the method "EpubReadingSystem.hasFeature".
 func (this EpubReadingSystem) HasFeature1(feature js.String) (ret bool) {
 	bindings.CallEpubReadingSystemHasFeature1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		feature.Ref(),
 	)
 
@@ -1804,7 +1801,7 @@ func (this EpubReadingSystem) HasFeature1(feature js.String) (ret bool) {
 // the catch clause.
 func (this EpubReadingSystem) TryHasFeature1(feature js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEpubReadingSystemHasFeature1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		feature.Ref(),
 	)
 
@@ -1928,17 +1925,22 @@ func (p XRWebGLLayerInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p XRWebGLLayerInit) UpdateFrom(ref js.Ref) {
+func (p *XRWebGLLayerInit) UpdateFrom(ref js.Ref) {
 	bindings.XRWebGLLayerInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p XRWebGLLayerInit) Update(ref js.Ref) {
+func (p *XRWebGLLayerInit) Update(ref js.Ref) {
 	bindings.XRWebGLLayerInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *XRWebGLLayerInit) FreeMembers(recursive bool) {
 }
 
 type XRViewport struct {
@@ -1946,7 +1948,7 @@ type XRViewport struct {
 }
 
 func (this XRViewport) Once() XRViewport {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1960,7 +1962,7 @@ func (this XRViewport) FromRef(ref js.Ref) XRViewport {
 }
 
 func (this XRViewport) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // X returns the value of property "XRViewport.x".
@@ -1968,7 +1970,7 @@ func (this XRViewport) Free() {
 // It returns ok=false if there is no such property.
 func (this XRViewport) X() (ret int32, ok bool) {
 	ok = js.True == bindings.GetXRViewportX(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1978,7 +1980,7 @@ func (this XRViewport) X() (ret int32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this XRViewport) Y() (ret int32, ok bool) {
 	ok = js.True == bindings.GetXRViewportY(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1988,7 +1990,7 @@ func (this XRViewport) Y() (ret int32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this XRViewport) Width() (ret int32, ok bool) {
 	ok = js.True == bindings.GetXRViewportWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1998,7 +2000,7 @@ func (this XRViewport) Width() (ret int32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this XRViewport) Height() (ret int32, ok bool) {
 	ok = js.True == bindings.GetXRViewportHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2053,7 +2055,7 @@ type XRRigidTransform struct {
 }
 
 func (this XRRigidTransform) Once() XRRigidTransform {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2067,7 +2069,7 @@ func (this XRRigidTransform) FromRef(ref js.Ref) XRRigidTransform {
 }
 
 func (this XRRigidTransform) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Position returns the value of property "XRRigidTransform.position".
@@ -2075,7 +2077,7 @@ func (this XRRigidTransform) Free() {
 // It returns ok=false if there is no such property.
 func (this XRRigidTransform) Position() (ret DOMPointReadOnly, ok bool) {
 	ok = js.True == bindings.GetXRRigidTransformPosition(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2085,7 +2087,7 @@ func (this XRRigidTransform) Position() (ret DOMPointReadOnly, ok bool) {
 // It returns ok=false if there is no such property.
 func (this XRRigidTransform) Orientation() (ret DOMPointReadOnly, ok bool) {
 	ok = js.True == bindings.GetXRRigidTransformOrientation(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2095,7 +2097,7 @@ func (this XRRigidTransform) Orientation() (ret DOMPointReadOnly, ok bool) {
 // It returns ok=false if there is no such property.
 func (this XRRigidTransform) Matrix() (ret js.TypedArray[float32], ok bool) {
 	ok = js.True == bindings.GetXRRigidTransformMatrix(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2105,7 +2107,7 @@ func (this XRRigidTransform) Matrix() (ret js.TypedArray[float32], ok bool) {
 // It returns ok=false if there is no such property.
 func (this XRRigidTransform) Inverse() (ret XRRigidTransform, ok bool) {
 	ok = js.True == bindings.GetXRRigidTransformInverse(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2115,7 +2117,7 @@ type XRCamera struct {
 }
 
 func (this XRCamera) Once() XRCamera {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2129,7 +2131,7 @@ func (this XRCamera) FromRef(ref js.Ref) XRCamera {
 }
 
 func (this XRCamera) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Width returns the value of property "XRCamera.width".
@@ -2137,7 +2139,7 @@ func (this XRCamera) Free() {
 // It returns ok=false if there is no such property.
 func (this XRCamera) Width() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetXRCameraWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2147,7 +2149,7 @@ func (this XRCamera) Width() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this XRCamera) Height() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetXRCameraHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2157,7 +2159,7 @@ type XRView struct {
 }
 
 func (this XRView) Once() XRView {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2171,7 +2173,7 @@ func (this XRView) FromRef(ref js.Ref) XRView {
 }
 
 func (this XRView) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Eye returns the value of property "XRView.eye".
@@ -2179,7 +2181,7 @@ func (this XRView) Free() {
 // It returns ok=false if there is no such property.
 func (this XRView) Eye() (ret XREye, ok bool) {
 	ok = js.True == bindings.GetXRViewEye(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2189,7 +2191,7 @@ func (this XRView) Eye() (ret XREye, ok bool) {
 // It returns ok=false if there is no such property.
 func (this XRView) ProjectionMatrix() (ret js.TypedArray[float32], ok bool) {
 	ok = js.True == bindings.GetXRViewProjectionMatrix(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2199,7 +2201,7 @@ func (this XRView) ProjectionMatrix() (ret js.TypedArray[float32], ok bool) {
 // It returns ok=false if there is no such property.
 func (this XRView) Transform() (ret XRRigidTransform, ok bool) {
 	ok = js.True == bindings.GetXRViewTransform(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2209,7 +2211,7 @@ func (this XRView) Transform() (ret XRRigidTransform, ok bool) {
 // It returns ok=false if there is no such property.
 func (this XRView) RecommendedViewportScale() (ret float64, ok bool) {
 	ok = js.True == bindings.GetXRViewRecommendedViewportScale(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2219,7 +2221,7 @@ func (this XRView) RecommendedViewportScale() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this XRView) IsFirstPersonObserver() (ret bool, ok bool) {
 	ok = js.True == bindings.GetXRViewIsFirstPersonObserver(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2229,31 +2231,30 @@ func (this XRView) IsFirstPersonObserver() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this XRView) Camera() (ret XRCamera, ok bool) {
 	ok = js.True == bindings.GetXRViewCamera(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasRequestViewportScale returns true if the method "XRView.requestViewportScale" exists.
-func (this XRView) HasRequestViewportScale() bool {
-	return js.True == bindings.HasXRViewRequestViewportScale(
-		this.Ref(),
+// HasFuncRequestViewportScale returns true if the method "XRView.requestViewportScale" exists.
+func (this XRView) HasFuncRequestViewportScale() bool {
+	return js.True == bindings.HasFuncXRViewRequestViewportScale(
+		this.ref,
 	)
 }
 
-// RequestViewportScaleFunc returns the method "XRView.requestViewportScale".
-func (this XRView) RequestViewportScaleFunc() (fn js.Func[func(scale float64)]) {
-	return fn.FromRef(
-		bindings.XRViewRequestViewportScaleFunc(
-			this.Ref(),
-		),
+// FuncRequestViewportScale returns the method "XRView.requestViewportScale".
+func (this XRView) FuncRequestViewportScale() (fn js.Func[func(scale float64)]) {
+	bindings.FuncXRViewRequestViewportScale(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RequestViewportScale calls the method "XRView.requestViewportScale".
 func (this XRView) RequestViewportScale(scale float64) (ret js.Void) {
 	bindings.CallXRViewRequestViewportScale(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(scale),
 	)
 
@@ -2265,7 +2266,7 @@ func (this XRView) RequestViewportScale(scale float64) (ret js.Void) {
 // the catch clause.
 func (this XRView) TryRequestViewportScale(scale float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRViewRequestViewportScale(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(scale),
 	)
 
@@ -2292,7 +2293,7 @@ type XRWebGLLayer struct {
 }
 
 func (this XRWebGLLayer) Once() XRWebGLLayer {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2306,7 +2307,7 @@ func (this XRWebGLLayer) FromRef(ref js.Ref) XRWebGLLayer {
 }
 
 func (this XRWebGLLayer) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Antialias returns the value of property "XRWebGLLayer.antialias".
@@ -2314,7 +2315,7 @@ func (this XRWebGLLayer) Free() {
 // It returns ok=false if there is no such property.
 func (this XRWebGLLayer) Antialias() (ret bool, ok bool) {
 	ok = js.True == bindings.GetXRWebGLLayerAntialias(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2324,7 +2325,7 @@ func (this XRWebGLLayer) Antialias() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this XRWebGLLayer) IgnoreDepthValues() (ret bool, ok bool) {
 	ok = js.True == bindings.GetXRWebGLLayerIgnoreDepthValues(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2334,7 +2335,7 @@ func (this XRWebGLLayer) IgnoreDepthValues() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this XRWebGLLayer) FixedFoveation() (ret float32, ok bool) {
 	ok = js.True == bindings.GetXRWebGLLayerFixedFoveation(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2344,7 +2345,7 @@ func (this XRWebGLLayer) FixedFoveation() (ret float32, ok bool) {
 // It returns false if the property cannot be set.
 func (this XRWebGLLayer) SetFixedFoveation(val float32) bool {
 	return js.True == bindings.SetXRWebGLLayerFixedFoveation(
-		this.Ref(),
+		this.ref,
 		float32(val),
 	)
 }
@@ -2354,7 +2355,7 @@ func (this XRWebGLLayer) SetFixedFoveation(val float32) bool {
 // It returns ok=false if there is no such property.
 func (this XRWebGLLayer) Framebuffer() (ret WebGLFramebuffer, ok bool) {
 	ok = js.True == bindings.GetXRWebGLLayerFramebuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2364,7 +2365,7 @@ func (this XRWebGLLayer) Framebuffer() (ret WebGLFramebuffer, ok bool) {
 // It returns ok=false if there is no such property.
 func (this XRWebGLLayer) FramebufferWidth() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetXRWebGLLayerFramebufferWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2374,31 +2375,30 @@ func (this XRWebGLLayer) FramebufferWidth() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this XRWebGLLayer) FramebufferHeight() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetXRWebGLLayerFramebufferHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGetViewport returns true if the method "XRWebGLLayer.getViewport" exists.
-func (this XRWebGLLayer) HasGetViewport() bool {
-	return js.True == bindings.HasXRWebGLLayerGetViewport(
-		this.Ref(),
+// HasFuncGetViewport returns true if the method "XRWebGLLayer.getViewport" exists.
+func (this XRWebGLLayer) HasFuncGetViewport() bool {
+	return js.True == bindings.HasFuncXRWebGLLayerGetViewport(
+		this.ref,
 	)
 }
 
-// GetViewportFunc returns the method "XRWebGLLayer.getViewport".
-func (this XRWebGLLayer) GetViewportFunc() (fn js.Func[func(view XRView) XRViewport]) {
-	return fn.FromRef(
-		bindings.XRWebGLLayerGetViewportFunc(
-			this.Ref(),
-		),
+// FuncGetViewport returns the method "XRWebGLLayer.getViewport".
+func (this XRWebGLLayer) FuncGetViewport() (fn js.Func[func(view XRView) XRViewport]) {
+	bindings.FuncXRWebGLLayerGetViewport(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetViewport calls the method "XRWebGLLayer.getViewport".
 func (this XRWebGLLayer) GetViewport(view XRView) (ret XRViewport) {
 	bindings.CallXRWebGLLayerGetViewport(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		view.Ref(),
 	)
 
@@ -2410,45 +2410,44 @@ func (this XRWebGLLayer) GetViewport(view XRView) (ret XRViewport) {
 // the catch clause.
 func (this XRWebGLLayer) TryGetViewport(view XRView) (ret XRViewport, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRWebGLLayerGetViewport(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		view.Ref(),
 	)
 
 	return
 }
 
-// HasGetNativeFramebufferScaleFactor returns true if the staticmethod "XRWebGLLayer.getNativeFramebufferScaleFactor" exists.
-func (this XRWebGLLayer) HasGetNativeFramebufferScaleFactor() bool {
-	return js.True == bindings.HasXRWebGLLayerGetNativeFramebufferScaleFactor(
-		this.Ref(),
+// HasFuncGetNativeFramebufferScaleFactor returns true if the static method "XRWebGLLayer.getNativeFramebufferScaleFactor" exists.
+func (this XRWebGLLayer) HasFuncGetNativeFramebufferScaleFactor() bool {
+	return js.True == bindings.HasFuncXRWebGLLayerGetNativeFramebufferScaleFactor(
+		this.ref,
 	)
 }
 
-// GetNativeFramebufferScaleFactorFunc returns the staticmethod "XRWebGLLayer.getNativeFramebufferScaleFactor".
-func (this XRWebGLLayer) GetNativeFramebufferScaleFactorFunc() (fn js.Func[func(session XRSession) float64]) {
-	return fn.FromRef(
-		bindings.XRWebGLLayerGetNativeFramebufferScaleFactorFunc(
-			this.Ref(),
-		),
+// FuncGetNativeFramebufferScaleFactor returns the static method "XRWebGLLayer.getNativeFramebufferScaleFactor".
+func (this XRWebGLLayer) FuncGetNativeFramebufferScaleFactor() (fn js.Func[func(session XRSession) float64]) {
+	bindings.FuncXRWebGLLayerGetNativeFramebufferScaleFactor(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// GetNativeFramebufferScaleFactor calls the staticmethod "XRWebGLLayer.getNativeFramebufferScaleFactor".
+// GetNativeFramebufferScaleFactor calls the static method "XRWebGLLayer.getNativeFramebufferScaleFactor".
 func (this XRWebGLLayer) GetNativeFramebufferScaleFactor(session XRSession) (ret float64) {
 	bindings.CallXRWebGLLayerGetNativeFramebufferScaleFactor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		session.Ref(),
 	)
 
 	return
 }
 
-// TryGetNativeFramebufferScaleFactor calls the staticmethod "XRWebGLLayer.getNativeFramebufferScaleFactor"
+// TryGetNativeFramebufferScaleFactor calls the static method "XRWebGLLayer.getNativeFramebufferScaleFactor"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRWebGLLayer) TryGetNativeFramebufferScaleFactor(session XRSession) (ret float64, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRWebGLLayerGetNativeFramebufferScaleFactor(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		session.Ref(),
 	)
 
@@ -2460,7 +2459,7 @@ type XRLayer struct {
 }
 
 func (this XRLayer) Once() XRLayer {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2474,7 +2473,7 @@ func (this XRLayer) FromRef(ref js.Ref) XRLayer {
 }
 
 func (this XRLayer) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type XRRenderStateInit struct {
@@ -2526,17 +2525,28 @@ func (p XRRenderStateInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p XRRenderStateInit) UpdateFrom(ref js.Ref) {
+func (p *XRRenderStateInit) UpdateFrom(ref js.Ref) {
 	bindings.XRRenderStateInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p XRRenderStateInit) Update(ref js.Ref) {
+func (p *XRRenderStateInit) Update(ref js.Ref) {
 	bindings.XRRenderStateInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *XRRenderStateInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.BaseLayer.Ref(),
+		p.Layers.Ref(),
+	)
+	p.BaseLayer = p.BaseLayer.FromRef(js.Undefined)
+	p.Layers = p.Layers.FromRef(js.Undefined)
 }
 
 type XRReferenceSpace struct {
@@ -2544,7 +2554,7 @@ type XRReferenceSpace struct {
 }
 
 func (this XRReferenceSpace) Once() XRReferenceSpace {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2558,29 +2568,28 @@ func (this XRReferenceSpace) FromRef(ref js.Ref) XRReferenceSpace {
 }
 
 func (this XRReferenceSpace) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasGetOffsetReferenceSpace returns true if the method "XRReferenceSpace.getOffsetReferenceSpace" exists.
-func (this XRReferenceSpace) HasGetOffsetReferenceSpace() bool {
-	return js.True == bindings.HasXRReferenceSpaceGetOffsetReferenceSpace(
-		this.Ref(),
+// HasFuncGetOffsetReferenceSpace returns true if the method "XRReferenceSpace.getOffsetReferenceSpace" exists.
+func (this XRReferenceSpace) HasFuncGetOffsetReferenceSpace() bool {
+	return js.True == bindings.HasFuncXRReferenceSpaceGetOffsetReferenceSpace(
+		this.ref,
 	)
 }
 
-// GetOffsetReferenceSpaceFunc returns the method "XRReferenceSpace.getOffsetReferenceSpace".
-func (this XRReferenceSpace) GetOffsetReferenceSpaceFunc() (fn js.Func[func(originOffset XRRigidTransform) XRReferenceSpace]) {
-	return fn.FromRef(
-		bindings.XRReferenceSpaceGetOffsetReferenceSpaceFunc(
-			this.Ref(),
-		),
+// FuncGetOffsetReferenceSpace returns the method "XRReferenceSpace.getOffsetReferenceSpace".
+func (this XRReferenceSpace) FuncGetOffsetReferenceSpace() (fn js.Func[func(originOffset XRRigidTransform) XRReferenceSpace]) {
+	bindings.FuncXRReferenceSpaceGetOffsetReferenceSpace(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetOffsetReferenceSpace calls the method "XRReferenceSpace.getOffsetReferenceSpace".
 func (this XRReferenceSpace) GetOffsetReferenceSpace(originOffset XRRigidTransform) (ret XRReferenceSpace) {
 	bindings.CallXRReferenceSpaceGetOffsetReferenceSpace(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		originOffset.Ref(),
 	)
 
@@ -2592,7 +2601,7 @@ func (this XRReferenceSpace) GetOffsetReferenceSpace(originOffset XRRigidTransfo
 // the catch clause.
 func (this XRReferenceSpace) TryGetOffsetReferenceSpace(originOffset XRRigidTransform) (ret XRReferenceSpace, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRReferenceSpaceGetOffsetReferenceSpace(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		originOffset.Ref(),
 	)
 
@@ -2678,7 +2687,7 @@ func (cb *XRFrameRequestCallback[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 2+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
 
 	if ctx.Return(cb.Fn(
@@ -2699,7 +2708,7 @@ type XRViewerPose struct {
 }
 
 func (this XRViewerPose) Once() XRViewerPose {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2713,7 +2722,7 @@ func (this XRViewerPose) FromRef(ref js.Ref) XRViewerPose {
 }
 
 func (this XRViewerPose) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Views returns the value of property "XRViewerPose.views".
@@ -2721,7 +2730,7 @@ func (this XRViewerPose) Free() {
 // It returns ok=false if there is no such property.
 func (this XRViewerPose) Views() (ret js.FrozenArray[XRView], ok bool) {
 	ok = js.True == bindings.GetXRViewerPoseViews(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2731,7 +2740,7 @@ type XRPose struct {
 }
 
 func (this XRPose) Once() XRPose {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2745,7 +2754,7 @@ func (this XRPose) FromRef(ref js.Ref) XRPose {
 }
 
 func (this XRPose) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Transform returns the value of property "XRPose.transform".
@@ -2753,7 +2762,7 @@ func (this XRPose) Free() {
 // It returns ok=false if there is no such property.
 func (this XRPose) Transform() (ret XRRigidTransform, ok bool) {
 	ok = js.True == bindings.GetXRPoseTransform(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2763,7 +2772,7 @@ func (this XRPose) Transform() (ret XRRigidTransform, ok bool) {
 // It returns ok=false if there is no such property.
 func (this XRPose) LinearVelocity() (ret DOMPointReadOnly, ok bool) {
 	ok = js.True == bindings.GetXRPoseLinearVelocity(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2773,7 +2782,7 @@ func (this XRPose) LinearVelocity() (ret DOMPointReadOnly, ok bool) {
 // It returns ok=false if there is no such property.
 func (this XRPose) AngularVelocity() (ret DOMPointReadOnly, ok bool) {
 	ok = js.True == bindings.GetXRPoseAngularVelocity(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2783,7 +2792,7 @@ func (this XRPose) AngularVelocity() (ret DOMPointReadOnly, ok bool) {
 // It returns ok=false if there is no such property.
 func (this XRPose) EmulatedPosition() (ret bool, ok bool) {
 	ok = js.True == bindings.GetXRPoseEmulatedPosition(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2793,7 +2802,7 @@ type XRSpace struct {
 }
 
 func (this XRSpace) Once() XRSpace {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2807,7 +2816,7 @@ func (this XRSpace) FromRef(ref js.Ref) XRSpace {
 }
 
 func (this XRSpace) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type XRAnchor struct {
@@ -2815,7 +2824,7 @@ type XRAnchor struct {
 }
 
 func (this XRAnchor) Once() XRAnchor {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2829,7 +2838,7 @@ func (this XRAnchor) FromRef(ref js.Ref) XRAnchor {
 }
 
 func (this XRAnchor) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // AnchorSpace returns the value of property "XRAnchor.anchorSpace".
@@ -2837,31 +2846,30 @@ func (this XRAnchor) Free() {
 // It returns ok=false if there is no such property.
 func (this XRAnchor) AnchorSpace() (ret XRSpace, ok bool) {
 	ok = js.True == bindings.GetXRAnchorAnchorSpace(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasRequestPersistentHandle returns true if the method "XRAnchor.requestPersistentHandle" exists.
-func (this XRAnchor) HasRequestPersistentHandle() bool {
-	return js.True == bindings.HasXRAnchorRequestPersistentHandle(
-		this.Ref(),
+// HasFuncRequestPersistentHandle returns true if the method "XRAnchor.requestPersistentHandle" exists.
+func (this XRAnchor) HasFuncRequestPersistentHandle() bool {
+	return js.True == bindings.HasFuncXRAnchorRequestPersistentHandle(
+		this.ref,
 	)
 }
 
-// RequestPersistentHandleFunc returns the method "XRAnchor.requestPersistentHandle".
-func (this XRAnchor) RequestPersistentHandleFunc() (fn js.Func[func() js.Promise[js.String]]) {
-	return fn.FromRef(
-		bindings.XRAnchorRequestPersistentHandleFunc(
-			this.Ref(),
-		),
+// FuncRequestPersistentHandle returns the method "XRAnchor.requestPersistentHandle".
+func (this XRAnchor) FuncRequestPersistentHandle() (fn js.Func[func() js.Promise[js.String]]) {
+	bindings.FuncXRAnchorRequestPersistentHandle(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RequestPersistentHandle calls the method "XRAnchor.requestPersistentHandle".
 func (this XRAnchor) RequestPersistentHandle() (ret js.Promise[js.String]) {
 	bindings.CallXRAnchorRequestPersistentHandle(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2872,32 +2880,31 @@ func (this XRAnchor) RequestPersistentHandle() (ret js.Promise[js.String]) {
 // the catch clause.
 func (this XRAnchor) TryRequestPersistentHandle() (ret js.Promise[js.String], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRAnchorRequestPersistentHandle(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasDelete returns true if the method "XRAnchor.delete" exists.
-func (this XRAnchor) HasDelete() bool {
-	return js.True == bindings.HasXRAnchorDelete(
-		this.Ref(),
+// HasFuncDelete returns true if the method "XRAnchor.delete" exists.
+func (this XRAnchor) HasFuncDelete() bool {
+	return js.True == bindings.HasFuncXRAnchorDelete(
+		this.ref,
 	)
 }
 
-// DeleteFunc returns the method "XRAnchor.delete".
-func (this XRAnchor) DeleteFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.XRAnchorDeleteFunc(
-			this.Ref(),
-		),
+// FuncDelete returns the method "XRAnchor.delete".
+func (this XRAnchor) FuncDelete() (fn js.Func[func()]) {
+	bindings.FuncXRAnchorDelete(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Delete calls the method "XRAnchor.delete".
 func (this XRAnchor) Delete() (ret js.Void) {
 	bindings.CallXRAnchorDelete(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2908,7 +2915,7 @@ func (this XRAnchor) Delete() (ret js.Void) {
 // the catch clause.
 func (this XRAnchor) TryDelete() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRAnchorDelete(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -2919,7 +2926,7 @@ type XRLightEstimate struct {
 }
 
 func (this XRLightEstimate) Once() XRLightEstimate {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2933,7 +2940,7 @@ func (this XRLightEstimate) FromRef(ref js.Ref) XRLightEstimate {
 }
 
 func (this XRLightEstimate) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // SphericalHarmonicsCoefficients returns the value of property "XRLightEstimate.sphericalHarmonicsCoefficients".
@@ -2941,7 +2948,7 @@ func (this XRLightEstimate) Free() {
 // It returns ok=false if there is no such property.
 func (this XRLightEstimate) SphericalHarmonicsCoefficients() (ret js.TypedArray[float32], ok bool) {
 	ok = js.True == bindings.GetXRLightEstimateSphericalHarmonicsCoefficients(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2951,7 +2958,7 @@ func (this XRLightEstimate) SphericalHarmonicsCoefficients() (ret js.TypedArray[
 // It returns ok=false if there is no such property.
 func (this XRLightEstimate) PrimaryLightDirection() (ret DOMPointReadOnly, ok bool) {
 	ok = js.True == bindings.GetXRLightEstimatePrimaryLightDirection(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2961,7 +2968,7 @@ func (this XRLightEstimate) PrimaryLightDirection() (ret DOMPointReadOnly, ok bo
 // It returns ok=false if there is no such property.
 func (this XRLightEstimate) PrimaryLightIntensity() (ret DOMPointReadOnly, ok bool) {
 	ok = js.True == bindings.GetXRLightEstimatePrimaryLightIntensity(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2971,7 +2978,7 @@ type XRLightProbe struct {
 }
 
 func (this XRLightProbe) Once() XRLightProbe {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2985,7 +2992,7 @@ func (this XRLightProbe) FromRef(ref js.Ref) XRLightProbe {
 }
 
 func (this XRLightProbe) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // ProbeSpace returns the value of property "XRLightProbe.probeSpace".
@@ -2993,7 +3000,7 @@ func (this XRLightProbe) Free() {
 // It returns ok=false if there is no such property.
 func (this XRLightProbe) ProbeSpace() (ret XRSpace, ok bool) {
 	ok = js.True == bindings.GetXRLightProbeProbeSpace(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3003,7 +3010,7 @@ type XRCPUDepthInformation struct {
 }
 
 func (this XRCPUDepthInformation) Once() XRCPUDepthInformation {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3017,7 +3024,7 @@ func (this XRCPUDepthInformation) FromRef(ref js.Ref) XRCPUDepthInformation {
 }
 
 func (this XRCPUDepthInformation) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Data returns the value of property "XRCPUDepthInformation.data".
@@ -3025,31 +3032,30 @@ func (this XRCPUDepthInformation) Free() {
 // It returns ok=false if there is no such property.
 func (this XRCPUDepthInformation) Data() (ret js.ArrayBuffer, ok bool) {
 	ok = js.True == bindings.GetXRCPUDepthInformationData(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGetDepthInMeters returns true if the method "XRCPUDepthInformation.getDepthInMeters" exists.
-func (this XRCPUDepthInformation) HasGetDepthInMeters() bool {
-	return js.True == bindings.HasXRCPUDepthInformationGetDepthInMeters(
-		this.Ref(),
+// HasFuncGetDepthInMeters returns true if the method "XRCPUDepthInformation.getDepthInMeters" exists.
+func (this XRCPUDepthInformation) HasFuncGetDepthInMeters() bool {
+	return js.True == bindings.HasFuncXRCPUDepthInformationGetDepthInMeters(
+		this.ref,
 	)
 }
 
-// GetDepthInMetersFunc returns the method "XRCPUDepthInformation.getDepthInMeters".
-func (this XRCPUDepthInformation) GetDepthInMetersFunc() (fn js.Func[func(x float32, y float32) float32]) {
-	return fn.FromRef(
-		bindings.XRCPUDepthInformationGetDepthInMetersFunc(
-			this.Ref(),
-		),
+// FuncGetDepthInMeters returns the method "XRCPUDepthInformation.getDepthInMeters".
+func (this XRCPUDepthInformation) FuncGetDepthInMeters() (fn js.Func[func(x float32, y float32) float32]) {
+	bindings.FuncXRCPUDepthInformationGetDepthInMeters(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetDepthInMeters calls the method "XRCPUDepthInformation.getDepthInMeters".
 func (this XRCPUDepthInformation) GetDepthInMeters(x float32, y float32) (ret float32) {
 	bindings.CallXRCPUDepthInformationGetDepthInMeters(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float32(x),
 		float32(y),
 	)
@@ -3062,7 +3068,7 @@ func (this XRCPUDepthInformation) GetDepthInMeters(x float32, y float32) (ret fl
 // the catch clause.
 func (this XRCPUDepthInformation) TryGetDepthInMeters(x float32, y float32) (ret float32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRCPUDepthInformationGetDepthInMeters(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float32(x),
 		float32(y),
 	)
@@ -3075,7 +3081,7 @@ type XRJointPose struct {
 }
 
 func (this XRJointPose) Once() XRJointPose {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3089,7 +3095,7 @@ func (this XRJointPose) FromRef(ref js.Ref) XRJointPose {
 }
 
 func (this XRJointPose) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Radius returns the value of property "XRJointPose.radius".
@@ -3097,7 +3103,7 @@ func (this XRJointPose) Free() {
 // It returns ok=false if there is no such property.
 func (this XRJointPose) Radius() (ret float32, ok bool) {
 	ok = js.True == bindings.GetXRJointPoseRadius(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3200,7 +3206,7 @@ type XRJointSpace struct {
 }
 
 func (this XRJointSpace) Once() XRJointSpace {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3214,7 +3220,7 @@ func (this XRJointSpace) FromRef(ref js.Ref) XRJointSpace {
 }
 
 func (this XRJointSpace) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // JointName returns the value of property "XRJointSpace.jointName".
@@ -3222,7 +3228,7 @@ func (this XRJointSpace) Free() {
 // It returns ok=false if there is no such property.
 func (this XRJointSpace) JointName() (ret XRHandJoint, ok bool) {
 	ok = js.True == bindings.GetXRJointSpaceJointName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3232,7 +3238,7 @@ type XRHitTestResult struct {
 }
 
 func (this XRHitTestResult) Once() XRHitTestResult {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3246,29 +3252,28 @@ func (this XRHitTestResult) FromRef(ref js.Ref) XRHitTestResult {
 }
 
 func (this XRHitTestResult) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasGetPose returns true if the method "XRHitTestResult.getPose" exists.
-func (this XRHitTestResult) HasGetPose() bool {
-	return js.True == bindings.HasXRHitTestResultGetPose(
-		this.Ref(),
+// HasFuncGetPose returns true if the method "XRHitTestResult.getPose" exists.
+func (this XRHitTestResult) HasFuncGetPose() bool {
+	return js.True == bindings.HasFuncXRHitTestResultGetPose(
+		this.ref,
 	)
 }
 
-// GetPoseFunc returns the method "XRHitTestResult.getPose".
-func (this XRHitTestResult) GetPoseFunc() (fn js.Func[func(baseSpace XRSpace) XRPose]) {
-	return fn.FromRef(
-		bindings.XRHitTestResultGetPoseFunc(
-			this.Ref(),
-		),
+// FuncGetPose returns the method "XRHitTestResult.getPose".
+func (this XRHitTestResult) FuncGetPose() (fn js.Func[func(baseSpace XRSpace) XRPose]) {
+	bindings.FuncXRHitTestResultGetPose(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetPose calls the method "XRHitTestResult.getPose".
 func (this XRHitTestResult) GetPose(baseSpace XRSpace) (ret XRPose) {
 	bindings.CallXRHitTestResultGetPose(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		baseSpace.Ref(),
 	)
 
@@ -3280,33 +3285,32 @@ func (this XRHitTestResult) GetPose(baseSpace XRSpace) (ret XRPose) {
 // the catch clause.
 func (this XRHitTestResult) TryGetPose(baseSpace XRSpace) (ret XRPose, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRHitTestResultGetPose(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		baseSpace.Ref(),
 	)
 
 	return
 }
 
-// HasCreateAnchor returns true if the method "XRHitTestResult.createAnchor" exists.
-func (this XRHitTestResult) HasCreateAnchor() bool {
-	return js.True == bindings.HasXRHitTestResultCreateAnchor(
-		this.Ref(),
+// HasFuncCreateAnchor returns true if the method "XRHitTestResult.createAnchor" exists.
+func (this XRHitTestResult) HasFuncCreateAnchor() bool {
+	return js.True == bindings.HasFuncXRHitTestResultCreateAnchor(
+		this.ref,
 	)
 }
 
-// CreateAnchorFunc returns the method "XRHitTestResult.createAnchor".
-func (this XRHitTestResult) CreateAnchorFunc() (fn js.Func[func() js.Promise[XRAnchor]]) {
-	return fn.FromRef(
-		bindings.XRHitTestResultCreateAnchorFunc(
-			this.Ref(),
-		),
+// FuncCreateAnchor returns the method "XRHitTestResult.createAnchor".
+func (this XRHitTestResult) FuncCreateAnchor() (fn js.Func[func() js.Promise[XRAnchor]]) {
+	bindings.FuncXRHitTestResultCreateAnchor(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateAnchor calls the method "XRHitTestResult.createAnchor".
 func (this XRHitTestResult) CreateAnchor() (ret js.Promise[XRAnchor]) {
 	bindings.CallXRHitTestResultCreateAnchor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3317,7 +3321,7 @@ func (this XRHitTestResult) CreateAnchor() (ret js.Promise[XRAnchor]) {
 // the catch clause.
 func (this XRHitTestResult) TryCreateAnchor() (ret js.Promise[XRAnchor], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRHitTestResultCreateAnchor(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return

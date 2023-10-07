@@ -1,4 +1,4 @@
-- File: uievents.idl
+- File: webref/uievents.idl
   Interface:
     Name: WheelEvent
     Inherits: MouseEvent
@@ -66,7 +66,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: uievents.idl
+- File: webref/uievents.idl
   Dict:
     Name: WheelEventInit
     Inherits: MouseEventInit
@@ -193,7 +193,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: Window
     Inherits: EventTarget
@@ -1727,7 +1727,7 @@
               Name: unsigned long
         Returns:
           - Name: undefined
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Interface:
     Name: WindowClient
     Inherits: Client
@@ -1789,7 +1789,7 @@
           - Name: Exposed
             Values:
               - ServiceWorker
-- File: window-controls-overlay.idl
+- File: webref/window-controls-overlay.idl
   Interface:
     Name: WindowControlsOverlay
     Inherits: EventTarget
@@ -1821,7 +1821,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: window-controls-overlay.idl
+- File: webref/window-controls-overlay.idl
   Interface:
     Name: WindowControlsOverlayGeometryChangeEvent
     Inherits: Event
@@ -1859,7 +1859,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: window-controls-overlay.idl
+- File: webref/window-controls-overlay.idl
   Dict:
     Name: WindowControlsOverlayGeometryChangeEventInit
     Inherits: EventInit
@@ -1884,7 +1884,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: WindowPostMessageOptions
     Inherits: StructuredSerializeOptions
@@ -1899,7 +1899,7 @@
           Name: sequence
           Params:
             - Name: object
-- File: shared-storage.idl
+- File: webref/shared-storage.idl
   Interface:
     Name: WindowSharedStorage
     Inherits: SharedStorage
@@ -1958,7 +1958,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: Worker
     Inherits: EventTarget
@@ -2052,7 +2052,7 @@
               - Window
               - DedicatedWorker
               - SharedWorker
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: WorkerGlobalScope
     Inherits: EventTarget
@@ -2339,7 +2339,7 @@
               - Name: Response
         ExtAttrs:
           - Name: NewObject
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: WorkerLocation
     ExtAttrs:
@@ -2420,7 +2420,7 @@
           - Name: Exposed
             Values:
               - Worker
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: WorkerNavigator
     ExtAttrs:
@@ -2640,7 +2640,7 @@
               - Name: undefined
         ExtAttrs:
           - Name: SecureContext
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: WorkerOptions
     Fields:
@@ -2656,13 +2656,13 @@
         Default: '""'
         Type:
           Name: DOMString
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: WorkerType
     Values:
       - classic
       - module
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: Worklet
     ExtAttrs:
@@ -2691,7 +2691,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: css-animation-worklet.idl
+- File: webref/css-animation-worklet.idl
   Interface:
     Name: WorkletAnimation
     Inherits: Animation
@@ -2736,7 +2736,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-animation-worklet.idl
+- File: webref/css-animation-worklet.idl
   Interface:
     Name: WorkletAnimationEffect
     ExtAttrs:
@@ -2767,7 +2767,7 @@
           - Name: Exposed
             Values:
               - AnimationWorklet
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: WorkletGlobalScope
     ExtAttrs:
@@ -2775,7 +2775,7 @@
         Values:
           - Worklet
       - Name: SecureContext
-- File: css-animation-worklet.idl
+- File: webref/css-animation-worklet.idl
   Interface:
     Name: WorkletGroupEffect
     ExtAttrs:
@@ -2792,7 +2792,7 @@
           - Name: Exposed
             Values:
               - AnimationWorklet
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: WorkletOptions
     Fields:
@@ -2800,7 +2800,7 @@
         Default: '"same-origin"'
         Type:
           Name: RequestCredentials
-- File: shared-storage.idl
+- File: webref/shared-storage.idl
   Interface:
     Name: WorkletSharedStorage
     Inherits: SharedStorage
@@ -2845,7 +2845,7 @@
         - Name: DOMString
         - Name: DOMString
       Async: true
-- File: streams.idl
+- File: webref/streams.idl
   Interface:
     Name: WritableStream
     ExtAttrs:
@@ -2901,7 +2901,7 @@
         ExtAttrs:
           - Name: Exposed
           - Name: Transferable
-- File: streams.idl
+- File: webref/streams.idl
   Interface:
     Name: WritableStreamDefaultController
     ExtAttrs:
@@ -2924,7 +2924,7 @@
           - Name: undefined
         ExtAttrs:
           - Name: Exposed
-- File: streams.idl
+- File: webref/streams.idl
   Interface:
     Name: WritableStreamDefaultWriter
     ExtAttrs:
@@ -2997,14 +2997,14 @@
               Name: WritableStream
         ExtAttrs:
           - Name: Exposed
-- File: fs.idl
+- File: webref/fs.idl
   Enum:
     Name: WriteCommandType
     Values:
       - write
       - seek
       - truncate
-- File: fs.idl
+- File: webref/fs.idl
   Dict:
     Name: WriteParams
     Fields:
@@ -3027,7 +3027,7 @@
             - Name: Blob
             - Name: USVString
           Nullable: true
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: XMLDocument
     Inherits: Document
@@ -3035,7 +3035,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: xhr.idl
+- File: webref/xhr.idl
   Interface:
     Name: XMLHttpRequest
     Inherits: XMLHttpRequestEventTarget
@@ -3326,7 +3326,7 @@
               Name: PrivateToken
         Returns:
           - Name: undefined
-- File: fetch.idl
+- File: webref/fetch.idl
   Typedef:
     Name: XMLHttpRequestBodyInit
     Type:
@@ -3336,7 +3336,7 @@
         - Name: FormData
         - Name: URLSearchParams
         - Name: USVString
-- File: xhr.idl
+- File: webref/xhr.idl
   Interface:
     Name: XMLHttpRequestEventTarget
     Inherits: EventTarget
@@ -3410,7 +3410,7 @@
               - Window
               - DedicatedWorker
               - SharedWorker
-- File: xhr.idl
+- File: webref/xhr.idl
   Enum:
     Name: XMLHttpRequestResponseType
     Values:
@@ -3420,7 +3420,7 @@
       - document
       - json
       - text
-- File: xhr.idl
+- File: webref/xhr.idl
   Interface:
     Name: XMLHttpRequestUpload
     Inherits: XMLHttpRequestEventTarget
@@ -3430,7 +3430,7 @@
           - Window
           - DedicatedWorker
           - SharedWorker
-- File: DOM-Parsing.idl
+- File: webref/DOM-Parsing.idl
   Interface:
     Name: XMLSerializer
     ExtAttrs:
@@ -3449,7 +3449,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: XPathEvaluator
     ExtAttrs:
@@ -3506,7 +3506,7 @@
               Nullable: true
         Returns:
           - Name: XPathResult
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: XPathExpression
     ExtAttrs:
@@ -3536,7 +3536,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: dom.idl
+- File: webref/dom.idl
   CallbackInterface:
     Name: XPathNSResolver
     Operations:
@@ -3549,7 +3549,7 @@
         Returns:
           - Name: DOMString
             Nullable: true
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: XPathResult
     ExtAttrs:
@@ -3676,7 +3676,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: anchors.idl
+- File: webref/anchors.idl
   Interface:
     Name: XRAnchor
     ExtAttrs:
@@ -3713,7 +3713,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: anchors.idl
+- File: webref/anchors.idl
   Interface:
     Name: XRAnchorSet
     ExtAttrs:
@@ -3724,7 +3724,7 @@
       TypeParams:
         - Name: XRAnchor
       Readonly: true
-- File: webxr.idl
+- File: webref/webxr.idl
   Interface:
     Name: XRBoundedReferenceSpace
     Inherits: XRReferenceSpace
@@ -3745,7 +3745,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxr-depth-sensing.idl
+- File: webref/webxr-depth-sensing.idl
   Interface:
     Name: XRCPUDepthInformation
     Inherits: XRDepthInformation
@@ -3781,7 +3781,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: raw-camera-access.idl
+- File: webref/raw-camera-access.idl
   Interface:
     Name: XRCamera
     ExtAttrs:
@@ -3808,7 +3808,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Interface:
     Name: XRCompositionLayer
     Inherits: XRLayer
@@ -3886,7 +3886,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Interface:
     Name: XRCubeLayer
     Inherits: XRCompositionLayer
@@ -3894,7 +3894,6 @@
       - Name: Exposed
         Values:
           - Window
-      - Name: SecureContext
     Attrs:
       - Name: space
         Type:
@@ -3903,7 +3902,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
       - Name: orientation
         Type:
           Name: DOMPointReadOnly
@@ -3911,7 +3909,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
       - Name: onredraw
         Type:
           Name: EventHandler
@@ -3919,8 +3916,7 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Dict:
     Name: XRCubeLayerInit
     Inherits: XRLayerInit
@@ -3965,7 +3961,7 @@
         Default: "true"
         Type:
           Name: boolean
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Interface:
     Name: XRCylinderLayer
     Inherits: XRCompositionLayer
@@ -3973,7 +3969,6 @@
       - Name: Exposed
         Values:
           - Window
-      - Name: SecureContext
     Attrs:
       - Name: space
         Type:
@@ -3982,7 +3977,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
       - Name: transform
         Type:
           Name: XRRigidTransform
@@ -3990,7 +3984,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
       - Name: radius
         Type:
           Name: float
@@ -3998,7 +3991,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
       - Name: centralAngle
         Type:
           Name: float
@@ -4006,7 +3998,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
       - Name: aspectRatio
         Type:
           Name: float
@@ -4014,7 +4005,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
       - Name: onredraw
         Type:
           Name: EventHandler
@@ -4022,8 +4012,7 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Dict:
     Name: XRCylinderLayerInit
     Inherits: XRLayerInit
@@ -4084,7 +4073,7 @@
         Default: "true"
         Type:
           Name: boolean
-- File: webxr-dom-overlays.idl
+- File: webref/webxr-dom-overlays.idl
   Dict:
     Name: XRDOMOverlayInit
     Fields:
@@ -4092,7 +4081,7 @@
         Required: true
         Type:
           Name: Element
-- File: webxr-dom-overlays.idl
+- File: webref/webxr-dom-overlays.idl
   Dict:
     Name: XRDOMOverlayState
     Fields:

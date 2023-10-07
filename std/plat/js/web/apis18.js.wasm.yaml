@@ -1,4 +1,4 @@
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLFontElement
     Inherits: HTMLElement
@@ -37,7 +37,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLFormControlsCollection
     Inherits: HTMLCollection
@@ -45,7 +45,6 @@
       - Name: Exposed
         Values:
           - Window
-      - Name: LegacyUnenumerableNamedProperties
     Operations:
       - Name: namedItem
         Modifier: getter
@@ -62,8 +61,7 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: LegacyUnenumerableNamedProperties
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLFormElement
     Inherits: HTMLElement
@@ -299,7 +297,7 @@
               - Window
           - Name: LegacyOverrideBuiltIns
           - Name: LegacyUnenumerableNamedProperties
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLFrameElement
     Inherits: HTMLElement
@@ -396,7 +394,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLFrameSetElement
     Inherits: HTMLElement
@@ -484,7 +482,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLHRElement
     Inherits: HTMLElement
@@ -524,7 +522,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLHeadElement
     Inherits: HTMLElement
@@ -538,7 +536,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLHeadingElement
     Inherits: HTMLElement
@@ -558,7 +556,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLHtmlElement
     Inherits: HTMLElement
@@ -578,7 +576,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLIFrameElement
     Inherits: HTMLElement
@@ -750,7 +748,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLImageElement
     Inherits: HTMLElement
@@ -1201,7 +1199,7 @@
                   Name: unsigned long
             Values:
               - Image
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLInputElement
     Inherits: HTMLElement
@@ -1712,7 +1710,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLLIElement
     Inherits: HTMLElement
@@ -1740,7 +1738,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLLabelElement
     Inherits: HTMLElement
@@ -1781,7 +1779,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLLegendElement
     Inherits: HTMLElement
@@ -1810,7 +1808,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLLinkElement
     Inherits: HTMLElement
@@ -1986,7 +1984,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLMapElement
     Inherits: HTMLElement
@@ -2018,7 +2016,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLMarqueeElement
     Inherits: HTMLElement
@@ -2136,7 +2134,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLMediaElement
     Inherits: HTMLElement
@@ -2549,7 +2547,7 @@
               - Name: undefined
         ExtAttrs:
           - Name: SecureContext
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLMenuElement
     Inherits: HTMLElement
@@ -2569,7 +2567,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLMetaElement
     Inherits: HTMLElement
@@ -2621,7 +2619,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLMeterElement
     Inherits: HTMLElement
@@ -2692,7 +2690,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLModElement
     Inherits: HTMLElement
@@ -2723,7 +2721,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: model-element.idl
+- File: webref/model-element.idl
   Interface:
     Name: HTMLModelElement
     Inherits: HTMLElement
@@ -2731,7 +2729,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLOListElement
     Inherits: HTMLElement
@@ -2775,7 +2773,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLObjectElement
     Inherits: HTMLElement
@@ -2970,7 +2968,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLOptGroupElement
     Inherits: HTMLElement
@@ -3001,7 +2999,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLOptionElement
     Inherits: HTMLElement
@@ -3310,7 +3308,7 @@
                   Name: boolean
             Values:
               - Option
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLOptionsCollection
     Inherits: HTMLCollection
@@ -3318,7 +3316,6 @@
       - Name: Exposed
         Values:
           - Window
-      - Name: LegacyUnenumerableNamedProperties
     Attrs:
       - Name: length
         Type:
@@ -3328,7 +3325,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: LegacyUnenumerableNamedProperties
       - Name: selectedIndex
         Type:
           Name: long
@@ -3336,7 +3332,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: LegacyUnenumerableNamedProperties
     Operations:
       - Modifier: setter
         Args:
@@ -3354,7 +3349,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: LegacyUnenumerableNamedProperties
       - Name: add
         Args:
           - Name: element
@@ -3377,7 +3371,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: LegacyUnenumerableNamedProperties
       - Name: remove
         Args:
           - Name: index
@@ -3390,22 +3383,21 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: LegacyUnenumerableNamedProperties
-- File: html.idl
+- File: webref/html.idl
   Typedef:
     Name: HTMLOrSVGImageElement
     Type:
       Union:
         - Name: HTMLImageElement
         - Name: SVGImageElement
-- File: html.idl
+- File: webref/html.idl
   Typedef:
     Name: HTMLOrSVGScriptElement
     Type:
       Union:
         - Name: HTMLScriptElement
         - Name: SVGScriptElement
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLOutputElement
     Inherits: HTMLElement
@@ -3531,7 +3523,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLParagraphElement
     Inherits: HTMLElement
@@ -3551,7 +3543,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLParamElement
     Inherits: HTMLElement
@@ -3598,7 +3590,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLPictureElement
     Inherits: HTMLElement
@@ -3612,7 +3604,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: portals.idl
+- File: webref/portals.idl
   Interface:
     Name: HTMLPortalElement
     Inherits: HTMLElement
@@ -3690,7 +3682,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLPreElement
     Inherits: HTMLElement
@@ -3710,7 +3702,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLProgressElement
     Inherits: HTMLElement
@@ -3757,7 +3749,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLQuoteElement
     Inherits: HTMLElement
@@ -3780,7 +3772,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLScriptElement
     Inherits: HTMLElement
@@ -3922,7 +3914,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLSelectElement
     Inherits: HTMLElement
@@ -4183,7 +4175,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLSlotElement
     Inherits: HTMLElement
@@ -4251,7 +4243,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLSourceElement
     Inherits: HTMLElement
@@ -4322,7 +4314,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLSpanElement
     Inherits: HTMLElement
@@ -4336,12 +4328,12 @@
           - Name: Exposed
             Values:
               - Window
-- File: trusted-types.idl
+- File: webref/trusted-types.idl
   Typedef:
     Name: HTMLString
     Type:
       Name: DOMString
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLStyleElement
     Inherits: HTMLElement
@@ -4393,7 +4385,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLTableCaptionElement
     Inherits: HTMLElement
@@ -4413,7 +4405,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLTableCellElement
     Inherits: HTMLElement
@@ -4521,7 +4513,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLTableColElement
     Inherits: HTMLElement
@@ -4569,7 +4561,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLTableElement
     Inherits: HTMLElement

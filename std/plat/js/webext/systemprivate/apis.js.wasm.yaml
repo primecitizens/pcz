@@ -1,0 +1,102 @@
+- File: webext/chrome/system_private.json
+  Enum:
+    Name: GetIncognitoModeAvailabilityValue
+    Values:
+      - enabled
+      - disabled
+      - forced
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - systemPrivate
+- File: webext/chrome/system_private.json
+  Dict:
+    Name: UpdateStatus
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - systemPrivate
+    Fields:
+      - Name: downloadProgress
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - systemPrivate
+      - Name: state
+        Required: true
+        Type:
+          Name: UpdateStatusState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - systemPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - systemPrivate
+- File: webext/chrome/system_private.json
+  Enum:
+    Name: UpdateStatusState
+    Values:
+      - NotAvailable
+      - Updating
+      - NeedRestart
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - systemPrivate
+- File: webext/chrome/system_private.json
+  WebextFunc:
+    Name: getApiKey
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - systemPrivate
+- File: webext/chrome/system_private.json
+  WebextFunc:
+    Name: getIncognitoModeAvailability
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: GetIncognitoModeAvailabilityValue
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - systemPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - systemPrivate
+- File: webext/chrome/system_private.json
+  WebextFunc:
+    Name: getUpdateStatus
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: UpdateStatus
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - systemPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - systemPrivate

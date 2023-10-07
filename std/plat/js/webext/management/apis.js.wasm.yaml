@@ -1,0 +1,699 @@
+- File: webext/management.json
+  Enum:
+    Name: ExtensionDisabledReason
+    Values:
+      - unknown
+      - permissions_increase
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - management
+- File: webext/management.json
+  Dict:
+    Name: ExtensionInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - management
+    Fields:
+      - Name: appLaunchUrl
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+      - Name: availableLaunchTypes
+        Type:
+          Name: sequence
+          Params:
+            - Name: LaunchType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - management
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - management
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+      - Name: description
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+      - Name: disabledReason
+        Type:
+          Name: ExtensionDisabledReason
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - management
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+      - Name: enabled
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+      - Name: homepageUrl
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+      - Name: hostPermissions
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - management
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+      - Name: icons
+        Type:
+          Name: sequence
+          Params:
+            - Name: IconInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - management
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - management
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+      - Name: id
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+      - Name: installType
+        Required: true
+        Type:
+          Name: ExtensionInstallType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - management
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+      - Name: isApp
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+      - Name: launchType
+        Type:
+          Name: LaunchType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - management
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+      - Name: mayDisable
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+      - Name: mayEnable
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+      - Name: offlineEnabled
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+      - Name: optionsUrl
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+      - Name: permissions
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - management
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+      - Name: shortName
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+      - Name: type
+        Required: true
+        Type:
+          Name: ExtensionType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - management
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+      - Name: updateUrl
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+      - Name: version
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+      - Name: versionName
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+- File: webext/management.json
+  Enum:
+    Name: ExtensionInstallType
+    Values:
+      - admin
+      - development
+      - normal
+      - sideload
+      - other
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - management
+- File: webext/management.json
+  Enum:
+    Name: ExtensionType
+    Values:
+      - extension
+      - hosted_app
+      - packaged_app
+      - legacy_packaged_app
+      - theme
+      - login_screen_extension
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - management
+- File: webext/management.json
+  Dict:
+    Name: IconInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - management
+    Fields:
+      - Name: size
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+- File: webext/management.json
+  Enum:
+    Name: LaunchType
+    Values:
+      - OPEN_AS_REGULAR_TAB
+      - OPEN_AS_PINNED_TAB
+      - OPEN_AS_WINDOW
+      - OPEN_FULL_SCREEN
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - management
+- File: webext/management.json
+  Dict:
+    Name: UninstallOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - management
+    Fields:
+      - Name: showConfirmDialog
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - management
+- File: webext/management.json
+  WebextFunc:
+    Name: createAppShortcut
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - management
+- File: webext/management.json
+  WebextFunc:
+    Name: generateAppForLink
+    Args:
+      - Name: url
+        Type:
+          Name: DOMString
+      - Name: title
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ExtensionInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - management
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - management
+- File: webext/management.json
+  WebextFunc:
+    Name: get
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ExtensionInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - management
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - management
+- File: webext/management.json
+  WebextFunc:
+    Name: getAll
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: ExtensionInfo
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - management
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - management
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - management
+- File: webext/management.json
+  WebextFunc:
+    Name: getPermissionWarningsById
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - management
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - management
+- File: webext/management.json
+  WebextFunc:
+    Name: getPermissionWarningsByManifest
+    Args:
+      - Name: manifestStr
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - management
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - management
+- File: webext/management.json
+  WebextFunc:
+    Name: getSelf
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ExtensionInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - management
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - management
+- File: webext/management.json
+  WebextFunc:
+    Name: installReplacementWebApp
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - management
+- File: webext/management.json
+  WebextFunc:
+    Name: launchApp
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - management
+- File: webext/management.json
+  WebextEvent:
+    Name: onDisabled
+    Args:
+      - Name: info
+        Type:
+          Name: ExtensionInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - management
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - management
+- File: webext/management.json
+  WebextEvent:
+    Name: onEnabled
+    Args:
+      - Name: info
+        Type:
+          Name: ExtensionInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - management
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - management
+- File: webext/management.json
+  WebextEvent:
+    Name: onInstalled
+    Args:
+      - Name: info
+        Type:
+          Name: ExtensionInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - management
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - management
+- File: webext/management.json
+  WebextEvent:
+    Name: onUninstalled
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - management
+- File: webext/management.json
+  WebextFunc:
+    Name: setEnabled
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: enabled
+        Type:
+          Name: boolean
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - management
+- File: webext/management.json
+  WebextFunc:
+    Name: setLaunchType
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: launchType
+        Type:
+          Name: LaunchType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - management
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - management
+- File: webext/management.json
+  WebextFunc:
+    Name: uninstall
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: options
+        Optional: true
+        Type:
+          Name: UninstallOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - management
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - management
+- File: webext/management.json
+  WebextFunc:
+    Name: uninstallSelf
+    Args:
+      - Name: options
+        Optional: true
+        Type:
+          Name: UninstallOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - management
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - management

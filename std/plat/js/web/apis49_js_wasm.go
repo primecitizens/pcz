@@ -4,18 +4,9 @@
 package web
 
 import (
-	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 type RTCRtpEncodingParameters struct {
 	// Active is "RTCRtpEncodingParameters.active"
@@ -81,17 +72,28 @@ func (p RTCRtpEncodingParameters) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCRtpEncodingParameters) UpdateFrom(ref js.Ref) {
+func (p *RTCRtpEncodingParameters) UpdateFrom(ref js.Ref) {
 	bindings.RTCRtpEncodingParametersJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCRtpEncodingParameters) Update(ref js.Ref) {
+func (p *RTCRtpEncodingParameters) Update(ref js.Ref) {
 	bindings.RTCRtpEncodingParametersJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCRtpEncodingParameters) FreeMembers(recursive bool) {
+	js.Free(
+		p.Rid.Ref(),
+		p.ScalabilityMode.Ref(),
+	)
+	p.Rid = p.Rid.FromRef(js.Undefined)
+	p.ScalabilityMode = p.ScalabilityMode.FromRef(js.Undefined)
 }
 
 type RTCRtpHeaderExtensionParameters struct {
@@ -129,17 +131,26 @@ func (p RTCRtpHeaderExtensionParameters) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCRtpHeaderExtensionParameters) UpdateFrom(ref js.Ref) {
+func (p *RTCRtpHeaderExtensionParameters) UpdateFrom(ref js.Ref) {
 	bindings.RTCRtpHeaderExtensionParametersJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCRtpHeaderExtensionParameters) Update(ref js.Ref) {
+func (p *RTCRtpHeaderExtensionParameters) Update(ref js.Ref) {
 	bindings.RTCRtpHeaderExtensionParametersJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCRtpHeaderExtensionParameters) FreeMembers(recursive bool) {
+	js.Free(
+		p.Uri.Ref(),
+	)
+	p.Uri = p.Uri.FromRef(js.Undefined)
 }
 
 type RTCRtcpParameters struct {
@@ -173,17 +184,26 @@ func (p RTCRtcpParameters) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCRtcpParameters) UpdateFrom(ref js.Ref) {
+func (p *RTCRtcpParameters) UpdateFrom(ref js.Ref) {
 	bindings.RTCRtcpParametersJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCRtcpParameters) Update(ref js.Ref) {
+func (p *RTCRtcpParameters) Update(ref js.Ref) {
 	bindings.RTCRtcpParametersJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCRtcpParameters) FreeMembers(recursive bool) {
+	js.Free(
+		p.Cname.Ref(),
+	)
+	p.Cname = p.Cname.FromRef(js.Undefined)
 }
 
 type RTCRtpCodecParameters struct {
@@ -229,17 +249,28 @@ func (p RTCRtpCodecParameters) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCRtpCodecParameters) UpdateFrom(ref js.Ref) {
+func (p *RTCRtpCodecParameters) UpdateFrom(ref js.Ref) {
 	bindings.RTCRtpCodecParametersJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCRtpCodecParameters) Update(ref js.Ref) {
+func (p *RTCRtpCodecParameters) Update(ref js.Ref) {
 	bindings.RTCRtpCodecParametersJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCRtpCodecParameters) FreeMembers(recursive bool) {
+	js.Free(
+		p.MimeType.Ref(),
+		p.SdpFmtpLine.Ref(),
+	)
+	p.MimeType = p.MimeType.FromRef(js.Undefined)
+	p.SdpFmtpLine = p.SdpFmtpLine.FromRef(js.Undefined)
 }
 
 type RTCRtpSendParameters struct {
@@ -287,17 +318,35 @@ func (p RTCRtpSendParameters) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCRtpSendParameters) UpdateFrom(ref js.Ref) {
+func (p *RTCRtpSendParameters) UpdateFrom(ref js.Ref) {
 	bindings.RTCRtpSendParametersJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCRtpSendParameters) Update(ref js.Ref) {
+func (p *RTCRtpSendParameters) Update(ref js.Ref) {
 	bindings.RTCRtpSendParametersJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCRtpSendParameters) FreeMembers(recursive bool) {
+	js.Free(
+		p.TransactionId.Ref(),
+		p.Encodings.Ref(),
+		p.HeaderExtensions.Ref(),
+		p.Codecs.Ref(),
+	)
+	p.TransactionId = p.TransactionId.FromRef(js.Undefined)
+	p.Encodings = p.Encodings.FromRef(js.Undefined)
+	p.HeaderExtensions = p.HeaderExtensions.FromRef(js.Undefined)
+	p.Codecs = p.Codecs.FromRef(js.Undefined)
+	if recursive {
+		p.Rtcp.FreeMembers(true)
+	}
 }
 
 type RTCSetParameterOptions struct {
@@ -318,17 +367,22 @@ func (p RTCSetParameterOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCSetParameterOptions) UpdateFrom(ref js.Ref) {
+func (p *RTCSetParameterOptions) UpdateFrom(ref js.Ref) {
 	bindings.RTCSetParameterOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCSetParameterOptions) Update(ref js.Ref) {
+func (p *RTCSetParameterOptions) Update(ref js.Ref) {
 	bindings.RTCSetParameterOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCSetParameterOptions) FreeMembers(recursive bool) {
 }
 
 type RTCStatsReport struct {
@@ -336,7 +390,7 @@ type RTCStatsReport struct {
 }
 
 func (this RTCStatsReport) Once() RTCStatsReport {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -350,7 +404,7 @@ func (this RTCStatsReport) FromRef(ref js.Ref) RTCStatsReport {
 }
 
 func (this RTCStatsReport) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type SFrameTransformRole uint32
@@ -400,17 +454,22 @@ func (p SFrameTransformOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p SFrameTransformOptions) UpdateFrom(ref js.Ref) {
+func (p *SFrameTransformOptions) UpdateFrom(ref js.Ref) {
 	bindings.SFrameTransformOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p SFrameTransformOptions) Update(ref js.Ref) {
+func (p *SFrameTransformOptions) Update(ref js.Ref) {
 	bindings.SFrameTransformOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *SFrameTransformOptions) FreeMembers(recursive bool) {
 }
 
 func NewSFrameTransform(options SFrameTransformOptions) (ret SFrameTransform) {
@@ -429,7 +488,7 @@ type SFrameTransform struct {
 }
 
 func (this SFrameTransform) Once() SFrameTransform {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -443,7 +502,7 @@ func (this SFrameTransform) FromRef(ref js.Ref) SFrameTransform {
 }
 
 func (this SFrameTransform) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Readable returns the value of property "SFrameTransform.readable".
@@ -451,7 +510,7 @@ func (this SFrameTransform) Free() {
 // It returns ok=false if there is no such property.
 func (this SFrameTransform) Readable() (ret ReadableStream, ok bool) {
 	ok = js.True == bindings.GetSFrameTransformReadable(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -461,31 +520,30 @@ func (this SFrameTransform) Readable() (ret ReadableStream, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SFrameTransform) Writable() (ret WritableStream, ok bool) {
 	ok = js.True == bindings.GetSFrameTransformWritable(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasSetEncryptionKey returns true if the method "SFrameTransform.setEncryptionKey" exists.
-func (this SFrameTransform) HasSetEncryptionKey() bool {
-	return js.True == bindings.HasSFrameTransformSetEncryptionKey(
-		this.Ref(),
+// HasFuncSetEncryptionKey returns true if the method "SFrameTransform.setEncryptionKey" exists.
+func (this SFrameTransform) HasFuncSetEncryptionKey() bool {
+	return js.True == bindings.HasFuncSFrameTransformSetEncryptionKey(
+		this.ref,
 	)
 }
 
-// SetEncryptionKeyFunc returns the method "SFrameTransform.setEncryptionKey".
-func (this SFrameTransform) SetEncryptionKeyFunc() (fn js.Func[func(key CryptoKey, keyID CryptoKeyID) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.SFrameTransformSetEncryptionKeyFunc(
-			this.Ref(),
-		),
+// FuncSetEncryptionKey returns the method "SFrameTransform.setEncryptionKey".
+func (this SFrameTransform) FuncSetEncryptionKey() (fn js.Func[func(key CryptoKey, keyID CryptoKeyID) js.Promise[js.Void]]) {
+	bindings.FuncSFrameTransformSetEncryptionKey(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetEncryptionKey calls the method "SFrameTransform.setEncryptionKey".
 func (this SFrameTransform) SetEncryptionKey(key CryptoKey, keyID CryptoKeyID) (ret js.Promise[js.Void]) {
 	bindings.CallSFrameTransformSetEncryptionKey(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		key.Ref(),
 		keyID.Ref(),
 	)
@@ -498,7 +556,7 @@ func (this SFrameTransform) SetEncryptionKey(key CryptoKey, keyID CryptoKeyID) (
 // the catch clause.
 func (this SFrameTransform) TrySetEncryptionKey(key CryptoKey, keyID CryptoKeyID) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySFrameTransformSetEncryptionKey(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		key.Ref(),
 		keyID.Ref(),
 	)
@@ -506,26 +564,25 @@ func (this SFrameTransform) TrySetEncryptionKey(key CryptoKey, keyID CryptoKeyID
 	return
 }
 
-// HasSetEncryptionKey1 returns true if the method "SFrameTransform.setEncryptionKey" exists.
-func (this SFrameTransform) HasSetEncryptionKey1() bool {
-	return js.True == bindings.HasSFrameTransformSetEncryptionKey1(
-		this.Ref(),
+// HasFuncSetEncryptionKey1 returns true if the method "SFrameTransform.setEncryptionKey" exists.
+func (this SFrameTransform) HasFuncSetEncryptionKey1() bool {
+	return js.True == bindings.HasFuncSFrameTransformSetEncryptionKey1(
+		this.ref,
 	)
 }
 
-// SetEncryptionKey1Func returns the method "SFrameTransform.setEncryptionKey".
-func (this SFrameTransform) SetEncryptionKey1Func() (fn js.Func[func(key CryptoKey) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.SFrameTransformSetEncryptionKey1Func(
-			this.Ref(),
-		),
+// FuncSetEncryptionKey1 returns the method "SFrameTransform.setEncryptionKey".
+func (this SFrameTransform) FuncSetEncryptionKey1() (fn js.Func[func(key CryptoKey) js.Promise[js.Void]]) {
+	bindings.FuncSFrameTransformSetEncryptionKey1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetEncryptionKey1 calls the method "SFrameTransform.setEncryptionKey".
 func (this SFrameTransform) SetEncryptionKey1(key CryptoKey) (ret js.Promise[js.Void]) {
 	bindings.CallSFrameTransformSetEncryptionKey1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		key.Ref(),
 	)
 
@@ -537,7 +594,7 @@ func (this SFrameTransform) SetEncryptionKey1(key CryptoKey) (ret js.Promise[js.
 // the catch clause.
 func (this SFrameTransform) TrySetEncryptionKey1(key CryptoKey) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySFrameTransformSetEncryptionKey1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		key.Ref(),
 	)
 
@@ -575,17 +632,26 @@ func (p WorkerOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p WorkerOptions) UpdateFrom(ref js.Ref) {
+func (p *WorkerOptions) UpdateFrom(ref js.Ref) {
 	bindings.WorkerOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p WorkerOptions) Update(ref js.Ref) {
+func (p *WorkerOptions) Update(ref js.Ref) {
 	bindings.WorkerOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *WorkerOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Name.Ref(),
+	)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 func NewWorker(scriptURL js.String, options WorkerOptions) (ret Worker) {
@@ -606,7 +672,7 @@ type Worker struct {
 }
 
 func (this Worker) Once() Worker {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -620,29 +686,28 @@ func (this Worker) FromRef(ref js.Ref) Worker {
 }
 
 func (this Worker) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasTerminate returns true if the method "Worker.terminate" exists.
-func (this Worker) HasTerminate() bool {
-	return js.True == bindings.HasWorkerTerminate(
-		this.Ref(),
+// HasFuncTerminate returns true if the method "Worker.terminate" exists.
+func (this Worker) HasFuncTerminate() bool {
+	return js.True == bindings.HasFuncWorkerTerminate(
+		this.ref,
 	)
 }
 
-// TerminateFunc returns the method "Worker.terminate".
-func (this Worker) TerminateFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.WorkerTerminateFunc(
-			this.Ref(),
-		),
+// FuncTerminate returns the method "Worker.terminate".
+func (this Worker) FuncTerminate() (fn js.Func[func()]) {
+	bindings.FuncWorkerTerminate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Terminate calls the method "Worker.terminate".
 func (this Worker) Terminate() (ret js.Void) {
 	bindings.CallWorkerTerminate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -653,32 +718,31 @@ func (this Worker) Terminate() (ret js.Void) {
 // the catch clause.
 func (this Worker) TryTerminate() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerTerminate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasPostMessage returns true if the method "Worker.postMessage" exists.
-func (this Worker) HasPostMessage() bool {
-	return js.True == bindings.HasWorkerPostMessage(
-		this.Ref(),
+// HasFuncPostMessage returns true if the method "Worker.postMessage" exists.
+func (this Worker) HasFuncPostMessage() bool {
+	return js.True == bindings.HasFuncWorkerPostMessage(
+		this.ref,
 	)
 }
 
-// PostMessageFunc returns the method "Worker.postMessage".
-func (this Worker) PostMessageFunc() (fn js.Func[func(message js.Any, transfer js.Array[js.Object])]) {
-	return fn.FromRef(
-		bindings.WorkerPostMessageFunc(
-			this.Ref(),
-		),
+// FuncPostMessage returns the method "Worker.postMessage".
+func (this Worker) FuncPostMessage() (fn js.Func[func(message js.Any, transfer js.Array[js.Object])]) {
+	bindings.FuncWorkerPostMessage(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PostMessage calls the method "Worker.postMessage".
 func (this Worker) PostMessage(message js.Any, transfer js.Array[js.Object]) (ret js.Void) {
 	bindings.CallWorkerPostMessage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		message.Ref(),
 		transfer.Ref(),
 	)
@@ -691,7 +755,7 @@ func (this Worker) PostMessage(message js.Any, transfer js.Array[js.Object]) (re
 // the catch clause.
 func (this Worker) TryPostMessage(message js.Any, transfer js.Array[js.Object]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerPostMessage(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		message.Ref(),
 		transfer.Ref(),
 	)
@@ -699,26 +763,25 @@ func (this Worker) TryPostMessage(message js.Any, transfer js.Array[js.Object]) 
 	return
 }
 
-// HasPostMessage1 returns true if the method "Worker.postMessage" exists.
-func (this Worker) HasPostMessage1() bool {
-	return js.True == bindings.HasWorkerPostMessage1(
-		this.Ref(),
+// HasFuncPostMessage1 returns true if the method "Worker.postMessage" exists.
+func (this Worker) HasFuncPostMessage1() bool {
+	return js.True == bindings.HasFuncWorkerPostMessage1(
+		this.ref,
 	)
 }
 
-// PostMessage1Func returns the method "Worker.postMessage".
-func (this Worker) PostMessage1Func() (fn js.Func[func(message js.Any, options StructuredSerializeOptions)]) {
-	return fn.FromRef(
-		bindings.WorkerPostMessage1Func(
-			this.Ref(),
-		),
+// FuncPostMessage1 returns the method "Worker.postMessage".
+func (this Worker) FuncPostMessage1() (fn js.Func[func(message js.Any, options StructuredSerializeOptions)]) {
+	bindings.FuncWorkerPostMessage1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PostMessage1 calls the method "Worker.postMessage".
 func (this Worker) PostMessage1(message js.Any, options StructuredSerializeOptions) (ret js.Void) {
 	bindings.CallWorkerPostMessage1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		message.Ref(),
 		js.Pointer(&options),
 	)
@@ -731,7 +794,7 @@ func (this Worker) PostMessage1(message js.Any, options StructuredSerializeOptio
 // the catch clause.
 func (this Worker) TryPostMessage1(message js.Any, options StructuredSerializeOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerPostMessage1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		message.Ref(),
 		js.Pointer(&options),
 	)
@@ -739,26 +802,25 @@ func (this Worker) TryPostMessage1(message js.Any, options StructuredSerializeOp
 	return
 }
 
-// HasPostMessage2 returns true if the method "Worker.postMessage" exists.
-func (this Worker) HasPostMessage2() bool {
-	return js.True == bindings.HasWorkerPostMessage2(
-		this.Ref(),
+// HasFuncPostMessage2 returns true if the method "Worker.postMessage" exists.
+func (this Worker) HasFuncPostMessage2() bool {
+	return js.True == bindings.HasFuncWorkerPostMessage2(
+		this.ref,
 	)
 }
 
-// PostMessage2Func returns the method "Worker.postMessage".
-func (this Worker) PostMessage2Func() (fn js.Func[func(message js.Any)]) {
-	return fn.FromRef(
-		bindings.WorkerPostMessage2Func(
-			this.Ref(),
-		),
+// FuncPostMessage2 returns the method "Worker.postMessage".
+func (this Worker) FuncPostMessage2() (fn js.Func[func(message js.Any)]) {
+	bindings.FuncWorkerPostMessage2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PostMessage2 calls the method "Worker.postMessage".
 func (this Worker) PostMessage2(message js.Any) (ret js.Void) {
 	bindings.CallWorkerPostMessage2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		message.Ref(),
 	)
 
@@ -770,7 +832,7 @@ func (this Worker) PostMessage2(message js.Any) (ret js.Void) {
 // the catch clause.
 func (this Worker) TryPostMessage2(message js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerPostMessage2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		message.Ref(),
 	)
 
@@ -803,7 +865,7 @@ type RTCRtpScriptTransform struct {
 }
 
 func (this RTCRtpScriptTransform) Once() RTCRtpScriptTransform {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -817,7 +879,7 @@ func (this RTCRtpScriptTransform) FromRef(ref js.Ref) RTCRtpScriptTransform {
 }
 
 func (this RTCRtpScriptTransform) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type OneOf_SFrameTransform_RTCRtpScriptTransform struct {
@@ -853,7 +915,7 @@ type RTCRtpSender struct {
 }
 
 func (this RTCRtpSender) Once() RTCRtpSender {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -867,7 +929,7 @@ func (this RTCRtpSender) FromRef(ref js.Ref) RTCRtpSender {
 }
 
 func (this RTCRtpSender) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Track returns the value of property "RTCRtpSender.track".
@@ -875,7 +937,7 @@ func (this RTCRtpSender) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCRtpSender) Track() (ret MediaStreamTrack, ok bool) {
 	ok = js.True == bindings.GetRTCRtpSenderTrack(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -885,7 +947,7 @@ func (this RTCRtpSender) Track() (ret MediaStreamTrack, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCRtpSender) Transport() (ret RTCDtlsTransport, ok bool) {
 	ok = js.True == bindings.GetRTCRtpSenderTransport(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -895,7 +957,7 @@ func (this RTCRtpSender) Transport() (ret RTCDtlsTransport, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCRtpSender) Dtmf() (ret RTCDTMFSender, ok bool) {
 	ok = js.True == bindings.GetRTCRtpSenderDtmf(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -905,7 +967,7 @@ func (this RTCRtpSender) Dtmf() (ret RTCDTMFSender, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCRtpSender) Transform() (ret RTCRtpTransform, ok bool) {
 	ok = js.True == bindings.GetRTCRtpSenderTransform(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -915,69 +977,67 @@ func (this RTCRtpSender) Transform() (ret RTCRtpTransform, ok bool) {
 // It returns false if the property cannot be set.
 func (this RTCRtpSender) SetTransform(val RTCRtpTransform) bool {
 	return js.True == bindings.SetRTCRtpSenderTransform(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
 
-// HasGetCapabilities returns true if the staticmethod "RTCRtpSender.getCapabilities" exists.
-func (this RTCRtpSender) HasGetCapabilities() bool {
-	return js.True == bindings.HasRTCRtpSenderGetCapabilities(
-		this.Ref(),
+// HasFuncGetCapabilities returns true if the static method "RTCRtpSender.getCapabilities" exists.
+func (this RTCRtpSender) HasFuncGetCapabilities() bool {
+	return js.True == bindings.HasFuncRTCRtpSenderGetCapabilities(
+		this.ref,
 	)
 }
 
-// GetCapabilitiesFunc returns the staticmethod "RTCRtpSender.getCapabilities".
-func (this RTCRtpSender) GetCapabilitiesFunc() (fn js.Func[func(kind js.String) RTCRtpCapabilities]) {
-	return fn.FromRef(
-		bindings.RTCRtpSenderGetCapabilitiesFunc(
-			this.Ref(),
-		),
+// FuncGetCapabilities returns the static method "RTCRtpSender.getCapabilities".
+func (this RTCRtpSender) FuncGetCapabilities() (fn js.Func[func(kind js.String) RTCRtpCapabilities]) {
+	bindings.FuncRTCRtpSenderGetCapabilities(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// GetCapabilities calls the staticmethod "RTCRtpSender.getCapabilities".
+// GetCapabilities calls the static method "RTCRtpSender.getCapabilities".
 func (this RTCRtpSender) GetCapabilities(kind js.String) (ret RTCRtpCapabilities) {
 	bindings.CallRTCRtpSenderGetCapabilities(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		kind.Ref(),
 	)
 
 	return
 }
 
-// TryGetCapabilities calls the staticmethod "RTCRtpSender.getCapabilities"
+// TryGetCapabilities calls the static method "RTCRtpSender.getCapabilities"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCRtpSender) TryGetCapabilities(kind js.String) (ret RTCRtpCapabilities, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpSenderGetCapabilities(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		kind.Ref(),
 	)
 
 	return
 }
 
-// HasSetParameters returns true if the method "RTCRtpSender.setParameters" exists.
-func (this RTCRtpSender) HasSetParameters() bool {
-	return js.True == bindings.HasRTCRtpSenderSetParameters(
-		this.Ref(),
+// HasFuncSetParameters returns true if the method "RTCRtpSender.setParameters" exists.
+func (this RTCRtpSender) HasFuncSetParameters() bool {
+	return js.True == bindings.HasFuncRTCRtpSenderSetParameters(
+		this.ref,
 	)
 }
 
-// SetParametersFunc returns the method "RTCRtpSender.setParameters".
-func (this RTCRtpSender) SetParametersFunc() (fn js.Func[func(parameters RTCRtpSendParameters, setParameterOptions RTCSetParameterOptions) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.RTCRtpSenderSetParametersFunc(
-			this.Ref(),
-		),
+// FuncSetParameters returns the method "RTCRtpSender.setParameters".
+func (this RTCRtpSender) FuncSetParameters() (fn js.Func[func(parameters RTCRtpSendParameters, setParameterOptions RTCSetParameterOptions) js.Promise[js.Void]]) {
+	bindings.FuncRTCRtpSenderSetParameters(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetParameters calls the method "RTCRtpSender.setParameters".
 func (this RTCRtpSender) SetParameters(parameters RTCRtpSendParameters, setParameterOptions RTCSetParameterOptions) (ret js.Promise[js.Void]) {
 	bindings.CallRTCRtpSenderSetParameters(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&parameters),
 		js.Pointer(&setParameterOptions),
 	)
@@ -990,7 +1050,7 @@ func (this RTCRtpSender) SetParameters(parameters RTCRtpSendParameters, setParam
 // the catch clause.
 func (this RTCRtpSender) TrySetParameters(parameters RTCRtpSendParameters, setParameterOptions RTCSetParameterOptions) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpSenderSetParameters(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&parameters),
 		js.Pointer(&setParameterOptions),
 	)
@@ -998,26 +1058,25 @@ func (this RTCRtpSender) TrySetParameters(parameters RTCRtpSendParameters, setPa
 	return
 }
 
-// HasSetParameters1 returns true if the method "RTCRtpSender.setParameters" exists.
-func (this RTCRtpSender) HasSetParameters1() bool {
-	return js.True == bindings.HasRTCRtpSenderSetParameters1(
-		this.Ref(),
+// HasFuncSetParameters1 returns true if the method "RTCRtpSender.setParameters" exists.
+func (this RTCRtpSender) HasFuncSetParameters1() bool {
+	return js.True == bindings.HasFuncRTCRtpSenderSetParameters1(
+		this.ref,
 	)
 }
 
-// SetParameters1Func returns the method "RTCRtpSender.setParameters".
-func (this RTCRtpSender) SetParameters1Func() (fn js.Func[func(parameters RTCRtpSendParameters) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.RTCRtpSenderSetParameters1Func(
-			this.Ref(),
-		),
+// FuncSetParameters1 returns the method "RTCRtpSender.setParameters".
+func (this RTCRtpSender) FuncSetParameters1() (fn js.Func[func(parameters RTCRtpSendParameters) js.Promise[js.Void]]) {
+	bindings.FuncRTCRtpSenderSetParameters1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetParameters1 calls the method "RTCRtpSender.setParameters".
 func (this RTCRtpSender) SetParameters1(parameters RTCRtpSendParameters) (ret js.Promise[js.Void]) {
 	bindings.CallRTCRtpSenderSetParameters1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&parameters),
 	)
 
@@ -1029,33 +1088,32 @@ func (this RTCRtpSender) SetParameters1(parameters RTCRtpSendParameters) (ret js
 // the catch clause.
 func (this RTCRtpSender) TrySetParameters1(parameters RTCRtpSendParameters) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpSenderSetParameters1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&parameters),
 	)
 
 	return
 }
 
-// HasGetParameters returns true if the method "RTCRtpSender.getParameters" exists.
-func (this RTCRtpSender) HasGetParameters() bool {
-	return js.True == bindings.HasRTCRtpSenderGetParameters(
-		this.Ref(),
+// HasFuncGetParameters returns true if the method "RTCRtpSender.getParameters" exists.
+func (this RTCRtpSender) HasFuncGetParameters() bool {
+	return js.True == bindings.HasFuncRTCRtpSenderGetParameters(
+		this.ref,
 	)
 }
 
-// GetParametersFunc returns the method "RTCRtpSender.getParameters".
-func (this RTCRtpSender) GetParametersFunc() (fn js.Func[func() RTCRtpSendParameters]) {
-	return fn.FromRef(
-		bindings.RTCRtpSenderGetParametersFunc(
-			this.Ref(),
-		),
+// FuncGetParameters returns the method "RTCRtpSender.getParameters".
+func (this RTCRtpSender) FuncGetParameters() (fn js.Func[func() RTCRtpSendParameters]) {
+	bindings.FuncRTCRtpSenderGetParameters(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetParameters calls the method "RTCRtpSender.getParameters".
 func (this RTCRtpSender) GetParameters() (ret RTCRtpSendParameters) {
 	bindings.CallRTCRtpSenderGetParameters(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1066,32 +1124,31 @@ func (this RTCRtpSender) GetParameters() (ret RTCRtpSendParameters) {
 // the catch clause.
 func (this RTCRtpSender) TryGetParameters() (ret RTCRtpSendParameters, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpSenderGetParameters(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasReplaceTrack returns true if the method "RTCRtpSender.replaceTrack" exists.
-func (this RTCRtpSender) HasReplaceTrack() bool {
-	return js.True == bindings.HasRTCRtpSenderReplaceTrack(
-		this.Ref(),
+// HasFuncReplaceTrack returns true if the method "RTCRtpSender.replaceTrack" exists.
+func (this RTCRtpSender) HasFuncReplaceTrack() bool {
+	return js.True == bindings.HasFuncRTCRtpSenderReplaceTrack(
+		this.ref,
 	)
 }
 
-// ReplaceTrackFunc returns the method "RTCRtpSender.replaceTrack".
-func (this RTCRtpSender) ReplaceTrackFunc() (fn js.Func[func(withTrack MediaStreamTrack) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.RTCRtpSenderReplaceTrackFunc(
-			this.Ref(),
-		),
+// FuncReplaceTrack returns the method "RTCRtpSender.replaceTrack".
+func (this RTCRtpSender) FuncReplaceTrack() (fn js.Func[func(withTrack MediaStreamTrack) js.Promise[js.Void]]) {
+	bindings.FuncRTCRtpSenderReplaceTrack(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReplaceTrack calls the method "RTCRtpSender.replaceTrack".
 func (this RTCRtpSender) ReplaceTrack(withTrack MediaStreamTrack) (ret js.Promise[js.Void]) {
 	bindings.CallRTCRtpSenderReplaceTrack(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		withTrack.Ref(),
 	)
 
@@ -1103,33 +1160,32 @@ func (this RTCRtpSender) ReplaceTrack(withTrack MediaStreamTrack) (ret js.Promis
 // the catch clause.
 func (this RTCRtpSender) TryReplaceTrack(withTrack MediaStreamTrack) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpSenderReplaceTrack(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		withTrack.Ref(),
 	)
 
 	return
 }
 
-// HasSetStreams returns true if the method "RTCRtpSender.setStreams" exists.
-func (this RTCRtpSender) HasSetStreams() bool {
-	return js.True == bindings.HasRTCRtpSenderSetStreams(
-		this.Ref(),
+// HasFuncSetStreams returns true if the method "RTCRtpSender.setStreams" exists.
+func (this RTCRtpSender) HasFuncSetStreams() bool {
+	return js.True == bindings.HasFuncRTCRtpSenderSetStreams(
+		this.ref,
 	)
 }
 
-// SetStreamsFunc returns the method "RTCRtpSender.setStreams".
-func (this RTCRtpSender) SetStreamsFunc() (fn js.Func[func(streams ...MediaStream)]) {
-	return fn.FromRef(
-		bindings.RTCRtpSenderSetStreamsFunc(
-			this.Ref(),
-		),
+// FuncSetStreams returns the method "RTCRtpSender.setStreams".
+func (this RTCRtpSender) FuncSetStreams() (fn js.Func[func(streams ...MediaStream)]) {
+	bindings.FuncRTCRtpSenderSetStreams(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetStreams calls the method "RTCRtpSender.setStreams".
 func (this RTCRtpSender) SetStreams(streams ...MediaStream) (ret js.Void) {
 	bindings.CallRTCRtpSenderSetStreams(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.SliceData(streams),
 		js.SizeU(len(streams)),
 	)
@@ -1142,7 +1198,7 @@ func (this RTCRtpSender) SetStreams(streams ...MediaStream) (ret js.Void) {
 // the catch clause.
 func (this RTCRtpSender) TrySetStreams(streams ...MediaStream) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpSenderSetStreams(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.SliceData(streams),
 		js.SizeU(len(streams)),
 	)
@@ -1150,26 +1206,25 @@ func (this RTCRtpSender) TrySetStreams(streams ...MediaStream) (ret js.Void, exc
 	return
 }
 
-// HasGetStats returns true if the method "RTCRtpSender.getStats" exists.
-func (this RTCRtpSender) HasGetStats() bool {
-	return js.True == bindings.HasRTCRtpSenderGetStats(
-		this.Ref(),
+// HasFuncGetStats returns true if the method "RTCRtpSender.getStats" exists.
+func (this RTCRtpSender) HasFuncGetStats() bool {
+	return js.True == bindings.HasFuncRTCRtpSenderGetStats(
+		this.ref,
 	)
 }
 
-// GetStatsFunc returns the method "RTCRtpSender.getStats".
-func (this RTCRtpSender) GetStatsFunc() (fn js.Func[func() js.Promise[RTCStatsReport]]) {
-	return fn.FromRef(
-		bindings.RTCRtpSenderGetStatsFunc(
-			this.Ref(),
-		),
+// FuncGetStats returns the method "RTCRtpSender.getStats".
+func (this RTCRtpSender) FuncGetStats() (fn js.Func[func() js.Promise[RTCStatsReport]]) {
+	bindings.FuncRTCRtpSenderGetStats(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetStats calls the method "RTCRtpSender.getStats".
 func (this RTCRtpSender) GetStats() (ret js.Promise[RTCStatsReport]) {
 	bindings.CallRTCRtpSenderGetStats(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1180,32 +1235,31 @@ func (this RTCRtpSender) GetStats() (ret js.Promise[RTCStatsReport]) {
 // the catch clause.
 func (this RTCRtpSender) TryGetStats() (ret js.Promise[RTCStatsReport], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpSenderGetStats(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGenerateKeyFrame returns true if the method "RTCRtpSender.generateKeyFrame" exists.
-func (this RTCRtpSender) HasGenerateKeyFrame() bool {
-	return js.True == bindings.HasRTCRtpSenderGenerateKeyFrame(
-		this.Ref(),
+// HasFuncGenerateKeyFrame returns true if the method "RTCRtpSender.generateKeyFrame" exists.
+func (this RTCRtpSender) HasFuncGenerateKeyFrame() bool {
+	return js.True == bindings.HasFuncRTCRtpSenderGenerateKeyFrame(
+		this.ref,
 	)
 }
 
-// GenerateKeyFrameFunc returns the method "RTCRtpSender.generateKeyFrame".
-func (this RTCRtpSender) GenerateKeyFrameFunc() (fn js.Func[func(rids js.Array[js.String]) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.RTCRtpSenderGenerateKeyFrameFunc(
-			this.Ref(),
-		),
+// FuncGenerateKeyFrame returns the method "RTCRtpSender.generateKeyFrame".
+func (this RTCRtpSender) FuncGenerateKeyFrame() (fn js.Func[func(rids js.Array[js.String]) js.Promise[js.Void]]) {
+	bindings.FuncRTCRtpSenderGenerateKeyFrame(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GenerateKeyFrame calls the method "RTCRtpSender.generateKeyFrame".
 func (this RTCRtpSender) GenerateKeyFrame(rids js.Array[js.String]) (ret js.Promise[js.Void]) {
 	bindings.CallRTCRtpSenderGenerateKeyFrame(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		rids.Ref(),
 	)
 
@@ -1217,33 +1271,32 @@ func (this RTCRtpSender) GenerateKeyFrame(rids js.Array[js.String]) (ret js.Prom
 // the catch clause.
 func (this RTCRtpSender) TryGenerateKeyFrame(rids js.Array[js.String]) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpSenderGenerateKeyFrame(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		rids.Ref(),
 	)
 
 	return
 }
 
-// HasGenerateKeyFrame1 returns true if the method "RTCRtpSender.generateKeyFrame" exists.
-func (this RTCRtpSender) HasGenerateKeyFrame1() bool {
-	return js.True == bindings.HasRTCRtpSenderGenerateKeyFrame1(
-		this.Ref(),
+// HasFuncGenerateKeyFrame1 returns true if the method "RTCRtpSender.generateKeyFrame" exists.
+func (this RTCRtpSender) HasFuncGenerateKeyFrame1() bool {
+	return js.True == bindings.HasFuncRTCRtpSenderGenerateKeyFrame1(
+		this.ref,
 	)
 }
 
-// GenerateKeyFrame1Func returns the method "RTCRtpSender.generateKeyFrame".
-func (this RTCRtpSender) GenerateKeyFrame1Func() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.RTCRtpSenderGenerateKeyFrame1Func(
-			this.Ref(),
-		),
+// FuncGenerateKeyFrame1 returns the method "RTCRtpSender.generateKeyFrame".
+func (this RTCRtpSender) FuncGenerateKeyFrame1() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncRTCRtpSenderGenerateKeyFrame1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GenerateKeyFrame1 calls the method "RTCRtpSender.generateKeyFrame".
 func (this RTCRtpSender) GenerateKeyFrame1() (ret js.Promise[js.Void]) {
 	bindings.CallRTCRtpSenderGenerateKeyFrame1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1254,7 +1307,7 @@ func (this RTCRtpSender) GenerateKeyFrame1() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this RTCRtpSender) TryGenerateKeyFrame1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpSenderGenerateKeyFrame1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1293,17 +1346,31 @@ func (p RTCRtpReceiveParameters) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCRtpReceiveParameters) UpdateFrom(ref js.Ref) {
+func (p *RTCRtpReceiveParameters) UpdateFrom(ref js.Ref) {
 	bindings.RTCRtpReceiveParametersJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCRtpReceiveParameters) Update(ref js.Ref) {
+func (p *RTCRtpReceiveParameters) Update(ref js.Ref) {
 	bindings.RTCRtpReceiveParametersJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCRtpReceiveParameters) FreeMembers(recursive bool) {
+	js.Free(
+		p.HeaderExtensions.Ref(),
+		p.Codecs.Ref(),
+	)
+	p.HeaderExtensions = p.HeaderExtensions.FromRef(js.Undefined)
+	p.Codecs = p.Codecs.FromRef(js.Undefined)
+	if recursive {
+		p.Rtcp.FreeMembers(true)
+	}
 }
 
 type RTCRtpContributingSource struct {
@@ -1345,17 +1412,22 @@ func (p RTCRtpContributingSource) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCRtpContributingSource) UpdateFrom(ref js.Ref) {
+func (p *RTCRtpContributingSource) UpdateFrom(ref js.Ref) {
 	bindings.RTCRtpContributingSourceJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCRtpContributingSource) Update(ref js.Ref) {
+func (p *RTCRtpContributingSource) Update(ref js.Ref) {
 	bindings.RTCRtpContributingSourceJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCRtpContributingSource) FreeMembers(recursive bool) {
 }
 
 type RTCRtpSynchronizationSource struct {
@@ -1397,17 +1469,22 @@ func (p RTCRtpSynchronizationSource) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCRtpSynchronizationSource) UpdateFrom(ref js.Ref) {
+func (p *RTCRtpSynchronizationSource) UpdateFrom(ref js.Ref) {
 	bindings.RTCRtpSynchronizationSourceJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCRtpSynchronizationSource) Update(ref js.Ref) {
+func (p *RTCRtpSynchronizationSource) Update(ref js.Ref) {
 	bindings.RTCRtpSynchronizationSourceJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCRtpSynchronizationSource) FreeMembers(recursive bool) {
 }
 
 type RTCRtpReceiver struct {
@@ -1415,7 +1492,7 @@ type RTCRtpReceiver struct {
 }
 
 func (this RTCRtpReceiver) Once() RTCRtpReceiver {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1429,7 +1506,7 @@ func (this RTCRtpReceiver) FromRef(ref js.Ref) RTCRtpReceiver {
 }
 
 func (this RTCRtpReceiver) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Track returns the value of property "RTCRtpReceiver.track".
@@ -1437,7 +1514,7 @@ func (this RTCRtpReceiver) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCRtpReceiver) Track() (ret MediaStreamTrack, ok bool) {
 	ok = js.True == bindings.GetRTCRtpReceiverTrack(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1447,7 +1524,7 @@ func (this RTCRtpReceiver) Track() (ret MediaStreamTrack, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCRtpReceiver) Transport() (ret RTCDtlsTransport, ok bool) {
 	ok = js.True == bindings.GetRTCRtpReceiverTransport(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1457,7 +1534,7 @@ func (this RTCRtpReceiver) Transport() (ret RTCDtlsTransport, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCRtpReceiver) Transform() (ret RTCRtpTransform, ok bool) {
 	ok = js.True == bindings.GetRTCRtpReceiverTransform(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1467,69 +1544,67 @@ func (this RTCRtpReceiver) Transform() (ret RTCRtpTransform, ok bool) {
 // It returns false if the property cannot be set.
 func (this RTCRtpReceiver) SetTransform(val RTCRtpTransform) bool {
 	return js.True == bindings.SetRTCRtpReceiverTransform(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
 
-// HasGetCapabilities returns true if the staticmethod "RTCRtpReceiver.getCapabilities" exists.
-func (this RTCRtpReceiver) HasGetCapabilities() bool {
-	return js.True == bindings.HasRTCRtpReceiverGetCapabilities(
-		this.Ref(),
+// HasFuncGetCapabilities returns true if the static method "RTCRtpReceiver.getCapabilities" exists.
+func (this RTCRtpReceiver) HasFuncGetCapabilities() bool {
+	return js.True == bindings.HasFuncRTCRtpReceiverGetCapabilities(
+		this.ref,
 	)
 }
 
-// GetCapabilitiesFunc returns the staticmethod "RTCRtpReceiver.getCapabilities".
-func (this RTCRtpReceiver) GetCapabilitiesFunc() (fn js.Func[func(kind js.String) RTCRtpCapabilities]) {
-	return fn.FromRef(
-		bindings.RTCRtpReceiverGetCapabilitiesFunc(
-			this.Ref(),
-		),
+// FuncGetCapabilities returns the static method "RTCRtpReceiver.getCapabilities".
+func (this RTCRtpReceiver) FuncGetCapabilities() (fn js.Func[func(kind js.String) RTCRtpCapabilities]) {
+	bindings.FuncRTCRtpReceiverGetCapabilities(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// GetCapabilities calls the staticmethod "RTCRtpReceiver.getCapabilities".
+// GetCapabilities calls the static method "RTCRtpReceiver.getCapabilities".
 func (this RTCRtpReceiver) GetCapabilities(kind js.String) (ret RTCRtpCapabilities) {
 	bindings.CallRTCRtpReceiverGetCapabilities(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		kind.Ref(),
 	)
 
 	return
 }
 
-// TryGetCapabilities calls the staticmethod "RTCRtpReceiver.getCapabilities"
+// TryGetCapabilities calls the static method "RTCRtpReceiver.getCapabilities"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCRtpReceiver) TryGetCapabilities(kind js.String) (ret RTCRtpCapabilities, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpReceiverGetCapabilities(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		kind.Ref(),
 	)
 
 	return
 }
 
-// HasGetParameters returns true if the method "RTCRtpReceiver.getParameters" exists.
-func (this RTCRtpReceiver) HasGetParameters() bool {
-	return js.True == bindings.HasRTCRtpReceiverGetParameters(
-		this.Ref(),
+// HasFuncGetParameters returns true if the method "RTCRtpReceiver.getParameters" exists.
+func (this RTCRtpReceiver) HasFuncGetParameters() bool {
+	return js.True == bindings.HasFuncRTCRtpReceiverGetParameters(
+		this.ref,
 	)
 }
 
-// GetParametersFunc returns the method "RTCRtpReceiver.getParameters".
-func (this RTCRtpReceiver) GetParametersFunc() (fn js.Func[func() RTCRtpReceiveParameters]) {
-	return fn.FromRef(
-		bindings.RTCRtpReceiverGetParametersFunc(
-			this.Ref(),
-		),
+// FuncGetParameters returns the method "RTCRtpReceiver.getParameters".
+func (this RTCRtpReceiver) FuncGetParameters() (fn js.Func[func() RTCRtpReceiveParameters]) {
+	bindings.FuncRTCRtpReceiverGetParameters(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetParameters calls the method "RTCRtpReceiver.getParameters".
 func (this RTCRtpReceiver) GetParameters() (ret RTCRtpReceiveParameters) {
 	bindings.CallRTCRtpReceiverGetParameters(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1540,32 +1615,31 @@ func (this RTCRtpReceiver) GetParameters() (ret RTCRtpReceiveParameters) {
 // the catch clause.
 func (this RTCRtpReceiver) TryGetParameters() (ret RTCRtpReceiveParameters, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpReceiverGetParameters(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetContributingSources returns true if the method "RTCRtpReceiver.getContributingSources" exists.
-func (this RTCRtpReceiver) HasGetContributingSources() bool {
-	return js.True == bindings.HasRTCRtpReceiverGetContributingSources(
-		this.Ref(),
+// HasFuncGetContributingSources returns true if the method "RTCRtpReceiver.getContributingSources" exists.
+func (this RTCRtpReceiver) HasFuncGetContributingSources() bool {
+	return js.True == bindings.HasFuncRTCRtpReceiverGetContributingSources(
+		this.ref,
 	)
 }
 
-// GetContributingSourcesFunc returns the method "RTCRtpReceiver.getContributingSources".
-func (this RTCRtpReceiver) GetContributingSourcesFunc() (fn js.Func[func() js.Array[RTCRtpContributingSource]]) {
-	return fn.FromRef(
-		bindings.RTCRtpReceiverGetContributingSourcesFunc(
-			this.Ref(),
-		),
+// FuncGetContributingSources returns the method "RTCRtpReceiver.getContributingSources".
+func (this RTCRtpReceiver) FuncGetContributingSources() (fn js.Func[func() js.Array[RTCRtpContributingSource]]) {
+	bindings.FuncRTCRtpReceiverGetContributingSources(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetContributingSources calls the method "RTCRtpReceiver.getContributingSources".
 func (this RTCRtpReceiver) GetContributingSources() (ret js.Array[RTCRtpContributingSource]) {
 	bindings.CallRTCRtpReceiverGetContributingSources(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1576,32 +1650,31 @@ func (this RTCRtpReceiver) GetContributingSources() (ret js.Array[RTCRtpContribu
 // the catch clause.
 func (this RTCRtpReceiver) TryGetContributingSources() (ret js.Array[RTCRtpContributingSource], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpReceiverGetContributingSources(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetSynchronizationSources returns true if the method "RTCRtpReceiver.getSynchronizationSources" exists.
-func (this RTCRtpReceiver) HasGetSynchronizationSources() bool {
-	return js.True == bindings.HasRTCRtpReceiverGetSynchronizationSources(
-		this.Ref(),
+// HasFuncGetSynchronizationSources returns true if the method "RTCRtpReceiver.getSynchronizationSources" exists.
+func (this RTCRtpReceiver) HasFuncGetSynchronizationSources() bool {
+	return js.True == bindings.HasFuncRTCRtpReceiverGetSynchronizationSources(
+		this.ref,
 	)
 }
 
-// GetSynchronizationSourcesFunc returns the method "RTCRtpReceiver.getSynchronizationSources".
-func (this RTCRtpReceiver) GetSynchronizationSourcesFunc() (fn js.Func[func() js.Array[RTCRtpSynchronizationSource]]) {
-	return fn.FromRef(
-		bindings.RTCRtpReceiverGetSynchronizationSourcesFunc(
-			this.Ref(),
-		),
+// FuncGetSynchronizationSources returns the method "RTCRtpReceiver.getSynchronizationSources".
+func (this RTCRtpReceiver) FuncGetSynchronizationSources() (fn js.Func[func() js.Array[RTCRtpSynchronizationSource]]) {
+	bindings.FuncRTCRtpReceiverGetSynchronizationSources(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetSynchronizationSources calls the method "RTCRtpReceiver.getSynchronizationSources".
 func (this RTCRtpReceiver) GetSynchronizationSources() (ret js.Array[RTCRtpSynchronizationSource]) {
 	bindings.CallRTCRtpReceiverGetSynchronizationSources(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1612,32 +1685,31 @@ func (this RTCRtpReceiver) GetSynchronizationSources() (ret js.Array[RTCRtpSynch
 // the catch clause.
 func (this RTCRtpReceiver) TryGetSynchronizationSources() (ret js.Array[RTCRtpSynchronizationSource], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpReceiverGetSynchronizationSources(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetStats returns true if the method "RTCRtpReceiver.getStats" exists.
-func (this RTCRtpReceiver) HasGetStats() bool {
-	return js.True == bindings.HasRTCRtpReceiverGetStats(
-		this.Ref(),
+// HasFuncGetStats returns true if the method "RTCRtpReceiver.getStats" exists.
+func (this RTCRtpReceiver) HasFuncGetStats() bool {
+	return js.True == bindings.HasFuncRTCRtpReceiverGetStats(
+		this.ref,
 	)
 }
 
-// GetStatsFunc returns the method "RTCRtpReceiver.getStats".
-func (this RTCRtpReceiver) GetStatsFunc() (fn js.Func[func() js.Promise[RTCStatsReport]]) {
-	return fn.FromRef(
-		bindings.RTCRtpReceiverGetStatsFunc(
-			this.Ref(),
-		),
+// FuncGetStats returns the method "RTCRtpReceiver.getStats".
+func (this RTCRtpReceiver) FuncGetStats() (fn js.Func[func() js.Promise[RTCStatsReport]]) {
+	bindings.FuncRTCRtpReceiverGetStats(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetStats calls the method "RTCRtpReceiver.getStats".
 func (this RTCRtpReceiver) GetStats() (ret js.Promise[RTCStatsReport]) {
 	bindings.CallRTCRtpReceiverGetStats(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1648,7 +1720,7 @@ func (this RTCRtpReceiver) GetStats() (ret js.Promise[RTCStatsReport]) {
 // the catch clause.
 func (this RTCRtpReceiver) TryGetStats() (ret js.Promise[RTCStatsReport], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpReceiverGetStats(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1692,7 +1764,7 @@ type RTCRtpTransceiver struct {
 }
 
 func (this RTCRtpTransceiver) Once() RTCRtpTransceiver {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1706,7 +1778,7 @@ func (this RTCRtpTransceiver) FromRef(ref js.Ref) RTCRtpTransceiver {
 }
 
 func (this RTCRtpTransceiver) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Mid returns the value of property "RTCRtpTransceiver.mid".
@@ -1714,7 +1786,7 @@ func (this RTCRtpTransceiver) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCRtpTransceiver) Mid() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRTCRtpTransceiverMid(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1724,7 +1796,7 @@ func (this RTCRtpTransceiver) Mid() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCRtpTransceiver) Sender() (ret RTCRtpSender, ok bool) {
 	ok = js.True == bindings.GetRTCRtpTransceiverSender(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1734,7 +1806,7 @@ func (this RTCRtpTransceiver) Sender() (ret RTCRtpSender, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCRtpTransceiver) Receiver() (ret RTCRtpReceiver, ok bool) {
 	ok = js.True == bindings.GetRTCRtpTransceiverReceiver(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1744,7 +1816,7 @@ func (this RTCRtpTransceiver) Receiver() (ret RTCRtpReceiver, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCRtpTransceiver) Direction() (ret RTCRtpTransceiverDirection, ok bool) {
 	ok = js.True == bindings.GetRTCRtpTransceiverDirection(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1754,7 +1826,7 @@ func (this RTCRtpTransceiver) Direction() (ret RTCRtpTransceiverDirection, ok bo
 // It returns false if the property cannot be set.
 func (this RTCRtpTransceiver) SetDirection(val RTCRtpTransceiverDirection) bool {
 	return js.True == bindings.SetRTCRtpTransceiverDirection(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
@@ -1764,31 +1836,30 @@ func (this RTCRtpTransceiver) SetDirection(val RTCRtpTransceiverDirection) bool 
 // It returns ok=false if there is no such property.
 func (this RTCRtpTransceiver) CurrentDirection() (ret RTCRtpTransceiverDirection, ok bool) {
 	ok = js.True == bindings.GetRTCRtpTransceiverCurrentDirection(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasStop returns true if the method "RTCRtpTransceiver.stop" exists.
-func (this RTCRtpTransceiver) HasStop() bool {
-	return js.True == bindings.HasRTCRtpTransceiverStop(
-		this.Ref(),
+// HasFuncStop returns true if the method "RTCRtpTransceiver.stop" exists.
+func (this RTCRtpTransceiver) HasFuncStop() bool {
+	return js.True == bindings.HasFuncRTCRtpTransceiverStop(
+		this.ref,
 	)
 }
 
-// StopFunc returns the method "RTCRtpTransceiver.stop".
-func (this RTCRtpTransceiver) StopFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.RTCRtpTransceiverStopFunc(
-			this.Ref(),
-		),
+// FuncStop returns the method "RTCRtpTransceiver.stop".
+func (this RTCRtpTransceiver) FuncStop() (fn js.Func[func()]) {
+	bindings.FuncRTCRtpTransceiverStop(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Stop calls the method "RTCRtpTransceiver.stop".
 func (this RTCRtpTransceiver) Stop() (ret js.Void) {
 	bindings.CallRTCRtpTransceiverStop(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1799,32 +1870,31 @@ func (this RTCRtpTransceiver) Stop() (ret js.Void) {
 // the catch clause.
 func (this RTCRtpTransceiver) TryStop() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpTransceiverStop(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSetCodecPreferences returns true if the method "RTCRtpTransceiver.setCodecPreferences" exists.
-func (this RTCRtpTransceiver) HasSetCodecPreferences() bool {
-	return js.True == bindings.HasRTCRtpTransceiverSetCodecPreferences(
-		this.Ref(),
+// HasFuncSetCodecPreferences returns true if the method "RTCRtpTransceiver.setCodecPreferences" exists.
+func (this RTCRtpTransceiver) HasFuncSetCodecPreferences() bool {
+	return js.True == bindings.HasFuncRTCRtpTransceiverSetCodecPreferences(
+		this.ref,
 	)
 }
 
-// SetCodecPreferencesFunc returns the method "RTCRtpTransceiver.setCodecPreferences".
-func (this RTCRtpTransceiver) SetCodecPreferencesFunc() (fn js.Func[func(codecs js.Array[RTCRtpCodecCapability])]) {
-	return fn.FromRef(
-		bindings.RTCRtpTransceiverSetCodecPreferencesFunc(
-			this.Ref(),
-		),
+// FuncSetCodecPreferences returns the method "RTCRtpTransceiver.setCodecPreferences".
+func (this RTCRtpTransceiver) FuncSetCodecPreferences() (fn js.Func[func(codecs js.Array[RTCRtpCodecCapability])]) {
+	bindings.FuncRTCRtpTransceiverSetCodecPreferences(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetCodecPreferences calls the method "RTCRtpTransceiver.setCodecPreferences".
 func (this RTCRtpTransceiver) SetCodecPreferences(codecs js.Array[RTCRtpCodecCapability]) (ret js.Void) {
 	bindings.CallRTCRtpTransceiverSetCodecPreferences(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		codecs.Ref(),
 	)
 
@@ -1836,7 +1906,7 @@ func (this RTCRtpTransceiver) SetCodecPreferences(codecs js.Array[RTCRtpCodecCap
 // the catch clause.
 func (this RTCRtpTransceiver) TrySetCodecPreferences(codecs js.Array[RTCRtpCodecCapability]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpTransceiverSetCodecPreferences(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		codecs.Ref(),
 	)
 
@@ -1900,17 +1970,28 @@ func (p RTCRtpTransceiverInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCRtpTransceiverInit) UpdateFrom(ref js.Ref) {
+func (p *RTCRtpTransceiverInit) UpdateFrom(ref js.Ref) {
 	bindings.RTCRtpTransceiverInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCRtpTransceiverInit) Update(ref js.Ref) {
+func (p *RTCRtpTransceiverInit) Update(ref js.Ref) {
 	bindings.RTCRtpTransceiverInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCRtpTransceiverInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Streams.Ref(),
+		p.SendEncodings.Ref(),
+	)
+	p.Streams = p.Streams.FromRef(js.Undefined)
+	p.SendEncodings = p.SendEncodings.FromRef(js.Undefined)
 }
 
 func NewRTCSessionDescription(descriptionInitDict RTCSessionDescriptionInit) (ret RTCSessionDescription) {
@@ -1924,7 +2005,7 @@ type RTCSessionDescription struct {
 }
 
 func (this RTCSessionDescription) Once() RTCSessionDescription {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1938,7 +2019,7 @@ func (this RTCSessionDescription) FromRef(ref js.Ref) RTCSessionDescription {
 }
 
 func (this RTCSessionDescription) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Type returns the value of property "RTCSessionDescription.type".
@@ -1946,7 +2027,7 @@ func (this RTCSessionDescription) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCSessionDescription) Type() (ret RTCSdpType, ok bool) {
 	ok = js.True == bindings.GetRTCSessionDescriptionType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1956,31 +2037,30 @@ func (this RTCSessionDescription) Type() (ret RTCSdpType, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCSessionDescription) Sdp() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRTCSessionDescriptionSdp(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasToJSON returns true if the method "RTCSessionDescription.toJSON" exists.
-func (this RTCSessionDescription) HasToJSON() bool {
-	return js.True == bindings.HasRTCSessionDescriptionToJSON(
-		this.Ref(),
+// HasFuncToJSON returns true if the method "RTCSessionDescription.toJSON" exists.
+func (this RTCSessionDescription) HasFuncToJSON() bool {
+	return js.True == bindings.HasFuncRTCSessionDescriptionToJSON(
+		this.ref,
 	)
 }
 
-// ToJSONFunc returns the method "RTCSessionDescription.toJSON".
-func (this RTCSessionDescription) ToJSONFunc() (fn js.Func[func() js.Object]) {
-	return fn.FromRef(
-		bindings.RTCSessionDescriptionToJSONFunc(
-			this.Ref(),
-		),
+// FuncToJSON returns the method "RTCSessionDescription.toJSON".
+func (this RTCSessionDescription) FuncToJSON() (fn js.Func[func() js.Object]) {
+	bindings.FuncRTCSessionDescriptionToJSON(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ToJSON calls the method "RTCSessionDescription.toJSON".
 func (this RTCSessionDescription) ToJSON() (ret js.Object) {
 	bindings.CallRTCSessionDescriptionToJSON(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1991,7 +2071,7 @@ func (this RTCSessionDescription) ToJSON() (ret js.Object) {
 // the catch clause.
 func (this RTCSessionDescription) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCSessionDescriptionToJSON(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -2101,7 +2181,7 @@ type RTCSctpTransport struct {
 }
 
 func (this RTCSctpTransport) Once() RTCSctpTransport {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2115,7 +2195,7 @@ func (this RTCSctpTransport) FromRef(ref js.Ref) RTCSctpTransport {
 }
 
 func (this RTCSctpTransport) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Transport returns the value of property "RTCSctpTransport.transport".
@@ -2123,7 +2203,7 @@ func (this RTCSctpTransport) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCSctpTransport) Transport() (ret RTCDtlsTransport, ok bool) {
 	ok = js.True == bindings.GetRTCSctpTransportTransport(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2133,7 +2213,7 @@ func (this RTCSctpTransport) Transport() (ret RTCDtlsTransport, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCSctpTransport) State() (ret RTCSctpTransportState, ok bool) {
 	ok = js.True == bindings.GetRTCSctpTransportState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2143,7 +2223,7 @@ func (this RTCSctpTransport) State() (ret RTCSctpTransportState, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCSctpTransport) MaxMessageSize() (ret float64, ok bool) {
 	ok = js.True == bindings.GetRTCSctpTransportMaxMessageSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2153,7 +2233,7 @@ func (this RTCSctpTransport) MaxMessageSize() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCSctpTransport) MaxChannels() (ret uint16, ok bool) {
 	ok = js.True == bindings.GetRTCSctpTransportMaxChannels(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2174,7 +2254,7 @@ type RTCPeerConnection struct {
 }
 
 func (this RTCPeerConnection) Once() RTCPeerConnection {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2188,7 +2268,7 @@ func (this RTCPeerConnection) FromRef(ref js.Ref) RTCPeerConnection {
 }
 
 func (this RTCPeerConnection) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // LocalDescription returns the value of property "RTCPeerConnection.localDescription".
@@ -2196,7 +2276,7 @@ func (this RTCPeerConnection) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCPeerConnection) LocalDescription() (ret RTCSessionDescription, ok bool) {
 	ok = js.True == bindings.GetRTCPeerConnectionLocalDescription(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2206,7 +2286,7 @@ func (this RTCPeerConnection) LocalDescription() (ret RTCSessionDescription, ok 
 // It returns ok=false if there is no such property.
 func (this RTCPeerConnection) CurrentLocalDescription() (ret RTCSessionDescription, ok bool) {
 	ok = js.True == bindings.GetRTCPeerConnectionCurrentLocalDescription(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2216,7 +2296,7 @@ func (this RTCPeerConnection) CurrentLocalDescription() (ret RTCSessionDescripti
 // It returns ok=false if there is no such property.
 func (this RTCPeerConnection) PendingLocalDescription() (ret RTCSessionDescription, ok bool) {
 	ok = js.True == bindings.GetRTCPeerConnectionPendingLocalDescription(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2226,7 +2306,7 @@ func (this RTCPeerConnection) PendingLocalDescription() (ret RTCSessionDescripti
 // It returns ok=false if there is no such property.
 func (this RTCPeerConnection) RemoteDescription() (ret RTCSessionDescription, ok bool) {
 	ok = js.True == bindings.GetRTCPeerConnectionRemoteDescription(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2236,7 +2316,7 @@ func (this RTCPeerConnection) RemoteDescription() (ret RTCSessionDescription, ok
 // It returns ok=false if there is no such property.
 func (this RTCPeerConnection) CurrentRemoteDescription() (ret RTCSessionDescription, ok bool) {
 	ok = js.True == bindings.GetRTCPeerConnectionCurrentRemoteDescription(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2246,7 +2326,7 @@ func (this RTCPeerConnection) CurrentRemoteDescription() (ret RTCSessionDescript
 // It returns ok=false if there is no such property.
 func (this RTCPeerConnection) PendingRemoteDescription() (ret RTCSessionDescription, ok bool) {
 	ok = js.True == bindings.GetRTCPeerConnectionPendingRemoteDescription(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2256,7 +2336,7 @@ func (this RTCPeerConnection) PendingRemoteDescription() (ret RTCSessionDescript
 // It returns ok=false if there is no such property.
 func (this RTCPeerConnection) SignalingState() (ret RTCSignalingState, ok bool) {
 	ok = js.True == bindings.GetRTCPeerConnectionSignalingState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2266,7 +2346,7 @@ func (this RTCPeerConnection) SignalingState() (ret RTCSignalingState, ok bool) 
 // It returns ok=false if there is no such property.
 func (this RTCPeerConnection) IceGatheringState() (ret RTCIceGatheringState, ok bool) {
 	ok = js.True == bindings.GetRTCPeerConnectionIceGatheringState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2276,7 +2356,7 @@ func (this RTCPeerConnection) IceGatheringState() (ret RTCIceGatheringState, ok 
 // It returns ok=false if there is no such property.
 func (this RTCPeerConnection) IceConnectionState() (ret RTCIceConnectionState, ok bool) {
 	ok = js.True == bindings.GetRTCPeerConnectionIceConnectionState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2286,7 +2366,7 @@ func (this RTCPeerConnection) IceConnectionState() (ret RTCIceConnectionState, o
 // It returns ok=false if there is no such property.
 func (this RTCPeerConnection) ConnectionState() (ret RTCPeerConnectionState, ok bool) {
 	ok = js.True == bindings.GetRTCPeerConnectionConnectionState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2296,7 +2376,7 @@ func (this RTCPeerConnection) ConnectionState() (ret RTCPeerConnectionState, ok 
 // It returns ok=false if there is no such property.
 func (this RTCPeerConnection) CanTrickleIceCandidates() (ret bool, ok bool) {
 	ok = js.True == bindings.GetRTCPeerConnectionCanTrickleIceCandidates(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2306,7 +2386,7 @@ func (this RTCPeerConnection) CanTrickleIceCandidates() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCPeerConnection) Sctp() (ret RTCSctpTransport, ok bool) {
 	ok = js.True == bindings.GetRTCPeerConnectionSctp(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2316,7 +2396,7 @@ func (this RTCPeerConnection) Sctp() (ret RTCSctpTransport, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCPeerConnection) PeerIdentity() (ret js.Promise[RTCIdentityAssertion], ok bool) {
 	ok = js.True == bindings.GetRTCPeerConnectionPeerIdentity(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2326,7 +2406,7 @@ func (this RTCPeerConnection) PeerIdentity() (ret js.Promise[RTCIdentityAssertio
 // It returns ok=false if there is no such property.
 func (this RTCPeerConnection) IdpLoginUrl() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRTCPeerConnectionIdpLoginUrl(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2336,31 +2416,30 @@ func (this RTCPeerConnection) IdpLoginUrl() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCPeerConnection) IdpErrorInfo() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRTCPeerConnectionIdpErrorInfo(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasCreateOffer returns true if the method "RTCPeerConnection.createOffer" exists.
-func (this RTCPeerConnection) HasCreateOffer() bool {
-	return js.True == bindings.HasRTCPeerConnectionCreateOffer(
-		this.Ref(),
+// HasFuncCreateOffer returns true if the method "RTCPeerConnection.createOffer" exists.
+func (this RTCPeerConnection) HasFuncCreateOffer() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionCreateOffer(
+		this.ref,
 	)
 }
 
-// CreateOfferFunc returns the method "RTCPeerConnection.createOffer".
-func (this RTCPeerConnection) CreateOfferFunc() (fn js.Func[func(options RTCOfferOptions) js.Promise[RTCSessionDescriptionInit]]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionCreateOfferFunc(
-			this.Ref(),
-		),
+// FuncCreateOffer returns the method "RTCPeerConnection.createOffer".
+func (this RTCPeerConnection) FuncCreateOffer() (fn js.Func[func(options RTCOfferOptions) js.Promise[RTCSessionDescriptionInit]]) {
+	bindings.FuncRTCPeerConnectionCreateOffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateOffer calls the method "RTCPeerConnection.createOffer".
 func (this RTCPeerConnection) CreateOffer(options RTCOfferOptions) (ret js.Promise[RTCSessionDescriptionInit]) {
 	bindings.CallRTCPeerConnectionCreateOffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -2372,33 +2451,32 @@ func (this RTCPeerConnection) CreateOffer(options RTCOfferOptions) (ret js.Promi
 // the catch clause.
 func (this RTCPeerConnection) TryCreateOffer(options RTCOfferOptions) (ret js.Promise[RTCSessionDescriptionInit], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionCreateOffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasCreateOffer1 returns true if the method "RTCPeerConnection.createOffer" exists.
-func (this RTCPeerConnection) HasCreateOffer1() bool {
-	return js.True == bindings.HasRTCPeerConnectionCreateOffer1(
-		this.Ref(),
+// HasFuncCreateOffer1 returns true if the method "RTCPeerConnection.createOffer" exists.
+func (this RTCPeerConnection) HasFuncCreateOffer1() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionCreateOffer1(
+		this.ref,
 	)
 }
 
-// CreateOffer1Func returns the method "RTCPeerConnection.createOffer".
-func (this RTCPeerConnection) CreateOffer1Func() (fn js.Func[func() js.Promise[RTCSessionDescriptionInit]]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionCreateOffer1Func(
-			this.Ref(),
-		),
+// FuncCreateOffer1 returns the method "RTCPeerConnection.createOffer".
+func (this RTCPeerConnection) FuncCreateOffer1() (fn js.Func[func() js.Promise[RTCSessionDescriptionInit]]) {
+	bindings.FuncRTCPeerConnectionCreateOffer1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateOffer1 calls the method "RTCPeerConnection.createOffer".
 func (this RTCPeerConnection) CreateOffer1() (ret js.Promise[RTCSessionDescriptionInit]) {
 	bindings.CallRTCPeerConnectionCreateOffer1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2409,32 +2487,31 @@ func (this RTCPeerConnection) CreateOffer1() (ret js.Promise[RTCSessionDescripti
 // the catch clause.
 func (this RTCPeerConnection) TryCreateOffer1() (ret js.Promise[RTCSessionDescriptionInit], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionCreateOffer1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCreateAnswer returns true if the method "RTCPeerConnection.createAnswer" exists.
-func (this RTCPeerConnection) HasCreateAnswer() bool {
-	return js.True == bindings.HasRTCPeerConnectionCreateAnswer(
-		this.Ref(),
+// HasFuncCreateAnswer returns true if the method "RTCPeerConnection.createAnswer" exists.
+func (this RTCPeerConnection) HasFuncCreateAnswer() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionCreateAnswer(
+		this.ref,
 	)
 }
 
-// CreateAnswerFunc returns the method "RTCPeerConnection.createAnswer".
-func (this RTCPeerConnection) CreateAnswerFunc() (fn js.Func[func(options RTCAnswerOptions) js.Promise[RTCSessionDescriptionInit]]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionCreateAnswerFunc(
-			this.Ref(),
-		),
+// FuncCreateAnswer returns the method "RTCPeerConnection.createAnswer".
+func (this RTCPeerConnection) FuncCreateAnswer() (fn js.Func[func(options RTCAnswerOptions) js.Promise[RTCSessionDescriptionInit]]) {
+	bindings.FuncRTCPeerConnectionCreateAnswer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateAnswer calls the method "RTCPeerConnection.createAnswer".
 func (this RTCPeerConnection) CreateAnswer(options RTCAnswerOptions) (ret js.Promise[RTCSessionDescriptionInit]) {
 	bindings.CallRTCPeerConnectionCreateAnswer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -2446,33 +2523,32 @@ func (this RTCPeerConnection) CreateAnswer(options RTCAnswerOptions) (ret js.Pro
 // the catch clause.
 func (this RTCPeerConnection) TryCreateAnswer(options RTCAnswerOptions) (ret js.Promise[RTCSessionDescriptionInit], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionCreateAnswer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasCreateAnswer1 returns true if the method "RTCPeerConnection.createAnswer" exists.
-func (this RTCPeerConnection) HasCreateAnswer1() bool {
-	return js.True == bindings.HasRTCPeerConnectionCreateAnswer1(
-		this.Ref(),
+// HasFuncCreateAnswer1 returns true if the method "RTCPeerConnection.createAnswer" exists.
+func (this RTCPeerConnection) HasFuncCreateAnswer1() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionCreateAnswer1(
+		this.ref,
 	)
 }
 
-// CreateAnswer1Func returns the method "RTCPeerConnection.createAnswer".
-func (this RTCPeerConnection) CreateAnswer1Func() (fn js.Func[func() js.Promise[RTCSessionDescriptionInit]]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionCreateAnswer1Func(
-			this.Ref(),
-		),
+// FuncCreateAnswer1 returns the method "RTCPeerConnection.createAnswer".
+func (this RTCPeerConnection) FuncCreateAnswer1() (fn js.Func[func() js.Promise[RTCSessionDescriptionInit]]) {
+	bindings.FuncRTCPeerConnectionCreateAnswer1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateAnswer1 calls the method "RTCPeerConnection.createAnswer".
 func (this RTCPeerConnection) CreateAnswer1() (ret js.Promise[RTCSessionDescriptionInit]) {
 	bindings.CallRTCPeerConnectionCreateAnswer1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2483,32 +2559,31 @@ func (this RTCPeerConnection) CreateAnswer1() (ret js.Promise[RTCSessionDescript
 // the catch clause.
 func (this RTCPeerConnection) TryCreateAnswer1() (ret js.Promise[RTCSessionDescriptionInit], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionCreateAnswer1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSetLocalDescription returns true if the method "RTCPeerConnection.setLocalDescription" exists.
-func (this RTCPeerConnection) HasSetLocalDescription() bool {
-	return js.True == bindings.HasRTCPeerConnectionSetLocalDescription(
-		this.Ref(),
+// HasFuncSetLocalDescription returns true if the method "RTCPeerConnection.setLocalDescription" exists.
+func (this RTCPeerConnection) HasFuncSetLocalDescription() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionSetLocalDescription(
+		this.ref,
 	)
 }
 
-// SetLocalDescriptionFunc returns the method "RTCPeerConnection.setLocalDescription".
-func (this RTCPeerConnection) SetLocalDescriptionFunc() (fn js.Func[func(description RTCLocalSessionDescriptionInit) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionSetLocalDescriptionFunc(
-			this.Ref(),
-		),
+// FuncSetLocalDescription returns the method "RTCPeerConnection.setLocalDescription".
+func (this RTCPeerConnection) FuncSetLocalDescription() (fn js.Func[func(description RTCLocalSessionDescriptionInit) js.Promise[js.Void]]) {
+	bindings.FuncRTCPeerConnectionSetLocalDescription(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetLocalDescription calls the method "RTCPeerConnection.setLocalDescription".
 func (this RTCPeerConnection) SetLocalDescription(description RTCLocalSessionDescriptionInit) (ret js.Promise[js.Void]) {
 	bindings.CallRTCPeerConnectionSetLocalDescription(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&description),
 	)
 
@@ -2520,33 +2595,32 @@ func (this RTCPeerConnection) SetLocalDescription(description RTCLocalSessionDes
 // the catch clause.
 func (this RTCPeerConnection) TrySetLocalDescription(description RTCLocalSessionDescriptionInit) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionSetLocalDescription(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&description),
 	)
 
 	return
 }
 
-// HasSetLocalDescription1 returns true if the method "RTCPeerConnection.setLocalDescription" exists.
-func (this RTCPeerConnection) HasSetLocalDescription1() bool {
-	return js.True == bindings.HasRTCPeerConnectionSetLocalDescription1(
-		this.Ref(),
+// HasFuncSetLocalDescription1 returns true if the method "RTCPeerConnection.setLocalDescription" exists.
+func (this RTCPeerConnection) HasFuncSetLocalDescription1() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionSetLocalDescription1(
+		this.ref,
 	)
 }
 
-// SetLocalDescription1Func returns the method "RTCPeerConnection.setLocalDescription".
-func (this RTCPeerConnection) SetLocalDescription1Func() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionSetLocalDescription1Func(
-			this.Ref(),
-		),
+// FuncSetLocalDescription1 returns the method "RTCPeerConnection.setLocalDescription".
+func (this RTCPeerConnection) FuncSetLocalDescription1() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncRTCPeerConnectionSetLocalDescription1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetLocalDescription1 calls the method "RTCPeerConnection.setLocalDescription".
 func (this RTCPeerConnection) SetLocalDescription1() (ret js.Promise[js.Void]) {
 	bindings.CallRTCPeerConnectionSetLocalDescription1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2557,32 +2631,31 @@ func (this RTCPeerConnection) SetLocalDescription1() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this RTCPeerConnection) TrySetLocalDescription1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionSetLocalDescription1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSetRemoteDescription returns true if the method "RTCPeerConnection.setRemoteDescription" exists.
-func (this RTCPeerConnection) HasSetRemoteDescription() bool {
-	return js.True == bindings.HasRTCPeerConnectionSetRemoteDescription(
-		this.Ref(),
+// HasFuncSetRemoteDescription returns true if the method "RTCPeerConnection.setRemoteDescription" exists.
+func (this RTCPeerConnection) HasFuncSetRemoteDescription() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionSetRemoteDescription(
+		this.ref,
 	)
 }
 
-// SetRemoteDescriptionFunc returns the method "RTCPeerConnection.setRemoteDescription".
-func (this RTCPeerConnection) SetRemoteDescriptionFunc() (fn js.Func[func(description RTCSessionDescriptionInit) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionSetRemoteDescriptionFunc(
-			this.Ref(),
-		),
+// FuncSetRemoteDescription returns the method "RTCPeerConnection.setRemoteDescription".
+func (this RTCPeerConnection) FuncSetRemoteDescription() (fn js.Func[func(description RTCSessionDescriptionInit) js.Promise[js.Void]]) {
+	bindings.FuncRTCPeerConnectionSetRemoteDescription(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetRemoteDescription calls the method "RTCPeerConnection.setRemoteDescription".
 func (this RTCPeerConnection) SetRemoteDescription(description RTCSessionDescriptionInit) (ret js.Promise[js.Void]) {
 	bindings.CallRTCPeerConnectionSetRemoteDescription(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&description),
 	)
 
@@ -2594,33 +2667,32 @@ func (this RTCPeerConnection) SetRemoteDescription(description RTCSessionDescrip
 // the catch clause.
 func (this RTCPeerConnection) TrySetRemoteDescription(description RTCSessionDescriptionInit) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionSetRemoteDescription(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&description),
 	)
 
 	return
 }
 
-// HasAddIceCandidate returns true if the method "RTCPeerConnection.addIceCandidate" exists.
-func (this RTCPeerConnection) HasAddIceCandidate() bool {
-	return js.True == bindings.HasRTCPeerConnectionAddIceCandidate(
-		this.Ref(),
+// HasFuncAddIceCandidate returns true if the method "RTCPeerConnection.addIceCandidate" exists.
+func (this RTCPeerConnection) HasFuncAddIceCandidate() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionAddIceCandidate(
+		this.ref,
 	)
 }
 
-// AddIceCandidateFunc returns the method "RTCPeerConnection.addIceCandidate".
-func (this RTCPeerConnection) AddIceCandidateFunc() (fn js.Func[func(candidate RTCIceCandidateInit) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionAddIceCandidateFunc(
-			this.Ref(),
-		),
+// FuncAddIceCandidate returns the method "RTCPeerConnection.addIceCandidate".
+func (this RTCPeerConnection) FuncAddIceCandidate() (fn js.Func[func(candidate RTCIceCandidateInit) js.Promise[js.Void]]) {
+	bindings.FuncRTCPeerConnectionAddIceCandidate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AddIceCandidate calls the method "RTCPeerConnection.addIceCandidate".
 func (this RTCPeerConnection) AddIceCandidate(candidate RTCIceCandidateInit) (ret js.Promise[js.Void]) {
 	bindings.CallRTCPeerConnectionAddIceCandidate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&candidate),
 	)
 
@@ -2632,33 +2704,32 @@ func (this RTCPeerConnection) AddIceCandidate(candidate RTCIceCandidateInit) (re
 // the catch clause.
 func (this RTCPeerConnection) TryAddIceCandidate(candidate RTCIceCandidateInit) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionAddIceCandidate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&candidate),
 	)
 
 	return
 }
 
-// HasAddIceCandidate1 returns true if the method "RTCPeerConnection.addIceCandidate" exists.
-func (this RTCPeerConnection) HasAddIceCandidate1() bool {
-	return js.True == bindings.HasRTCPeerConnectionAddIceCandidate1(
-		this.Ref(),
+// HasFuncAddIceCandidate1 returns true if the method "RTCPeerConnection.addIceCandidate" exists.
+func (this RTCPeerConnection) HasFuncAddIceCandidate1() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionAddIceCandidate1(
+		this.ref,
 	)
 }
 
-// AddIceCandidate1Func returns the method "RTCPeerConnection.addIceCandidate".
-func (this RTCPeerConnection) AddIceCandidate1Func() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionAddIceCandidate1Func(
-			this.Ref(),
-		),
+// FuncAddIceCandidate1 returns the method "RTCPeerConnection.addIceCandidate".
+func (this RTCPeerConnection) FuncAddIceCandidate1() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncRTCPeerConnectionAddIceCandidate1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AddIceCandidate1 calls the method "RTCPeerConnection.addIceCandidate".
 func (this RTCPeerConnection) AddIceCandidate1() (ret js.Promise[js.Void]) {
 	bindings.CallRTCPeerConnectionAddIceCandidate1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2669,32 +2740,31 @@ func (this RTCPeerConnection) AddIceCandidate1() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this RTCPeerConnection) TryAddIceCandidate1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionAddIceCandidate1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasRestartIce returns true if the method "RTCPeerConnection.restartIce" exists.
-func (this RTCPeerConnection) HasRestartIce() bool {
-	return js.True == bindings.HasRTCPeerConnectionRestartIce(
-		this.Ref(),
+// HasFuncRestartIce returns true if the method "RTCPeerConnection.restartIce" exists.
+func (this RTCPeerConnection) HasFuncRestartIce() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionRestartIce(
+		this.ref,
 	)
 }
 
-// RestartIceFunc returns the method "RTCPeerConnection.restartIce".
-func (this RTCPeerConnection) RestartIceFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionRestartIceFunc(
-			this.Ref(),
-		),
+// FuncRestartIce returns the method "RTCPeerConnection.restartIce".
+func (this RTCPeerConnection) FuncRestartIce() (fn js.Func[func()]) {
+	bindings.FuncRTCPeerConnectionRestartIce(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RestartIce calls the method "RTCPeerConnection.restartIce".
 func (this RTCPeerConnection) RestartIce() (ret js.Void) {
 	bindings.CallRTCPeerConnectionRestartIce(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2705,32 +2775,31 @@ func (this RTCPeerConnection) RestartIce() (ret js.Void) {
 // the catch clause.
 func (this RTCPeerConnection) TryRestartIce() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionRestartIce(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetConfiguration returns true if the method "RTCPeerConnection.getConfiguration" exists.
-func (this RTCPeerConnection) HasGetConfiguration() bool {
-	return js.True == bindings.HasRTCPeerConnectionGetConfiguration(
-		this.Ref(),
+// HasFuncGetConfiguration returns true if the method "RTCPeerConnection.getConfiguration" exists.
+func (this RTCPeerConnection) HasFuncGetConfiguration() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionGetConfiguration(
+		this.ref,
 	)
 }
 
-// GetConfigurationFunc returns the method "RTCPeerConnection.getConfiguration".
-func (this RTCPeerConnection) GetConfigurationFunc() (fn js.Func[func() RTCConfiguration]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionGetConfigurationFunc(
-			this.Ref(),
-		),
+// FuncGetConfiguration returns the method "RTCPeerConnection.getConfiguration".
+func (this RTCPeerConnection) FuncGetConfiguration() (fn js.Func[func() RTCConfiguration]) {
+	bindings.FuncRTCPeerConnectionGetConfiguration(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetConfiguration calls the method "RTCPeerConnection.getConfiguration".
 func (this RTCPeerConnection) GetConfiguration() (ret RTCConfiguration) {
 	bindings.CallRTCPeerConnectionGetConfiguration(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2741,32 +2810,31 @@ func (this RTCPeerConnection) GetConfiguration() (ret RTCConfiguration) {
 // the catch clause.
 func (this RTCPeerConnection) TryGetConfiguration() (ret RTCConfiguration, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionGetConfiguration(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSetConfiguration returns true if the method "RTCPeerConnection.setConfiguration" exists.
-func (this RTCPeerConnection) HasSetConfiguration() bool {
-	return js.True == bindings.HasRTCPeerConnectionSetConfiguration(
-		this.Ref(),
+// HasFuncSetConfiguration returns true if the method "RTCPeerConnection.setConfiguration" exists.
+func (this RTCPeerConnection) HasFuncSetConfiguration() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionSetConfiguration(
+		this.ref,
 	)
 }
 
-// SetConfigurationFunc returns the method "RTCPeerConnection.setConfiguration".
-func (this RTCPeerConnection) SetConfigurationFunc() (fn js.Func[func(configuration RTCConfiguration)]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionSetConfigurationFunc(
-			this.Ref(),
-		),
+// FuncSetConfiguration returns the method "RTCPeerConnection.setConfiguration".
+func (this RTCPeerConnection) FuncSetConfiguration() (fn js.Func[func(configuration RTCConfiguration)]) {
+	bindings.FuncRTCPeerConnectionSetConfiguration(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetConfiguration calls the method "RTCPeerConnection.setConfiguration".
 func (this RTCPeerConnection) SetConfiguration(configuration RTCConfiguration) (ret js.Void) {
 	bindings.CallRTCPeerConnectionSetConfiguration(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&configuration),
 	)
 
@@ -2778,33 +2846,32 @@ func (this RTCPeerConnection) SetConfiguration(configuration RTCConfiguration) (
 // the catch clause.
 func (this RTCPeerConnection) TrySetConfiguration(configuration RTCConfiguration) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionSetConfiguration(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&configuration),
 	)
 
 	return
 }
 
-// HasSetConfiguration1 returns true if the method "RTCPeerConnection.setConfiguration" exists.
-func (this RTCPeerConnection) HasSetConfiguration1() bool {
-	return js.True == bindings.HasRTCPeerConnectionSetConfiguration1(
-		this.Ref(),
+// HasFuncSetConfiguration1 returns true if the method "RTCPeerConnection.setConfiguration" exists.
+func (this RTCPeerConnection) HasFuncSetConfiguration1() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionSetConfiguration1(
+		this.ref,
 	)
 }
 
-// SetConfiguration1Func returns the method "RTCPeerConnection.setConfiguration".
-func (this RTCPeerConnection) SetConfiguration1Func() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionSetConfiguration1Func(
-			this.Ref(),
-		),
+// FuncSetConfiguration1 returns the method "RTCPeerConnection.setConfiguration".
+func (this RTCPeerConnection) FuncSetConfiguration1() (fn js.Func[func()]) {
+	bindings.FuncRTCPeerConnectionSetConfiguration1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetConfiguration1 calls the method "RTCPeerConnection.setConfiguration".
 func (this RTCPeerConnection) SetConfiguration1() (ret js.Void) {
 	bindings.CallRTCPeerConnectionSetConfiguration1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2815,32 +2882,31 @@ func (this RTCPeerConnection) SetConfiguration1() (ret js.Void) {
 // the catch clause.
 func (this RTCPeerConnection) TrySetConfiguration1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionSetConfiguration1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasClose returns true if the method "RTCPeerConnection.close" exists.
-func (this RTCPeerConnection) HasClose() bool {
-	return js.True == bindings.HasRTCPeerConnectionClose(
-		this.Ref(),
+// HasFuncClose returns true if the method "RTCPeerConnection.close" exists.
+func (this RTCPeerConnection) HasFuncClose() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionClose(
+		this.ref,
 	)
 }
 
-// CloseFunc returns the method "RTCPeerConnection.close".
-func (this RTCPeerConnection) CloseFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionCloseFunc(
-			this.Ref(),
-		),
+// FuncClose returns the method "RTCPeerConnection.close".
+func (this RTCPeerConnection) FuncClose() (fn js.Func[func()]) {
+	bindings.FuncRTCPeerConnectionClose(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Close calls the method "RTCPeerConnection.close".
 func (this RTCPeerConnection) Close() (ret js.Void) {
 	bindings.CallRTCPeerConnectionClose(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2851,32 +2917,31 @@ func (this RTCPeerConnection) Close() (ret js.Void) {
 // the catch clause.
 func (this RTCPeerConnection) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionClose(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCreateOffer2 returns true if the method "RTCPeerConnection.createOffer" exists.
-func (this RTCPeerConnection) HasCreateOffer2() bool {
-	return js.True == bindings.HasRTCPeerConnectionCreateOffer2(
-		this.Ref(),
+// HasFuncCreateOffer2 returns true if the method "RTCPeerConnection.createOffer" exists.
+func (this RTCPeerConnection) HasFuncCreateOffer2() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionCreateOffer2(
+		this.ref,
 	)
 }
 
-// CreateOffer2Func returns the method "RTCPeerConnection.createOffer".
-func (this RTCPeerConnection) CreateOffer2Func() (fn js.Func[func(successCallback js.Func[func(description RTCSessionDescriptionInit)], failureCallback js.Func[func(err DOMException)], options RTCOfferOptions) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionCreateOffer2Func(
-			this.Ref(),
-		),
+// FuncCreateOffer2 returns the method "RTCPeerConnection.createOffer".
+func (this RTCPeerConnection) FuncCreateOffer2() (fn js.Func[func(successCallback js.Func[func(description *RTCSessionDescriptionInit)], failureCallback js.Func[func(err DOMException)], options RTCOfferOptions) js.Promise[js.Void]]) {
+	bindings.FuncRTCPeerConnectionCreateOffer2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateOffer2 calls the method "RTCPeerConnection.createOffer".
-func (this RTCPeerConnection) CreateOffer2(successCallback js.Func[func(description RTCSessionDescriptionInit)], failureCallback js.Func[func(err DOMException)], options RTCOfferOptions) (ret js.Promise[js.Void]) {
+func (this RTCPeerConnection) CreateOffer2(successCallback js.Func[func(description *RTCSessionDescriptionInit)], failureCallback js.Func[func(err DOMException)], options RTCOfferOptions) (ret js.Promise[js.Void]) {
 	bindings.CallRTCPeerConnectionCreateOffer2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		successCallback.Ref(),
 		failureCallback.Ref(),
 		js.Pointer(&options),
@@ -2888,9 +2953,9 @@ func (this RTCPeerConnection) CreateOffer2(successCallback js.Func[func(descript
 // TryCreateOffer2 calls the method "RTCPeerConnection.createOffer"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
-func (this RTCPeerConnection) TryCreateOffer2(successCallback js.Func[func(description RTCSessionDescriptionInit)], failureCallback js.Func[func(err DOMException)], options RTCOfferOptions) (ret js.Promise[js.Void], exception js.Any, ok bool) {
+func (this RTCPeerConnection) TryCreateOffer2(successCallback js.Func[func(description *RTCSessionDescriptionInit)], failureCallback js.Func[func(err DOMException)], options RTCOfferOptions) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionCreateOffer2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		successCallback.Ref(),
 		failureCallback.Ref(),
 		js.Pointer(&options),
@@ -2899,26 +2964,25 @@ func (this RTCPeerConnection) TryCreateOffer2(successCallback js.Func[func(descr
 	return
 }
 
-// HasCreateOffer3 returns true if the method "RTCPeerConnection.createOffer" exists.
-func (this RTCPeerConnection) HasCreateOffer3() bool {
-	return js.True == bindings.HasRTCPeerConnectionCreateOffer3(
-		this.Ref(),
+// HasFuncCreateOffer3 returns true if the method "RTCPeerConnection.createOffer" exists.
+func (this RTCPeerConnection) HasFuncCreateOffer3() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionCreateOffer3(
+		this.ref,
 	)
 }
 
-// CreateOffer3Func returns the method "RTCPeerConnection.createOffer".
-func (this RTCPeerConnection) CreateOffer3Func() (fn js.Func[func(successCallback js.Func[func(description RTCSessionDescriptionInit)], failureCallback js.Func[func(err DOMException)]) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionCreateOffer3Func(
-			this.Ref(),
-		),
+// FuncCreateOffer3 returns the method "RTCPeerConnection.createOffer".
+func (this RTCPeerConnection) FuncCreateOffer3() (fn js.Func[func(successCallback js.Func[func(description *RTCSessionDescriptionInit)], failureCallback js.Func[func(err DOMException)]) js.Promise[js.Void]]) {
+	bindings.FuncRTCPeerConnectionCreateOffer3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateOffer3 calls the method "RTCPeerConnection.createOffer".
-func (this RTCPeerConnection) CreateOffer3(successCallback js.Func[func(description RTCSessionDescriptionInit)], failureCallback js.Func[func(err DOMException)]) (ret js.Promise[js.Void]) {
+func (this RTCPeerConnection) CreateOffer3(successCallback js.Func[func(description *RTCSessionDescriptionInit)], failureCallback js.Func[func(err DOMException)]) (ret js.Promise[js.Void]) {
 	bindings.CallRTCPeerConnectionCreateOffer3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		successCallback.Ref(),
 		failureCallback.Ref(),
 	)
@@ -2929,9 +2993,9 @@ func (this RTCPeerConnection) CreateOffer3(successCallback js.Func[func(descript
 // TryCreateOffer3 calls the method "RTCPeerConnection.createOffer"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
-func (this RTCPeerConnection) TryCreateOffer3(successCallback js.Func[func(description RTCSessionDescriptionInit)], failureCallback js.Func[func(err DOMException)]) (ret js.Promise[js.Void], exception js.Any, ok bool) {
+func (this RTCPeerConnection) TryCreateOffer3(successCallback js.Func[func(description *RTCSessionDescriptionInit)], failureCallback js.Func[func(err DOMException)]) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionCreateOffer3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		successCallback.Ref(),
 		failureCallback.Ref(),
 	)
@@ -2939,26 +3003,25 @@ func (this RTCPeerConnection) TryCreateOffer3(successCallback js.Func[func(descr
 	return
 }
 
-// HasSetLocalDescription2 returns true if the method "RTCPeerConnection.setLocalDescription" exists.
-func (this RTCPeerConnection) HasSetLocalDescription2() bool {
-	return js.True == bindings.HasRTCPeerConnectionSetLocalDescription2(
-		this.Ref(),
+// HasFuncSetLocalDescription2 returns true if the method "RTCPeerConnection.setLocalDescription" exists.
+func (this RTCPeerConnection) HasFuncSetLocalDescription2() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionSetLocalDescription2(
+		this.ref,
 	)
 }
 
-// SetLocalDescription2Func returns the method "RTCPeerConnection.setLocalDescription".
-func (this RTCPeerConnection) SetLocalDescription2Func() (fn js.Func[func(description RTCLocalSessionDescriptionInit, successCallback js.Func[func()], failureCallback js.Func[func(err DOMException)]) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionSetLocalDescription2Func(
-			this.Ref(),
-		),
+// FuncSetLocalDescription2 returns the method "RTCPeerConnection.setLocalDescription".
+func (this RTCPeerConnection) FuncSetLocalDescription2() (fn js.Func[func(description RTCLocalSessionDescriptionInit, successCallback js.Func[func()], failureCallback js.Func[func(err DOMException)]) js.Promise[js.Void]]) {
+	bindings.FuncRTCPeerConnectionSetLocalDescription2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetLocalDescription2 calls the method "RTCPeerConnection.setLocalDescription".
 func (this RTCPeerConnection) SetLocalDescription2(description RTCLocalSessionDescriptionInit, successCallback js.Func[func()], failureCallback js.Func[func(err DOMException)]) (ret js.Promise[js.Void]) {
 	bindings.CallRTCPeerConnectionSetLocalDescription2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&description),
 		successCallback.Ref(),
 		failureCallback.Ref(),
@@ -2972,7 +3035,7 @@ func (this RTCPeerConnection) SetLocalDescription2(description RTCLocalSessionDe
 // the catch clause.
 func (this RTCPeerConnection) TrySetLocalDescription2(description RTCLocalSessionDescriptionInit, successCallback js.Func[func()], failureCallback js.Func[func(err DOMException)]) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionSetLocalDescription2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&description),
 		successCallback.Ref(),
 		failureCallback.Ref(),
@@ -2981,26 +3044,25 @@ func (this RTCPeerConnection) TrySetLocalDescription2(description RTCLocalSessio
 	return
 }
 
-// HasCreateAnswer2 returns true if the method "RTCPeerConnection.createAnswer" exists.
-func (this RTCPeerConnection) HasCreateAnswer2() bool {
-	return js.True == bindings.HasRTCPeerConnectionCreateAnswer2(
-		this.Ref(),
+// HasFuncCreateAnswer2 returns true if the method "RTCPeerConnection.createAnswer" exists.
+func (this RTCPeerConnection) HasFuncCreateAnswer2() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionCreateAnswer2(
+		this.ref,
 	)
 }
 
-// CreateAnswer2Func returns the method "RTCPeerConnection.createAnswer".
-func (this RTCPeerConnection) CreateAnswer2Func() (fn js.Func[func(successCallback js.Func[func(description RTCSessionDescriptionInit)], failureCallback js.Func[func(err DOMException)]) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionCreateAnswer2Func(
-			this.Ref(),
-		),
+// FuncCreateAnswer2 returns the method "RTCPeerConnection.createAnswer".
+func (this RTCPeerConnection) FuncCreateAnswer2() (fn js.Func[func(successCallback js.Func[func(description *RTCSessionDescriptionInit)], failureCallback js.Func[func(err DOMException)]) js.Promise[js.Void]]) {
+	bindings.FuncRTCPeerConnectionCreateAnswer2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateAnswer2 calls the method "RTCPeerConnection.createAnswer".
-func (this RTCPeerConnection) CreateAnswer2(successCallback js.Func[func(description RTCSessionDescriptionInit)], failureCallback js.Func[func(err DOMException)]) (ret js.Promise[js.Void]) {
+func (this RTCPeerConnection) CreateAnswer2(successCallback js.Func[func(description *RTCSessionDescriptionInit)], failureCallback js.Func[func(err DOMException)]) (ret js.Promise[js.Void]) {
 	bindings.CallRTCPeerConnectionCreateAnswer2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		successCallback.Ref(),
 		failureCallback.Ref(),
 	)
@@ -3011,9 +3073,9 @@ func (this RTCPeerConnection) CreateAnswer2(successCallback js.Func[func(descrip
 // TryCreateAnswer2 calls the method "RTCPeerConnection.createAnswer"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
-func (this RTCPeerConnection) TryCreateAnswer2(successCallback js.Func[func(description RTCSessionDescriptionInit)], failureCallback js.Func[func(err DOMException)]) (ret js.Promise[js.Void], exception js.Any, ok bool) {
+func (this RTCPeerConnection) TryCreateAnswer2(successCallback js.Func[func(description *RTCSessionDescriptionInit)], failureCallback js.Func[func(err DOMException)]) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionCreateAnswer2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		successCallback.Ref(),
 		failureCallback.Ref(),
 	)
@@ -3021,26 +3083,25 @@ func (this RTCPeerConnection) TryCreateAnswer2(successCallback js.Func[func(desc
 	return
 }
 
-// HasSetRemoteDescription1 returns true if the method "RTCPeerConnection.setRemoteDescription" exists.
-func (this RTCPeerConnection) HasSetRemoteDescription1() bool {
-	return js.True == bindings.HasRTCPeerConnectionSetRemoteDescription1(
-		this.Ref(),
+// HasFuncSetRemoteDescription1 returns true if the method "RTCPeerConnection.setRemoteDescription" exists.
+func (this RTCPeerConnection) HasFuncSetRemoteDescription1() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionSetRemoteDescription1(
+		this.ref,
 	)
 }
 
-// SetRemoteDescription1Func returns the method "RTCPeerConnection.setRemoteDescription".
-func (this RTCPeerConnection) SetRemoteDescription1Func() (fn js.Func[func(description RTCSessionDescriptionInit, successCallback js.Func[func()], failureCallback js.Func[func(err DOMException)]) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionSetRemoteDescription1Func(
-			this.Ref(),
-		),
+// FuncSetRemoteDescription1 returns the method "RTCPeerConnection.setRemoteDescription".
+func (this RTCPeerConnection) FuncSetRemoteDescription1() (fn js.Func[func(description RTCSessionDescriptionInit, successCallback js.Func[func()], failureCallback js.Func[func(err DOMException)]) js.Promise[js.Void]]) {
+	bindings.FuncRTCPeerConnectionSetRemoteDescription1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetRemoteDescription1 calls the method "RTCPeerConnection.setRemoteDescription".
 func (this RTCPeerConnection) SetRemoteDescription1(description RTCSessionDescriptionInit, successCallback js.Func[func()], failureCallback js.Func[func(err DOMException)]) (ret js.Promise[js.Void]) {
 	bindings.CallRTCPeerConnectionSetRemoteDescription1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&description),
 		successCallback.Ref(),
 		failureCallback.Ref(),
@@ -3054,7 +3115,7 @@ func (this RTCPeerConnection) SetRemoteDescription1(description RTCSessionDescri
 // the catch clause.
 func (this RTCPeerConnection) TrySetRemoteDescription1(description RTCSessionDescriptionInit, successCallback js.Func[func()], failureCallback js.Func[func(err DOMException)]) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionSetRemoteDescription1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&description),
 		successCallback.Ref(),
 		failureCallback.Ref(),
@@ -3063,26 +3124,25 @@ func (this RTCPeerConnection) TrySetRemoteDescription1(description RTCSessionDes
 	return
 }
 
-// HasAddIceCandidate2 returns true if the method "RTCPeerConnection.addIceCandidate" exists.
-func (this RTCPeerConnection) HasAddIceCandidate2() bool {
-	return js.True == bindings.HasRTCPeerConnectionAddIceCandidate2(
-		this.Ref(),
+// HasFuncAddIceCandidate2 returns true if the method "RTCPeerConnection.addIceCandidate" exists.
+func (this RTCPeerConnection) HasFuncAddIceCandidate2() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionAddIceCandidate2(
+		this.ref,
 	)
 }
 
-// AddIceCandidate2Func returns the method "RTCPeerConnection.addIceCandidate".
-func (this RTCPeerConnection) AddIceCandidate2Func() (fn js.Func[func(candidate RTCIceCandidateInit, successCallback js.Func[func()], failureCallback js.Func[func(err DOMException)]) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionAddIceCandidate2Func(
-			this.Ref(),
-		),
+// FuncAddIceCandidate2 returns the method "RTCPeerConnection.addIceCandidate".
+func (this RTCPeerConnection) FuncAddIceCandidate2() (fn js.Func[func(candidate RTCIceCandidateInit, successCallback js.Func[func()], failureCallback js.Func[func(err DOMException)]) js.Promise[js.Void]]) {
+	bindings.FuncRTCPeerConnectionAddIceCandidate2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AddIceCandidate2 calls the method "RTCPeerConnection.addIceCandidate".
 func (this RTCPeerConnection) AddIceCandidate2(candidate RTCIceCandidateInit, successCallback js.Func[func()], failureCallback js.Func[func(err DOMException)]) (ret js.Promise[js.Void]) {
 	bindings.CallRTCPeerConnectionAddIceCandidate2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&candidate),
 		successCallback.Ref(),
 		failureCallback.Ref(),
@@ -3096,7 +3156,7 @@ func (this RTCPeerConnection) AddIceCandidate2(candidate RTCIceCandidateInit, su
 // the catch clause.
 func (this RTCPeerConnection) TryAddIceCandidate2(candidate RTCIceCandidateInit, successCallback js.Func[func()], failureCallback js.Func[func(err DOMException)]) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionAddIceCandidate2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&candidate),
 		successCallback.Ref(),
 		failureCallback.Ref(),
@@ -3105,26 +3165,25 @@ func (this RTCPeerConnection) TryAddIceCandidate2(candidate RTCIceCandidateInit,
 	return
 }
 
-// HasCreateDataChannel returns true if the method "RTCPeerConnection.createDataChannel" exists.
-func (this RTCPeerConnection) HasCreateDataChannel() bool {
-	return js.True == bindings.HasRTCPeerConnectionCreateDataChannel(
-		this.Ref(),
+// HasFuncCreateDataChannel returns true if the method "RTCPeerConnection.createDataChannel" exists.
+func (this RTCPeerConnection) HasFuncCreateDataChannel() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionCreateDataChannel(
+		this.ref,
 	)
 }
 
-// CreateDataChannelFunc returns the method "RTCPeerConnection.createDataChannel".
-func (this RTCPeerConnection) CreateDataChannelFunc() (fn js.Func[func(label js.String, dataChannelDict RTCDataChannelInit) RTCDataChannel]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionCreateDataChannelFunc(
-			this.Ref(),
-		),
+// FuncCreateDataChannel returns the method "RTCPeerConnection.createDataChannel".
+func (this RTCPeerConnection) FuncCreateDataChannel() (fn js.Func[func(label js.String, dataChannelDict RTCDataChannelInit) RTCDataChannel]) {
+	bindings.FuncRTCPeerConnectionCreateDataChannel(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateDataChannel calls the method "RTCPeerConnection.createDataChannel".
 func (this RTCPeerConnection) CreateDataChannel(label js.String, dataChannelDict RTCDataChannelInit) (ret RTCDataChannel) {
 	bindings.CallRTCPeerConnectionCreateDataChannel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		label.Ref(),
 		js.Pointer(&dataChannelDict),
 	)
@@ -3137,7 +3196,7 @@ func (this RTCPeerConnection) CreateDataChannel(label js.String, dataChannelDict
 // the catch clause.
 func (this RTCPeerConnection) TryCreateDataChannel(label js.String, dataChannelDict RTCDataChannelInit) (ret RTCDataChannel, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionCreateDataChannel(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		label.Ref(),
 		js.Pointer(&dataChannelDict),
 	)
@@ -3145,26 +3204,25 @@ func (this RTCPeerConnection) TryCreateDataChannel(label js.String, dataChannelD
 	return
 }
 
-// HasCreateDataChannel1 returns true if the method "RTCPeerConnection.createDataChannel" exists.
-func (this RTCPeerConnection) HasCreateDataChannel1() bool {
-	return js.True == bindings.HasRTCPeerConnectionCreateDataChannel1(
-		this.Ref(),
+// HasFuncCreateDataChannel1 returns true if the method "RTCPeerConnection.createDataChannel" exists.
+func (this RTCPeerConnection) HasFuncCreateDataChannel1() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionCreateDataChannel1(
+		this.ref,
 	)
 }
 
-// CreateDataChannel1Func returns the method "RTCPeerConnection.createDataChannel".
-func (this RTCPeerConnection) CreateDataChannel1Func() (fn js.Func[func(label js.String) RTCDataChannel]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionCreateDataChannel1Func(
-			this.Ref(),
-		),
+// FuncCreateDataChannel1 returns the method "RTCPeerConnection.createDataChannel".
+func (this RTCPeerConnection) FuncCreateDataChannel1() (fn js.Func[func(label js.String) RTCDataChannel]) {
+	bindings.FuncRTCPeerConnectionCreateDataChannel1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateDataChannel1 calls the method "RTCPeerConnection.createDataChannel".
 func (this RTCPeerConnection) CreateDataChannel1(label js.String) (ret RTCDataChannel) {
 	bindings.CallRTCPeerConnectionCreateDataChannel1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		label.Ref(),
 	)
 
@@ -3176,33 +3234,32 @@ func (this RTCPeerConnection) CreateDataChannel1(label js.String) (ret RTCDataCh
 // the catch clause.
 func (this RTCPeerConnection) TryCreateDataChannel1(label js.String) (ret RTCDataChannel, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionCreateDataChannel1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		label.Ref(),
 	)
 
 	return
 }
 
-// HasGetSenders returns true if the method "RTCPeerConnection.getSenders" exists.
-func (this RTCPeerConnection) HasGetSenders() bool {
-	return js.True == bindings.HasRTCPeerConnectionGetSenders(
-		this.Ref(),
+// HasFuncGetSenders returns true if the method "RTCPeerConnection.getSenders" exists.
+func (this RTCPeerConnection) HasFuncGetSenders() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionGetSenders(
+		this.ref,
 	)
 }
 
-// GetSendersFunc returns the method "RTCPeerConnection.getSenders".
-func (this RTCPeerConnection) GetSendersFunc() (fn js.Func[func() js.Array[RTCRtpSender]]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionGetSendersFunc(
-			this.Ref(),
-		),
+// FuncGetSenders returns the method "RTCPeerConnection.getSenders".
+func (this RTCPeerConnection) FuncGetSenders() (fn js.Func[func() js.Array[RTCRtpSender]]) {
+	bindings.FuncRTCPeerConnectionGetSenders(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetSenders calls the method "RTCPeerConnection.getSenders".
 func (this RTCPeerConnection) GetSenders() (ret js.Array[RTCRtpSender]) {
 	bindings.CallRTCPeerConnectionGetSenders(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3213,32 +3270,31 @@ func (this RTCPeerConnection) GetSenders() (ret js.Array[RTCRtpSender]) {
 // the catch clause.
 func (this RTCPeerConnection) TryGetSenders() (ret js.Array[RTCRtpSender], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionGetSenders(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetReceivers returns true if the method "RTCPeerConnection.getReceivers" exists.
-func (this RTCPeerConnection) HasGetReceivers() bool {
-	return js.True == bindings.HasRTCPeerConnectionGetReceivers(
-		this.Ref(),
+// HasFuncGetReceivers returns true if the method "RTCPeerConnection.getReceivers" exists.
+func (this RTCPeerConnection) HasFuncGetReceivers() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionGetReceivers(
+		this.ref,
 	)
 }
 
-// GetReceiversFunc returns the method "RTCPeerConnection.getReceivers".
-func (this RTCPeerConnection) GetReceiversFunc() (fn js.Func[func() js.Array[RTCRtpReceiver]]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionGetReceiversFunc(
-			this.Ref(),
-		),
+// FuncGetReceivers returns the method "RTCPeerConnection.getReceivers".
+func (this RTCPeerConnection) FuncGetReceivers() (fn js.Func[func() js.Array[RTCRtpReceiver]]) {
+	bindings.FuncRTCPeerConnectionGetReceivers(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetReceivers calls the method "RTCPeerConnection.getReceivers".
 func (this RTCPeerConnection) GetReceivers() (ret js.Array[RTCRtpReceiver]) {
 	bindings.CallRTCPeerConnectionGetReceivers(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3249,32 +3305,31 @@ func (this RTCPeerConnection) GetReceivers() (ret js.Array[RTCRtpReceiver]) {
 // the catch clause.
 func (this RTCPeerConnection) TryGetReceivers() (ret js.Array[RTCRtpReceiver], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionGetReceivers(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetTransceivers returns true if the method "RTCPeerConnection.getTransceivers" exists.
-func (this RTCPeerConnection) HasGetTransceivers() bool {
-	return js.True == bindings.HasRTCPeerConnectionGetTransceivers(
-		this.Ref(),
+// HasFuncGetTransceivers returns true if the method "RTCPeerConnection.getTransceivers" exists.
+func (this RTCPeerConnection) HasFuncGetTransceivers() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionGetTransceivers(
+		this.ref,
 	)
 }
 
-// GetTransceiversFunc returns the method "RTCPeerConnection.getTransceivers".
-func (this RTCPeerConnection) GetTransceiversFunc() (fn js.Func[func() js.Array[RTCRtpTransceiver]]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionGetTransceiversFunc(
-			this.Ref(),
-		),
+// FuncGetTransceivers returns the method "RTCPeerConnection.getTransceivers".
+func (this RTCPeerConnection) FuncGetTransceivers() (fn js.Func[func() js.Array[RTCRtpTransceiver]]) {
+	bindings.FuncRTCPeerConnectionGetTransceivers(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetTransceivers calls the method "RTCPeerConnection.getTransceivers".
 func (this RTCPeerConnection) GetTransceivers() (ret js.Array[RTCRtpTransceiver]) {
 	bindings.CallRTCPeerConnectionGetTransceivers(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3285,32 +3340,31 @@ func (this RTCPeerConnection) GetTransceivers() (ret js.Array[RTCRtpTransceiver]
 // the catch clause.
 func (this RTCPeerConnection) TryGetTransceivers() (ret js.Array[RTCRtpTransceiver], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionGetTransceivers(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasAddTrack returns true if the method "RTCPeerConnection.addTrack" exists.
-func (this RTCPeerConnection) HasAddTrack() bool {
-	return js.True == bindings.HasRTCPeerConnectionAddTrack(
-		this.Ref(),
+// HasFuncAddTrack returns true if the method "RTCPeerConnection.addTrack" exists.
+func (this RTCPeerConnection) HasFuncAddTrack() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionAddTrack(
+		this.ref,
 	)
 }
 
-// AddTrackFunc returns the method "RTCPeerConnection.addTrack".
-func (this RTCPeerConnection) AddTrackFunc() (fn js.Func[func(track MediaStreamTrack, streams ...MediaStream) RTCRtpSender]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionAddTrackFunc(
-			this.Ref(),
-		),
+// FuncAddTrack returns the method "RTCPeerConnection.addTrack".
+func (this RTCPeerConnection) FuncAddTrack() (fn js.Func[func(track MediaStreamTrack, streams ...MediaStream) RTCRtpSender]) {
+	bindings.FuncRTCPeerConnectionAddTrack(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AddTrack calls the method "RTCPeerConnection.addTrack".
 func (this RTCPeerConnection) AddTrack(track MediaStreamTrack, streams ...MediaStream) (ret RTCRtpSender) {
 	bindings.CallRTCPeerConnectionAddTrack(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		track.Ref(),
 		js.SliceData(streams),
 		js.SizeU(len(streams)),
@@ -3324,7 +3378,7 @@ func (this RTCPeerConnection) AddTrack(track MediaStreamTrack, streams ...MediaS
 // the catch clause.
 func (this RTCPeerConnection) TryAddTrack(track MediaStreamTrack, streams ...MediaStream) (ret RTCRtpSender, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionAddTrack(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		track.Ref(),
 		js.SliceData(streams),
 		js.SizeU(len(streams)),
@@ -3333,26 +3387,25 @@ func (this RTCPeerConnection) TryAddTrack(track MediaStreamTrack, streams ...Med
 	return
 }
 
-// HasRemoveTrack returns true if the method "RTCPeerConnection.removeTrack" exists.
-func (this RTCPeerConnection) HasRemoveTrack() bool {
-	return js.True == bindings.HasRTCPeerConnectionRemoveTrack(
-		this.Ref(),
+// HasFuncRemoveTrack returns true if the method "RTCPeerConnection.removeTrack" exists.
+func (this RTCPeerConnection) HasFuncRemoveTrack() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionRemoveTrack(
+		this.ref,
 	)
 }
 
-// RemoveTrackFunc returns the method "RTCPeerConnection.removeTrack".
-func (this RTCPeerConnection) RemoveTrackFunc() (fn js.Func[func(sender RTCRtpSender)]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionRemoveTrackFunc(
-			this.Ref(),
-		),
+// FuncRemoveTrack returns the method "RTCPeerConnection.removeTrack".
+func (this RTCPeerConnection) FuncRemoveTrack() (fn js.Func[func(sender RTCRtpSender)]) {
+	bindings.FuncRTCPeerConnectionRemoveTrack(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RemoveTrack calls the method "RTCPeerConnection.removeTrack".
 func (this RTCPeerConnection) RemoveTrack(sender RTCRtpSender) (ret js.Void) {
 	bindings.CallRTCPeerConnectionRemoveTrack(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		sender.Ref(),
 	)
 
@@ -3364,33 +3417,32 @@ func (this RTCPeerConnection) RemoveTrack(sender RTCRtpSender) (ret js.Void) {
 // the catch clause.
 func (this RTCPeerConnection) TryRemoveTrack(sender RTCRtpSender) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionRemoveTrack(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		sender.Ref(),
 	)
 
 	return
 }
 
-// HasAddTransceiver returns true if the method "RTCPeerConnection.addTransceiver" exists.
-func (this RTCPeerConnection) HasAddTransceiver() bool {
-	return js.True == bindings.HasRTCPeerConnectionAddTransceiver(
-		this.Ref(),
+// HasFuncAddTransceiver returns true if the method "RTCPeerConnection.addTransceiver" exists.
+func (this RTCPeerConnection) HasFuncAddTransceiver() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionAddTransceiver(
+		this.ref,
 	)
 }
 
-// AddTransceiverFunc returns the method "RTCPeerConnection.addTransceiver".
-func (this RTCPeerConnection) AddTransceiverFunc() (fn js.Func[func(trackOrKind OneOf_MediaStreamTrack_String, init RTCRtpTransceiverInit) RTCRtpTransceiver]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionAddTransceiverFunc(
-			this.Ref(),
-		),
+// FuncAddTransceiver returns the method "RTCPeerConnection.addTransceiver".
+func (this RTCPeerConnection) FuncAddTransceiver() (fn js.Func[func(trackOrKind OneOf_MediaStreamTrack_String, init RTCRtpTransceiverInit) RTCRtpTransceiver]) {
+	bindings.FuncRTCPeerConnectionAddTransceiver(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AddTransceiver calls the method "RTCPeerConnection.addTransceiver".
 func (this RTCPeerConnection) AddTransceiver(trackOrKind OneOf_MediaStreamTrack_String, init RTCRtpTransceiverInit) (ret RTCRtpTransceiver) {
 	bindings.CallRTCPeerConnectionAddTransceiver(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		trackOrKind.Ref(),
 		js.Pointer(&init),
 	)
@@ -3403,7 +3455,7 @@ func (this RTCPeerConnection) AddTransceiver(trackOrKind OneOf_MediaStreamTrack_
 // the catch clause.
 func (this RTCPeerConnection) TryAddTransceiver(trackOrKind OneOf_MediaStreamTrack_String, init RTCRtpTransceiverInit) (ret RTCRtpTransceiver, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionAddTransceiver(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		trackOrKind.Ref(),
 		js.Pointer(&init),
 	)
@@ -3411,26 +3463,25 @@ func (this RTCPeerConnection) TryAddTransceiver(trackOrKind OneOf_MediaStreamTra
 	return
 }
 
-// HasAddTransceiver1 returns true if the method "RTCPeerConnection.addTransceiver" exists.
-func (this RTCPeerConnection) HasAddTransceiver1() bool {
-	return js.True == bindings.HasRTCPeerConnectionAddTransceiver1(
-		this.Ref(),
+// HasFuncAddTransceiver1 returns true if the method "RTCPeerConnection.addTransceiver" exists.
+func (this RTCPeerConnection) HasFuncAddTransceiver1() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionAddTransceiver1(
+		this.ref,
 	)
 }
 
-// AddTransceiver1Func returns the method "RTCPeerConnection.addTransceiver".
-func (this RTCPeerConnection) AddTransceiver1Func() (fn js.Func[func(trackOrKind OneOf_MediaStreamTrack_String) RTCRtpTransceiver]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionAddTransceiver1Func(
-			this.Ref(),
-		),
+// FuncAddTransceiver1 returns the method "RTCPeerConnection.addTransceiver".
+func (this RTCPeerConnection) FuncAddTransceiver1() (fn js.Func[func(trackOrKind OneOf_MediaStreamTrack_String) RTCRtpTransceiver]) {
+	bindings.FuncRTCPeerConnectionAddTransceiver1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AddTransceiver1 calls the method "RTCPeerConnection.addTransceiver".
 func (this RTCPeerConnection) AddTransceiver1(trackOrKind OneOf_MediaStreamTrack_String) (ret RTCRtpTransceiver) {
 	bindings.CallRTCPeerConnectionAddTransceiver1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		trackOrKind.Ref(),
 	)
 
@@ -3442,33 +3493,32 @@ func (this RTCPeerConnection) AddTransceiver1(trackOrKind OneOf_MediaStreamTrack
 // the catch clause.
 func (this RTCPeerConnection) TryAddTransceiver1(trackOrKind OneOf_MediaStreamTrack_String) (ret RTCRtpTransceiver, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionAddTransceiver1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		trackOrKind.Ref(),
 	)
 
 	return
 }
 
-// HasGetStats returns true if the method "RTCPeerConnection.getStats" exists.
-func (this RTCPeerConnection) HasGetStats() bool {
-	return js.True == bindings.HasRTCPeerConnectionGetStats(
-		this.Ref(),
+// HasFuncGetStats returns true if the method "RTCPeerConnection.getStats" exists.
+func (this RTCPeerConnection) HasFuncGetStats() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionGetStats(
+		this.ref,
 	)
 }
 
-// GetStatsFunc returns the method "RTCPeerConnection.getStats".
-func (this RTCPeerConnection) GetStatsFunc() (fn js.Func[func(selector MediaStreamTrack) js.Promise[RTCStatsReport]]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionGetStatsFunc(
-			this.Ref(),
-		),
+// FuncGetStats returns the method "RTCPeerConnection.getStats".
+func (this RTCPeerConnection) FuncGetStats() (fn js.Func[func(selector MediaStreamTrack) js.Promise[RTCStatsReport]]) {
+	bindings.FuncRTCPeerConnectionGetStats(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetStats calls the method "RTCPeerConnection.getStats".
 func (this RTCPeerConnection) GetStats(selector MediaStreamTrack) (ret js.Promise[RTCStatsReport]) {
 	bindings.CallRTCPeerConnectionGetStats(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		selector.Ref(),
 	)
 
@@ -3480,33 +3530,32 @@ func (this RTCPeerConnection) GetStats(selector MediaStreamTrack) (ret js.Promis
 // the catch clause.
 func (this RTCPeerConnection) TryGetStats(selector MediaStreamTrack) (ret js.Promise[RTCStatsReport], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionGetStats(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		selector.Ref(),
 	)
 
 	return
 }
 
-// HasGetStats1 returns true if the method "RTCPeerConnection.getStats" exists.
-func (this RTCPeerConnection) HasGetStats1() bool {
-	return js.True == bindings.HasRTCPeerConnectionGetStats1(
-		this.Ref(),
+// HasFuncGetStats1 returns true if the method "RTCPeerConnection.getStats" exists.
+func (this RTCPeerConnection) HasFuncGetStats1() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionGetStats1(
+		this.ref,
 	)
 }
 
-// GetStats1Func returns the method "RTCPeerConnection.getStats".
-func (this RTCPeerConnection) GetStats1Func() (fn js.Func[func() js.Promise[RTCStatsReport]]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionGetStats1Func(
-			this.Ref(),
-		),
+// FuncGetStats1 returns the method "RTCPeerConnection.getStats".
+func (this RTCPeerConnection) FuncGetStats1() (fn js.Func[func() js.Promise[RTCStatsReport]]) {
+	bindings.FuncRTCPeerConnectionGetStats1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetStats1 calls the method "RTCPeerConnection.getStats".
 func (this RTCPeerConnection) GetStats1() (ret js.Promise[RTCStatsReport]) {
 	bindings.CallRTCPeerConnectionGetStats1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3517,70 +3566,68 @@ func (this RTCPeerConnection) GetStats1() (ret js.Promise[RTCStatsReport]) {
 // the catch clause.
 func (this RTCPeerConnection) TryGetStats1() (ret js.Promise[RTCStatsReport], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionGetStats1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGenerateCertificate returns true if the staticmethod "RTCPeerConnection.generateCertificate" exists.
-func (this RTCPeerConnection) HasGenerateCertificate() bool {
-	return js.True == bindings.HasRTCPeerConnectionGenerateCertificate(
-		this.Ref(),
+// HasFuncGenerateCertificate returns true if the static method "RTCPeerConnection.generateCertificate" exists.
+func (this RTCPeerConnection) HasFuncGenerateCertificate() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionGenerateCertificate(
+		this.ref,
 	)
 }
 
-// GenerateCertificateFunc returns the staticmethod "RTCPeerConnection.generateCertificate".
-func (this RTCPeerConnection) GenerateCertificateFunc() (fn js.Func[func(keygenAlgorithm AlgorithmIdentifier) js.Promise[RTCCertificate]]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionGenerateCertificateFunc(
-			this.Ref(),
-		),
+// FuncGenerateCertificate returns the static method "RTCPeerConnection.generateCertificate".
+func (this RTCPeerConnection) FuncGenerateCertificate() (fn js.Func[func(keygenAlgorithm AlgorithmIdentifier) js.Promise[RTCCertificate]]) {
+	bindings.FuncRTCPeerConnectionGenerateCertificate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// GenerateCertificate calls the staticmethod "RTCPeerConnection.generateCertificate".
+// GenerateCertificate calls the static method "RTCPeerConnection.generateCertificate".
 func (this RTCPeerConnection) GenerateCertificate(keygenAlgorithm AlgorithmIdentifier) (ret js.Promise[RTCCertificate]) {
 	bindings.CallRTCPeerConnectionGenerateCertificate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		keygenAlgorithm.Ref(),
 	)
 
 	return
 }
 
-// TryGenerateCertificate calls the staticmethod "RTCPeerConnection.generateCertificate"
+// TryGenerateCertificate calls the static method "RTCPeerConnection.generateCertificate"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryGenerateCertificate(keygenAlgorithm AlgorithmIdentifier) (ret js.Promise[RTCCertificate], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionGenerateCertificate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		keygenAlgorithm.Ref(),
 	)
 
 	return
 }
 
-// HasSetIdentityProvider returns true if the method "RTCPeerConnection.setIdentityProvider" exists.
-func (this RTCPeerConnection) HasSetIdentityProvider() bool {
-	return js.True == bindings.HasRTCPeerConnectionSetIdentityProvider(
-		this.Ref(),
+// HasFuncSetIdentityProvider returns true if the method "RTCPeerConnection.setIdentityProvider" exists.
+func (this RTCPeerConnection) HasFuncSetIdentityProvider() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionSetIdentityProvider(
+		this.ref,
 	)
 }
 
-// SetIdentityProviderFunc returns the method "RTCPeerConnection.setIdentityProvider".
-func (this RTCPeerConnection) SetIdentityProviderFunc() (fn js.Func[func(provider js.String, options RTCIdentityProviderOptions)]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionSetIdentityProviderFunc(
-			this.Ref(),
-		),
+// FuncSetIdentityProvider returns the method "RTCPeerConnection.setIdentityProvider".
+func (this RTCPeerConnection) FuncSetIdentityProvider() (fn js.Func[func(provider js.String, options RTCIdentityProviderOptions)]) {
+	bindings.FuncRTCPeerConnectionSetIdentityProvider(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetIdentityProvider calls the method "RTCPeerConnection.setIdentityProvider".
 func (this RTCPeerConnection) SetIdentityProvider(provider js.String, options RTCIdentityProviderOptions) (ret js.Void) {
 	bindings.CallRTCPeerConnectionSetIdentityProvider(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		provider.Ref(),
 		js.Pointer(&options),
 	)
@@ -3593,7 +3640,7 @@ func (this RTCPeerConnection) SetIdentityProvider(provider js.String, options RT
 // the catch clause.
 func (this RTCPeerConnection) TrySetIdentityProvider(provider js.String, options RTCIdentityProviderOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionSetIdentityProvider(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		provider.Ref(),
 		js.Pointer(&options),
 	)
@@ -3601,26 +3648,25 @@ func (this RTCPeerConnection) TrySetIdentityProvider(provider js.String, options
 	return
 }
 
-// HasSetIdentityProvider1 returns true if the method "RTCPeerConnection.setIdentityProvider" exists.
-func (this RTCPeerConnection) HasSetIdentityProvider1() bool {
-	return js.True == bindings.HasRTCPeerConnectionSetIdentityProvider1(
-		this.Ref(),
+// HasFuncSetIdentityProvider1 returns true if the method "RTCPeerConnection.setIdentityProvider" exists.
+func (this RTCPeerConnection) HasFuncSetIdentityProvider1() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionSetIdentityProvider1(
+		this.ref,
 	)
 }
 
-// SetIdentityProvider1Func returns the method "RTCPeerConnection.setIdentityProvider".
-func (this RTCPeerConnection) SetIdentityProvider1Func() (fn js.Func[func(provider js.String)]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionSetIdentityProvider1Func(
-			this.Ref(),
-		),
+// FuncSetIdentityProvider1 returns the method "RTCPeerConnection.setIdentityProvider".
+func (this RTCPeerConnection) FuncSetIdentityProvider1() (fn js.Func[func(provider js.String)]) {
+	bindings.FuncRTCPeerConnectionSetIdentityProvider1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetIdentityProvider1 calls the method "RTCPeerConnection.setIdentityProvider".
 func (this RTCPeerConnection) SetIdentityProvider1(provider js.String) (ret js.Void) {
 	bindings.CallRTCPeerConnectionSetIdentityProvider1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		provider.Ref(),
 	)
 
@@ -3632,33 +3678,32 @@ func (this RTCPeerConnection) SetIdentityProvider1(provider js.String) (ret js.V
 // the catch clause.
 func (this RTCPeerConnection) TrySetIdentityProvider1(provider js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionSetIdentityProvider1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		provider.Ref(),
 	)
 
 	return
 }
 
-// HasGetIdentityAssertion returns true if the method "RTCPeerConnection.getIdentityAssertion" exists.
-func (this RTCPeerConnection) HasGetIdentityAssertion() bool {
-	return js.True == bindings.HasRTCPeerConnectionGetIdentityAssertion(
-		this.Ref(),
+// HasFuncGetIdentityAssertion returns true if the method "RTCPeerConnection.getIdentityAssertion" exists.
+func (this RTCPeerConnection) HasFuncGetIdentityAssertion() bool {
+	return js.True == bindings.HasFuncRTCPeerConnectionGetIdentityAssertion(
+		this.ref,
 	)
 }
 
-// GetIdentityAssertionFunc returns the method "RTCPeerConnection.getIdentityAssertion".
-func (this RTCPeerConnection) GetIdentityAssertionFunc() (fn js.Func[func() js.Promise[js.String]]) {
-	return fn.FromRef(
-		bindings.RTCPeerConnectionGetIdentityAssertionFunc(
-			this.Ref(),
-		),
+// FuncGetIdentityAssertion returns the method "RTCPeerConnection.getIdentityAssertion".
+func (this RTCPeerConnection) FuncGetIdentityAssertion() (fn js.Func[func() js.Promise[js.String]]) {
+	bindings.FuncRTCPeerConnectionGetIdentityAssertion(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetIdentityAssertion calls the method "RTCPeerConnection.getIdentityAssertion".
 func (this RTCPeerConnection) GetIdentityAssertion() (ret js.Promise[js.String]) {
 	bindings.CallRTCPeerConnectionGetIdentityAssertion(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3669,7 +3714,7 @@ func (this RTCPeerConnection) GetIdentityAssertion() (ret js.Promise[js.String])
 // the catch clause.
 func (this RTCPeerConnection) TryGetIdentityAssertion() (ret js.Promise[js.String], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionGetIdentityAssertion(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -3739,17 +3784,30 @@ func (p RTCPeerConnectionIceErrorEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCPeerConnectionIceErrorEventInit) UpdateFrom(ref js.Ref) {
+func (p *RTCPeerConnectionIceErrorEventInit) UpdateFrom(ref js.Ref) {
 	bindings.RTCPeerConnectionIceErrorEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCPeerConnectionIceErrorEventInit) Update(ref js.Ref) {
+func (p *RTCPeerConnectionIceErrorEventInit) Update(ref js.Ref) {
 	bindings.RTCPeerConnectionIceErrorEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCPeerConnectionIceErrorEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Address.Ref(),
+		p.Url.Ref(),
+		p.ErrorText.Ref(),
+	)
+	p.Address = p.Address.FromRef(js.Undefined)
+	p.Url = p.Url.FromRef(js.Undefined)
+	p.ErrorText = p.ErrorText.FromRef(js.Undefined)
 }
 
 func NewRTCPeerConnectionIceErrorEvent(typ js.String, eventInitDict RTCPeerConnectionIceErrorEventInit) (ret RTCPeerConnectionIceErrorEvent) {
@@ -3764,7 +3822,7 @@ type RTCPeerConnectionIceErrorEvent struct {
 }
 
 func (this RTCPeerConnectionIceErrorEvent) Once() RTCPeerConnectionIceErrorEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3778,7 +3836,7 @@ func (this RTCPeerConnectionIceErrorEvent) FromRef(ref js.Ref) RTCPeerConnection
 }
 
 func (this RTCPeerConnectionIceErrorEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Address returns the value of property "RTCPeerConnectionIceErrorEvent.address".
@@ -3786,7 +3844,7 @@ func (this RTCPeerConnectionIceErrorEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCPeerConnectionIceErrorEvent) Address() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRTCPeerConnectionIceErrorEventAddress(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3796,7 +3854,7 @@ func (this RTCPeerConnectionIceErrorEvent) Address() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCPeerConnectionIceErrorEvent) Port() (ret uint16, ok bool) {
 	ok = js.True == bindings.GetRTCPeerConnectionIceErrorEventPort(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3806,7 +3864,7 @@ func (this RTCPeerConnectionIceErrorEvent) Port() (ret uint16, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCPeerConnectionIceErrorEvent) Url() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRTCPeerConnectionIceErrorEventUrl(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3816,7 +3874,7 @@ func (this RTCPeerConnectionIceErrorEvent) Url() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCPeerConnectionIceErrorEvent) ErrorCode() (ret uint16, ok bool) {
 	ok = js.True == bindings.GetRTCPeerConnectionIceErrorEventErrorCode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3826,7 +3884,7 @@ func (this RTCPeerConnectionIceErrorEvent) ErrorCode() (ret uint16, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCPeerConnectionIceErrorEvent) ErrorText() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRTCPeerConnectionIceErrorEventErrorText(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3880,17 +3938,28 @@ func (p RTCPeerConnectionIceEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCPeerConnectionIceEventInit) UpdateFrom(ref js.Ref) {
+func (p *RTCPeerConnectionIceEventInit) UpdateFrom(ref js.Ref) {
 	bindings.RTCPeerConnectionIceEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCPeerConnectionIceEventInit) Update(ref js.Ref) {
+func (p *RTCPeerConnectionIceEventInit) Update(ref js.Ref) {
 	bindings.RTCPeerConnectionIceEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCPeerConnectionIceEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Candidate.Ref(),
+		p.Url.Ref(),
+	)
+	p.Candidate = p.Candidate.FromRef(js.Undefined)
+	p.Url = p.Url.FromRef(js.Undefined)
 }
 
 func NewRTCPeerConnectionIceEvent(typ js.String, eventInitDict RTCPeerConnectionIceEventInit) (ret RTCPeerConnectionIceEvent) {
@@ -3911,7 +3980,7 @@ type RTCPeerConnectionIceEvent struct {
 }
 
 func (this RTCPeerConnectionIceEvent) Once() RTCPeerConnectionIceEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3925,7 +3994,7 @@ func (this RTCPeerConnectionIceEvent) FromRef(ref js.Ref) RTCPeerConnectionIceEv
 }
 
 func (this RTCPeerConnectionIceEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Candidate returns the value of property "RTCPeerConnectionIceEvent.candidate".
@@ -3933,7 +4002,7 @@ func (this RTCPeerConnectionIceEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCPeerConnectionIceEvent) Candidate() (ret RTCIceCandidate, ok bool) {
 	ok = js.True == bindings.GetRTCPeerConnectionIceEventCandidate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3943,7 +4012,7 @@ func (this RTCPeerConnectionIceEvent) Candidate() (ret RTCIceCandidate, ok bool)
 // It returns ok=false if there is no such property.
 func (this RTCPeerConnectionIceEvent) Url() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRTCPeerConnectionIceEventUrl(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3994,17 +4063,26 @@ func (p RTCPeerConnectionStats) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCPeerConnectionStats) UpdateFrom(ref js.Ref) {
+func (p *RTCPeerConnectionStats) UpdateFrom(ref js.Ref) {
 	bindings.RTCPeerConnectionStatsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCPeerConnectionStats) Update(ref js.Ref) {
+func (p *RTCPeerConnectionStats) Update(ref js.Ref) {
 	bindings.RTCPeerConnectionStatsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCPeerConnectionStats) FreeMembers(recursive bool) {
+	js.Free(
+		p.Id.Ref(),
+	)
+	p.Id = p.Id.FromRef(js.Undefined)
 }
 
 type RTCReceivedRtpStreamStats struct {
@@ -4076,17 +4154,32 @@ func (p RTCReceivedRtpStreamStats) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCReceivedRtpStreamStats) UpdateFrom(ref js.Ref) {
+func (p *RTCReceivedRtpStreamStats) UpdateFrom(ref js.Ref) {
 	bindings.RTCReceivedRtpStreamStatsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCReceivedRtpStreamStats) Update(ref js.Ref) {
+func (p *RTCReceivedRtpStreamStats) Update(ref js.Ref) {
 	bindings.RTCReceivedRtpStreamStatsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCReceivedRtpStreamStats) FreeMembers(recursive bool) {
+	js.Free(
+		p.Kind.Ref(),
+		p.TransportId.Ref(),
+		p.CodecId.Ref(),
+		p.Id.Ref(),
+	)
+	p.Kind = p.Kind.FromRef(js.Undefined)
+	p.TransportId = p.TransportId.FromRef(js.Undefined)
+	p.CodecId = p.CodecId.FromRef(js.Undefined)
+	p.Id = p.Id.FromRef(js.Undefined)
 }
 
 type RTCRemoteInboundRtpStreamStats struct {
@@ -4190,17 +4283,34 @@ func (p RTCRemoteInboundRtpStreamStats) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCRemoteInboundRtpStreamStats) UpdateFrom(ref js.Ref) {
+func (p *RTCRemoteInboundRtpStreamStats) UpdateFrom(ref js.Ref) {
 	bindings.RTCRemoteInboundRtpStreamStatsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCRemoteInboundRtpStreamStats) Update(ref js.Ref) {
+func (p *RTCRemoteInboundRtpStreamStats) Update(ref js.Ref) {
 	bindings.RTCRemoteInboundRtpStreamStatsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCRemoteInboundRtpStreamStats) FreeMembers(recursive bool) {
+	js.Free(
+		p.LocalId.Ref(),
+		p.Kind.Ref(),
+		p.TransportId.Ref(),
+		p.CodecId.Ref(),
+		p.Id.Ref(),
+	)
+	p.LocalId = p.LocalId.FromRef(js.Undefined)
+	p.Kind = p.Kind.FromRef(js.Undefined)
+	p.TransportId = p.TransportId.FromRef(js.Undefined)
+	p.CodecId = p.CodecId.FromRef(js.Undefined)
+	p.Id = p.Id.FromRef(js.Undefined)
 }
 
 type RTCRemoteOutboundRtpStreamStats struct {
@@ -4304,17 +4414,34 @@ func (p RTCRemoteOutboundRtpStreamStats) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCRemoteOutboundRtpStreamStats) UpdateFrom(ref js.Ref) {
+func (p *RTCRemoteOutboundRtpStreamStats) UpdateFrom(ref js.Ref) {
 	bindings.RTCRemoteOutboundRtpStreamStatsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCRemoteOutboundRtpStreamStats) Update(ref js.Ref) {
+func (p *RTCRemoteOutboundRtpStreamStats) Update(ref js.Ref) {
 	bindings.RTCRemoteOutboundRtpStreamStatsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCRemoteOutboundRtpStreamStats) FreeMembers(recursive bool) {
+	js.Free(
+		p.LocalId.Ref(),
+		p.Kind.Ref(),
+		p.TransportId.Ref(),
+		p.CodecId.Ref(),
+		p.Id.Ref(),
+	)
+	p.LocalId = p.LocalId.FromRef(js.Undefined)
+	p.Kind = p.Kind.FromRef(js.Undefined)
+	p.TransportId = p.TransportId.FromRef(js.Undefined)
+	p.CodecId = p.CodecId.FromRef(js.Undefined)
+	p.Id = p.Id.FromRef(js.Undefined)
 }
 
 type RTCRtpCodec struct {
@@ -4356,17 +4483,28 @@ func (p RTCRtpCodec) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCRtpCodec) UpdateFrom(ref js.Ref) {
+func (p *RTCRtpCodec) UpdateFrom(ref js.Ref) {
 	bindings.RTCRtpCodecJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCRtpCodec) Update(ref js.Ref) {
+func (p *RTCRtpCodec) Update(ref js.Ref) {
 	bindings.RTCRtpCodecJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCRtpCodec) FreeMembers(recursive bool) {
+	js.Free(
+		p.MimeType.Ref(),
+		p.SdpFmtpLine.Ref(),
+	)
+	p.MimeType = p.MimeType.FromRef(js.Undefined)
+	p.SdpFmtpLine = p.SdpFmtpLine.FromRef(js.Undefined)
 }
 
 type RTCRtpCodingParameters struct {
@@ -4392,17 +4530,26 @@ func (p RTCRtpCodingParameters) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCRtpCodingParameters) UpdateFrom(ref js.Ref) {
+func (p *RTCRtpCodingParameters) UpdateFrom(ref js.Ref) {
 	bindings.RTCRtpCodingParametersJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCRtpCodingParameters) Update(ref js.Ref) {
+func (p *RTCRtpCodingParameters) Update(ref js.Ref) {
 	bindings.RTCRtpCodingParametersJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCRtpCodingParameters) FreeMembers(recursive bool) {
+	js.Free(
+		p.Rid.Ref(),
+	)
+	p.Rid = p.Rid.FromRef(js.Undefined)
 }
 
 type RTCRtpParameters struct {
@@ -4438,17 +4585,31 @@ func (p RTCRtpParameters) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCRtpParameters) UpdateFrom(ref js.Ref) {
+func (p *RTCRtpParameters) UpdateFrom(ref js.Ref) {
 	bindings.RTCRtpParametersJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCRtpParameters) Update(ref js.Ref) {
+func (p *RTCRtpParameters) Update(ref js.Ref) {
 	bindings.RTCRtpParametersJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCRtpParameters) FreeMembers(recursive bool) {
+	js.Free(
+		p.HeaderExtensions.Ref(),
+		p.Codecs.Ref(),
+	)
+	p.HeaderExtensions = p.HeaderExtensions.FromRef(js.Undefined)
+	p.Codecs = p.Codecs.FromRef(js.Undefined)
+	if recursive {
+		p.Rtcp.FreeMembers(true)
+	}
 }
 
 type RTCRtpScriptTransformer struct {
@@ -4456,7 +4617,7 @@ type RTCRtpScriptTransformer struct {
 }
 
 func (this RTCRtpScriptTransformer) Once() RTCRtpScriptTransformer {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -4470,7 +4631,7 @@ func (this RTCRtpScriptTransformer) FromRef(ref js.Ref) RTCRtpScriptTransformer 
 }
 
 func (this RTCRtpScriptTransformer) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Readable returns the value of property "RTCRtpScriptTransformer.readable".
@@ -4478,7 +4639,7 @@ func (this RTCRtpScriptTransformer) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCRtpScriptTransformer) Readable() (ret ReadableStream, ok bool) {
 	ok = js.True == bindings.GetRTCRtpScriptTransformerReadable(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4488,7 +4649,7 @@ func (this RTCRtpScriptTransformer) Readable() (ret ReadableStream, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCRtpScriptTransformer) Writable() (ret WritableStream, ok bool) {
 	ok = js.True == bindings.GetRTCRtpScriptTransformerWritable(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -4498,31 +4659,30 @@ func (this RTCRtpScriptTransformer) Writable() (ret WritableStream, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCRtpScriptTransformer) Options() (ret js.Any, ok bool) {
 	ok = js.True == bindings.GetRTCRtpScriptTransformerOptions(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGenerateKeyFrame returns true if the method "RTCRtpScriptTransformer.generateKeyFrame" exists.
-func (this RTCRtpScriptTransformer) HasGenerateKeyFrame() bool {
-	return js.True == bindings.HasRTCRtpScriptTransformerGenerateKeyFrame(
-		this.Ref(),
+// HasFuncGenerateKeyFrame returns true if the method "RTCRtpScriptTransformer.generateKeyFrame" exists.
+func (this RTCRtpScriptTransformer) HasFuncGenerateKeyFrame() bool {
+	return js.True == bindings.HasFuncRTCRtpScriptTransformerGenerateKeyFrame(
+		this.ref,
 	)
 }
 
-// GenerateKeyFrameFunc returns the method "RTCRtpScriptTransformer.generateKeyFrame".
-func (this RTCRtpScriptTransformer) GenerateKeyFrameFunc() (fn js.Func[func(rid js.String) js.Promise[js.BigInt[uint64]]]) {
-	return fn.FromRef(
-		bindings.RTCRtpScriptTransformerGenerateKeyFrameFunc(
-			this.Ref(),
-		),
+// FuncGenerateKeyFrame returns the method "RTCRtpScriptTransformer.generateKeyFrame".
+func (this RTCRtpScriptTransformer) FuncGenerateKeyFrame() (fn js.Func[func(rid js.String) js.Promise[js.BigInt[uint64]]]) {
+	bindings.FuncRTCRtpScriptTransformerGenerateKeyFrame(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GenerateKeyFrame calls the method "RTCRtpScriptTransformer.generateKeyFrame".
 func (this RTCRtpScriptTransformer) GenerateKeyFrame(rid js.String) (ret js.Promise[js.BigInt[uint64]]) {
 	bindings.CallRTCRtpScriptTransformerGenerateKeyFrame(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		rid.Ref(),
 	)
 
@@ -4534,33 +4694,32 @@ func (this RTCRtpScriptTransformer) GenerateKeyFrame(rid js.String) (ret js.Prom
 // the catch clause.
 func (this RTCRtpScriptTransformer) TryGenerateKeyFrame(rid js.String) (ret js.Promise[js.BigInt[uint64]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpScriptTransformerGenerateKeyFrame(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		rid.Ref(),
 	)
 
 	return
 }
 
-// HasGenerateKeyFrame1 returns true if the method "RTCRtpScriptTransformer.generateKeyFrame" exists.
-func (this RTCRtpScriptTransformer) HasGenerateKeyFrame1() bool {
-	return js.True == bindings.HasRTCRtpScriptTransformerGenerateKeyFrame1(
-		this.Ref(),
+// HasFuncGenerateKeyFrame1 returns true if the method "RTCRtpScriptTransformer.generateKeyFrame" exists.
+func (this RTCRtpScriptTransformer) HasFuncGenerateKeyFrame1() bool {
+	return js.True == bindings.HasFuncRTCRtpScriptTransformerGenerateKeyFrame1(
+		this.ref,
 	)
 }
 
-// GenerateKeyFrame1Func returns the method "RTCRtpScriptTransformer.generateKeyFrame".
-func (this RTCRtpScriptTransformer) GenerateKeyFrame1Func() (fn js.Func[func() js.Promise[js.BigInt[uint64]]]) {
-	return fn.FromRef(
-		bindings.RTCRtpScriptTransformerGenerateKeyFrame1Func(
-			this.Ref(),
-		),
+// FuncGenerateKeyFrame1 returns the method "RTCRtpScriptTransformer.generateKeyFrame".
+func (this RTCRtpScriptTransformer) FuncGenerateKeyFrame1() (fn js.Func[func() js.Promise[js.BigInt[uint64]]]) {
+	bindings.FuncRTCRtpScriptTransformerGenerateKeyFrame1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GenerateKeyFrame1 calls the method "RTCRtpScriptTransformer.generateKeyFrame".
 func (this RTCRtpScriptTransformer) GenerateKeyFrame1() (ret js.Promise[js.BigInt[uint64]]) {
 	bindings.CallRTCRtpScriptTransformerGenerateKeyFrame1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -4571,32 +4730,31 @@ func (this RTCRtpScriptTransformer) GenerateKeyFrame1() (ret js.Promise[js.BigIn
 // the catch clause.
 func (this RTCRtpScriptTransformer) TryGenerateKeyFrame1() (ret js.Promise[js.BigInt[uint64]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpScriptTransformerGenerateKeyFrame1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSendKeyFrameRequest returns true if the method "RTCRtpScriptTransformer.sendKeyFrameRequest" exists.
-func (this RTCRtpScriptTransformer) HasSendKeyFrameRequest() bool {
-	return js.True == bindings.HasRTCRtpScriptTransformerSendKeyFrameRequest(
-		this.Ref(),
+// HasFuncSendKeyFrameRequest returns true if the method "RTCRtpScriptTransformer.sendKeyFrameRequest" exists.
+func (this RTCRtpScriptTransformer) HasFuncSendKeyFrameRequest() bool {
+	return js.True == bindings.HasFuncRTCRtpScriptTransformerSendKeyFrameRequest(
+		this.ref,
 	)
 }
 
-// SendKeyFrameRequestFunc returns the method "RTCRtpScriptTransformer.sendKeyFrameRequest".
-func (this RTCRtpScriptTransformer) SendKeyFrameRequestFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.RTCRtpScriptTransformerSendKeyFrameRequestFunc(
-			this.Ref(),
-		),
+// FuncSendKeyFrameRequest returns the method "RTCRtpScriptTransformer.sendKeyFrameRequest".
+func (this RTCRtpScriptTransformer) FuncSendKeyFrameRequest() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncRTCRtpScriptTransformerSendKeyFrameRequest(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SendKeyFrameRequest calls the method "RTCRtpScriptTransformer.sendKeyFrameRequest".
 func (this RTCRtpScriptTransformer) SendKeyFrameRequest() (ret js.Promise[js.Void]) {
 	bindings.CallRTCRtpScriptTransformerSendKeyFrameRequest(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -4607,7 +4765,7 @@ func (this RTCRtpScriptTransformer) SendKeyFrameRequest() (ret js.Promise[js.Voi
 // the catch clause.
 func (this RTCRtpScriptTransformer) TrySendKeyFrameRequest() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpScriptTransformerSendKeyFrameRequest(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -4660,17 +4818,32 @@ func (p RTCRtpStreamStats) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCRtpStreamStats) UpdateFrom(ref js.Ref) {
+func (p *RTCRtpStreamStats) UpdateFrom(ref js.Ref) {
 	bindings.RTCRtpStreamStatsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCRtpStreamStats) Update(ref js.Ref) {
+func (p *RTCRtpStreamStats) Update(ref js.Ref) {
 	bindings.RTCRtpStreamStatsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCRtpStreamStats) FreeMembers(recursive bool) {
+	js.Free(
+		p.Kind.Ref(),
+		p.TransportId.Ref(),
+		p.CodecId.Ref(),
+		p.Id.Ref(),
+	)
+	p.Kind = p.Kind.FromRef(js.Undefined)
+	p.TransportId = p.TransportId.FromRef(js.Undefined)
+	p.CodecId = p.CodecId.FromRef(js.Undefined)
+	p.Id = p.Id.FromRef(js.Undefined)
 }
 
 type RTCSentRtpStreamStats struct {
@@ -4735,17 +4908,32 @@ func (p RTCSentRtpStreamStats) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCSentRtpStreamStats) UpdateFrom(ref js.Ref) {
+func (p *RTCSentRtpStreamStats) UpdateFrom(ref js.Ref) {
 	bindings.RTCSentRtpStreamStatsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCSentRtpStreamStats) Update(ref js.Ref) {
+func (p *RTCSentRtpStreamStats) Update(ref js.Ref) {
 	bindings.RTCSentRtpStreamStatsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCSentRtpStreamStats) FreeMembers(recursive bool) {
+	js.Free(
+		p.Kind.Ref(),
+		p.TransportId.Ref(),
+		p.CodecId.Ref(),
+		p.Id.Ref(),
+	)
+	p.Kind = p.Kind.FromRef(js.Undefined)
+	p.TransportId = p.TransportId.FromRef(js.Undefined)
+	p.CodecId = p.CodecId.FromRef(js.Undefined)
+	p.Id = p.Id.FromRef(js.Undefined)
 }
 
 type RTCStats struct {
@@ -4779,15 +4967,24 @@ func (p RTCStats) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCStats) UpdateFrom(ref js.Ref) {
+func (p *RTCStats) UpdateFrom(ref js.Ref) {
 	bindings.RTCStatsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCStats) Update(ref js.Ref) {
+func (p *RTCStats) Update(ref js.Ref) {
 	bindings.RTCStatsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCStats) FreeMembers(recursive bool) {
+	js.Free(
+		p.Id.Ref(),
+	)
+	p.Id = p.Id.FromRef(js.Undefined)
 }

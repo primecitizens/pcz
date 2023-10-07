@@ -1,9 +1,9 @@
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Typedef:
     Name: Base64URLString
     Type:
       Name: DOMString
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: BaseAudioContext
     Inherits: EventTarget
@@ -290,7 +290,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: web-animations.idl
+- File: webref/web-animations.idl
   Dict:
     Name: BaseComputedKeyframe
     Fields:
@@ -310,7 +310,7 @@
         Default: '"auto"'
         Type:
           Name: CompositeOperationOrAuto
-- File: web-animations.idl
+- File: webref/web-animations.idl
   Dict:
     Name: BaseKeyframe
     Fields:
@@ -327,7 +327,7 @@
         Default: '"auto"'
         Type:
           Name: CompositeOperationOrAuto
-- File: web-animations.idl
+- File: webref/web-animations.idl
   Dict:
     Name: BasePropertyIndexedKeyframe
     Fields:
@@ -357,7 +357,7 @@
             - Name: sequence
               Params:
                 - Name: CompositeOperationOrAuto
-- File: font-metrics-api.idl
+- File: webref/font-metrics-api.idl
   Interface:
     Name: Baseline
     ExtAttrs:
@@ -381,7 +381,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: battery-status.idl
+- File: webref/battery-status.idl
   Interface:
     Name: BatteryManager
     Inherits: EventTarget
@@ -459,7 +459,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: manifest-incubations.idl
+- File: webref/manifest-incubations.idl
   Interface:
     Name: BeforeInstallPromptEvent
     Inherits: Event
@@ -491,7 +491,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: BeforeUnloadEvent
     Inherits: Event
@@ -520,7 +520,7 @@
               Name: EventInit
         ExtAttrs:
           - Name: Exposed
-- File: turtledove.idl
+- File: webref/turtledove.idl
   Dict:
     Name: BiddingBrowserSignals
     Fields:
@@ -558,25 +558,25 @@
       - Name: dataVersion
         Type:
           Name: unsigned long
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Typedef:
     Name: BigInteger
     Type:
       Name: Uint8Array
-- File: css-font-loading.idl
+- File: webref/css-font-loading.idl
   Typedef:
     Name: BinaryData
     Type:
       Union:
         - Name: ArrayBuffer
         - Name: ArrayBufferView
-- File: websockets.idl
+- File: webref/websockets.idl
   Enum:
     Name: BinaryType
     Values:
       - blob
       - arraybuffer
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: BiquadFilterNode
     Inherits: AudioNode
@@ -656,7 +656,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: BiquadFilterOptions
     Inherits: AudioNodeOptions
@@ -690,7 +690,7 @@
       - Name: channelInterpretation
         Type:
           Name: ChannelInterpretation
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Enum:
     Name: BiquadFilterType
     Values:
@@ -702,13 +702,13 @@
       - peaking
       - notch
       - allpass
-- File: mediastream-recording.idl
+- File: webref/mediastream-recording.idl
   Enum:
     Name: BitrateMode
     Values:
       - constant
       - variable
-- File: FileAPI.idl
+- File: webref/FileAPI.idl
   Interface:
     Name: Blob
     ExtAttrs:
@@ -814,7 +814,7 @@
               - Window
               - Worker
           - Name: Serializable
-- File: html.idl
+- File: webref/html.idl
   Callback:
     Name: BlobCallback
     Args:
@@ -824,7 +824,7 @@
           Nullable: true
     Returns:
       - Name: undefined
-- File: mediastream-recording.idl
+- File: webref/mediastream-recording.idl
   Interface:
     Name: BlobEvent
     Inherits: Event
@@ -862,7 +862,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: mediastream-recording.idl
+- File: webref/mediastream-recording.idl
   Dict:
     Name: BlobEventInit
     Fields:
@@ -873,7 +873,7 @@
       - Name: timecode
         Type:
           Name: DOMHighResTimeStamp
-- File: FileAPI.idl
+- File: webref/FileAPI.idl
   Typedef:
     Name: BlobPart
     Type:
@@ -881,7 +881,7 @@
         - Name: BufferSource
         - Name: Blob
         - Name: USVString
-- File: FileAPI.idl
+- File: webref/FileAPI.idl
   Dict:
     Name: BlobPropertyBag
     Fields:
@@ -893,7 +893,7 @@
         Default: '"transparent"'
         Type:
           Name: EndingType
-- File: css-layout-api.idl
+- File: webref/css-layout-api.idl
   Enum:
     Name: BlockFragmentationType
     Values:
@@ -901,7 +901,7 @@
       - page
       - column
       - region
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Interface:
     Name: Bluetooth
     Inherits: EventTarget
@@ -999,7 +999,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Interface:
     Name: BluetoothAdvertisingEvent
     Inherits: Event
@@ -1103,7 +1103,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Dict:
     Name: BluetoothAdvertisingEventInit
     Inherits: EventInit
@@ -1149,7 +1149,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Interface:
     Name: BluetoothCharacteristicProperties
     ExtAttrs:
@@ -1239,14 +1239,14 @@
             Values:
               - Window
           - Name: SecureContext
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Typedef:
     Name: BluetoothCharacteristicUUID
     Type:
       Union:
         - Name: DOMString
         - Name: unsigned long
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Dict:
     Name: BluetoothDataFilterInit
     Fields:
@@ -1256,14 +1256,14 @@
       - Name: mask
         Type:
           Name: BufferSource
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Typedef:
     Name: BluetoothDescriptorUUID
     Type:
       Union:
         - Name: DOMString
         - Name: unsigned long
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Interface:
     Name: BluetoothDevice
     Inherits: EventTarget
@@ -1368,7 +1368,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Dict:
     Name: BluetoothLEScanFilterInit
     Fields:
@@ -1393,7 +1393,7 @@
           Name: sequence
           Params:
             - Name: BluetoothServiceDataFilterInit
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Dict:
     Name: BluetoothManufacturerDataFilterInit
     Inherits: BluetoothDataFilterInit
@@ -1408,7 +1408,7 @@
       - Name: mask
         Type:
           Name: BufferSource
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Interface:
     Name: BluetoothManufacturerDataMap
     ExtAttrs:
@@ -1421,7 +1421,7 @@
         - Name: unsigned short
         - Name: DataView
       Readonly: true
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Dict:
     Name: BluetoothPermissionDescriptor
     Inherits: PermissionDescriptor
@@ -1454,7 +1454,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Interface:
     Name: BluetoothPermissionResult
     Inherits: PermissionStatus
@@ -1472,7 +1472,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Dict:
     Name: BluetoothPermissionStorage
     Fields:
@@ -1482,7 +1482,7 @@
           Name: sequence
           Params:
             - Name: AllowedBluetoothDevice
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Interface:
     Name: BluetoothRemoteGATTCharacteristic
     Inherits: EventTarget
@@ -1639,7 +1639,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Interface:
     Name: BluetoothRemoteGATTDescriptor
     ExtAttrs:
@@ -1702,7 +1702,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Interface:
     Name: BluetoothRemoteGATTServer
     ExtAttrs:
@@ -1780,7 +1780,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Interface:
     Name: BluetoothRemoteGATTService
     Inherits: EventTarget
@@ -1901,7 +1901,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Dict:
     Name: BluetoothServiceDataFilterInit
     Inherits: BluetoothDataFilterInit
@@ -1916,7 +1916,7 @@
       - Name: mask
         Type:
           Name: BufferSource
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Interface:
     Name: BluetoothServiceDataMap
     ExtAttrs:
@@ -1929,14 +1929,14 @@
         - Name: UUID
         - Name: DataView
       Readonly: true
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Typedef:
     Name: BluetoothServiceUUID
     Type:
       Union:
         - Name: DOMString
         - Name: unsigned long
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Interface:
     Name: BluetoothUUID
     ExtAttrs:
@@ -2000,14 +2000,14 @@
           - Name: Exposed
             Values:
               - Window
-- File: fetch.idl
+- File: webref/fetch.idl
   Typedef:
     Name: BodyInit
     Type:
       Union:
         - Name: ReadableStream
         - Name: XMLHttpRequestBodyInit
-- File: cssom-view.idl
+- File: webref/cssom-view.idl
   Dict:
     Name: BoxQuadOptions
     Fields:
@@ -2018,7 +2018,7 @@
       - Name: relativeTo
         Type:
           Name: GeometryNode
-- File: css-layout-api.idl
+- File: webref/css-layout-api.idl
   Interface:
     Name: BreakToken
     ExtAttrs:
@@ -2044,7 +2044,7 @@
           - Name: Exposed
             Values:
               - LayoutWorklet
-- File: css-layout-api.idl
+- File: webref/css-layout-api.idl
   Dict:
     Name: BreakTokenOptions
     Fields:

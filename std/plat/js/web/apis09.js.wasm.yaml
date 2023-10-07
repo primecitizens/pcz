@@ -1,4 +1,4 @@
-- File: geometry.idl
+- File: webref/geometry.idl
   Interface:
     Name: DOMRect
     Inherits: DOMRectReadOnly
@@ -116,7 +116,7 @@
           - Name: LegacyWindowAlias
             Values:
               - SVGRect
-- File: geometry.idl
+- File: webref/geometry.idl
   Dict:
     Name: DOMRectInit
     Fields:
@@ -136,7 +136,7 @@
         Default: "0"
         Type:
           Name: unrestricted double
-- File: geometry.idl
+- File: webref/geometry.idl
   Interface:
     Name: DOMRectList
     ExtAttrs:
@@ -166,7 +166,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: geometry.idl
+- File: webref/geometry.idl
   Interface:
     Name: DOMRectReadOnly
     ExtAttrs:
@@ -312,7 +312,7 @@
               - Window
               - Worker
           - Name: Serializable
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: DOMStringList
     ExtAttrs:
@@ -357,7 +357,7 @@
             Values:
               - Window
               - Worker
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: DOMStringMap
     ExtAttrs:
@@ -407,7 +407,7 @@
             Values:
               - Window
           - Name: LegacyOverrideBuiltIns
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: DOMTokenList
     ExtAttrs:
@@ -528,7 +528,7 @@
     Iterable:
       TypeParams:
         - Name: DOMString
-- File: datacue.idl
+- File: webref/datacue.idl
   Interface:
     Name: DataCue
     Inherits: TextTrackCue
@@ -571,7 +571,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: DataTransfer
     ExtAttrs:
@@ -676,7 +676,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: DataTransferItem
     ExtAttrs:
@@ -731,7 +731,7 @@
         Returns:
           - Name: FileSystemEntry
             Nullable: true
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: DataTransferItemList
     ExtAttrs:
@@ -804,7 +804,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Callback:
     Name: DecodeErrorCallback
     Args:
@@ -813,7 +813,7 @@
           Name: DOMException
     Returns:
       - Name: undefined
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Callback:
     Name: DecodeSuccessCallback
     Args:
@@ -822,7 +822,7 @@
           Name: AudioBuffer
     Returns:
       - Name: undefined
-- File: compression.idl
+- File: webref/compression.idl
   Interface:
     Name: DecompressionStream
     ExtAttrs:
@@ -843,7 +843,7 @@
               Name: CompressionFormat
         ExtAttrs:
           - Name: Exposed
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: DedicatedWorkerGlobalScope
     Inherits: WorkerGlobalScope
@@ -960,7 +960,7 @@
               Name: unsigned long
         Returns:
           - Name: undefined
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: DelayNode
     Inherits: AudioNode
@@ -991,7 +991,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: DelayOptions
     Inherits: AudioNodeOptions
@@ -1013,7 +1013,7 @@
       - Name: channelInterpretation
         Type:
           Name: ChannelInterpretation
-- File: deprecation-reporting.idl
+- File: webref/deprecation-reporting.idl
   Interface:
     Name: DeprecationReportBody
     Inherits: ReportBody
@@ -1091,7 +1091,7 @@
             Values:
               - Window
               - Worker
-- File: shape-detection-api.idl
+- File: webref/shape-detection-api.idl
   Dict:
     Name: DetectedBarcode
     Fields:
@@ -1113,7 +1113,7 @@
           Name: FrozenArray
           Params:
             - Name: Point2D
-- File: shape-detection-api.idl
+- File: webref/shape-detection-api.idl
   Dict:
     Name: DetectedFace
     Fields:
@@ -1128,7 +1128,7 @@
           Params:
             - Name: Landmark
           Nullable: true
-- File: text-detection-api.idl
+- File: webref/text-detection-api.idl
   Dict:
     Name: DetectedText
     Fields:
@@ -1146,7 +1146,7 @@
           Name: FrozenArray
           Params:
             - Name: Point2D
-- File: orientation-event.idl
+- File: webref/orientation-event.idl
   Interface:
     Name: DeviceMotionEvent
     Inherits: Event
@@ -1222,7 +1222,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: orientation-event.idl
+- File: webref/orientation-event.idl
   Interface:
     Name: DeviceMotionEventAcceleration
     ExtAttrs:
@@ -1261,7 +1261,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: orientation-event.idl
+- File: webref/orientation-event.idl
   Dict:
     Name: DeviceMotionEventAccelerationInit
     Fields:
@@ -1280,7 +1280,7 @@
         Type:
           Name: double
           Nullable: true
-- File: orientation-event.idl
+- File: webref/orientation-event.idl
   Dict:
     Name: DeviceMotionEventInit
     Inherits: EventInit
@@ -1310,7 +1310,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: orientation-event.idl
+- File: webref/orientation-event.idl
   Interface:
     Name: DeviceMotionEventRotationRate
     ExtAttrs:
@@ -1349,7 +1349,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: orientation-event.idl
+- File: webref/orientation-event.idl
   Dict:
     Name: DeviceMotionEventRotationRateInit
     Fields:
@@ -1368,7 +1368,7 @@
         Type:
           Name: double
           Nullable: true
-- File: orientation-event.idl
+- File: webref/orientation-event.idl
   Interface:
     Name: DeviceOrientationEvent
     Inherits: Event
@@ -1444,7 +1444,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: orientation-event.idl
+- File: webref/orientation-event.idl
   Dict:
     Name: DeviceOrientationEventInit
     Inherits: EventInit
@@ -1480,7 +1480,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: device-posture.idl
+- File: webref/device-posture.idl
   Interface:
     Name: DevicePosture
     Inherits: EventTarget
@@ -1507,13 +1507,13 @@
           - Name: Exposed
             Values:
               - Window
-- File: device-posture.idl
+- File: webref/device-posture.idl
   Enum:
     Name: DevicePostureType
     Values:
       - continuous
       - folded
-- File: digital-goods.idl
+- File: webref/digital-goods.idl
   Interface:
     Name: DigitalGoodsService
     ExtAttrs:
@@ -1578,14 +1578,14 @@
             Values:
               - Window
           - Name: SecureContext
-- File: webvtt.idl
+- File: webref/webvtt.idl
   Enum:
     Name: DirectionSetting
     Values:
       - ""
       - rl
       - lr
-- File: file-system-access.idl
+- File: webref/file-system-access.idl
   Dict:
     Name: DirectoryPickerOptions
     Fields:
@@ -1599,14 +1599,14 @@
         Default: '"read"'
         Type:
           Name: FileSystemPermissionMode
-- File: screen-capture.idl
+- File: webref/screen-capture.idl
   Enum:
     Name: DisplayCaptureSurfaceType
     Values:
       - monitor
       - window
       - browser
-- File: screen-capture.idl
+- File: webref/screen-capture.idl
   Dict:
     Name: DisplayMediaStreamOptions
     Fields:
@@ -1637,14 +1637,14 @@
       - Name: monitorTypeSurfaces
         Type:
           Name: MonitorTypeSurfacesEnum
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Enum:
     Name: DistanceModelType
     Values:
       - linear
       - inverse
       - exponential
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: Document
     Inherits: Node
@@ -3083,7 +3083,7 @@
               Nullable: true
         Returns:
           - Name: XPathResult
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: DocumentFragment
     Inherits: Node
@@ -3177,7 +3177,7 @@
           - Name: NodeList
         ExtAttrs:
           - Name: NewObject
-- File: document-picture-in-picture.idl
+- File: webref/document-picture-in-picture.idl
   Interface:
     Name: DocumentPictureInPicture
     Inherits: EventTarget
@@ -3222,7 +3222,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: document-picture-in-picture.idl
+- File: webref/document-picture-in-picture.idl
   Interface:
     Name: DocumentPictureInPictureEvent
     Inherits: Event
@@ -3255,7 +3255,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: document-picture-in-picture.idl
+- File: webref/document-picture-in-picture.idl
   Dict:
     Name: DocumentPictureInPictureEventInit
     Inherits: EventInit
@@ -3276,7 +3276,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: document-picture-in-picture.idl
+- File: webref/document-picture-in-picture.idl
   Dict:
     Name: DocumentPictureInPictureOptions
     Fields:
@@ -3292,14 +3292,14 @@
           Name: unsigned long long
         ExtAttrs:
           - Name: EnforceRange
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: DocumentReadyState
     Values:
       - loading
       - interactive
       - complete
-- File: web-animations.idl
+- File: webref/web-animations.idl
   Interface:
     Name: DocumentTimeline
     Inherits: AnimationTimeline
@@ -3318,7 +3318,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: web-animations.idl
+- File: webref/web-animations.idl
   Dict:
     Name: DocumentTimelineOptions
     Fields:
@@ -3326,7 +3326,7 @@
         Default: "0"
         Type:
           Name: DOMHighResTimeStamp
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: DocumentType
     Inherits: Node
@@ -3405,13 +3405,13 @@
         ExtAttrs:
           - Name: CEReactions
           - Name: Unscopable
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: DocumentVisibilityState
     Values:
       - visible
       - hidden
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Dict:
     Name: DoubleRange
     Fields:
@@ -3421,7 +3421,7 @@
       - Name: min
         Type:
           Name: double
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: DragEvent
     Inherits: MouseEvent

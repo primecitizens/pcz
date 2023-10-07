@@ -1,0 +1,3531 @@
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: AbortRequestedOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: operationRequestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: Action
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: title
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Callback:
+    Name: ActionsCallback
+    Args:
+      - Name: actions
+        Type:
+          Name: sequence
+          Params:
+            - Name: Action
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileSystemProvider
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+      - Name: nocompile
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: AddWatcherRequestedOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: entryPath
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: recursive
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: Change
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: entryPath
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: changeType
+        Type:
+          Name: ChangeType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Enum:
+    Name: ChangeType
+    Values:
+      - CHANGED
+      - DELETED
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: CloseFileRequestedOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: openRequestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: CloudIdentifier
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: providerName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Enum:
+    Name: CommonActionId
+    Values:
+      - SAVE_FOR_OFFLINE
+      - OFFLINE_NOT_NECESSARY
+      - SHARE
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: ConfigureRequestedOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: CopyEntryRequestedOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: sourcePath
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: targetPath
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: CreateDirectoryRequestedOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: directoryPath
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: recursive
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: CreateFileRequestedOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: filePath
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: DeleteEntryRequestedOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: entryPath
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: recursive
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Callback:
+    Name: EntriesCallback
+    Args:
+      - Name: entries
+        Type:
+          Name: sequence
+          Params:
+            - Name: EntryMetadata
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileSystemProvider
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: hasMore
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+      - Name: nocompile
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: EntryMetadata
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: isDirectory
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: name
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: size
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: modificationTime
+        Type:
+          Name: object
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - Date
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: mimeType
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: thumbnail
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: cloudIdentifier
+        Type:
+          Name: CloudIdentifier
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: ExecuteActionRequestedOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: entryPaths
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileSystemProvider
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: actionId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Callback:
+    Name: FileDataCallback
+    Args:
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: hasMore
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+      - Name: nocompile
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: FileSystemInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: displayName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: writable
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: openedFilesLimit
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: openedFiles
+        Type:
+          Name: sequence
+          Params:
+            - Name: OpenedFile
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileSystemProvider
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: supportsNotifyTag
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: watchers
+        Type:
+          Name: sequence
+          Params:
+            - Name: Watcher
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileSystemProvider
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: GetActionsRequestedOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: entryPaths
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileSystemProvider
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Callback:
+    Name: GetAllCallback
+    Args:
+      - Name: fileSystems
+        Type:
+          Name: sequence
+          Params:
+            - Name: FileSystemInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileSystemProvider
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Callback:
+    Name: GetCallback
+    Args:
+      - Name: fileSystem
+        Type:
+          Name: FileSystemInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: GetMetadataRequestedOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: entryPath
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: isDirectory
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: name
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: size
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: modificationTime
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: mimeType
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: thumbnail
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: cloudIdentifier
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Callback:
+    Name: MetadataCallback
+    Args:
+      - Name: metadata
+        Type:
+          Name: EntryMetadata
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+      - Name: nocompile
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: MountOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: displayName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: writable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: openedFilesLimit
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: supportsNotifyTag
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: persistent
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: MoveEntryRequestedOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: sourcePath
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: targetPath
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: NotifyOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: observedPath
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: recursive
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: changeType
+        Type:
+          Name: ChangeType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: changes
+        Type:
+          Name: sequence
+          Params:
+            - Name: Change
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileSystemProvider
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: tag
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Enum:
+    Name: OpenFileMode
+    Values:
+      - READ
+      - WRITE
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: OpenFileRequestedOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: filePath
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: mode
+        Type:
+          Name: OpenFileMode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: OpenedFile
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: openRequestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: filePath
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: mode
+        Type:
+          Name: OpenFileMode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Enum:
+    Name: ProviderError
+    Values:
+      - OK
+      - FAILED
+      - IN_USE
+      - EXISTS
+      - NOT_FOUND
+      - ACCESS_DENIED
+      - TOO_MANY_OPENED
+      - NO_MEMORY
+      - NO_SPACE
+      - NOT_A_DIRECTORY
+      - INVALID_OPERATION
+      - SECURITY
+      - ABORT
+      - NOT_A_FILE
+      - NOT_EMPTY
+      - INVALID_URL
+      - IO
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Callback:
+    Name: ProviderErrorCallback
+    Args:
+      - Name: error
+        Type:
+          Name: ProviderError
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+      - Name: nocompile
+- File: webext/chrome/file_system_provider.idl
+  Callback:
+    Name: ProviderSuccessCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+      - Name: nocompile
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: ReadDirectoryRequestedOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: directoryPath
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: isDirectory
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: name
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: size
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: modificationTime
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: mimeType
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: thumbnail
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: ReadFileRequestedOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: openRequestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: offset
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: length
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: RemoveWatcherRequestedOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: entryPath
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: recursive
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Callback:
+    Name: ResultCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: TruncateRequestedOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: filePath
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: length
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: UnmountOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: UnmountRequestedOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: Watcher
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: entryPath
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: recursive
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: lastTag
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  Dict:
+    Name: WriteFileRequestedOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+    Fields:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: openRequestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: offset
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextFunc:
+    Name: get
+    Modifier: static
+    Args:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: FileSystemInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileSystemProvider
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextFunc:
+    Name: getAll
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: FileSystemInfo
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - fileSystemProvider
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fileSystemProvider
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextFunc:
+    Name: mount
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: MountOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextFunc:
+    Name: notify
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: NotifyOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextEvent:
+    Name: onAbortRequested
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: AbortRequestedOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: successCallback
+        Type:
+          Name: ProviderSuccessCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: errorCallback
+        Type:
+          Name: ProviderErrorCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextEvent:
+    Name: onAddWatcherRequested
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: AddWatcherRequestedOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: successCallback
+        Type:
+          Name: ProviderSuccessCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: errorCallback
+        Type:
+          Name: ProviderErrorCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextEvent:
+    Name: onCloseFileRequested
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: CloseFileRequestedOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: successCallback
+        Type:
+          Name: ProviderSuccessCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: errorCallback
+        Type:
+          Name: ProviderErrorCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextEvent:
+    Name: onConfigureRequested
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: ConfigureRequestedOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: successCallback
+        Type:
+          Name: ProviderSuccessCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: errorCallback
+        Type:
+          Name: ProviderErrorCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextEvent:
+    Name: onCopyEntryRequested
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: CopyEntryRequestedOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: successCallback
+        Type:
+          Name: ProviderSuccessCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: errorCallback
+        Type:
+          Name: ProviderErrorCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextEvent:
+    Name: onCreateDirectoryRequested
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: CreateDirectoryRequestedOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: successCallback
+        Type:
+          Name: ProviderSuccessCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: errorCallback
+        Type:
+          Name: ProviderErrorCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextEvent:
+    Name: onCreateFileRequested
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: CreateFileRequestedOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: successCallback
+        Type:
+          Name: ProviderSuccessCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: errorCallback
+        Type:
+          Name: ProviderErrorCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextEvent:
+    Name: onDeleteEntryRequested
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: DeleteEntryRequestedOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: successCallback
+        Type:
+          Name: ProviderSuccessCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: errorCallback
+        Type:
+          Name: ProviderErrorCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextEvent:
+    Name: onExecuteActionRequested
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: ExecuteActionRequestedOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: successCallback
+        Type:
+          Name: ProviderSuccessCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: errorCallback
+        Type:
+          Name: ProviderErrorCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextEvent:
+    Name: onGetActionsRequested
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: GetActionsRequestedOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: successCallback
+        Type:
+          Name: ActionsCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: errorCallback
+        Type:
+          Name: ProviderErrorCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextEvent:
+    Name: onGetMetadataRequested
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: GetMetadataRequestedOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: successCallback
+        Type:
+          Name: MetadataCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: errorCallback
+        Type:
+          Name: ProviderErrorCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextEvent:
+    Name: onMountRequested
+    Modifier: static
+    Args:
+      - Name: successCallback
+        Type:
+          Name: ProviderSuccessCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: errorCallback
+        Type:
+          Name: ProviderErrorCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextEvent:
+    Name: onMoveEntryRequested
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: MoveEntryRequestedOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: successCallback
+        Type:
+          Name: ProviderSuccessCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: errorCallback
+        Type:
+          Name: ProviderErrorCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextEvent:
+    Name: onOpenFileRequested
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: OpenFileRequestedOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: successCallback
+        Type:
+          Name: ProviderSuccessCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: errorCallback
+        Type:
+          Name: ProviderErrorCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextEvent:
+    Name: onReadDirectoryRequested
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: ReadDirectoryRequestedOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: successCallback
+        Type:
+          Name: EntriesCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: errorCallback
+        Type:
+          Name: ProviderErrorCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextEvent:
+    Name: onReadFileRequested
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: ReadFileRequestedOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: successCallback
+        Type:
+          Name: FileDataCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: errorCallback
+        Type:
+          Name: ProviderErrorCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextEvent:
+    Name: onRemoveWatcherRequested
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: RemoveWatcherRequestedOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: successCallback
+        Type:
+          Name: ProviderSuccessCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: errorCallback
+        Type:
+          Name: ProviderErrorCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextEvent:
+    Name: onTruncateRequested
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: TruncateRequestedOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: successCallback
+        Type:
+          Name: ProviderSuccessCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: errorCallback
+        Type:
+          Name: ProviderErrorCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextEvent:
+    Name: onUnmountRequested
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: UnmountRequestedOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: successCallback
+        Type:
+          Name: ProviderSuccessCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: errorCallback
+        Type:
+          Name: ProviderErrorCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextEvent:
+    Name: onWriteFileRequested
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: WriteFileRequestedOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: successCallback
+        Type:
+          Name: ProviderSuccessCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: errorCallback
+        Type:
+          Name: ProviderErrorCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider
+- File: webext/chrome/file_system_provider.idl
+  WebextFunc:
+    Name: unmount
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: UnmountOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProvider

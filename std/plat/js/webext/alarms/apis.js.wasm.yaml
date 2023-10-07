@@ -1,0 +1,395 @@
+- File: webext/alarms.idl
+  Dict:
+    Name: Alarm
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - alarms
+    Fields:
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - alarms
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - alarms
+      - Name: scheduledTime
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - alarms
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - alarms
+      - Name: periodInMinutes
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - alarms
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - alarms
+- File: webext/alarms.idl
+  Callback:
+    Name: AlarmCallback
+    Args:
+      - Name: alarm
+        Optional: true
+        Type:
+          Name: Alarm
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - alarms
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - alarms
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - alarms
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - alarms
+- File: webext/alarms.idl
+  Dict:
+    Name: AlarmCreateInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - alarms
+    Fields:
+      - Name: when
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - alarms
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - alarms
+      - Name: delayInMinutes
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - alarms
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - alarms
+      - Name: periodInMinutes
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - alarms
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - alarms
+- File: webext/alarms.idl
+  Callback:
+    Name: AlarmListCallback
+    Args:
+      - Name: alarms
+        Type:
+          Name: sequence
+          Params:
+            - Name: Alarm
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - alarms
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - alarms
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - alarms
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - alarms
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - alarms
+- File: webext/alarms.idl
+  Callback:
+    Name: ClearCallback
+    Args:
+      - Name: wasCleared
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - alarms
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - alarms
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - alarms
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - alarms
+- File: webext/alarms.idl
+  Callback:
+    Name: VoidCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - alarms
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - alarms
+- File: webext/alarms.idl
+  WebextFunc:
+    Name: clear
+    Modifier: static
+    Args:
+      - Name: name
+        Optional: true
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - alarms
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - alarms
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - alarms
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - alarms
+- File: webext/alarms.idl
+  WebextFunc:
+    Name: clearAll
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - alarms
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - alarms
+- File: webext/alarms.idl
+  WebextFunc:
+    Name: create
+    Modifier: static
+    Args:
+      - Name: name
+        Optional: true
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - alarms
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - alarms
+      - Name: alarmInfo
+        Type:
+          Name: AlarmCreateInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - alarms
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - alarms
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - alarms
+- File: webext/alarms.idl
+  WebextFunc:
+    Name: get
+    Modifier: static
+    Args:
+      - Name: name
+        Optional: true
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - alarms
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - alarms
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Alarm
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - alarms
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - alarms
+- File: webext/alarms.idl
+  WebextFunc:
+    Name: getAll
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: Alarm
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - alarms
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - alarms
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - alarms
+- File: webext/alarms.idl
+  WebextEvent:
+    Name: onAlarm
+    Modifier: static
+    Args:
+      - Name: alarm
+        Type:
+          Name: Alarm
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - alarms
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - alarms
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - alarms
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - alarms

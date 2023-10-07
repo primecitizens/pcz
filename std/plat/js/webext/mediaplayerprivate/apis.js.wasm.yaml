@@ -1,0 +1,30 @@
+- File: webext/chrome/media_player_private.json
+  WebextEvent:
+    Name: onNextTrack
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPlayerPrivate
+- File: webext/chrome/media_player_private.json
+  WebextEvent:
+    Name: onPrevTrack
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPlayerPrivate
+- File: webext/chrome/media_player_private.json
+  WebextEvent:
+    Name: onTogglePlayState
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPlayerPrivate

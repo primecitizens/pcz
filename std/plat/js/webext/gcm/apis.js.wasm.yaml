@@ -1,0 +1,227 @@
+- File: webext/chrome/gcm.json
+  WebextProp:
+    Name: MAX_MESSAGE_SIZE
+    Type:
+      Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - gcm
+- File: webext/chrome/gcm.json
+  Dict:
+    Name: OnMessageArgMessage
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - gcm
+    Fields:
+      - Name: collapseKey
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - gcm
+      - Name: data
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - gcm
+      - Name: from
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - gcm
+- File: webext/chrome/gcm.json
+  Dict:
+    Name: OnSendErrorArgError
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - gcm
+    Fields:
+      - Name: details
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - gcm
+      - Name: errorMessage
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - gcm
+      - Name: messageId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - gcm
+- File: webext/chrome/gcm.json
+  Dict:
+    Name: SendArgMessage
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - gcm
+    Fields:
+      - Name: data
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - gcm
+      - Name: destinationId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - gcm
+      - Name: messageId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - gcm
+      - Name: timeToLive
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - gcm
+- File: webext/chrome/gcm.json
+  WebextEvent:
+    Name: onMessage
+    Args:
+      - Name: message
+        Type:
+          Name: OnMessageArgMessage
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - gcm
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - gcm
+- File: webext/chrome/gcm.json
+  WebextEvent:
+    Name: onMessagesDeleted
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - gcm
+- File: webext/chrome/gcm.json
+  WebextEvent:
+    Name: onSendError
+    Args:
+      - Name: error
+        Type:
+          Name: OnSendErrorArgError
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - gcm
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - gcm
+- File: webext/chrome/gcm.json
+  WebextFunc:
+    Name: register
+    Args:
+      - Name: senderIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - gcm
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - gcm
+- File: webext/chrome/gcm.json
+  WebextFunc:
+    Name: send
+    Args:
+      - Name: message
+        Type:
+          Name: SendArgMessage
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - gcm
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - gcm
+- File: webext/chrome/gcm.json
+  WebextFunc:
+    Name: unregister
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - gcm

@@ -1,0 +1,226 @@
+- File: webext/chrome/manifest_types.json
+  Dict:
+    Name: ChromeSettingsOverrides
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - manifestTypes
+    Fields:
+      - Name: homepage
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - manifestTypes
+      - Name: search_provider
+        Type:
+          Name: ChromeSettingsOverridesFieldSearchProvider
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - manifestTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - manifestTypes
+      - Name: startup_pages
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - manifestTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - manifestTypes
+- File: webext/chrome/manifest_types.json
+  Dict:
+    Name: ChromeSettingsOverridesFieldSearchProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - manifestTypes
+    Fields:
+      - Name: alternate_urls
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - manifestTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - manifestTypes
+      - Name: encoding
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - manifestTypes
+      - Name: favicon_url
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - manifestTypes
+      - Name: image_url
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - manifestTypes
+      - Name: image_url_post_params
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - manifestTypes
+      - Name: is_default
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - manifestTypes
+      - Name: keyword
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - manifestTypes
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - manifestTypes
+      - Name: prepopulated_id
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - manifestTypes
+      - Name: search_url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - manifestTypes
+      - Name: search_url_post_params
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - manifestTypes
+      - Name: suggest_url
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - manifestTypes
+      - Name: suggest_url_post_params
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - manifestTypes
+- File: webext/chrome/manifest_types.json
+  Dict:
+    Name: FileSystemProviderCapabilities
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - manifestTypes
+    Fields:
+      - Name: configurable
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - manifestTypes
+      - Name: multiple_mounts
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - manifestTypes
+      - Name: source
+        Required: true
+        Type:
+          Name: FileSystemProviderSource
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - manifestTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - manifestTypes
+      - Name: watchable
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - manifestTypes
+- File: webext/chrome/manifest_types.json
+  Enum:
+    Name: FileSystemProviderSource
+    Values:
+      - file
+      - device
+      - network
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - manifestTypes

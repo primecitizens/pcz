@@ -1,4 +1,4 @@
-- File: FedCM.idl
+- File: webref/FedCM.idl
   Dict:
     Name: IdentityCredentialRequestOptions
     Fields:
@@ -12,7 +12,7 @@
         Default: '"signin"'
         Type:
           Name: IdentityCredentialRequestOptionsContext
-- File: FedCM.idl
+- File: webref/FedCM.idl
   Enum:
     Name: IdentityCredentialRequestOptionsContext
     Values:
@@ -20,7 +20,7 @@
       - signup
       - use
       - continue
-- File: FedCM.idl
+- File: webref/FedCM.idl
   Interface:
     Name: IdentityProvider
     ExtAttrs:
@@ -46,7 +46,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: FedCM.idl
+- File: webref/FedCM.idl
   Dict:
     Name: IdentityProviderAPIConfig
     Fields:
@@ -65,7 +65,7 @@
       - Name: branding
         Type:
           Name: IdentityProviderBranding
-- File: FedCM.idl
+- File: webref/FedCM.idl
   Dict:
     Name: IdentityProviderAccount
     Fields:
@@ -97,7 +97,7 @@
           Name: sequence
           Params:
             - Name: DOMString
-- File: FedCM.idl
+- File: webref/FedCM.idl
   Dict:
     Name: IdentityProviderAccountList
     Fields:
@@ -106,7 +106,7 @@
           Name: sequence
           Params:
             - Name: IdentityProviderAccount
-- File: FedCM.idl
+- File: webref/FedCM.idl
   Dict:
     Name: IdentityProviderBranding
     Fields:
@@ -124,7 +124,7 @@
       - Name: name
         Type:
           Name: USVString
-- File: FedCM.idl
+- File: webref/FedCM.idl
   Dict:
     Name: IdentityProviderClientMetadata
     Fields:
@@ -134,7 +134,7 @@
       - Name: terms_of_service_url
         Type:
           Name: USVString
-- File: FedCM.idl
+- File: webref/FedCM.idl
   Dict:
     Name: IdentityProviderConfig
     Fields:
@@ -152,7 +152,7 @@
       - Name: loginHint
         Type:
           Name: DOMString
-- File: FedCM.idl
+- File: webref/FedCM.idl
   Dict:
     Name: IdentityProviderIcon
     Fields:
@@ -163,7 +163,7 @@
       - Name: size
         Type:
           Name: unsigned long
-- File: FedCM.idl
+- File: webref/FedCM.idl
   Dict:
     Name: IdentityProviderToken
     Fields:
@@ -171,7 +171,7 @@
         Required: true
         Type:
           Name: USVString
-- File: FedCM.idl
+- File: webref/FedCM.idl
   Dict:
     Name: IdentityProviderWellKnown
     Fields:
@@ -181,7 +181,7 @@
           Name: sequence
           Params:
             - Name: USVString
-- File: FedCM.idl
+- File: webref/FedCM.idl
   Dict:
     Name: IdentityUserInfo
     Fields:
@@ -197,7 +197,7 @@
       - Name: picture
         Type:
           Name: USVString
-- File: requestidlecallback.idl
+- File: webref/requestidlecallback.idl
   Interface:
     Name: IdleDeadline
     ExtAttrs:
@@ -221,7 +221,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: idle-detection.idl
+- File: webref/idle-detection.idl
   Interface:
     Name: IdleDetector
     Inherits: EventTarget
@@ -292,7 +292,7 @@
             Values:
               - Window
               - DedicatedWorker
-- File: idle-detection.idl
+- File: webref/idle-detection.idl
   Dict:
     Name: IdleOptions
     Fields:
@@ -304,7 +304,7 @@
       - Name: signal
         Type:
           Name: AbortSignal
-- File: requestidlecallback.idl
+- File: webref/requestidlecallback.idl
   Callback:
     Name: IdleRequestCallback
     Args:
@@ -313,14 +313,14 @@
           Name: IdleDeadline
     Returns:
       - Name: undefined
-- File: requestidlecallback.idl
+- File: webref/requestidlecallback.idl
   Dict:
     Name: IdleRequestOptions
     Fields:
       - Name: timeout
         Type:
           Name: unsigned long
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: ImageBitmap
     ExtAttrs:
@@ -364,7 +364,7 @@
               - Worker
           - Name: Serializable
           - Name: Transferable
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: ImageBitmapOptions
     Fields:
@@ -394,7 +394,7 @@
         Default: '"low"'
         Type:
           Name: ResizeQuality
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: ImageBitmapRenderingContext
     ExtAttrs:
@@ -428,7 +428,7 @@
             Values:
               - Window
               - Worker
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: ImageBitmapRenderingContextSettings
     Fields:
@@ -436,7 +436,7 @@
         Default: "true"
         Type:
           Name: boolean
-- File: html.idl
+- File: webref/html.idl
   Typedef:
     Name: ImageBitmapSource
     Type:
@@ -444,14 +444,14 @@
         - Name: CanvasImageSource
         - Name: Blob
         - Name: ImageData
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Typedef:
     Name: ImageBufferSource
     Type:
       Union:
         - Name: BufferSource
         - Name: ReadableStream
-- File: image-capture.idl
+- File: webref/image-capture.idl
   Interface:
     Name: ImageCapture
     ExtAttrs:
@@ -519,7 +519,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: ImageData
     ExtAttrs:
@@ -610,14 +610,14 @@
               - Window
               - Worker
           - Name: Serializable
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: ImageDataSettings
     Fields:
       - Name: colorSpace
         Type:
           Name: PredefinedColorSpace
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: ImageDecodeOptions
     Fields:
@@ -631,7 +631,7 @@
         Default: "true"
         Type:
           Name: boolean
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: ImageDecodeResult
     Fields:
@@ -643,7 +643,7 @@
         Required: true
         Type:
           Name: boolean
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Interface:
     Name: ImageDecoder
     ExtAttrs:
@@ -758,7 +758,7 @@
               - Window
               - DedicatedWorker
           - Name: SecureContext
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: ImageDecoderInit
     Fields:
@@ -793,7 +793,7 @@
           Name: sequence
           Params:
             - Name: ArrayBuffer
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: ImageEncodeOptions
     Fields:
@@ -804,13 +804,13 @@
       - Name: quality
         Type:
           Name: unrestricted double
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: ImageOrientation
     Values:
       - from-image
       - flipY
-- File: image-resource.idl
+- File: webref/image-resource.idl
   Dict:
     Name: ImageResource
     Fields:
@@ -827,14 +827,14 @@
       - Name: label
         Type:
           Name: DOMString
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: ImageSmoothingQuality
     Values:
       - low
       - medium
       - high
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Interface:
     Name: ImageTrack
     ExtAttrs:
@@ -878,7 +878,7 @@
             Values:
               - Window
               - DedicatedWorker
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Interface:
     Name: ImageTrackList
     ExtAttrs:
@@ -939,7 +939,7 @@
             Values:
               - Window
               - DedicatedWorker
-- File: wasm-js-api.idl
+- File: webref/wasm-js-api.idl
   Enum:
     Name: ImportExportKind
     Values:
@@ -947,7 +947,7 @@
       - table
       - memory
       - global
-- File: ink-enhancement.idl
+- File: webref/ink-enhancement.idl
   Interface:
     Name: Ink
     ExtAttrs:
@@ -970,7 +970,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: ink-enhancement.idl
+- File: webref/ink-enhancement.idl
   Interface:
     Name: InkPresenter
     ExtAttrs:
@@ -1010,7 +1010,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: ink-enhancement.idl
+- File: webref/ink-enhancement.idl
   Dict:
     Name: InkPresenterParam
     Fields:
@@ -1019,7 +1019,7 @@
         Type:
           Name: Element
           Nullable: true
-- File: ink-enhancement.idl
+- File: webref/ink-enhancement.idl
   Dict:
     Name: InkTrailStyle
     Fields:
@@ -1031,7 +1031,7 @@
         Required: true
         Type:
           Name: unrestricted double
-- File: input-device-capabilities.idl
+- File: webref/input-device-capabilities.idl
   Interface:
     Name: InputDeviceCapabilities
     ExtAttrs:
@@ -1066,7 +1066,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: input-device-capabilities.idl
+- File: webref/input-device-capabilities.idl
   Dict:
     Name: InputDeviceCapabilitiesInit
     Fields:
@@ -1078,7 +1078,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Interface:
     Name: InputDeviceInfo
     Inherits: MediaDeviceInfo
@@ -1096,7 +1096,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: uievents.idl
+- File: webref/uievents.idl
   Interface:
     Name: InputEvent
     Inherits: UIEvent
@@ -1155,7 +1155,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: uievents.idl
+- File: webref/uievents.idl
   Dict:
     Name: InputEventInit
     Inherits: UIEventInit
@@ -1205,7 +1205,7 @@
           Name: sequence
           Params:
             - Name: StaticRange
-- File: wasm-js-api.idl
+- File: webref/wasm-js-api.idl
   Interface:
     Name: Instance
     ExtAttrs:
@@ -1237,7 +1237,7 @@
             Values:
               - WebAssembly
           - Name: Exposed
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Typedef:
     Name: Int32List
     Type:
@@ -1246,7 +1246,7 @@
         - Name: sequence
           Params:
             - Name: GLint
-- File: turtledove.idl
+- File: webref/turtledove.idl
   Interface:
     Name: InterestGroupBiddingScriptRunnerGlobalScope
     Inherits: InterestGroupScriptRunnerGlobalScope

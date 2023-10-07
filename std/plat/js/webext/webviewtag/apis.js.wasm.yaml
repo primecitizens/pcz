@@ -1,0 +1,2535 @@
+- File: webext/chrome/webview_tag.json
+  Dict:
+    Name: AttachArgWebview
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Callback:
+    Name: BackArgCallback
+    Args:
+      - Name: success
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Callback:
+    Name: CaptureVisibleRegionArgCallback
+    Args:
+      - Name: dataUrl
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Callback:
+    Name: ClearDataArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Dict:
+    Name: ClearDataOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+    Fields:
+      - Name: since
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+- File: webext/chrome/webview_tag.json
+  Dict:
+    Name: ClearDataTypeSet
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+    Fields:
+      - Name: appcache
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: cache
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: cookies
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: fileSystems
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: indexedDB
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: localStorage
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: persistentCookies
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: sessionCookies
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: webSQL
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+- File: webext/chrome/webview_tag.json
+  Dict:
+    Name: ContentScriptDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+    Fields:
+      - Name: all_frames
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: css
+        Type:
+          Name: InjectionItems
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: exclude_globs
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: exclude_matches
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: include_globs
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: js
+        Type:
+          Name: InjectionItems
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: match_about_blank
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: matches
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: run_at
+        Type:
+          Name: RunAt
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+- File: webext/chrome/webview_tag.json
+  Interface:
+    Name: ContentWindowType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+    Operations:
+      - Name: postMessage
+        Args:
+          - Name: message
+            Type:
+              Name: any
+          - Name: targetOrigin
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+- File: webext/chrome/webview_tag.json
+  Dict:
+    Name: ContextMenuCreateProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+    Fields:
+      - Name: checked
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: contexts
+        Type:
+          Name: sequence
+          Params:
+            - Name: ContextType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webviewTag
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: documentUrlPatterns
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: enabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: id
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: onclick
+        Type:
+          Name: ContextMenuCreatePropertiesFieldOnclick
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: parentId
+        Type:
+          Union:
+            - Name: long long
+            - Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: targetUrlPatterns
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: title
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: type
+        Type:
+          Name: ItemType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+- File: webext/chrome/webview_tag.json
+  Callback:
+    Name: ContextMenuCreatePropertiesFieldOnclick
+    Args:
+      - Name: info
+        Type:
+          Name: OnClickData
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Dict:
+    Name: ContextMenuUpdateProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+    Fields:
+      - Name: checked
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: contexts
+        Type:
+          Name: sequence
+          Params:
+            - Name: ContextType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webviewTag
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: documentUrlPatterns
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: enabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: onclick
+        Type:
+          Name: ContextMenuUpdatePropertiesFieldOnclick
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: parentId
+        Type:
+          Union:
+            - Name: long long
+            - Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: targetUrlPatterns
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: title
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: type
+        Type:
+          Name: ItemType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+- File: webext/chrome/webview_tag.json
+  Callback:
+    Name: ContextMenuUpdatePropertiesFieldOnclick
+    Args:
+      - Name: info
+        Type:
+          Name: OnClickData
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Interface:
+    Name: ContextMenusType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+    Operations:
+      - Name: create
+        Args:
+          - Name: createProperties
+            Type:
+              Name: ContextMenuCreateProperties
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webviewTag
+          - Name: callback
+            Optional: true
+            Type:
+              Name: CreateArgCallback
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webviewTag
+        Returns:
+          - Union:
+              - Name: long long
+              - Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: update
+        Args:
+          - Name: id
+            Type:
+              Union:
+                - Name: long long
+                - Name: DOMString
+          - Name: updateProperties
+            Type:
+              Name: ContextMenuUpdateProperties
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webviewTag
+          - Name: callback
+            Optional: true
+            Type:
+              Name: UpdateArgCallback
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webviewTag
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: remove
+        Args:
+          - Name: menuItemId
+            Type:
+              Union:
+                - Name: long long
+                - Name: DOMString
+          - Name: callback
+            Optional: true
+            Type:
+              Name: RemoveArgCallback
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webviewTag
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: removeAll
+        Args:
+          - Name: callback
+            Optional: true
+            Type:
+              Name: RemoveAllArgCallback
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webviewTag
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+- File: webext/chrome/webview_tag.json
+  Enum:
+    Name: ContextType
+    Values:
+      - all
+      - page
+      - frame
+      - selection
+      - link
+      - editable
+      - image
+      - video
+      - audio
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Callback:
+    Name: CreateArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Enum:
+    Name: DialogArgMessageType
+    Values:
+      - alert
+      - confirm
+      - prompt
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Interface:
+    Name: DialogController
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+    Operations:
+      - Name: ok
+        Args:
+          - Name: response
+            Optional: true
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: cancel
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+- File: webext/chrome/webview_tag.json
+  Interface:
+    Name: DownloadPermissionRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+    Attrs:
+      - Name: requestMethod
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: url
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+    Operations:
+      - Name: allow
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: deny
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+- File: webext/chrome/webview_tag.json
+  Callback:
+    Name: ExecuteScriptArgCallback
+    Args:
+      - Name: result
+        Optional: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: any
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Enum:
+    Name: ExitArgReason
+    Values:
+      - normal
+      - abnormal
+      - crash
+      - kill
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Interface:
+    Name: FileSystemPermissionRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+    Attrs:
+      - Name: url
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+    Operations:
+      - Name: allow
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: deny
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+- File: webext/chrome/webview_tag.json
+  Callback:
+    Name: FindArgCallback
+    Args:
+      - Name: results
+        Optional: true
+        Type:
+          Name: FindCallbackResults
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Dict:
+    Name: FindCallbackResults
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+    Fields:
+      - Name: activeMatchOrdinal
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: canceled
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: numberOfMatches
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: selectionRect
+        Required: true
+        Type:
+          Name: SelectionRect
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+- File: webext/chrome/webview_tag.json
+  Dict:
+    Name: FindOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+    Fields:
+      - Name: backward
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: matchCase
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+- File: webext/chrome/webview_tag.json
+  Callback:
+    Name: ForwardArgCallback
+    Args:
+      - Name: success
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Interface:
+    Name: FullscreenPermissionRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+    Attrs:
+      - Name: origin
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+    Operations:
+      - Name: allow
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: deny
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+- File: webext/chrome/webview_tag.json
+  Interface:
+    Name: GeolocationPermissionRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+    Attrs:
+      - Name: url
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+    Operations:
+      - Name: allow
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: deny
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+- File: webext/chrome/webview_tag.json
+  Callback:
+    Name: GetAudioStateArgCallback
+    Args:
+      - Name: audible
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Callback:
+    Name: GetZoomArgCallback
+    Args:
+      - Name: zoomFactor
+        Type:
+          Name: double
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Callback:
+    Name: GetZoomModeArgCallback
+    Args:
+      - Name: ZoomMode
+        Type:
+          Name: ZoomMode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Callback:
+    Name: GoArgCallback
+    Args:
+      - Name: success
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Dict:
+    Name: InjectDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+    Fields:
+      - Name: code
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: file
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+- File: webext/chrome/webview_tag.json
+  Dict:
+    Name: InjectionItems
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+    Fields:
+      - Name: code
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: files
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+- File: webext/chrome/webview_tag.json
+  Callback:
+    Name: InsertCSSArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Callback:
+    Name: IsAudioMutedArgCallback
+    Args:
+      - Name: muted
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Callback:
+    Name: IsSpatialNavigationEnabledArgCallback
+    Args:
+      - Name: enabled
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Interface:
+    Name: LoadPluginPermissionRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+    Attrs:
+      - Name: identifier
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+    Operations:
+      - Name: allow
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: deny
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+- File: webext/chrome/webview_tag.json
+  Enum:
+    Name: LoadabortArgReason
+    Values:
+      - ERR_ABORTED
+      - ERR_INVALID_URL
+      - ERR_DISALLOWED_URL_SCHEME
+      - ERR_BLOCKED_BY_CLIENT
+      - ERR_ADDRESS_UNREACHABLE
+      - ERR_EMPTY_RESPONSE
+      - ERR_FILE_NOT_FOUND
+      - ERR_UNKNOWN_URL_SCHEME
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Interface:
+    Name: MediaPermissionRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+    Attrs:
+      - Name: url
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+    Operations:
+      - Name: allow
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: deny
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+- File: webext/chrome/webview_tag.json
+  Interface:
+    Name: NewWindow
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+    Operations:
+      - Name: attach
+        Args:
+          - Name: webview
+            Type:
+              Name: AttachArgWebview
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webviewTag
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: discard
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+- File: webext/chrome/webview_tag.json
+  Enum:
+    Name: NewwindowArgWindowOpenDisposition
+    Values:
+      - ignore
+      - save_to_disk
+      - current_tab
+      - new_background_tab
+      - new_foreground_tab
+      - new_window
+      - new_popup
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Enum:
+    Name: PermissionrequestArgPermission
+    Values:
+      - media
+      - geolocation
+      - pointerLock
+      - download
+      - loadplugin
+      - filesystem
+      - fullscreen
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Dict:
+    Name: PermissionrequestArgRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Interface:
+    Name: PointerLockPermissionRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+    Attrs:
+      - Name: lastUnlockedBySelf
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: url
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: userGesture
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+    Operations:
+      - Name: allow
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: deny
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+- File: webext/chrome/webview_tag.json
+  Callback:
+    Name: RemoveAllArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Callback:
+    Name: RemoveArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Dict:
+    Name: SelectionRect
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+    Fields:
+      - Name: height
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: left
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: top
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+      - Name: width
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webviewTag
+- File: webext/chrome/webview_tag.json
+  Callback:
+    Name: SetZoomArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Callback:
+    Name: SetZoomModeArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Enum:
+    Name: StopFindingArgAction
+    Values:
+      - clear
+      - keep
+      - activate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Callback:
+    Name: UpdateArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Dict:
+    Name: WebRequestEventInterface
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  Enum:
+    Name: ZoomMode
+    Values:
+      - per-origin
+      - per-view
+      - disabled
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: addContentScripts
+    Args:
+      - Name: contentScriptList
+        Type:
+          Name: sequence
+          Params:
+            - Name: ContentScriptDetails
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webviewTag
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: back
+    Args:
+      - Name: callback
+        Optional: true
+        Type:
+          Name: BackArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: canGoBack
+    Returns:
+      - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: canGoForward
+    Returns:
+      - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: captureVisibleRegion
+    Args:
+      - Name: options
+        Optional: true
+        Type:
+          Name: ImageDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+      - Name: callback
+        Type:
+          Name: CaptureVisibleRegionArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: clearData
+    Args:
+      - Name: options
+        Type:
+          Name: ClearDataOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+      - Name: types
+        Type:
+          Name: ClearDataTypeSet
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+      - Name: callback
+        Optional: true
+        Type:
+          Name: ClearDataArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextEvent:
+    Name: close
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextEvent:
+    Name: consolemessage
+    Args:
+      - Name: level
+        Type:
+          Name: long long
+      - Name: message
+        Type:
+          Name: DOMString
+      - Name: line
+        Type:
+          Name: long long
+      - Name: sourceId
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextProp:
+    Name: contentWindow
+    Type:
+      Name: ContentWindowType
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - webviewTag
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextEvent:
+    Name: contentload
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextProp:
+    Name: contextMenus
+    Type:
+      Name: ContextMenusType
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - webviewTag
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextEvent:
+    Name: dialog
+    Args:
+      - Name: messageType
+        Type:
+          Name: DialogArgMessageType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+      - Name: messageText
+        Type:
+          Name: DOMString
+      - Name: dialog
+        Type:
+          Name: DialogController
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: executeScript
+    Args:
+      - Name: details
+        Type:
+          Name: InjectDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+      - Name: callback
+        Optional: true
+        Type:
+          Name: ExecuteScriptArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextEvent:
+    Name: exit
+    Args:
+      - Name: processID
+        Type:
+          Name: long long
+      - Name: reason
+        Type:
+          Name: ExitArgReason
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: find
+    Args:
+      - Name: searchText
+        Type:
+          Name: DOMString
+      - Name: options
+        Optional: true
+        Type:
+          Name: FindOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+      - Name: callback
+        Optional: true
+        Type:
+          Name: FindArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextEvent:
+    Name: findupdate
+    Args:
+      - Name: searchText
+        Type:
+          Name: DOMString
+      - Name: numberOfMatches
+        Type:
+          Name: long long
+      - Name: activeMatchOrdinal
+        Type:
+          Name: long long
+      - Name: selectionRect
+        Type:
+          Name: SelectionRect
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+      - Name: canceled
+        Type:
+          Name: boolean
+      - Name: finalUpdate
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: forward
+    Args:
+      - Name: callback
+        Optional: true
+        Type:
+          Name: ForwardArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: getAudioState
+    Args:
+      - Name: callback
+        Type:
+          Name: GetAudioStateArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: getProcessId
+    Returns:
+      - Name: long long
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: getUserAgent
+    Returns:
+      - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: getZoom
+    Args:
+      - Name: callback
+        Type:
+          Name: GetZoomArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: getZoomMode
+    Args:
+      - Name: callback
+        Type:
+          Name: GetZoomModeArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: go
+    Args:
+      - Name: relativeIndex
+        Type:
+          Name: long long
+      - Name: callback
+        Optional: true
+        Type:
+          Name: GoArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: insertCSS
+    Args:
+      - Name: details
+        Type:
+          Name: InjectDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+      - Name: callback
+        Optional: true
+        Type:
+          Name: InsertCSSArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: isAudioMuted
+    Args:
+      - Name: callback
+        Type:
+          Name: IsAudioMutedArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: isSpatialNavigationEnabled
+    Args:
+      - Name: callback
+        Type:
+          Name: IsSpatialNavigationEnabledArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: isUserAgentOverridden
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: loadDataWithBaseUrl
+    Args:
+      - Name: dataUrl
+        Type:
+          Name: DOMString
+      - Name: baseUrl
+        Type:
+          Name: DOMString
+      - Name: virtualUrl
+        Optional: true
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextEvent:
+    Name: loadabort
+    Args:
+      - Name: url
+        Type:
+          Name: DOMString
+      - Name: isTopLevel
+        Type:
+          Name: boolean
+      - Name: code
+        Type:
+          Name: long long
+      - Name: reason
+        Type:
+          Name: LoadabortArgReason
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextEvent:
+    Name: loadcommit
+    Args:
+      - Name: url
+        Type:
+          Name: DOMString
+      - Name: isTopLevel
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextEvent:
+    Name: loadredirect
+    Args:
+      - Name: oldUrl
+        Type:
+          Name: DOMString
+      - Name: newUrl
+        Type:
+          Name: DOMString
+      - Name: isTopLevel
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextEvent:
+    Name: loadstart
+    Args:
+      - Name: url
+        Type:
+          Name: DOMString
+      - Name: isTopLevel
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextEvent:
+    Name: loadstop
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextEvent:
+    Name: newwindow
+    Args:
+      - Name: window
+        Type:
+          Name: NewWindow
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+      - Name: targetUrl
+        Type:
+          Name: DOMString
+      - Name: initialWidth
+        Type:
+          Name: double
+      - Name: initialHeight
+        Type:
+          Name: double
+      - Name: name
+        Type:
+          Name: DOMString
+      - Name: windowOpenDisposition
+        Type:
+          Name: NewwindowArgWindowOpenDisposition
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextEvent:
+    Name: permissionrequest
+    Args:
+      - Name: permission
+        Type:
+          Name: PermissionrequestArgPermission
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+      - Name: request
+        Type:
+          Name: PermissionrequestArgRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: print
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: reload
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: removeContentScripts
+    Args:
+      - Name: scriptNameList
+        Optional: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextProp:
+    Name: request
+    Type:
+      Name: WebRequestEventInterface
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - webviewTag
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextEvent:
+    Name: responsive
+    Args:
+      - Name: processID
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: setAudioMuted
+    Args:
+      - Name: mute
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: setSpatialNavigationEnabled
+    Args:
+      - Name: enabled
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: setUserAgentOverride
+    Args:
+      - Name: userAgent
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: setZoom
+    Args:
+      - Name: zoomFactor
+        Type:
+          Name: double
+      - Name: callback
+        Optional: true
+        Type:
+          Name: SetZoomArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: setZoomMode
+    Args:
+      - Name: ZoomMode
+        Type:
+          Name: ZoomMode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+      - Name: callback
+        Optional: true
+        Type:
+          Name: SetZoomModeArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextEvent:
+    Name: sizechanged
+    Args:
+      - Name: oldWidth
+        Type:
+          Name: double
+      - Name: oldHeight
+        Type:
+          Name: double
+      - Name: newWidth
+        Type:
+          Name: double
+      - Name: newHeight
+        Type:
+          Name: double
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: stop
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: stopFinding
+    Args:
+      - Name: action
+        Optional: true
+        Type:
+          Name: StopFindingArgAction
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webviewTag
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextFunc:
+    Name: terminate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextEvent:
+    Name: unresponsive
+    Args:
+      - Name: processID
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag
+- File: webext/chrome/webview_tag.json
+  WebextEvent:
+    Name: zoomchange
+    Args:
+      - Name: oldZoomFactor
+        Type:
+          Name: double
+      - Name: newZoomFactor
+        Type:
+          Name: double
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webviewTag

@@ -4,18 +4,9 @@
 package web
 
 import (
-	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 type DocumentVisibilityState uint32
 
@@ -174,17 +165,46 @@ func (p FontFaceDescriptors) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p FontFaceDescriptors) UpdateFrom(ref js.Ref) {
+func (p *FontFaceDescriptors) UpdateFrom(ref js.Ref) {
 	bindings.FontFaceDescriptorsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p FontFaceDescriptors) Update(ref js.Ref) {
+func (p *FontFaceDescriptors) Update(ref js.Ref) {
 	bindings.FontFaceDescriptorsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *FontFaceDescriptors) FreeMembers(recursive bool) {
+	js.Free(
+		p.Style.Ref(),
+		p.Weight.Ref(),
+		p.Stretch.Ref(),
+		p.UnicodeRange.Ref(),
+		p.Variant.Ref(),
+		p.FeatureSettings.Ref(),
+		p.VariationSettings.Ref(),
+		p.Display.Ref(),
+		p.AscentOverride.Ref(),
+		p.DescentOverride.Ref(),
+		p.LineGapOverride.Ref(),
+	)
+	p.Style = p.Style.FromRef(js.Undefined)
+	p.Weight = p.Weight.FromRef(js.Undefined)
+	p.Stretch = p.Stretch.FromRef(js.Undefined)
+	p.UnicodeRange = p.UnicodeRange.FromRef(js.Undefined)
+	p.Variant = p.Variant.FromRef(js.Undefined)
+	p.FeatureSettings = p.FeatureSettings.FromRef(js.Undefined)
+	p.VariationSettings = p.VariationSettings.FromRef(js.Undefined)
+	p.Display = p.Display.FromRef(js.Undefined)
+	p.AscentOverride = p.AscentOverride.FromRef(js.Undefined)
+	p.DescentOverride = p.DescentOverride.FromRef(js.Undefined)
+	p.LineGapOverride = p.LineGapOverride.FromRef(js.Undefined)
 }
 
 type FontFaceLoadStatus uint32
@@ -222,7 +242,7 @@ type FontFaceFeatures struct {
 }
 
 func (this FontFaceFeatures) Once() FontFaceFeatures {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -236,7 +256,7 @@ func (this FontFaceFeatures) FromRef(ref js.Ref) FontFaceFeatures {
 }
 
 func (this FontFaceFeatures) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type FontFaceVariations struct {
@@ -244,7 +264,7 @@ type FontFaceVariations struct {
 }
 
 func (this FontFaceVariations) Once() FontFaceVariations {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -258,7 +278,7 @@ func (this FontFaceVariations) FromRef(ref js.Ref) FontFaceVariations {
 }
 
 func (this FontFaceVariations) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type FontFacePalette struct {
@@ -266,7 +286,7 @@ type FontFacePalette struct {
 }
 
 func (this FontFacePalette) Once() FontFacePalette {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -280,7 +300,7 @@ func (this FontFacePalette) FromRef(ref js.Ref) FontFacePalette {
 }
 
 func (this FontFacePalette) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Length returns the value of property "FontFacePalette.length".
@@ -288,7 +308,7 @@ func (this FontFacePalette) Free() {
 // It returns ok=false if there is no such property.
 func (this FontFacePalette) Length() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetFontFacePaletteLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -298,7 +318,7 @@ func (this FontFacePalette) Length() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this FontFacePalette) UsableWithLightBackground() (ret bool, ok bool) {
 	ok = js.True == bindings.GetFontFacePaletteUsableWithLightBackground(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -308,31 +328,30 @@ func (this FontFacePalette) UsableWithLightBackground() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this FontFacePalette) UsableWithDarkBackground() (ret bool, ok bool) {
 	ok = js.True == bindings.GetFontFacePaletteUsableWithDarkBackground(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGet returns true if the method "FontFacePalette." exists.
-func (this FontFacePalette) HasGet() bool {
-	return js.True == bindings.HasFontFacePaletteGet(
-		this.Ref(),
+// HasFuncGet returns true if the method "FontFacePalette." exists.
+func (this FontFacePalette) HasFuncGet() bool {
+	return js.True == bindings.HasFuncFontFacePaletteGet(
+		this.ref,
 	)
 }
 
-// GetFunc returns the method "FontFacePalette.".
-func (this FontFacePalette) GetFunc() (fn js.Func[func(index uint32) js.String]) {
-	return fn.FromRef(
-		bindings.FontFacePaletteGetFunc(
-			this.Ref(),
-		),
+// FuncGet returns the method "FontFacePalette.".
+func (this FontFacePalette) FuncGet() (fn js.Func[func(index uint32) js.String]) {
+	bindings.FuncFontFacePaletteGet(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Get calls the method "FontFacePalette.".
 func (this FontFacePalette) Get(index uint32) (ret js.String) {
 	bindings.CallFontFacePaletteGet(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 	)
 
@@ -344,7 +363,7 @@ func (this FontFacePalette) Get(index uint32) (ret js.String) {
 // the catch clause.
 func (this FontFacePalette) TryGet(index uint32) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFontFacePaletteGet(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 	)
 
@@ -356,7 +375,7 @@ type FontFacePalettes struct {
 }
 
 func (this FontFacePalettes) Once() FontFacePalettes {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -370,7 +389,7 @@ func (this FontFacePalettes) FromRef(ref js.Ref) FontFacePalettes {
 }
 
 func (this FontFacePalettes) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Length returns the value of property "FontFacePalettes.length".
@@ -378,31 +397,30 @@ func (this FontFacePalettes) Free() {
 // It returns ok=false if there is no such property.
 func (this FontFacePalettes) Length() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetFontFacePalettesLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGet returns true if the method "FontFacePalettes." exists.
-func (this FontFacePalettes) HasGet() bool {
-	return js.True == bindings.HasFontFacePalettesGet(
-		this.Ref(),
+// HasFuncGet returns true if the method "FontFacePalettes." exists.
+func (this FontFacePalettes) HasFuncGet() bool {
+	return js.True == bindings.HasFuncFontFacePalettesGet(
+		this.ref,
 	)
 }
 
-// GetFunc returns the method "FontFacePalettes.".
-func (this FontFacePalettes) GetFunc() (fn js.Func[func(index uint32) FontFacePalette]) {
-	return fn.FromRef(
-		bindings.FontFacePalettesGetFunc(
-			this.Ref(),
-		),
+// FuncGet returns the method "FontFacePalettes.".
+func (this FontFacePalettes) FuncGet() (fn js.Func[func(index uint32) FontFacePalette]) {
+	bindings.FuncFontFacePalettesGet(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Get calls the method "FontFacePalettes.".
 func (this FontFacePalettes) Get(index uint32) (ret FontFacePalette) {
 	bindings.CallFontFacePalettesGet(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 	)
 
@@ -414,7 +432,7 @@ func (this FontFacePalettes) Get(index uint32) (ret FontFacePalette) {
 // the catch clause.
 func (this FontFacePalettes) TryGet(index uint32) (ret FontFacePalette, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFontFacePalettesGet(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 	)
 
@@ -441,7 +459,7 @@ type FontFace struct {
 }
 
 func (this FontFace) Once() FontFace {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -455,7 +473,7 @@ func (this FontFace) FromRef(ref js.Ref) FontFace {
 }
 
 func (this FontFace) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Family returns the value of property "FontFace.family".
@@ -463,7 +481,7 @@ func (this FontFace) Free() {
 // It returns ok=false if there is no such property.
 func (this FontFace) Family() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFontFaceFamily(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -473,7 +491,7 @@ func (this FontFace) Family() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this FontFace) SetFamily(val js.String) bool {
 	return js.True == bindings.SetFontFaceFamily(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -483,7 +501,7 @@ func (this FontFace) SetFamily(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this FontFace) Style() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFontFaceStyle(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -493,7 +511,7 @@ func (this FontFace) Style() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this FontFace) SetStyle(val js.String) bool {
 	return js.True == bindings.SetFontFaceStyle(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -503,7 +521,7 @@ func (this FontFace) SetStyle(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this FontFace) Weight() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFontFaceWeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -513,7 +531,7 @@ func (this FontFace) Weight() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this FontFace) SetWeight(val js.String) bool {
 	return js.True == bindings.SetFontFaceWeight(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -523,7 +541,7 @@ func (this FontFace) SetWeight(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this FontFace) Stretch() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFontFaceStretch(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -533,7 +551,7 @@ func (this FontFace) Stretch() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this FontFace) SetStretch(val js.String) bool {
 	return js.True == bindings.SetFontFaceStretch(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -543,7 +561,7 @@ func (this FontFace) SetStretch(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this FontFace) UnicodeRange() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFontFaceUnicodeRange(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -553,7 +571,7 @@ func (this FontFace) UnicodeRange() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this FontFace) SetUnicodeRange(val js.String) bool {
 	return js.True == bindings.SetFontFaceUnicodeRange(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -563,7 +581,7 @@ func (this FontFace) SetUnicodeRange(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this FontFace) Variant() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFontFaceVariant(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -573,7 +591,7 @@ func (this FontFace) Variant() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this FontFace) SetVariant(val js.String) bool {
 	return js.True == bindings.SetFontFaceVariant(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -583,7 +601,7 @@ func (this FontFace) SetVariant(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this FontFace) FeatureSettings() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFontFaceFeatureSettings(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -593,7 +611,7 @@ func (this FontFace) FeatureSettings() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this FontFace) SetFeatureSettings(val js.String) bool {
 	return js.True == bindings.SetFontFaceFeatureSettings(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -603,7 +621,7 @@ func (this FontFace) SetFeatureSettings(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this FontFace) VariationSettings() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFontFaceVariationSettings(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -613,7 +631,7 @@ func (this FontFace) VariationSettings() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this FontFace) SetVariationSettings(val js.String) bool {
 	return js.True == bindings.SetFontFaceVariationSettings(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -623,7 +641,7 @@ func (this FontFace) SetVariationSettings(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this FontFace) Display() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFontFaceDisplay(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -633,7 +651,7 @@ func (this FontFace) Display() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this FontFace) SetDisplay(val js.String) bool {
 	return js.True == bindings.SetFontFaceDisplay(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -643,7 +661,7 @@ func (this FontFace) SetDisplay(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this FontFace) AscentOverride() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFontFaceAscentOverride(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -653,7 +671,7 @@ func (this FontFace) AscentOverride() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this FontFace) SetAscentOverride(val js.String) bool {
 	return js.True == bindings.SetFontFaceAscentOverride(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -663,7 +681,7 @@ func (this FontFace) SetAscentOverride(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this FontFace) DescentOverride() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFontFaceDescentOverride(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -673,7 +691,7 @@ func (this FontFace) DescentOverride() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this FontFace) SetDescentOverride(val js.String) bool {
 	return js.True == bindings.SetFontFaceDescentOverride(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -683,7 +701,7 @@ func (this FontFace) SetDescentOverride(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this FontFace) LineGapOverride() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFontFaceLineGapOverride(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -693,7 +711,7 @@ func (this FontFace) LineGapOverride() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this FontFace) SetLineGapOverride(val js.String) bool {
 	return js.True == bindings.SetFontFaceLineGapOverride(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -703,7 +721,7 @@ func (this FontFace) SetLineGapOverride(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this FontFace) Status() (ret FontFaceLoadStatus, ok bool) {
 	ok = js.True == bindings.GetFontFaceStatus(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -713,7 +731,7 @@ func (this FontFace) Status() (ret FontFaceLoadStatus, ok bool) {
 // It returns ok=false if there is no such property.
 func (this FontFace) Loaded() (ret js.Promise[FontFace], ok bool) {
 	ok = js.True == bindings.GetFontFaceLoaded(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -723,7 +741,7 @@ func (this FontFace) Loaded() (ret js.Promise[FontFace], ok bool) {
 // It returns ok=false if there is no such property.
 func (this FontFace) Features() (ret FontFaceFeatures, ok bool) {
 	ok = js.True == bindings.GetFontFaceFeatures(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -733,7 +751,7 @@ func (this FontFace) Features() (ret FontFaceFeatures, ok bool) {
 // It returns ok=false if there is no such property.
 func (this FontFace) Variations() (ret FontFaceVariations, ok bool) {
 	ok = js.True == bindings.GetFontFaceVariations(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -743,31 +761,30 @@ func (this FontFace) Variations() (ret FontFaceVariations, ok bool) {
 // It returns ok=false if there is no such property.
 func (this FontFace) Palettes() (ret FontFacePalettes, ok bool) {
 	ok = js.True == bindings.GetFontFacePalettes(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasLoad returns true if the method "FontFace.load" exists.
-func (this FontFace) HasLoad() bool {
-	return js.True == bindings.HasFontFaceLoad(
-		this.Ref(),
+// HasFuncLoad returns true if the method "FontFace.load" exists.
+func (this FontFace) HasFuncLoad() bool {
+	return js.True == bindings.HasFuncFontFaceLoad(
+		this.ref,
 	)
 }
 
-// LoadFunc returns the method "FontFace.load".
-func (this FontFace) LoadFunc() (fn js.Func[func() js.Promise[FontFace]]) {
-	return fn.FromRef(
-		bindings.FontFaceLoadFunc(
-			this.Ref(),
-		),
+// FuncLoad returns the method "FontFace.load".
+func (this FontFace) FuncLoad() (fn js.Func[func() js.Promise[FontFace]]) {
+	bindings.FuncFontFaceLoad(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Load calls the method "FontFace.load".
 func (this FontFace) Load() (ret js.Promise[FontFace]) {
 	bindings.CallFontFaceLoad(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -778,7 +795,7 @@ func (this FontFace) Load() (ret js.Promise[FontFace]) {
 // the catch clause.
 func (this FontFace) TryLoad() (ret js.Promise[FontFace], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFontFaceLoad(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -819,7 +836,7 @@ type FontFaceSet struct {
 }
 
 func (this FontFaceSet) Once() FontFaceSet {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -833,7 +850,7 @@ func (this FontFaceSet) FromRef(ref js.Ref) FontFaceSet {
 }
 
 func (this FontFaceSet) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Ready returns the value of property "FontFaceSet.ready".
@@ -841,7 +858,7 @@ func (this FontFaceSet) Free() {
 // It returns ok=false if there is no such property.
 func (this FontFaceSet) Ready() (ret js.Promise[FontFaceSet], ok bool) {
 	ok = js.True == bindings.GetFontFaceSetReady(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -851,31 +868,30 @@ func (this FontFaceSet) Ready() (ret js.Promise[FontFaceSet], ok bool) {
 // It returns ok=false if there is no such property.
 func (this FontFaceSet) Status() (ret FontFaceSetLoadStatus, ok bool) {
 	ok = js.True == bindings.GetFontFaceSetStatus(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasAdd returns true if the method "FontFaceSet.add" exists.
-func (this FontFaceSet) HasAdd() bool {
-	return js.True == bindings.HasFontFaceSetAdd(
-		this.Ref(),
+// HasFuncAdd returns true if the method "FontFaceSet.add" exists.
+func (this FontFaceSet) HasFuncAdd() bool {
+	return js.True == bindings.HasFuncFontFaceSetAdd(
+		this.ref,
 	)
 }
 
-// AddFunc returns the method "FontFaceSet.add".
-func (this FontFaceSet) AddFunc() (fn js.Func[func(font FontFace) FontFaceSet]) {
-	return fn.FromRef(
-		bindings.FontFaceSetAddFunc(
-			this.Ref(),
-		),
+// FuncAdd returns the method "FontFaceSet.add".
+func (this FontFaceSet) FuncAdd() (fn js.Func[func(font FontFace) FontFaceSet]) {
+	bindings.FuncFontFaceSetAdd(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Add calls the method "FontFaceSet.add".
 func (this FontFaceSet) Add(font FontFace) (ret FontFaceSet) {
 	bindings.CallFontFaceSetAdd(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		font.Ref(),
 	)
 
@@ -887,33 +903,32 @@ func (this FontFaceSet) Add(font FontFace) (ret FontFaceSet) {
 // the catch clause.
 func (this FontFaceSet) TryAdd(font FontFace) (ret FontFaceSet, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFontFaceSetAdd(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		font.Ref(),
 	)
 
 	return
 }
 
-// HasDelete returns true if the method "FontFaceSet.delete" exists.
-func (this FontFaceSet) HasDelete() bool {
-	return js.True == bindings.HasFontFaceSetDelete(
-		this.Ref(),
+// HasFuncDelete returns true if the method "FontFaceSet.delete" exists.
+func (this FontFaceSet) HasFuncDelete() bool {
+	return js.True == bindings.HasFuncFontFaceSetDelete(
+		this.ref,
 	)
 }
 
-// DeleteFunc returns the method "FontFaceSet.delete".
-func (this FontFaceSet) DeleteFunc() (fn js.Func[func(font FontFace) bool]) {
-	return fn.FromRef(
-		bindings.FontFaceSetDeleteFunc(
-			this.Ref(),
-		),
+// FuncDelete returns the method "FontFaceSet.delete".
+func (this FontFaceSet) FuncDelete() (fn js.Func[func(font FontFace) bool]) {
+	bindings.FuncFontFaceSetDelete(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Delete calls the method "FontFaceSet.delete".
 func (this FontFaceSet) Delete(font FontFace) (ret bool) {
 	bindings.CallFontFaceSetDelete(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		font.Ref(),
 	)
 
@@ -925,33 +940,32 @@ func (this FontFaceSet) Delete(font FontFace) (ret bool) {
 // the catch clause.
 func (this FontFaceSet) TryDelete(font FontFace) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFontFaceSetDelete(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		font.Ref(),
 	)
 
 	return
 }
 
-// HasClear returns true if the method "FontFaceSet.clear" exists.
-func (this FontFaceSet) HasClear() bool {
-	return js.True == bindings.HasFontFaceSetClear(
-		this.Ref(),
+// HasFuncClear returns true if the method "FontFaceSet.clear" exists.
+func (this FontFaceSet) HasFuncClear() bool {
+	return js.True == bindings.HasFuncFontFaceSetClear(
+		this.ref,
 	)
 }
 
-// ClearFunc returns the method "FontFaceSet.clear".
-func (this FontFaceSet) ClearFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.FontFaceSetClearFunc(
-			this.Ref(),
-		),
+// FuncClear returns the method "FontFaceSet.clear".
+func (this FontFaceSet) FuncClear() (fn js.Func[func()]) {
+	bindings.FuncFontFaceSetClear(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Clear calls the method "FontFaceSet.clear".
 func (this FontFaceSet) Clear() (ret js.Void) {
 	bindings.CallFontFaceSetClear(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -962,32 +976,31 @@ func (this FontFaceSet) Clear() (ret js.Void) {
 // the catch clause.
 func (this FontFaceSet) TryClear() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFontFaceSetClear(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasLoad returns true if the method "FontFaceSet.load" exists.
-func (this FontFaceSet) HasLoad() bool {
-	return js.True == bindings.HasFontFaceSetLoad(
-		this.Ref(),
+// HasFuncLoad returns true if the method "FontFaceSet.load" exists.
+func (this FontFaceSet) HasFuncLoad() bool {
+	return js.True == bindings.HasFuncFontFaceSetLoad(
+		this.ref,
 	)
 }
 
-// LoadFunc returns the method "FontFaceSet.load".
-func (this FontFaceSet) LoadFunc() (fn js.Func[func(font js.String, text js.String) js.Promise[js.Array[FontFace]]]) {
-	return fn.FromRef(
-		bindings.FontFaceSetLoadFunc(
-			this.Ref(),
-		),
+// FuncLoad returns the method "FontFaceSet.load".
+func (this FontFaceSet) FuncLoad() (fn js.Func[func(font js.String, text js.String) js.Promise[js.Array[FontFace]]]) {
+	bindings.FuncFontFaceSetLoad(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Load calls the method "FontFaceSet.load".
 func (this FontFaceSet) Load(font js.String, text js.String) (ret js.Promise[js.Array[FontFace]]) {
 	bindings.CallFontFaceSetLoad(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		font.Ref(),
 		text.Ref(),
 	)
@@ -1000,7 +1013,7 @@ func (this FontFaceSet) Load(font js.String, text js.String) (ret js.Promise[js.
 // the catch clause.
 func (this FontFaceSet) TryLoad(font js.String, text js.String) (ret js.Promise[js.Array[FontFace]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFontFaceSetLoad(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		font.Ref(),
 		text.Ref(),
 	)
@@ -1008,26 +1021,25 @@ func (this FontFaceSet) TryLoad(font js.String, text js.String) (ret js.Promise[
 	return
 }
 
-// HasLoad1 returns true if the method "FontFaceSet.load" exists.
-func (this FontFaceSet) HasLoad1() bool {
-	return js.True == bindings.HasFontFaceSetLoad1(
-		this.Ref(),
+// HasFuncLoad1 returns true if the method "FontFaceSet.load" exists.
+func (this FontFaceSet) HasFuncLoad1() bool {
+	return js.True == bindings.HasFuncFontFaceSetLoad1(
+		this.ref,
 	)
 }
 
-// Load1Func returns the method "FontFaceSet.load".
-func (this FontFaceSet) Load1Func() (fn js.Func[func(font js.String) js.Promise[js.Array[FontFace]]]) {
-	return fn.FromRef(
-		bindings.FontFaceSetLoad1Func(
-			this.Ref(),
-		),
+// FuncLoad1 returns the method "FontFaceSet.load".
+func (this FontFaceSet) FuncLoad1() (fn js.Func[func(font js.String) js.Promise[js.Array[FontFace]]]) {
+	bindings.FuncFontFaceSetLoad1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Load1 calls the method "FontFaceSet.load".
 func (this FontFaceSet) Load1(font js.String) (ret js.Promise[js.Array[FontFace]]) {
 	bindings.CallFontFaceSetLoad1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		font.Ref(),
 	)
 
@@ -1039,33 +1051,32 @@ func (this FontFaceSet) Load1(font js.String) (ret js.Promise[js.Array[FontFace]
 // the catch clause.
 func (this FontFaceSet) TryLoad1(font js.String) (ret js.Promise[js.Array[FontFace]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFontFaceSetLoad1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		font.Ref(),
 	)
 
 	return
 }
 
-// HasCheck returns true if the method "FontFaceSet.check" exists.
-func (this FontFaceSet) HasCheck() bool {
-	return js.True == bindings.HasFontFaceSetCheck(
-		this.Ref(),
+// HasFuncCheck returns true if the method "FontFaceSet.check" exists.
+func (this FontFaceSet) HasFuncCheck() bool {
+	return js.True == bindings.HasFuncFontFaceSetCheck(
+		this.ref,
 	)
 }
 
-// CheckFunc returns the method "FontFaceSet.check".
-func (this FontFaceSet) CheckFunc() (fn js.Func[func(font js.String, text js.String) bool]) {
-	return fn.FromRef(
-		bindings.FontFaceSetCheckFunc(
-			this.Ref(),
-		),
+// FuncCheck returns the method "FontFaceSet.check".
+func (this FontFaceSet) FuncCheck() (fn js.Func[func(font js.String, text js.String) bool]) {
+	bindings.FuncFontFaceSetCheck(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Check calls the method "FontFaceSet.check".
 func (this FontFaceSet) Check(font js.String, text js.String) (ret bool) {
 	bindings.CallFontFaceSetCheck(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		font.Ref(),
 		text.Ref(),
 	)
@@ -1078,7 +1089,7 @@ func (this FontFaceSet) Check(font js.String, text js.String) (ret bool) {
 // the catch clause.
 func (this FontFaceSet) TryCheck(font js.String, text js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFontFaceSetCheck(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		font.Ref(),
 		text.Ref(),
 	)
@@ -1086,26 +1097,25 @@ func (this FontFaceSet) TryCheck(font js.String, text js.String) (ret bool, exce
 	return
 }
 
-// HasCheck1 returns true if the method "FontFaceSet.check" exists.
-func (this FontFaceSet) HasCheck1() bool {
-	return js.True == bindings.HasFontFaceSetCheck1(
-		this.Ref(),
+// HasFuncCheck1 returns true if the method "FontFaceSet.check" exists.
+func (this FontFaceSet) HasFuncCheck1() bool {
+	return js.True == bindings.HasFuncFontFaceSetCheck1(
+		this.ref,
 	)
 }
 
-// Check1Func returns the method "FontFaceSet.check".
-func (this FontFaceSet) Check1Func() (fn js.Func[func(font js.String) bool]) {
-	return fn.FromRef(
-		bindings.FontFaceSetCheck1Func(
-			this.Ref(),
-		),
+// FuncCheck1 returns the method "FontFaceSet.check".
+func (this FontFaceSet) FuncCheck1() (fn js.Func[func(font js.String) bool]) {
+	bindings.FuncFontFaceSetCheck1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Check1 calls the method "FontFaceSet.check".
 func (this FontFaceSet) Check1(font js.String) (ret bool) {
 	bindings.CallFontFaceSetCheck1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		font.Ref(),
 	)
 
@@ -1117,7 +1127,7 @@ func (this FontFaceSet) Check1(font js.String) (ret bool) {
 // the catch clause.
 func (this FontFaceSet) TryCheck1(font js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFontFaceSetCheck1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		font.Ref(),
 	)
 
@@ -1129,7 +1139,7 @@ type Document struct {
 }
 
 func (this Document) Once() Document {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1143,7 +1153,7 @@ func (this Document) FromRef(ref js.Ref) Document {
 }
 
 func (this Document) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Implementation returns the value of property "Document.implementation".
@@ -1151,7 +1161,7 @@ func (this Document) Free() {
 // It returns ok=false if there is no such property.
 func (this Document) Implementation() (ret DOMImplementation, ok bool) {
 	ok = js.True == bindings.GetDocumentImplementation(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1161,7 +1171,7 @@ func (this Document) Implementation() (ret DOMImplementation, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) URL() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetDocumentURL(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1171,7 +1181,7 @@ func (this Document) URL() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) DocumentURI() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetDocumentDocumentURI(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1181,7 +1191,7 @@ func (this Document) DocumentURI() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) CompatMode() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetDocumentCompatMode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1191,7 +1201,7 @@ func (this Document) CompatMode() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) CharacterSet() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetDocumentCharacterSet(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1201,7 +1211,7 @@ func (this Document) CharacterSet() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) Charset() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetDocumentCharset(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1211,7 +1221,7 @@ func (this Document) Charset() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) InputEncoding() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetDocumentInputEncoding(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1221,7 +1231,7 @@ func (this Document) InputEncoding() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) ContentType() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetDocumentContentType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1231,7 +1241,7 @@ func (this Document) ContentType() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) Doctype() (ret DocumentType, ok bool) {
 	ok = js.True == bindings.GetDocumentDoctype(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1241,7 +1251,7 @@ func (this Document) Doctype() (ret DocumentType, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) DocumentElement() (ret Element, ok bool) {
 	ok = js.True == bindings.GetDocumentDocumentElement(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1251,7 +1261,7 @@ func (this Document) DocumentElement() (ret Element, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) FragmentDirective() (ret FragmentDirective, ok bool) {
 	ok = js.True == bindings.GetDocumentFragmentDirective(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1261,7 +1271,7 @@ func (this Document) FragmentDirective() (ret FragmentDirective, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) PermissionsPolicy() (ret PermissionsPolicy, ok bool) {
 	ok = js.True == bindings.GetDocumentPermissionsPolicy(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1271,7 +1281,7 @@ func (this Document) PermissionsPolicy() (ret PermissionsPolicy, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) WasDiscarded() (ret bool, ok bool) {
 	ok = js.True == bindings.GetDocumentWasDiscarded(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1281,7 +1291,7 @@ func (this Document) WasDiscarded() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) FullscreenEnabled() (ret bool, ok bool) {
 	ok = js.True == bindings.GetDocumentFullscreenEnabled(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1291,7 +1301,7 @@ func (this Document) FullscreenEnabled() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) Fullscreen() (ret bool, ok bool) {
 	ok = js.True == bindings.GetDocumentFullscreen(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1301,7 +1311,7 @@ func (this Document) Fullscreen() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) Timeline() (ret DocumentTimeline, ok bool) {
 	ok = js.True == bindings.GetDocumentTimeline(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1311,7 +1321,7 @@ func (this Document) Timeline() (ret DocumentTimeline, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) PictureInPictureEnabled() (ret bool, ok bool) {
 	ok = js.True == bindings.GetDocumentPictureInPictureEnabled(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1321,7 +1331,7 @@ func (this Document) PictureInPictureEnabled() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) NamedFlows() (ret NamedFlowMap, ok bool) {
 	ok = js.True == bindings.GetDocumentNamedFlows(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1331,7 +1341,7 @@ func (this Document) NamedFlows() (ret NamedFlowMap, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) ScrollingElement() (ret Element, ok bool) {
 	ok = js.True == bindings.GetDocumentScrollingElement(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1341,7 +1351,7 @@ func (this Document) ScrollingElement() (ret Element, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) RootElement() (ret SVGSVGElement, ok bool) {
 	ok = js.True == bindings.GetDocumentRootElement(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1351,7 +1361,7 @@ func (this Document) RootElement() (ret SVGSVGElement, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) Prerendering() (ret bool, ok bool) {
 	ok = js.True == bindings.GetDocumentPrerendering(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1361,7 +1371,7 @@ func (this Document) Prerendering() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) FgColor() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetDocumentFgColor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1371,7 +1381,7 @@ func (this Document) FgColor() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this Document) SetFgColor(val js.String) bool {
 	return js.True == bindings.SetDocumentFgColor(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1381,7 +1391,7 @@ func (this Document) SetFgColor(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this Document) LinkColor() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetDocumentLinkColor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1391,7 +1401,7 @@ func (this Document) LinkColor() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this Document) SetLinkColor(val js.String) bool {
 	return js.True == bindings.SetDocumentLinkColor(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1401,7 +1411,7 @@ func (this Document) SetLinkColor(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this Document) VlinkColor() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetDocumentVlinkColor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1411,7 +1421,7 @@ func (this Document) VlinkColor() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this Document) SetVlinkColor(val js.String) bool {
 	return js.True == bindings.SetDocumentVlinkColor(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1421,7 +1431,7 @@ func (this Document) SetVlinkColor(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this Document) AlinkColor() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetDocumentAlinkColor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1431,7 +1441,7 @@ func (this Document) AlinkColor() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this Document) SetAlinkColor(val js.String) bool {
 	return js.True == bindings.SetDocumentAlinkColor(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1441,7 +1451,7 @@ func (this Document) SetAlinkColor(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this Document) BgColor() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetDocumentBgColor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1451,7 +1461,7 @@ func (this Document) BgColor() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this Document) SetBgColor(val js.String) bool {
 	return js.True == bindings.SetDocumentBgColor(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1461,7 +1471,7 @@ func (this Document) SetBgColor(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this Document) Anchors() (ret HTMLCollection, ok bool) {
 	ok = js.True == bindings.GetDocumentAnchors(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1471,7 +1481,7 @@ func (this Document) Anchors() (ret HTMLCollection, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) Applets() (ret HTMLCollection, ok bool) {
 	ok = js.True == bindings.GetDocumentApplets(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1481,7 +1491,7 @@ func (this Document) Applets() (ret HTMLCollection, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) All() (ret HTMLAllCollection, ok bool) {
 	ok = js.True == bindings.GetDocumentAll(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1491,7 +1501,7 @@ func (this Document) All() (ret HTMLAllCollection, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) Location() (ret Location, ok bool) {
 	ok = js.True == bindings.GetDocumentLocation(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1501,7 +1511,7 @@ func (this Document) Location() (ret Location, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) Domain() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetDocumentDomain(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1511,7 +1521,7 @@ func (this Document) Domain() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this Document) SetDomain(val js.String) bool {
 	return js.True == bindings.SetDocumentDomain(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1521,7 +1531,7 @@ func (this Document) SetDomain(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this Document) Referrer() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetDocumentReferrer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1531,7 +1541,7 @@ func (this Document) Referrer() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) Cookie() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetDocumentCookie(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1541,7 +1551,7 @@ func (this Document) Cookie() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this Document) SetCookie(val js.String) bool {
 	return js.True == bindings.SetDocumentCookie(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1551,7 +1561,7 @@ func (this Document) SetCookie(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this Document) LastModified() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetDocumentLastModified(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1561,7 +1571,7 @@ func (this Document) LastModified() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) ReadyState() (ret DocumentReadyState, ok bool) {
 	ok = js.True == bindings.GetDocumentReadyState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1571,7 +1581,7 @@ func (this Document) ReadyState() (ret DocumentReadyState, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) Title() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetDocumentTitle(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1581,7 +1591,7 @@ func (this Document) Title() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this Document) SetTitle(val js.String) bool {
 	return js.True == bindings.SetDocumentTitle(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1591,7 +1601,7 @@ func (this Document) SetTitle(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this Document) Dir() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetDocumentDir(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1601,7 +1611,7 @@ func (this Document) Dir() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this Document) SetDir(val js.String) bool {
 	return js.True == bindings.SetDocumentDir(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1611,7 +1621,7 @@ func (this Document) SetDir(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this Document) Body() (ret HTMLElement, ok bool) {
 	ok = js.True == bindings.GetDocumentBody(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1621,7 +1631,7 @@ func (this Document) Body() (ret HTMLElement, ok bool) {
 // It returns false if the property cannot be set.
 func (this Document) SetBody(val HTMLElement) bool {
 	return js.True == bindings.SetDocumentBody(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1631,7 +1641,7 @@ func (this Document) SetBody(val HTMLElement) bool {
 // It returns ok=false if there is no such property.
 func (this Document) Head() (ret HTMLHeadElement, ok bool) {
 	ok = js.True == bindings.GetDocumentHead(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1641,7 +1651,7 @@ func (this Document) Head() (ret HTMLHeadElement, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) Images() (ret HTMLCollection, ok bool) {
 	ok = js.True == bindings.GetDocumentImages(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1651,7 +1661,7 @@ func (this Document) Images() (ret HTMLCollection, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) Embeds() (ret HTMLCollection, ok bool) {
 	ok = js.True == bindings.GetDocumentEmbeds(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1661,7 +1671,7 @@ func (this Document) Embeds() (ret HTMLCollection, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) Plugins() (ret HTMLCollection, ok bool) {
 	ok = js.True == bindings.GetDocumentPlugins(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1671,7 +1681,7 @@ func (this Document) Plugins() (ret HTMLCollection, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) Links() (ret HTMLCollection, ok bool) {
 	ok = js.True == bindings.GetDocumentLinks(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1681,7 +1691,7 @@ func (this Document) Links() (ret HTMLCollection, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) Forms() (ret HTMLCollection, ok bool) {
 	ok = js.True == bindings.GetDocumentForms(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1691,7 +1701,7 @@ func (this Document) Forms() (ret HTMLCollection, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) Scripts() (ret HTMLCollection, ok bool) {
 	ok = js.True == bindings.GetDocumentScripts(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1701,7 +1711,7 @@ func (this Document) Scripts() (ret HTMLCollection, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) CurrentScript() (ret HTMLOrSVGScriptElement, ok bool) {
 	ok = js.True == bindings.GetDocumentCurrentScript(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1711,7 +1721,7 @@ func (this Document) CurrentScript() (ret HTMLOrSVGScriptElement, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) DefaultView() (ret js.Object, ok bool) {
 	ok = js.True == bindings.GetDocumentDefaultView(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1721,7 +1731,7 @@ func (this Document) DefaultView() (ret js.Object, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) DesignMode() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetDocumentDesignMode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1731,7 +1741,7 @@ func (this Document) DesignMode() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this Document) SetDesignMode(val js.String) bool {
 	return js.True == bindings.SetDocumentDesignMode(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1741,7 +1751,7 @@ func (this Document) SetDesignMode(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this Document) Hidden() (ret bool, ok bool) {
 	ok = js.True == bindings.GetDocumentHidden(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1751,7 +1761,7 @@ func (this Document) Hidden() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) VisibilityState() (ret DocumentVisibilityState, ok bool) {
 	ok = js.True == bindings.GetDocumentVisibilityState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1761,7 +1771,7 @@ func (this Document) VisibilityState() (ret DocumentVisibilityState, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) FullscreenElement() (ret Element, ok bool) {
 	ok = js.True == bindings.GetDocumentFullscreenElement(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1771,7 +1781,7 @@ func (this Document) FullscreenElement() (ret Element, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) StyleSheets() (ret StyleSheetList, ok bool) {
 	ok = js.True == bindings.GetDocumentStyleSheets(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1781,7 +1791,7 @@ func (this Document) StyleSheets() (ret StyleSheetList, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) AdoptedStyleSheets() (ret js.ObservableArray[CSSStyleSheet], ok bool) {
 	ok = js.True == bindings.GetDocumentAdoptedStyleSheets(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1791,7 +1801,7 @@ func (this Document) AdoptedStyleSheets() (ret js.ObservableArray[CSSStyleSheet]
 // It returns false if the property cannot be set.
 func (this Document) SetAdoptedStyleSheets(val js.ObservableArray[CSSStyleSheet]) bool {
 	return js.True == bindings.SetDocumentAdoptedStyleSheets(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1801,7 +1811,7 @@ func (this Document) SetAdoptedStyleSheets(val js.ObservableArray[CSSStyleSheet]
 // It returns ok=false if there is no such property.
 func (this Document) PictureInPictureElement() (ret Element, ok bool) {
 	ok = js.True == bindings.GetDocumentPictureInPictureElement(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1811,7 +1821,7 @@ func (this Document) PictureInPictureElement() (ret Element, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) ActiveElement() (ret Element, ok bool) {
 	ok = js.True == bindings.GetDocumentActiveElement(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1821,7 +1831,7 @@ func (this Document) ActiveElement() (ret Element, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) PointerLockElement() (ret Element, ok bool) {
 	ok = js.True == bindings.GetDocumentPointerLockElement(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1831,7 +1841,7 @@ func (this Document) PointerLockElement() (ret Element, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) Children() (ret HTMLCollection, ok bool) {
 	ok = js.True == bindings.GetDocumentChildren(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1841,7 +1851,7 @@ func (this Document) Children() (ret HTMLCollection, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) FirstElementChild() (ret Element, ok bool) {
 	ok = js.True == bindings.GetDocumentFirstElementChild(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1851,7 +1861,7 @@ func (this Document) FirstElementChild() (ret Element, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) LastElementChild() (ret Element, ok bool) {
 	ok = js.True == bindings.GetDocumentLastElementChild(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1861,7 +1871,7 @@ func (this Document) LastElementChild() (ret Element, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) ChildElementCount() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetDocumentChildElementCount(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1871,31 +1881,30 @@ func (this Document) ChildElementCount() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Document) Fonts() (ret FontFaceSet, ok bool) {
 	ok = js.True == bindings.GetDocumentFonts(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGetElementsByTagName returns true if the method "Document.getElementsByTagName" exists.
-func (this Document) HasGetElementsByTagName() bool {
-	return js.True == bindings.HasDocumentGetElementsByTagName(
-		this.Ref(),
+// HasFuncGetElementsByTagName returns true if the method "Document.getElementsByTagName" exists.
+func (this Document) HasFuncGetElementsByTagName() bool {
+	return js.True == bindings.HasFuncDocumentGetElementsByTagName(
+		this.ref,
 	)
 }
 
-// GetElementsByTagNameFunc returns the method "Document.getElementsByTagName".
-func (this Document) GetElementsByTagNameFunc() (fn js.Func[func(qualifiedName js.String) HTMLCollection]) {
-	return fn.FromRef(
-		bindings.DocumentGetElementsByTagNameFunc(
-			this.Ref(),
-		),
+// FuncGetElementsByTagName returns the method "Document.getElementsByTagName".
+func (this Document) FuncGetElementsByTagName() (fn js.Func[func(qualifiedName js.String) HTMLCollection]) {
+	bindings.FuncDocumentGetElementsByTagName(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetElementsByTagName calls the method "Document.getElementsByTagName".
 func (this Document) GetElementsByTagName(qualifiedName js.String) (ret HTMLCollection) {
 	bindings.CallDocumentGetElementsByTagName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		qualifiedName.Ref(),
 	)
 
@@ -1907,33 +1916,32 @@ func (this Document) GetElementsByTagName(qualifiedName js.String) (ret HTMLColl
 // the catch clause.
 func (this Document) TryGetElementsByTagName(qualifiedName js.String) (ret HTMLCollection, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentGetElementsByTagName(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		qualifiedName.Ref(),
 	)
 
 	return
 }
 
-// HasGetElementsByTagNameNS returns true if the method "Document.getElementsByTagNameNS" exists.
-func (this Document) HasGetElementsByTagNameNS() bool {
-	return js.True == bindings.HasDocumentGetElementsByTagNameNS(
-		this.Ref(),
+// HasFuncGetElementsByTagNameNS returns true if the method "Document.getElementsByTagNameNS" exists.
+func (this Document) HasFuncGetElementsByTagNameNS() bool {
+	return js.True == bindings.HasFuncDocumentGetElementsByTagNameNS(
+		this.ref,
 	)
 }
 
-// GetElementsByTagNameNSFunc returns the method "Document.getElementsByTagNameNS".
-func (this Document) GetElementsByTagNameNSFunc() (fn js.Func[func(namespace js.String, localName js.String) HTMLCollection]) {
-	return fn.FromRef(
-		bindings.DocumentGetElementsByTagNameNSFunc(
-			this.Ref(),
-		),
+// FuncGetElementsByTagNameNS returns the method "Document.getElementsByTagNameNS".
+func (this Document) FuncGetElementsByTagNameNS() (fn js.Func[func(namespace js.String, localName js.String) HTMLCollection]) {
+	bindings.FuncDocumentGetElementsByTagNameNS(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetElementsByTagNameNS calls the method "Document.getElementsByTagNameNS".
 func (this Document) GetElementsByTagNameNS(namespace js.String, localName js.String) (ret HTMLCollection) {
 	bindings.CallDocumentGetElementsByTagNameNS(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		namespace.Ref(),
 		localName.Ref(),
 	)
@@ -1946,7 +1954,7 @@ func (this Document) GetElementsByTagNameNS(namespace js.String, localName js.St
 // the catch clause.
 func (this Document) TryGetElementsByTagNameNS(namespace js.String, localName js.String) (ret HTMLCollection, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentGetElementsByTagNameNS(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		namespace.Ref(),
 		localName.Ref(),
 	)
@@ -1954,26 +1962,25 @@ func (this Document) TryGetElementsByTagNameNS(namespace js.String, localName js
 	return
 }
 
-// HasGetElementsByClassName returns true if the method "Document.getElementsByClassName" exists.
-func (this Document) HasGetElementsByClassName() bool {
-	return js.True == bindings.HasDocumentGetElementsByClassName(
-		this.Ref(),
+// HasFuncGetElementsByClassName returns true if the method "Document.getElementsByClassName" exists.
+func (this Document) HasFuncGetElementsByClassName() bool {
+	return js.True == bindings.HasFuncDocumentGetElementsByClassName(
+		this.ref,
 	)
 }
 
-// GetElementsByClassNameFunc returns the method "Document.getElementsByClassName".
-func (this Document) GetElementsByClassNameFunc() (fn js.Func[func(classNames js.String) HTMLCollection]) {
-	return fn.FromRef(
-		bindings.DocumentGetElementsByClassNameFunc(
-			this.Ref(),
-		),
+// FuncGetElementsByClassName returns the method "Document.getElementsByClassName".
+func (this Document) FuncGetElementsByClassName() (fn js.Func[func(classNames js.String) HTMLCollection]) {
+	bindings.FuncDocumentGetElementsByClassName(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetElementsByClassName calls the method "Document.getElementsByClassName".
 func (this Document) GetElementsByClassName(classNames js.String) (ret HTMLCollection) {
 	bindings.CallDocumentGetElementsByClassName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		classNames.Ref(),
 	)
 
@@ -1985,33 +1992,32 @@ func (this Document) GetElementsByClassName(classNames js.String) (ret HTMLColle
 // the catch clause.
 func (this Document) TryGetElementsByClassName(classNames js.String) (ret HTMLCollection, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentGetElementsByClassName(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		classNames.Ref(),
 	)
 
 	return
 }
 
-// HasCreateElement returns true if the method "Document.createElement" exists.
-func (this Document) HasCreateElement() bool {
-	return js.True == bindings.HasDocumentCreateElement(
-		this.Ref(),
+// HasFuncCreateElement returns true if the method "Document.createElement" exists.
+func (this Document) HasFuncCreateElement() bool {
+	return js.True == bindings.HasFuncDocumentCreateElement(
+		this.ref,
 	)
 }
 
-// CreateElementFunc returns the method "Document.createElement".
-func (this Document) CreateElementFunc() (fn js.Func[func(localName js.String, options OneOf_String_ElementCreationOptions) Element]) {
-	return fn.FromRef(
-		bindings.DocumentCreateElementFunc(
-			this.Ref(),
-		),
+// FuncCreateElement returns the method "Document.createElement".
+func (this Document) FuncCreateElement() (fn js.Func[func(localName js.String, options OneOf_String_ElementCreationOptions) Element]) {
+	bindings.FuncDocumentCreateElement(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateElement calls the method "Document.createElement".
 func (this Document) CreateElement(localName js.String, options OneOf_String_ElementCreationOptions) (ret Element) {
 	bindings.CallDocumentCreateElement(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		localName.Ref(),
 		options.Ref(),
 	)
@@ -2024,7 +2030,7 @@ func (this Document) CreateElement(localName js.String, options OneOf_String_Ele
 // the catch clause.
 func (this Document) TryCreateElement(localName js.String, options OneOf_String_ElementCreationOptions) (ret Element, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateElement(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		localName.Ref(),
 		options.Ref(),
 	)
@@ -2032,26 +2038,25 @@ func (this Document) TryCreateElement(localName js.String, options OneOf_String_
 	return
 }
 
-// HasCreateElement1 returns true if the method "Document.createElement" exists.
-func (this Document) HasCreateElement1() bool {
-	return js.True == bindings.HasDocumentCreateElement1(
-		this.Ref(),
+// HasFuncCreateElement1 returns true if the method "Document.createElement" exists.
+func (this Document) HasFuncCreateElement1() bool {
+	return js.True == bindings.HasFuncDocumentCreateElement1(
+		this.ref,
 	)
 }
 
-// CreateElement1Func returns the method "Document.createElement".
-func (this Document) CreateElement1Func() (fn js.Func[func(localName js.String) Element]) {
-	return fn.FromRef(
-		bindings.DocumentCreateElement1Func(
-			this.Ref(),
-		),
+// FuncCreateElement1 returns the method "Document.createElement".
+func (this Document) FuncCreateElement1() (fn js.Func[func(localName js.String) Element]) {
+	bindings.FuncDocumentCreateElement1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateElement1 calls the method "Document.createElement".
 func (this Document) CreateElement1(localName js.String) (ret Element) {
 	bindings.CallDocumentCreateElement1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		localName.Ref(),
 	)
 
@@ -2063,33 +2068,32 @@ func (this Document) CreateElement1(localName js.String) (ret Element) {
 // the catch clause.
 func (this Document) TryCreateElement1(localName js.String) (ret Element, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateElement1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		localName.Ref(),
 	)
 
 	return
 }
 
-// HasCreateElementNS returns true if the method "Document.createElementNS" exists.
-func (this Document) HasCreateElementNS() bool {
-	return js.True == bindings.HasDocumentCreateElementNS(
-		this.Ref(),
+// HasFuncCreateElementNS returns true if the method "Document.createElementNS" exists.
+func (this Document) HasFuncCreateElementNS() bool {
+	return js.True == bindings.HasFuncDocumentCreateElementNS(
+		this.ref,
 	)
 }
 
-// CreateElementNSFunc returns the method "Document.createElementNS".
-func (this Document) CreateElementNSFunc() (fn js.Func[func(namespace js.String, qualifiedName js.String, options OneOf_String_ElementCreationOptions) Element]) {
-	return fn.FromRef(
-		bindings.DocumentCreateElementNSFunc(
-			this.Ref(),
-		),
+// FuncCreateElementNS returns the method "Document.createElementNS".
+func (this Document) FuncCreateElementNS() (fn js.Func[func(namespace js.String, qualifiedName js.String, options OneOf_String_ElementCreationOptions) Element]) {
+	bindings.FuncDocumentCreateElementNS(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateElementNS calls the method "Document.createElementNS".
 func (this Document) CreateElementNS(namespace js.String, qualifiedName js.String, options OneOf_String_ElementCreationOptions) (ret Element) {
 	bindings.CallDocumentCreateElementNS(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		namespace.Ref(),
 		qualifiedName.Ref(),
 		options.Ref(),
@@ -2103,7 +2107,7 @@ func (this Document) CreateElementNS(namespace js.String, qualifiedName js.Strin
 // the catch clause.
 func (this Document) TryCreateElementNS(namespace js.String, qualifiedName js.String, options OneOf_String_ElementCreationOptions) (ret Element, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateElementNS(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		namespace.Ref(),
 		qualifiedName.Ref(),
 		options.Ref(),
@@ -2112,26 +2116,25 @@ func (this Document) TryCreateElementNS(namespace js.String, qualifiedName js.St
 	return
 }
 
-// HasCreateElementNS1 returns true if the method "Document.createElementNS" exists.
-func (this Document) HasCreateElementNS1() bool {
-	return js.True == bindings.HasDocumentCreateElementNS1(
-		this.Ref(),
+// HasFuncCreateElementNS1 returns true if the method "Document.createElementNS" exists.
+func (this Document) HasFuncCreateElementNS1() bool {
+	return js.True == bindings.HasFuncDocumentCreateElementNS1(
+		this.ref,
 	)
 }
 
-// CreateElementNS1Func returns the method "Document.createElementNS".
-func (this Document) CreateElementNS1Func() (fn js.Func[func(namespace js.String, qualifiedName js.String) Element]) {
-	return fn.FromRef(
-		bindings.DocumentCreateElementNS1Func(
-			this.Ref(),
-		),
+// FuncCreateElementNS1 returns the method "Document.createElementNS".
+func (this Document) FuncCreateElementNS1() (fn js.Func[func(namespace js.String, qualifiedName js.String) Element]) {
+	bindings.FuncDocumentCreateElementNS1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateElementNS1 calls the method "Document.createElementNS".
 func (this Document) CreateElementNS1(namespace js.String, qualifiedName js.String) (ret Element) {
 	bindings.CallDocumentCreateElementNS1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		namespace.Ref(),
 		qualifiedName.Ref(),
 	)
@@ -2144,7 +2147,7 @@ func (this Document) CreateElementNS1(namespace js.String, qualifiedName js.Stri
 // the catch clause.
 func (this Document) TryCreateElementNS1(namespace js.String, qualifiedName js.String) (ret Element, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateElementNS1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		namespace.Ref(),
 		qualifiedName.Ref(),
 	)
@@ -2152,26 +2155,25 @@ func (this Document) TryCreateElementNS1(namespace js.String, qualifiedName js.S
 	return
 }
 
-// HasCreateDocumentFragment returns true if the method "Document.createDocumentFragment" exists.
-func (this Document) HasCreateDocumentFragment() bool {
-	return js.True == bindings.HasDocumentCreateDocumentFragment(
-		this.Ref(),
+// HasFuncCreateDocumentFragment returns true if the method "Document.createDocumentFragment" exists.
+func (this Document) HasFuncCreateDocumentFragment() bool {
+	return js.True == bindings.HasFuncDocumentCreateDocumentFragment(
+		this.ref,
 	)
 }
 
-// CreateDocumentFragmentFunc returns the method "Document.createDocumentFragment".
-func (this Document) CreateDocumentFragmentFunc() (fn js.Func[func() DocumentFragment]) {
-	return fn.FromRef(
-		bindings.DocumentCreateDocumentFragmentFunc(
-			this.Ref(),
-		),
+// FuncCreateDocumentFragment returns the method "Document.createDocumentFragment".
+func (this Document) FuncCreateDocumentFragment() (fn js.Func[func() DocumentFragment]) {
+	bindings.FuncDocumentCreateDocumentFragment(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateDocumentFragment calls the method "Document.createDocumentFragment".
 func (this Document) CreateDocumentFragment() (ret DocumentFragment) {
 	bindings.CallDocumentCreateDocumentFragment(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2182,32 +2184,31 @@ func (this Document) CreateDocumentFragment() (ret DocumentFragment) {
 // the catch clause.
 func (this Document) TryCreateDocumentFragment() (ret DocumentFragment, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateDocumentFragment(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCreateTextNode returns true if the method "Document.createTextNode" exists.
-func (this Document) HasCreateTextNode() bool {
-	return js.True == bindings.HasDocumentCreateTextNode(
-		this.Ref(),
+// HasFuncCreateTextNode returns true if the method "Document.createTextNode" exists.
+func (this Document) HasFuncCreateTextNode() bool {
+	return js.True == bindings.HasFuncDocumentCreateTextNode(
+		this.ref,
 	)
 }
 
-// CreateTextNodeFunc returns the method "Document.createTextNode".
-func (this Document) CreateTextNodeFunc() (fn js.Func[func(data js.String) Text]) {
-	return fn.FromRef(
-		bindings.DocumentCreateTextNodeFunc(
-			this.Ref(),
-		),
+// FuncCreateTextNode returns the method "Document.createTextNode".
+func (this Document) FuncCreateTextNode() (fn js.Func[func(data js.String) Text]) {
+	bindings.FuncDocumentCreateTextNode(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateTextNode calls the method "Document.createTextNode".
 func (this Document) CreateTextNode(data js.String) (ret Text) {
 	bindings.CallDocumentCreateTextNode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		data.Ref(),
 	)
 
@@ -2219,33 +2220,32 @@ func (this Document) CreateTextNode(data js.String) (ret Text) {
 // the catch clause.
 func (this Document) TryCreateTextNode(data js.String) (ret Text, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateTextNode(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		data.Ref(),
 	)
 
 	return
 }
 
-// HasCreateCDATASection returns true if the method "Document.createCDATASection" exists.
-func (this Document) HasCreateCDATASection() bool {
-	return js.True == bindings.HasDocumentCreateCDATASection(
-		this.Ref(),
+// HasFuncCreateCDATASection returns true if the method "Document.createCDATASection" exists.
+func (this Document) HasFuncCreateCDATASection() bool {
+	return js.True == bindings.HasFuncDocumentCreateCDATASection(
+		this.ref,
 	)
 }
 
-// CreateCDATASectionFunc returns the method "Document.createCDATASection".
-func (this Document) CreateCDATASectionFunc() (fn js.Func[func(data js.String) CDATASection]) {
-	return fn.FromRef(
-		bindings.DocumentCreateCDATASectionFunc(
-			this.Ref(),
-		),
+// FuncCreateCDATASection returns the method "Document.createCDATASection".
+func (this Document) FuncCreateCDATASection() (fn js.Func[func(data js.String) CDATASection]) {
+	bindings.FuncDocumentCreateCDATASection(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateCDATASection calls the method "Document.createCDATASection".
 func (this Document) CreateCDATASection(data js.String) (ret CDATASection) {
 	bindings.CallDocumentCreateCDATASection(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		data.Ref(),
 	)
 
@@ -2257,33 +2257,32 @@ func (this Document) CreateCDATASection(data js.String) (ret CDATASection) {
 // the catch clause.
 func (this Document) TryCreateCDATASection(data js.String) (ret CDATASection, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateCDATASection(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		data.Ref(),
 	)
 
 	return
 }
 
-// HasCreateComment returns true if the method "Document.createComment" exists.
-func (this Document) HasCreateComment() bool {
-	return js.True == bindings.HasDocumentCreateComment(
-		this.Ref(),
+// HasFuncCreateComment returns true if the method "Document.createComment" exists.
+func (this Document) HasFuncCreateComment() bool {
+	return js.True == bindings.HasFuncDocumentCreateComment(
+		this.ref,
 	)
 }
 
-// CreateCommentFunc returns the method "Document.createComment".
-func (this Document) CreateCommentFunc() (fn js.Func[func(data js.String) Comment]) {
-	return fn.FromRef(
-		bindings.DocumentCreateCommentFunc(
-			this.Ref(),
-		),
+// FuncCreateComment returns the method "Document.createComment".
+func (this Document) FuncCreateComment() (fn js.Func[func(data js.String) Comment]) {
+	bindings.FuncDocumentCreateComment(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateComment calls the method "Document.createComment".
 func (this Document) CreateComment(data js.String) (ret Comment) {
 	bindings.CallDocumentCreateComment(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		data.Ref(),
 	)
 
@@ -2295,33 +2294,32 @@ func (this Document) CreateComment(data js.String) (ret Comment) {
 // the catch clause.
 func (this Document) TryCreateComment(data js.String) (ret Comment, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateComment(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		data.Ref(),
 	)
 
 	return
 }
 
-// HasCreateProcessingInstruction returns true if the method "Document.createProcessingInstruction" exists.
-func (this Document) HasCreateProcessingInstruction() bool {
-	return js.True == bindings.HasDocumentCreateProcessingInstruction(
-		this.Ref(),
+// HasFuncCreateProcessingInstruction returns true if the method "Document.createProcessingInstruction" exists.
+func (this Document) HasFuncCreateProcessingInstruction() bool {
+	return js.True == bindings.HasFuncDocumentCreateProcessingInstruction(
+		this.ref,
 	)
 }
 
-// CreateProcessingInstructionFunc returns the method "Document.createProcessingInstruction".
-func (this Document) CreateProcessingInstructionFunc() (fn js.Func[func(target js.String, data js.String) ProcessingInstruction]) {
-	return fn.FromRef(
-		bindings.DocumentCreateProcessingInstructionFunc(
-			this.Ref(),
-		),
+// FuncCreateProcessingInstruction returns the method "Document.createProcessingInstruction".
+func (this Document) FuncCreateProcessingInstruction() (fn js.Func[func(target js.String, data js.String) ProcessingInstruction]) {
+	bindings.FuncDocumentCreateProcessingInstruction(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateProcessingInstruction calls the method "Document.createProcessingInstruction".
 func (this Document) CreateProcessingInstruction(target js.String, data js.String) (ret ProcessingInstruction) {
 	bindings.CallDocumentCreateProcessingInstruction(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		target.Ref(),
 		data.Ref(),
 	)
@@ -2334,7 +2332,7 @@ func (this Document) CreateProcessingInstruction(target js.String, data js.Strin
 // the catch clause.
 func (this Document) TryCreateProcessingInstruction(target js.String, data js.String) (ret ProcessingInstruction, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateProcessingInstruction(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		target.Ref(),
 		data.Ref(),
 	)
@@ -2342,26 +2340,25 @@ func (this Document) TryCreateProcessingInstruction(target js.String, data js.St
 	return
 }
 
-// HasImportNode returns true if the method "Document.importNode" exists.
-func (this Document) HasImportNode() bool {
-	return js.True == bindings.HasDocumentImportNode(
-		this.Ref(),
+// HasFuncImportNode returns true if the method "Document.importNode" exists.
+func (this Document) HasFuncImportNode() bool {
+	return js.True == bindings.HasFuncDocumentImportNode(
+		this.ref,
 	)
 }
 
-// ImportNodeFunc returns the method "Document.importNode".
-func (this Document) ImportNodeFunc() (fn js.Func[func(node Node, deep bool) Node]) {
-	return fn.FromRef(
-		bindings.DocumentImportNodeFunc(
-			this.Ref(),
-		),
+// FuncImportNode returns the method "Document.importNode".
+func (this Document) FuncImportNode() (fn js.Func[func(node Node, deep bool) Node]) {
+	bindings.FuncDocumentImportNode(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ImportNode calls the method "Document.importNode".
 func (this Document) ImportNode(node Node, deep bool) (ret Node) {
 	bindings.CallDocumentImportNode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		node.Ref(),
 		js.Bool(bool(deep)),
 	)
@@ -2374,7 +2371,7 @@ func (this Document) ImportNode(node Node, deep bool) (ret Node) {
 // the catch clause.
 func (this Document) TryImportNode(node Node, deep bool) (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentImportNode(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		node.Ref(),
 		js.Bool(bool(deep)),
 	)
@@ -2382,26 +2379,25 @@ func (this Document) TryImportNode(node Node, deep bool) (ret Node, exception js
 	return
 }
 
-// HasImportNode1 returns true if the method "Document.importNode" exists.
-func (this Document) HasImportNode1() bool {
-	return js.True == bindings.HasDocumentImportNode1(
-		this.Ref(),
+// HasFuncImportNode1 returns true if the method "Document.importNode" exists.
+func (this Document) HasFuncImportNode1() bool {
+	return js.True == bindings.HasFuncDocumentImportNode1(
+		this.ref,
 	)
 }
 
-// ImportNode1Func returns the method "Document.importNode".
-func (this Document) ImportNode1Func() (fn js.Func[func(node Node) Node]) {
-	return fn.FromRef(
-		bindings.DocumentImportNode1Func(
-			this.Ref(),
-		),
+// FuncImportNode1 returns the method "Document.importNode".
+func (this Document) FuncImportNode1() (fn js.Func[func(node Node) Node]) {
+	bindings.FuncDocumentImportNode1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ImportNode1 calls the method "Document.importNode".
 func (this Document) ImportNode1(node Node) (ret Node) {
 	bindings.CallDocumentImportNode1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		node.Ref(),
 	)
 
@@ -2413,33 +2409,32 @@ func (this Document) ImportNode1(node Node) (ret Node) {
 // the catch clause.
 func (this Document) TryImportNode1(node Node) (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentImportNode1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		node.Ref(),
 	)
 
 	return
 }
 
-// HasAdoptNode returns true if the method "Document.adoptNode" exists.
-func (this Document) HasAdoptNode() bool {
-	return js.True == bindings.HasDocumentAdoptNode(
-		this.Ref(),
+// HasFuncAdoptNode returns true if the method "Document.adoptNode" exists.
+func (this Document) HasFuncAdoptNode() bool {
+	return js.True == bindings.HasFuncDocumentAdoptNode(
+		this.ref,
 	)
 }
 
-// AdoptNodeFunc returns the method "Document.adoptNode".
-func (this Document) AdoptNodeFunc() (fn js.Func[func(node Node) Node]) {
-	return fn.FromRef(
-		bindings.DocumentAdoptNodeFunc(
-			this.Ref(),
-		),
+// FuncAdoptNode returns the method "Document.adoptNode".
+func (this Document) FuncAdoptNode() (fn js.Func[func(node Node) Node]) {
+	bindings.FuncDocumentAdoptNode(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AdoptNode calls the method "Document.adoptNode".
 func (this Document) AdoptNode(node Node) (ret Node) {
 	bindings.CallDocumentAdoptNode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		node.Ref(),
 	)
 
@@ -2451,33 +2446,32 @@ func (this Document) AdoptNode(node Node) (ret Node) {
 // the catch clause.
 func (this Document) TryAdoptNode(node Node) (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentAdoptNode(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		node.Ref(),
 	)
 
 	return
 }
 
-// HasCreateAttribute returns true if the method "Document.createAttribute" exists.
-func (this Document) HasCreateAttribute() bool {
-	return js.True == bindings.HasDocumentCreateAttribute(
-		this.Ref(),
+// HasFuncCreateAttribute returns true if the method "Document.createAttribute" exists.
+func (this Document) HasFuncCreateAttribute() bool {
+	return js.True == bindings.HasFuncDocumentCreateAttribute(
+		this.ref,
 	)
 }
 
-// CreateAttributeFunc returns the method "Document.createAttribute".
-func (this Document) CreateAttributeFunc() (fn js.Func[func(localName js.String) Attr]) {
-	return fn.FromRef(
-		bindings.DocumentCreateAttributeFunc(
-			this.Ref(),
-		),
+// FuncCreateAttribute returns the method "Document.createAttribute".
+func (this Document) FuncCreateAttribute() (fn js.Func[func(localName js.String) Attr]) {
+	bindings.FuncDocumentCreateAttribute(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateAttribute calls the method "Document.createAttribute".
 func (this Document) CreateAttribute(localName js.String) (ret Attr) {
 	bindings.CallDocumentCreateAttribute(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		localName.Ref(),
 	)
 
@@ -2489,33 +2483,32 @@ func (this Document) CreateAttribute(localName js.String) (ret Attr) {
 // the catch clause.
 func (this Document) TryCreateAttribute(localName js.String) (ret Attr, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateAttribute(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		localName.Ref(),
 	)
 
 	return
 }
 
-// HasCreateAttributeNS returns true if the method "Document.createAttributeNS" exists.
-func (this Document) HasCreateAttributeNS() bool {
-	return js.True == bindings.HasDocumentCreateAttributeNS(
-		this.Ref(),
+// HasFuncCreateAttributeNS returns true if the method "Document.createAttributeNS" exists.
+func (this Document) HasFuncCreateAttributeNS() bool {
+	return js.True == bindings.HasFuncDocumentCreateAttributeNS(
+		this.ref,
 	)
 }
 
-// CreateAttributeNSFunc returns the method "Document.createAttributeNS".
-func (this Document) CreateAttributeNSFunc() (fn js.Func[func(namespace js.String, qualifiedName js.String) Attr]) {
-	return fn.FromRef(
-		bindings.DocumentCreateAttributeNSFunc(
-			this.Ref(),
-		),
+// FuncCreateAttributeNS returns the method "Document.createAttributeNS".
+func (this Document) FuncCreateAttributeNS() (fn js.Func[func(namespace js.String, qualifiedName js.String) Attr]) {
+	bindings.FuncDocumentCreateAttributeNS(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateAttributeNS calls the method "Document.createAttributeNS".
 func (this Document) CreateAttributeNS(namespace js.String, qualifiedName js.String) (ret Attr) {
 	bindings.CallDocumentCreateAttributeNS(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		namespace.Ref(),
 		qualifiedName.Ref(),
 	)
@@ -2528,7 +2521,7 @@ func (this Document) CreateAttributeNS(namespace js.String, qualifiedName js.Str
 // the catch clause.
 func (this Document) TryCreateAttributeNS(namespace js.String, qualifiedName js.String) (ret Attr, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateAttributeNS(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		namespace.Ref(),
 		qualifiedName.Ref(),
 	)
@@ -2536,26 +2529,25 @@ func (this Document) TryCreateAttributeNS(namespace js.String, qualifiedName js.
 	return
 }
 
-// HasCreateEvent returns true if the method "Document.createEvent" exists.
-func (this Document) HasCreateEvent() bool {
-	return js.True == bindings.HasDocumentCreateEvent(
-		this.Ref(),
+// HasFuncCreateEvent returns true if the method "Document.createEvent" exists.
+func (this Document) HasFuncCreateEvent() bool {
+	return js.True == bindings.HasFuncDocumentCreateEvent(
+		this.ref,
 	)
 }
 
-// CreateEventFunc returns the method "Document.createEvent".
-func (this Document) CreateEventFunc() (fn js.Func[func(iface js.String) Event]) {
-	return fn.FromRef(
-		bindings.DocumentCreateEventFunc(
-			this.Ref(),
-		),
+// FuncCreateEvent returns the method "Document.createEvent".
+func (this Document) FuncCreateEvent() (fn js.Func[func(iface js.String) Event]) {
+	bindings.FuncDocumentCreateEvent(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateEvent calls the method "Document.createEvent".
 func (this Document) CreateEvent(iface js.String) (ret Event) {
 	bindings.CallDocumentCreateEvent(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		iface.Ref(),
 	)
 
@@ -2567,33 +2559,32 @@ func (this Document) CreateEvent(iface js.String) (ret Event) {
 // the catch clause.
 func (this Document) TryCreateEvent(iface js.String) (ret Event, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateEvent(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		iface.Ref(),
 	)
 
 	return
 }
 
-// HasCreateRange returns true if the method "Document.createRange" exists.
-func (this Document) HasCreateRange() bool {
-	return js.True == bindings.HasDocumentCreateRange(
-		this.Ref(),
+// HasFuncCreateRange returns true if the method "Document.createRange" exists.
+func (this Document) HasFuncCreateRange() bool {
+	return js.True == bindings.HasFuncDocumentCreateRange(
+		this.ref,
 	)
 }
 
-// CreateRangeFunc returns the method "Document.createRange".
-func (this Document) CreateRangeFunc() (fn js.Func[func() Range]) {
-	return fn.FromRef(
-		bindings.DocumentCreateRangeFunc(
-			this.Ref(),
-		),
+// FuncCreateRange returns the method "Document.createRange".
+func (this Document) FuncCreateRange() (fn js.Func[func() Range]) {
+	bindings.FuncDocumentCreateRange(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateRange calls the method "Document.createRange".
 func (this Document) CreateRange() (ret Range) {
 	bindings.CallDocumentCreateRange(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2604,32 +2595,31 @@ func (this Document) CreateRange() (ret Range) {
 // the catch clause.
 func (this Document) TryCreateRange() (ret Range, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateRange(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCreateNodeIterator returns true if the method "Document.createNodeIterator" exists.
-func (this Document) HasCreateNodeIterator() bool {
-	return js.True == bindings.HasDocumentCreateNodeIterator(
-		this.Ref(),
+// HasFuncCreateNodeIterator returns true if the method "Document.createNodeIterator" exists.
+func (this Document) HasFuncCreateNodeIterator() bool {
+	return js.True == bindings.HasFuncDocumentCreateNodeIterator(
+		this.ref,
 	)
 }
 
-// CreateNodeIteratorFunc returns the method "Document.createNodeIterator".
-func (this Document) CreateNodeIteratorFunc() (fn js.Func[func(root Node, whatToShow uint32, filter js.Func[func(node Node) uint16]) NodeIterator]) {
-	return fn.FromRef(
-		bindings.DocumentCreateNodeIteratorFunc(
-			this.Ref(),
-		),
+// FuncCreateNodeIterator returns the method "Document.createNodeIterator".
+func (this Document) FuncCreateNodeIterator() (fn js.Func[func(root Node, whatToShow uint32, filter js.Func[func(node Node) uint16]) NodeIterator]) {
+	bindings.FuncDocumentCreateNodeIterator(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateNodeIterator calls the method "Document.createNodeIterator".
 func (this Document) CreateNodeIterator(root Node, whatToShow uint32, filter js.Func[func(node Node) uint16]) (ret NodeIterator) {
 	bindings.CallDocumentCreateNodeIterator(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		root.Ref(),
 		uint32(whatToShow),
 		filter.Ref(),
@@ -2643,7 +2633,7 @@ func (this Document) CreateNodeIterator(root Node, whatToShow uint32, filter js.
 // the catch clause.
 func (this Document) TryCreateNodeIterator(root Node, whatToShow uint32, filter js.Func[func(node Node) uint16]) (ret NodeIterator, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateNodeIterator(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		root.Ref(),
 		uint32(whatToShow),
 		filter.Ref(),
@@ -2652,26 +2642,25 @@ func (this Document) TryCreateNodeIterator(root Node, whatToShow uint32, filter 
 	return
 }
 
-// HasCreateNodeIterator1 returns true if the method "Document.createNodeIterator" exists.
-func (this Document) HasCreateNodeIterator1() bool {
-	return js.True == bindings.HasDocumentCreateNodeIterator1(
-		this.Ref(),
+// HasFuncCreateNodeIterator1 returns true if the method "Document.createNodeIterator" exists.
+func (this Document) HasFuncCreateNodeIterator1() bool {
+	return js.True == bindings.HasFuncDocumentCreateNodeIterator1(
+		this.ref,
 	)
 }
 
-// CreateNodeIterator1Func returns the method "Document.createNodeIterator".
-func (this Document) CreateNodeIterator1Func() (fn js.Func[func(root Node, whatToShow uint32) NodeIterator]) {
-	return fn.FromRef(
-		bindings.DocumentCreateNodeIterator1Func(
-			this.Ref(),
-		),
+// FuncCreateNodeIterator1 returns the method "Document.createNodeIterator".
+func (this Document) FuncCreateNodeIterator1() (fn js.Func[func(root Node, whatToShow uint32) NodeIterator]) {
+	bindings.FuncDocumentCreateNodeIterator1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateNodeIterator1 calls the method "Document.createNodeIterator".
 func (this Document) CreateNodeIterator1(root Node, whatToShow uint32) (ret NodeIterator) {
 	bindings.CallDocumentCreateNodeIterator1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		root.Ref(),
 		uint32(whatToShow),
 	)
@@ -2684,7 +2673,7 @@ func (this Document) CreateNodeIterator1(root Node, whatToShow uint32) (ret Node
 // the catch clause.
 func (this Document) TryCreateNodeIterator1(root Node, whatToShow uint32) (ret NodeIterator, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateNodeIterator1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		root.Ref(),
 		uint32(whatToShow),
 	)
@@ -2692,26 +2681,25 @@ func (this Document) TryCreateNodeIterator1(root Node, whatToShow uint32) (ret N
 	return
 }
 
-// HasCreateNodeIterator2 returns true if the method "Document.createNodeIterator" exists.
-func (this Document) HasCreateNodeIterator2() bool {
-	return js.True == bindings.HasDocumentCreateNodeIterator2(
-		this.Ref(),
+// HasFuncCreateNodeIterator2 returns true if the method "Document.createNodeIterator" exists.
+func (this Document) HasFuncCreateNodeIterator2() bool {
+	return js.True == bindings.HasFuncDocumentCreateNodeIterator2(
+		this.ref,
 	)
 }
 
-// CreateNodeIterator2Func returns the method "Document.createNodeIterator".
-func (this Document) CreateNodeIterator2Func() (fn js.Func[func(root Node) NodeIterator]) {
-	return fn.FromRef(
-		bindings.DocumentCreateNodeIterator2Func(
-			this.Ref(),
-		),
+// FuncCreateNodeIterator2 returns the method "Document.createNodeIterator".
+func (this Document) FuncCreateNodeIterator2() (fn js.Func[func(root Node) NodeIterator]) {
+	bindings.FuncDocumentCreateNodeIterator2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateNodeIterator2 calls the method "Document.createNodeIterator".
 func (this Document) CreateNodeIterator2(root Node) (ret NodeIterator) {
 	bindings.CallDocumentCreateNodeIterator2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		root.Ref(),
 	)
 
@@ -2723,33 +2711,32 @@ func (this Document) CreateNodeIterator2(root Node) (ret NodeIterator) {
 // the catch clause.
 func (this Document) TryCreateNodeIterator2(root Node) (ret NodeIterator, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateNodeIterator2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		root.Ref(),
 	)
 
 	return
 }
 
-// HasCreateTreeWalker returns true if the method "Document.createTreeWalker" exists.
-func (this Document) HasCreateTreeWalker() bool {
-	return js.True == bindings.HasDocumentCreateTreeWalker(
-		this.Ref(),
+// HasFuncCreateTreeWalker returns true if the method "Document.createTreeWalker" exists.
+func (this Document) HasFuncCreateTreeWalker() bool {
+	return js.True == bindings.HasFuncDocumentCreateTreeWalker(
+		this.ref,
 	)
 }
 
-// CreateTreeWalkerFunc returns the method "Document.createTreeWalker".
-func (this Document) CreateTreeWalkerFunc() (fn js.Func[func(root Node, whatToShow uint32, filter js.Func[func(node Node) uint16]) TreeWalker]) {
-	return fn.FromRef(
-		bindings.DocumentCreateTreeWalkerFunc(
-			this.Ref(),
-		),
+// FuncCreateTreeWalker returns the method "Document.createTreeWalker".
+func (this Document) FuncCreateTreeWalker() (fn js.Func[func(root Node, whatToShow uint32, filter js.Func[func(node Node) uint16]) TreeWalker]) {
+	bindings.FuncDocumentCreateTreeWalker(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateTreeWalker calls the method "Document.createTreeWalker".
 func (this Document) CreateTreeWalker(root Node, whatToShow uint32, filter js.Func[func(node Node) uint16]) (ret TreeWalker) {
 	bindings.CallDocumentCreateTreeWalker(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		root.Ref(),
 		uint32(whatToShow),
 		filter.Ref(),
@@ -2763,7 +2750,7 @@ func (this Document) CreateTreeWalker(root Node, whatToShow uint32, filter js.Fu
 // the catch clause.
 func (this Document) TryCreateTreeWalker(root Node, whatToShow uint32, filter js.Func[func(node Node) uint16]) (ret TreeWalker, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateTreeWalker(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		root.Ref(),
 		uint32(whatToShow),
 		filter.Ref(),
@@ -2772,26 +2759,25 @@ func (this Document) TryCreateTreeWalker(root Node, whatToShow uint32, filter js
 	return
 }
 
-// HasCreateTreeWalker1 returns true if the method "Document.createTreeWalker" exists.
-func (this Document) HasCreateTreeWalker1() bool {
-	return js.True == bindings.HasDocumentCreateTreeWalker1(
-		this.Ref(),
+// HasFuncCreateTreeWalker1 returns true if the method "Document.createTreeWalker" exists.
+func (this Document) HasFuncCreateTreeWalker1() bool {
+	return js.True == bindings.HasFuncDocumentCreateTreeWalker1(
+		this.ref,
 	)
 }
 
-// CreateTreeWalker1Func returns the method "Document.createTreeWalker".
-func (this Document) CreateTreeWalker1Func() (fn js.Func[func(root Node, whatToShow uint32) TreeWalker]) {
-	return fn.FromRef(
-		bindings.DocumentCreateTreeWalker1Func(
-			this.Ref(),
-		),
+// FuncCreateTreeWalker1 returns the method "Document.createTreeWalker".
+func (this Document) FuncCreateTreeWalker1() (fn js.Func[func(root Node, whatToShow uint32) TreeWalker]) {
+	bindings.FuncDocumentCreateTreeWalker1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateTreeWalker1 calls the method "Document.createTreeWalker".
 func (this Document) CreateTreeWalker1(root Node, whatToShow uint32) (ret TreeWalker) {
 	bindings.CallDocumentCreateTreeWalker1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		root.Ref(),
 		uint32(whatToShow),
 	)
@@ -2804,7 +2790,7 @@ func (this Document) CreateTreeWalker1(root Node, whatToShow uint32) (ret TreeWa
 // the catch clause.
 func (this Document) TryCreateTreeWalker1(root Node, whatToShow uint32) (ret TreeWalker, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateTreeWalker1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		root.Ref(),
 		uint32(whatToShow),
 	)
@@ -2812,26 +2798,25 @@ func (this Document) TryCreateTreeWalker1(root Node, whatToShow uint32) (ret Tre
 	return
 }
 
-// HasCreateTreeWalker2 returns true if the method "Document.createTreeWalker" exists.
-func (this Document) HasCreateTreeWalker2() bool {
-	return js.True == bindings.HasDocumentCreateTreeWalker2(
-		this.Ref(),
+// HasFuncCreateTreeWalker2 returns true if the method "Document.createTreeWalker" exists.
+func (this Document) HasFuncCreateTreeWalker2() bool {
+	return js.True == bindings.HasFuncDocumentCreateTreeWalker2(
+		this.ref,
 	)
 }
 
-// CreateTreeWalker2Func returns the method "Document.createTreeWalker".
-func (this Document) CreateTreeWalker2Func() (fn js.Func[func(root Node) TreeWalker]) {
-	return fn.FromRef(
-		bindings.DocumentCreateTreeWalker2Func(
-			this.Ref(),
-		),
+// FuncCreateTreeWalker2 returns the method "Document.createTreeWalker".
+func (this Document) FuncCreateTreeWalker2() (fn js.Func[func(root Node) TreeWalker]) {
+	bindings.FuncDocumentCreateTreeWalker2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateTreeWalker2 calls the method "Document.createTreeWalker".
 func (this Document) CreateTreeWalker2(root Node) (ret TreeWalker) {
 	bindings.CallDocumentCreateTreeWalker2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		root.Ref(),
 	)
 
@@ -2843,33 +2828,32 @@ func (this Document) CreateTreeWalker2(root Node) (ret TreeWalker) {
 // the catch clause.
 func (this Document) TryCreateTreeWalker2(root Node) (ret TreeWalker, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateTreeWalker2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		root.Ref(),
 	)
 
 	return
 }
 
-// HasStartViewTransition returns true if the method "Document.startViewTransition" exists.
-func (this Document) HasStartViewTransition() bool {
-	return js.True == bindings.HasDocumentStartViewTransition(
-		this.Ref(),
+// HasFuncStartViewTransition returns true if the method "Document.startViewTransition" exists.
+func (this Document) HasFuncStartViewTransition() bool {
+	return js.True == bindings.HasFuncDocumentStartViewTransition(
+		this.ref,
 	)
 }
 
-// StartViewTransitionFunc returns the method "Document.startViewTransition".
-func (this Document) StartViewTransitionFunc() (fn js.Func[func(updateCallback js.Func[func() js.Promise[js.Any]]) ViewTransition]) {
-	return fn.FromRef(
-		bindings.DocumentStartViewTransitionFunc(
-			this.Ref(),
-		),
+// FuncStartViewTransition returns the method "Document.startViewTransition".
+func (this Document) FuncStartViewTransition() (fn js.Func[func(updateCallback js.Func[func() js.Promise[js.Any]]) ViewTransition]) {
+	bindings.FuncDocumentStartViewTransition(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // StartViewTransition calls the method "Document.startViewTransition".
 func (this Document) StartViewTransition(updateCallback js.Func[func() js.Promise[js.Any]]) (ret ViewTransition) {
 	bindings.CallDocumentStartViewTransition(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		updateCallback.Ref(),
 	)
 
@@ -2881,33 +2865,32 @@ func (this Document) StartViewTransition(updateCallback js.Func[func() js.Promis
 // the catch clause.
 func (this Document) TryStartViewTransition(updateCallback js.Func[func() js.Promise[js.Any]]) (ret ViewTransition, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentStartViewTransition(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		updateCallback.Ref(),
 	)
 
 	return
 }
 
-// HasStartViewTransition1 returns true if the method "Document.startViewTransition" exists.
-func (this Document) HasStartViewTransition1() bool {
-	return js.True == bindings.HasDocumentStartViewTransition1(
-		this.Ref(),
+// HasFuncStartViewTransition1 returns true if the method "Document.startViewTransition" exists.
+func (this Document) HasFuncStartViewTransition1() bool {
+	return js.True == bindings.HasFuncDocumentStartViewTransition1(
+		this.ref,
 	)
 }
 
-// StartViewTransition1Func returns the method "Document.startViewTransition".
-func (this Document) StartViewTransition1Func() (fn js.Func[func() ViewTransition]) {
-	return fn.FromRef(
-		bindings.DocumentStartViewTransition1Func(
-			this.Ref(),
-		),
+// FuncStartViewTransition1 returns the method "Document.startViewTransition".
+func (this Document) FuncStartViewTransition1() (fn js.Func[func() ViewTransition]) {
+	bindings.FuncDocumentStartViewTransition1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // StartViewTransition1 calls the method "Document.startViewTransition".
 func (this Document) StartViewTransition1() (ret ViewTransition) {
 	bindings.CallDocumentStartViewTransition1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2918,32 +2901,31 @@ func (this Document) StartViewTransition1() (ret ViewTransition) {
 // the catch clause.
 func (this Document) TryStartViewTransition1() (ret ViewTransition, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentStartViewTransition1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasMeasureElement returns true if the method "Document.measureElement" exists.
-func (this Document) HasMeasureElement() bool {
-	return js.True == bindings.HasDocumentMeasureElement(
-		this.Ref(),
+// HasFuncMeasureElement returns true if the method "Document.measureElement" exists.
+func (this Document) HasFuncMeasureElement() bool {
+	return js.True == bindings.HasFuncDocumentMeasureElement(
+		this.ref,
 	)
 }
 
-// MeasureElementFunc returns the method "Document.measureElement".
-func (this Document) MeasureElementFunc() (fn js.Func[func(element Element) FontMetrics]) {
-	return fn.FromRef(
-		bindings.DocumentMeasureElementFunc(
-			this.Ref(),
-		),
+// FuncMeasureElement returns the method "Document.measureElement".
+func (this Document) FuncMeasureElement() (fn js.Func[func(element Element) FontMetrics]) {
+	bindings.FuncDocumentMeasureElement(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // MeasureElement calls the method "Document.measureElement".
 func (this Document) MeasureElement(element Element) (ret FontMetrics) {
 	bindings.CallDocumentMeasureElement(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		element.Ref(),
 	)
 
@@ -2955,33 +2937,32 @@ func (this Document) MeasureElement(element Element) (ret FontMetrics) {
 // the catch clause.
 func (this Document) TryMeasureElement(element Element) (ret FontMetrics, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentMeasureElement(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		element.Ref(),
 	)
 
 	return
 }
 
-// HasMeasureText returns true if the method "Document.measureText" exists.
-func (this Document) HasMeasureText() bool {
-	return js.True == bindings.HasDocumentMeasureText(
-		this.Ref(),
+// HasFuncMeasureText returns true if the method "Document.measureText" exists.
+func (this Document) HasFuncMeasureText() bool {
+	return js.True == bindings.HasFuncDocumentMeasureText(
+		this.ref,
 	)
 }
 
-// MeasureTextFunc returns the method "Document.measureText".
-func (this Document) MeasureTextFunc() (fn js.Func[func(text js.String, styleMap StylePropertyMapReadOnly) FontMetrics]) {
-	return fn.FromRef(
-		bindings.DocumentMeasureTextFunc(
-			this.Ref(),
-		),
+// FuncMeasureText returns the method "Document.measureText".
+func (this Document) FuncMeasureText() (fn js.Func[func(text js.String, styleMap StylePropertyMapReadOnly) FontMetrics]) {
+	bindings.FuncDocumentMeasureText(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // MeasureText calls the method "Document.measureText".
 func (this Document) MeasureText(text js.String, styleMap StylePropertyMapReadOnly) (ret FontMetrics) {
 	bindings.CallDocumentMeasureText(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		text.Ref(),
 		styleMap.Ref(),
 	)
@@ -2994,7 +2975,7 @@ func (this Document) MeasureText(text js.String, styleMap StylePropertyMapReadOn
 // the catch clause.
 func (this Document) TryMeasureText(text js.String, styleMap StylePropertyMapReadOnly) (ret FontMetrics, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentMeasureText(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		text.Ref(),
 		styleMap.Ref(),
 	)
@@ -3002,26 +2983,25 @@ func (this Document) TryMeasureText(text js.String, styleMap StylePropertyMapRea
 	return
 }
 
-// HasGetSelection returns true if the method "Document.getSelection" exists.
-func (this Document) HasGetSelection() bool {
-	return js.True == bindings.HasDocumentGetSelection(
-		this.Ref(),
+// HasFuncGetSelection returns true if the method "Document.getSelection" exists.
+func (this Document) HasFuncGetSelection() bool {
+	return js.True == bindings.HasFuncDocumentGetSelection(
+		this.ref,
 	)
 }
 
-// GetSelectionFunc returns the method "Document.getSelection".
-func (this Document) GetSelectionFunc() (fn js.Func[func() Selection]) {
-	return fn.FromRef(
-		bindings.DocumentGetSelectionFunc(
-			this.Ref(),
-		),
+// FuncGetSelection returns the method "Document.getSelection".
+func (this Document) FuncGetSelection() (fn js.Func[func() Selection]) {
+	bindings.FuncDocumentGetSelection(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetSelection calls the method "Document.getSelection".
 func (this Document) GetSelection() (ret Selection) {
 	bindings.CallDocumentGetSelection(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3032,32 +3012,31 @@ func (this Document) GetSelection() (ret Selection) {
 // the catch clause.
 func (this Document) TryGetSelection() (ret Selection, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentGetSelection(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasExitPointerLock returns true if the method "Document.exitPointerLock" exists.
-func (this Document) HasExitPointerLock() bool {
-	return js.True == bindings.HasDocumentExitPointerLock(
-		this.Ref(),
+// HasFuncExitPointerLock returns true if the method "Document.exitPointerLock" exists.
+func (this Document) HasFuncExitPointerLock() bool {
+	return js.True == bindings.HasFuncDocumentExitPointerLock(
+		this.ref,
 	)
 }
 
-// ExitPointerLockFunc returns the method "Document.exitPointerLock".
-func (this Document) ExitPointerLockFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.DocumentExitPointerLockFunc(
-			this.Ref(),
-		),
+// FuncExitPointerLock returns the method "Document.exitPointerLock".
+func (this Document) FuncExitPointerLock() (fn js.Func[func()]) {
+	bindings.FuncDocumentExitPointerLock(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ExitPointerLock calls the method "Document.exitPointerLock".
 func (this Document) ExitPointerLock() (ret js.Void) {
 	bindings.CallDocumentExitPointerLock(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3068,32 +3047,31 @@ func (this Document) ExitPointerLock() (ret js.Void) {
 // the catch clause.
 func (this Document) TryExitPointerLock() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentExitPointerLock(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasExitFullscreen returns true if the method "Document.exitFullscreen" exists.
-func (this Document) HasExitFullscreen() bool {
-	return js.True == bindings.HasDocumentExitFullscreen(
-		this.Ref(),
+// HasFuncExitFullscreen returns true if the method "Document.exitFullscreen" exists.
+func (this Document) HasFuncExitFullscreen() bool {
+	return js.True == bindings.HasFuncDocumentExitFullscreen(
+		this.ref,
 	)
 }
 
-// ExitFullscreenFunc returns the method "Document.exitFullscreen".
-func (this Document) ExitFullscreenFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.DocumentExitFullscreenFunc(
-			this.Ref(),
-		),
+// FuncExitFullscreen returns the method "Document.exitFullscreen".
+func (this Document) FuncExitFullscreen() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncDocumentExitFullscreen(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ExitFullscreen calls the method "Document.exitFullscreen".
 func (this Document) ExitFullscreen() (ret js.Promise[js.Void]) {
 	bindings.CallDocumentExitFullscreen(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3104,32 +3082,31 @@ func (this Document) ExitFullscreen() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this Document) TryExitFullscreen() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentExitFullscreen(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasHasStorageAccess returns true if the method "Document.hasStorageAccess" exists.
-func (this Document) HasHasStorageAccess() bool {
-	return js.True == bindings.HasDocumentHasStorageAccess(
-		this.Ref(),
+// HasFuncHasStorageAccess returns true if the method "Document.hasStorageAccess" exists.
+func (this Document) HasFuncHasStorageAccess() bool {
+	return js.True == bindings.HasFuncDocumentHasStorageAccess(
+		this.ref,
 	)
 }
 
-// HasStorageAccessFunc returns the method "Document.hasStorageAccess".
-func (this Document) HasStorageAccessFunc() (fn js.Func[func() js.Promise[js.Boolean]]) {
-	return fn.FromRef(
-		bindings.DocumentHasStorageAccessFunc(
-			this.Ref(),
-		),
+// FuncHasStorageAccess returns the method "Document.hasStorageAccess".
+func (this Document) FuncHasStorageAccess() (fn js.Func[func() js.Promise[js.Boolean]]) {
+	bindings.FuncDocumentHasStorageAccess(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // HasStorageAccess calls the method "Document.hasStorageAccess".
 func (this Document) HasStorageAccess() (ret js.Promise[js.Boolean]) {
 	bindings.CallDocumentHasStorageAccess(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3140,32 +3117,31 @@ func (this Document) HasStorageAccess() (ret js.Promise[js.Boolean]) {
 // the catch clause.
 func (this Document) TryHasStorageAccess() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentHasStorageAccess(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasRequestStorageAccess returns true if the method "Document.requestStorageAccess" exists.
-func (this Document) HasRequestStorageAccess() bool {
-	return js.True == bindings.HasDocumentRequestStorageAccess(
-		this.Ref(),
+// HasFuncRequestStorageAccess returns true if the method "Document.requestStorageAccess" exists.
+func (this Document) HasFuncRequestStorageAccess() bool {
+	return js.True == bindings.HasFuncDocumentRequestStorageAccess(
+		this.ref,
 	)
 }
 
-// RequestStorageAccessFunc returns the method "Document.requestStorageAccess".
-func (this Document) RequestStorageAccessFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.DocumentRequestStorageAccessFunc(
-			this.Ref(),
-		),
+// FuncRequestStorageAccess returns the method "Document.requestStorageAccess".
+func (this Document) FuncRequestStorageAccess() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncDocumentRequestStorageAccess(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RequestStorageAccess calls the method "Document.requestStorageAccess".
 func (this Document) RequestStorageAccess() (ret js.Promise[js.Void]) {
 	bindings.CallDocumentRequestStorageAccess(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3176,32 +3152,31 @@ func (this Document) RequestStorageAccess() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this Document) TryRequestStorageAccess() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentRequestStorageAccess(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasExitPictureInPicture returns true if the method "Document.exitPictureInPicture" exists.
-func (this Document) HasExitPictureInPicture() bool {
-	return js.True == bindings.HasDocumentExitPictureInPicture(
-		this.Ref(),
+// HasFuncExitPictureInPicture returns true if the method "Document.exitPictureInPicture" exists.
+func (this Document) HasFuncExitPictureInPicture() bool {
+	return js.True == bindings.HasFuncDocumentExitPictureInPicture(
+		this.ref,
 	)
 }
 
-// ExitPictureInPictureFunc returns the method "Document.exitPictureInPicture".
-func (this Document) ExitPictureInPictureFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.DocumentExitPictureInPictureFunc(
-			this.Ref(),
-		),
+// FuncExitPictureInPicture returns the method "Document.exitPictureInPicture".
+func (this Document) FuncExitPictureInPicture() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncDocumentExitPictureInPicture(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ExitPictureInPicture calls the method "Document.exitPictureInPicture".
 func (this Document) ExitPictureInPicture() (ret js.Promise[js.Void]) {
 	bindings.CallDocumentExitPictureInPicture(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3212,32 +3187,31 @@ func (this Document) ExitPictureInPicture() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this Document) TryExitPictureInPicture() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentExitPictureInPicture(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasHasPrivateTokens returns true if the method "Document.hasPrivateTokens" exists.
-func (this Document) HasHasPrivateTokens() bool {
-	return js.True == bindings.HasDocumentHasPrivateTokens(
-		this.Ref(),
+// HasFuncHasPrivateTokens returns true if the method "Document.hasPrivateTokens" exists.
+func (this Document) HasFuncHasPrivateTokens() bool {
+	return js.True == bindings.HasFuncDocumentHasPrivateTokens(
+		this.ref,
 	)
 }
 
-// HasPrivateTokensFunc returns the method "Document.hasPrivateTokens".
-func (this Document) HasPrivateTokensFunc() (fn js.Func[func(issuer js.String) js.Promise[js.Boolean]]) {
-	return fn.FromRef(
-		bindings.DocumentHasPrivateTokensFunc(
-			this.Ref(),
-		),
+// FuncHasPrivateTokens returns the method "Document.hasPrivateTokens".
+func (this Document) FuncHasPrivateTokens() (fn js.Func[func(issuer js.String) js.Promise[js.Boolean]]) {
+	bindings.FuncDocumentHasPrivateTokens(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // HasPrivateTokens calls the method "Document.hasPrivateTokens".
 func (this Document) HasPrivateTokens(issuer js.String) (ret js.Promise[js.Boolean]) {
 	bindings.CallDocumentHasPrivateTokens(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		issuer.Ref(),
 	)
 
@@ -3249,33 +3223,32 @@ func (this Document) HasPrivateTokens(issuer js.String) (ret js.Promise[js.Boole
 // the catch clause.
 func (this Document) TryHasPrivateTokens(issuer js.String) (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentHasPrivateTokens(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		issuer.Ref(),
 	)
 
 	return
 }
 
-// HasHasRedemptionRecord returns true if the method "Document.hasRedemptionRecord" exists.
-func (this Document) HasHasRedemptionRecord() bool {
-	return js.True == bindings.HasDocumentHasRedemptionRecord(
-		this.Ref(),
+// HasFuncHasRedemptionRecord returns true if the method "Document.hasRedemptionRecord" exists.
+func (this Document) HasFuncHasRedemptionRecord() bool {
+	return js.True == bindings.HasFuncDocumentHasRedemptionRecord(
+		this.ref,
 	)
 }
 
-// HasRedemptionRecordFunc returns the method "Document.hasRedemptionRecord".
-func (this Document) HasRedemptionRecordFunc() (fn js.Func[func(issuer js.String) js.Promise[js.Boolean]]) {
-	return fn.FromRef(
-		bindings.DocumentHasRedemptionRecordFunc(
-			this.Ref(),
-		),
+// FuncHasRedemptionRecord returns the method "Document.hasRedemptionRecord".
+func (this Document) FuncHasRedemptionRecord() (fn js.Func[func(issuer js.String) js.Promise[js.Boolean]]) {
+	bindings.FuncDocumentHasRedemptionRecord(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // HasRedemptionRecord calls the method "Document.hasRedemptionRecord".
 func (this Document) HasRedemptionRecord(issuer js.String) (ret js.Promise[js.Boolean]) {
 	bindings.CallDocumentHasRedemptionRecord(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		issuer.Ref(),
 	)
 
@@ -3287,33 +3260,32 @@ func (this Document) HasRedemptionRecord(issuer js.String) (ret js.Promise[js.Bo
 // the catch clause.
 func (this Document) TryHasRedemptionRecord(issuer js.String) (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentHasRedemptionRecord(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		issuer.Ref(),
 	)
 
 	return
 }
 
-// HasElementFromPoint returns true if the method "Document.elementFromPoint" exists.
-func (this Document) HasElementFromPoint() bool {
-	return js.True == bindings.HasDocumentElementFromPoint(
-		this.Ref(),
+// HasFuncElementFromPoint returns true if the method "Document.elementFromPoint" exists.
+func (this Document) HasFuncElementFromPoint() bool {
+	return js.True == bindings.HasFuncDocumentElementFromPoint(
+		this.ref,
 	)
 }
 
-// ElementFromPointFunc returns the method "Document.elementFromPoint".
-func (this Document) ElementFromPointFunc() (fn js.Func[func(x float64, y float64) Element]) {
-	return fn.FromRef(
-		bindings.DocumentElementFromPointFunc(
-			this.Ref(),
-		),
+// FuncElementFromPoint returns the method "Document.elementFromPoint".
+func (this Document) FuncElementFromPoint() (fn js.Func[func(x float64, y float64) Element]) {
+	bindings.FuncDocumentElementFromPoint(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ElementFromPoint calls the method "Document.elementFromPoint".
 func (this Document) ElementFromPoint(x float64, y float64) (ret Element) {
 	bindings.CallDocumentElementFromPoint(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(x),
 		float64(y),
 	)
@@ -3326,7 +3298,7 @@ func (this Document) ElementFromPoint(x float64, y float64) (ret Element) {
 // the catch clause.
 func (this Document) TryElementFromPoint(x float64, y float64) (ret Element, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentElementFromPoint(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(x),
 		float64(y),
 	)
@@ -3334,26 +3306,25 @@ func (this Document) TryElementFromPoint(x float64, y float64) (ret Element, exc
 	return
 }
 
-// HasElementsFromPoint returns true if the method "Document.elementsFromPoint" exists.
-func (this Document) HasElementsFromPoint() bool {
-	return js.True == bindings.HasDocumentElementsFromPoint(
-		this.Ref(),
+// HasFuncElementsFromPoint returns true if the method "Document.elementsFromPoint" exists.
+func (this Document) HasFuncElementsFromPoint() bool {
+	return js.True == bindings.HasFuncDocumentElementsFromPoint(
+		this.ref,
 	)
 }
 
-// ElementsFromPointFunc returns the method "Document.elementsFromPoint".
-func (this Document) ElementsFromPointFunc() (fn js.Func[func(x float64, y float64) js.Array[Element]]) {
-	return fn.FromRef(
-		bindings.DocumentElementsFromPointFunc(
-			this.Ref(),
-		),
+// FuncElementsFromPoint returns the method "Document.elementsFromPoint".
+func (this Document) FuncElementsFromPoint() (fn js.Func[func(x float64, y float64) js.Array[Element]]) {
+	bindings.FuncDocumentElementsFromPoint(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ElementsFromPoint calls the method "Document.elementsFromPoint".
 func (this Document) ElementsFromPoint(x float64, y float64) (ret js.Array[Element]) {
 	bindings.CallDocumentElementsFromPoint(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(x),
 		float64(y),
 	)
@@ -3366,7 +3337,7 @@ func (this Document) ElementsFromPoint(x float64, y float64) (ret js.Array[Eleme
 // the catch clause.
 func (this Document) TryElementsFromPoint(x float64, y float64) (ret js.Array[Element], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentElementsFromPoint(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(x),
 		float64(y),
 	)
@@ -3374,26 +3345,25 @@ func (this Document) TryElementsFromPoint(x float64, y float64) (ret js.Array[El
 	return
 }
 
-// HasCaretPositionFromPoint returns true if the method "Document.caretPositionFromPoint" exists.
-func (this Document) HasCaretPositionFromPoint() bool {
-	return js.True == bindings.HasDocumentCaretPositionFromPoint(
-		this.Ref(),
+// HasFuncCaretPositionFromPoint returns true if the method "Document.caretPositionFromPoint" exists.
+func (this Document) HasFuncCaretPositionFromPoint() bool {
+	return js.True == bindings.HasFuncDocumentCaretPositionFromPoint(
+		this.ref,
 	)
 }
 
-// CaretPositionFromPointFunc returns the method "Document.caretPositionFromPoint".
-func (this Document) CaretPositionFromPointFunc() (fn js.Func[func(x float64, y float64) CaretPosition]) {
-	return fn.FromRef(
-		bindings.DocumentCaretPositionFromPointFunc(
-			this.Ref(),
-		),
+// FuncCaretPositionFromPoint returns the method "Document.caretPositionFromPoint".
+func (this Document) FuncCaretPositionFromPoint() (fn js.Func[func(x float64, y float64) CaretPosition]) {
+	bindings.FuncDocumentCaretPositionFromPoint(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CaretPositionFromPoint calls the method "Document.caretPositionFromPoint".
 func (this Document) CaretPositionFromPoint(x float64, y float64) (ret CaretPosition) {
 	bindings.CallDocumentCaretPositionFromPoint(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(x),
 		float64(y),
 	)
@@ -3406,7 +3376,7 @@ func (this Document) CaretPositionFromPoint(x float64, y float64) (ret CaretPosi
 // the catch clause.
 func (this Document) TryCaretPositionFromPoint(x float64, y float64) (ret CaretPosition, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCaretPositionFromPoint(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(x),
 		float64(y),
 	)
@@ -3414,26 +3384,25 @@ func (this Document) TryCaretPositionFromPoint(x float64, y float64) (ret CaretP
 	return
 }
 
-// HasClear returns true if the method "Document.clear" exists.
-func (this Document) HasClear() bool {
-	return js.True == bindings.HasDocumentClear(
-		this.Ref(),
+// HasFuncClear returns true if the method "Document.clear" exists.
+func (this Document) HasFuncClear() bool {
+	return js.True == bindings.HasFuncDocumentClear(
+		this.ref,
 	)
 }
 
-// ClearFunc returns the method "Document.clear".
-func (this Document) ClearFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.DocumentClearFunc(
-			this.Ref(),
-		),
+// FuncClear returns the method "Document.clear".
+func (this Document) FuncClear() (fn js.Func[func()]) {
+	bindings.FuncDocumentClear(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Clear calls the method "Document.clear".
 func (this Document) Clear() (ret js.Void) {
 	bindings.CallDocumentClear(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3444,32 +3413,31 @@ func (this Document) Clear() (ret js.Void) {
 // the catch clause.
 func (this Document) TryClear() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentClear(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCaptureEvents returns true if the method "Document.captureEvents" exists.
-func (this Document) HasCaptureEvents() bool {
-	return js.True == bindings.HasDocumentCaptureEvents(
-		this.Ref(),
+// HasFuncCaptureEvents returns true if the method "Document.captureEvents" exists.
+func (this Document) HasFuncCaptureEvents() bool {
+	return js.True == bindings.HasFuncDocumentCaptureEvents(
+		this.ref,
 	)
 }
 
-// CaptureEventsFunc returns the method "Document.captureEvents".
-func (this Document) CaptureEventsFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.DocumentCaptureEventsFunc(
-			this.Ref(),
-		),
+// FuncCaptureEvents returns the method "Document.captureEvents".
+func (this Document) FuncCaptureEvents() (fn js.Func[func()]) {
+	bindings.FuncDocumentCaptureEvents(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CaptureEvents calls the method "Document.captureEvents".
 func (this Document) CaptureEvents() (ret js.Void) {
 	bindings.CallDocumentCaptureEvents(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3480,32 +3448,31 @@ func (this Document) CaptureEvents() (ret js.Void) {
 // the catch clause.
 func (this Document) TryCaptureEvents() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCaptureEvents(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasReleaseEvents returns true if the method "Document.releaseEvents" exists.
-func (this Document) HasReleaseEvents() bool {
-	return js.True == bindings.HasDocumentReleaseEvents(
-		this.Ref(),
+// HasFuncReleaseEvents returns true if the method "Document.releaseEvents" exists.
+func (this Document) HasFuncReleaseEvents() bool {
+	return js.True == bindings.HasFuncDocumentReleaseEvents(
+		this.ref,
 	)
 }
 
-// ReleaseEventsFunc returns the method "Document.releaseEvents".
-func (this Document) ReleaseEventsFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.DocumentReleaseEventsFunc(
-			this.Ref(),
-		),
+// FuncReleaseEvents returns the method "Document.releaseEvents".
+func (this Document) FuncReleaseEvents() (fn js.Func[func()]) {
+	bindings.FuncDocumentReleaseEvents(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReleaseEvents calls the method "Document.releaseEvents".
 func (this Document) ReleaseEvents() (ret js.Void) {
 	bindings.CallDocumentReleaseEvents(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3516,32 +3483,31 @@ func (this Document) ReleaseEvents() (ret js.Void) {
 // the catch clause.
 func (this Document) TryReleaseEvents() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentReleaseEvents(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasRequestStorageAccessFor returns true if the method "Document.requestStorageAccessFor" exists.
-func (this Document) HasRequestStorageAccessFor() bool {
-	return js.True == bindings.HasDocumentRequestStorageAccessFor(
-		this.Ref(),
+// HasFuncRequestStorageAccessFor returns true if the method "Document.requestStorageAccessFor" exists.
+func (this Document) HasFuncRequestStorageAccessFor() bool {
+	return js.True == bindings.HasFuncDocumentRequestStorageAccessFor(
+		this.ref,
 	)
 }
 
-// RequestStorageAccessForFunc returns the method "Document.requestStorageAccessFor".
-func (this Document) RequestStorageAccessForFunc() (fn js.Func[func(requestedOrigin js.String) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.DocumentRequestStorageAccessForFunc(
-			this.Ref(),
-		),
+// FuncRequestStorageAccessFor returns the method "Document.requestStorageAccessFor".
+func (this Document) FuncRequestStorageAccessFor() (fn js.Func[func(requestedOrigin js.String) js.Promise[js.Void]]) {
+	bindings.FuncDocumentRequestStorageAccessFor(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RequestStorageAccessFor calls the method "Document.requestStorageAccessFor".
 func (this Document) RequestStorageAccessFor(requestedOrigin js.String) (ret js.Promise[js.Void]) {
 	bindings.CallDocumentRequestStorageAccessFor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		requestedOrigin.Ref(),
 	)
 
@@ -3553,33 +3519,32 @@ func (this Document) RequestStorageAccessFor(requestedOrigin js.String) (ret js.
 // the catch clause.
 func (this Document) TryRequestStorageAccessFor(requestedOrigin js.String) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentRequestStorageAccessFor(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		requestedOrigin.Ref(),
 	)
 
 	return
 }
 
-// HasGet returns true if the method "Document." exists.
-func (this Document) HasGet() bool {
-	return js.True == bindings.HasDocumentGet(
-		this.Ref(),
+// HasFuncGet returns true if the method "Document." exists.
+func (this Document) HasFuncGet() bool {
+	return js.True == bindings.HasFuncDocumentGet(
+		this.ref,
 	)
 }
 
-// GetFunc returns the method "Document.".
-func (this Document) GetFunc() (fn js.Func[func(name js.String) js.Object]) {
-	return fn.FromRef(
-		bindings.DocumentGetFunc(
-			this.Ref(),
-		),
+// FuncGet returns the method "Document.".
+func (this Document) FuncGet() (fn js.Func[func(name js.String) js.Object]) {
+	bindings.FuncDocumentGet(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Get calls the method "Document.".
 func (this Document) Get(name js.String) (ret js.Object) {
 	bindings.CallDocumentGet(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 	)
 
@@ -3591,33 +3556,32 @@ func (this Document) Get(name js.String) (ret js.Object) {
 // the catch clause.
 func (this Document) TryGet(name js.String) (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentGet(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 	)
 
 	return
 }
 
-// HasGetElementsByName returns true if the method "Document.getElementsByName" exists.
-func (this Document) HasGetElementsByName() bool {
-	return js.True == bindings.HasDocumentGetElementsByName(
-		this.Ref(),
+// HasFuncGetElementsByName returns true if the method "Document.getElementsByName" exists.
+func (this Document) HasFuncGetElementsByName() bool {
+	return js.True == bindings.HasFuncDocumentGetElementsByName(
+		this.ref,
 	)
 }
 
-// GetElementsByNameFunc returns the method "Document.getElementsByName".
-func (this Document) GetElementsByNameFunc() (fn js.Func[func(elementName js.String) NodeList]) {
-	return fn.FromRef(
-		bindings.DocumentGetElementsByNameFunc(
-			this.Ref(),
-		),
+// FuncGetElementsByName returns the method "Document.getElementsByName".
+func (this Document) FuncGetElementsByName() (fn js.Func[func(elementName js.String) NodeList]) {
+	bindings.FuncDocumentGetElementsByName(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetElementsByName calls the method "Document.getElementsByName".
 func (this Document) GetElementsByName(elementName js.String) (ret NodeList) {
 	bindings.CallDocumentGetElementsByName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		elementName.Ref(),
 	)
 
@@ -3629,33 +3593,32 @@ func (this Document) GetElementsByName(elementName js.String) (ret NodeList) {
 // the catch clause.
 func (this Document) TryGetElementsByName(elementName js.String) (ret NodeList, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentGetElementsByName(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		elementName.Ref(),
 	)
 
 	return
 }
 
-// HasOpen returns true if the method "Document.open" exists.
-func (this Document) HasOpen() bool {
-	return js.True == bindings.HasDocumentOpen(
-		this.Ref(),
+// HasFuncOpen returns true if the method "Document.open" exists.
+func (this Document) HasFuncOpen() bool {
+	return js.True == bindings.HasFuncDocumentOpen(
+		this.ref,
 	)
 }
 
-// OpenFunc returns the method "Document.open".
-func (this Document) OpenFunc() (fn js.Func[func(unused1 js.String, unused2 js.String) Document]) {
-	return fn.FromRef(
-		bindings.DocumentOpenFunc(
-			this.Ref(),
-		),
+// FuncOpen returns the method "Document.open".
+func (this Document) FuncOpen() (fn js.Func[func(unused1 js.String, unused2 js.String) Document]) {
+	bindings.FuncDocumentOpen(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Open calls the method "Document.open".
 func (this Document) Open(unused1 js.String, unused2 js.String) (ret Document) {
 	bindings.CallDocumentOpen(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		unused1.Ref(),
 		unused2.Ref(),
 	)
@@ -3668,7 +3631,7 @@ func (this Document) Open(unused1 js.String, unused2 js.String) (ret Document) {
 // the catch clause.
 func (this Document) TryOpen(unused1 js.String, unused2 js.String) (ret Document, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentOpen(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		unused1.Ref(),
 		unused2.Ref(),
 	)
@@ -3676,26 +3639,25 @@ func (this Document) TryOpen(unused1 js.String, unused2 js.String) (ret Document
 	return
 }
 
-// HasOpen1 returns true if the method "Document.open" exists.
-func (this Document) HasOpen1() bool {
-	return js.True == bindings.HasDocumentOpen1(
-		this.Ref(),
+// HasFuncOpen1 returns true if the method "Document.open" exists.
+func (this Document) HasFuncOpen1() bool {
+	return js.True == bindings.HasFuncDocumentOpen1(
+		this.ref,
 	)
 }
 
-// Open1Func returns the method "Document.open".
-func (this Document) Open1Func() (fn js.Func[func(unused1 js.String) Document]) {
-	return fn.FromRef(
-		bindings.DocumentOpen1Func(
-			this.Ref(),
-		),
+// FuncOpen1 returns the method "Document.open".
+func (this Document) FuncOpen1() (fn js.Func[func(unused1 js.String) Document]) {
+	bindings.FuncDocumentOpen1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Open1 calls the method "Document.open".
 func (this Document) Open1(unused1 js.String) (ret Document) {
 	bindings.CallDocumentOpen1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		unused1.Ref(),
 	)
 
@@ -3707,33 +3669,32 @@ func (this Document) Open1(unused1 js.String) (ret Document) {
 // the catch clause.
 func (this Document) TryOpen1(unused1 js.String) (ret Document, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentOpen1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		unused1.Ref(),
 	)
 
 	return
 }
 
-// HasOpen2 returns true if the method "Document.open" exists.
-func (this Document) HasOpen2() bool {
-	return js.True == bindings.HasDocumentOpen2(
-		this.Ref(),
+// HasFuncOpen2 returns true if the method "Document.open" exists.
+func (this Document) HasFuncOpen2() bool {
+	return js.True == bindings.HasFuncDocumentOpen2(
+		this.ref,
 	)
 }
 
-// Open2Func returns the method "Document.open".
-func (this Document) Open2Func() (fn js.Func[func() Document]) {
-	return fn.FromRef(
-		bindings.DocumentOpen2Func(
-			this.Ref(),
-		),
+// FuncOpen2 returns the method "Document.open".
+func (this Document) FuncOpen2() (fn js.Func[func() Document]) {
+	bindings.FuncDocumentOpen2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Open2 calls the method "Document.open".
 func (this Document) Open2() (ret Document) {
 	bindings.CallDocumentOpen2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3744,32 +3705,31 @@ func (this Document) Open2() (ret Document) {
 // the catch clause.
 func (this Document) TryOpen2() (ret Document, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentOpen2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasOpen3 returns true if the method "Document.open" exists.
-func (this Document) HasOpen3() bool {
-	return js.True == bindings.HasDocumentOpen3(
-		this.Ref(),
+// HasFuncOpen3 returns true if the method "Document.open" exists.
+func (this Document) HasFuncOpen3() bool {
+	return js.True == bindings.HasFuncDocumentOpen3(
+		this.ref,
 	)
 }
 
-// Open3Func returns the method "Document.open".
-func (this Document) Open3Func() (fn js.Func[func(url js.String, name js.String, features js.String) js.Object]) {
-	return fn.FromRef(
-		bindings.DocumentOpen3Func(
-			this.Ref(),
-		),
+// FuncOpen3 returns the method "Document.open".
+func (this Document) FuncOpen3() (fn js.Func[func(url js.String, name js.String, features js.String) js.Object]) {
+	bindings.FuncDocumentOpen3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Open3 calls the method "Document.open".
 func (this Document) Open3(url js.String, name js.String, features js.String) (ret js.Object) {
 	bindings.CallDocumentOpen3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		url.Ref(),
 		name.Ref(),
 		features.Ref(),
@@ -3783,7 +3743,7 @@ func (this Document) Open3(url js.String, name js.String, features js.String) (r
 // the catch clause.
 func (this Document) TryOpen3(url js.String, name js.String, features js.String) (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentOpen3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		url.Ref(),
 		name.Ref(),
 		features.Ref(),
@@ -3792,26 +3752,25 @@ func (this Document) TryOpen3(url js.String, name js.String, features js.String)
 	return
 }
 
-// HasClose returns true if the method "Document.close" exists.
-func (this Document) HasClose() bool {
-	return js.True == bindings.HasDocumentClose(
-		this.Ref(),
+// HasFuncClose returns true if the method "Document.close" exists.
+func (this Document) HasFuncClose() bool {
+	return js.True == bindings.HasFuncDocumentClose(
+		this.ref,
 	)
 }
 
-// CloseFunc returns the method "Document.close".
-func (this Document) CloseFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.DocumentCloseFunc(
-			this.Ref(),
-		),
+// FuncClose returns the method "Document.close".
+func (this Document) FuncClose() (fn js.Func[func()]) {
+	bindings.FuncDocumentClose(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Close calls the method "Document.close".
 func (this Document) Close() (ret js.Void) {
 	bindings.CallDocumentClose(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3822,32 +3781,31 @@ func (this Document) Close() (ret js.Void) {
 // the catch clause.
 func (this Document) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentClose(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasWrite returns true if the method "Document.write" exists.
-func (this Document) HasWrite() bool {
-	return js.True == bindings.HasDocumentWrite(
-		this.Ref(),
+// HasFuncWrite returns true if the method "Document.write" exists.
+func (this Document) HasFuncWrite() bool {
+	return js.True == bindings.HasFuncDocumentWrite(
+		this.ref,
 	)
 }
 
-// WriteFunc returns the method "Document.write".
-func (this Document) WriteFunc() (fn js.Func[func(text ...js.String)]) {
-	return fn.FromRef(
-		bindings.DocumentWriteFunc(
-			this.Ref(),
-		),
+// FuncWrite returns the method "Document.write".
+func (this Document) FuncWrite() (fn js.Func[func(text ...js.String)]) {
+	bindings.FuncDocumentWrite(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Write calls the method "Document.write".
 func (this Document) Write(text ...js.String) (ret js.Void) {
 	bindings.CallDocumentWrite(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.SliceData(text),
 		js.SizeU(len(text)),
 	)
@@ -3860,7 +3818,7 @@ func (this Document) Write(text ...js.String) (ret js.Void) {
 // the catch clause.
 func (this Document) TryWrite(text ...js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentWrite(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.SliceData(text),
 		js.SizeU(len(text)),
 	)
@@ -3868,26 +3826,25 @@ func (this Document) TryWrite(text ...js.String) (ret js.Void, exception js.Any,
 	return
 }
 
-// HasWriteln returns true if the method "Document.writeln" exists.
-func (this Document) HasWriteln() bool {
-	return js.True == bindings.HasDocumentWriteln(
-		this.Ref(),
+// HasFuncWriteln returns true if the method "Document.writeln" exists.
+func (this Document) HasFuncWriteln() bool {
+	return js.True == bindings.HasFuncDocumentWriteln(
+		this.ref,
 	)
 }
 
-// WritelnFunc returns the method "Document.writeln".
-func (this Document) WritelnFunc() (fn js.Func[func(text ...js.String)]) {
-	return fn.FromRef(
-		bindings.DocumentWritelnFunc(
-			this.Ref(),
-		),
+// FuncWriteln returns the method "Document.writeln".
+func (this Document) FuncWriteln() (fn js.Func[func(text ...js.String)]) {
+	bindings.FuncDocumentWriteln(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Writeln calls the method "Document.writeln".
 func (this Document) Writeln(text ...js.String) (ret js.Void) {
 	bindings.CallDocumentWriteln(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.SliceData(text),
 		js.SizeU(len(text)),
 	)
@@ -3900,7 +3857,7 @@ func (this Document) Writeln(text ...js.String) (ret js.Void) {
 // the catch clause.
 func (this Document) TryWriteln(text ...js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentWriteln(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.SliceData(text),
 		js.SizeU(len(text)),
 	)
@@ -3908,26 +3865,25 @@ func (this Document) TryWriteln(text ...js.String) (ret js.Void, exception js.An
 	return
 }
 
-// HasHasFocus returns true if the method "Document.hasFocus" exists.
-func (this Document) HasHasFocus() bool {
-	return js.True == bindings.HasDocumentHasFocus(
-		this.Ref(),
+// HasFuncHasFocus returns true if the method "Document.hasFocus" exists.
+func (this Document) HasFuncHasFocus() bool {
+	return js.True == bindings.HasFuncDocumentHasFocus(
+		this.ref,
 	)
 }
 
-// HasFocusFunc returns the method "Document.hasFocus".
-func (this Document) HasFocusFunc() (fn js.Func[func() bool]) {
-	return fn.FromRef(
-		bindings.DocumentHasFocusFunc(
-			this.Ref(),
-		),
+// FuncHasFocus returns the method "Document.hasFocus".
+func (this Document) FuncHasFocus() (fn js.Func[func() bool]) {
+	bindings.FuncDocumentHasFocus(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // HasFocus calls the method "Document.hasFocus".
 func (this Document) HasFocus() (ret bool) {
 	bindings.CallDocumentHasFocus(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3938,32 +3894,31 @@ func (this Document) HasFocus() (ret bool) {
 // the catch clause.
 func (this Document) TryHasFocus() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentHasFocus(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasExecCommand returns true if the method "Document.execCommand" exists.
-func (this Document) HasExecCommand() bool {
-	return js.True == bindings.HasDocumentExecCommand(
-		this.Ref(),
+// HasFuncExecCommand returns true if the method "Document.execCommand" exists.
+func (this Document) HasFuncExecCommand() bool {
+	return js.True == bindings.HasFuncDocumentExecCommand(
+		this.ref,
 	)
 }
 
-// ExecCommandFunc returns the method "Document.execCommand".
-func (this Document) ExecCommandFunc() (fn js.Func[func(commandId js.String, showUI bool, value js.String) bool]) {
-	return fn.FromRef(
-		bindings.DocumentExecCommandFunc(
-			this.Ref(),
-		),
+// FuncExecCommand returns the method "Document.execCommand".
+func (this Document) FuncExecCommand() (fn js.Func[func(commandId js.String, showUI bool, value js.String) bool]) {
+	bindings.FuncDocumentExecCommand(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ExecCommand calls the method "Document.execCommand".
 func (this Document) ExecCommand(commandId js.String, showUI bool, value js.String) (ret bool) {
 	bindings.CallDocumentExecCommand(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		commandId.Ref(),
 		js.Bool(bool(showUI)),
 		value.Ref(),
@@ -3977,7 +3932,7 @@ func (this Document) ExecCommand(commandId js.String, showUI bool, value js.Stri
 // the catch clause.
 func (this Document) TryExecCommand(commandId js.String, showUI bool, value js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentExecCommand(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		commandId.Ref(),
 		js.Bool(bool(showUI)),
 		value.Ref(),
@@ -3986,26 +3941,25 @@ func (this Document) TryExecCommand(commandId js.String, showUI bool, value js.S
 	return
 }
 
-// HasExecCommand1 returns true if the method "Document.execCommand" exists.
-func (this Document) HasExecCommand1() bool {
-	return js.True == bindings.HasDocumentExecCommand1(
-		this.Ref(),
+// HasFuncExecCommand1 returns true if the method "Document.execCommand" exists.
+func (this Document) HasFuncExecCommand1() bool {
+	return js.True == bindings.HasFuncDocumentExecCommand1(
+		this.ref,
 	)
 }
 
-// ExecCommand1Func returns the method "Document.execCommand".
-func (this Document) ExecCommand1Func() (fn js.Func[func(commandId js.String, showUI bool) bool]) {
-	return fn.FromRef(
-		bindings.DocumentExecCommand1Func(
-			this.Ref(),
-		),
+// FuncExecCommand1 returns the method "Document.execCommand".
+func (this Document) FuncExecCommand1() (fn js.Func[func(commandId js.String, showUI bool) bool]) {
+	bindings.FuncDocumentExecCommand1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ExecCommand1 calls the method "Document.execCommand".
 func (this Document) ExecCommand1(commandId js.String, showUI bool) (ret bool) {
 	bindings.CallDocumentExecCommand1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		commandId.Ref(),
 		js.Bool(bool(showUI)),
 	)
@@ -4018,7 +3972,7 @@ func (this Document) ExecCommand1(commandId js.String, showUI bool) (ret bool) {
 // the catch clause.
 func (this Document) TryExecCommand1(commandId js.String, showUI bool) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentExecCommand1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		commandId.Ref(),
 		js.Bool(bool(showUI)),
 	)
@@ -4026,26 +3980,25 @@ func (this Document) TryExecCommand1(commandId js.String, showUI bool) (ret bool
 	return
 }
 
-// HasExecCommand2 returns true if the method "Document.execCommand" exists.
-func (this Document) HasExecCommand2() bool {
-	return js.True == bindings.HasDocumentExecCommand2(
-		this.Ref(),
+// HasFuncExecCommand2 returns true if the method "Document.execCommand" exists.
+func (this Document) HasFuncExecCommand2() bool {
+	return js.True == bindings.HasFuncDocumentExecCommand2(
+		this.ref,
 	)
 }
 
-// ExecCommand2Func returns the method "Document.execCommand".
-func (this Document) ExecCommand2Func() (fn js.Func[func(commandId js.String) bool]) {
-	return fn.FromRef(
-		bindings.DocumentExecCommand2Func(
-			this.Ref(),
-		),
+// FuncExecCommand2 returns the method "Document.execCommand".
+func (this Document) FuncExecCommand2() (fn js.Func[func(commandId js.String) bool]) {
+	bindings.FuncDocumentExecCommand2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ExecCommand2 calls the method "Document.execCommand".
 func (this Document) ExecCommand2(commandId js.String) (ret bool) {
 	bindings.CallDocumentExecCommand2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		commandId.Ref(),
 	)
 
@@ -4057,33 +4010,32 @@ func (this Document) ExecCommand2(commandId js.String) (ret bool) {
 // the catch clause.
 func (this Document) TryExecCommand2(commandId js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentExecCommand2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		commandId.Ref(),
 	)
 
 	return
 }
 
-// HasQueryCommandEnabled returns true if the method "Document.queryCommandEnabled" exists.
-func (this Document) HasQueryCommandEnabled() bool {
-	return js.True == bindings.HasDocumentQueryCommandEnabled(
-		this.Ref(),
+// HasFuncQueryCommandEnabled returns true if the method "Document.queryCommandEnabled" exists.
+func (this Document) HasFuncQueryCommandEnabled() bool {
+	return js.True == bindings.HasFuncDocumentQueryCommandEnabled(
+		this.ref,
 	)
 }
 
-// QueryCommandEnabledFunc returns the method "Document.queryCommandEnabled".
-func (this Document) QueryCommandEnabledFunc() (fn js.Func[func(commandId js.String) bool]) {
-	return fn.FromRef(
-		bindings.DocumentQueryCommandEnabledFunc(
-			this.Ref(),
-		),
+// FuncQueryCommandEnabled returns the method "Document.queryCommandEnabled".
+func (this Document) FuncQueryCommandEnabled() (fn js.Func[func(commandId js.String) bool]) {
+	bindings.FuncDocumentQueryCommandEnabled(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // QueryCommandEnabled calls the method "Document.queryCommandEnabled".
 func (this Document) QueryCommandEnabled(commandId js.String) (ret bool) {
 	bindings.CallDocumentQueryCommandEnabled(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		commandId.Ref(),
 	)
 
@@ -4095,33 +4047,32 @@ func (this Document) QueryCommandEnabled(commandId js.String) (ret bool) {
 // the catch clause.
 func (this Document) TryQueryCommandEnabled(commandId js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentQueryCommandEnabled(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		commandId.Ref(),
 	)
 
 	return
 }
 
-// HasQueryCommandIndeterm returns true if the method "Document.queryCommandIndeterm" exists.
-func (this Document) HasQueryCommandIndeterm() bool {
-	return js.True == bindings.HasDocumentQueryCommandIndeterm(
-		this.Ref(),
+// HasFuncQueryCommandIndeterm returns true if the method "Document.queryCommandIndeterm" exists.
+func (this Document) HasFuncQueryCommandIndeterm() bool {
+	return js.True == bindings.HasFuncDocumentQueryCommandIndeterm(
+		this.ref,
 	)
 }
 
-// QueryCommandIndetermFunc returns the method "Document.queryCommandIndeterm".
-func (this Document) QueryCommandIndetermFunc() (fn js.Func[func(commandId js.String) bool]) {
-	return fn.FromRef(
-		bindings.DocumentQueryCommandIndetermFunc(
-			this.Ref(),
-		),
+// FuncQueryCommandIndeterm returns the method "Document.queryCommandIndeterm".
+func (this Document) FuncQueryCommandIndeterm() (fn js.Func[func(commandId js.String) bool]) {
+	bindings.FuncDocumentQueryCommandIndeterm(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // QueryCommandIndeterm calls the method "Document.queryCommandIndeterm".
 func (this Document) QueryCommandIndeterm(commandId js.String) (ret bool) {
 	bindings.CallDocumentQueryCommandIndeterm(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		commandId.Ref(),
 	)
 
@@ -4133,33 +4084,32 @@ func (this Document) QueryCommandIndeterm(commandId js.String) (ret bool) {
 // the catch clause.
 func (this Document) TryQueryCommandIndeterm(commandId js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentQueryCommandIndeterm(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		commandId.Ref(),
 	)
 
 	return
 }
 
-// HasQueryCommandState returns true if the method "Document.queryCommandState" exists.
-func (this Document) HasQueryCommandState() bool {
-	return js.True == bindings.HasDocumentQueryCommandState(
-		this.Ref(),
+// HasFuncQueryCommandState returns true if the method "Document.queryCommandState" exists.
+func (this Document) HasFuncQueryCommandState() bool {
+	return js.True == bindings.HasFuncDocumentQueryCommandState(
+		this.ref,
 	)
 }
 
-// QueryCommandStateFunc returns the method "Document.queryCommandState".
-func (this Document) QueryCommandStateFunc() (fn js.Func[func(commandId js.String) bool]) {
-	return fn.FromRef(
-		bindings.DocumentQueryCommandStateFunc(
-			this.Ref(),
-		),
+// FuncQueryCommandState returns the method "Document.queryCommandState".
+func (this Document) FuncQueryCommandState() (fn js.Func[func(commandId js.String) bool]) {
+	bindings.FuncDocumentQueryCommandState(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // QueryCommandState calls the method "Document.queryCommandState".
 func (this Document) QueryCommandState(commandId js.String) (ret bool) {
 	bindings.CallDocumentQueryCommandState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		commandId.Ref(),
 	)
 
@@ -4171,33 +4121,32 @@ func (this Document) QueryCommandState(commandId js.String) (ret bool) {
 // the catch clause.
 func (this Document) TryQueryCommandState(commandId js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentQueryCommandState(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		commandId.Ref(),
 	)
 
 	return
 }
 
-// HasQueryCommandSupported returns true if the method "Document.queryCommandSupported" exists.
-func (this Document) HasQueryCommandSupported() bool {
-	return js.True == bindings.HasDocumentQueryCommandSupported(
-		this.Ref(),
+// HasFuncQueryCommandSupported returns true if the method "Document.queryCommandSupported" exists.
+func (this Document) HasFuncQueryCommandSupported() bool {
+	return js.True == bindings.HasFuncDocumentQueryCommandSupported(
+		this.ref,
 	)
 }
 
-// QueryCommandSupportedFunc returns the method "Document.queryCommandSupported".
-func (this Document) QueryCommandSupportedFunc() (fn js.Func[func(commandId js.String) bool]) {
-	return fn.FromRef(
-		bindings.DocumentQueryCommandSupportedFunc(
-			this.Ref(),
-		),
+// FuncQueryCommandSupported returns the method "Document.queryCommandSupported".
+func (this Document) FuncQueryCommandSupported() (fn js.Func[func(commandId js.String) bool]) {
+	bindings.FuncDocumentQueryCommandSupported(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // QueryCommandSupported calls the method "Document.queryCommandSupported".
 func (this Document) QueryCommandSupported(commandId js.String) (ret bool) {
 	bindings.CallDocumentQueryCommandSupported(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		commandId.Ref(),
 	)
 
@@ -4209,33 +4158,32 @@ func (this Document) QueryCommandSupported(commandId js.String) (ret bool) {
 // the catch clause.
 func (this Document) TryQueryCommandSupported(commandId js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentQueryCommandSupported(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		commandId.Ref(),
 	)
 
 	return
 }
 
-// HasQueryCommandValue returns true if the method "Document.queryCommandValue" exists.
-func (this Document) HasQueryCommandValue() bool {
-	return js.True == bindings.HasDocumentQueryCommandValue(
-		this.Ref(),
+// HasFuncQueryCommandValue returns true if the method "Document.queryCommandValue" exists.
+func (this Document) HasFuncQueryCommandValue() bool {
+	return js.True == bindings.HasFuncDocumentQueryCommandValue(
+		this.ref,
 	)
 }
 
-// QueryCommandValueFunc returns the method "Document.queryCommandValue".
-func (this Document) QueryCommandValueFunc() (fn js.Func[func(commandId js.String) js.String]) {
-	return fn.FromRef(
-		bindings.DocumentQueryCommandValueFunc(
-			this.Ref(),
-		),
+// FuncQueryCommandValue returns the method "Document.queryCommandValue".
+func (this Document) FuncQueryCommandValue() (fn js.Func[func(commandId js.String) js.String]) {
+	bindings.FuncDocumentQueryCommandValue(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // QueryCommandValue calls the method "Document.queryCommandValue".
 func (this Document) QueryCommandValue(commandId js.String) (ret js.String) {
 	bindings.CallDocumentQueryCommandValue(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		commandId.Ref(),
 	)
 
@@ -4247,33 +4195,32 @@ func (this Document) QueryCommandValue(commandId js.String) (ret js.String) {
 // the catch clause.
 func (this Document) TryQueryCommandValue(commandId js.String) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentQueryCommandValue(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		commandId.Ref(),
 	)
 
 	return
 }
 
-// HasGetBoxQuads returns true if the method "Document.getBoxQuads" exists.
-func (this Document) HasGetBoxQuads() bool {
-	return js.True == bindings.HasDocumentGetBoxQuads(
-		this.Ref(),
+// HasFuncGetBoxQuads returns true if the method "Document.getBoxQuads" exists.
+func (this Document) HasFuncGetBoxQuads() bool {
+	return js.True == bindings.HasFuncDocumentGetBoxQuads(
+		this.ref,
 	)
 }
 
-// GetBoxQuadsFunc returns the method "Document.getBoxQuads".
-func (this Document) GetBoxQuadsFunc() (fn js.Func[func(options BoxQuadOptions) js.Array[DOMQuad]]) {
-	return fn.FromRef(
-		bindings.DocumentGetBoxQuadsFunc(
-			this.Ref(),
-		),
+// FuncGetBoxQuads returns the method "Document.getBoxQuads".
+func (this Document) FuncGetBoxQuads() (fn js.Func[func(options BoxQuadOptions) js.Array[DOMQuad]]) {
+	bindings.FuncDocumentGetBoxQuads(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetBoxQuads calls the method "Document.getBoxQuads".
 func (this Document) GetBoxQuads(options BoxQuadOptions) (ret js.Array[DOMQuad]) {
 	bindings.CallDocumentGetBoxQuads(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -4285,33 +4232,32 @@ func (this Document) GetBoxQuads(options BoxQuadOptions) (ret js.Array[DOMQuad])
 // the catch clause.
 func (this Document) TryGetBoxQuads(options BoxQuadOptions) (ret js.Array[DOMQuad], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentGetBoxQuads(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasGetBoxQuads1 returns true if the method "Document.getBoxQuads" exists.
-func (this Document) HasGetBoxQuads1() bool {
-	return js.True == bindings.HasDocumentGetBoxQuads1(
-		this.Ref(),
+// HasFuncGetBoxQuads1 returns true if the method "Document.getBoxQuads" exists.
+func (this Document) HasFuncGetBoxQuads1() bool {
+	return js.True == bindings.HasFuncDocumentGetBoxQuads1(
+		this.ref,
 	)
 }
 
-// GetBoxQuads1Func returns the method "Document.getBoxQuads".
-func (this Document) GetBoxQuads1Func() (fn js.Func[func() js.Array[DOMQuad]]) {
-	return fn.FromRef(
-		bindings.DocumentGetBoxQuads1Func(
-			this.Ref(),
-		),
+// FuncGetBoxQuads1 returns the method "Document.getBoxQuads".
+func (this Document) FuncGetBoxQuads1() (fn js.Func[func() js.Array[DOMQuad]]) {
+	bindings.FuncDocumentGetBoxQuads1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetBoxQuads1 calls the method "Document.getBoxQuads".
 func (this Document) GetBoxQuads1() (ret js.Array[DOMQuad]) {
 	bindings.CallDocumentGetBoxQuads1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -4322,32 +4268,31 @@ func (this Document) GetBoxQuads1() (ret js.Array[DOMQuad]) {
 // the catch clause.
 func (this Document) TryGetBoxQuads1() (ret js.Array[DOMQuad], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentGetBoxQuads1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasConvertQuadFromNode returns true if the method "Document.convertQuadFromNode" exists.
-func (this Document) HasConvertQuadFromNode() bool {
-	return js.True == bindings.HasDocumentConvertQuadFromNode(
-		this.Ref(),
+// HasFuncConvertQuadFromNode returns true if the method "Document.convertQuadFromNode" exists.
+func (this Document) HasFuncConvertQuadFromNode() bool {
+	return js.True == bindings.HasFuncDocumentConvertQuadFromNode(
+		this.ref,
 	)
 }
 
-// ConvertQuadFromNodeFunc returns the method "Document.convertQuadFromNode".
-func (this Document) ConvertQuadFromNodeFunc() (fn js.Func[func(quad DOMQuadInit, from GeometryNode, options ConvertCoordinateOptions) DOMQuad]) {
-	return fn.FromRef(
-		bindings.DocumentConvertQuadFromNodeFunc(
-			this.Ref(),
-		),
+// FuncConvertQuadFromNode returns the method "Document.convertQuadFromNode".
+func (this Document) FuncConvertQuadFromNode() (fn js.Func[func(quad DOMQuadInit, from GeometryNode, options ConvertCoordinateOptions) DOMQuad]) {
+	bindings.FuncDocumentConvertQuadFromNode(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ConvertQuadFromNode calls the method "Document.convertQuadFromNode".
 func (this Document) ConvertQuadFromNode(quad DOMQuadInit, from GeometryNode, options ConvertCoordinateOptions) (ret DOMQuad) {
 	bindings.CallDocumentConvertQuadFromNode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&quad),
 		from.Ref(),
 		js.Pointer(&options),
@@ -4361,7 +4306,7 @@ func (this Document) ConvertQuadFromNode(quad DOMQuadInit, from GeometryNode, op
 // the catch clause.
 func (this Document) TryConvertQuadFromNode(quad DOMQuadInit, from GeometryNode, options ConvertCoordinateOptions) (ret DOMQuad, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentConvertQuadFromNode(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&quad),
 		from.Ref(),
 		js.Pointer(&options),
@@ -4370,26 +4315,25 @@ func (this Document) TryConvertQuadFromNode(quad DOMQuadInit, from GeometryNode,
 	return
 }
 
-// HasConvertQuadFromNode1 returns true if the method "Document.convertQuadFromNode" exists.
-func (this Document) HasConvertQuadFromNode1() bool {
-	return js.True == bindings.HasDocumentConvertQuadFromNode1(
-		this.Ref(),
+// HasFuncConvertQuadFromNode1 returns true if the method "Document.convertQuadFromNode" exists.
+func (this Document) HasFuncConvertQuadFromNode1() bool {
+	return js.True == bindings.HasFuncDocumentConvertQuadFromNode1(
+		this.ref,
 	)
 }
 
-// ConvertQuadFromNode1Func returns the method "Document.convertQuadFromNode".
-func (this Document) ConvertQuadFromNode1Func() (fn js.Func[func(quad DOMQuadInit, from GeometryNode) DOMQuad]) {
-	return fn.FromRef(
-		bindings.DocumentConvertQuadFromNode1Func(
-			this.Ref(),
-		),
+// FuncConvertQuadFromNode1 returns the method "Document.convertQuadFromNode".
+func (this Document) FuncConvertQuadFromNode1() (fn js.Func[func(quad DOMQuadInit, from GeometryNode) DOMQuad]) {
+	bindings.FuncDocumentConvertQuadFromNode1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ConvertQuadFromNode1 calls the method "Document.convertQuadFromNode".
 func (this Document) ConvertQuadFromNode1(quad DOMQuadInit, from GeometryNode) (ret DOMQuad) {
 	bindings.CallDocumentConvertQuadFromNode1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&quad),
 		from.Ref(),
 	)
@@ -4402,7 +4346,7 @@ func (this Document) ConvertQuadFromNode1(quad DOMQuadInit, from GeometryNode) (
 // the catch clause.
 func (this Document) TryConvertQuadFromNode1(quad DOMQuadInit, from GeometryNode) (ret DOMQuad, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentConvertQuadFromNode1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&quad),
 		from.Ref(),
 	)
@@ -4410,26 +4354,25 @@ func (this Document) TryConvertQuadFromNode1(quad DOMQuadInit, from GeometryNode
 	return
 }
 
-// HasConvertRectFromNode returns true if the method "Document.convertRectFromNode" exists.
-func (this Document) HasConvertRectFromNode() bool {
-	return js.True == bindings.HasDocumentConvertRectFromNode(
-		this.Ref(),
+// HasFuncConvertRectFromNode returns true if the method "Document.convertRectFromNode" exists.
+func (this Document) HasFuncConvertRectFromNode() bool {
+	return js.True == bindings.HasFuncDocumentConvertRectFromNode(
+		this.ref,
 	)
 }
 
-// ConvertRectFromNodeFunc returns the method "Document.convertRectFromNode".
-func (this Document) ConvertRectFromNodeFunc() (fn js.Func[func(rect DOMRectReadOnly, from GeometryNode, options ConvertCoordinateOptions) DOMQuad]) {
-	return fn.FromRef(
-		bindings.DocumentConvertRectFromNodeFunc(
-			this.Ref(),
-		),
+// FuncConvertRectFromNode returns the method "Document.convertRectFromNode".
+func (this Document) FuncConvertRectFromNode() (fn js.Func[func(rect DOMRectReadOnly, from GeometryNode, options ConvertCoordinateOptions) DOMQuad]) {
+	bindings.FuncDocumentConvertRectFromNode(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ConvertRectFromNode calls the method "Document.convertRectFromNode".
 func (this Document) ConvertRectFromNode(rect DOMRectReadOnly, from GeometryNode, options ConvertCoordinateOptions) (ret DOMQuad) {
 	bindings.CallDocumentConvertRectFromNode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		rect.Ref(),
 		from.Ref(),
 		js.Pointer(&options),
@@ -4443,7 +4386,7 @@ func (this Document) ConvertRectFromNode(rect DOMRectReadOnly, from GeometryNode
 // the catch clause.
 func (this Document) TryConvertRectFromNode(rect DOMRectReadOnly, from GeometryNode, options ConvertCoordinateOptions) (ret DOMQuad, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentConvertRectFromNode(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		rect.Ref(),
 		from.Ref(),
 		js.Pointer(&options),
@@ -4452,26 +4395,25 @@ func (this Document) TryConvertRectFromNode(rect DOMRectReadOnly, from GeometryN
 	return
 }
 
-// HasConvertRectFromNode1 returns true if the method "Document.convertRectFromNode" exists.
-func (this Document) HasConvertRectFromNode1() bool {
-	return js.True == bindings.HasDocumentConvertRectFromNode1(
-		this.Ref(),
+// HasFuncConvertRectFromNode1 returns true if the method "Document.convertRectFromNode" exists.
+func (this Document) HasFuncConvertRectFromNode1() bool {
+	return js.True == bindings.HasFuncDocumentConvertRectFromNode1(
+		this.ref,
 	)
 }
 
-// ConvertRectFromNode1Func returns the method "Document.convertRectFromNode".
-func (this Document) ConvertRectFromNode1Func() (fn js.Func[func(rect DOMRectReadOnly, from GeometryNode) DOMQuad]) {
-	return fn.FromRef(
-		bindings.DocumentConvertRectFromNode1Func(
-			this.Ref(),
-		),
+// FuncConvertRectFromNode1 returns the method "Document.convertRectFromNode".
+func (this Document) FuncConvertRectFromNode1() (fn js.Func[func(rect DOMRectReadOnly, from GeometryNode) DOMQuad]) {
+	bindings.FuncDocumentConvertRectFromNode1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ConvertRectFromNode1 calls the method "Document.convertRectFromNode".
 func (this Document) ConvertRectFromNode1(rect DOMRectReadOnly, from GeometryNode) (ret DOMQuad) {
 	bindings.CallDocumentConvertRectFromNode1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		rect.Ref(),
 		from.Ref(),
 	)
@@ -4484,7 +4426,7 @@ func (this Document) ConvertRectFromNode1(rect DOMRectReadOnly, from GeometryNod
 // the catch clause.
 func (this Document) TryConvertRectFromNode1(rect DOMRectReadOnly, from GeometryNode) (ret DOMQuad, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentConvertRectFromNode1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		rect.Ref(),
 		from.Ref(),
 	)
@@ -4492,26 +4434,25 @@ func (this Document) TryConvertRectFromNode1(rect DOMRectReadOnly, from Geometry
 	return
 }
 
-// HasConvertPointFromNode returns true if the method "Document.convertPointFromNode" exists.
-func (this Document) HasConvertPointFromNode() bool {
-	return js.True == bindings.HasDocumentConvertPointFromNode(
-		this.Ref(),
+// HasFuncConvertPointFromNode returns true if the method "Document.convertPointFromNode" exists.
+func (this Document) HasFuncConvertPointFromNode() bool {
+	return js.True == bindings.HasFuncDocumentConvertPointFromNode(
+		this.ref,
 	)
 }
 
-// ConvertPointFromNodeFunc returns the method "Document.convertPointFromNode".
-func (this Document) ConvertPointFromNodeFunc() (fn js.Func[func(point DOMPointInit, from GeometryNode, options ConvertCoordinateOptions) DOMPoint]) {
-	return fn.FromRef(
-		bindings.DocumentConvertPointFromNodeFunc(
-			this.Ref(),
-		),
+// FuncConvertPointFromNode returns the method "Document.convertPointFromNode".
+func (this Document) FuncConvertPointFromNode() (fn js.Func[func(point DOMPointInit, from GeometryNode, options ConvertCoordinateOptions) DOMPoint]) {
+	bindings.FuncDocumentConvertPointFromNode(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ConvertPointFromNode calls the method "Document.convertPointFromNode".
 func (this Document) ConvertPointFromNode(point DOMPointInit, from GeometryNode, options ConvertCoordinateOptions) (ret DOMPoint) {
 	bindings.CallDocumentConvertPointFromNode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&point),
 		from.Ref(),
 		js.Pointer(&options),
@@ -4525,7 +4466,7 @@ func (this Document) ConvertPointFromNode(point DOMPointInit, from GeometryNode,
 // the catch clause.
 func (this Document) TryConvertPointFromNode(point DOMPointInit, from GeometryNode, options ConvertCoordinateOptions) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentConvertPointFromNode(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&point),
 		from.Ref(),
 		js.Pointer(&options),
@@ -4534,26 +4475,25 @@ func (this Document) TryConvertPointFromNode(point DOMPointInit, from GeometryNo
 	return
 }
 
-// HasConvertPointFromNode1 returns true if the method "Document.convertPointFromNode" exists.
-func (this Document) HasConvertPointFromNode1() bool {
-	return js.True == bindings.HasDocumentConvertPointFromNode1(
-		this.Ref(),
+// HasFuncConvertPointFromNode1 returns true if the method "Document.convertPointFromNode" exists.
+func (this Document) HasFuncConvertPointFromNode1() bool {
+	return js.True == bindings.HasFuncDocumentConvertPointFromNode1(
+		this.ref,
 	)
 }
 
-// ConvertPointFromNode1Func returns the method "Document.convertPointFromNode".
-func (this Document) ConvertPointFromNode1Func() (fn js.Func[func(point DOMPointInit, from GeometryNode) DOMPoint]) {
-	return fn.FromRef(
-		bindings.DocumentConvertPointFromNode1Func(
-			this.Ref(),
-		),
+// FuncConvertPointFromNode1 returns the method "Document.convertPointFromNode".
+func (this Document) FuncConvertPointFromNode1() (fn js.Func[func(point DOMPointInit, from GeometryNode) DOMPoint]) {
+	bindings.FuncDocumentConvertPointFromNode1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ConvertPointFromNode1 calls the method "Document.convertPointFromNode".
 func (this Document) ConvertPointFromNode1(point DOMPointInit, from GeometryNode) (ret DOMPoint) {
 	bindings.CallDocumentConvertPointFromNode1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&point),
 		from.Ref(),
 	)
@@ -4566,7 +4506,7 @@ func (this Document) ConvertPointFromNode1(point DOMPointInit, from GeometryNode
 // the catch clause.
 func (this Document) TryConvertPointFromNode1(point DOMPointInit, from GeometryNode) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentConvertPointFromNode1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&point),
 		from.Ref(),
 	)
@@ -4574,26 +4514,25 @@ func (this Document) TryConvertPointFromNode1(point DOMPointInit, from GeometryN
 	return
 }
 
-// HasGetElementById returns true if the method "Document.getElementById" exists.
-func (this Document) HasGetElementById() bool {
-	return js.True == bindings.HasDocumentGetElementById(
-		this.Ref(),
+// HasFuncGetElementById returns true if the method "Document.getElementById" exists.
+func (this Document) HasFuncGetElementById() bool {
+	return js.True == bindings.HasFuncDocumentGetElementById(
+		this.ref,
 	)
 }
 
-// GetElementByIdFunc returns the method "Document.getElementById".
-func (this Document) GetElementByIdFunc() (fn js.Func[func(elementId js.String) Element]) {
-	return fn.FromRef(
-		bindings.DocumentGetElementByIdFunc(
-			this.Ref(),
-		),
+// FuncGetElementById returns the method "Document.getElementById".
+func (this Document) FuncGetElementById() (fn js.Func[func(elementId js.String) Element]) {
+	bindings.FuncDocumentGetElementById(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetElementById calls the method "Document.getElementById".
 func (this Document) GetElementById(elementId js.String) (ret Element) {
 	bindings.CallDocumentGetElementById(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		elementId.Ref(),
 	)
 
@@ -4605,33 +4544,32 @@ func (this Document) GetElementById(elementId js.String) (ret Element) {
 // the catch clause.
 func (this Document) TryGetElementById(elementId js.String) (ret Element, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentGetElementById(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		elementId.Ref(),
 	)
 
 	return
 }
 
-// HasGetAnimations returns true if the method "Document.getAnimations" exists.
-func (this Document) HasGetAnimations() bool {
-	return js.True == bindings.HasDocumentGetAnimations(
-		this.Ref(),
+// HasFuncGetAnimations returns true if the method "Document.getAnimations" exists.
+func (this Document) HasFuncGetAnimations() bool {
+	return js.True == bindings.HasFuncDocumentGetAnimations(
+		this.ref,
 	)
 }
 
-// GetAnimationsFunc returns the method "Document.getAnimations".
-func (this Document) GetAnimationsFunc() (fn js.Func[func() js.Array[Animation]]) {
-	return fn.FromRef(
-		bindings.DocumentGetAnimationsFunc(
-			this.Ref(),
-		),
+// FuncGetAnimations returns the method "Document.getAnimations".
+func (this Document) FuncGetAnimations() (fn js.Func[func() js.Array[Animation]]) {
+	bindings.FuncDocumentGetAnimations(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAnimations calls the method "Document.getAnimations".
 func (this Document) GetAnimations() (ret js.Array[Animation]) {
 	bindings.CallDocumentGetAnimations(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -4642,32 +4580,31 @@ func (this Document) GetAnimations() (ret js.Array[Animation]) {
 // the catch clause.
 func (this Document) TryGetAnimations() (ret js.Array[Animation], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentGetAnimations(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasPrepend returns true if the method "Document.prepend" exists.
-func (this Document) HasPrepend() bool {
-	return js.True == bindings.HasDocumentPrepend(
-		this.Ref(),
+// HasFuncPrepend returns true if the method "Document.prepend" exists.
+func (this Document) HasFuncPrepend() bool {
+	return js.True == bindings.HasFuncDocumentPrepend(
+		this.ref,
 	)
 }
 
-// PrependFunc returns the method "Document.prepend".
-func (this Document) PrependFunc() (fn js.Func[func(nodes ...OneOf_Node_String)]) {
-	return fn.FromRef(
-		bindings.DocumentPrependFunc(
-			this.Ref(),
-		),
+// FuncPrepend returns the method "Document.prepend".
+func (this Document) FuncPrepend() (fn js.Func[func(nodes ...OneOf_Node_String)]) {
+	bindings.FuncDocumentPrepend(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Prepend calls the method "Document.prepend".
 func (this Document) Prepend(nodes ...OneOf_Node_String) (ret js.Void) {
 	bindings.CallDocumentPrepend(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.SliceData(nodes),
 		js.SizeU(len(nodes)),
 	)
@@ -4680,7 +4617,7 @@ func (this Document) Prepend(nodes ...OneOf_Node_String) (ret js.Void) {
 // the catch clause.
 func (this Document) TryPrepend(nodes ...OneOf_Node_String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentPrepend(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.SliceData(nodes),
 		js.SizeU(len(nodes)),
 	)
@@ -4688,26 +4625,25 @@ func (this Document) TryPrepend(nodes ...OneOf_Node_String) (ret js.Void, except
 	return
 }
 
-// HasAppend returns true if the method "Document.append" exists.
-func (this Document) HasAppend() bool {
-	return js.True == bindings.HasDocumentAppend(
-		this.Ref(),
+// HasFuncAppend returns true if the method "Document.append" exists.
+func (this Document) HasFuncAppend() bool {
+	return js.True == bindings.HasFuncDocumentAppend(
+		this.ref,
 	)
 }
 
-// AppendFunc returns the method "Document.append".
-func (this Document) AppendFunc() (fn js.Func[func(nodes ...OneOf_Node_String)]) {
-	return fn.FromRef(
-		bindings.DocumentAppendFunc(
-			this.Ref(),
-		),
+// FuncAppend returns the method "Document.append".
+func (this Document) FuncAppend() (fn js.Func[func(nodes ...OneOf_Node_String)]) {
+	bindings.FuncDocumentAppend(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Append calls the method "Document.append".
 func (this Document) Append(nodes ...OneOf_Node_String) (ret js.Void) {
 	bindings.CallDocumentAppend(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.SliceData(nodes),
 		js.SizeU(len(nodes)),
 	)
@@ -4720,7 +4656,7 @@ func (this Document) Append(nodes ...OneOf_Node_String) (ret js.Void) {
 // the catch clause.
 func (this Document) TryAppend(nodes ...OneOf_Node_String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentAppend(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.SliceData(nodes),
 		js.SizeU(len(nodes)),
 	)
@@ -4728,26 +4664,25 @@ func (this Document) TryAppend(nodes ...OneOf_Node_String) (ret js.Void, excepti
 	return
 }
 
-// HasReplaceChildren returns true if the method "Document.replaceChildren" exists.
-func (this Document) HasReplaceChildren() bool {
-	return js.True == bindings.HasDocumentReplaceChildren(
-		this.Ref(),
+// HasFuncReplaceChildren returns true if the method "Document.replaceChildren" exists.
+func (this Document) HasFuncReplaceChildren() bool {
+	return js.True == bindings.HasFuncDocumentReplaceChildren(
+		this.ref,
 	)
 }
 
-// ReplaceChildrenFunc returns the method "Document.replaceChildren".
-func (this Document) ReplaceChildrenFunc() (fn js.Func[func(nodes ...OneOf_Node_String)]) {
-	return fn.FromRef(
-		bindings.DocumentReplaceChildrenFunc(
-			this.Ref(),
-		),
+// FuncReplaceChildren returns the method "Document.replaceChildren".
+func (this Document) FuncReplaceChildren() (fn js.Func[func(nodes ...OneOf_Node_String)]) {
+	bindings.FuncDocumentReplaceChildren(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReplaceChildren calls the method "Document.replaceChildren".
 func (this Document) ReplaceChildren(nodes ...OneOf_Node_String) (ret js.Void) {
 	bindings.CallDocumentReplaceChildren(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.SliceData(nodes),
 		js.SizeU(len(nodes)),
 	)
@@ -4760,7 +4695,7 @@ func (this Document) ReplaceChildren(nodes ...OneOf_Node_String) (ret js.Void) {
 // the catch clause.
 func (this Document) TryReplaceChildren(nodes ...OneOf_Node_String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentReplaceChildren(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.SliceData(nodes),
 		js.SizeU(len(nodes)),
 	)
@@ -4768,26 +4703,25 @@ func (this Document) TryReplaceChildren(nodes ...OneOf_Node_String) (ret js.Void
 	return
 }
 
-// HasQuerySelector returns true if the method "Document.querySelector" exists.
-func (this Document) HasQuerySelector() bool {
-	return js.True == bindings.HasDocumentQuerySelector(
-		this.Ref(),
+// HasFuncQuerySelector returns true if the method "Document.querySelector" exists.
+func (this Document) HasFuncQuerySelector() bool {
+	return js.True == bindings.HasFuncDocumentQuerySelector(
+		this.ref,
 	)
 }
 
-// QuerySelectorFunc returns the method "Document.querySelector".
-func (this Document) QuerySelectorFunc() (fn js.Func[func(selectors js.String) Element]) {
-	return fn.FromRef(
-		bindings.DocumentQuerySelectorFunc(
-			this.Ref(),
-		),
+// FuncQuerySelector returns the method "Document.querySelector".
+func (this Document) FuncQuerySelector() (fn js.Func[func(selectors js.String) Element]) {
+	bindings.FuncDocumentQuerySelector(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // QuerySelector calls the method "Document.querySelector".
 func (this Document) QuerySelector(selectors js.String) (ret Element) {
 	bindings.CallDocumentQuerySelector(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		selectors.Ref(),
 	)
 
@@ -4799,33 +4733,32 @@ func (this Document) QuerySelector(selectors js.String) (ret Element) {
 // the catch clause.
 func (this Document) TryQuerySelector(selectors js.String) (ret Element, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentQuerySelector(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		selectors.Ref(),
 	)
 
 	return
 }
 
-// HasQuerySelectorAll returns true if the method "Document.querySelectorAll" exists.
-func (this Document) HasQuerySelectorAll() bool {
-	return js.True == bindings.HasDocumentQuerySelectorAll(
-		this.Ref(),
+// HasFuncQuerySelectorAll returns true if the method "Document.querySelectorAll" exists.
+func (this Document) HasFuncQuerySelectorAll() bool {
+	return js.True == bindings.HasFuncDocumentQuerySelectorAll(
+		this.ref,
 	)
 }
 
-// QuerySelectorAllFunc returns the method "Document.querySelectorAll".
-func (this Document) QuerySelectorAllFunc() (fn js.Func[func(selectors js.String) NodeList]) {
-	return fn.FromRef(
-		bindings.DocumentQuerySelectorAllFunc(
-			this.Ref(),
-		),
+// FuncQuerySelectorAll returns the method "Document.querySelectorAll".
+func (this Document) FuncQuerySelectorAll() (fn js.Func[func(selectors js.String) NodeList]) {
+	bindings.FuncDocumentQuerySelectorAll(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // QuerySelectorAll calls the method "Document.querySelectorAll".
 func (this Document) QuerySelectorAll(selectors js.String) (ret NodeList) {
 	bindings.CallDocumentQuerySelectorAll(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		selectors.Ref(),
 	)
 
@@ -4837,33 +4770,32 @@ func (this Document) QuerySelectorAll(selectors js.String) (ret NodeList) {
 // the catch clause.
 func (this Document) TryQuerySelectorAll(selectors js.String) (ret NodeList, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentQuerySelectorAll(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		selectors.Ref(),
 	)
 
 	return
 }
 
-// HasCreateExpression returns true if the method "Document.createExpression" exists.
-func (this Document) HasCreateExpression() bool {
-	return js.True == bindings.HasDocumentCreateExpression(
-		this.Ref(),
+// HasFuncCreateExpression returns true if the method "Document.createExpression" exists.
+func (this Document) HasFuncCreateExpression() bool {
+	return js.True == bindings.HasFuncDocumentCreateExpression(
+		this.ref,
 	)
 }
 
-// CreateExpressionFunc returns the method "Document.createExpression".
-func (this Document) CreateExpressionFunc() (fn js.Func[func(expression js.String, resolver js.Func[func(prefix js.String) js.String]) XPathExpression]) {
-	return fn.FromRef(
-		bindings.DocumentCreateExpressionFunc(
-			this.Ref(),
-		),
+// FuncCreateExpression returns the method "Document.createExpression".
+func (this Document) FuncCreateExpression() (fn js.Func[func(expression js.String, resolver js.Func[func(prefix js.String) js.String]) XPathExpression]) {
+	bindings.FuncDocumentCreateExpression(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateExpression calls the method "Document.createExpression".
 func (this Document) CreateExpression(expression js.String, resolver js.Func[func(prefix js.String) js.String]) (ret XPathExpression) {
 	bindings.CallDocumentCreateExpression(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		expression.Ref(),
 		resolver.Ref(),
 	)
@@ -4876,7 +4808,7 @@ func (this Document) CreateExpression(expression js.String, resolver js.Func[fun
 // the catch clause.
 func (this Document) TryCreateExpression(expression js.String, resolver js.Func[func(prefix js.String) js.String]) (ret XPathExpression, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateExpression(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		expression.Ref(),
 		resolver.Ref(),
 	)
@@ -4884,26 +4816,25 @@ func (this Document) TryCreateExpression(expression js.String, resolver js.Func[
 	return
 }
 
-// HasCreateExpression1 returns true if the method "Document.createExpression" exists.
-func (this Document) HasCreateExpression1() bool {
-	return js.True == bindings.HasDocumentCreateExpression1(
-		this.Ref(),
+// HasFuncCreateExpression1 returns true if the method "Document.createExpression" exists.
+func (this Document) HasFuncCreateExpression1() bool {
+	return js.True == bindings.HasFuncDocumentCreateExpression1(
+		this.ref,
 	)
 }
 
-// CreateExpression1Func returns the method "Document.createExpression".
-func (this Document) CreateExpression1Func() (fn js.Func[func(expression js.String) XPathExpression]) {
-	return fn.FromRef(
-		bindings.DocumentCreateExpression1Func(
-			this.Ref(),
-		),
+// FuncCreateExpression1 returns the method "Document.createExpression".
+func (this Document) FuncCreateExpression1() (fn js.Func[func(expression js.String) XPathExpression]) {
+	bindings.FuncDocumentCreateExpression1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateExpression1 calls the method "Document.createExpression".
 func (this Document) CreateExpression1(expression js.String) (ret XPathExpression) {
 	bindings.CallDocumentCreateExpression1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		expression.Ref(),
 	)
 
@@ -4915,33 +4846,32 @@ func (this Document) CreateExpression1(expression js.String) (ret XPathExpressio
 // the catch clause.
 func (this Document) TryCreateExpression1(expression js.String) (ret XPathExpression, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateExpression1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		expression.Ref(),
 	)
 
 	return
 }
 
-// HasCreateNSResolver returns true if the method "Document.createNSResolver" exists.
-func (this Document) HasCreateNSResolver() bool {
-	return js.True == bindings.HasDocumentCreateNSResolver(
-		this.Ref(),
+// HasFuncCreateNSResolver returns true if the method "Document.createNSResolver" exists.
+func (this Document) HasFuncCreateNSResolver() bool {
+	return js.True == bindings.HasFuncDocumentCreateNSResolver(
+		this.ref,
 	)
 }
 
-// CreateNSResolverFunc returns the method "Document.createNSResolver".
-func (this Document) CreateNSResolverFunc() (fn js.Func[func(nodeResolver Node) Node]) {
-	return fn.FromRef(
-		bindings.DocumentCreateNSResolverFunc(
-			this.Ref(),
-		),
+// FuncCreateNSResolver returns the method "Document.createNSResolver".
+func (this Document) FuncCreateNSResolver() (fn js.Func[func(nodeResolver Node) Node]) {
+	bindings.FuncDocumentCreateNSResolver(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateNSResolver calls the method "Document.createNSResolver".
 func (this Document) CreateNSResolver(nodeResolver Node) (ret Node) {
 	bindings.CallDocumentCreateNSResolver(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		nodeResolver.Ref(),
 	)
 
@@ -4953,33 +4883,32 @@ func (this Document) CreateNSResolver(nodeResolver Node) (ret Node) {
 // the catch clause.
 func (this Document) TryCreateNSResolver(nodeResolver Node) (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateNSResolver(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		nodeResolver.Ref(),
 	)
 
 	return
 }
 
-// HasEvaluate returns true if the method "Document.evaluate" exists.
-func (this Document) HasEvaluate() bool {
-	return js.True == bindings.HasDocumentEvaluate(
-		this.Ref(),
+// HasFuncEvaluate returns true if the method "Document.evaluate" exists.
+func (this Document) HasFuncEvaluate() bool {
+	return js.True == bindings.HasFuncDocumentEvaluate(
+		this.ref,
 	)
 }
 
-// EvaluateFunc returns the method "Document.evaluate".
-func (this Document) EvaluateFunc() (fn js.Func[func(expression js.String, contextNode Node, resolver js.Func[func(prefix js.String) js.String], typ uint16, result XPathResult) XPathResult]) {
-	return fn.FromRef(
-		bindings.DocumentEvaluateFunc(
-			this.Ref(),
-		),
+// FuncEvaluate returns the method "Document.evaluate".
+func (this Document) FuncEvaluate() (fn js.Func[func(expression js.String, contextNode Node, resolver js.Func[func(prefix js.String) js.String], typ uint16, result XPathResult) XPathResult]) {
+	bindings.FuncDocumentEvaluate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Evaluate calls the method "Document.evaluate".
 func (this Document) Evaluate(expression js.String, contextNode Node, resolver js.Func[func(prefix js.String) js.String], typ uint16, result XPathResult) (ret XPathResult) {
 	bindings.CallDocumentEvaluate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		expression.Ref(),
 		contextNode.Ref(),
 		resolver.Ref(),
@@ -4995,7 +4924,7 @@ func (this Document) Evaluate(expression js.String, contextNode Node, resolver j
 // the catch clause.
 func (this Document) TryEvaluate(expression js.String, contextNode Node, resolver js.Func[func(prefix js.String) js.String], typ uint16, result XPathResult) (ret XPathResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentEvaluate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		expression.Ref(),
 		contextNode.Ref(),
 		resolver.Ref(),
@@ -5006,26 +4935,25 @@ func (this Document) TryEvaluate(expression js.String, contextNode Node, resolve
 	return
 }
 
-// HasEvaluate1 returns true if the method "Document.evaluate" exists.
-func (this Document) HasEvaluate1() bool {
-	return js.True == bindings.HasDocumentEvaluate1(
-		this.Ref(),
+// HasFuncEvaluate1 returns true if the method "Document.evaluate" exists.
+func (this Document) HasFuncEvaluate1() bool {
+	return js.True == bindings.HasFuncDocumentEvaluate1(
+		this.ref,
 	)
 }
 
-// Evaluate1Func returns the method "Document.evaluate".
-func (this Document) Evaluate1Func() (fn js.Func[func(expression js.String, contextNode Node, resolver js.Func[func(prefix js.String) js.String], typ uint16) XPathResult]) {
-	return fn.FromRef(
-		bindings.DocumentEvaluate1Func(
-			this.Ref(),
-		),
+// FuncEvaluate1 returns the method "Document.evaluate".
+func (this Document) FuncEvaluate1() (fn js.Func[func(expression js.String, contextNode Node, resolver js.Func[func(prefix js.String) js.String], typ uint16) XPathResult]) {
+	bindings.FuncDocumentEvaluate1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Evaluate1 calls the method "Document.evaluate".
 func (this Document) Evaluate1(expression js.String, contextNode Node, resolver js.Func[func(prefix js.String) js.String], typ uint16) (ret XPathResult) {
 	bindings.CallDocumentEvaluate1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		expression.Ref(),
 		contextNode.Ref(),
 		resolver.Ref(),
@@ -5040,7 +4968,7 @@ func (this Document) Evaluate1(expression js.String, contextNode Node, resolver 
 // the catch clause.
 func (this Document) TryEvaluate1(expression js.String, contextNode Node, resolver js.Func[func(prefix js.String) js.String], typ uint16) (ret XPathResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentEvaluate1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		expression.Ref(),
 		contextNode.Ref(),
 		resolver.Ref(),
@@ -5050,26 +4978,25 @@ func (this Document) TryEvaluate1(expression js.String, contextNode Node, resolv
 	return
 }
 
-// HasEvaluate2 returns true if the method "Document.evaluate" exists.
-func (this Document) HasEvaluate2() bool {
-	return js.True == bindings.HasDocumentEvaluate2(
-		this.Ref(),
+// HasFuncEvaluate2 returns true if the method "Document.evaluate" exists.
+func (this Document) HasFuncEvaluate2() bool {
+	return js.True == bindings.HasFuncDocumentEvaluate2(
+		this.ref,
 	)
 }
 
-// Evaluate2Func returns the method "Document.evaluate".
-func (this Document) Evaluate2Func() (fn js.Func[func(expression js.String, contextNode Node, resolver js.Func[func(prefix js.String) js.String]) XPathResult]) {
-	return fn.FromRef(
-		bindings.DocumentEvaluate2Func(
-			this.Ref(),
-		),
+// FuncEvaluate2 returns the method "Document.evaluate".
+func (this Document) FuncEvaluate2() (fn js.Func[func(expression js.String, contextNode Node, resolver js.Func[func(prefix js.String) js.String]) XPathResult]) {
+	bindings.FuncDocumentEvaluate2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Evaluate2 calls the method "Document.evaluate".
 func (this Document) Evaluate2(expression js.String, contextNode Node, resolver js.Func[func(prefix js.String) js.String]) (ret XPathResult) {
 	bindings.CallDocumentEvaluate2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		expression.Ref(),
 		contextNode.Ref(),
 		resolver.Ref(),
@@ -5083,7 +5010,7 @@ func (this Document) Evaluate2(expression js.String, contextNode Node, resolver 
 // the catch clause.
 func (this Document) TryEvaluate2(expression js.String, contextNode Node, resolver js.Func[func(prefix js.String) js.String]) (ret XPathResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentEvaluate2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		expression.Ref(),
 		contextNode.Ref(),
 		resolver.Ref(),
@@ -5092,26 +5019,25 @@ func (this Document) TryEvaluate2(expression js.String, contextNode Node, resolv
 	return
 }
 
-// HasEvaluate3 returns true if the method "Document.evaluate" exists.
-func (this Document) HasEvaluate3() bool {
-	return js.True == bindings.HasDocumentEvaluate3(
-		this.Ref(),
+// HasFuncEvaluate3 returns true if the method "Document.evaluate" exists.
+func (this Document) HasFuncEvaluate3() bool {
+	return js.True == bindings.HasFuncDocumentEvaluate3(
+		this.ref,
 	)
 }
 
-// Evaluate3Func returns the method "Document.evaluate".
-func (this Document) Evaluate3Func() (fn js.Func[func(expression js.String, contextNode Node) XPathResult]) {
-	return fn.FromRef(
-		bindings.DocumentEvaluate3Func(
-			this.Ref(),
-		),
+// FuncEvaluate3 returns the method "Document.evaluate".
+func (this Document) FuncEvaluate3() (fn js.Func[func(expression js.String, contextNode Node) XPathResult]) {
+	bindings.FuncDocumentEvaluate3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Evaluate3 calls the method "Document.evaluate".
 func (this Document) Evaluate3(expression js.String, contextNode Node) (ret XPathResult) {
 	bindings.CallDocumentEvaluate3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		expression.Ref(),
 		contextNode.Ref(),
 	)
@@ -5124,7 +5050,7 @@ func (this Document) Evaluate3(expression js.String, contextNode Node) (ret XPat
 // the catch clause.
 func (this Document) TryEvaluate3(expression js.String, contextNode Node) (ret XPathResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentEvaluate3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		expression.Ref(),
 		contextNode.Ref(),
 	)
@@ -5137,7 +5063,7 @@ type Node struct {
 }
 
 func (this Node) Once() Node {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -5151,7 +5077,7 @@ func (this Node) FromRef(ref js.Ref) Node {
 }
 
 func (this Node) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // NodeType returns the value of property "Node.nodeType".
@@ -5159,7 +5085,7 @@ func (this Node) Free() {
 // It returns ok=false if there is no such property.
 func (this Node) NodeType() (ret uint16, ok bool) {
 	ok = js.True == bindings.GetNodeNodeType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5169,7 +5095,7 @@ func (this Node) NodeType() (ret uint16, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Node) NodeName() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetNodeNodeName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5179,7 +5105,7 @@ func (this Node) NodeName() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Node) BaseURI() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetNodeBaseURI(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5189,7 +5115,7 @@ func (this Node) BaseURI() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Node) IsConnected() (ret bool, ok bool) {
 	ok = js.True == bindings.GetNodeIsConnected(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5199,7 +5125,7 @@ func (this Node) IsConnected() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Node) OwnerDocument() (ret Document, ok bool) {
 	ok = js.True == bindings.GetNodeOwnerDocument(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5209,7 +5135,7 @@ func (this Node) OwnerDocument() (ret Document, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Node) ParentNode() (ret Node, ok bool) {
 	ok = js.True == bindings.GetNodeParentNode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5219,7 +5145,7 @@ func (this Node) ParentNode() (ret Node, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Node) ParentElement() (ret Element, ok bool) {
 	ok = js.True == bindings.GetNodeParentElement(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5229,7 +5155,7 @@ func (this Node) ParentElement() (ret Element, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Node) ChildNodes() (ret NodeList, ok bool) {
 	ok = js.True == bindings.GetNodeChildNodes(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5239,7 +5165,7 @@ func (this Node) ChildNodes() (ret NodeList, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Node) FirstChild() (ret Node, ok bool) {
 	ok = js.True == bindings.GetNodeFirstChild(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5249,7 +5175,7 @@ func (this Node) FirstChild() (ret Node, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Node) LastChild() (ret Node, ok bool) {
 	ok = js.True == bindings.GetNodeLastChild(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5259,7 +5185,7 @@ func (this Node) LastChild() (ret Node, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Node) PreviousSibling() (ret Node, ok bool) {
 	ok = js.True == bindings.GetNodePreviousSibling(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5269,7 +5195,7 @@ func (this Node) PreviousSibling() (ret Node, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Node) NextSibling() (ret Node, ok bool) {
 	ok = js.True == bindings.GetNodeNextSibling(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5279,7 +5205,7 @@ func (this Node) NextSibling() (ret Node, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Node) NodeValue() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetNodeNodeValue(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5289,7 +5215,7 @@ func (this Node) NodeValue() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this Node) SetNodeValue(val js.String) bool {
 	return js.True == bindings.SetNodeNodeValue(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -5299,7 +5225,7 @@ func (this Node) SetNodeValue(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this Node) TextContent() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetNodeTextContent(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5309,31 +5235,30 @@ func (this Node) TextContent() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this Node) SetTextContent(val js.String) bool {
 	return js.True == bindings.SetNodeTextContent(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
 
-// HasGetRootNode returns true if the method "Node.getRootNode" exists.
-func (this Node) HasGetRootNode() bool {
-	return js.True == bindings.HasNodeGetRootNode(
-		this.Ref(),
+// HasFuncGetRootNode returns true if the method "Node.getRootNode" exists.
+func (this Node) HasFuncGetRootNode() bool {
+	return js.True == bindings.HasFuncNodeGetRootNode(
+		this.ref,
 	)
 }
 
-// GetRootNodeFunc returns the method "Node.getRootNode".
-func (this Node) GetRootNodeFunc() (fn js.Func[func(options GetRootNodeOptions) Node]) {
-	return fn.FromRef(
-		bindings.NodeGetRootNodeFunc(
-			this.Ref(),
-		),
+// FuncGetRootNode returns the method "Node.getRootNode".
+func (this Node) FuncGetRootNode() (fn js.Func[func(options GetRootNodeOptions) Node]) {
+	bindings.FuncNodeGetRootNode(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetRootNode calls the method "Node.getRootNode".
 func (this Node) GetRootNode(options GetRootNodeOptions) (ret Node) {
 	bindings.CallNodeGetRootNode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -5345,33 +5270,32 @@ func (this Node) GetRootNode(options GetRootNodeOptions) (ret Node) {
 // the catch clause.
 func (this Node) TryGetRootNode(options GetRootNodeOptions) (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeGetRootNode(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasGetRootNode1 returns true if the method "Node.getRootNode" exists.
-func (this Node) HasGetRootNode1() bool {
-	return js.True == bindings.HasNodeGetRootNode1(
-		this.Ref(),
+// HasFuncGetRootNode1 returns true if the method "Node.getRootNode" exists.
+func (this Node) HasFuncGetRootNode1() bool {
+	return js.True == bindings.HasFuncNodeGetRootNode1(
+		this.ref,
 	)
 }
 
-// GetRootNode1Func returns the method "Node.getRootNode".
-func (this Node) GetRootNode1Func() (fn js.Func[func() Node]) {
-	return fn.FromRef(
-		bindings.NodeGetRootNode1Func(
-			this.Ref(),
-		),
+// FuncGetRootNode1 returns the method "Node.getRootNode".
+func (this Node) FuncGetRootNode1() (fn js.Func[func() Node]) {
+	bindings.FuncNodeGetRootNode1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetRootNode1 calls the method "Node.getRootNode".
 func (this Node) GetRootNode1() (ret Node) {
 	bindings.CallNodeGetRootNode1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -5382,32 +5306,31 @@ func (this Node) GetRootNode1() (ret Node) {
 // the catch clause.
 func (this Node) TryGetRootNode1() (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeGetRootNode1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasHasChildNodes returns true if the method "Node.hasChildNodes" exists.
-func (this Node) HasHasChildNodes() bool {
-	return js.True == bindings.HasNodeHasChildNodes(
-		this.Ref(),
+// HasFuncHasChildNodes returns true if the method "Node.hasChildNodes" exists.
+func (this Node) HasFuncHasChildNodes() bool {
+	return js.True == bindings.HasFuncNodeHasChildNodes(
+		this.ref,
 	)
 }
 
-// HasChildNodesFunc returns the method "Node.hasChildNodes".
-func (this Node) HasChildNodesFunc() (fn js.Func[func() bool]) {
-	return fn.FromRef(
-		bindings.NodeHasChildNodesFunc(
-			this.Ref(),
-		),
+// FuncHasChildNodes returns the method "Node.hasChildNodes".
+func (this Node) FuncHasChildNodes() (fn js.Func[func() bool]) {
+	bindings.FuncNodeHasChildNodes(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // HasChildNodes calls the method "Node.hasChildNodes".
 func (this Node) HasChildNodes() (ret bool) {
 	bindings.CallNodeHasChildNodes(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -5418,32 +5341,31 @@ func (this Node) HasChildNodes() (ret bool) {
 // the catch clause.
 func (this Node) TryHasChildNodes() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeHasChildNodes(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasNormalize returns true if the method "Node.normalize" exists.
-func (this Node) HasNormalize() bool {
-	return js.True == bindings.HasNodeNormalize(
-		this.Ref(),
+// HasFuncNormalize returns true if the method "Node.normalize" exists.
+func (this Node) HasFuncNormalize() bool {
+	return js.True == bindings.HasFuncNodeNormalize(
+		this.ref,
 	)
 }
 
-// NormalizeFunc returns the method "Node.normalize".
-func (this Node) NormalizeFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.NodeNormalizeFunc(
-			this.Ref(),
-		),
+// FuncNormalize returns the method "Node.normalize".
+func (this Node) FuncNormalize() (fn js.Func[func()]) {
+	bindings.FuncNodeNormalize(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Normalize calls the method "Node.normalize".
 func (this Node) Normalize() (ret js.Void) {
 	bindings.CallNodeNormalize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -5454,32 +5376,31 @@ func (this Node) Normalize() (ret js.Void) {
 // the catch clause.
 func (this Node) TryNormalize() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeNormalize(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCloneNode returns true if the method "Node.cloneNode" exists.
-func (this Node) HasCloneNode() bool {
-	return js.True == bindings.HasNodeCloneNode(
-		this.Ref(),
+// HasFuncCloneNode returns true if the method "Node.cloneNode" exists.
+func (this Node) HasFuncCloneNode() bool {
+	return js.True == bindings.HasFuncNodeCloneNode(
+		this.ref,
 	)
 }
 
-// CloneNodeFunc returns the method "Node.cloneNode".
-func (this Node) CloneNodeFunc() (fn js.Func[func(deep bool) Node]) {
-	return fn.FromRef(
-		bindings.NodeCloneNodeFunc(
-			this.Ref(),
-		),
+// FuncCloneNode returns the method "Node.cloneNode".
+func (this Node) FuncCloneNode() (fn js.Func[func(deep bool) Node]) {
+	bindings.FuncNodeCloneNode(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CloneNode calls the method "Node.cloneNode".
 func (this Node) CloneNode(deep bool) (ret Node) {
 	bindings.CallNodeCloneNode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Bool(bool(deep)),
 	)
 
@@ -5491,33 +5412,32 @@ func (this Node) CloneNode(deep bool) (ret Node) {
 // the catch clause.
 func (this Node) TryCloneNode(deep bool) (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeCloneNode(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Bool(bool(deep)),
 	)
 
 	return
 }
 
-// HasCloneNode1 returns true if the method "Node.cloneNode" exists.
-func (this Node) HasCloneNode1() bool {
-	return js.True == bindings.HasNodeCloneNode1(
-		this.Ref(),
+// HasFuncCloneNode1 returns true if the method "Node.cloneNode" exists.
+func (this Node) HasFuncCloneNode1() bool {
+	return js.True == bindings.HasFuncNodeCloneNode1(
+		this.ref,
 	)
 }
 
-// CloneNode1Func returns the method "Node.cloneNode".
-func (this Node) CloneNode1Func() (fn js.Func[func() Node]) {
-	return fn.FromRef(
-		bindings.NodeCloneNode1Func(
-			this.Ref(),
-		),
+// FuncCloneNode1 returns the method "Node.cloneNode".
+func (this Node) FuncCloneNode1() (fn js.Func[func() Node]) {
+	bindings.FuncNodeCloneNode1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CloneNode1 calls the method "Node.cloneNode".
 func (this Node) CloneNode1() (ret Node) {
 	bindings.CallNodeCloneNode1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -5528,32 +5448,31 @@ func (this Node) CloneNode1() (ret Node) {
 // the catch clause.
 func (this Node) TryCloneNode1() (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeCloneNode1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasIsEqualNode returns true if the method "Node.isEqualNode" exists.
-func (this Node) HasIsEqualNode() bool {
-	return js.True == bindings.HasNodeIsEqualNode(
-		this.Ref(),
+// HasFuncIsEqualNode returns true if the method "Node.isEqualNode" exists.
+func (this Node) HasFuncIsEqualNode() bool {
+	return js.True == bindings.HasFuncNodeIsEqualNode(
+		this.ref,
 	)
 }
 
-// IsEqualNodeFunc returns the method "Node.isEqualNode".
-func (this Node) IsEqualNodeFunc() (fn js.Func[func(otherNode Node) bool]) {
-	return fn.FromRef(
-		bindings.NodeIsEqualNodeFunc(
-			this.Ref(),
-		),
+// FuncIsEqualNode returns the method "Node.isEqualNode".
+func (this Node) FuncIsEqualNode() (fn js.Func[func(otherNode Node) bool]) {
+	bindings.FuncNodeIsEqualNode(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsEqualNode calls the method "Node.isEqualNode".
 func (this Node) IsEqualNode(otherNode Node) (ret bool) {
 	bindings.CallNodeIsEqualNode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		otherNode.Ref(),
 	)
 
@@ -5565,33 +5484,32 @@ func (this Node) IsEqualNode(otherNode Node) (ret bool) {
 // the catch clause.
 func (this Node) TryIsEqualNode(otherNode Node) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeIsEqualNode(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		otherNode.Ref(),
 	)
 
 	return
 }
 
-// HasIsSameNode returns true if the method "Node.isSameNode" exists.
-func (this Node) HasIsSameNode() bool {
-	return js.True == bindings.HasNodeIsSameNode(
-		this.Ref(),
+// HasFuncIsSameNode returns true if the method "Node.isSameNode" exists.
+func (this Node) HasFuncIsSameNode() bool {
+	return js.True == bindings.HasFuncNodeIsSameNode(
+		this.ref,
 	)
 }
 
-// IsSameNodeFunc returns the method "Node.isSameNode".
-func (this Node) IsSameNodeFunc() (fn js.Func[func(otherNode Node) bool]) {
-	return fn.FromRef(
-		bindings.NodeIsSameNodeFunc(
-			this.Ref(),
-		),
+// FuncIsSameNode returns the method "Node.isSameNode".
+func (this Node) FuncIsSameNode() (fn js.Func[func(otherNode Node) bool]) {
+	bindings.FuncNodeIsSameNode(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsSameNode calls the method "Node.isSameNode".
 func (this Node) IsSameNode(otherNode Node) (ret bool) {
 	bindings.CallNodeIsSameNode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		otherNode.Ref(),
 	)
 
@@ -5603,33 +5521,32 @@ func (this Node) IsSameNode(otherNode Node) (ret bool) {
 // the catch clause.
 func (this Node) TryIsSameNode(otherNode Node) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeIsSameNode(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		otherNode.Ref(),
 	)
 
 	return
 }
 
-// HasCompareDocumentPosition returns true if the method "Node.compareDocumentPosition" exists.
-func (this Node) HasCompareDocumentPosition() bool {
-	return js.True == bindings.HasNodeCompareDocumentPosition(
-		this.Ref(),
+// HasFuncCompareDocumentPosition returns true if the method "Node.compareDocumentPosition" exists.
+func (this Node) HasFuncCompareDocumentPosition() bool {
+	return js.True == bindings.HasFuncNodeCompareDocumentPosition(
+		this.ref,
 	)
 }
 
-// CompareDocumentPositionFunc returns the method "Node.compareDocumentPosition".
-func (this Node) CompareDocumentPositionFunc() (fn js.Func[func(other Node) uint16]) {
-	return fn.FromRef(
-		bindings.NodeCompareDocumentPositionFunc(
-			this.Ref(),
-		),
+// FuncCompareDocumentPosition returns the method "Node.compareDocumentPosition".
+func (this Node) FuncCompareDocumentPosition() (fn js.Func[func(other Node) uint16]) {
+	bindings.FuncNodeCompareDocumentPosition(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CompareDocumentPosition calls the method "Node.compareDocumentPosition".
 func (this Node) CompareDocumentPosition(other Node) (ret uint16) {
 	bindings.CallNodeCompareDocumentPosition(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		other.Ref(),
 	)
 
@@ -5641,33 +5558,32 @@ func (this Node) CompareDocumentPosition(other Node) (ret uint16) {
 // the catch clause.
 func (this Node) TryCompareDocumentPosition(other Node) (ret uint16, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeCompareDocumentPosition(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		other.Ref(),
 	)
 
 	return
 }
 
-// HasContains returns true if the method "Node.contains" exists.
-func (this Node) HasContains() bool {
-	return js.True == bindings.HasNodeContains(
-		this.Ref(),
+// HasFuncContains returns true if the method "Node.contains" exists.
+func (this Node) HasFuncContains() bool {
+	return js.True == bindings.HasFuncNodeContains(
+		this.ref,
 	)
 }
 
-// ContainsFunc returns the method "Node.contains".
-func (this Node) ContainsFunc() (fn js.Func[func(other Node) bool]) {
-	return fn.FromRef(
-		bindings.NodeContainsFunc(
-			this.Ref(),
-		),
+// FuncContains returns the method "Node.contains".
+func (this Node) FuncContains() (fn js.Func[func(other Node) bool]) {
+	bindings.FuncNodeContains(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Contains calls the method "Node.contains".
 func (this Node) Contains(other Node) (ret bool) {
 	bindings.CallNodeContains(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		other.Ref(),
 	)
 
@@ -5679,33 +5595,32 @@ func (this Node) Contains(other Node) (ret bool) {
 // the catch clause.
 func (this Node) TryContains(other Node) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeContains(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		other.Ref(),
 	)
 
 	return
 }
 
-// HasLookupPrefix returns true if the method "Node.lookupPrefix" exists.
-func (this Node) HasLookupPrefix() bool {
-	return js.True == bindings.HasNodeLookupPrefix(
-		this.Ref(),
+// HasFuncLookupPrefix returns true if the method "Node.lookupPrefix" exists.
+func (this Node) HasFuncLookupPrefix() bool {
+	return js.True == bindings.HasFuncNodeLookupPrefix(
+		this.ref,
 	)
 }
 
-// LookupPrefixFunc returns the method "Node.lookupPrefix".
-func (this Node) LookupPrefixFunc() (fn js.Func[func(namespace js.String) js.String]) {
-	return fn.FromRef(
-		bindings.NodeLookupPrefixFunc(
-			this.Ref(),
-		),
+// FuncLookupPrefix returns the method "Node.lookupPrefix".
+func (this Node) FuncLookupPrefix() (fn js.Func[func(namespace js.String) js.String]) {
+	bindings.FuncNodeLookupPrefix(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // LookupPrefix calls the method "Node.lookupPrefix".
 func (this Node) LookupPrefix(namespace js.String) (ret js.String) {
 	bindings.CallNodeLookupPrefix(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		namespace.Ref(),
 	)
 
@@ -5717,33 +5632,32 @@ func (this Node) LookupPrefix(namespace js.String) (ret js.String) {
 // the catch clause.
 func (this Node) TryLookupPrefix(namespace js.String) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeLookupPrefix(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		namespace.Ref(),
 	)
 
 	return
 }
 
-// HasLookupNamespaceURI returns true if the method "Node.lookupNamespaceURI" exists.
-func (this Node) HasLookupNamespaceURI() bool {
-	return js.True == bindings.HasNodeLookupNamespaceURI(
-		this.Ref(),
+// HasFuncLookupNamespaceURI returns true if the method "Node.lookupNamespaceURI" exists.
+func (this Node) HasFuncLookupNamespaceURI() bool {
+	return js.True == bindings.HasFuncNodeLookupNamespaceURI(
+		this.ref,
 	)
 }
 
-// LookupNamespaceURIFunc returns the method "Node.lookupNamespaceURI".
-func (this Node) LookupNamespaceURIFunc() (fn js.Func[func(prefix js.String) js.String]) {
-	return fn.FromRef(
-		bindings.NodeLookupNamespaceURIFunc(
-			this.Ref(),
-		),
+// FuncLookupNamespaceURI returns the method "Node.lookupNamespaceURI".
+func (this Node) FuncLookupNamespaceURI() (fn js.Func[func(prefix js.String) js.String]) {
+	bindings.FuncNodeLookupNamespaceURI(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // LookupNamespaceURI calls the method "Node.lookupNamespaceURI".
 func (this Node) LookupNamespaceURI(prefix js.String) (ret js.String) {
 	bindings.CallNodeLookupNamespaceURI(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		prefix.Ref(),
 	)
 
@@ -5755,33 +5669,32 @@ func (this Node) LookupNamespaceURI(prefix js.String) (ret js.String) {
 // the catch clause.
 func (this Node) TryLookupNamespaceURI(prefix js.String) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeLookupNamespaceURI(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		prefix.Ref(),
 	)
 
 	return
 }
 
-// HasIsDefaultNamespace returns true if the method "Node.isDefaultNamespace" exists.
-func (this Node) HasIsDefaultNamespace() bool {
-	return js.True == bindings.HasNodeIsDefaultNamespace(
-		this.Ref(),
+// HasFuncIsDefaultNamespace returns true if the method "Node.isDefaultNamespace" exists.
+func (this Node) HasFuncIsDefaultNamespace() bool {
+	return js.True == bindings.HasFuncNodeIsDefaultNamespace(
+		this.ref,
 	)
 }
 
-// IsDefaultNamespaceFunc returns the method "Node.isDefaultNamespace".
-func (this Node) IsDefaultNamespaceFunc() (fn js.Func[func(namespace js.String) bool]) {
-	return fn.FromRef(
-		bindings.NodeIsDefaultNamespaceFunc(
-			this.Ref(),
-		),
+// FuncIsDefaultNamespace returns the method "Node.isDefaultNamespace".
+func (this Node) FuncIsDefaultNamespace() (fn js.Func[func(namespace js.String) bool]) {
+	bindings.FuncNodeIsDefaultNamespace(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsDefaultNamespace calls the method "Node.isDefaultNamespace".
 func (this Node) IsDefaultNamespace(namespace js.String) (ret bool) {
 	bindings.CallNodeIsDefaultNamespace(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		namespace.Ref(),
 	)
 
@@ -5793,33 +5706,32 @@ func (this Node) IsDefaultNamespace(namespace js.String) (ret bool) {
 // the catch clause.
 func (this Node) TryIsDefaultNamespace(namespace js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeIsDefaultNamespace(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		namespace.Ref(),
 	)
 
 	return
 }
 
-// HasInsertBefore returns true if the method "Node.insertBefore" exists.
-func (this Node) HasInsertBefore() bool {
-	return js.True == bindings.HasNodeInsertBefore(
-		this.Ref(),
+// HasFuncInsertBefore returns true if the method "Node.insertBefore" exists.
+func (this Node) HasFuncInsertBefore() bool {
+	return js.True == bindings.HasFuncNodeInsertBefore(
+		this.ref,
 	)
 }
 
-// InsertBeforeFunc returns the method "Node.insertBefore".
-func (this Node) InsertBeforeFunc() (fn js.Func[func(node Node, child Node) Node]) {
-	return fn.FromRef(
-		bindings.NodeInsertBeforeFunc(
-			this.Ref(),
-		),
+// FuncInsertBefore returns the method "Node.insertBefore".
+func (this Node) FuncInsertBefore() (fn js.Func[func(node Node, child Node) Node]) {
+	bindings.FuncNodeInsertBefore(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InsertBefore calls the method "Node.insertBefore".
 func (this Node) InsertBefore(node Node, child Node) (ret Node) {
 	bindings.CallNodeInsertBefore(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		node.Ref(),
 		child.Ref(),
 	)
@@ -5832,7 +5744,7 @@ func (this Node) InsertBefore(node Node, child Node) (ret Node) {
 // the catch clause.
 func (this Node) TryInsertBefore(node Node, child Node) (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeInsertBefore(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		node.Ref(),
 		child.Ref(),
 	)
@@ -5840,26 +5752,25 @@ func (this Node) TryInsertBefore(node Node, child Node) (ret Node, exception js.
 	return
 }
 
-// HasAppendChild returns true if the method "Node.appendChild" exists.
-func (this Node) HasAppendChild() bool {
-	return js.True == bindings.HasNodeAppendChild(
-		this.Ref(),
+// HasFuncAppendChild returns true if the method "Node.appendChild" exists.
+func (this Node) HasFuncAppendChild() bool {
+	return js.True == bindings.HasFuncNodeAppendChild(
+		this.ref,
 	)
 }
 
-// AppendChildFunc returns the method "Node.appendChild".
-func (this Node) AppendChildFunc() (fn js.Func[func(node Node) Node]) {
-	return fn.FromRef(
-		bindings.NodeAppendChildFunc(
-			this.Ref(),
-		),
+// FuncAppendChild returns the method "Node.appendChild".
+func (this Node) FuncAppendChild() (fn js.Func[func(node Node) Node]) {
+	bindings.FuncNodeAppendChild(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AppendChild calls the method "Node.appendChild".
 func (this Node) AppendChild(node Node) (ret Node) {
 	bindings.CallNodeAppendChild(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		node.Ref(),
 	)
 
@@ -5871,33 +5782,32 @@ func (this Node) AppendChild(node Node) (ret Node) {
 // the catch clause.
 func (this Node) TryAppendChild(node Node) (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeAppendChild(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		node.Ref(),
 	)
 
 	return
 }
 
-// HasReplaceChild returns true if the method "Node.replaceChild" exists.
-func (this Node) HasReplaceChild() bool {
-	return js.True == bindings.HasNodeReplaceChild(
-		this.Ref(),
+// HasFuncReplaceChild returns true if the method "Node.replaceChild" exists.
+func (this Node) HasFuncReplaceChild() bool {
+	return js.True == bindings.HasFuncNodeReplaceChild(
+		this.ref,
 	)
 }
 
-// ReplaceChildFunc returns the method "Node.replaceChild".
-func (this Node) ReplaceChildFunc() (fn js.Func[func(node Node, child Node) Node]) {
-	return fn.FromRef(
-		bindings.NodeReplaceChildFunc(
-			this.Ref(),
-		),
+// FuncReplaceChild returns the method "Node.replaceChild".
+func (this Node) FuncReplaceChild() (fn js.Func[func(node Node, child Node) Node]) {
+	bindings.FuncNodeReplaceChild(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReplaceChild calls the method "Node.replaceChild".
 func (this Node) ReplaceChild(node Node, child Node) (ret Node) {
 	bindings.CallNodeReplaceChild(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		node.Ref(),
 		child.Ref(),
 	)
@@ -5910,7 +5820,7 @@ func (this Node) ReplaceChild(node Node, child Node) (ret Node) {
 // the catch clause.
 func (this Node) TryReplaceChild(node Node, child Node) (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeReplaceChild(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		node.Ref(),
 		child.Ref(),
 	)
@@ -5918,26 +5828,25 @@ func (this Node) TryReplaceChild(node Node, child Node) (ret Node, exception js.
 	return
 }
 
-// HasRemoveChild returns true if the method "Node.removeChild" exists.
-func (this Node) HasRemoveChild() bool {
-	return js.True == bindings.HasNodeRemoveChild(
-		this.Ref(),
+// HasFuncRemoveChild returns true if the method "Node.removeChild" exists.
+func (this Node) HasFuncRemoveChild() bool {
+	return js.True == bindings.HasFuncNodeRemoveChild(
+		this.ref,
 	)
 }
 
-// RemoveChildFunc returns the method "Node.removeChild".
-func (this Node) RemoveChildFunc() (fn js.Func[func(child Node) Node]) {
-	return fn.FromRef(
-		bindings.NodeRemoveChildFunc(
-			this.Ref(),
-		),
+// FuncRemoveChild returns the method "Node.removeChild".
+func (this Node) FuncRemoveChild() (fn js.Func[func(child Node) Node]) {
+	bindings.FuncNodeRemoveChild(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RemoveChild calls the method "Node.removeChild".
 func (this Node) RemoveChild(child Node) (ret Node) {
 	bindings.CallNodeRemoveChild(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		child.Ref(),
 	)
 
@@ -5949,7 +5858,7 @@ func (this Node) RemoveChild(child Node) (ret Node) {
 // the catch clause.
 func (this Node) TryRemoveChild(child Node) (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeRemoveChild(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		child.Ref(),
 	)
 
@@ -5961,7 +5870,7 @@ type AbstractRange struct {
 }
 
 func (this AbstractRange) Once() AbstractRange {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -5975,7 +5884,7 @@ func (this AbstractRange) FromRef(ref js.Ref) AbstractRange {
 }
 
 func (this AbstractRange) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // StartContainer returns the value of property "AbstractRange.startContainer".
@@ -5983,7 +5892,7 @@ func (this AbstractRange) Free() {
 // It returns ok=false if there is no such property.
 func (this AbstractRange) StartContainer() (ret Node, ok bool) {
 	ok = js.True == bindings.GetAbstractRangeStartContainer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -5993,7 +5902,7 @@ func (this AbstractRange) StartContainer() (ret Node, ok bool) {
 // It returns ok=false if there is no such property.
 func (this AbstractRange) StartOffset() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetAbstractRangeStartOffset(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -6003,7 +5912,7 @@ func (this AbstractRange) StartOffset() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this AbstractRange) EndContainer() (ret Node, ok bool) {
 	ok = js.True == bindings.GetAbstractRangeEndContainer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -6013,7 +5922,7 @@ func (this AbstractRange) EndContainer() (ret Node, ok bool) {
 // It returns ok=false if there is no such property.
 func (this AbstractRange) EndOffset() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetAbstractRangeEndOffset(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -6023,7 +5932,7 @@ func (this AbstractRange) EndOffset() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this AbstractRange) Collapsed() (ret bool, ok bool) {
 	ok = js.True == bindings.GetAbstractRangeCollapsed(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -6083,17 +5992,22 @@ func (p AccelerometerSensorOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AccelerometerSensorOptions) UpdateFrom(ref js.Ref) {
+func (p *AccelerometerSensorOptions) UpdateFrom(ref js.Ref) {
 	bindings.AccelerometerSensorOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AccelerometerSensorOptions) Update(ref js.Ref) {
+func (p *AccelerometerSensorOptions) Update(ref js.Ref) {
 	bindings.AccelerometerSensorOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AccelerometerSensorOptions) FreeMembers(recursive bool) {
 }
 
 func NewAccelerometer(options AccelerometerSensorOptions) (ret Accelerometer) {
@@ -6112,7 +6026,7 @@ type Accelerometer struct {
 }
 
 func (this Accelerometer) Once() Accelerometer {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -6126,7 +6040,7 @@ func (this Accelerometer) FromRef(ref js.Ref) Accelerometer {
 }
 
 func (this Accelerometer) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // X returns the value of property "Accelerometer.x".
@@ -6134,7 +6048,7 @@ func (this Accelerometer) Free() {
 // It returns ok=false if there is no such property.
 func (this Accelerometer) X() (ret float64, ok bool) {
 	ok = js.True == bindings.GetAccelerometerX(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -6144,7 +6058,7 @@ func (this Accelerometer) X() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Accelerometer) Y() (ret float64, ok bool) {
 	ok = js.True == bindings.GetAccelerometerY(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -6154,7 +6068,7 @@ func (this Accelerometer) Y() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Accelerometer) Z() (ret float64, ok bool) {
 	ok = js.True == bindings.GetAccelerometerZ(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -6190,17 +6104,22 @@ func (p AccelerometerReadingValues) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AccelerometerReadingValues) UpdateFrom(ref js.Ref) {
+func (p *AccelerometerReadingValues) UpdateFrom(ref js.Ref) {
 	bindings.AccelerometerReadingValuesJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AccelerometerReadingValues) Update(ref js.Ref) {
+func (p *AccelerometerReadingValues) Update(ref js.Ref) {
 	bindings.AccelerometerReadingValuesJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AccelerometerReadingValues) FreeMembers(recursive bool) {
 }
 
 type AdRender struct {
@@ -6234,17 +6153,30 @@ func (p AdRender) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AdRender) UpdateFrom(ref js.Ref) {
+func (p *AdRender) UpdateFrom(ref js.Ref) {
 	bindings.AdRenderJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AdRender) Update(ref js.Ref) {
+func (p *AdRender) Update(ref js.Ref) {
 	bindings.AdRenderJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AdRender) FreeMembers(recursive bool) {
+	js.Free(
+		p.Url.Ref(),
+		p.Width.Ref(),
+		p.Height.Ref(),
+	)
+	p.Url = p.Url.FromRef(js.Undefined)
+	p.Width = p.Width.FromRef(js.Undefined)
+	p.Height = p.Height.FromRef(js.Undefined)
 }
 
 type AddressErrors struct {
@@ -6306,17 +6238,44 @@ func (p AddressErrors) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AddressErrors) UpdateFrom(ref js.Ref) {
+func (p *AddressErrors) UpdateFrom(ref js.Ref) {
 	bindings.AddressErrorsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AddressErrors) Update(ref js.Ref) {
+func (p *AddressErrors) Update(ref js.Ref) {
 	bindings.AddressErrorsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AddressErrors) FreeMembers(recursive bool) {
+	js.Free(
+		p.AddressLine.Ref(),
+		p.City.Ref(),
+		p.Country.Ref(),
+		p.DependentLocality.Ref(),
+		p.Organization.Ref(),
+		p.Phone.Ref(),
+		p.PostalCode.Ref(),
+		p.Recipient.Ref(),
+		p.Region.Ref(),
+		p.SortingCode.Ref(),
+	)
+	p.AddressLine = p.AddressLine.FromRef(js.Undefined)
+	p.City = p.City.FromRef(js.Undefined)
+	p.Country = p.Country.FromRef(js.Undefined)
+	p.DependentLocality = p.DependentLocality.FromRef(js.Undefined)
+	p.Organization = p.Organization.FromRef(js.Undefined)
+	p.Phone = p.Phone.FromRef(js.Undefined)
+	p.PostalCode = p.PostalCode.FromRef(js.Undefined)
+	p.Recipient = p.Recipient.FromRef(js.Undefined)
+	p.Region = p.Region.FromRef(js.Undefined)
+	p.SortingCode = p.SortingCode.FromRef(js.Undefined)
 }
 
 type AddressInit struct {
@@ -6378,17 +6337,44 @@ func (p AddressInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AddressInit) UpdateFrom(ref js.Ref) {
+func (p *AddressInit) UpdateFrom(ref js.Ref) {
 	bindings.AddressInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AddressInit) Update(ref js.Ref) {
+func (p *AddressInit) Update(ref js.Ref) {
 	bindings.AddressInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AddressInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Country.Ref(),
+		p.AddressLine.Ref(),
+		p.Region.Ref(),
+		p.City.Ref(),
+		p.DependentLocality.Ref(),
+		p.PostalCode.Ref(),
+		p.SortingCode.Ref(),
+		p.Organization.Ref(),
+		p.Recipient.Ref(),
+		p.Phone.Ref(),
+	)
+	p.Country = p.Country.FromRef(js.Undefined)
+	p.AddressLine = p.AddressLine.FromRef(js.Undefined)
+	p.Region = p.Region.FromRef(js.Undefined)
+	p.City = p.City.FromRef(js.Undefined)
+	p.DependentLocality = p.DependentLocality.FromRef(js.Undefined)
+	p.PostalCode = p.PostalCode.FromRef(js.Undefined)
+	p.SortingCode = p.SortingCode.FromRef(js.Undefined)
+	p.Organization = p.Organization.FromRef(js.Undefined)
+	p.Recipient = p.Recipient.FromRef(js.Undefined)
+	p.Phone = p.Phone.FromRef(js.Undefined)
 }
 
 type OneOf_TypedArrayInt8_TypedArrayInt16_TypedArrayInt32_TypedArrayUint8_TypedArrayUint16_TypedArrayUint32_TypedArrayInt64_TypedArrayUint64_TypedArrayFloat32_TypedArrayFloat64_DataView_ArrayBuffer struct {
@@ -6486,17 +6472,28 @@ func (p AesCbcParams) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AesCbcParams) UpdateFrom(ref js.Ref) {
+func (p *AesCbcParams) UpdateFrom(ref js.Ref) {
 	bindings.AesCbcParamsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AesCbcParams) Update(ref js.Ref) {
+func (p *AesCbcParams) Update(ref js.Ref) {
 	bindings.AesCbcParamsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AesCbcParams) FreeMembers(recursive bool) {
+	js.Free(
+		p.Iv.Ref(),
+		p.Name.Ref(),
+	)
+	p.Iv = p.Iv.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type AesCtrParams struct {
@@ -6530,17 +6527,28 @@ func (p AesCtrParams) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AesCtrParams) UpdateFrom(ref js.Ref) {
+func (p *AesCtrParams) UpdateFrom(ref js.Ref) {
 	bindings.AesCtrParamsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AesCtrParams) Update(ref js.Ref) {
+func (p *AesCtrParams) Update(ref js.Ref) {
 	bindings.AesCtrParamsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AesCtrParams) FreeMembers(recursive bool) {
+	js.Free(
+		p.Counter.Ref(),
+		p.Name.Ref(),
+	)
+	p.Counter = p.Counter.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type AesDerivedKeyParams struct {
@@ -6570,17 +6578,26 @@ func (p AesDerivedKeyParams) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AesDerivedKeyParams) UpdateFrom(ref js.Ref) {
+func (p *AesDerivedKeyParams) UpdateFrom(ref js.Ref) {
 	bindings.AesDerivedKeyParamsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AesDerivedKeyParams) Update(ref js.Ref) {
+func (p *AesDerivedKeyParams) Update(ref js.Ref) {
 	bindings.AesDerivedKeyParamsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AesDerivedKeyParams) FreeMembers(recursive bool) {
+	js.Free(
+		p.Name.Ref(),
+	)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type AesGcmParams struct {
@@ -6622,17 +6639,30 @@ func (p AesGcmParams) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AesGcmParams) UpdateFrom(ref js.Ref) {
+func (p *AesGcmParams) UpdateFrom(ref js.Ref) {
 	bindings.AesGcmParamsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AesGcmParams) Update(ref js.Ref) {
+func (p *AesGcmParams) Update(ref js.Ref) {
 	bindings.AesGcmParamsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AesGcmParams) FreeMembers(recursive bool) {
+	js.Free(
+		p.Iv.Ref(),
+		p.AdditionalData.Ref(),
+		p.Name.Ref(),
+	)
+	p.Iv = p.Iv.FromRef(js.Undefined)
+	p.AdditionalData = p.AdditionalData.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type AesKeyAlgorithm struct {
@@ -6662,17 +6692,26 @@ func (p AesKeyAlgorithm) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AesKeyAlgorithm) UpdateFrom(ref js.Ref) {
+func (p *AesKeyAlgorithm) UpdateFrom(ref js.Ref) {
 	bindings.AesKeyAlgorithmJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AesKeyAlgorithm) Update(ref js.Ref) {
+func (p *AesKeyAlgorithm) Update(ref js.Ref) {
 	bindings.AesKeyAlgorithmJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AesKeyAlgorithm) FreeMembers(recursive bool) {
+	js.Free(
+		p.Name.Ref(),
+	)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type AesKeyGenParams struct {
@@ -6702,17 +6741,26 @@ func (p AesKeyGenParams) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AesKeyGenParams) UpdateFrom(ref js.Ref) {
+func (p *AesKeyGenParams) UpdateFrom(ref js.Ref) {
 	bindings.AesKeyGenParamsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AesKeyGenParams) Update(ref js.Ref) {
+func (p *AesKeyGenParams) Update(ref js.Ref) {
 	bindings.AesKeyGenParamsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AesKeyGenParams) FreeMembers(recursive bool) {
+	js.Free(
+		p.Name.Ref(),
+	)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type Algorithm struct {
@@ -6738,17 +6786,26 @@ func (p Algorithm) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p Algorithm) UpdateFrom(ref js.Ref) {
+func (p *Algorithm) UpdateFrom(ref js.Ref) {
 	bindings.AlgorithmJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p Algorithm) Update(ref js.Ref) {
+func (p *Algorithm) Update(ref js.Ref) {
 	bindings.AlgorithmJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *Algorithm) FreeMembers(recursive bool) {
+	js.Free(
+		p.Name.Ref(),
+	)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type OneOf_Object_String struct {
@@ -6947,17 +7004,30 @@ func (p AllowedBluetoothDevice) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AllowedBluetoothDevice) UpdateFrom(ref js.Ref) {
+func (p *AllowedBluetoothDevice) UpdateFrom(ref js.Ref) {
 	bindings.AllowedBluetoothDeviceJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AllowedBluetoothDevice) Update(ref js.Ref) {
+func (p *AllowedBluetoothDevice) Update(ref js.Ref) {
 	bindings.AllowedBluetoothDeviceJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AllowedBluetoothDevice) FreeMembers(recursive bool) {
+	js.Free(
+		p.DeviceId.Ref(),
+		p.AllowedServices.Ref(),
+		p.AllowedManufacturerData.Ref(),
+	)
+	p.DeviceId = p.DeviceId.FromRef(js.Undefined)
+	p.AllowedServices = p.AllowedServices.FromRef(js.Undefined)
+	p.AllowedManufacturerData = p.AllowedManufacturerData.FromRef(js.Undefined)
 }
 
 type AllowedUSBDevice struct {
@@ -6991,17 +7061,26 @@ func (p AllowedUSBDevice) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AllowedUSBDevice) UpdateFrom(ref js.Ref) {
+func (p *AllowedUSBDevice) UpdateFrom(ref js.Ref) {
 	bindings.AllowedUSBDeviceJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AllowedUSBDevice) Update(ref js.Ref) {
+func (p *AllowedUSBDevice) Update(ref js.Ref) {
 	bindings.AllowedUSBDeviceJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AllowedUSBDevice) FreeMembers(recursive bool) {
+	js.Free(
+		p.SerialNumber.Ref(),
+	)
+	p.SerialNumber = p.SerialNumber.FromRef(js.Undefined)
 }
 
 type AlphaOption uint32
@@ -7051,17 +7130,22 @@ func (p AmbientLightReadingValues) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AmbientLightReadingValues) UpdateFrom(ref js.Ref) {
+func (p *AmbientLightReadingValues) UpdateFrom(ref js.Ref) {
 	bindings.AmbientLightReadingValuesJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AmbientLightReadingValues) Update(ref js.Ref) {
+func (p *AmbientLightReadingValues) Update(ref js.Ref) {
 	bindings.AmbientLightReadingValuesJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AmbientLightReadingValues) FreeMembers(recursive bool) {
 }
 
 type SensorOptions struct {
@@ -7091,17 +7175,22 @@ func (p SensorOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p SensorOptions) UpdateFrom(ref js.Ref) {
+func (p *SensorOptions) UpdateFrom(ref js.Ref) {
 	bindings.SensorOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p SensorOptions) Update(ref js.Ref) {
+func (p *SensorOptions) Update(ref js.Ref) {
 	bindings.SensorOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *SensorOptions) FreeMembers(recursive bool) {
 }
 
 func NewAmbientLightSensor(sensorOptions SensorOptions) (ret AmbientLightSensor) {
@@ -7120,7 +7209,7 @@ type AmbientLightSensor struct {
 }
 
 func (this AmbientLightSensor) Once() AmbientLightSensor {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -7134,7 +7223,7 @@ func (this AmbientLightSensor) FromRef(ref js.Ref) AmbientLightSensor {
 }
 
 func (this AmbientLightSensor) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Illuminance returns the value of property "AmbientLightSensor.illuminance".
@@ -7142,7 +7231,7 @@ func (this AmbientLightSensor) Free() {
 // It returns ok=false if there is no such property.
 func (this AmbientLightSensor) Illuminance() (ret float64, ok bool) {
 	ok = js.True == bindings.GetAmbientLightSensorIlluminance(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }

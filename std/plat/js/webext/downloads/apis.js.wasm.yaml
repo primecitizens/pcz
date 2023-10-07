@@ -1,0 +1,2175 @@
+- File: webext/chrome/downloads.idl
+  Dict:
+    Name: BooleanDelta
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+      - Name: permissions
+        Values:
+          - downloads
+    Fields:
+      - Name: previous
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: current
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+- File: webext/chrome/downloads.idl
+  Enum:
+    Name: DangerType
+    Values:
+      - file
+      - url
+      - content
+      - uncommon
+      - host
+      - unwanted
+      - safe
+      - accepted
+      - allowlistedByPolicy
+      - asyncScanning
+      - passwordProtected
+      - blockedTooLarge
+      - sensitiveContentWarning
+      - sensitiveContentBlock
+      - unsupportedFileType
+      - deepScannedFailed
+      - deepScannedSafe
+      - deepScannedOpenedDangerous
+      - promptForScaning
+      - accountCompromise
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+      - Name: permissions
+        Values:
+          - downloads
+- File: webext/chrome/downloads.idl
+  Dict:
+    Name: DoubleDelta
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+      - Name: permissions
+        Values:
+          - downloads
+    Fields:
+      - Name: previous
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: current
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+- File: webext/chrome/downloads.idl
+  Callback:
+    Name: DownloadCallback
+    Args:
+      - Name: downloadId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+      - Name: permissions
+        Values:
+          - downloads
+- File: webext/chrome/downloads.idl
+  Dict:
+    Name: DownloadDelta
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+      - Name: permissions
+        Values:
+          - downloads
+      - Name: inline_doc
+    Fields:
+      - Name: id
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: url
+        Type:
+          Name: StringDelta
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: finalUrl
+        Type:
+          Name: StringDelta
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: filename
+        Type:
+          Name: StringDelta
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: danger
+        Type:
+          Name: StringDelta
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: mime
+        Type:
+          Name: StringDelta
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: startTime
+        Type:
+          Name: StringDelta
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: endTime
+        Type:
+          Name: StringDelta
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: state
+        Type:
+          Name: StringDelta
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: canResume
+        Type:
+          Name: BooleanDelta
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: paused
+        Type:
+          Name: BooleanDelta
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: error
+        Type:
+          Name: StringDelta
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: totalBytes
+        Type:
+          Name: DoubleDelta
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: fileSize
+        Type:
+          Name: DoubleDelta
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: exists
+        Type:
+          Name: BooleanDelta
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+- File: webext/chrome/downloads.idl
+  Dict:
+    Name: DownloadItem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+      - Name: permissions
+        Values:
+          - downloads
+    Fields:
+      - Name: id
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: finalUrl
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: referrer
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: filename
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: incognito
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: danger
+        Type:
+          Name: DangerType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: mime
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: startTime
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: endTime
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: estimatedEndTime
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: state
+        Type:
+          Name: State
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: paused
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: canResume
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: error
+        Type:
+          Name: InterruptReason
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: bytesReceived
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: totalBytes
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: fileSize
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: exists
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: byExtensionId
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: byExtensionName
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+- File: webext/chrome/downloads.idl
+  Dict:
+    Name: DownloadOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+      - Name: permissions
+        Values:
+          - downloads
+      - Name: inline_doc
+    Fields:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: filename
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: conflictAction
+        Type:
+          Name: FilenameConflictAction
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: saveAs
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: method
+        Type:
+          Name: HttpMethod
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: headers
+        Type:
+          Name: sequence
+          Params:
+            - Name: HeaderNameValuePair
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - downloads
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: body
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+- File: webext/chrome/downloads.idl
+  Dict:
+    Name: DownloadQuery
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+      - Name: permissions
+        Values:
+          - downloads
+      - Name: inline_doc
+    Fields:
+      - Name: query
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - downloads
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: startedBefore
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: startedAfter
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: endedBefore
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: endedAfter
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: totalBytesGreater
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: totalBytesLess
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: filenameRegex
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: urlRegex
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: finalUrlRegex
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: limit
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: orderBy
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - downloads
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: id
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: url
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: finalUrl
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: filename
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: danger
+        Type:
+          Name: DangerType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: mime
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: startTime
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: endTime
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: state
+        Type:
+          Name: State
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: paused
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: error
+        Type:
+          Name: InterruptReason
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: bytesReceived
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: totalBytes
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: fileSize
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: exists
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+- File: webext/chrome/downloads.idl
+  Callback:
+    Name: EraseCallback
+    Args:
+      - Name: erasedIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - downloads
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+      - Name: permissions
+        Values:
+          - downloads
+- File: webext/chrome/downloads.idl
+  Enum:
+    Name: FilenameConflictAction
+    Values:
+      - uniquify
+      - overwrite
+      - prompt
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+      - Name: permissions
+        Values:
+          - downloads
+- File: webext/chrome/downloads.idl
+  Dict:
+    Name: FilenameSuggestion
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+      - Name: permissions
+        Values:
+          - downloads
+      - Name: inline_doc
+    Fields:
+      - Name: filename
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: conflictAction
+        Type:
+          Name: FilenameConflictAction
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+- File: webext/chrome/downloads.idl
+  Callback:
+    Name: GetFileIconCallback
+    Args:
+      - Name: iconURL
+        Optional: true
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+      - Name: permissions
+        Values:
+          - downloads
+- File: webext/chrome/downloads.idl
+  Dict:
+    Name: GetFileIconOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+      - Name: permissions
+        Values:
+          - downloads
+      - Name: inline_doc
+    Fields:
+      - Name: size
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: legalValues
+            Values:
+              - "16"
+              - "32"
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+- File: webext/chrome/downloads.idl
+  Dict:
+    Name: HeaderNameValuePair
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+      - Name: permissions
+        Values:
+          - downloads
+      - Name: inline_doc
+    Fields:
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: value
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+- File: webext/chrome/downloads.idl
+  Enum:
+    Name: HttpMethod
+    Values:
+      - GET
+      - POST
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+      - Name: permissions
+        Values:
+          - downloads
+      - Name: inline_doc
+- File: webext/chrome/downloads.idl
+  Enum:
+    Name: InterruptReason
+    Values:
+      - FILE_FAILED
+      - FILE_ACCESS_DENIED
+      - FILE_NO_SPACE
+      - FILE_NAME_TOO_LONG
+      - FILE_TOO_LARGE
+      - FILE_VIRUS_INFECTED
+      - FILE_TRANSIENT_ERROR
+      - FILE_BLOCKED
+      - FILE_SECURITY_CHECK_FAILED
+      - FILE_TOO_SHORT
+      - FILE_HASH_MISMATCH
+      - FILE_SAME_AS_SOURCE
+      - NETWORK_FAILED
+      - NETWORK_TIMEOUT
+      - NETWORK_DISCONNECTED
+      - NETWORK_SERVER_DOWN
+      - NETWORK_INVALID_REQUEST
+      - SERVER_FAILED
+      - SERVER_NO_RANGE
+      - SERVER_BAD_CONTENT
+      - SERVER_UNAUTHORIZED
+      - SERVER_CERT_PROBLEM
+      - SERVER_FORBIDDEN
+      - SERVER_UNREACHABLE
+      - SERVER_CONTENT_LENGTH_MISMATCH
+      - SERVER_CROSS_ORIGIN_REDIRECT
+      - USER_CANCELED
+      - USER_SHUTDOWN
+      - CRASH
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+      - Name: permissions
+        Values:
+          - downloads
+- File: webext/chrome/downloads.idl
+  Callback:
+    Name: NullCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+      - Name: permissions
+        Values:
+          - downloads
+- File: webext/chrome/downloads.idl
+  Callback:
+    Name: SearchCallback
+    Args:
+      - Name: results
+        Type:
+          Name: sequence
+          Params:
+            - Name: DownloadItem
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - downloads
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+      - Name: permissions
+        Values:
+          - downloads
+- File: webext/chrome/downloads.idl
+  Enum:
+    Name: State
+    Values:
+      - in_progress
+      - interrupted
+      - complete
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+      - Name: permissions
+        Values:
+          - downloads
+- File: webext/chrome/downloads.idl
+  Dict:
+    Name: StringDelta
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+      - Name: permissions
+        Values:
+          - downloads
+    Fields:
+      - Name: previous
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: current
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+- File: webext/chrome/downloads.idl
+  Callback:
+    Name: SuggestFilenameCallback
+    Args:
+      - Name: suggestion
+        Optional: true
+        Type:
+          Name: FilenameSuggestion
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+      - Name: permissions
+        Values:
+          - downloads
+- File: webext/chrome/downloads.idl
+  Dict:
+    Name: UiOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+      - Name: permissions
+        Values:
+          - downloads
+      - Name: inline_doc
+    Fields:
+      - Name: enabled
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+- File: webext/chrome/downloads.idl
+  WebextFunc:
+    Name: acceptDanger
+    Modifier: static
+    Args:
+      - Name: downloadId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+- File: webext/chrome/downloads.idl
+  WebextFunc:
+    Name: cancel
+    Modifier: static
+    Args:
+      - Name: downloadId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+- File: webext/chrome/downloads.idl
+  WebextFunc:
+    Name: download
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: DownloadOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: long
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - downloads
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+- File: webext/chrome/downloads.idl
+  WebextFunc:
+    Name: erase
+    Modifier: static
+    Args:
+      - Name: query
+        Type:
+          Name: DownloadQuery
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: long
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - downloads
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - downloads
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+- File: webext/chrome/downloads.idl
+  WebextFunc:
+    Name: getFileIcon
+    Modifier: static
+    Args:
+      - Name: downloadId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: options
+        Optional: true
+        Type:
+          Name: GetFileIconOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - downloads
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+- File: webext/chrome/downloads.idl
+  WebextEvent:
+    Name: onChanged
+    Modifier: static
+    Args:
+      - Name: downloadDelta
+        Type:
+          Name: DownloadDelta
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+- File: webext/chrome/downloads.idl
+  WebextEvent:
+    Name: onCreated
+    Modifier: static
+    Args:
+      - Name: downloadItem
+        Type:
+          Name: DownloadItem
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+- File: webext/chrome/downloads.idl
+  WebextEvent:
+    Name: onDeterminingFilename
+    Modifier: static
+    Args:
+      - Name: downloadItem
+        Type:
+          Name: DownloadItem
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+      - Name: suggest
+        Type:
+          Name: SuggestFilenameCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+- File: webext/chrome/downloads.idl
+  WebextEvent:
+    Name: onErased
+    Modifier: static
+    Args:
+      - Name: downloadId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+- File: webext/chrome/downloads.idl
+  WebextFunc:
+    Name: open
+    Modifier: static
+    Args:
+      - Name: downloadId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+- File: webext/chrome/downloads.idl
+  WebextFunc:
+    Name: pause
+    Modifier: static
+    Args:
+      - Name: downloadId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+- File: webext/chrome/downloads.idl
+  WebextFunc:
+    Name: removeFile
+    Modifier: static
+    Args:
+      - Name: downloadId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+- File: webext/chrome/downloads.idl
+  WebextFunc:
+    Name: resume
+    Modifier: static
+    Args:
+      - Name: downloadId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+- File: webext/chrome/downloads.idl
+  WebextFunc:
+    Name: search
+    Modifier: static
+    Args:
+      - Name: query
+        Type:
+          Name: DownloadQuery
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: DownloadItem
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - downloads
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - downloads
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+- File: webext/chrome/downloads.idl
+  WebextFunc:
+    Name: setShelfEnabled
+    Modifier: static
+    Args:
+      - Name: enabled
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    ExtAttrs:
+      - Name: deprecated
+        Values:
+          - Use $(ref:setUiOptions) instead.
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+- File: webext/chrome/downloads.idl
+  WebextFunc:
+    Name: setUiOptions
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: UiOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+- File: webext/chrome/downloads.idl
+  WebextFunc:
+    Name: show
+    Modifier: static
+    Args:
+      - Name: downloadId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - downloads
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads
+- File: webext/chrome/downloads.idl
+  WebextFunc:
+    Name: showDefaultFolder
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - downloads
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - downloads

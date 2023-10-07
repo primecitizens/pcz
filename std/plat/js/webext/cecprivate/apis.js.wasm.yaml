@@ -1,0 +1,131 @@
+- File: webext/cec_private.idl
+  Callback:
+    Name: ChangePowerStateCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cecPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - cecPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/cec_private.idl
+  Enum:
+    Name: DisplayCecPowerState
+    Values:
+      - error
+      - adapterNotConfigured
+      - noDevice
+      - "on"
+      - standby
+      - transitioningToOn
+      - transitioningToStandby
+      - unknown
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - cecPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/cec_private.idl
+  Callback:
+    Name: DisplayCecPowerStateCallback
+    Args:
+      - Name: powerStates
+        Type:
+          Name: sequence
+          Params:
+            - Name: DisplayCecPowerState
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - cecPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - cecPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cecPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - cecPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - cecPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/cec_private.idl
+  WebextFunc:
+    Name: queryDisplayCecPowerState
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: DisplayCecPowerState
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - cecPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - cecPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - cecPrivate
+- File: webext/cec_private.idl
+  WebextFunc:
+    Name: sendStandBy
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - cecPrivate
+- File: webext/cec_private.idl
+  WebextFunc:
+    Name: sendWakeUp
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - cecPrivate

@@ -1,0 +1,33 @@
+- File: webext/chrome/accessibility_service_private.idl
+  Callback:
+    Name: VoidCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - accessibilityServicePrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityServicePrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/accessibility_service_private.idl
+  WebextFunc:
+    Name: speakSelectedText
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - accessibilityServicePrivate

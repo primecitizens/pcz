@@ -5,17 +5,9 @@ package web
 
 import (
 	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 type IdleRequestCallbackFunc func(this js.Ref, deadline IdleDeadline) js.Ref
 
@@ -62,7 +54,7 @@ func (cb *IdleRequestCallback[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 1+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
 
 	if ctx.Return(cb.Fn(
@@ -82,7 +74,7 @@ type IdleDeadline struct {
 }
 
 func (this IdleDeadline) Once() IdleDeadline {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -96,7 +88,7 @@ func (this IdleDeadline) FromRef(ref js.Ref) IdleDeadline {
 }
 
 func (this IdleDeadline) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // DidTimeout returns the value of property "IdleDeadline.didTimeout".
@@ -104,31 +96,30 @@ func (this IdleDeadline) Free() {
 // It returns ok=false if there is no such property.
 func (this IdleDeadline) DidTimeout() (ret bool, ok bool) {
 	ok = js.True == bindings.GetIdleDeadlineDidTimeout(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasTimeRemaining returns true if the method "IdleDeadline.timeRemaining" exists.
-func (this IdleDeadline) HasTimeRemaining() bool {
-	return js.True == bindings.HasIdleDeadlineTimeRemaining(
-		this.Ref(),
+// HasFuncTimeRemaining returns true if the method "IdleDeadline.timeRemaining" exists.
+func (this IdleDeadline) HasFuncTimeRemaining() bool {
+	return js.True == bindings.HasFuncIdleDeadlineTimeRemaining(
+		this.ref,
 	)
 }
 
-// TimeRemainingFunc returns the method "IdleDeadline.timeRemaining".
-func (this IdleDeadline) TimeRemainingFunc() (fn js.Func[func() DOMHighResTimeStamp]) {
-	return fn.FromRef(
-		bindings.IdleDeadlineTimeRemainingFunc(
-			this.Ref(),
-		),
+// FuncTimeRemaining returns the method "IdleDeadline.timeRemaining".
+func (this IdleDeadline) FuncTimeRemaining() (fn js.Func[func() DOMHighResTimeStamp]) {
+	bindings.FuncIdleDeadlineTimeRemaining(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TimeRemaining calls the method "IdleDeadline.timeRemaining".
 func (this IdleDeadline) TimeRemaining() (ret DOMHighResTimeStamp) {
 	bindings.CallIdleDeadlineTimeRemaining(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -139,7 +130,7 @@ func (this IdleDeadline) TimeRemaining() (ret DOMHighResTimeStamp) {
 // the catch clause.
 func (this IdleDeadline) TryTimeRemaining() (ret DOMHighResTimeStamp, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIdleDeadlineTimeRemaining(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -172,17 +163,22 @@ func (p IdleRequestOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p IdleRequestOptions) UpdateFrom(ref js.Ref) {
+func (p *IdleRequestOptions) UpdateFrom(ref js.Ref) {
 	bindings.IdleRequestOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p IdleRequestOptions) Update(ref js.Ref) {
+func (p *IdleRequestOptions) Update(ref js.Ref) {
 	bindings.IdleRequestOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *IdleRequestOptions) FreeMembers(recursive bool) {
 }
 
 type WriteCommandType uint32
@@ -254,17 +250,26 @@ func (p WriteParams) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p WriteParams) UpdateFrom(ref js.Ref) {
+func (p *WriteParams) UpdateFrom(ref js.Ref) {
 	bindings.WriteParamsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p WriteParams) Update(ref js.Ref) {
+func (p *WriteParams) Update(ref js.Ref) {
 	bindings.WriteParamsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *WriteParams) FreeMembers(recursive bool) {
+	js.Free(
+		p.Data.Ref(),
+	)
+	p.Data = p.Data.FromRef(js.Undefined)
 }
 
 type OneOf_TypedArrayInt8_TypedArrayInt16_TypedArrayInt32_TypedArrayUint8_TypedArrayUint16_TypedArrayUint32_TypedArrayInt64_TypedArrayUint64_TypedArrayFloat32_TypedArrayFloat64_DataView_ArrayBuffer_Blob_String_WriteParams struct {
@@ -372,7 +377,7 @@ type FileSystemWritableFileStream struct {
 }
 
 func (this FileSystemWritableFileStream) Once() FileSystemWritableFileStream {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -386,29 +391,28 @@ func (this FileSystemWritableFileStream) FromRef(ref js.Ref) FileSystemWritableF
 }
 
 func (this FileSystemWritableFileStream) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasWrite returns true if the method "FileSystemWritableFileStream.write" exists.
-func (this FileSystemWritableFileStream) HasWrite() bool {
-	return js.True == bindings.HasFileSystemWritableFileStreamWrite(
-		this.Ref(),
+// HasFuncWrite returns true if the method "FileSystemWritableFileStream.write" exists.
+func (this FileSystemWritableFileStream) HasFuncWrite() bool {
+	return js.True == bindings.HasFuncFileSystemWritableFileStreamWrite(
+		this.ref,
 	)
 }
 
-// WriteFunc returns the method "FileSystemWritableFileStream.write".
-func (this FileSystemWritableFileStream) WriteFunc() (fn js.Func[func(data FileSystemWriteChunkType) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.FileSystemWritableFileStreamWriteFunc(
-			this.Ref(),
-		),
+// FuncWrite returns the method "FileSystemWritableFileStream.write".
+func (this FileSystemWritableFileStream) FuncWrite() (fn js.Func[func(data FileSystemWriteChunkType) js.Promise[js.Void]]) {
+	bindings.FuncFileSystemWritableFileStreamWrite(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Write calls the method "FileSystemWritableFileStream.write".
 func (this FileSystemWritableFileStream) Write(data FileSystemWriteChunkType) (ret js.Promise[js.Void]) {
 	bindings.CallFileSystemWritableFileStreamWrite(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		data.Ref(),
 	)
 
@@ -420,33 +424,32 @@ func (this FileSystemWritableFileStream) Write(data FileSystemWriteChunkType) (r
 // the catch clause.
 func (this FileSystemWritableFileStream) TryWrite(data FileSystemWriteChunkType) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemWritableFileStreamWrite(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		data.Ref(),
 	)
 
 	return
 }
 
-// HasSeek returns true if the method "FileSystemWritableFileStream.seek" exists.
-func (this FileSystemWritableFileStream) HasSeek() bool {
-	return js.True == bindings.HasFileSystemWritableFileStreamSeek(
-		this.Ref(),
+// HasFuncSeek returns true if the method "FileSystemWritableFileStream.seek" exists.
+func (this FileSystemWritableFileStream) HasFuncSeek() bool {
+	return js.True == bindings.HasFuncFileSystemWritableFileStreamSeek(
+		this.ref,
 	)
 }
 
-// SeekFunc returns the method "FileSystemWritableFileStream.seek".
-func (this FileSystemWritableFileStream) SeekFunc() (fn js.Func[func(position uint64) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.FileSystemWritableFileStreamSeekFunc(
-			this.Ref(),
-		),
+// FuncSeek returns the method "FileSystemWritableFileStream.seek".
+func (this FileSystemWritableFileStream) FuncSeek() (fn js.Func[func(position uint64) js.Promise[js.Void]]) {
+	bindings.FuncFileSystemWritableFileStreamSeek(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Seek calls the method "FileSystemWritableFileStream.seek".
 func (this FileSystemWritableFileStream) Seek(position uint64) (ret js.Promise[js.Void]) {
 	bindings.CallFileSystemWritableFileStreamSeek(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(position),
 	)
 
@@ -458,33 +461,32 @@ func (this FileSystemWritableFileStream) Seek(position uint64) (ret js.Promise[j
 // the catch clause.
 func (this FileSystemWritableFileStream) TrySeek(position uint64) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemWritableFileStreamSeek(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(position),
 	)
 
 	return
 }
 
-// HasTruncate returns true if the method "FileSystemWritableFileStream.truncate" exists.
-func (this FileSystemWritableFileStream) HasTruncate() bool {
-	return js.True == bindings.HasFileSystemWritableFileStreamTruncate(
-		this.Ref(),
+// HasFuncTruncate returns true if the method "FileSystemWritableFileStream.truncate" exists.
+func (this FileSystemWritableFileStream) HasFuncTruncate() bool {
+	return js.True == bindings.HasFuncFileSystemWritableFileStreamTruncate(
+		this.ref,
 	)
 }
 
-// TruncateFunc returns the method "FileSystemWritableFileStream.truncate".
-func (this FileSystemWritableFileStream) TruncateFunc() (fn js.Func[func(size uint64) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.FileSystemWritableFileStreamTruncateFunc(
-			this.Ref(),
-		),
+// FuncTruncate returns the method "FileSystemWritableFileStream.truncate".
+func (this FileSystemWritableFileStream) FuncTruncate() (fn js.Func[func(size uint64) js.Promise[js.Void]]) {
+	bindings.FuncFileSystemWritableFileStreamTruncate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Truncate calls the method "FileSystemWritableFileStream.truncate".
 func (this FileSystemWritableFileStream) Truncate(size uint64) (ret js.Promise[js.Void]) {
 	bindings.CallFileSystemWritableFileStreamTruncate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(size),
 	)
 
@@ -496,7 +498,7 @@ func (this FileSystemWritableFileStream) Truncate(size uint64) (ret js.Promise[j
 // the catch clause.
 func (this FileSystemWritableFileStream) TryTruncate(size uint64) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemWritableFileStreamTruncate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(size),
 	)
 
@@ -530,17 +532,22 @@ func (p FileSystemCreateWritableOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p FileSystemCreateWritableOptions) UpdateFrom(ref js.Ref) {
+func (p *FileSystemCreateWritableOptions) UpdateFrom(ref js.Ref) {
 	bindings.FileSystemCreateWritableOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p FileSystemCreateWritableOptions) Update(ref js.Ref) {
+func (p *FileSystemCreateWritableOptions) Update(ref js.Ref) {
 	bindings.FileSystemCreateWritableOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *FileSystemCreateWritableOptions) FreeMembers(recursive bool) {
 }
 
 type FileSystemReadWriteOptions struct {
@@ -570,17 +577,22 @@ func (p FileSystemReadWriteOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p FileSystemReadWriteOptions) UpdateFrom(ref js.Ref) {
+func (p *FileSystemReadWriteOptions) UpdateFrom(ref js.Ref) {
 	bindings.FileSystemReadWriteOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p FileSystemReadWriteOptions) Update(ref js.Ref) {
+func (p *FileSystemReadWriteOptions) Update(ref js.Ref) {
 	bindings.FileSystemReadWriteOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *FileSystemReadWriteOptions) FreeMembers(recursive bool) {
 }
 
 type FileSystemSyncAccessHandle struct {
@@ -588,7 +600,7 @@ type FileSystemSyncAccessHandle struct {
 }
 
 func (this FileSystemSyncAccessHandle) Once() FileSystemSyncAccessHandle {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -602,29 +614,28 @@ func (this FileSystemSyncAccessHandle) FromRef(ref js.Ref) FileSystemSyncAccessH
 }
 
 func (this FileSystemSyncAccessHandle) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasRead returns true if the method "FileSystemSyncAccessHandle.read" exists.
-func (this FileSystemSyncAccessHandle) HasRead() bool {
-	return js.True == bindings.HasFileSystemSyncAccessHandleRead(
-		this.Ref(),
+// HasFuncRead returns true if the method "FileSystemSyncAccessHandle.read" exists.
+func (this FileSystemSyncAccessHandle) HasFuncRead() bool {
+	return js.True == bindings.HasFuncFileSystemSyncAccessHandleRead(
+		this.ref,
 	)
 }
 
-// ReadFunc returns the method "FileSystemSyncAccessHandle.read".
-func (this FileSystemSyncAccessHandle) ReadFunc() (fn js.Func[func(buffer AllowSharedBufferSource, options FileSystemReadWriteOptions) uint64]) {
-	return fn.FromRef(
-		bindings.FileSystemSyncAccessHandleReadFunc(
-			this.Ref(),
-		),
+// FuncRead returns the method "FileSystemSyncAccessHandle.read".
+func (this FileSystemSyncAccessHandle) FuncRead() (fn js.Func[func(buffer AllowSharedBufferSource, options FileSystemReadWriteOptions) uint64]) {
+	bindings.FuncFileSystemSyncAccessHandleRead(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Read calls the method "FileSystemSyncAccessHandle.read".
 func (this FileSystemSyncAccessHandle) Read(buffer AllowSharedBufferSource, options FileSystemReadWriteOptions) (ret uint64) {
 	bindings.CallFileSystemSyncAccessHandleRead(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		buffer.Ref(),
 		js.Pointer(&options),
 	)
@@ -637,7 +648,7 @@ func (this FileSystemSyncAccessHandle) Read(buffer AllowSharedBufferSource, opti
 // the catch clause.
 func (this FileSystemSyncAccessHandle) TryRead(buffer AllowSharedBufferSource, options FileSystemReadWriteOptions) (ret uint64, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemSyncAccessHandleRead(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		buffer.Ref(),
 		js.Pointer(&options),
 	)
@@ -645,26 +656,25 @@ func (this FileSystemSyncAccessHandle) TryRead(buffer AllowSharedBufferSource, o
 	return
 }
 
-// HasRead1 returns true if the method "FileSystemSyncAccessHandle.read" exists.
-func (this FileSystemSyncAccessHandle) HasRead1() bool {
-	return js.True == bindings.HasFileSystemSyncAccessHandleRead1(
-		this.Ref(),
+// HasFuncRead1 returns true if the method "FileSystemSyncAccessHandle.read" exists.
+func (this FileSystemSyncAccessHandle) HasFuncRead1() bool {
+	return js.True == bindings.HasFuncFileSystemSyncAccessHandleRead1(
+		this.ref,
 	)
 }
 
-// Read1Func returns the method "FileSystemSyncAccessHandle.read".
-func (this FileSystemSyncAccessHandle) Read1Func() (fn js.Func[func(buffer AllowSharedBufferSource) uint64]) {
-	return fn.FromRef(
-		bindings.FileSystemSyncAccessHandleRead1Func(
-			this.Ref(),
-		),
+// FuncRead1 returns the method "FileSystemSyncAccessHandle.read".
+func (this FileSystemSyncAccessHandle) FuncRead1() (fn js.Func[func(buffer AllowSharedBufferSource) uint64]) {
+	bindings.FuncFileSystemSyncAccessHandleRead1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Read1 calls the method "FileSystemSyncAccessHandle.read".
 func (this FileSystemSyncAccessHandle) Read1(buffer AllowSharedBufferSource) (ret uint64) {
 	bindings.CallFileSystemSyncAccessHandleRead1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		buffer.Ref(),
 	)
 
@@ -676,33 +686,32 @@ func (this FileSystemSyncAccessHandle) Read1(buffer AllowSharedBufferSource) (re
 // the catch clause.
 func (this FileSystemSyncAccessHandle) TryRead1(buffer AllowSharedBufferSource) (ret uint64, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemSyncAccessHandleRead1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		buffer.Ref(),
 	)
 
 	return
 }
 
-// HasWrite returns true if the method "FileSystemSyncAccessHandle.write" exists.
-func (this FileSystemSyncAccessHandle) HasWrite() bool {
-	return js.True == bindings.HasFileSystemSyncAccessHandleWrite(
-		this.Ref(),
+// HasFuncWrite returns true if the method "FileSystemSyncAccessHandle.write" exists.
+func (this FileSystemSyncAccessHandle) HasFuncWrite() bool {
+	return js.True == bindings.HasFuncFileSystemSyncAccessHandleWrite(
+		this.ref,
 	)
 }
 
-// WriteFunc returns the method "FileSystemSyncAccessHandle.write".
-func (this FileSystemSyncAccessHandle) WriteFunc() (fn js.Func[func(buffer AllowSharedBufferSource, options FileSystemReadWriteOptions) uint64]) {
-	return fn.FromRef(
-		bindings.FileSystemSyncAccessHandleWriteFunc(
-			this.Ref(),
-		),
+// FuncWrite returns the method "FileSystemSyncAccessHandle.write".
+func (this FileSystemSyncAccessHandle) FuncWrite() (fn js.Func[func(buffer AllowSharedBufferSource, options FileSystemReadWriteOptions) uint64]) {
+	bindings.FuncFileSystemSyncAccessHandleWrite(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Write calls the method "FileSystemSyncAccessHandle.write".
 func (this FileSystemSyncAccessHandle) Write(buffer AllowSharedBufferSource, options FileSystemReadWriteOptions) (ret uint64) {
 	bindings.CallFileSystemSyncAccessHandleWrite(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		buffer.Ref(),
 		js.Pointer(&options),
 	)
@@ -715,7 +724,7 @@ func (this FileSystemSyncAccessHandle) Write(buffer AllowSharedBufferSource, opt
 // the catch clause.
 func (this FileSystemSyncAccessHandle) TryWrite(buffer AllowSharedBufferSource, options FileSystemReadWriteOptions) (ret uint64, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemSyncAccessHandleWrite(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		buffer.Ref(),
 		js.Pointer(&options),
 	)
@@ -723,26 +732,25 @@ func (this FileSystemSyncAccessHandle) TryWrite(buffer AllowSharedBufferSource, 
 	return
 }
 
-// HasWrite1 returns true if the method "FileSystemSyncAccessHandle.write" exists.
-func (this FileSystemSyncAccessHandle) HasWrite1() bool {
-	return js.True == bindings.HasFileSystemSyncAccessHandleWrite1(
-		this.Ref(),
+// HasFuncWrite1 returns true if the method "FileSystemSyncAccessHandle.write" exists.
+func (this FileSystemSyncAccessHandle) HasFuncWrite1() bool {
+	return js.True == bindings.HasFuncFileSystemSyncAccessHandleWrite1(
+		this.ref,
 	)
 }
 
-// Write1Func returns the method "FileSystemSyncAccessHandle.write".
-func (this FileSystemSyncAccessHandle) Write1Func() (fn js.Func[func(buffer AllowSharedBufferSource) uint64]) {
-	return fn.FromRef(
-		bindings.FileSystemSyncAccessHandleWrite1Func(
-			this.Ref(),
-		),
+// FuncWrite1 returns the method "FileSystemSyncAccessHandle.write".
+func (this FileSystemSyncAccessHandle) FuncWrite1() (fn js.Func[func(buffer AllowSharedBufferSource) uint64]) {
+	bindings.FuncFileSystemSyncAccessHandleWrite1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Write1 calls the method "FileSystemSyncAccessHandle.write".
 func (this FileSystemSyncAccessHandle) Write1(buffer AllowSharedBufferSource) (ret uint64) {
 	bindings.CallFileSystemSyncAccessHandleWrite1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		buffer.Ref(),
 	)
 
@@ -754,33 +762,32 @@ func (this FileSystemSyncAccessHandle) Write1(buffer AllowSharedBufferSource) (r
 // the catch clause.
 func (this FileSystemSyncAccessHandle) TryWrite1(buffer AllowSharedBufferSource) (ret uint64, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemSyncAccessHandleWrite1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		buffer.Ref(),
 	)
 
 	return
 }
 
-// HasTruncate returns true if the method "FileSystemSyncAccessHandle.truncate" exists.
-func (this FileSystemSyncAccessHandle) HasTruncate() bool {
-	return js.True == bindings.HasFileSystemSyncAccessHandleTruncate(
-		this.Ref(),
+// HasFuncTruncate returns true if the method "FileSystemSyncAccessHandle.truncate" exists.
+func (this FileSystemSyncAccessHandle) HasFuncTruncate() bool {
+	return js.True == bindings.HasFuncFileSystemSyncAccessHandleTruncate(
+		this.ref,
 	)
 }
 
-// TruncateFunc returns the method "FileSystemSyncAccessHandle.truncate".
-func (this FileSystemSyncAccessHandle) TruncateFunc() (fn js.Func[func(newSize uint64)]) {
-	return fn.FromRef(
-		bindings.FileSystemSyncAccessHandleTruncateFunc(
-			this.Ref(),
-		),
+// FuncTruncate returns the method "FileSystemSyncAccessHandle.truncate".
+func (this FileSystemSyncAccessHandle) FuncTruncate() (fn js.Func[func(newSize uint64)]) {
+	bindings.FuncFileSystemSyncAccessHandleTruncate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Truncate calls the method "FileSystemSyncAccessHandle.truncate".
 func (this FileSystemSyncAccessHandle) Truncate(newSize uint64) (ret js.Void) {
 	bindings.CallFileSystemSyncAccessHandleTruncate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(newSize),
 	)
 
@@ -792,33 +799,32 @@ func (this FileSystemSyncAccessHandle) Truncate(newSize uint64) (ret js.Void) {
 // the catch clause.
 func (this FileSystemSyncAccessHandle) TryTruncate(newSize uint64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemSyncAccessHandleTruncate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(newSize),
 	)
 
 	return
 }
 
-// HasGetSize returns true if the method "FileSystemSyncAccessHandle.getSize" exists.
-func (this FileSystemSyncAccessHandle) HasGetSize() bool {
-	return js.True == bindings.HasFileSystemSyncAccessHandleGetSize(
-		this.Ref(),
+// HasFuncGetSize returns true if the method "FileSystemSyncAccessHandle.getSize" exists.
+func (this FileSystemSyncAccessHandle) HasFuncGetSize() bool {
+	return js.True == bindings.HasFuncFileSystemSyncAccessHandleGetSize(
+		this.ref,
 	)
 }
 
-// GetSizeFunc returns the method "FileSystemSyncAccessHandle.getSize".
-func (this FileSystemSyncAccessHandle) GetSizeFunc() (fn js.Func[func() uint64]) {
-	return fn.FromRef(
-		bindings.FileSystemSyncAccessHandleGetSizeFunc(
-			this.Ref(),
-		),
+// FuncGetSize returns the method "FileSystemSyncAccessHandle.getSize".
+func (this FileSystemSyncAccessHandle) FuncGetSize() (fn js.Func[func() uint64]) {
+	bindings.FuncFileSystemSyncAccessHandleGetSize(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetSize calls the method "FileSystemSyncAccessHandle.getSize".
 func (this FileSystemSyncAccessHandle) GetSize() (ret uint64) {
 	bindings.CallFileSystemSyncAccessHandleGetSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -829,32 +835,31 @@ func (this FileSystemSyncAccessHandle) GetSize() (ret uint64) {
 // the catch clause.
 func (this FileSystemSyncAccessHandle) TryGetSize() (ret uint64, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemSyncAccessHandleGetSize(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasFlush returns true if the method "FileSystemSyncAccessHandle.flush" exists.
-func (this FileSystemSyncAccessHandle) HasFlush() bool {
-	return js.True == bindings.HasFileSystemSyncAccessHandleFlush(
-		this.Ref(),
+// HasFuncFlush returns true if the method "FileSystemSyncAccessHandle.flush" exists.
+func (this FileSystemSyncAccessHandle) HasFuncFlush() bool {
+	return js.True == bindings.HasFuncFileSystemSyncAccessHandleFlush(
+		this.ref,
 	)
 }
 
-// FlushFunc returns the method "FileSystemSyncAccessHandle.flush".
-func (this FileSystemSyncAccessHandle) FlushFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.FileSystemSyncAccessHandleFlushFunc(
-			this.Ref(),
-		),
+// FuncFlush returns the method "FileSystemSyncAccessHandle.flush".
+func (this FileSystemSyncAccessHandle) FuncFlush() (fn js.Func[func()]) {
+	bindings.FuncFileSystemSyncAccessHandleFlush(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Flush calls the method "FileSystemSyncAccessHandle.flush".
 func (this FileSystemSyncAccessHandle) Flush() (ret js.Void) {
 	bindings.CallFileSystemSyncAccessHandleFlush(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -865,32 +870,31 @@ func (this FileSystemSyncAccessHandle) Flush() (ret js.Void) {
 // the catch clause.
 func (this FileSystemSyncAccessHandle) TryFlush() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemSyncAccessHandleFlush(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasClose returns true if the method "FileSystemSyncAccessHandle.close" exists.
-func (this FileSystemSyncAccessHandle) HasClose() bool {
-	return js.True == bindings.HasFileSystemSyncAccessHandleClose(
-		this.Ref(),
+// HasFuncClose returns true if the method "FileSystemSyncAccessHandle.close" exists.
+func (this FileSystemSyncAccessHandle) HasFuncClose() bool {
+	return js.True == bindings.HasFuncFileSystemSyncAccessHandleClose(
+		this.ref,
 	)
 }
 
-// CloseFunc returns the method "FileSystemSyncAccessHandle.close".
-func (this FileSystemSyncAccessHandle) CloseFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.FileSystemSyncAccessHandleCloseFunc(
-			this.Ref(),
-		),
+// FuncClose returns the method "FileSystemSyncAccessHandle.close".
+func (this FileSystemSyncAccessHandle) FuncClose() (fn js.Func[func()]) {
+	bindings.FuncFileSystemSyncAccessHandleClose(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Close calls the method "FileSystemSyncAccessHandle.close".
 func (this FileSystemSyncAccessHandle) Close() (ret js.Void) {
 	bindings.CallFileSystemSyncAccessHandleClose(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -901,7 +905,7 @@ func (this FileSystemSyncAccessHandle) Close() (ret js.Void) {
 // the catch clause.
 func (this FileSystemSyncAccessHandle) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemSyncAccessHandleClose(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -912,7 +916,7 @@ type FileSystemFileHandle struct {
 }
 
 func (this FileSystemFileHandle) Once() FileSystemFileHandle {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -926,29 +930,28 @@ func (this FileSystemFileHandle) FromRef(ref js.Ref) FileSystemFileHandle {
 }
 
 func (this FileSystemFileHandle) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasGetFile returns true if the method "FileSystemFileHandle.getFile" exists.
-func (this FileSystemFileHandle) HasGetFile() bool {
-	return js.True == bindings.HasFileSystemFileHandleGetFile(
-		this.Ref(),
+// HasFuncGetFile returns true if the method "FileSystemFileHandle.getFile" exists.
+func (this FileSystemFileHandle) HasFuncGetFile() bool {
+	return js.True == bindings.HasFuncFileSystemFileHandleGetFile(
+		this.ref,
 	)
 }
 
-// GetFileFunc returns the method "FileSystemFileHandle.getFile".
-func (this FileSystemFileHandle) GetFileFunc() (fn js.Func[func() js.Promise[File]]) {
-	return fn.FromRef(
-		bindings.FileSystemFileHandleGetFileFunc(
-			this.Ref(),
-		),
+// FuncGetFile returns the method "FileSystemFileHandle.getFile".
+func (this FileSystemFileHandle) FuncGetFile() (fn js.Func[func() js.Promise[File]]) {
+	bindings.FuncFileSystemFileHandleGetFile(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetFile calls the method "FileSystemFileHandle.getFile".
 func (this FileSystemFileHandle) GetFile() (ret js.Promise[File]) {
 	bindings.CallFileSystemFileHandleGetFile(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -959,32 +962,31 @@ func (this FileSystemFileHandle) GetFile() (ret js.Promise[File]) {
 // the catch clause.
 func (this FileSystemFileHandle) TryGetFile() (ret js.Promise[File], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemFileHandleGetFile(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCreateWritable returns true if the method "FileSystemFileHandle.createWritable" exists.
-func (this FileSystemFileHandle) HasCreateWritable() bool {
-	return js.True == bindings.HasFileSystemFileHandleCreateWritable(
-		this.Ref(),
+// HasFuncCreateWritable returns true if the method "FileSystemFileHandle.createWritable" exists.
+func (this FileSystemFileHandle) HasFuncCreateWritable() bool {
+	return js.True == bindings.HasFuncFileSystemFileHandleCreateWritable(
+		this.ref,
 	)
 }
 
-// CreateWritableFunc returns the method "FileSystemFileHandle.createWritable".
-func (this FileSystemFileHandle) CreateWritableFunc() (fn js.Func[func(options FileSystemCreateWritableOptions) js.Promise[FileSystemWritableFileStream]]) {
-	return fn.FromRef(
-		bindings.FileSystemFileHandleCreateWritableFunc(
-			this.Ref(),
-		),
+// FuncCreateWritable returns the method "FileSystemFileHandle.createWritable".
+func (this FileSystemFileHandle) FuncCreateWritable() (fn js.Func[func(options FileSystemCreateWritableOptions) js.Promise[FileSystemWritableFileStream]]) {
+	bindings.FuncFileSystemFileHandleCreateWritable(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateWritable calls the method "FileSystemFileHandle.createWritable".
 func (this FileSystemFileHandle) CreateWritable(options FileSystemCreateWritableOptions) (ret js.Promise[FileSystemWritableFileStream]) {
 	bindings.CallFileSystemFileHandleCreateWritable(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -996,33 +998,32 @@ func (this FileSystemFileHandle) CreateWritable(options FileSystemCreateWritable
 // the catch clause.
 func (this FileSystemFileHandle) TryCreateWritable(options FileSystemCreateWritableOptions) (ret js.Promise[FileSystemWritableFileStream], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemFileHandleCreateWritable(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasCreateWritable1 returns true if the method "FileSystemFileHandle.createWritable" exists.
-func (this FileSystemFileHandle) HasCreateWritable1() bool {
-	return js.True == bindings.HasFileSystemFileHandleCreateWritable1(
-		this.Ref(),
+// HasFuncCreateWritable1 returns true if the method "FileSystemFileHandle.createWritable" exists.
+func (this FileSystemFileHandle) HasFuncCreateWritable1() bool {
+	return js.True == bindings.HasFuncFileSystemFileHandleCreateWritable1(
+		this.ref,
 	)
 }
 
-// CreateWritable1Func returns the method "FileSystemFileHandle.createWritable".
-func (this FileSystemFileHandle) CreateWritable1Func() (fn js.Func[func() js.Promise[FileSystemWritableFileStream]]) {
-	return fn.FromRef(
-		bindings.FileSystemFileHandleCreateWritable1Func(
-			this.Ref(),
-		),
+// FuncCreateWritable1 returns the method "FileSystemFileHandle.createWritable".
+func (this FileSystemFileHandle) FuncCreateWritable1() (fn js.Func[func() js.Promise[FileSystemWritableFileStream]]) {
+	bindings.FuncFileSystemFileHandleCreateWritable1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateWritable1 calls the method "FileSystemFileHandle.createWritable".
 func (this FileSystemFileHandle) CreateWritable1() (ret js.Promise[FileSystemWritableFileStream]) {
 	bindings.CallFileSystemFileHandleCreateWritable1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1033,32 +1034,31 @@ func (this FileSystemFileHandle) CreateWritable1() (ret js.Promise[FileSystemWri
 // the catch clause.
 func (this FileSystemFileHandle) TryCreateWritable1() (ret js.Promise[FileSystemWritableFileStream], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemFileHandleCreateWritable1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCreateSyncAccessHandle returns true if the method "FileSystemFileHandle.createSyncAccessHandle" exists.
-func (this FileSystemFileHandle) HasCreateSyncAccessHandle() bool {
-	return js.True == bindings.HasFileSystemFileHandleCreateSyncAccessHandle(
-		this.Ref(),
+// HasFuncCreateSyncAccessHandle returns true if the method "FileSystemFileHandle.createSyncAccessHandle" exists.
+func (this FileSystemFileHandle) HasFuncCreateSyncAccessHandle() bool {
+	return js.True == bindings.HasFuncFileSystemFileHandleCreateSyncAccessHandle(
+		this.ref,
 	)
 }
 
-// CreateSyncAccessHandleFunc returns the method "FileSystemFileHandle.createSyncAccessHandle".
-func (this FileSystemFileHandle) CreateSyncAccessHandleFunc() (fn js.Func[func() js.Promise[FileSystemSyncAccessHandle]]) {
-	return fn.FromRef(
-		bindings.FileSystemFileHandleCreateSyncAccessHandleFunc(
-			this.Ref(),
-		),
+// FuncCreateSyncAccessHandle returns the method "FileSystemFileHandle.createSyncAccessHandle".
+func (this FileSystemFileHandle) FuncCreateSyncAccessHandle() (fn js.Func[func() js.Promise[FileSystemSyncAccessHandle]]) {
+	bindings.FuncFileSystemFileHandleCreateSyncAccessHandle(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateSyncAccessHandle calls the method "FileSystemFileHandle.createSyncAccessHandle".
 func (this FileSystemFileHandle) CreateSyncAccessHandle() (ret js.Promise[FileSystemSyncAccessHandle]) {
 	bindings.CallFileSystemFileHandleCreateSyncAccessHandle(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1069,7 +1069,7 @@ func (this FileSystemFileHandle) CreateSyncAccessHandle() (ret js.Promise[FileSy
 // the catch clause.
 func (this FileSystemFileHandle) TryCreateSyncAccessHandle() (ret js.Promise[FileSystemSyncAccessHandle], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemFileHandleCreateSyncAccessHandle(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1102,17 +1102,28 @@ func (p FilePickerAcceptType) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p FilePickerAcceptType) UpdateFrom(ref js.Ref) {
+func (p *FilePickerAcceptType) UpdateFrom(ref js.Ref) {
 	bindings.FilePickerAcceptTypeJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p FilePickerAcceptType) Update(ref js.Ref) {
+func (p *FilePickerAcceptType) Update(ref js.Ref) {
 	bindings.FilePickerAcceptTypeJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *FilePickerAcceptType) FreeMembers(recursive bool) {
+	js.Free(
+		p.Description.Ref(),
+		p.Accept.Ref(),
+	)
+	p.Description = p.Description.FromRef(js.Undefined)
+	p.Accept = p.Accept.FromRef(js.Undefined)
 }
 
 type WellKnownDirectory uint32
@@ -1225,17 +1236,30 @@ func (p OpenFilePickerOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p OpenFilePickerOptions) UpdateFrom(ref js.Ref) {
+func (p *OpenFilePickerOptions) UpdateFrom(ref js.Ref) {
 	bindings.OpenFilePickerOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p OpenFilePickerOptions) Update(ref js.Ref) {
+func (p *OpenFilePickerOptions) Update(ref js.Ref) {
 	bindings.OpenFilePickerOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *OpenFilePickerOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Types.Ref(),
+		p.Id.Ref(),
+		p.StartIn.Ref(),
+	)
+	p.Types = p.Types.FromRef(js.Undefined)
+	p.Id = p.Id.FromRef(js.Undefined)
+	p.StartIn = p.StartIn.FromRef(js.Undefined)
 }
 
 type SaveFilePickerOptions struct {
@@ -1281,17 +1305,32 @@ func (p SaveFilePickerOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p SaveFilePickerOptions) UpdateFrom(ref js.Ref) {
+func (p *SaveFilePickerOptions) UpdateFrom(ref js.Ref) {
 	bindings.SaveFilePickerOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p SaveFilePickerOptions) Update(ref js.Ref) {
+func (p *SaveFilePickerOptions) Update(ref js.Ref) {
 	bindings.SaveFilePickerOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *SaveFilePickerOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.SuggestedName.Ref(),
+		p.Types.Ref(),
+		p.Id.Ref(),
+		p.StartIn.Ref(),
+	)
+	p.SuggestedName = p.SuggestedName.FromRef(js.Undefined)
+	p.Types = p.Types.FromRef(js.Undefined)
+	p.Id = p.Id.FromRef(js.Undefined)
+	p.StartIn = p.StartIn.FromRef(js.Undefined)
 }
 
 type FileSystemGetFileOptions struct {
@@ -1321,17 +1360,22 @@ func (p FileSystemGetFileOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p FileSystemGetFileOptions) UpdateFrom(ref js.Ref) {
+func (p *FileSystemGetFileOptions) UpdateFrom(ref js.Ref) {
 	bindings.FileSystemGetFileOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p FileSystemGetFileOptions) Update(ref js.Ref) {
+func (p *FileSystemGetFileOptions) Update(ref js.Ref) {
 	bindings.FileSystemGetFileOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *FileSystemGetFileOptions) FreeMembers(recursive bool) {
 }
 
 type FileSystemGetDirectoryOptions struct {
@@ -1361,17 +1405,22 @@ func (p FileSystemGetDirectoryOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p FileSystemGetDirectoryOptions) UpdateFrom(ref js.Ref) {
+func (p *FileSystemGetDirectoryOptions) UpdateFrom(ref js.Ref) {
 	bindings.FileSystemGetDirectoryOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p FileSystemGetDirectoryOptions) Update(ref js.Ref) {
+func (p *FileSystemGetDirectoryOptions) Update(ref js.Ref) {
 	bindings.FileSystemGetDirectoryOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *FileSystemGetDirectoryOptions) FreeMembers(recursive bool) {
 }
 
 type FileSystemRemoveOptions struct {
@@ -1401,17 +1450,22 @@ func (p FileSystemRemoveOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p FileSystemRemoveOptions) UpdateFrom(ref js.Ref) {
+func (p *FileSystemRemoveOptions) UpdateFrom(ref js.Ref) {
 	bindings.FileSystemRemoveOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p FileSystemRemoveOptions) Update(ref js.Ref) {
+func (p *FileSystemRemoveOptions) Update(ref js.Ref) {
 	bindings.FileSystemRemoveOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *FileSystemRemoveOptions) FreeMembers(recursive bool) {
 }
 
 type FileSystemDirectoryHandle struct {
@@ -1419,7 +1473,7 @@ type FileSystemDirectoryHandle struct {
 }
 
 func (this FileSystemDirectoryHandle) Once() FileSystemDirectoryHandle {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1433,29 +1487,28 @@ func (this FileSystemDirectoryHandle) FromRef(ref js.Ref) FileSystemDirectoryHan
 }
 
 func (this FileSystemDirectoryHandle) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasGetFileHandle returns true if the method "FileSystemDirectoryHandle.getFileHandle" exists.
-func (this FileSystemDirectoryHandle) HasGetFileHandle() bool {
-	return js.True == bindings.HasFileSystemDirectoryHandleGetFileHandle(
-		this.Ref(),
+// HasFuncGetFileHandle returns true if the method "FileSystemDirectoryHandle.getFileHandle" exists.
+func (this FileSystemDirectoryHandle) HasFuncGetFileHandle() bool {
+	return js.True == bindings.HasFuncFileSystemDirectoryHandleGetFileHandle(
+		this.ref,
 	)
 }
 
-// GetFileHandleFunc returns the method "FileSystemDirectoryHandle.getFileHandle".
-func (this FileSystemDirectoryHandle) GetFileHandleFunc() (fn js.Func[func(name js.String, options FileSystemGetFileOptions) js.Promise[FileSystemFileHandle]]) {
-	return fn.FromRef(
-		bindings.FileSystemDirectoryHandleGetFileHandleFunc(
-			this.Ref(),
-		),
+// FuncGetFileHandle returns the method "FileSystemDirectoryHandle.getFileHandle".
+func (this FileSystemDirectoryHandle) FuncGetFileHandle() (fn js.Func[func(name js.String, options FileSystemGetFileOptions) js.Promise[FileSystemFileHandle]]) {
+	bindings.FuncFileSystemDirectoryHandleGetFileHandle(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetFileHandle calls the method "FileSystemDirectoryHandle.getFileHandle".
 func (this FileSystemDirectoryHandle) GetFileHandle(name js.String, options FileSystemGetFileOptions) (ret js.Promise[FileSystemFileHandle]) {
 	bindings.CallFileSystemDirectoryHandleGetFileHandle(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 		js.Pointer(&options),
 	)
@@ -1468,7 +1521,7 @@ func (this FileSystemDirectoryHandle) GetFileHandle(name js.String, options File
 // the catch clause.
 func (this FileSystemDirectoryHandle) TryGetFileHandle(name js.String, options FileSystemGetFileOptions) (ret js.Promise[FileSystemFileHandle], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemDirectoryHandleGetFileHandle(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 		js.Pointer(&options),
 	)
@@ -1476,26 +1529,25 @@ func (this FileSystemDirectoryHandle) TryGetFileHandle(name js.String, options F
 	return
 }
 
-// HasGetFileHandle1 returns true if the method "FileSystemDirectoryHandle.getFileHandle" exists.
-func (this FileSystemDirectoryHandle) HasGetFileHandle1() bool {
-	return js.True == bindings.HasFileSystemDirectoryHandleGetFileHandle1(
-		this.Ref(),
+// HasFuncGetFileHandle1 returns true if the method "FileSystemDirectoryHandle.getFileHandle" exists.
+func (this FileSystemDirectoryHandle) HasFuncGetFileHandle1() bool {
+	return js.True == bindings.HasFuncFileSystemDirectoryHandleGetFileHandle1(
+		this.ref,
 	)
 }
 
-// GetFileHandle1Func returns the method "FileSystemDirectoryHandle.getFileHandle".
-func (this FileSystemDirectoryHandle) GetFileHandle1Func() (fn js.Func[func(name js.String) js.Promise[FileSystemFileHandle]]) {
-	return fn.FromRef(
-		bindings.FileSystemDirectoryHandleGetFileHandle1Func(
-			this.Ref(),
-		),
+// FuncGetFileHandle1 returns the method "FileSystemDirectoryHandle.getFileHandle".
+func (this FileSystemDirectoryHandle) FuncGetFileHandle1() (fn js.Func[func(name js.String) js.Promise[FileSystemFileHandle]]) {
+	bindings.FuncFileSystemDirectoryHandleGetFileHandle1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetFileHandle1 calls the method "FileSystemDirectoryHandle.getFileHandle".
 func (this FileSystemDirectoryHandle) GetFileHandle1(name js.String) (ret js.Promise[FileSystemFileHandle]) {
 	bindings.CallFileSystemDirectoryHandleGetFileHandle1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 	)
 
@@ -1507,33 +1559,32 @@ func (this FileSystemDirectoryHandle) GetFileHandle1(name js.String) (ret js.Pro
 // the catch clause.
 func (this FileSystemDirectoryHandle) TryGetFileHandle1(name js.String) (ret js.Promise[FileSystemFileHandle], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemDirectoryHandleGetFileHandle1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 	)
 
 	return
 }
 
-// HasGetDirectoryHandle returns true if the method "FileSystemDirectoryHandle.getDirectoryHandle" exists.
-func (this FileSystemDirectoryHandle) HasGetDirectoryHandle() bool {
-	return js.True == bindings.HasFileSystemDirectoryHandleGetDirectoryHandle(
-		this.Ref(),
+// HasFuncGetDirectoryHandle returns true if the method "FileSystemDirectoryHandle.getDirectoryHandle" exists.
+func (this FileSystemDirectoryHandle) HasFuncGetDirectoryHandle() bool {
+	return js.True == bindings.HasFuncFileSystemDirectoryHandleGetDirectoryHandle(
+		this.ref,
 	)
 }
 
-// GetDirectoryHandleFunc returns the method "FileSystemDirectoryHandle.getDirectoryHandle".
-func (this FileSystemDirectoryHandle) GetDirectoryHandleFunc() (fn js.Func[func(name js.String, options FileSystemGetDirectoryOptions) js.Promise[FileSystemDirectoryHandle]]) {
-	return fn.FromRef(
-		bindings.FileSystemDirectoryHandleGetDirectoryHandleFunc(
-			this.Ref(),
-		),
+// FuncGetDirectoryHandle returns the method "FileSystemDirectoryHandle.getDirectoryHandle".
+func (this FileSystemDirectoryHandle) FuncGetDirectoryHandle() (fn js.Func[func(name js.String, options FileSystemGetDirectoryOptions) js.Promise[FileSystemDirectoryHandle]]) {
+	bindings.FuncFileSystemDirectoryHandleGetDirectoryHandle(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetDirectoryHandle calls the method "FileSystemDirectoryHandle.getDirectoryHandle".
 func (this FileSystemDirectoryHandle) GetDirectoryHandle(name js.String, options FileSystemGetDirectoryOptions) (ret js.Promise[FileSystemDirectoryHandle]) {
 	bindings.CallFileSystemDirectoryHandleGetDirectoryHandle(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 		js.Pointer(&options),
 	)
@@ -1546,7 +1597,7 @@ func (this FileSystemDirectoryHandle) GetDirectoryHandle(name js.String, options
 // the catch clause.
 func (this FileSystemDirectoryHandle) TryGetDirectoryHandle(name js.String, options FileSystemGetDirectoryOptions) (ret js.Promise[FileSystemDirectoryHandle], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemDirectoryHandleGetDirectoryHandle(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 		js.Pointer(&options),
 	)
@@ -1554,26 +1605,25 @@ func (this FileSystemDirectoryHandle) TryGetDirectoryHandle(name js.String, opti
 	return
 }
 
-// HasGetDirectoryHandle1 returns true if the method "FileSystemDirectoryHandle.getDirectoryHandle" exists.
-func (this FileSystemDirectoryHandle) HasGetDirectoryHandle1() bool {
-	return js.True == bindings.HasFileSystemDirectoryHandleGetDirectoryHandle1(
-		this.Ref(),
+// HasFuncGetDirectoryHandle1 returns true if the method "FileSystemDirectoryHandle.getDirectoryHandle" exists.
+func (this FileSystemDirectoryHandle) HasFuncGetDirectoryHandle1() bool {
+	return js.True == bindings.HasFuncFileSystemDirectoryHandleGetDirectoryHandle1(
+		this.ref,
 	)
 }
 
-// GetDirectoryHandle1Func returns the method "FileSystemDirectoryHandle.getDirectoryHandle".
-func (this FileSystemDirectoryHandle) GetDirectoryHandle1Func() (fn js.Func[func(name js.String) js.Promise[FileSystemDirectoryHandle]]) {
-	return fn.FromRef(
-		bindings.FileSystemDirectoryHandleGetDirectoryHandle1Func(
-			this.Ref(),
-		),
+// FuncGetDirectoryHandle1 returns the method "FileSystemDirectoryHandle.getDirectoryHandle".
+func (this FileSystemDirectoryHandle) FuncGetDirectoryHandle1() (fn js.Func[func(name js.String) js.Promise[FileSystemDirectoryHandle]]) {
+	bindings.FuncFileSystemDirectoryHandleGetDirectoryHandle1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetDirectoryHandle1 calls the method "FileSystemDirectoryHandle.getDirectoryHandle".
 func (this FileSystemDirectoryHandle) GetDirectoryHandle1(name js.String) (ret js.Promise[FileSystemDirectoryHandle]) {
 	bindings.CallFileSystemDirectoryHandleGetDirectoryHandle1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 	)
 
@@ -1585,33 +1635,32 @@ func (this FileSystemDirectoryHandle) GetDirectoryHandle1(name js.String) (ret j
 // the catch clause.
 func (this FileSystemDirectoryHandle) TryGetDirectoryHandle1(name js.String) (ret js.Promise[FileSystemDirectoryHandle], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemDirectoryHandleGetDirectoryHandle1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 	)
 
 	return
 }
 
-// HasRemoveEntry returns true if the method "FileSystemDirectoryHandle.removeEntry" exists.
-func (this FileSystemDirectoryHandle) HasRemoveEntry() bool {
-	return js.True == bindings.HasFileSystemDirectoryHandleRemoveEntry(
-		this.Ref(),
+// HasFuncRemoveEntry returns true if the method "FileSystemDirectoryHandle.removeEntry" exists.
+func (this FileSystemDirectoryHandle) HasFuncRemoveEntry() bool {
+	return js.True == bindings.HasFuncFileSystemDirectoryHandleRemoveEntry(
+		this.ref,
 	)
 }
 
-// RemoveEntryFunc returns the method "FileSystemDirectoryHandle.removeEntry".
-func (this FileSystemDirectoryHandle) RemoveEntryFunc() (fn js.Func[func(name js.String, options FileSystemRemoveOptions) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.FileSystemDirectoryHandleRemoveEntryFunc(
-			this.Ref(),
-		),
+// FuncRemoveEntry returns the method "FileSystemDirectoryHandle.removeEntry".
+func (this FileSystemDirectoryHandle) FuncRemoveEntry() (fn js.Func[func(name js.String, options FileSystemRemoveOptions) js.Promise[js.Void]]) {
+	bindings.FuncFileSystemDirectoryHandleRemoveEntry(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RemoveEntry calls the method "FileSystemDirectoryHandle.removeEntry".
 func (this FileSystemDirectoryHandle) RemoveEntry(name js.String, options FileSystemRemoveOptions) (ret js.Promise[js.Void]) {
 	bindings.CallFileSystemDirectoryHandleRemoveEntry(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 		js.Pointer(&options),
 	)
@@ -1624,7 +1673,7 @@ func (this FileSystemDirectoryHandle) RemoveEntry(name js.String, options FileSy
 // the catch clause.
 func (this FileSystemDirectoryHandle) TryRemoveEntry(name js.String, options FileSystemRemoveOptions) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemDirectoryHandleRemoveEntry(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 		js.Pointer(&options),
 	)
@@ -1632,26 +1681,25 @@ func (this FileSystemDirectoryHandle) TryRemoveEntry(name js.String, options Fil
 	return
 }
 
-// HasRemoveEntry1 returns true if the method "FileSystemDirectoryHandle.removeEntry" exists.
-func (this FileSystemDirectoryHandle) HasRemoveEntry1() bool {
-	return js.True == bindings.HasFileSystemDirectoryHandleRemoveEntry1(
-		this.Ref(),
+// HasFuncRemoveEntry1 returns true if the method "FileSystemDirectoryHandle.removeEntry" exists.
+func (this FileSystemDirectoryHandle) HasFuncRemoveEntry1() bool {
+	return js.True == bindings.HasFuncFileSystemDirectoryHandleRemoveEntry1(
+		this.ref,
 	)
 }
 
-// RemoveEntry1Func returns the method "FileSystemDirectoryHandle.removeEntry".
-func (this FileSystemDirectoryHandle) RemoveEntry1Func() (fn js.Func[func(name js.String) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.FileSystemDirectoryHandleRemoveEntry1Func(
-			this.Ref(),
-		),
+// FuncRemoveEntry1 returns the method "FileSystemDirectoryHandle.removeEntry".
+func (this FileSystemDirectoryHandle) FuncRemoveEntry1() (fn js.Func[func(name js.String) js.Promise[js.Void]]) {
+	bindings.FuncFileSystemDirectoryHandleRemoveEntry1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RemoveEntry1 calls the method "FileSystemDirectoryHandle.removeEntry".
 func (this FileSystemDirectoryHandle) RemoveEntry1(name js.String) (ret js.Promise[js.Void]) {
 	bindings.CallFileSystemDirectoryHandleRemoveEntry1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 	)
 
@@ -1663,33 +1711,32 @@ func (this FileSystemDirectoryHandle) RemoveEntry1(name js.String) (ret js.Promi
 // the catch clause.
 func (this FileSystemDirectoryHandle) TryRemoveEntry1(name js.String) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemDirectoryHandleRemoveEntry1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 	)
 
 	return
 }
 
-// HasResolve returns true if the method "FileSystemDirectoryHandle.resolve" exists.
-func (this FileSystemDirectoryHandle) HasResolve() bool {
-	return js.True == bindings.HasFileSystemDirectoryHandleResolve(
-		this.Ref(),
+// HasFuncResolve returns true if the method "FileSystemDirectoryHandle.resolve" exists.
+func (this FileSystemDirectoryHandle) HasFuncResolve() bool {
+	return js.True == bindings.HasFuncFileSystemDirectoryHandleResolve(
+		this.ref,
 	)
 }
 
-// ResolveFunc returns the method "FileSystemDirectoryHandle.resolve".
-func (this FileSystemDirectoryHandle) ResolveFunc() (fn js.Func[func(possibleDescendant FileSystemHandle) js.Promise[js.Array[js.String]]]) {
-	return fn.FromRef(
-		bindings.FileSystemDirectoryHandleResolveFunc(
-			this.Ref(),
-		),
+// FuncResolve returns the method "FileSystemDirectoryHandle.resolve".
+func (this FileSystemDirectoryHandle) FuncResolve() (fn js.Func[func(possibleDescendant FileSystemHandle) js.Promise[js.Array[js.String]]]) {
+	bindings.FuncFileSystemDirectoryHandleResolve(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Resolve calls the method "FileSystemDirectoryHandle.resolve".
 func (this FileSystemDirectoryHandle) Resolve(possibleDescendant FileSystemHandle) (ret js.Promise[js.Array[js.String]]) {
 	bindings.CallFileSystemDirectoryHandleResolve(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		possibleDescendant.Ref(),
 	)
 
@@ -1701,7 +1748,7 @@ func (this FileSystemDirectoryHandle) Resolve(possibleDescendant FileSystemHandl
 // the catch clause.
 func (this FileSystemDirectoryHandle) TryResolve(possibleDescendant FileSystemHandle) (ret js.Promise[js.Array[js.String]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemDirectoryHandleResolve(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		possibleDescendant.Ref(),
 	)
 
@@ -1739,17 +1786,28 @@ func (p DirectoryPickerOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p DirectoryPickerOptions) UpdateFrom(ref js.Ref) {
+func (p *DirectoryPickerOptions) UpdateFrom(ref js.Ref) {
 	bindings.DirectoryPickerOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p DirectoryPickerOptions) Update(ref js.Ref) {
+func (p *DirectoryPickerOptions) Update(ref js.Ref) {
 	bindings.DirectoryPickerOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *DirectoryPickerOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Id.Ref(),
+		p.StartIn.Ref(),
+	)
+	p.Id = p.Id.FromRef(js.Undefined)
+	p.StartIn = p.StartIn.FromRef(js.Undefined)
 }
 
 type FontData struct {
@@ -1757,7 +1815,7 @@ type FontData struct {
 }
 
 func (this FontData) Once() FontData {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1771,7 +1829,7 @@ func (this FontData) FromRef(ref js.Ref) FontData {
 }
 
 func (this FontData) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // PostscriptName returns the value of property "FontData.postscriptName".
@@ -1779,7 +1837,7 @@ func (this FontData) Free() {
 // It returns ok=false if there is no such property.
 func (this FontData) PostscriptName() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFontDataPostscriptName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1789,7 +1847,7 @@ func (this FontData) PostscriptName() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this FontData) FullName() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFontDataFullName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1799,7 +1857,7 @@ func (this FontData) FullName() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this FontData) Family() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFontDataFamily(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1809,31 +1867,30 @@ func (this FontData) Family() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this FontData) Style() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetFontDataStyle(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasBlob returns true if the method "FontData.blob" exists.
-func (this FontData) HasBlob() bool {
-	return js.True == bindings.HasFontDataBlob(
-		this.Ref(),
+// HasFuncBlob returns true if the method "FontData.blob" exists.
+func (this FontData) HasFuncBlob() bool {
+	return js.True == bindings.HasFuncFontDataBlob(
+		this.ref,
 	)
 }
 
-// BlobFunc returns the method "FontData.blob".
-func (this FontData) BlobFunc() (fn js.Func[func() js.Promise[Blob]]) {
-	return fn.FromRef(
-		bindings.FontDataBlobFunc(
-			this.Ref(),
-		),
+// FuncBlob returns the method "FontData.blob".
+func (this FontData) FuncBlob() (fn js.Func[func() js.Promise[Blob]]) {
+	bindings.FuncFontDataBlob(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Blob calls the method "FontData.blob".
 func (this FontData) Blob() (ret js.Promise[Blob]) {
 	bindings.CallFontDataBlob(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1844,7 +1901,7 @@ func (this FontData) Blob() (ret js.Promise[Blob]) {
 // the catch clause.
 func (this FontData) TryBlob() (ret js.Promise[Blob], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFontDataBlob(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1873,17 +1930,26 @@ func (p QueryOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p QueryOptions) UpdateFrom(ref js.Ref) {
+func (p *QueryOptions) UpdateFrom(ref js.Ref) {
 	bindings.QueryOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p QueryOptions) Update(ref js.Ref) {
+func (p *QueryOptions) Update(ref js.Ref) {
 	bindings.QueryOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *QueryOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.PostscriptNames.Ref(),
+	)
+	p.PostscriptNames = p.PostscriptNames.FromRef(js.Undefined)
 }
 
 type ScreenDetails struct {
@@ -1891,7 +1957,7 @@ type ScreenDetails struct {
 }
 
 func (this ScreenDetails) Once() ScreenDetails {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1905,7 +1971,7 @@ func (this ScreenDetails) FromRef(ref js.Ref) ScreenDetails {
 }
 
 func (this ScreenDetails) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Screens returns the value of property "ScreenDetails.screens".
@@ -1913,7 +1979,7 @@ func (this ScreenDetails) Free() {
 // It returns ok=false if there is no such property.
 func (this ScreenDetails) Screens() (ret js.FrozenArray[ScreenDetailed], ok bool) {
 	ok = js.True == bindings.GetScreenDetailsScreens(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1923,7 +1989,7 @@ func (this ScreenDetails) Screens() (ret js.FrozenArray[ScreenDetailed], ok bool
 // It returns ok=false if there is no such property.
 func (this ScreenDetails) CurrentScreen() (ret ScreenDetailed, ok bool) {
 	ok = js.True == bindings.GetScreenDetailsCurrentScreen(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2023,17 +2089,42 @@ func (p ItemDetails) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ItemDetails) UpdateFrom(ref js.Ref) {
+func (p *ItemDetails) UpdateFrom(ref js.Ref) {
 	bindings.ItemDetailsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ItemDetails) Update(ref js.Ref) {
+func (p *ItemDetails) Update(ref js.Ref) {
 	bindings.ItemDetailsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ItemDetails) FreeMembers(recursive bool) {
+	js.Free(
+		p.ItemId.Ref(),
+		p.Title.Ref(),
+		p.Description.Ref(),
+		p.IconURLs.Ref(),
+		p.SubscriptionPeriod.Ref(),
+		p.FreeTrialPeriod.Ref(),
+		p.IntroductoryPricePeriod.Ref(),
+	)
+	p.ItemId = p.ItemId.FromRef(js.Undefined)
+	p.Title = p.Title.FromRef(js.Undefined)
+	p.Description = p.Description.FromRef(js.Undefined)
+	p.IconURLs = p.IconURLs.FromRef(js.Undefined)
+	p.SubscriptionPeriod = p.SubscriptionPeriod.FromRef(js.Undefined)
+	p.FreeTrialPeriod = p.FreeTrialPeriod.FromRef(js.Undefined)
+	p.IntroductoryPricePeriod = p.IntroductoryPricePeriod.FromRef(js.Undefined)
+	if recursive {
+		p.Price.FreeMembers(true)
+		p.IntroductoryPrice.FreeMembers(true)
+	}
 }
 
 type PurchaseDetails struct {
@@ -2063,17 +2154,28 @@ func (p PurchaseDetails) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PurchaseDetails) UpdateFrom(ref js.Ref) {
+func (p *PurchaseDetails) UpdateFrom(ref js.Ref) {
 	bindings.PurchaseDetailsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PurchaseDetails) Update(ref js.Ref) {
+func (p *PurchaseDetails) Update(ref js.Ref) {
 	bindings.PurchaseDetailsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PurchaseDetails) FreeMembers(recursive bool) {
+	js.Free(
+		p.ItemId.Ref(),
+		p.PurchaseToken.Ref(),
+	)
+	p.ItemId = p.ItemId.FromRef(js.Undefined)
+	p.PurchaseToken = p.PurchaseToken.FromRef(js.Undefined)
 }
 
 type DigitalGoodsService struct {
@@ -2081,7 +2183,7 @@ type DigitalGoodsService struct {
 }
 
 func (this DigitalGoodsService) Once() DigitalGoodsService {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2095,29 +2197,28 @@ func (this DigitalGoodsService) FromRef(ref js.Ref) DigitalGoodsService {
 }
 
 func (this DigitalGoodsService) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasGetDetails returns true if the method "DigitalGoodsService.getDetails" exists.
-func (this DigitalGoodsService) HasGetDetails() bool {
-	return js.True == bindings.HasDigitalGoodsServiceGetDetails(
-		this.Ref(),
+// HasFuncGetDetails returns true if the method "DigitalGoodsService.getDetails" exists.
+func (this DigitalGoodsService) HasFuncGetDetails() bool {
+	return js.True == bindings.HasFuncDigitalGoodsServiceGetDetails(
+		this.ref,
 	)
 }
 
-// GetDetailsFunc returns the method "DigitalGoodsService.getDetails".
-func (this DigitalGoodsService) GetDetailsFunc() (fn js.Func[func(itemIds js.Array[js.String]) js.Promise[js.Array[ItemDetails]]]) {
-	return fn.FromRef(
-		bindings.DigitalGoodsServiceGetDetailsFunc(
-			this.Ref(),
-		),
+// FuncGetDetails returns the method "DigitalGoodsService.getDetails".
+func (this DigitalGoodsService) FuncGetDetails() (fn js.Func[func(itemIds js.Array[js.String]) js.Promise[js.Array[ItemDetails]]]) {
+	bindings.FuncDigitalGoodsServiceGetDetails(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetDetails calls the method "DigitalGoodsService.getDetails".
 func (this DigitalGoodsService) GetDetails(itemIds js.Array[js.String]) (ret js.Promise[js.Array[ItemDetails]]) {
 	bindings.CallDigitalGoodsServiceGetDetails(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		itemIds.Ref(),
 	)
 
@@ -2129,33 +2230,32 @@ func (this DigitalGoodsService) GetDetails(itemIds js.Array[js.String]) (ret js.
 // the catch clause.
 func (this DigitalGoodsService) TryGetDetails(itemIds js.Array[js.String]) (ret js.Promise[js.Array[ItemDetails]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDigitalGoodsServiceGetDetails(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		itemIds.Ref(),
 	)
 
 	return
 }
 
-// HasListPurchases returns true if the method "DigitalGoodsService.listPurchases" exists.
-func (this DigitalGoodsService) HasListPurchases() bool {
-	return js.True == bindings.HasDigitalGoodsServiceListPurchases(
-		this.Ref(),
+// HasFuncListPurchases returns true if the method "DigitalGoodsService.listPurchases" exists.
+func (this DigitalGoodsService) HasFuncListPurchases() bool {
+	return js.True == bindings.HasFuncDigitalGoodsServiceListPurchases(
+		this.ref,
 	)
 }
 
-// ListPurchasesFunc returns the method "DigitalGoodsService.listPurchases".
-func (this DigitalGoodsService) ListPurchasesFunc() (fn js.Func[func() js.Promise[js.Array[PurchaseDetails]]]) {
-	return fn.FromRef(
-		bindings.DigitalGoodsServiceListPurchasesFunc(
-			this.Ref(),
-		),
+// FuncListPurchases returns the method "DigitalGoodsService.listPurchases".
+func (this DigitalGoodsService) FuncListPurchases() (fn js.Func[func() js.Promise[js.Array[PurchaseDetails]]]) {
+	bindings.FuncDigitalGoodsServiceListPurchases(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ListPurchases calls the method "DigitalGoodsService.listPurchases".
 func (this DigitalGoodsService) ListPurchases() (ret js.Promise[js.Array[PurchaseDetails]]) {
 	bindings.CallDigitalGoodsServiceListPurchases(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2166,32 +2266,31 @@ func (this DigitalGoodsService) ListPurchases() (ret js.Promise[js.Array[Purchas
 // the catch clause.
 func (this DigitalGoodsService) TryListPurchases() (ret js.Promise[js.Array[PurchaseDetails]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDigitalGoodsServiceListPurchases(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasListPurchaseHistory returns true if the method "DigitalGoodsService.listPurchaseHistory" exists.
-func (this DigitalGoodsService) HasListPurchaseHistory() bool {
-	return js.True == bindings.HasDigitalGoodsServiceListPurchaseHistory(
-		this.Ref(),
+// HasFuncListPurchaseHistory returns true if the method "DigitalGoodsService.listPurchaseHistory" exists.
+func (this DigitalGoodsService) HasFuncListPurchaseHistory() bool {
+	return js.True == bindings.HasFuncDigitalGoodsServiceListPurchaseHistory(
+		this.ref,
 	)
 }
 
-// ListPurchaseHistoryFunc returns the method "DigitalGoodsService.listPurchaseHistory".
-func (this DigitalGoodsService) ListPurchaseHistoryFunc() (fn js.Func[func() js.Promise[js.Array[PurchaseDetails]]]) {
-	return fn.FromRef(
-		bindings.DigitalGoodsServiceListPurchaseHistoryFunc(
-			this.Ref(),
-		),
+// FuncListPurchaseHistory returns the method "DigitalGoodsService.listPurchaseHistory".
+func (this DigitalGoodsService) FuncListPurchaseHistory() (fn js.Func[func() js.Promise[js.Array[PurchaseDetails]]]) {
+	bindings.FuncDigitalGoodsServiceListPurchaseHistory(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ListPurchaseHistory calls the method "DigitalGoodsService.listPurchaseHistory".
 func (this DigitalGoodsService) ListPurchaseHistory() (ret js.Promise[js.Array[PurchaseDetails]]) {
 	bindings.CallDigitalGoodsServiceListPurchaseHistory(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2202,32 +2301,31 @@ func (this DigitalGoodsService) ListPurchaseHistory() (ret js.Promise[js.Array[P
 // the catch clause.
 func (this DigitalGoodsService) TryListPurchaseHistory() (ret js.Promise[js.Array[PurchaseDetails]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDigitalGoodsServiceListPurchaseHistory(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasConsume returns true if the method "DigitalGoodsService.consume" exists.
-func (this DigitalGoodsService) HasConsume() bool {
-	return js.True == bindings.HasDigitalGoodsServiceConsume(
-		this.Ref(),
+// HasFuncConsume returns true if the method "DigitalGoodsService.consume" exists.
+func (this DigitalGoodsService) HasFuncConsume() bool {
+	return js.True == bindings.HasFuncDigitalGoodsServiceConsume(
+		this.ref,
 	)
 }
 
-// ConsumeFunc returns the method "DigitalGoodsService.consume".
-func (this DigitalGoodsService) ConsumeFunc() (fn js.Func[func(purchaseToken js.String) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.DigitalGoodsServiceConsumeFunc(
-			this.Ref(),
-		),
+// FuncConsume returns the method "DigitalGoodsService.consume".
+func (this DigitalGoodsService) FuncConsume() (fn js.Func[func(purchaseToken js.String) js.Promise[js.Void]]) {
+	bindings.FuncDigitalGoodsServiceConsume(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Consume calls the method "DigitalGoodsService.consume".
 func (this DigitalGoodsService) Consume(purchaseToken js.String) (ret js.Promise[js.Void]) {
 	bindings.CallDigitalGoodsServiceConsume(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		purchaseToken.Ref(),
 	)
 
@@ -2239,7 +2337,7 @@ func (this DigitalGoodsService) Consume(purchaseToken js.String) (ret js.Promise
 // the catch clause.
 func (this DigitalGoodsService) TryConsume(purchaseToken js.String) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDigitalGoodsServiceConsume(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		purchaseToken.Ref(),
 	)
 
@@ -2317,7 +2415,7 @@ func (cb *VoidFunction[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 0+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
 
 	if ctx.Return(cb.Fn(
@@ -2461,17 +2559,22 @@ func (p ImageBitmapOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ImageBitmapOptions) UpdateFrom(ref js.Ref) {
+func (p *ImageBitmapOptions) UpdateFrom(ref js.Ref) {
 	bindings.ImageBitmapOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ImageBitmapOptions) Update(ref js.Ref) {
+func (p *ImageBitmapOptions) Update(ref js.Ref) {
 	bindings.ImageBitmapOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ImageBitmapOptions) FreeMembers(recursive bool) {
 }
 
 type FrameRequestCallbackFunc func(this js.Ref, time DOMHighResTimeStamp) js.Ref
@@ -2519,7 +2622,7 @@ func (cb *FrameRequestCallback[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 1+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
 
 	if ctx.Return(cb.Fn(
@@ -2563,7 +2666,7 @@ type History struct {
 }
 
 func (this History) Once() History {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2577,7 +2680,7 @@ func (this History) FromRef(ref js.Ref) History {
 }
 
 func (this History) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Length returns the value of property "History.length".
@@ -2585,7 +2688,7 @@ func (this History) Free() {
 // It returns ok=false if there is no such property.
 func (this History) Length() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetHistoryLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2595,7 +2698,7 @@ func (this History) Length() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this History) ScrollRestoration() (ret ScrollRestoration, ok bool) {
 	ok = js.True == bindings.GetHistoryScrollRestoration(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2605,7 +2708,7 @@ func (this History) ScrollRestoration() (ret ScrollRestoration, ok bool) {
 // It returns false if the property cannot be set.
 func (this History) SetScrollRestoration(val ScrollRestoration) bool {
 	return js.True == bindings.SetHistoryScrollRestoration(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
@@ -2615,31 +2718,30 @@ func (this History) SetScrollRestoration(val ScrollRestoration) bool {
 // It returns ok=false if there is no such property.
 func (this History) State() (ret js.Any, ok bool) {
 	ok = js.True == bindings.GetHistoryState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGo returns true if the method "History.go" exists.
-func (this History) HasGo() bool {
-	return js.True == bindings.HasHistoryGo(
-		this.Ref(),
+// HasFuncGo returns true if the method "History.go" exists.
+func (this History) HasFuncGo() bool {
+	return js.True == bindings.HasFuncHistoryGo(
+		this.ref,
 	)
 }
 
-// GoFunc returns the method "History.go".
-func (this History) GoFunc() (fn js.Func[func(delta int32)]) {
-	return fn.FromRef(
-		bindings.HistoryGoFunc(
-			this.Ref(),
-		),
+// FuncGo returns the method "History.go".
+func (this History) FuncGo() (fn js.Func[func(delta int32)]) {
+	bindings.FuncHistoryGo(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Go calls the method "History.go".
 func (this History) Go(delta int32) (ret js.Void) {
 	bindings.CallHistoryGo(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		int32(delta),
 	)
 
@@ -2651,33 +2753,32 @@ func (this History) Go(delta int32) (ret js.Void) {
 // the catch clause.
 func (this History) TryGo(delta int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHistoryGo(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		int32(delta),
 	)
 
 	return
 }
 
-// HasGo1 returns true if the method "History.go" exists.
-func (this History) HasGo1() bool {
-	return js.True == bindings.HasHistoryGo1(
-		this.Ref(),
+// HasFuncGo1 returns true if the method "History.go" exists.
+func (this History) HasFuncGo1() bool {
+	return js.True == bindings.HasFuncHistoryGo1(
+		this.ref,
 	)
 }
 
-// Go1Func returns the method "History.go".
-func (this History) Go1Func() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.HistoryGo1Func(
-			this.Ref(),
-		),
+// FuncGo1 returns the method "History.go".
+func (this History) FuncGo1() (fn js.Func[func()]) {
+	bindings.FuncHistoryGo1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Go1 calls the method "History.go".
 func (this History) Go1() (ret js.Void) {
 	bindings.CallHistoryGo1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2688,32 +2789,31 @@ func (this History) Go1() (ret js.Void) {
 // the catch clause.
 func (this History) TryGo1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHistoryGo1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasBack returns true if the method "History.back" exists.
-func (this History) HasBack() bool {
-	return js.True == bindings.HasHistoryBack(
-		this.Ref(),
+// HasFuncBack returns true if the method "History.back" exists.
+func (this History) HasFuncBack() bool {
+	return js.True == bindings.HasFuncHistoryBack(
+		this.ref,
 	)
 }
 
-// BackFunc returns the method "History.back".
-func (this History) BackFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.HistoryBackFunc(
-			this.Ref(),
-		),
+// FuncBack returns the method "History.back".
+func (this History) FuncBack() (fn js.Func[func()]) {
+	bindings.FuncHistoryBack(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Back calls the method "History.back".
 func (this History) Back() (ret js.Void) {
 	bindings.CallHistoryBack(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2724,32 +2824,31 @@ func (this History) Back() (ret js.Void) {
 // the catch clause.
 func (this History) TryBack() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHistoryBack(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasForward returns true if the method "History.forward" exists.
-func (this History) HasForward() bool {
-	return js.True == bindings.HasHistoryForward(
-		this.Ref(),
+// HasFuncForward returns true if the method "History.forward" exists.
+func (this History) HasFuncForward() bool {
+	return js.True == bindings.HasFuncHistoryForward(
+		this.ref,
 	)
 }
 
-// ForwardFunc returns the method "History.forward".
-func (this History) ForwardFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.HistoryForwardFunc(
-			this.Ref(),
-		),
+// FuncForward returns the method "History.forward".
+func (this History) FuncForward() (fn js.Func[func()]) {
+	bindings.FuncHistoryForward(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Forward calls the method "History.forward".
 func (this History) Forward() (ret js.Void) {
 	bindings.CallHistoryForward(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2760,32 +2859,31 @@ func (this History) Forward() (ret js.Void) {
 // the catch clause.
 func (this History) TryForward() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHistoryForward(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasPushState returns true if the method "History.pushState" exists.
-func (this History) HasPushState() bool {
-	return js.True == bindings.HasHistoryPushState(
-		this.Ref(),
+// HasFuncPushState returns true if the method "History.pushState" exists.
+func (this History) HasFuncPushState() bool {
+	return js.True == bindings.HasFuncHistoryPushState(
+		this.ref,
 	)
 }
 
-// PushStateFunc returns the method "History.pushState".
-func (this History) PushStateFunc() (fn js.Func[func(data js.Any, unused js.String, url js.String)]) {
-	return fn.FromRef(
-		bindings.HistoryPushStateFunc(
-			this.Ref(),
-		),
+// FuncPushState returns the method "History.pushState".
+func (this History) FuncPushState() (fn js.Func[func(data js.Any, unused js.String, url js.String)]) {
+	bindings.FuncHistoryPushState(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PushState calls the method "History.pushState".
 func (this History) PushState(data js.Any, unused js.String, url js.String) (ret js.Void) {
 	bindings.CallHistoryPushState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		data.Ref(),
 		unused.Ref(),
 		url.Ref(),
@@ -2799,7 +2897,7 @@ func (this History) PushState(data js.Any, unused js.String, url js.String) (ret
 // the catch clause.
 func (this History) TryPushState(data js.Any, unused js.String, url js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHistoryPushState(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		data.Ref(),
 		unused.Ref(),
 		url.Ref(),
@@ -2808,26 +2906,25 @@ func (this History) TryPushState(data js.Any, unused js.String, url js.String) (
 	return
 }
 
-// HasPushState1 returns true if the method "History.pushState" exists.
-func (this History) HasPushState1() bool {
-	return js.True == bindings.HasHistoryPushState1(
-		this.Ref(),
+// HasFuncPushState1 returns true if the method "History.pushState" exists.
+func (this History) HasFuncPushState1() bool {
+	return js.True == bindings.HasFuncHistoryPushState1(
+		this.ref,
 	)
 }
 
-// PushState1Func returns the method "History.pushState".
-func (this History) PushState1Func() (fn js.Func[func(data js.Any, unused js.String)]) {
-	return fn.FromRef(
-		bindings.HistoryPushState1Func(
-			this.Ref(),
-		),
+// FuncPushState1 returns the method "History.pushState".
+func (this History) FuncPushState1() (fn js.Func[func(data js.Any, unused js.String)]) {
+	bindings.FuncHistoryPushState1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PushState1 calls the method "History.pushState".
 func (this History) PushState1(data js.Any, unused js.String) (ret js.Void) {
 	bindings.CallHistoryPushState1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		data.Ref(),
 		unused.Ref(),
 	)
@@ -2840,7 +2937,7 @@ func (this History) PushState1(data js.Any, unused js.String) (ret js.Void) {
 // the catch clause.
 func (this History) TryPushState1(data js.Any, unused js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHistoryPushState1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		data.Ref(),
 		unused.Ref(),
 	)
@@ -2848,26 +2945,25 @@ func (this History) TryPushState1(data js.Any, unused js.String) (ret js.Void, e
 	return
 }
 
-// HasReplaceState returns true if the method "History.replaceState" exists.
-func (this History) HasReplaceState() bool {
-	return js.True == bindings.HasHistoryReplaceState(
-		this.Ref(),
+// HasFuncReplaceState returns true if the method "History.replaceState" exists.
+func (this History) HasFuncReplaceState() bool {
+	return js.True == bindings.HasFuncHistoryReplaceState(
+		this.ref,
 	)
 }
 
-// ReplaceStateFunc returns the method "History.replaceState".
-func (this History) ReplaceStateFunc() (fn js.Func[func(data js.Any, unused js.String, url js.String)]) {
-	return fn.FromRef(
-		bindings.HistoryReplaceStateFunc(
-			this.Ref(),
-		),
+// FuncReplaceState returns the method "History.replaceState".
+func (this History) FuncReplaceState() (fn js.Func[func(data js.Any, unused js.String, url js.String)]) {
+	bindings.FuncHistoryReplaceState(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReplaceState calls the method "History.replaceState".
 func (this History) ReplaceState(data js.Any, unused js.String, url js.String) (ret js.Void) {
 	bindings.CallHistoryReplaceState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		data.Ref(),
 		unused.Ref(),
 		url.Ref(),
@@ -2881,7 +2977,7 @@ func (this History) ReplaceState(data js.Any, unused js.String, url js.String) (
 // the catch clause.
 func (this History) TryReplaceState(data js.Any, unused js.String, url js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHistoryReplaceState(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		data.Ref(),
 		unused.Ref(),
 		url.Ref(),
@@ -2890,26 +2986,25 @@ func (this History) TryReplaceState(data js.Any, unused js.String, url js.String
 	return
 }
 
-// HasReplaceState1 returns true if the method "History.replaceState" exists.
-func (this History) HasReplaceState1() bool {
-	return js.True == bindings.HasHistoryReplaceState1(
-		this.Ref(),
+// HasFuncReplaceState1 returns true if the method "History.replaceState" exists.
+func (this History) HasFuncReplaceState1() bool {
+	return js.True == bindings.HasFuncHistoryReplaceState1(
+		this.ref,
 	)
 }
 
-// ReplaceState1Func returns the method "History.replaceState".
-func (this History) ReplaceState1Func() (fn js.Func[func(data js.Any, unused js.String)]) {
-	return fn.FromRef(
-		bindings.HistoryReplaceState1Func(
-			this.Ref(),
-		),
+// FuncReplaceState1 returns the method "History.replaceState".
+func (this History) FuncReplaceState1() (fn js.Func[func(data js.Any, unused js.String)]) {
+	bindings.FuncHistoryReplaceState1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReplaceState1 calls the method "History.replaceState".
 func (this History) ReplaceState1(data js.Any, unused js.String) (ret js.Void) {
 	bindings.CallHistoryReplaceState1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		data.Ref(),
 		unused.Ref(),
 	)
@@ -2922,7 +3017,7 @@ func (this History) ReplaceState1(data js.Any, unused js.String) (ret js.Void) {
 // the catch clause.
 func (this History) TryReplaceState1(data js.Any, unused js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHistoryReplaceState1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		data.Ref(),
 		unused.Ref(),
 	)
@@ -2935,7 +3030,7 @@ type NavigationHistoryEntry struct {
 }
 
 func (this NavigationHistoryEntry) Once() NavigationHistoryEntry {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2949,7 +3044,7 @@ func (this NavigationHistoryEntry) FromRef(ref js.Ref) NavigationHistoryEntry {
 }
 
 func (this NavigationHistoryEntry) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Url returns the value of property "NavigationHistoryEntry.url".
@@ -2957,7 +3052,7 @@ func (this NavigationHistoryEntry) Free() {
 // It returns ok=false if there is no such property.
 func (this NavigationHistoryEntry) Url() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetNavigationHistoryEntryUrl(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2967,7 +3062,7 @@ func (this NavigationHistoryEntry) Url() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this NavigationHistoryEntry) Key() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetNavigationHistoryEntryKey(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2977,7 +3072,7 @@ func (this NavigationHistoryEntry) Key() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this NavigationHistoryEntry) Id() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetNavigationHistoryEntryId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2987,7 +3082,7 @@ func (this NavigationHistoryEntry) Id() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this NavigationHistoryEntry) Index() (ret int64, ok bool) {
 	ok = js.True == bindings.GetNavigationHistoryEntryIndex(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2997,31 +3092,30 @@ func (this NavigationHistoryEntry) Index() (ret int64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this NavigationHistoryEntry) SameDocument() (ret bool, ok bool) {
 	ok = js.True == bindings.GetNavigationHistoryEntrySameDocument(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGetState returns true if the method "NavigationHistoryEntry.getState" exists.
-func (this NavigationHistoryEntry) HasGetState() bool {
-	return js.True == bindings.HasNavigationHistoryEntryGetState(
-		this.Ref(),
+// HasFuncGetState returns true if the method "NavigationHistoryEntry.getState" exists.
+func (this NavigationHistoryEntry) HasFuncGetState() bool {
+	return js.True == bindings.HasFuncNavigationHistoryEntryGetState(
+		this.ref,
 	)
 }
 
-// GetStateFunc returns the method "NavigationHistoryEntry.getState".
-func (this NavigationHistoryEntry) GetStateFunc() (fn js.Func[func() js.Any]) {
-	return fn.FromRef(
-		bindings.NavigationHistoryEntryGetStateFunc(
-			this.Ref(),
-		),
+// FuncGetState returns the method "NavigationHistoryEntry.getState".
+func (this NavigationHistoryEntry) FuncGetState() (fn js.Func[func() js.Any]) {
+	bindings.FuncNavigationHistoryEntryGetState(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetState calls the method "NavigationHistoryEntry.getState".
 func (this NavigationHistoryEntry) GetState() (ret js.Any) {
 	bindings.CallNavigationHistoryEntryGetState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3032,7 +3126,7 @@ func (this NavigationHistoryEntry) GetState() (ret js.Any) {
 // the catch clause.
 func (this NavigationHistoryEntry) TryGetState() (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationHistoryEntryGetState(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -3061,17 +3155,26 @@ func (p NavigationUpdateCurrentEntryOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p NavigationUpdateCurrentEntryOptions) UpdateFrom(ref js.Ref) {
+func (p *NavigationUpdateCurrentEntryOptions) UpdateFrom(ref js.Ref) {
 	bindings.NavigationUpdateCurrentEntryOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p NavigationUpdateCurrentEntryOptions) Update(ref js.Ref) {
+func (p *NavigationUpdateCurrentEntryOptions) Update(ref js.Ref) {
 	bindings.NavigationUpdateCurrentEntryOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *NavigationUpdateCurrentEntryOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.State.Ref(),
+	)
+	p.State = p.State.FromRef(js.Undefined)
 }
 
 type NavigationResult struct {
@@ -3101,15 +3204,26 @@ func (p NavigationResult) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p NavigationResult) UpdateFrom(ref js.Ref) {
+func (p *NavigationResult) UpdateFrom(ref js.Ref) {
 	bindings.NavigationResultJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p NavigationResult) Update(ref js.Ref) {
+func (p *NavigationResult) Update(ref js.Ref) {
 	bindings.NavigationResultJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *NavigationResult) FreeMembers(recursive bool) {
+	js.Free(
+		p.Committed.Ref(),
+		p.Finished.Ref(),
+	)
+	p.Committed = p.Committed.FromRef(js.Undefined)
+	p.Finished = p.Finished.FromRef(js.Undefined)
 }

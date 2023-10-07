@@ -1,0 +1,2617 @@
+- File: webext/chromeos/diagnostics.idl
+  Enum:
+    Name: AcPowerStatus
+    Values:
+      - connected
+      - disconnected
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Callback:
+    Name: CancelRoutineCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: CancelRoutineRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: uuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Callback:
+    Name: CreateMemoryRoutineCallback
+    Args:
+      - Name: response
+        Type:
+          Name: CreateMemoryRoutineResponse
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: CreateMemoryRoutineResponse
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: uuid
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Enum:
+    Name: DiskReadRoutineType
+    Values:
+      - linear
+      - random
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Callback:
+    Name: EOF
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: ExceptionInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: uuid
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+      - Name: reason
+        Type:
+          Name: ExceptionReason
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+      - Name: debugMessage
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Enum:
+    Name: ExceptionReason
+    Values:
+      - unknown
+      - unexpected
+      - unsupported
+      - app_ui_closed
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Callback:
+    Name: GetAvailableRoutinesCallback
+    Args:
+      - Name: response
+        Type:
+          Name: GetAvailableRoutinesResponse
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: GetAvailableRoutinesResponse
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: routines
+        Type:
+          Name: sequence
+          Params:
+            - Name: RoutineType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - os
+                    - diagnostics
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Callback:
+    Name: GetRoutineUpdateCallback
+    Args:
+      - Name: response
+        Type:
+          Name: GetRoutineUpdateResponse
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: GetRoutineUpdateRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: id
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+      - Name: command
+        Type:
+          Name: RoutineCommandType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: GetRoutineUpdateResponse
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: progress_percent
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+      - Name: output
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+      - Name: status
+        Type:
+          Name: RoutineStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+      - Name: status_message
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+      - Name: user_message
+        Type:
+          Name: UserMessageType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: MemoryRoutineFinishedInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: uuid
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+      - Name: has_passed
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+      - Name: bytesTested
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+      - Name: result
+        Type:
+          Name: MemtesterResult
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: MemtesterResult
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: passed_items
+        Type:
+          Name: sequence
+          Params:
+            - Name: MemtesterTestItemEnum
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - os
+                    - diagnostics
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+      - Name: failed_items
+        Type:
+          Name: sequence
+          Params:
+            - Name: MemtesterTestItemEnum
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - os
+                    - diagnostics
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Enum:
+    Name: MemtesterTestItemEnum
+    Values:
+      - unknown
+      - stuck_address
+      - compare_and
+      - compare_div
+      - compare_mul
+      - compare_or
+      - compare_sub
+      - compare_xor
+      - sequential_increment
+      - bit_flip
+      - bit_spread
+      - block_sequential
+      - checkerboard
+      - random_value
+      - solid_bits
+      - walking_ones
+      - walking_zeroes
+      - eight_bit_writes
+      - sixteen_bit_writes
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Enum:
+    Name: NvmeSelfTestType
+    Values:
+      - short_test
+      - long_test
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Enum:
+    Name: RoutineCommandType
+    Values:
+      - cancel
+      - remove
+      - resume
+      - status
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: RoutineInitializedInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: uuid
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: RoutineRunningInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: uuid
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+      - Name: percentage
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Enum:
+    Name: RoutineStatus
+    Values:
+      - unknown
+      - ready
+      - running
+      - waiting_user_action
+      - passed
+      - failed
+      - error
+      - cancelled
+      - failed_to_start
+      - removed
+      - cancelling
+      - unsupported
+      - not_run
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Enum:
+    Name: RoutineSupportStatus
+    Values:
+      - supported
+      - unsupported
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: RoutineSupportStatusInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: status
+        Type:
+          Name: RoutineSupportStatus
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Callback:
+    Name: RoutineSupportStatusInfoCallback
+    Args:
+      - Name: info
+        Type:
+          Name: RoutineSupportStatusInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Enum:
+    Name: RoutineType
+    Values:
+      - ac_power
+      - battery_capacity
+      - battery_charge
+      - battery_discharge
+      - battery_health
+      - cpu_cache
+      - cpu_floating_point_accuracy
+      - cpu_prime_search
+      - cpu_stress
+      - disk_read
+      - dns_resolution
+      - memory
+      - nvme_wear_level
+      - smartctl_check
+      - lan_connectivity
+      - signal_strength
+      - dns_resolver_present
+      - gateway_can_be_pinged
+      - sensitive_sensor
+      - nvme_self_test
+      - fingerprint_alive
+      - smartctl_check_with_percentage_used
+      - emmc_lifetime
+      - bluetooth_power
+      - ufs_lifetime
+      - power_button
+      - audio_driver
+      - bluetooth_discovery
+      - bluetooth_scanning
+      - bluetooth_pairing
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: RoutineWaitingInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: uuid
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+      - Name: percentage
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+      - Name: reason
+        Type:
+          Name: RoutineWaitingReason
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+      - Name: message
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Enum:
+    Name: RoutineWaitingReason
+    Values:
+      - waiting_to_be_scheduled
+      - waiting_user_input
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: RunAcPowerRoutineRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: expected_status
+        Type:
+          Name: AcPowerStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+      - Name: expected_power_type
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: RunBatteryChargeRoutineRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: length_seconds
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+      - Name: minimum_charge_percent_required
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: RunBatteryDischargeRoutineRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: length_seconds
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+      - Name: maximum_discharge_percent_allowed
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: RunBluetoothPairingRoutineRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: peripheral_id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: RunBluetoothScanningRoutineRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: length_seconds
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: RunCpuRoutineRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: length_seconds
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: RunDiskReadRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: type
+        Type:
+          Name: DiskReadRoutineType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+      - Name: length_seconds
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+      - Name: file_size_mb
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: RunMemoryRoutineArguments
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: maxTestingMemKib
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: RunNvmeSelfTestRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: test_type
+        Type:
+          Name: NvmeSelfTestType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: RunNvmeWearLevelRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: wear_level_threshold
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: RunPowerButtonRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: timeout_seconds
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Callback:
+    Name: RunRoutineCallback
+    Args:
+      - Name: response
+        Type:
+          Name: RunRoutineResponse
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: RunRoutineResponse
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: id
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+      - Name: status
+        Type:
+          Name: RoutineStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: RunSmartctlCheckRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: percentage_used_threshold
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Callback:
+    Name: StartRoutineCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Dict:
+    Name: StartRoutineRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+    Fields:
+      - Name: uuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  Enum:
+    Name: UserMessageType
+    Values:
+      - unknown
+      - unplug_ac_power
+      - plug_in_ac_power
+      - press_power_button
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: cancelRoutine
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: CancelRoutineRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: createMemoryRoutine
+    Modifier: static
+    Args:
+      - Name: args
+        Type:
+          Name: RunMemoryRoutineArguments
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: CreateMemoryRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: getAvailableRoutines
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: GetAvailableRoutinesResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: getRoutineUpdate
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: GetRoutineUpdateRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: GetRoutineUpdateResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: isMemoryRoutineArgumentSupported
+    Modifier: static
+    Args:
+      - Name: args
+        Type:
+          Name: RunMemoryRoutineArguments
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RoutineSupportStatusInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextEvent:
+    Name: onMemoryRoutineFinished
+    Modifier: static
+    Args:
+      - Name: finishedInfo
+        Type:
+          Name: MemoryRoutineFinishedInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextEvent:
+    Name: onRoutineException
+    Modifier: static
+    Args:
+      - Name: exceptionInfo
+        Type:
+          Name: ExceptionInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextEvent:
+    Name: onRoutineInitialized
+    Modifier: static
+    Args:
+      - Name: initializedInfo
+        Type:
+          Name: RoutineInitializedInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextEvent:
+    Name: onRoutineRunning
+    Modifier: static
+    Args:
+      - Name: runningInfo
+        Type:
+          Name: RoutineRunningInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextEvent:
+    Name: onRoutineWaiting
+    Modifier: static
+    Args:
+      - Name: waitingInfo
+        Type:
+          Name: RoutineWaitingInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runAcPowerRoutine
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RunAcPowerRoutineRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runAudioDriverRoutine
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runBatteryCapacityRoutine
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runBatteryChargeRoutine
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RunBatteryChargeRoutineRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runBatteryDischargeRoutine
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RunBatteryDischargeRoutineRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runBatteryHealthRoutine
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runBluetoothDiscoveryRoutine
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runBluetoothPairingRoutine
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RunBluetoothPairingRoutineRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runBluetoothPowerRoutine
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runBluetoothScanningRoutine
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RunBluetoothScanningRoutineRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runCpuCacheRoutine
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RunCpuRoutineRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runCpuFloatingPointAccuracyRoutine
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RunCpuRoutineRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runCpuPrimeSearchRoutine
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RunCpuRoutineRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runCpuStressRoutine
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RunCpuRoutineRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runDiskReadRoutine
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RunDiskReadRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runDnsResolutionRoutine
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runDnsResolverPresentRoutine
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runEmmcLifetimeRoutine
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runFingerprintAliveRoutine
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runGatewayCanBePingedRoutine
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runLanConnectivityRoutine
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runMemoryRoutine
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runNvmeSelfTestRoutine
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RunNvmeSelfTestRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runNvmeWearLevelRoutine
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RunNvmeWearLevelRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runPowerButtonRoutine
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RunPowerButtonRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runSensitiveSensorRoutine
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runSignalStrengthRoutine
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runSmartctlCheckRoutine
+    Modifier: static
+    Args:
+      - Name: request
+        Optional: true
+        Type:
+          Name: RunSmartctlCheckRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: runUfsLifetimeRoutine
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RunRoutineResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics
+- File: webext/chromeos/diagnostics.idl
+  WebextFunc:
+    Name: startRoutine
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: StartRoutineRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - diagnostics
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - diagnostics

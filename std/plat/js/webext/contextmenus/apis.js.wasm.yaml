@@ -1,0 +1,648 @@
+- File: webext/chrome/context_menus.json
+  WebextProp:
+    Name: ACTION_MENU_TOP_LEVEL_LIMIT
+    Type:
+      Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contextMenus
+- File: webext/chrome/context_menus.json
+  Enum:
+    Name: ContextType
+    Values:
+      - all
+      - page
+      - frame
+      - selection
+      - link
+      - editable
+      - image
+      - video
+      - audio
+      - launcher
+      - browser_action
+      - page_action
+      - action
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contextMenus
+- File: webext/chrome/context_menus.json
+  Callback:
+    Name: CreateArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contextMenus
+- File: webext/chrome/context_menus.json
+  Dict:
+    Name: CreateArgCreateProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contextMenus
+    Fields:
+      - Name: checked
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: contexts
+        Type:
+          Name: sequence
+          Params:
+            - Name: ContextType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - contextMenus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: documentUrlPatterns
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: enabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: id
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: onclick
+        Type:
+          Name: CreateArgCreatePropertiesFieldOnclick
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: parentId
+        Type:
+          Union:
+            - Name: long long
+            - Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: targetUrlPatterns
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: title
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: type
+        Type:
+          Name: ItemType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: visible
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+- File: webext/chrome/context_menus.json
+  Callback:
+    Name: CreateArgCreatePropertiesFieldOnclick
+    Args:
+      - Name: info
+        Type:
+          Name: OnClickData
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+      - Name: tab
+        Type:
+          Name: Tab
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contextMenus
+- File: webext/chrome/context_menus.json
+  Enum:
+    Name: ItemType
+    Values:
+      - normal
+      - checkbox
+      - radio
+      - separator
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contextMenus
+- File: webext/chrome/context_menus.json
+  Dict:
+    Name: OnClickData
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contextMenus
+    Fields:
+      - Name: checked
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: editable
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: frameId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: frameUrl
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: linkUrl
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: mediaType
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: menuItemId
+        Required: true
+        Type:
+          Union:
+            - Name: long long
+            - Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: pageUrl
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: parentMenuItemId
+        Type:
+          Union:
+            - Name: long long
+            - Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: selectionText
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: srcUrl
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: wasChecked
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+- File: webext/chrome/context_menus.json
+  Callback:
+    Name: RemoveAllArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contextMenus
+- File: webext/chrome/context_menus.json
+  Callback:
+    Name: RemoveArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contextMenus
+- File: webext/chrome/context_menus.json
+  Callback:
+    Name: UpdateArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contextMenus
+- File: webext/chrome/context_menus.json
+  Dict:
+    Name: UpdateArgUpdateProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contextMenus
+    Fields:
+      - Name: checked
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: contexts
+        Type:
+          Name: sequence
+          Params:
+            - Name: ContextType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - contextMenus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: documentUrlPatterns
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: enabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: onclick
+        Type:
+          Name: UpdateArgUpdatePropertiesFieldOnclick
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: parentId
+        Type:
+          Union:
+            - Name: long long
+            - Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: targetUrlPatterns
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: title
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: type
+        Type:
+          Name: ItemType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+      - Name: visible
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - contextMenus
+- File: webext/chrome/context_menus.json
+  Callback:
+    Name: UpdateArgUpdatePropertiesFieldOnclick
+    Args:
+      - Name: info
+        Type:
+          Name: OnClickData
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+      - Name: tab
+        Type:
+          Name: Tab
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contextMenus
+- File: webext/chrome/context_menus.json
+  WebextFunc:
+    Name: create
+    Args:
+      - Name: createProperties
+        Type:
+          Name: CreateArgCreateProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+      - Name: callback
+        Optional: true
+        Type:
+          Name: CreateArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+    Returns:
+      - Union:
+          - Name: long long
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contextMenus
+- File: webext/chrome/context_menus.json
+  WebextEvent:
+    Name: onClicked
+    Args:
+      - Name: info
+        Type:
+          Name: OnClickData
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+      - Name: tab
+        Optional: true
+        Type:
+          Name: Tab
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contextMenus
+- File: webext/chrome/context_menus.json
+  WebextFunc:
+    Name: remove
+    Args:
+      - Name: menuItemId
+        Type:
+          Union:
+            - Name: long long
+            - Name: DOMString
+      - Name: callback
+        Optional: true
+        Type:
+          Name: RemoveArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contextMenus
+- File: webext/chrome/context_menus.json
+  WebextFunc:
+    Name: removeAll
+    Args:
+      - Name: callback
+        Optional: true
+        Type:
+          Name: RemoveAllArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contextMenus
+- File: webext/chrome/context_menus.json
+  WebextFunc:
+    Name: update
+    Args:
+      - Name: id
+        Type:
+          Union:
+            - Name: long long
+            - Name: DOMString
+      - Name: updateProperties
+        Type:
+          Name: UpdateArgUpdateProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+      - Name: callback
+        Optional: true
+        Type:
+          Name: UpdateArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - contextMenus

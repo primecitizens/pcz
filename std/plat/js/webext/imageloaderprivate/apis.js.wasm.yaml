@@ -1,0 +1,226 @@
+- File: webext/chrome/image_loader_private.idl
+  Callback:
+    Name: GetThumbnailCallback
+    Args:
+      - Name: thumbnailDataUrl
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageLoaderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageLoaderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageLoaderPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - imageLoaderPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/image_loader_private.idl
+  WebextFunc:
+    Name: getArcDocumentsProviderThumbnail
+    Modifier: static
+    Args:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageLoaderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageLoaderPrivate
+      - Name: widthHint
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageLoaderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageLoaderPrivate
+      - Name: heightHint
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageLoaderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageLoaderPrivate
+      - Name: callback
+        Type:
+          Name: GetThumbnailCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageLoaderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageLoaderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageLoaderPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - imageLoaderPrivate
+- File: webext/chrome/image_loader_private.idl
+  WebextFunc:
+    Name: getDriveThumbnail
+    Modifier: static
+    Args:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageLoaderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageLoaderPrivate
+      - Name: cropToSquare
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageLoaderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageLoaderPrivate
+      - Name: callback
+        Type:
+          Name: GetThumbnailCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageLoaderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageLoaderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageLoaderPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - imageLoaderPrivate
+- File: webext/chrome/image_loader_private.idl
+  WebextFunc:
+    Name: getPdfThumbnail
+    Modifier: static
+    Args:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageLoaderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageLoaderPrivate
+      - Name: width
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageLoaderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageLoaderPrivate
+      - Name: height
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageLoaderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageLoaderPrivate
+      - Name: callback
+        Type:
+          Name: GetThumbnailCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageLoaderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageLoaderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageLoaderPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - imageLoaderPrivate

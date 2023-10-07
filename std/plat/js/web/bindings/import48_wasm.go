@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web constof_RTCIceGathererState
 //go:noescape
@@ -44,11 +42,11 @@ func GetRTCIceTransportGatheringState(
 
 //go:wasmimport plat/js/web has_RTCIceTransport_GetLocalCandidates
 //go:noescape
-func HasRTCIceTransportGetLocalCandidates(this js.Ref) js.Ref
+func HasFuncRTCIceTransportGetLocalCandidates(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCIceTransport_GetLocalCandidates
 //go:noescape
-func RTCIceTransportGetLocalCandidatesFunc(this js.Ref) js.Ref
+func FuncRTCIceTransportGetLocalCandidates(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCIceTransport_GetLocalCandidates
 //go:noescape
@@ -62,11 +60,11 @@ func TryRTCIceTransportGetLocalCandidates(
 
 //go:wasmimport plat/js/web has_RTCIceTransport_GetRemoteCandidates
 //go:noescape
-func HasRTCIceTransportGetRemoteCandidates(this js.Ref) js.Ref
+func HasFuncRTCIceTransportGetRemoteCandidates(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCIceTransport_GetRemoteCandidates
 //go:noescape
-func RTCIceTransportGetRemoteCandidatesFunc(this js.Ref) js.Ref
+func FuncRTCIceTransportGetRemoteCandidates(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCIceTransport_GetRemoteCandidates
 //go:noescape
@@ -80,11 +78,11 @@ func TryRTCIceTransportGetRemoteCandidates(
 
 //go:wasmimport plat/js/web has_RTCIceTransport_GetSelectedCandidatePair
 //go:noescape
-func HasRTCIceTransportGetSelectedCandidatePair(this js.Ref) js.Ref
+func HasFuncRTCIceTransportGetSelectedCandidatePair(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCIceTransport_GetSelectedCandidatePair
 //go:noescape
-func RTCIceTransportGetSelectedCandidatePairFunc(this js.Ref) js.Ref
+func FuncRTCIceTransportGetSelectedCandidatePair(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCIceTransport_GetSelectedCandidatePair
 //go:noescape
@@ -98,11 +96,11 @@ func TryRTCIceTransportGetSelectedCandidatePair(
 
 //go:wasmimport plat/js/web has_RTCIceTransport_GetLocalParameters
 //go:noescape
-func HasRTCIceTransportGetLocalParameters(this js.Ref) js.Ref
+func HasFuncRTCIceTransportGetLocalParameters(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCIceTransport_GetLocalParameters
 //go:noescape
-func RTCIceTransportGetLocalParametersFunc(this js.Ref) js.Ref
+func FuncRTCIceTransportGetLocalParameters(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCIceTransport_GetLocalParameters
 //go:noescape
@@ -116,11 +114,11 @@ func TryRTCIceTransportGetLocalParameters(
 
 //go:wasmimport plat/js/web has_RTCIceTransport_GetRemoteParameters
 //go:noescape
-func HasRTCIceTransportGetRemoteParameters(this js.Ref) js.Ref
+func HasFuncRTCIceTransportGetRemoteParameters(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCIceTransport_GetRemoteParameters
 //go:noescape
-func RTCIceTransportGetRemoteParametersFunc(this js.Ref) js.Ref
+func FuncRTCIceTransportGetRemoteParameters(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCIceTransport_GetRemoteParameters
 //go:noescape
@@ -134,11 +132,11 @@ func TryRTCIceTransportGetRemoteParameters(
 
 //go:wasmimport plat/js/web has_RTCIceTransport_Gather
 //go:noescape
-func HasRTCIceTransportGather(this js.Ref) js.Ref
+func HasFuncRTCIceTransportGather(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCIceTransport_Gather
 //go:noescape
-func RTCIceTransportGatherFunc(this js.Ref) js.Ref
+func FuncRTCIceTransportGather(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCIceTransport_Gather
 //go:noescape
@@ -154,11 +152,11 @@ func TryRTCIceTransportGather(
 
 //go:wasmimport plat/js/web has_RTCIceTransport_Gather1
 //go:noescape
-func HasRTCIceTransportGather1(this js.Ref) js.Ref
+func HasFuncRTCIceTransportGather1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCIceTransport_Gather1
 //go:noescape
-func RTCIceTransportGather1Func(this js.Ref) js.Ref
+func FuncRTCIceTransportGather1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCIceTransport_Gather1
 //go:noescape
@@ -172,11 +170,11 @@ func TryRTCIceTransportGather1(
 
 //go:wasmimport plat/js/web has_RTCIceTransport_Start
 //go:noescape
-func HasRTCIceTransportStart(this js.Ref) js.Ref
+func HasFuncRTCIceTransportStart(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCIceTransport_Start
 //go:noescape
-func RTCIceTransportStartFunc(this js.Ref) js.Ref
+func FuncRTCIceTransportStart(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCIceTransport_Start
 //go:noescape
@@ -194,11 +192,11 @@ func TryRTCIceTransportStart(
 
 //go:wasmimport plat/js/web has_RTCIceTransport_Start1
 //go:noescape
-func HasRTCIceTransportStart1(this js.Ref) js.Ref
+func HasFuncRTCIceTransportStart1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCIceTransport_Start1
 //go:noescape
-func RTCIceTransportStart1Func(this js.Ref) js.Ref
+func FuncRTCIceTransportStart1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCIceTransport_Start1
 //go:noescape
@@ -214,11 +212,11 @@ func TryRTCIceTransportStart1(
 
 //go:wasmimport plat/js/web has_RTCIceTransport_Start2
 //go:noescape
-func HasRTCIceTransportStart2(this js.Ref) js.Ref
+func HasFuncRTCIceTransportStart2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCIceTransport_Start2
 //go:noescape
-func RTCIceTransportStart2Func(this js.Ref) js.Ref
+func FuncRTCIceTransportStart2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCIceTransport_Start2
 //go:noescape
@@ -232,11 +230,11 @@ func TryRTCIceTransportStart2(
 
 //go:wasmimport plat/js/web has_RTCIceTransport_Stop
 //go:noescape
-func HasRTCIceTransportStop(this js.Ref) js.Ref
+func HasFuncRTCIceTransportStop(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCIceTransport_Stop
 //go:noescape
-func RTCIceTransportStopFunc(this js.Ref) js.Ref
+func FuncRTCIceTransportStop(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCIceTransport_Stop
 //go:noescape
@@ -250,11 +248,11 @@ func TryRTCIceTransportStop(
 
 //go:wasmimport plat/js/web has_RTCIceTransport_AddRemoteCandidate
 //go:noescape
-func HasRTCIceTransportAddRemoteCandidate(this js.Ref) js.Ref
+func HasFuncRTCIceTransportAddRemoteCandidate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCIceTransport_AddRemoteCandidate
 //go:noescape
-func RTCIceTransportAddRemoteCandidateFunc(this js.Ref) js.Ref
+func FuncRTCIceTransportAddRemoteCandidate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCIceTransport_AddRemoteCandidate
 //go:noescape
@@ -270,11 +268,11 @@ func TryRTCIceTransportAddRemoteCandidate(
 
 //go:wasmimport plat/js/web has_RTCIceTransport_AddRemoteCandidate1
 //go:noescape
-func HasRTCIceTransportAddRemoteCandidate1(this js.Ref) js.Ref
+func HasFuncRTCIceTransportAddRemoteCandidate1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCIceTransport_AddRemoteCandidate1
 //go:noescape
-func RTCIceTransportAddRemoteCandidate1Func(this js.Ref) js.Ref
+func FuncRTCIceTransportAddRemoteCandidate1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCIceTransport_AddRemoteCandidate1
 //go:noescape
@@ -302,11 +300,11 @@ func GetRTCDtlsTransportState(
 
 //go:wasmimport plat/js/web has_RTCDtlsTransport_GetRemoteCertificates
 //go:noescape
-func HasRTCDtlsTransportGetRemoteCertificates(this js.Ref) js.Ref
+func HasFuncRTCDtlsTransportGetRemoteCertificates(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCDtlsTransport_GetRemoteCertificates
 //go:noescape
-func RTCDtlsTransportGetRemoteCertificatesFunc(this js.Ref) js.Ref
+func FuncRTCDtlsTransportGetRemoteCertificates(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCDtlsTransport_GetRemoteCertificates
 //go:noescape
@@ -347,11 +345,11 @@ func SetRTCEncodedAudioFrameData(
 
 //go:wasmimport plat/js/web has_RTCEncodedAudioFrame_GetMetadata
 //go:noescape
-func HasRTCEncodedAudioFrameGetMetadata(this js.Ref) js.Ref
+func HasFuncRTCEncodedAudioFrameGetMetadata(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCEncodedAudioFrame_GetMetadata
 //go:noescape
-func RTCEncodedAudioFrameGetMetadataFunc(this js.Ref) js.Ref
+func FuncRTCEncodedAudioFrameGetMetadata(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCEncodedAudioFrame_GetMetadata
 //go:noescape
@@ -401,11 +399,11 @@ func SetRTCEncodedVideoFrameData(
 
 //go:wasmimport plat/js/web has_RTCEncodedVideoFrame_GetMetadata
 //go:noescape
-func HasRTCEncodedVideoFrameGetMetadata(this js.Ref) js.Ref
+func HasFuncRTCEncodedVideoFrameGetMetadata(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCEncodedVideoFrame_GetMetadata
 //go:noescape
-func RTCEncodedVideoFrameGetMetadataFunc(this js.Ref) js.Ref
+func FuncRTCEncodedVideoFrameGetMetadata(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCEncodedVideoFrame_GetMetadata
 //go:noescape
@@ -581,11 +579,11 @@ func RTCIdentityProviderJSLoad(
 
 //go:wasmimport plat/js/web has_RTCIdentityProviderRegistrar_Register
 //go:noescape
-func HasRTCIdentityProviderRegistrarRegister(this js.Ref) js.Ref
+func HasFuncRTCIdentityProviderRegistrarRegister(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_RTCIdentityProviderRegistrar_Register
 //go:noescape
-func RTCIdentityProviderRegistrarRegisterFunc(this js.Ref) js.Ref
+func FuncRTCIdentityProviderRegistrarRegister(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_RTCIdentityProviderRegistrar_Register
 //go:noescape

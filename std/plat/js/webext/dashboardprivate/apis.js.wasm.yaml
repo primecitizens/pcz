@@ -1,0 +1,94 @@
+- File: webext/chrome/dashboard_private.json
+  Enum:
+    Name: Result
+    Values:
+      - ""
+      - unknown_error
+      - user_cancelled
+      - invalid_id
+      - manifest_error
+      - icon_error
+      - invalid_icon_url
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - dashboardPrivate
+- File: webext/chrome/dashboard_private.json
+  Dict:
+    Name: ShowPermissionPromptForDelegatedInstallArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - dashboardPrivate
+    Fields:
+      - Name: delegatedUser
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - dashboardPrivate
+      - Name: iconUrl
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - dashboardPrivate
+      - Name: id
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - dashboardPrivate
+      - Name: localizedName
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - dashboardPrivate
+      - Name: manifest
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - dashboardPrivate
+- File: webext/chrome/dashboard_private.json
+  WebextFunc:
+    Name: showPermissionPromptForDelegatedInstall
+    Args:
+      - Name: details
+        Type:
+          Name: ShowPermissionPromptForDelegatedInstallArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - dashboardPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Result
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - dashboardPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - dashboardPrivate

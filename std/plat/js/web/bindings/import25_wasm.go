@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web store_MIDIOptions
 //go:noescape
@@ -89,11 +87,11 @@ func GetHIDDeviceCollections(
 
 //go:wasmimport plat/js/web has_HIDDevice_Open
 //go:noescape
-func HasHIDDeviceOpen(this js.Ref) js.Ref
+func HasFuncHIDDeviceOpen(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HIDDevice_Open
 //go:noescape
-func HIDDeviceOpenFunc(this js.Ref) js.Ref
+func FuncHIDDeviceOpen(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HIDDevice_Open
 //go:noescape
@@ -107,11 +105,11 @@ func TryHIDDeviceOpen(
 
 //go:wasmimport plat/js/web has_HIDDevice_Close
 //go:noescape
-func HasHIDDeviceClose(this js.Ref) js.Ref
+func HasFuncHIDDeviceClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HIDDevice_Close
 //go:noescape
-func HIDDeviceCloseFunc(this js.Ref) js.Ref
+func FuncHIDDeviceClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HIDDevice_Close
 //go:noescape
@@ -125,11 +123,11 @@ func TryHIDDeviceClose(
 
 //go:wasmimport plat/js/web has_HIDDevice_Forget
 //go:noescape
-func HasHIDDeviceForget(this js.Ref) js.Ref
+func HasFuncHIDDeviceForget(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HIDDevice_Forget
 //go:noescape
-func HIDDeviceForgetFunc(this js.Ref) js.Ref
+func FuncHIDDeviceForget(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HIDDevice_Forget
 //go:noescape
@@ -143,11 +141,11 @@ func TryHIDDeviceForget(
 
 //go:wasmimport plat/js/web has_HIDDevice_SendReport
 //go:noescape
-func HasHIDDeviceSendReport(this js.Ref) js.Ref
+func HasFuncHIDDeviceSendReport(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HIDDevice_SendReport
 //go:noescape
-func HIDDeviceSendReportFunc(this js.Ref) js.Ref
+func FuncHIDDeviceSendReport(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HIDDevice_SendReport
 //go:noescape
@@ -165,11 +163,11 @@ func TryHIDDeviceSendReport(
 
 //go:wasmimport plat/js/web has_HIDDevice_SendFeatureReport
 //go:noescape
-func HasHIDDeviceSendFeatureReport(this js.Ref) js.Ref
+func HasFuncHIDDeviceSendFeatureReport(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HIDDevice_SendFeatureReport
 //go:noescape
-func HIDDeviceSendFeatureReportFunc(this js.Ref) js.Ref
+func FuncHIDDeviceSendFeatureReport(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HIDDevice_SendFeatureReport
 //go:noescape
@@ -187,11 +185,11 @@ func TryHIDDeviceSendFeatureReport(
 
 //go:wasmimport plat/js/web has_HIDDevice_ReceiveFeatureReport
 //go:noescape
-func HasHIDDeviceReceiveFeatureReport(this js.Ref) js.Ref
+func HasFuncHIDDeviceReceiveFeatureReport(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HIDDevice_ReceiveFeatureReport
 //go:noescape
-func HIDDeviceReceiveFeatureReportFunc(this js.Ref) js.Ref
+func FuncHIDDeviceReceiveFeatureReport(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HIDDevice_ReceiveFeatureReport
 //go:noescape
@@ -227,11 +225,11 @@ func HIDDeviceRequestOptionsJSLoad(
 
 //go:wasmimport plat/js/web has_HID_GetDevices
 //go:noescape
-func HasHIDGetDevices(this js.Ref) js.Ref
+func HasFuncHIDGetDevices(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HID_GetDevices
 //go:noescape
-func HIDGetDevicesFunc(this js.Ref) js.Ref
+func FuncHIDGetDevices(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HID_GetDevices
 //go:noescape
@@ -245,11 +243,11 @@ func TryHIDGetDevices(
 
 //go:wasmimport plat/js/web has_HID_RequestDevice
 //go:noescape
-func HasHIDRequestDevice(this js.Ref) js.Ref
+func HasFuncHIDRequestDevice(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HID_RequestDevice
 //go:noescape
-func HIDRequestDeviceFunc(this js.Ref) js.Ref
+func FuncHIDRequestDevice(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HID_RequestDevice
 //go:noescape
@@ -270,11 +268,11 @@ func GetWindowControlsOverlayVisible(
 
 //go:wasmimport plat/js/web has_WindowControlsOverlay_GetTitlebarAreaRect
 //go:noescape
-func HasWindowControlsOverlayGetTitlebarAreaRect(this js.Ref) js.Ref
+func HasFuncWindowControlsOverlayGetTitlebarAreaRect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WindowControlsOverlay_GetTitlebarAreaRect
 //go:noescape
-func WindowControlsOverlayGetTitlebarAreaRectFunc(this js.Ref) js.Ref
+func FuncWindowControlsOverlayGetTitlebarAreaRect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WindowControlsOverlay_GetTitlebarAreaRect
 //go:noescape
@@ -298,11 +296,11 @@ func GetCredentialType(
 
 //go:wasmimport plat/js/web has_Credential_IsConditionalMediationAvailable
 //go:noescape
-func HasCredentialIsConditionalMediationAvailable(this js.Ref) js.Ref
+func HasFuncCredentialIsConditionalMediationAvailable(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Credential_IsConditionalMediationAvailable
 //go:noescape
-func CredentialIsConditionalMediationAvailableFunc(this js.Ref) js.Ref
+func FuncCredentialIsConditionalMediationAvailable(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Credential_IsConditionalMediationAvailable
 //go:noescape
@@ -468,11 +466,11 @@ func CredentialCreationOptionsJSLoad(
 
 //go:wasmimport plat/js/web has_CredentialsContainer_Get
 //go:noescape
-func HasCredentialsContainerGet(this js.Ref) js.Ref
+func HasFuncCredentialsContainerGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CredentialsContainer_Get
 //go:noescape
-func CredentialsContainerGetFunc(this js.Ref) js.Ref
+func FuncCredentialsContainerGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CredentialsContainer_Get
 //go:noescape
@@ -488,11 +486,11 @@ func TryCredentialsContainerGet(
 
 //go:wasmimport plat/js/web has_CredentialsContainer_Get1
 //go:noescape
-func HasCredentialsContainerGet1(this js.Ref) js.Ref
+func HasFuncCredentialsContainerGet1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CredentialsContainer_Get1
 //go:noescape
-func CredentialsContainerGet1Func(this js.Ref) js.Ref
+func FuncCredentialsContainerGet1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CredentialsContainer_Get1
 //go:noescape
@@ -506,11 +504,11 @@ func TryCredentialsContainerGet1(
 
 //go:wasmimport plat/js/web has_CredentialsContainer_Store
 //go:noescape
-func HasCredentialsContainerStore(this js.Ref) js.Ref
+func HasFuncCredentialsContainerStore(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CredentialsContainer_Store
 //go:noescape
-func CredentialsContainerStoreFunc(this js.Ref) js.Ref
+func FuncCredentialsContainerStore(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CredentialsContainer_Store
 //go:noescape
@@ -526,11 +524,11 @@ func TryCredentialsContainerStore(
 
 //go:wasmimport plat/js/web has_CredentialsContainer_Create
 //go:noescape
-func HasCredentialsContainerCreate(this js.Ref) js.Ref
+func HasFuncCredentialsContainerCreate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CredentialsContainer_Create
 //go:noescape
-func CredentialsContainerCreateFunc(this js.Ref) js.Ref
+func FuncCredentialsContainerCreate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CredentialsContainer_Create
 //go:noescape
@@ -546,11 +544,11 @@ func TryCredentialsContainerCreate(
 
 //go:wasmimport plat/js/web has_CredentialsContainer_Create1
 //go:noescape
-func HasCredentialsContainerCreate1(this js.Ref) js.Ref
+func HasFuncCredentialsContainerCreate1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CredentialsContainer_Create1
 //go:noescape
-func CredentialsContainerCreate1Func(this js.Ref) js.Ref
+func FuncCredentialsContainerCreate1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CredentialsContainer_Create1
 //go:noescape
@@ -564,11 +562,11 @@ func TryCredentialsContainerCreate1(
 
 //go:wasmimport plat/js/web has_CredentialsContainer_PreventSilentAccess
 //go:noescape
-func HasCredentialsContainerPreventSilentAccess(this js.Ref) js.Ref
+func HasFuncCredentialsContainerPreventSilentAccess(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CredentialsContainer_PreventSilentAccess
 //go:noescape
-func CredentialsContainerPreventSilentAccessFunc(this js.Ref) js.Ref
+func FuncCredentialsContainerPreventSilentAccess(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CredentialsContainer_PreventSilentAccess
 //go:noescape
@@ -647,11 +645,11 @@ func PositionOptionsJSLoad(
 
 //go:wasmimport plat/js/web has_Geolocation_GetCurrentPosition
 //go:noescape
-func HasGeolocationGetCurrentPosition(this js.Ref) js.Ref
+func HasFuncGeolocationGetCurrentPosition(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Geolocation_GetCurrentPosition
 //go:noescape
-func GeolocationGetCurrentPositionFunc(this js.Ref) js.Ref
+func FuncGeolocationGetCurrentPosition(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Geolocation_GetCurrentPosition
 //go:noescape
@@ -671,11 +669,11 @@ func TryGeolocationGetCurrentPosition(
 
 //go:wasmimport plat/js/web has_Geolocation_GetCurrentPosition1
 //go:noescape
-func HasGeolocationGetCurrentPosition1(this js.Ref) js.Ref
+func HasFuncGeolocationGetCurrentPosition1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Geolocation_GetCurrentPosition1
 //go:noescape
-func GeolocationGetCurrentPosition1Func(this js.Ref) js.Ref
+func FuncGeolocationGetCurrentPosition1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Geolocation_GetCurrentPosition1
 //go:noescape
@@ -693,11 +691,11 @@ func TryGeolocationGetCurrentPosition1(
 
 //go:wasmimport plat/js/web has_Geolocation_GetCurrentPosition2
 //go:noescape
-func HasGeolocationGetCurrentPosition2(this js.Ref) js.Ref
+func HasFuncGeolocationGetCurrentPosition2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Geolocation_GetCurrentPosition2
 //go:noescape
-func GeolocationGetCurrentPosition2Func(this js.Ref) js.Ref
+func FuncGeolocationGetCurrentPosition2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Geolocation_GetCurrentPosition2
 //go:noescape
@@ -713,11 +711,11 @@ func TryGeolocationGetCurrentPosition2(
 
 //go:wasmimport plat/js/web has_Geolocation_WatchPosition
 //go:noescape
-func HasGeolocationWatchPosition(this js.Ref) js.Ref
+func HasFuncGeolocationWatchPosition(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Geolocation_WatchPosition
 //go:noescape
-func GeolocationWatchPositionFunc(this js.Ref) js.Ref
+func FuncGeolocationWatchPosition(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Geolocation_WatchPosition
 //go:noescape
@@ -737,11 +735,11 @@ func TryGeolocationWatchPosition(
 
 //go:wasmimport plat/js/web has_Geolocation_WatchPosition1
 //go:noescape
-func HasGeolocationWatchPosition1(this js.Ref) js.Ref
+func HasFuncGeolocationWatchPosition1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Geolocation_WatchPosition1
 //go:noescape
-func GeolocationWatchPosition1Func(this js.Ref) js.Ref
+func FuncGeolocationWatchPosition1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Geolocation_WatchPosition1
 //go:noescape
@@ -759,11 +757,11 @@ func TryGeolocationWatchPosition1(
 
 //go:wasmimport plat/js/web has_Geolocation_WatchPosition2
 //go:noescape
-func HasGeolocationWatchPosition2(this js.Ref) js.Ref
+func HasFuncGeolocationWatchPosition2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Geolocation_WatchPosition2
 //go:noescape
-func GeolocationWatchPosition2Func(this js.Ref) js.Ref
+func FuncGeolocationWatchPosition2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Geolocation_WatchPosition2
 //go:noescape
@@ -779,11 +777,11 @@ func TryGeolocationWatchPosition2(
 
 //go:wasmimport plat/js/web has_Geolocation_ClearWatch
 //go:noescape
-func HasGeolocationClearWatch(this js.Ref) js.Ref
+func HasFuncGeolocationClearWatch(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Geolocation_ClearWatch
 //go:noescape
-func GeolocationClearWatchFunc(this js.Ref) js.Ref
+func FuncGeolocationClearWatch(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Geolocation_ClearWatch
 //go:noescape

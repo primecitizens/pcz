@@ -1,0 +1,184 @@
+- File: webext/chrome/desktop_capture.json
+  Callback:
+    Name: ChooseDesktopMediaArgCallback
+    Args:
+      - Name: streamId
+        Type:
+          Name: DOMString
+      - Name: options
+        Type:
+          Name: ChooseDesktopMediaArgCallbackArgOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - desktopCapture
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - desktopCapture
+- File: webext/chrome/desktop_capture.json
+  Dict:
+    Name: ChooseDesktopMediaArgCallbackArgOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - desktopCapture
+    Fields:
+      - Name: canRequestAudioTrack
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - desktopCapture
+- File: webext/chrome/desktop_capture.json
+  Dict:
+    Name: ChooseDesktopMediaArgOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - desktopCapture
+    Fields:
+      - Name: selfBrowserSurface
+        Type:
+          Name: SelfCapturePreferenceEnum
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - desktopCapture
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - desktopCapture
+      - Name: suppressLocalAudioPlaybackIntended
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - desktopCapture
+      - Name: systemAudio
+        Type:
+          Name: SystemAudioPreferenceEnum
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - desktopCapture
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - desktopCapture
+- File: webext/chrome/desktop_capture.json
+  Enum:
+    Name: DesktopCaptureSourceType
+    Values:
+      - screen
+      - window
+      - tab
+      - audio
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - desktopCapture
+- File: webext/chrome/desktop_capture.json
+  Enum:
+    Name: SelfCapturePreferenceEnum
+    Values:
+      - include
+      - exclude
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - desktopCapture
+- File: webext/chrome/desktop_capture.json
+  Enum:
+    Name: SystemAudioPreferenceEnum
+    Values:
+      - include
+      - exclude
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - desktopCapture
+- File: webext/chrome/desktop_capture.json
+  WebextFunc:
+    Name: cancelChooseDesktopMedia
+    Args:
+      - Name: desktopMediaRequestId
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - desktopCapture
+- File: webext/chrome/desktop_capture.json
+  WebextFunc:
+    Name: chooseDesktopMedia
+    Args:
+      - Name: sources
+        Type:
+          Name: sequence
+          Params:
+            - Name: DesktopCaptureSourceType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - desktopCapture
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - desktopCapture
+      - Name: targetTab
+        Optional: true
+        Type:
+          Name: Tab
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+      - Name: options
+        Optional: true
+        Type:
+          Name: ChooseDesktopMediaArgOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - desktopCapture
+      - Name: callback
+        Type:
+          Name: ChooseDesktopMediaArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - desktopCapture
+    Returns:
+      - Name: long long
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - desktopCapture

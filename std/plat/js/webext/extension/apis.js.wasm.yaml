@@ -1,0 +1,305 @@
+- File: webext/chrome/extension.json
+  Dict:
+    Name: GetViewsArgFetchProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extension
+    Fields:
+      - Name: tabId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extension
+      - Name: type
+        Type:
+          Name: ViewType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extension
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extension
+      - Name: windowId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extension
+- File: webext/chrome/extension.json
+  Dict:
+    Name: LastErrorProperty
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extension
+    Fields:
+      - Name: message
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extension
+- File: webext/chrome/extension.json
+  Callback:
+    Name: OnRequestArgSendResponse
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extension
+- File: webext/chrome/extension.json
+  Callback:
+    Name: OnRequestExternalArgSendResponse
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extension
+- File: webext/chrome/extension.json
+  Enum:
+    Name: ViewType
+    Values:
+      - tab
+      - popup
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extension
+- File: webext/chrome/extension.json
+  WebextFunc:
+    Name: getBackgroundPage
+    Returns:
+      - Name: any
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extension
+- File: webext/chrome/extension.json
+  WebextFunc:
+    Name: getExtensionTabs
+    Args:
+      - Name: windowId
+        Optional: true
+        Type:
+          Name: long long
+    Returns:
+      - Name: sequence
+        Params:
+          - Name: any
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extension
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extension
+- File: webext/chrome/extension.json
+  WebextFunc:
+    Name: getURL
+    Args:
+      - Name: path
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extension
+- File: webext/chrome/extension.json
+  WebextFunc:
+    Name: getViews
+    Args:
+      - Name: fetchProperties
+        Optional: true
+        Type:
+          Name: GetViewsArgFetchProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extension
+    Returns:
+      - Name: sequence
+        Params:
+          - Name: any
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extension
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extension
+- File: webext/chrome/extension.json
+  WebextProp:
+    Name: inIncognitoContext
+    Type:
+      Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extension
+- File: webext/chrome/extension.json
+  WebextFunc:
+    Name: isAllowedFileSchemeAccess
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extension
+- File: webext/chrome/extension.json
+  WebextFunc:
+    Name: isAllowedIncognitoAccess
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extension
+- File: webext/chrome/extension.json
+  WebextProp:
+    Name: lastError
+    Type:
+      Name: LastErrorProperty
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - extension
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extension
+- File: webext/chrome/extension.json
+  WebextEvent:
+    Name: onRequest
+    Args:
+      - Name: request
+        Optional: true
+        Type:
+          Name: any
+      - Name: sender
+        Type:
+          Name: MessageSender
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+      - Name: sendResponse
+        Type:
+          Name: OnRequestArgSendResponse
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extension
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extension
+- File: webext/chrome/extension.json
+  WebextEvent:
+    Name: onRequestExternal
+    Args:
+      - Name: request
+        Optional: true
+        Type:
+          Name: any
+      - Name: sender
+        Type:
+          Name: MessageSender
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - runtime
+      - Name: sendResponse
+        Type:
+          Name: OnRequestExternalArgSendResponse
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extension
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extension
+- File: webext/chrome/extension.json
+  WebextFunc:
+    Name: sendRequest
+    Args:
+      - Name: extensionId
+        Optional: true
+        Type:
+          Name: DOMString
+      - Name: request
+        Type:
+          Name: any
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: any
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extension
+- File: webext/chrome/extension.json
+  WebextFunc:
+    Name: setUpdateUrlData
+    Args:
+      - Name: data
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extension

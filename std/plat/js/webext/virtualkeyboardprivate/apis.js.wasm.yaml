@@ -1,0 +1,754 @@
+- File: webext/virtual_keyboard_private.json
+  Dict:
+    Name: Bounds
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+    Fields:
+      - Name: height
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboardPrivate
+      - Name: left
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboardPrivate
+      - Name: top
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboardPrivate
+      - Name: width
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  Dict:
+    Name: ClipboardItem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+    Fields:
+      - Name: displayFormat
+        Required: true
+        Type:
+          Name: DisplayFormat
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboardPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboardPrivate
+      - Name: id
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboardPrivate
+      - Name: imageData
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboardPrivate
+      - Name: textData
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboardPrivate
+      - Name: timeCopied
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  Dict:
+    Name: ContainerBehaviorOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+    Fields:
+      - Name: bounds
+        Required: true
+        Type:
+          Name: Bounds
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboardPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboardPrivate
+      - Name: mode
+        Required: true
+        Type:
+          Name: KeyboardMode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboardPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  Enum:
+    Name: DisplayFormat
+    Values:
+      - text
+      - png
+      - html
+      - file
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  Dict:
+    Name: GetClipboardHistoryArgOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+    Fields:
+      - Name: itemIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboardPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  Dict:
+    Name: KeyboardConfig
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+    Fields:
+      - Name: a11ymode
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboardPrivate
+      - Name: features
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboardPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboardPrivate
+      - Name: hotrodmode
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboardPrivate
+      - Name: layout
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  Enum:
+    Name: KeyboardMode
+    Values:
+      - FULL_WIDTH
+      - FLOATING
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  Enum:
+    Name: KeyboardState
+    Values:
+      - ENABLED
+      - DISABLED
+      - AUTO
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  Dict:
+    Name: VirtualKeyboardEvent
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+    Fields:
+      - Name: charValue
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboardPrivate
+      - Name: keyCode
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboardPrivate
+      - Name: keyName
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboardPrivate
+      - Name: modifiers
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboardPrivate
+      - Name: type
+        Required: true
+        Type:
+          Name: VirtualKeyboardEventType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboardPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  Enum:
+    Name: VirtualKeyboardEventType
+    Values:
+      - keyup
+      - keydown
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextFunc:
+    Name: deleteClipboardItem
+    Args:
+      - Name: itemId
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextFunc:
+    Name: getClipboardHistory
+    Args:
+      - Name: options
+        Type:
+          Name: GetClipboardHistoryArgOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboardPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: ClipboardItem
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - virtualKeyboardPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - virtualKeyboardPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextFunc:
+    Name: getKeyboardConfig
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: KeyboardConfig
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - virtualKeyboardPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextFunc:
+    Name: hideKeyboard
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextFunc:
+    Name: insertText
+    Args:
+      - Name: text
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextFunc:
+    Name: keyboardLoaded
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextFunc:
+    Name: lockKeyboard
+    Args:
+      - Name: lock
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextEvent:
+    Name: onBoundsChanged
+    Args:
+      - Name: bounds
+        Type:
+          Name: Bounds
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboardPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextEvent:
+    Name: onClipboardHistoryChanged
+    Args:
+      - Name: itemIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboardPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextEvent:
+    Name: onClipboardItemUpdated
+    Args:
+      - Name: clipboardHistoryItem
+        Type:
+          Name: ClipboardItem
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboardPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextEvent:
+    Name: onColorProviderChanged
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextEvent:
+    Name: onKeyboardClosed
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextEvent:
+    Name: onKeyboardConfigChanged
+    Args:
+      - Name: config
+        Type:
+          Name: KeyboardConfig
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboardPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextFunc:
+    Name: openSettings
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextFunc:
+    Name: openSuggestionSettings
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextFunc:
+    Name: pasteClipboardItem
+    Args:
+      - Name: itemId
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextFunc:
+    Name: sendKeyEvent
+    Args:
+      - Name: keyEvent
+        Type:
+          Name: VirtualKeyboardEvent
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboardPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextFunc:
+    Name: setAreaToRemainOnScreen
+    Args:
+      - Name: bounds
+        Type:
+          Name: Bounds
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboardPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextFunc:
+    Name: setContainerBehavior
+    Args:
+      - Name: options
+        Type:
+          Name: ContainerBehaviorOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboardPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextFunc:
+    Name: setDraggableArea
+    Args:
+      - Name: bounds
+        Type:
+          Name: Bounds
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboardPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextFunc:
+    Name: setHitTestBounds
+    Args:
+      - Name: boundsList
+        Type:
+          Name: sequence
+          Params:
+            - Name: Bounds
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - virtualKeyboardPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboardPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextFunc:
+    Name: setHotrodKeyboard
+    Args:
+      - Name: enable
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextFunc:
+    Name: setKeyboardState
+    Args:
+      - Name: state
+        Type:
+          Name: KeyboardState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboardPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextFunc:
+    Name: setOccludedBounds
+    Args:
+      - Name: boundsList
+        Type:
+          Name: sequence
+          Params:
+            - Name: Bounds
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - virtualKeyboardPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboardPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate
+- File: webext/virtual_keyboard_private.json
+  WebextFunc:
+    Name: setWindowBoundsInScreen
+    Args:
+      - Name: bounds
+        Type:
+          Name: Bounds
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - virtualKeyboardPrivate
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - virtualKeyboardPrivate

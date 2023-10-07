@@ -4,18 +4,9 @@
 package web
 
 import (
-	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 type COSEAlgorithmIdentifier int32
 
@@ -24,7 +15,7 @@ type AuthenticatorAttestationResponse struct {
 }
 
 func (this AuthenticatorAttestationResponse) Once() AuthenticatorAttestationResponse {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -38,7 +29,7 @@ func (this AuthenticatorAttestationResponse) FromRef(ref js.Ref) AuthenticatorAt
 }
 
 func (this AuthenticatorAttestationResponse) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // AttestationObject returns the value of property "AuthenticatorAttestationResponse.attestationObject".
@@ -46,31 +37,30 @@ func (this AuthenticatorAttestationResponse) Free() {
 // It returns ok=false if there is no such property.
 func (this AuthenticatorAttestationResponse) AttestationObject() (ret js.ArrayBuffer, ok bool) {
 	ok = js.True == bindings.GetAuthenticatorAttestationResponseAttestationObject(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGetTransports returns true if the method "AuthenticatorAttestationResponse.getTransports" exists.
-func (this AuthenticatorAttestationResponse) HasGetTransports() bool {
-	return js.True == bindings.HasAuthenticatorAttestationResponseGetTransports(
-		this.Ref(),
+// HasFuncGetTransports returns true if the method "AuthenticatorAttestationResponse.getTransports" exists.
+func (this AuthenticatorAttestationResponse) HasFuncGetTransports() bool {
+	return js.True == bindings.HasFuncAuthenticatorAttestationResponseGetTransports(
+		this.ref,
 	)
 }
 
-// GetTransportsFunc returns the method "AuthenticatorAttestationResponse.getTransports".
-func (this AuthenticatorAttestationResponse) GetTransportsFunc() (fn js.Func[func() js.Array[js.String]]) {
-	return fn.FromRef(
-		bindings.AuthenticatorAttestationResponseGetTransportsFunc(
-			this.Ref(),
-		),
+// FuncGetTransports returns the method "AuthenticatorAttestationResponse.getTransports".
+func (this AuthenticatorAttestationResponse) FuncGetTransports() (fn js.Func[func() js.Array[js.String]]) {
+	bindings.FuncAuthenticatorAttestationResponseGetTransports(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetTransports calls the method "AuthenticatorAttestationResponse.getTransports".
 func (this AuthenticatorAttestationResponse) GetTransports() (ret js.Array[js.String]) {
 	bindings.CallAuthenticatorAttestationResponseGetTransports(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -81,32 +71,31 @@ func (this AuthenticatorAttestationResponse) GetTransports() (ret js.Array[js.St
 // the catch clause.
 func (this AuthenticatorAttestationResponse) TryGetTransports() (ret js.Array[js.String], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAuthenticatorAttestationResponseGetTransports(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetAuthenticatorData returns true if the method "AuthenticatorAttestationResponse.getAuthenticatorData" exists.
-func (this AuthenticatorAttestationResponse) HasGetAuthenticatorData() bool {
-	return js.True == bindings.HasAuthenticatorAttestationResponseGetAuthenticatorData(
-		this.Ref(),
+// HasFuncGetAuthenticatorData returns true if the method "AuthenticatorAttestationResponse.getAuthenticatorData" exists.
+func (this AuthenticatorAttestationResponse) HasFuncGetAuthenticatorData() bool {
+	return js.True == bindings.HasFuncAuthenticatorAttestationResponseGetAuthenticatorData(
+		this.ref,
 	)
 }
 
-// GetAuthenticatorDataFunc returns the method "AuthenticatorAttestationResponse.getAuthenticatorData".
-func (this AuthenticatorAttestationResponse) GetAuthenticatorDataFunc() (fn js.Func[func() js.ArrayBuffer]) {
-	return fn.FromRef(
-		bindings.AuthenticatorAttestationResponseGetAuthenticatorDataFunc(
-			this.Ref(),
-		),
+// FuncGetAuthenticatorData returns the method "AuthenticatorAttestationResponse.getAuthenticatorData".
+func (this AuthenticatorAttestationResponse) FuncGetAuthenticatorData() (fn js.Func[func() js.ArrayBuffer]) {
+	bindings.FuncAuthenticatorAttestationResponseGetAuthenticatorData(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAuthenticatorData calls the method "AuthenticatorAttestationResponse.getAuthenticatorData".
 func (this AuthenticatorAttestationResponse) GetAuthenticatorData() (ret js.ArrayBuffer) {
 	bindings.CallAuthenticatorAttestationResponseGetAuthenticatorData(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -117,32 +106,31 @@ func (this AuthenticatorAttestationResponse) GetAuthenticatorData() (ret js.Arra
 // the catch clause.
 func (this AuthenticatorAttestationResponse) TryGetAuthenticatorData() (ret js.ArrayBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAuthenticatorAttestationResponseGetAuthenticatorData(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetPublicKey returns true if the method "AuthenticatorAttestationResponse.getPublicKey" exists.
-func (this AuthenticatorAttestationResponse) HasGetPublicKey() bool {
-	return js.True == bindings.HasAuthenticatorAttestationResponseGetPublicKey(
-		this.Ref(),
+// HasFuncGetPublicKey returns true if the method "AuthenticatorAttestationResponse.getPublicKey" exists.
+func (this AuthenticatorAttestationResponse) HasFuncGetPublicKey() bool {
+	return js.True == bindings.HasFuncAuthenticatorAttestationResponseGetPublicKey(
+		this.ref,
 	)
 }
 
-// GetPublicKeyFunc returns the method "AuthenticatorAttestationResponse.getPublicKey".
-func (this AuthenticatorAttestationResponse) GetPublicKeyFunc() (fn js.Func[func() js.ArrayBuffer]) {
-	return fn.FromRef(
-		bindings.AuthenticatorAttestationResponseGetPublicKeyFunc(
-			this.Ref(),
-		),
+// FuncGetPublicKey returns the method "AuthenticatorAttestationResponse.getPublicKey".
+func (this AuthenticatorAttestationResponse) FuncGetPublicKey() (fn js.Func[func() js.ArrayBuffer]) {
+	bindings.FuncAuthenticatorAttestationResponseGetPublicKey(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetPublicKey calls the method "AuthenticatorAttestationResponse.getPublicKey".
 func (this AuthenticatorAttestationResponse) GetPublicKey() (ret js.ArrayBuffer) {
 	bindings.CallAuthenticatorAttestationResponseGetPublicKey(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -153,32 +141,31 @@ func (this AuthenticatorAttestationResponse) GetPublicKey() (ret js.ArrayBuffer)
 // the catch clause.
 func (this AuthenticatorAttestationResponse) TryGetPublicKey() (ret js.ArrayBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAuthenticatorAttestationResponseGetPublicKey(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetPublicKeyAlgorithm returns true if the method "AuthenticatorAttestationResponse.getPublicKeyAlgorithm" exists.
-func (this AuthenticatorAttestationResponse) HasGetPublicKeyAlgorithm() bool {
-	return js.True == bindings.HasAuthenticatorAttestationResponseGetPublicKeyAlgorithm(
-		this.Ref(),
+// HasFuncGetPublicKeyAlgorithm returns true if the method "AuthenticatorAttestationResponse.getPublicKeyAlgorithm" exists.
+func (this AuthenticatorAttestationResponse) HasFuncGetPublicKeyAlgorithm() bool {
+	return js.True == bindings.HasFuncAuthenticatorAttestationResponseGetPublicKeyAlgorithm(
+		this.ref,
 	)
 }
 
-// GetPublicKeyAlgorithmFunc returns the method "AuthenticatorAttestationResponse.getPublicKeyAlgorithm".
-func (this AuthenticatorAttestationResponse) GetPublicKeyAlgorithmFunc() (fn js.Func[func() COSEAlgorithmIdentifier]) {
-	return fn.FromRef(
-		bindings.AuthenticatorAttestationResponseGetPublicKeyAlgorithmFunc(
-			this.Ref(),
-		),
+// FuncGetPublicKeyAlgorithm returns the method "AuthenticatorAttestationResponse.getPublicKeyAlgorithm".
+func (this AuthenticatorAttestationResponse) FuncGetPublicKeyAlgorithm() (fn js.Func[func() COSEAlgorithmIdentifier]) {
+	bindings.FuncAuthenticatorAttestationResponseGetPublicKeyAlgorithm(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetPublicKeyAlgorithm calls the method "AuthenticatorAttestationResponse.getPublicKeyAlgorithm".
 func (this AuthenticatorAttestationResponse) GetPublicKeyAlgorithm() (ret COSEAlgorithmIdentifier) {
 	bindings.CallAuthenticatorAttestationResponseGetPublicKeyAlgorithm(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -189,7 +176,7 @@ func (this AuthenticatorAttestationResponse) GetPublicKeyAlgorithm() (ret COSEAl
 // the catch clause.
 func (this AuthenticatorAttestationResponse) TryGetPublicKeyAlgorithm() (ret COSEAlgorithmIdentifier, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAuthenticatorAttestationResponseGetPublicKeyAlgorithm(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -238,17 +225,34 @@ func (p AuthenticatorAttestationResponseJSON) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AuthenticatorAttestationResponseJSON) UpdateFrom(ref js.Ref) {
+func (p *AuthenticatorAttestationResponseJSON) UpdateFrom(ref js.Ref) {
 	bindings.AuthenticatorAttestationResponseJSONJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AuthenticatorAttestationResponseJSON) Update(ref js.Ref) {
+func (p *AuthenticatorAttestationResponseJSON) Update(ref js.Ref) {
 	bindings.AuthenticatorAttestationResponseJSONJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AuthenticatorAttestationResponseJSON) FreeMembers(recursive bool) {
+	js.Free(
+		p.ClientDataJSON.Ref(),
+		p.AuthenticatorData.Ref(),
+		p.Transports.Ref(),
+		p.PublicKey.Ref(),
+		p.AttestationObject.Ref(),
+	)
+	p.ClientDataJSON = p.ClientDataJSON.FromRef(js.Undefined)
+	p.AuthenticatorData = p.AuthenticatorData.FromRef(js.Undefined)
+	p.Transports = p.Transports.FromRef(js.Undefined)
+	p.PublicKey = p.PublicKey.FromRef(js.Undefined)
+	p.AttestationObject = p.AttestationObject.FromRef(js.Undefined)
 }
 
 type AuthenticatorResponse struct {
@@ -256,7 +260,7 @@ type AuthenticatorResponse struct {
 }
 
 func (this AuthenticatorResponse) Once() AuthenticatorResponse {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -270,7 +274,7 @@ func (this AuthenticatorResponse) FromRef(ref js.Ref) AuthenticatorResponse {
 }
 
 func (this AuthenticatorResponse) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // ClientDataJSON returns the value of property "AuthenticatorResponse.clientDataJSON".
@@ -278,7 +282,7 @@ func (this AuthenticatorResponse) Free() {
 // It returns ok=false if there is no such property.
 func (this AuthenticatorResponse) ClientDataJSON() (ret js.ArrayBuffer, ok bool) {
 	ok = js.True == bindings.GetAuthenticatorResponseClientDataJSON(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -322,17 +326,30 @@ func (p AuthenticatorSelectionCriteria) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AuthenticatorSelectionCriteria) UpdateFrom(ref js.Ref) {
+func (p *AuthenticatorSelectionCriteria) UpdateFrom(ref js.Ref) {
 	bindings.AuthenticatorSelectionCriteriaJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AuthenticatorSelectionCriteria) Update(ref js.Ref) {
+func (p *AuthenticatorSelectionCriteria) Update(ref js.Ref) {
 	bindings.AuthenticatorSelectionCriteriaJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AuthenticatorSelectionCriteria) FreeMembers(recursive bool) {
+	js.Free(
+		p.AuthenticatorAttachment.Ref(),
+		p.ResidentKey.Ref(),
+		p.UserVerification.Ref(),
+	)
+	p.AuthenticatorAttachment = p.AuthenticatorAttachment.FromRef(js.Undefined)
+	p.ResidentKey = p.ResidentKey.FromRef(js.Undefined)
+	p.UserVerification = p.UserVerification.FromRef(js.Undefined)
 }
 
 type AuthenticatorTransport uint32
@@ -490,17 +507,22 @@ func (p AvcEncoderConfig) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p AvcEncoderConfig) UpdateFrom(ref js.Ref) {
+func (p *AvcEncoderConfig) UpdateFrom(ref js.Ref) {
 	bindings.AvcEncoderConfigJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p AvcEncoderConfig) Update(ref js.Ref) {
+func (p *AvcEncoderConfig) Update(ref js.Ref) {
 	bindings.AvcEncoderConfigJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *AvcEncoderConfig) FreeMembers(recursive bool) {
 }
 
 type OneOf_Request_String struct {
@@ -605,7 +627,7 @@ type URLSearchParams struct {
 }
 
 func (this URLSearchParams) Once() URLSearchParams {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -619,7 +641,7 @@ func (this URLSearchParams) FromRef(ref js.Ref) URLSearchParams {
 }
 
 func (this URLSearchParams) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Size returns the value of property "URLSearchParams.size".
@@ -627,31 +649,30 @@ func (this URLSearchParams) Free() {
 // It returns ok=false if there is no such property.
 func (this URLSearchParams) Size() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetURLSearchParamsSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasAppend returns true if the method "URLSearchParams.append" exists.
-func (this URLSearchParams) HasAppend() bool {
-	return js.True == bindings.HasURLSearchParamsAppend(
-		this.Ref(),
+// HasFuncAppend returns true if the method "URLSearchParams.append" exists.
+func (this URLSearchParams) HasFuncAppend() bool {
+	return js.True == bindings.HasFuncURLSearchParamsAppend(
+		this.ref,
 	)
 }
 
-// AppendFunc returns the method "URLSearchParams.append".
-func (this URLSearchParams) AppendFunc() (fn js.Func[func(name js.String, value js.String)]) {
-	return fn.FromRef(
-		bindings.URLSearchParamsAppendFunc(
-			this.Ref(),
-		),
+// FuncAppend returns the method "URLSearchParams.append".
+func (this URLSearchParams) FuncAppend() (fn js.Func[func(name js.String, value js.String)]) {
+	bindings.FuncURLSearchParamsAppend(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Append calls the method "URLSearchParams.append".
 func (this URLSearchParams) Append(name js.String, value js.String) (ret js.Void) {
 	bindings.CallURLSearchParamsAppend(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 		value.Ref(),
 	)
@@ -664,7 +685,7 @@ func (this URLSearchParams) Append(name js.String, value js.String) (ret js.Void
 // the catch clause.
 func (this URLSearchParams) TryAppend(name js.String, value js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLSearchParamsAppend(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 		value.Ref(),
 	)
@@ -672,26 +693,25 @@ func (this URLSearchParams) TryAppend(name js.String, value js.String) (ret js.V
 	return
 }
 
-// HasDelete returns true if the method "URLSearchParams.delete" exists.
-func (this URLSearchParams) HasDelete() bool {
-	return js.True == bindings.HasURLSearchParamsDelete(
-		this.Ref(),
+// HasFuncDelete returns true if the method "URLSearchParams.delete" exists.
+func (this URLSearchParams) HasFuncDelete() bool {
+	return js.True == bindings.HasFuncURLSearchParamsDelete(
+		this.ref,
 	)
 }
 
-// DeleteFunc returns the method "URLSearchParams.delete".
-func (this URLSearchParams) DeleteFunc() (fn js.Func[func(name js.String, value js.String)]) {
-	return fn.FromRef(
-		bindings.URLSearchParamsDeleteFunc(
-			this.Ref(),
-		),
+// FuncDelete returns the method "URLSearchParams.delete".
+func (this URLSearchParams) FuncDelete() (fn js.Func[func(name js.String, value js.String)]) {
+	bindings.FuncURLSearchParamsDelete(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Delete calls the method "URLSearchParams.delete".
 func (this URLSearchParams) Delete(name js.String, value js.String) (ret js.Void) {
 	bindings.CallURLSearchParamsDelete(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 		value.Ref(),
 	)
@@ -704,7 +724,7 @@ func (this URLSearchParams) Delete(name js.String, value js.String) (ret js.Void
 // the catch clause.
 func (this URLSearchParams) TryDelete(name js.String, value js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLSearchParamsDelete(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 		value.Ref(),
 	)
@@ -712,26 +732,25 @@ func (this URLSearchParams) TryDelete(name js.String, value js.String) (ret js.V
 	return
 }
 
-// HasDelete1 returns true if the method "URLSearchParams.delete" exists.
-func (this URLSearchParams) HasDelete1() bool {
-	return js.True == bindings.HasURLSearchParamsDelete1(
-		this.Ref(),
+// HasFuncDelete1 returns true if the method "URLSearchParams.delete" exists.
+func (this URLSearchParams) HasFuncDelete1() bool {
+	return js.True == bindings.HasFuncURLSearchParamsDelete1(
+		this.ref,
 	)
 }
 
-// Delete1Func returns the method "URLSearchParams.delete".
-func (this URLSearchParams) Delete1Func() (fn js.Func[func(name js.String)]) {
-	return fn.FromRef(
-		bindings.URLSearchParamsDelete1Func(
-			this.Ref(),
-		),
+// FuncDelete1 returns the method "URLSearchParams.delete".
+func (this URLSearchParams) FuncDelete1() (fn js.Func[func(name js.String)]) {
+	bindings.FuncURLSearchParamsDelete1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Delete1 calls the method "URLSearchParams.delete".
 func (this URLSearchParams) Delete1(name js.String) (ret js.Void) {
 	bindings.CallURLSearchParamsDelete1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 	)
 
@@ -743,33 +762,32 @@ func (this URLSearchParams) Delete1(name js.String) (ret js.Void) {
 // the catch clause.
 func (this URLSearchParams) TryDelete1(name js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLSearchParamsDelete1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 	)
 
 	return
 }
 
-// HasGet returns true if the method "URLSearchParams.get" exists.
-func (this URLSearchParams) HasGet() bool {
-	return js.True == bindings.HasURLSearchParamsGet(
-		this.Ref(),
+// HasFuncGet returns true if the method "URLSearchParams.get" exists.
+func (this URLSearchParams) HasFuncGet() bool {
+	return js.True == bindings.HasFuncURLSearchParamsGet(
+		this.ref,
 	)
 }
 
-// GetFunc returns the method "URLSearchParams.get".
-func (this URLSearchParams) GetFunc() (fn js.Func[func(name js.String) js.String]) {
-	return fn.FromRef(
-		bindings.URLSearchParamsGetFunc(
-			this.Ref(),
-		),
+// FuncGet returns the method "URLSearchParams.get".
+func (this URLSearchParams) FuncGet() (fn js.Func[func(name js.String) js.String]) {
+	bindings.FuncURLSearchParamsGet(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Get calls the method "URLSearchParams.get".
 func (this URLSearchParams) Get(name js.String) (ret js.String) {
 	bindings.CallURLSearchParamsGet(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 	)
 
@@ -781,33 +799,32 @@ func (this URLSearchParams) Get(name js.String) (ret js.String) {
 // the catch clause.
 func (this URLSearchParams) TryGet(name js.String) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLSearchParamsGet(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 	)
 
 	return
 }
 
-// HasGetAll returns true if the method "URLSearchParams.getAll" exists.
-func (this URLSearchParams) HasGetAll() bool {
-	return js.True == bindings.HasURLSearchParamsGetAll(
-		this.Ref(),
+// HasFuncGetAll returns true if the method "URLSearchParams.getAll" exists.
+func (this URLSearchParams) HasFuncGetAll() bool {
+	return js.True == bindings.HasFuncURLSearchParamsGetAll(
+		this.ref,
 	)
 }
 
-// GetAllFunc returns the method "URLSearchParams.getAll".
-func (this URLSearchParams) GetAllFunc() (fn js.Func[func(name js.String) js.Array[js.String]]) {
-	return fn.FromRef(
-		bindings.URLSearchParamsGetAllFunc(
-			this.Ref(),
-		),
+// FuncGetAll returns the method "URLSearchParams.getAll".
+func (this URLSearchParams) FuncGetAll() (fn js.Func[func(name js.String) js.Array[js.String]]) {
+	bindings.FuncURLSearchParamsGetAll(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAll calls the method "URLSearchParams.getAll".
 func (this URLSearchParams) GetAll(name js.String) (ret js.Array[js.String]) {
 	bindings.CallURLSearchParamsGetAll(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 	)
 
@@ -819,33 +836,32 @@ func (this URLSearchParams) GetAll(name js.String) (ret js.Array[js.String]) {
 // the catch clause.
 func (this URLSearchParams) TryGetAll(name js.String) (ret js.Array[js.String], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLSearchParamsGetAll(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 	)
 
 	return
 }
 
-// HasHas returns true if the method "URLSearchParams.has" exists.
-func (this URLSearchParams) HasHas() bool {
-	return js.True == bindings.HasURLSearchParamsHas(
-		this.Ref(),
+// HasFuncHas returns true if the method "URLSearchParams.has" exists.
+func (this URLSearchParams) HasFuncHas() bool {
+	return js.True == bindings.HasFuncURLSearchParamsHas(
+		this.ref,
 	)
 }
 
-// HasFunc returns the method "URLSearchParams.has".
-func (this URLSearchParams) HasFunc() (fn js.Func[func(name js.String, value js.String) bool]) {
-	return fn.FromRef(
-		bindings.URLSearchParamsHasFunc(
-			this.Ref(),
-		),
+// FuncHas returns the method "URLSearchParams.has".
+func (this URLSearchParams) FuncHas() (fn js.Func[func(name js.String, value js.String) bool]) {
+	bindings.FuncURLSearchParamsHas(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Has calls the method "URLSearchParams.has".
 func (this URLSearchParams) Has(name js.String, value js.String) (ret bool) {
 	bindings.CallURLSearchParamsHas(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 		value.Ref(),
 	)
@@ -858,7 +874,7 @@ func (this URLSearchParams) Has(name js.String, value js.String) (ret bool) {
 // the catch clause.
 func (this URLSearchParams) TryHas(name js.String, value js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLSearchParamsHas(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 		value.Ref(),
 	)
@@ -866,26 +882,25 @@ func (this URLSearchParams) TryHas(name js.String, value js.String) (ret bool, e
 	return
 }
 
-// HasHas1 returns true if the method "URLSearchParams.has" exists.
-func (this URLSearchParams) HasHas1() bool {
-	return js.True == bindings.HasURLSearchParamsHas1(
-		this.Ref(),
+// HasFuncHas1 returns true if the method "URLSearchParams.has" exists.
+func (this URLSearchParams) HasFuncHas1() bool {
+	return js.True == bindings.HasFuncURLSearchParamsHas1(
+		this.ref,
 	)
 }
 
-// Has1Func returns the method "URLSearchParams.has".
-func (this URLSearchParams) Has1Func() (fn js.Func[func(name js.String) bool]) {
-	return fn.FromRef(
-		bindings.URLSearchParamsHas1Func(
-			this.Ref(),
-		),
+// FuncHas1 returns the method "URLSearchParams.has".
+func (this URLSearchParams) FuncHas1() (fn js.Func[func(name js.String) bool]) {
+	bindings.FuncURLSearchParamsHas1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Has1 calls the method "URLSearchParams.has".
 func (this URLSearchParams) Has1(name js.String) (ret bool) {
 	bindings.CallURLSearchParamsHas1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 	)
 
@@ -897,33 +912,32 @@ func (this URLSearchParams) Has1(name js.String) (ret bool) {
 // the catch clause.
 func (this URLSearchParams) TryHas1(name js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLSearchParamsHas1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 	)
 
 	return
 }
 
-// HasSet returns true if the method "URLSearchParams.set" exists.
-func (this URLSearchParams) HasSet() bool {
-	return js.True == bindings.HasURLSearchParamsSet(
-		this.Ref(),
+// HasFuncSet returns true if the method "URLSearchParams.set" exists.
+func (this URLSearchParams) HasFuncSet() bool {
+	return js.True == bindings.HasFuncURLSearchParamsSet(
+		this.ref,
 	)
 }
 
-// SetFunc returns the method "URLSearchParams.set".
-func (this URLSearchParams) SetFunc() (fn js.Func[func(name js.String, value js.String)]) {
-	return fn.FromRef(
-		bindings.URLSearchParamsSetFunc(
-			this.Ref(),
-		),
+// FuncSet returns the method "URLSearchParams.set".
+func (this URLSearchParams) FuncSet() (fn js.Func[func(name js.String, value js.String)]) {
+	bindings.FuncURLSearchParamsSet(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Set calls the method "URLSearchParams.set".
 func (this URLSearchParams) Set(name js.String, value js.String) (ret js.Void) {
 	bindings.CallURLSearchParamsSet(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 		value.Ref(),
 	)
@@ -936,7 +950,7 @@ func (this URLSearchParams) Set(name js.String, value js.String) (ret js.Void) {
 // the catch clause.
 func (this URLSearchParams) TrySet(name js.String, value js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLSearchParamsSet(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 		value.Ref(),
 	)
@@ -944,26 +958,25 @@ func (this URLSearchParams) TrySet(name js.String, value js.String) (ret js.Void
 	return
 }
 
-// HasSort returns true if the method "URLSearchParams.sort" exists.
-func (this URLSearchParams) HasSort() bool {
-	return js.True == bindings.HasURLSearchParamsSort(
-		this.Ref(),
+// HasFuncSort returns true if the method "URLSearchParams.sort" exists.
+func (this URLSearchParams) HasFuncSort() bool {
+	return js.True == bindings.HasFuncURLSearchParamsSort(
+		this.ref,
 	)
 }
 
-// SortFunc returns the method "URLSearchParams.sort".
-func (this URLSearchParams) SortFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.URLSearchParamsSortFunc(
-			this.Ref(),
-		),
+// FuncSort returns the method "URLSearchParams.sort".
+func (this URLSearchParams) FuncSort() (fn js.Func[func()]) {
+	bindings.FuncURLSearchParamsSort(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Sort calls the method "URLSearchParams.sort".
 func (this URLSearchParams) Sort() (ret js.Void) {
 	bindings.CallURLSearchParamsSort(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -974,32 +987,31 @@ func (this URLSearchParams) Sort() (ret js.Void) {
 // the catch clause.
 func (this URLSearchParams) TrySort() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLSearchParamsSort(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasToString returns true if the method "URLSearchParams.toString" exists.
-func (this URLSearchParams) HasToString() bool {
-	return js.True == bindings.HasURLSearchParamsToString(
-		this.Ref(),
+// HasFuncToString returns true if the method "URLSearchParams.toString" exists.
+func (this URLSearchParams) HasFuncToString() bool {
+	return js.True == bindings.HasFuncURLSearchParamsToString(
+		this.ref,
 	)
 }
 
-// ToStringFunc returns the method "URLSearchParams.toString".
-func (this URLSearchParams) ToStringFunc() (fn js.Func[func() js.String]) {
-	return fn.FromRef(
-		bindings.URLSearchParamsToStringFunc(
-			this.Ref(),
-		),
+// FuncToString returns the method "URLSearchParams.toString".
+func (this URLSearchParams) FuncToString() (fn js.Func[func() js.String]) {
+	bindings.FuncURLSearchParamsToString(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ToString calls the method "URLSearchParams.toString".
 func (this URLSearchParams) ToString() (ret js.String) {
 	bindings.CallURLSearchParamsToString(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1010,7 +1022,7 @@ func (this URLSearchParams) ToString() (ret js.String) {
 // the catch clause.
 func (this URLSearchParams) TryToString() (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLSearchParamsToString(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1424,17 +1436,26 @@ func (p PrivateToken) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p PrivateToken) UpdateFrom(ref js.Ref) {
+func (p *PrivateToken) UpdateFrom(ref js.Ref) {
 	bindings.PrivateTokenJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p PrivateToken) Update(ref js.Ref) {
+func (p *PrivateToken) Update(ref js.Ref) {
 	bindings.PrivateTokenJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *PrivateToken) FreeMembers(recursive bool) {
+	js.Free(
+		p.Issuers.Ref(),
+	)
+	p.Issuers = p.Issuers.FromRef(js.Undefined)
 }
 
 type RequestTargetAddressSpace uint32
@@ -1560,17 +1581,42 @@ func (p RequestInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RequestInit) UpdateFrom(ref js.Ref) {
+func (p *RequestInit) UpdateFrom(ref js.Ref) {
 	bindings.RequestInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RequestInit) Update(ref js.Ref) {
+func (p *RequestInit) Update(ref js.Ref) {
 	bindings.RequestInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RequestInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Method.Ref(),
+		p.Headers.Ref(),
+		p.Body.Ref(),
+		p.Referrer.Ref(),
+		p.Integrity.Ref(),
+		p.Signal.Ref(),
+		p.Window.Ref(),
+	)
+	p.Method = p.Method.FromRef(js.Undefined)
+	p.Headers = p.Headers.FromRef(js.Undefined)
+	p.Body = p.Body.FromRef(js.Undefined)
+	p.Referrer = p.Referrer.FromRef(js.Undefined)
+	p.Integrity = p.Integrity.FromRef(js.Undefined)
+	p.Signal = p.Signal.FromRef(js.Undefined)
+	p.Window = p.Window.FromRef(js.Undefined)
+	if recursive {
+		p.PrivateToken.FreeMembers(true)
+		p.AttributionReporting.FreeMembers(true)
+	}
 }
 
 func NewHeaders(init HeadersInit) (ret Headers) {
@@ -1589,7 +1635,7 @@ type Headers struct {
 }
 
 func (this Headers) Once() Headers {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1603,29 +1649,28 @@ func (this Headers) FromRef(ref js.Ref) Headers {
 }
 
 func (this Headers) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasAppend returns true if the method "Headers.append" exists.
-func (this Headers) HasAppend() bool {
-	return js.True == bindings.HasHeadersAppend(
-		this.Ref(),
+// HasFuncAppend returns true if the method "Headers.append" exists.
+func (this Headers) HasFuncAppend() bool {
+	return js.True == bindings.HasFuncHeadersAppend(
+		this.ref,
 	)
 }
 
-// AppendFunc returns the method "Headers.append".
-func (this Headers) AppendFunc() (fn js.Func[func(name js.String, value js.String)]) {
-	return fn.FromRef(
-		bindings.HeadersAppendFunc(
-			this.Ref(),
-		),
+// FuncAppend returns the method "Headers.append".
+func (this Headers) FuncAppend() (fn js.Func[func(name js.String, value js.String)]) {
+	bindings.FuncHeadersAppend(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Append calls the method "Headers.append".
 func (this Headers) Append(name js.String, value js.String) (ret js.Void) {
 	bindings.CallHeadersAppend(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 		value.Ref(),
 	)
@@ -1638,7 +1683,7 @@ func (this Headers) Append(name js.String, value js.String) (ret js.Void) {
 // the catch clause.
 func (this Headers) TryAppend(name js.String, value js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHeadersAppend(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 		value.Ref(),
 	)
@@ -1646,26 +1691,25 @@ func (this Headers) TryAppend(name js.String, value js.String) (ret js.Void, exc
 	return
 }
 
-// HasDelete returns true if the method "Headers.delete" exists.
-func (this Headers) HasDelete() bool {
-	return js.True == bindings.HasHeadersDelete(
-		this.Ref(),
+// HasFuncDelete returns true if the method "Headers.delete" exists.
+func (this Headers) HasFuncDelete() bool {
+	return js.True == bindings.HasFuncHeadersDelete(
+		this.ref,
 	)
 }
 
-// DeleteFunc returns the method "Headers.delete".
-func (this Headers) DeleteFunc() (fn js.Func[func(name js.String)]) {
-	return fn.FromRef(
-		bindings.HeadersDeleteFunc(
-			this.Ref(),
-		),
+// FuncDelete returns the method "Headers.delete".
+func (this Headers) FuncDelete() (fn js.Func[func(name js.String)]) {
+	bindings.FuncHeadersDelete(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Delete calls the method "Headers.delete".
 func (this Headers) Delete(name js.String) (ret js.Void) {
 	bindings.CallHeadersDelete(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 	)
 
@@ -1677,33 +1721,32 @@ func (this Headers) Delete(name js.String) (ret js.Void) {
 // the catch clause.
 func (this Headers) TryDelete(name js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHeadersDelete(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 	)
 
 	return
 }
 
-// HasGet returns true if the method "Headers.get" exists.
-func (this Headers) HasGet() bool {
-	return js.True == bindings.HasHeadersGet(
-		this.Ref(),
+// HasFuncGet returns true if the method "Headers.get" exists.
+func (this Headers) HasFuncGet() bool {
+	return js.True == bindings.HasFuncHeadersGet(
+		this.ref,
 	)
 }
 
-// GetFunc returns the method "Headers.get".
-func (this Headers) GetFunc() (fn js.Func[func(name js.String) js.String]) {
-	return fn.FromRef(
-		bindings.HeadersGetFunc(
-			this.Ref(),
-		),
+// FuncGet returns the method "Headers.get".
+func (this Headers) FuncGet() (fn js.Func[func(name js.String) js.String]) {
+	bindings.FuncHeadersGet(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Get calls the method "Headers.get".
 func (this Headers) Get(name js.String) (ret js.String) {
 	bindings.CallHeadersGet(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 	)
 
@@ -1715,33 +1758,32 @@ func (this Headers) Get(name js.String) (ret js.String) {
 // the catch clause.
 func (this Headers) TryGet(name js.String) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHeadersGet(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 	)
 
 	return
 }
 
-// HasGetSetCookie returns true if the method "Headers.getSetCookie" exists.
-func (this Headers) HasGetSetCookie() bool {
-	return js.True == bindings.HasHeadersGetSetCookie(
-		this.Ref(),
+// HasFuncGetSetCookie returns true if the method "Headers.getSetCookie" exists.
+func (this Headers) HasFuncGetSetCookie() bool {
+	return js.True == bindings.HasFuncHeadersGetSetCookie(
+		this.ref,
 	)
 }
 
-// GetSetCookieFunc returns the method "Headers.getSetCookie".
-func (this Headers) GetSetCookieFunc() (fn js.Func[func() js.Array[js.String]]) {
-	return fn.FromRef(
-		bindings.HeadersGetSetCookieFunc(
-			this.Ref(),
-		),
+// FuncGetSetCookie returns the method "Headers.getSetCookie".
+func (this Headers) FuncGetSetCookie() (fn js.Func[func() js.Array[js.String]]) {
+	bindings.FuncHeadersGetSetCookie(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetSetCookie calls the method "Headers.getSetCookie".
 func (this Headers) GetSetCookie() (ret js.Array[js.String]) {
 	bindings.CallHeadersGetSetCookie(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1752,32 +1794,31 @@ func (this Headers) GetSetCookie() (ret js.Array[js.String]) {
 // the catch clause.
 func (this Headers) TryGetSetCookie() (ret js.Array[js.String], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHeadersGetSetCookie(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasHas returns true if the method "Headers.has" exists.
-func (this Headers) HasHas() bool {
-	return js.True == bindings.HasHeadersHas(
-		this.Ref(),
+// HasFuncHas returns true if the method "Headers.has" exists.
+func (this Headers) HasFuncHas() bool {
+	return js.True == bindings.HasFuncHeadersHas(
+		this.ref,
 	)
 }
 
-// HasFunc returns the method "Headers.has".
-func (this Headers) HasFunc() (fn js.Func[func(name js.String) bool]) {
-	return fn.FromRef(
-		bindings.HeadersHasFunc(
-			this.Ref(),
-		),
+// FuncHas returns the method "Headers.has".
+func (this Headers) FuncHas() (fn js.Func[func(name js.String) bool]) {
+	bindings.FuncHeadersHas(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Has calls the method "Headers.has".
 func (this Headers) Has(name js.String) (ret bool) {
 	bindings.CallHeadersHas(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 	)
 
@@ -1789,33 +1830,32 @@ func (this Headers) Has(name js.String) (ret bool) {
 // the catch clause.
 func (this Headers) TryHas(name js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHeadersHas(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 	)
 
 	return
 }
 
-// HasSet returns true if the method "Headers.set" exists.
-func (this Headers) HasSet() bool {
-	return js.True == bindings.HasHeadersSet(
-		this.Ref(),
+// HasFuncSet returns true if the method "Headers.set" exists.
+func (this Headers) HasFuncSet() bool {
+	return js.True == bindings.HasFuncHeadersSet(
+		this.ref,
 	)
 }
 
-// SetFunc returns the method "Headers.set".
-func (this Headers) SetFunc() (fn js.Func[func(name js.String, value js.String)]) {
-	return fn.FromRef(
-		bindings.HeadersSetFunc(
-			this.Ref(),
-		),
+// FuncSet returns the method "Headers.set".
+func (this Headers) FuncSet() (fn js.Func[func(name js.String, value js.String)]) {
+	bindings.FuncHeadersSet(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Set calls the method "Headers.set".
 func (this Headers) Set(name js.String, value js.String) (ret js.Void) {
 	bindings.CallHeadersSet(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 		value.Ref(),
 	)
@@ -1828,7 +1868,7 @@ func (this Headers) Set(name js.String, value js.String) (ret js.Void) {
 // the catch clause.
 func (this Headers) TrySet(name js.String, value js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHeadersSet(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 		value.Ref(),
 	)

@@ -1,0 +1,2161 @@
+- File: webext/app_window.idl
+  Interface:
+    Name: AppWindow
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - window
+    Attrs:
+      - Name: hasFrameColor
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: nodoc
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: activeFrameColor
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: nodoc
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: inactiveFrameColor
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: nodoc
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: contentWindow
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - Window
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: innerBounds
+        Type:
+          Name: Bounds
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: outerBounds
+        Type:
+          Name: Bounds
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+    Operations:
+      - Name: focus
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: fullscreen
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: isFullscreen
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: minimize
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: isMinimized
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: maximize
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: isMaximized
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: restore
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: moveTo
+        Args:
+          - Name: left
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - app
+                    - window
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+          - Name: top
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - app
+                    - window
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: deprecated
+            Values:
+              - Use outerBounds.
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: resizeTo
+        Args:
+          - Name: width
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - app
+                    - window
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+          - Name: height
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - app
+                    - window
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: deprecated
+            Values:
+              - Use outerBounds.
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: drawAttention
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: clearAttention
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: close
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: show
+        Args:
+          - Name: focused
+            Optional: true
+            Type:
+              Name: boolean
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - app
+                    - window
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: hide
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: getBounds
+        Returns:
+          - Name: ContentBounds
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: nocompile
+          - Name: deprecated
+            Values:
+              - Use innerBounds or outerBounds.
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: setBounds
+        Args:
+          - Name: bounds
+            Type:
+              Name: ContentBounds
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - app
+                    - window
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: nocompile
+          - Name: deprecated
+            Values:
+              - Use innerBounds or outerBounds.
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: setIcon
+        Args:
+          - Name: iconUrl
+            Type:
+              Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - app
+                    - window
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: nodoc
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: isAlwaysOnTop
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: setAlwaysOnTop
+        Args:
+          - Name: alwaysOnTop
+            Type:
+              Name: boolean
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - app
+                    - window
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: alphaEnabled
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: nodoc
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: setVisibleOnAllWorkspaces
+        Args:
+          - Name: alwaysVisible
+            Type:
+              Name: boolean
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - app
+                    - window
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+- File: webext/app_window.idl
+  Interface:
+    Name: Bounds
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - window
+    Attrs:
+      - Name: left
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: top
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: width
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: height
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: minWidth
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: minHeight
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: maxWidth
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: maxHeight
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+    Operations:
+      - Name: setPosition
+        Args:
+          - Name: left
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - app
+                    - window
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+          - Name: top
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - app
+                    - window
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: setSize
+        Args:
+          - Name: width
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - app
+                    - window
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+          - Name: height
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - app
+                    - window
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: setMinimumSize
+        Args:
+          - Name: minWidth
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - app
+                    - window
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+          - Name: minHeight
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - app
+                    - window
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: setMaximumSize
+        Args:
+          - Name: maxWidth
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - app
+                    - window
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+          - Name: maxHeight
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - app
+                    - window
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+- File: webext/app_window.idl
+  Dict:
+    Name: BoundsSpecification
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - window
+    Fields:
+      - Name: left
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: top
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: width
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: height
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: minWidth
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: minHeight
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: maxWidth
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: maxHeight
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+- File: webext/app_window.idl
+  Dict:
+    Name: ContentBounds
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - window
+    Fields:
+      - Name: left
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: top
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: width
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: height
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+- File: webext/app_window.idl
+  Callback:
+    Name: CreateWindowCallback
+    Args:
+      - Name: createdWindow
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - AppWindow
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - window
+- File: webext/app_window.idl
+  Dict:
+    Name: CreateWindowOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - window
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: innerBounds
+        Type:
+          Name: BoundsSpecification
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: outerBounds
+        Type:
+          Name: BoundsSpecification
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: defaultWidth
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: nodoc
+          - Name: deprecated
+            Values:
+              - Use $(ref:BoundsSpecification).
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: defaultHeight
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: nodoc
+          - Name: deprecated
+            Values:
+              - Use $(ref:BoundsSpecification).
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: defaultLeft
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: nodoc
+          - Name: deprecated
+            Values:
+              - Use $(ref:BoundsSpecification).
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: defaultTop
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: nodoc
+          - Name: deprecated
+            Values:
+              - Use $(ref:BoundsSpecification).
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: width
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: nodoc
+          - Name: deprecated
+            Values:
+              - Use $(ref:BoundsSpecification).
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: height
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: nodoc
+          - Name: deprecated
+            Values:
+              - Use $(ref:BoundsSpecification).
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: left
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: nodoc
+          - Name: deprecated
+            Values:
+              - Use $(ref:BoundsSpecification).
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: top
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: nodoc
+          - Name: deprecated
+            Values:
+              - Use $(ref:BoundsSpecification).
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: minWidth
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: deprecated
+            Values:
+              - Use innerBounds or outerBounds.
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: minHeight
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: deprecated
+            Values:
+              - Use innerBounds or outerBounds.
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: maxWidth
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: deprecated
+            Values:
+              - Use innerBounds or outerBounds.
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: maxHeight
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: deprecated
+            Values:
+              - Use innerBounds or outerBounds.
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: type
+        Type:
+          Name: WindowType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: deprecated
+            Values:
+              - All app windows use the 'shell' window type
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: ime
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: nodoc
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: showInShelf
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: icon
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: frame
+        Type:
+          Union:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - app
+                    - window
+            - Name: FrameOptions
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - app
+                    - window
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: bounds
+        Type:
+          Name: ContentBounds
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: deprecated
+            Values:
+              - Use innerBounds or outerBounds.
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: alphaEnabled
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: nodoc
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: state
+        Type:
+          Name: State
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: hidden
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: resizable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: singleton
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: deprecated
+            Values:
+              - Multiple windows with the same id is no longer supported.
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: alwaysOnTop
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: focused
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: visibleOnAllWorkspaces
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: lockScreenAction
+        Type:
+          Name: ActionType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - runtime
+        ExtAttrs:
+          - Name: nodoc
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - runtime
+- File: webext/app_window.idl
+  Dict:
+    Name: FrameOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - window
+    Fields:
+      - Name: type
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: color
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: activeColor
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: inactiveColor
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+- File: webext/app_window.idl
+  Enum:
+    Name: State
+    Values:
+      - normal
+      - fullscreen
+      - maximized
+      - minimized
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - window
+- File: webext/app_window.idl
+  Enum:
+    Name: WindowType
+    Values:
+      - shell
+      - panel
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - window
+- File: webext/app_window.idl
+  WebextFunc:
+    Name: canSetVisibleOnAllWorkspaces
+    Modifier: static
+    Returns:
+      - Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - window
+- File: webext/app_window.idl
+  WebextFunc:
+    Name: create
+    Modifier: static
+    Args:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+      - Name: options
+        Optional: true
+        Type:
+          Name: CreateWindowOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: object
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - window
+- File: webext/app_window.idl
+  WebextFunc:
+    Name: current
+    Modifier: static
+    Returns:
+      - Name: AppWindow
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - window
+- File: webext/app_window.idl
+  WebextFunc:
+    Name: get
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+    Returns:
+      - Name: AppWindow
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - window
+- File: webext/app_window.idl
+  WebextFunc:
+    Name: getAll
+    Modifier: static
+    Returns:
+      - Name: sequence
+        Params:
+          - Name: AppWindow
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - app
+                  - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - window
+- File: webext/app_window.idl
+  WebextFunc:
+    Name: initializeAppWindow
+    Modifier: static
+    Args:
+      - Name: state
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - app
+                - window
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+    ExtAttrs:
+      - Name: nocompile
+      - Name: nodoc
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - window
+- File: webext/app_window.idl
+  WebextEvent:
+    Name: onAlphaEnabledChanged
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+    ExtAttrs:
+      - Name: nocompile
+      - Name: nodoc
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - window
+- File: webext/app_window.idl
+  WebextEvent:
+    Name: onBoundsChanged
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - window
+- File: webext/app_window.idl
+  WebextEvent:
+    Name: onClosed
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - window
+- File: webext/app_window.idl
+  WebextEvent:
+    Name: onFullscreened
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - window
+- File: webext/app_window.idl
+  WebextEvent:
+    Name: onMaximized
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - window
+- File: webext/app_window.idl
+  WebextEvent:
+    Name: onMinimized
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - window
+- File: webext/app_window.idl
+  WebextEvent:
+    Name: onRestored
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - app
+              - window
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - app
+          - window

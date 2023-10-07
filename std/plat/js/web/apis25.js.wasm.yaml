@@ -1,4 +1,4 @@
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Interface:
     Name: MediaStreamTrackEvent
     Inherits: Event
@@ -28,7 +28,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Dict:
     Name: MediaStreamTrackEventInit
     Inherits: EventInit
@@ -49,7 +49,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: mediacapture-transform.idl
+- File: webref/mediacapture-transform.idl
   Interface:
     Name: MediaStreamTrackProcessor
     ExtAttrs:
@@ -73,7 +73,7 @@
           - Name: Exposed
             Values:
               - DedicatedWorker
-- File: mediacapture-transform.idl
+- File: webref/mediacapture-transform.idl
   Dict:
     Name: MediaStreamTrackProcessorInit
     Fields:
@@ -86,13 +86,13 @@
           Name: unsigned short
         ExtAttrs:
           - Name: EnforceRange
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Enum:
     Name: MediaStreamTrackState
     Values:
       - live
       - ended
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Dict:
     Name: MediaTrackCapabilities
     Fields:
@@ -216,7 +216,7 @@
           Name: sequence
           Params:
             - Name: DOMString
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Dict:
     Name: MediaTrackConstraintSet
     Fields:
@@ -337,7 +337,7 @@
       - Name: suppressLocalAudioPlayback
         Type:
           Name: ConstrainBoolean
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Dict:
     Name: MediaTrackConstraints
     Inherits: MediaTrackConstraintSet
@@ -404,7 +404,7 @@
       - Name: torch
         Type:
           Name: ConstrainBoolean
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Dict:
     Name: MediaTrackSettings
     Fields:
@@ -521,7 +521,7 @@
       - Name: suppressLocalAudioPlayback
         Type:
           Name: boolean
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Dict:
     Name: MediaTrackSupportedConstraints
     Fields:
@@ -673,12 +673,12 @@
         Default: "true"
         Type:
           Name: boolean
-- File: netinfo.idl
+- File: webref/netinfo.idl
   Typedef:
     Name: Megabit
     Type:
       Name: unrestricted double
-- File: wasm-js-api.idl
+- File: webref/wasm-js-api.idl
   Interface:
     Name: Memory
     ExtAttrs:
@@ -721,7 +721,7 @@
             Values:
               - WebAssembly
           - Name: Exposed
-- File: performance-measure-memory.idl
+- File: webref/performance-measure-memory.idl
   Dict:
     Name: MemoryAttribution
     Fields:
@@ -734,7 +734,7 @@
       - Name: scope
         Type:
           Name: DOMString
-- File: performance-measure-memory.idl
+- File: webref/performance-measure-memory.idl
   Dict:
     Name: MemoryAttributionContainer
     Fields:
@@ -744,7 +744,7 @@
       - Name: src
         Type:
           Name: USVString
-- File: performance-measure-memory.idl
+- File: webref/performance-measure-memory.idl
   Dict:
     Name: MemoryBreakdownEntry
     Fields:
@@ -761,7 +761,7 @@
           Name: sequence
           Params:
             - Name: DOMString
-- File: wasm-js-api.idl
+- File: webref/wasm-js-api.idl
   Dict:
     Name: MemoryDescriptor
     Fields:
@@ -774,7 +774,7 @@
           Name: unsigned long
         ExtAttrs:
           - Name: EnforceRange
-- File: performance-measure-memory.idl
+- File: webref/performance-measure-memory.idl
   Dict:
     Name: MemoryMeasurement
     Fields:
@@ -786,7 +786,7 @@
           Name: sequence
           Params:
             - Name: MemoryBreakdownEntry
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: MessageChannel
     ExtAttrs:
@@ -813,7 +813,7 @@
             Values:
               - Window
               - Worker
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: MessageEvent
     Inherits: Event
@@ -945,7 +945,7 @@
               - Window
               - Worker
               - AudioWorklet
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: MessageEventInit
     Inherits: EventInit
@@ -985,7 +985,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: html.idl
+- File: webref/html.idl
   Typedef:
     Name: MessageEventSource
     Type:
@@ -993,7 +993,7 @@
         - Name: WindowProxy
         - Name: MessagePort
         - Name: ServiceWorker
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: MessagePort
     Inherits: EventTarget
@@ -1084,7 +1084,7 @@
               - Worker
               - AudioWorklet
           - Name: Transferable
-- File: image-capture.idl
+- File: webref/image-capture.idl
   Enum:
     Name: MeteringMode
     Values:
@@ -1092,7 +1092,7 @@
       - manual
       - single-shot
       - continuous
-- File: webmidi.idl
+- File: webref/webmidi.idl
   Dict:
     Name: MidiPermissionDescriptor
     Inherits: PermissionDescriptor
@@ -1105,12 +1105,12 @@
         Required: true
         Type:
           Name: DOMString
-- File: netinfo.idl
+- File: webref/netinfo.idl
   Typedef:
     Name: Millisecond
     Type:
       Name: unsigned long long
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: MimeType
     ExtAttrs:
@@ -1150,7 +1150,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: MimeTypeArray
     ExtAttrs:
@@ -1197,7 +1197,7 @@
             Values:
               - Window
           - Name: LegacyUnenumerableNamedProperties
-- File: mediacapture-automation.idl
+- File: webref/mediacapture-automation.idl
   Dict:
     Name: MockCameraConfiguration
     Inherits: MockCaptureDeviceConfiguration
@@ -1219,7 +1219,7 @@
       - Name: groupId
         Type:
           Name: DOMString
-- File: mediacapture-automation.idl
+- File: webref/mediacapture-automation.idl
   Dict:
     Name: MockCaptureDeviceConfiguration
     Fields:
@@ -1232,13 +1232,13 @@
       - Name: groupId
         Type:
           Name: DOMString
-- File: mediacapture-automation.idl
+- File: webref/mediacapture-automation.idl
   Enum:
     Name: MockCapturePromptResult
     Values:
       - granted
       - denied
-- File: mediacapture-automation.idl
+- File: webref/mediacapture-automation.idl
   Dict:
     Name: MockCapturePromptResultConfiguration
     Fields:
@@ -1248,7 +1248,7 @@
       - Name: getDisplayMedia
         Type:
           Name: MockCapturePromptResult
-- File: mediacapture-automation.idl
+- File: webref/mediacapture-automation.idl
   Dict:
     Name: MockMicrophoneConfiguration
     Inherits: MockCaptureDeviceConfiguration
@@ -1266,7 +1266,7 @@
       - Name: groupId
         Type:
           Name: DOMString
-- File: generic-sensor.idl
+- File: webref/generic-sensor.idl
   Dict:
     Name: MockSensor
     Fields:
@@ -1279,7 +1279,7 @@
       - Name: requestedSamplingFrequency
         Type:
           Name: double
-- File: generic-sensor.idl
+- File: webref/generic-sensor.idl
   Dict:
     Name: MockSensorConfiguration
     Fields:
@@ -1299,10 +1299,10 @@
         Type:
           Name: double
           Nullable: true
-- File: generic-sensor.idl
+- File: webref/generic-sensor.idl
   Dict:
     Name: MockSensorReadingValues
-- File: generic-sensor.idl
+- File: webref/generic-sensor.idl
   Enum:
     Name: MockSensorType
     Values:
@@ -1317,7 +1317,7 @@
       - relative-orientation
       - geolocation
       - proximity
-- File: wasm-js-api.idl
+- File: webref/wasm-js-api.idl
   Interface:
     Name: Module
     ExtAttrs:
@@ -1384,7 +1384,7 @@
             Values:
               - WebAssembly
           - Name: Exposed
-- File: wasm-js-api.idl
+- File: webref/wasm-js-api.idl
   Dict:
     Name: ModuleExportDescriptor
     Fields:
@@ -1396,7 +1396,7 @@
         Required: true
         Type:
           Name: ImportExportKind
-- File: wasm-js-api.idl
+- File: webref/wasm-js-api.idl
   Dict:
     Name: ModuleImportDescriptor
     Fields:
@@ -1412,13 +1412,13 @@
         Required: true
         Type:
           Name: ImportExportKind
-- File: screen-capture.idl
+- File: webref/screen-capture.idl
   Enum:
     Name: MonitorTypeSurfacesEnum
     Values:
       - include
       - exclude
-- File: uievents.idl
+- File: webref/uievents.idl
   Interface:
     Name: MouseEvent
     Inherits: UIEvent
@@ -1653,7 +1653,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: uievents.idl
+- File: webref/uievents.idl
   Dict:
     Name: MouseEventInit
     Inherits: EventModifierInit
@@ -1772,7 +1772,7 @@
         Default: "0"
         Type:
           Name: double
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Dict:
     Name: MultiCacheQueryOptions
     Inherits: CacheQueryOptions
@@ -1792,7 +1792,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: dom.idl
+- File: webref/dom.idl
   Callback:
     Name: MutationCallback
     Args:
@@ -1806,7 +1806,7 @@
           Name: MutationObserver
     Returns:
       - Name: undefined
-- File: uievents.idl
+- File: webref/uievents.idl
   Interface:
     Name: MutationEvent
     Inherits: Event
@@ -1930,7 +1930,7 @@
               Name: EventInit
         ExtAttrs:
           - Name: Exposed
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: MutationObserver
     ExtAttrs:
@@ -1979,7 +1979,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: dom.idl
+- File: webref/dom.idl
   Dict:
     Name: MutationObserverInit
     Fields:
@@ -2008,7 +2008,7 @@
           Name: sequence
           Params:
             - Name: DOMString
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: MutationRecord
     ExtAttrs:
@@ -2096,7 +2096,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: web-nfc.idl
+- File: webref/web-nfc.idl
   Dict:
     Name: NDEFMakeReadOnlyOptions
     Fields:
@@ -2104,7 +2104,7 @@
         Type:
           Name: AbortSignal
           Nullable: true
-- File: web-nfc.idl
+- File: webref/web-nfc.idl
   Interface:
     Name: NDEFMessage
     ExtAttrs:

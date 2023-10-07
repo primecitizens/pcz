@@ -1,10 +1,10 @@
-- File: html.idl
+- File: webref/html.idl
   Typedef:
     Name: EventHandler
     Type:
       Name: EventHandlerNonNull
       Nullable: true
-- File: html.idl
+- File: webref/html.idl
   Callback:
     Name: EventHandlerNonNull
     Args:
@@ -15,7 +15,7 @@
       - Name: any
     ExtAttrs:
       - Name: LegacyTreatNonObjectAsNull
-- File: dom.idl
+- File: webref/dom.idl
   Dict:
     Name: EventInit
     Fields:
@@ -31,7 +31,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: dom.idl
+- File: webref/dom.idl
   CallbackInterface:
     Name: EventListener
     Operations:
@@ -42,7 +42,7 @@
               Name: Event
         Returns:
           - Name: undefined
-- File: dom.idl
+- File: webref/dom.idl
   Dict:
     Name: EventListenerOptions
     Fields:
@@ -50,7 +50,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: uievents.idl
+- File: webref/uievents.idl
   Dict:
     Name: EventModifierInit
     Inherits: UIEventInit
@@ -132,7 +132,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: EventSource
     Inherits: EventTarget
@@ -230,7 +230,7 @@
             Values:
               - Window
               - Worker
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: EventSourceInit
     Fields:
@@ -238,7 +238,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: EventTarget
     ExtAttrs:
@@ -293,7 +293,7 @@
           - Name: boolean
         ExtAttrs:
           - Name: Exposed
-- File: cookie-store.idl
+- File: webref/cookie-store.idl
   Interface:
     Name: ExtendableCookieChangeEvent
     Inherits: ExtendableEvent
@@ -338,7 +338,7 @@
           - Name: Exposed
             Values:
               - ServiceWorker
-- File: cookie-store.idl
+- File: webref/cookie-store.idl
   Dict:
     Name: ExtendableCookieChangeEventInit
     Inherits: ExtendableEventInit
@@ -361,7 +361,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Interface:
     Name: ExtendableEvent
     Inherits: Event
@@ -397,7 +397,7 @@
           - Name: Exposed
             Values:
               - ServiceWorker
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Dict:
     Name: ExtendableEventInit
     Inherits: EventInit
@@ -414,7 +414,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Interface:
     Name: ExtendableMessageEvent
     Inherits: ExtendableEvent
@@ -484,7 +484,7 @@
           - Name: Exposed
             Values:
               - ServiceWorker
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Dict:
     Name: ExtendableMessageEventInit
     Inherits: ExtendableEventInit
@@ -527,7 +527,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: External
     ExtAttrs:
@@ -549,7 +549,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: eyedropper-api.idl
+- File: webref/eyedropper-api.idl
   Interface:
     Name: EyeDropper
     ExtAttrs:
@@ -574,7 +574,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: shape-detection-api.idl
+- File: webref/shape-detection-api.idl
   Interface:
     Name: FaceDetector
     ExtAttrs:
@@ -614,7 +614,7 @@
               - Window
               - Worker
           - Name: SecureContext
-- File: shape-detection-api.idl
+- File: webref/shape-detection-api.idl
   Dict:
     Name: FaceDetectorOptions
     Fields:
@@ -624,7 +624,7 @@
       - Name: fastMode
         Type:
           Name: boolean
-- File: credential-management.idl
+- File: webref/credential-management.idl
   Interface:
     Name: FederatedCredential
     Inherits: Credential
@@ -675,7 +675,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: credential-management.idl
+- File: webref/credential-management.idl
   Dict:
     Name: FederatedCredentialInit
     Inherits: CredentialData
@@ -701,7 +701,7 @@
         Required: true
         Type:
           Name: USVString
-- File: credential-management.idl
+- File: webref/credential-management.idl
   Dict:
     Name: FederatedCredentialRequestOptions
     Fields:
@@ -715,7 +715,7 @@
           Name: sequence
           Params:
             - Name: DOMString
-- File: fenced-frame.idl
+- File: webref/fenced-frame.idl
   Interface:
     Name: Fence
     ExtAttrs:
@@ -754,7 +754,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: fenced-frame.idl
+- File: webref/fenced-frame.idl
   Dict:
     Name: FenceEvent
     Fields:
@@ -776,7 +776,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: fenced-frame.idl
+- File: webref/fenced-frame.idl
   Enum:
     Name: FenceReportingDestination
     Values:
@@ -785,7 +785,7 @@
       - component-seller
       - direct-seller
       - shared-storage-select-url
-- File: fenced-frame.idl
+- File: webref/fenced-frame.idl
   Interface:
     Name: FencedFrameConfig
     ExtAttrs:
@@ -847,19 +847,19 @@
             Values:
               - Window
           - Name: Serializable
-- File: fenced-frame.idl
+- File: webref/fenced-frame.idl
   Typedef:
     Name: FencedFrameConfigSize
     Type:
       Union:
         - Name: unsigned long
         - Name: OpaqueProperty
-- File: fenced-frame.idl
+- File: webref/fenced-frame.idl
   Typedef:
     Name: FencedFrameConfigURL
     Type:
       Name: USVString
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Interface:
     Name: FetchEvent
     Inherits: ExtendableEvent
@@ -947,7 +947,7 @@
           - Name: Exposed
             Values:
               - ServiceWorker
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Dict:
     Name: FetchEventInit
     Inherits: ExtendableEventInit
@@ -990,7 +990,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: FileAPI.idl
+- File: webref/FileAPI.idl
   Interface:
     Name: File
     Inherits: Blob
@@ -1046,7 +1046,7 @@
               - Window
               - Worker
           - Name: Serializable
-- File: entries-api.idl
+- File: webref/entries-api.idl
   Callback:
     Name: FileCallback
     Args:
@@ -1055,7 +1055,7 @@
           Name: File
     Returns:
       - Name: undefined
-- File: FileAPI.idl
+- File: webref/FileAPI.idl
   Interface:
     Name: FileList
     ExtAttrs:
@@ -1091,7 +1091,7 @@
               - Window
               - Worker
           - Name: Serializable
-- File: file-system-access.idl
+- File: webref/file-system-access.idl
   Dict:
     Name: FilePickerAcceptType
     Fields:
@@ -1109,7 +1109,7 @@
                 - Name: sequence
                   Params:
                     - Name: USVString
-- File: file-system-access.idl
+- File: webref/file-system-access.idl
   Dict:
     Name: FilePickerOptions
     Fields:
@@ -1128,7 +1128,7 @@
       - Name: startIn
         Type:
           Name: StartInDirectory
-- File: FileAPI.idl
+- File: webref/FileAPI.idl
   Dict:
     Name: FilePropertyBag
     Inherits: BlobPropertyBag
@@ -1144,7 +1144,7 @@
         Default: '"transparent"'
         Type:
           Name: EndingType
-- File: FileAPI.idl
+- File: webref/FileAPI.idl
   Interface:
     Name: FileReader
     Inherits: EventTarget
@@ -1307,7 +1307,7 @@
             Values:
               - Window
               - Worker
-- File: FileAPI.idl
+- File: webref/FileAPI.idl
   Interface:
     Name: FileReaderSync
     ExtAttrs:
@@ -1368,7 +1368,7 @@
             Values:
               - DedicatedWorker
               - SharedWorker
-- File: entries-api.idl
+- File: webref/entries-api.idl
   Interface:
     Name: FileSystem
     ExtAttrs:
@@ -1392,7 +1392,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: fs.idl
+- File: webref/fs.idl
   Dict:
     Name: FileSystemCreateWritableOptions
     Fields:
@@ -1400,7 +1400,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: entries-api.idl
+- File: webref/entries-api.idl
   Interface:
     Name: FileSystemDirectoryEntry
     Inherits: FileSystemEntry
@@ -1468,7 +1468,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: fs.idl
+- File: webref/fs.idl
   Interface:
     Name: FileSystemDirectoryHandle
     Inherits: FileSystemHandle
@@ -1567,7 +1567,7 @@
         - Name: USVString
         - Name: FileSystemHandle
       Async: true
-- File: entries-api.idl
+- File: webref/entries-api.idl
   Interface:
     Name: FileSystemDirectoryReader
     ExtAttrs:
@@ -1590,7 +1590,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: entries-api.idl
+- File: webref/entries-api.idl
   Callback:
     Name: FileSystemEntriesCallback
     Args:
@@ -1601,7 +1601,7 @@
             - Name: FileSystemEntry
     Returns:
       - Name: undefined
-- File: entries-api.idl
+- File: webref/entries-api.idl
   Interface:
     Name: FileSystemEntry
     ExtAttrs:
@@ -1666,7 +1666,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: entries-api.idl
+- File: webref/entries-api.idl
   Callback:
     Name: FileSystemEntryCallback
     Args:
@@ -1675,7 +1675,7 @@
           Name: FileSystemEntry
     Returns:
       - Name: undefined
-- File: entries-api.idl
+- File: webref/entries-api.idl
   Interface:
     Name: FileSystemFileEntry
     Inherits: FileSystemEntry
@@ -1699,7 +1699,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: fs.idl
+- File: webref/fs.idl
   Interface:
     Name: FileSystemFileHandle
     Inherits: FileSystemHandle
@@ -1750,9 +1750,7 @@
           - Name: Exposed
             Values:
               - DedicatedWorker
-          - Name: SecureContext
-          - Name: Serializable
-- File: entries-api.idl
+- File: webref/entries-api.idl
   Dict:
     Name: FileSystemFlags
     Fields:
@@ -1764,7 +1762,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: fs.idl
+- File: webref/fs.idl
   Dict:
     Name: FileSystemGetDirectoryOptions
     Fields:

@@ -1,4 +1,4 @@
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Interface:
     Name: Cache
     ExtAttrs:
@@ -153,7 +153,7 @@
             Values:
               - Window
               - Worker
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Dict:
     Name: CacheQueryOptions
     Fields:
@@ -169,7 +169,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Interface:
     Name: CacheStorage
     ExtAttrs:
@@ -264,7 +264,7 @@
             Values:
               - Window
               - Worker
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Dict:
     Name: CameraDevicePermissionDescriptor
     Inherits: PermissionDescriptor
@@ -277,7 +277,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: payment-handler.idl
+- File: webref/payment-handler.idl
   Interface:
     Name: CanMakePaymentEvent
     Inherits: ExtendableEvent
@@ -308,14 +308,14 @@
           - Name: Exposed
             Values:
               - ServiceWorker
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: CanPlayTypeResult
     Values:
       - ""
       - maybe
       - probably
-- File: mediacapture-fromelement.idl
+- File: webref/mediacapture-fromelement.idl
   Interface:
     Name: CanvasCaptureMediaStreamTrack
     Inherits: MediaStreamTrack
@@ -340,27 +340,27 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: CanvasDirection
     Values:
       - ltr
       - rtl
       - inherit
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: CanvasFillRule
     Values:
       - nonzero
       - evenodd
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: CanvasFontKerning
     Values:
       - auto
       - normal
       - none
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: CanvasFontStretch
     Values:
@@ -373,7 +373,7 @@
       - expanded
       - extra-expanded
       - ultra-expanded
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: CanvasFontVariantCaps
     Values:
@@ -384,7 +384,7 @@
       - all-petite-caps
       - unicase
       - titling-caps
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: CanvasGradient
     ExtAttrs:
@@ -408,7 +408,7 @@
             Values:
               - Window
               - Worker
-- File: html.idl
+- File: webref/html.idl
   Typedef:
     Name: CanvasImageSource
     Type:
@@ -419,21 +419,21 @@
         - Name: ImageBitmap
         - Name: OffscreenCanvas
         - Name: VideoFrame
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: CanvasLineCap
     Values:
       - butt
       - round
       - square
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: CanvasLineJoin
     Values:
       - round
       - bevel
       - miter
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: CanvasPattern
     ExtAttrs:
@@ -456,7 +456,7 @@
             Values:
               - Window
               - Worker
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: CanvasRenderingContext2D
     ExtAttrs:
@@ -1319,7 +1319,7 @@
               Name: boolean
         Returns:
           - Name: undefined
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: CanvasRenderingContext2DSettings
     Fields:
@@ -1339,7 +1339,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: CanvasTextAlign
     Values:
@@ -1348,7 +1348,7 @@
       - left
       - right
       - center
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: CanvasTextBaseline
     Values:
@@ -1358,7 +1358,7 @@
       - alphabetic
       - ideographic
       - bottom
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: CanvasTextRendering
     Values:
@@ -1366,7 +1366,7 @@
       - optimizeSpeed
       - optimizeLegibility
       - geometricPrecision
-- File: mediacapture-handle-actions.idl
+- File: webref/mediacapture-handle-actions.idl
   Enum:
     Name: CaptureAction
     Values:
@@ -1374,7 +1374,7 @@
       - previous
       - first
       - last
-- File: mediacapture-handle-actions.idl
+- File: webref/mediacapture-handle-actions.idl
   Interface:
     Name: CaptureActionEvent
     Inherits: Event
@@ -1402,7 +1402,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: mediacapture-handle-actions.idl
+- File: webref/mediacapture-handle-actions.idl
   Dict:
     Name: CaptureActionEventInit
     Inherits: EventInit
@@ -1422,7 +1422,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: screen-capture.idl
+- File: webref/screen-capture.idl
   Interface:
     Name: CaptureController
     Inherits: EventTarget
@@ -1448,7 +1448,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: capture-handle-identity.idl
+- File: webref/capture-handle-identity.idl
   Dict:
     Name: CaptureHandle
     Fields:
@@ -1458,7 +1458,7 @@
       - Name: handle
         Type:
           Name: DOMString
-- File: capture-handle-identity.idl
+- File: webref/capture-handle-identity.idl
   Dict:
     Name: CaptureHandleConfig
     Fields:
@@ -1476,14 +1476,14 @@
           Name: sequence
           Params:
             - Name: DOMString
-- File: screen-capture.idl
+- File: webref/screen-capture.idl
   Enum:
     Name: CaptureStartFocusBehavior
     Values:
       - focus-capturing-application
       - focus-captured-surface
       - no-focus-change
-- File: captured-mouse-events.idl
+- File: webref/captured-mouse-events.idl
   Interface:
     Name: CapturedMouseEvent
     Inherits: Event
@@ -1522,7 +1522,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: captured-mouse-events.idl
+- File: webref/captured-mouse-events.idl
   Dict:
     Name: CapturedMouseEventInit
     Inherits: EventInit
@@ -1547,7 +1547,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: cssom-view.idl
+- File: webref/cssom-view.idl
   Interface:
     Name: CaretPosition
     ExtAttrs:
@@ -1581,20 +1581,20 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Enum:
     Name: ChannelCountMode
     Values:
       - max
       - clamped-max
       - explicit
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Enum:
     Name: ChannelInterpretation
     Values:
       - speakers
       - discrete
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: ChannelMergerNode
     Inherits: AudioNode
@@ -1616,7 +1616,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: ChannelMergerOptions
     Inherits: AudioNodeOptions
@@ -1634,7 +1634,7 @@
       - Name: channelInterpretation
         Type:
           Name: ChannelInterpretation
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: ChannelSplitterNode
     Inherits: AudioNode
@@ -1656,7 +1656,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: ChannelSplitterOptions
     Inherits: AudioNodeOptions
@@ -1674,7 +1674,7 @@
       - Name: channelInterpretation
         Type:
           Name: ChannelInterpretation
-- File: edit-context.idl
+- File: webref/edit-context.idl
   Interface:
     Name: CharacterBoundsUpdateEvent
     Inherits: Event
@@ -1713,7 +1713,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: edit-context.idl
+- File: webref/edit-context.idl
   Dict:
     Name: CharacterBoundsUpdateEventInit
     Inherits: EventInit
@@ -1736,7 +1736,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: CharacterData
     Inherits: Node
@@ -1886,7 +1886,7 @@
         ExtAttrs:
           - Name: CEReactions
           - Name: Unscopable
-- File: cssom-view.idl
+- File: webref/cssom-view.idl
   Dict:
     Name: CheckVisibilityOptions
     Fields:
@@ -1898,7 +1898,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: css-layout-api.idl
+- File: webref/css-layout-api.idl
   Interface:
     Name: ChildBreakToken
     ExtAttrs:
@@ -1922,13 +1922,13 @@
           - Name: Exposed
             Values:
               - LayoutWorklet
-- File: css-layout-api.idl
+- File: webref/css-layout-api.idl
   Enum:
     Name: ChildDisplayType
     Values:
       - block
       - normal
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Interface:
     Name: Client
     ExtAttrs:
@@ -2005,13 +2005,13 @@
           - Name: Exposed
             Values:
               - ServiceWorker
-- File: page-lifecycle.idl
+- File: webref/page-lifecycle.idl
   Enum:
     Name: ClientLifecycleState
     Values:
       - active
       - frozen
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Dict:
     Name: ClientQueryOptions
     Fields:
@@ -2023,7 +2023,7 @@
         Default: '"window"'
         Type:
           Name: ClientType
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Enum:
     Name: ClientType
     Values:
@@ -2031,7 +2031,7 @@
       - worker
       - sharedworker
       - all
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Interface:
     Name: Clients
     ExtAttrs:
@@ -2098,7 +2098,7 @@
           - Name: Exposed
             Values:
               - ServiceWorker
-- File: clipboard-apis.idl
+- File: webref/clipboard-apis.idl
   Interface:
     Name: Clipboard
     Inherits: EventTarget

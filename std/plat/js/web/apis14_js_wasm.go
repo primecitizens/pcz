@@ -4,18 +4,9 @@
 package web
 
 import (
-	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 type VideoTransferCharacteristics uint32
 
@@ -125,17 +116,22 @@ func (p VideoColorSpaceInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p VideoColorSpaceInit) UpdateFrom(ref js.Ref) {
+func (p *VideoColorSpaceInit) UpdateFrom(ref js.Ref) {
 	bindings.VideoColorSpaceInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p VideoColorSpaceInit) Update(ref js.Ref) {
+func (p *VideoColorSpaceInit) Update(ref js.Ref) {
 	bindings.VideoColorSpaceInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *VideoColorSpaceInit) FreeMembers(recursive bool) {
 }
 
 type VideoFrameBufferInit struct {
@@ -215,17 +211,32 @@ func (p VideoFrameBufferInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p VideoFrameBufferInit) UpdateFrom(ref js.Ref) {
+func (p *VideoFrameBufferInit) UpdateFrom(ref js.Ref) {
 	bindings.VideoFrameBufferInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p VideoFrameBufferInit) Update(ref js.Ref) {
+func (p *VideoFrameBufferInit) Update(ref js.Ref) {
 	bindings.VideoFrameBufferInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *VideoFrameBufferInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Layout.Ref(),
+		p.Transfer.Ref(),
+	)
+	p.Layout = p.Layout.FromRef(js.Undefined)
+	p.Transfer = p.Transfer.FromRef(js.Undefined)
+	if recursive {
+		p.VisibleRect.FreeMembers(true)
+		p.ColorSpace.FreeMembers(true)
+	}
 }
 
 type VideoFrameCopyToOptions struct {
@@ -257,17 +268,29 @@ func (p VideoFrameCopyToOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p VideoFrameCopyToOptions) UpdateFrom(ref js.Ref) {
+func (p *VideoFrameCopyToOptions) UpdateFrom(ref js.Ref) {
 	bindings.VideoFrameCopyToOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p VideoFrameCopyToOptions) Update(ref js.Ref) {
+func (p *VideoFrameCopyToOptions) Update(ref js.Ref) {
 	bindings.VideoFrameCopyToOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *VideoFrameCopyToOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Layout.Ref(),
+	)
+	p.Layout = p.Layout.FromRef(js.Undefined)
+	if recursive {
+		p.Rect.FreeMembers(true)
+	}
 }
 
 func NewVideoColorSpace(init VideoColorSpaceInit) (ret VideoColorSpace) {
@@ -286,7 +309,7 @@ type VideoColorSpace struct {
 }
 
 func (this VideoColorSpace) Once() VideoColorSpace {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -300,7 +323,7 @@ func (this VideoColorSpace) FromRef(ref js.Ref) VideoColorSpace {
 }
 
 func (this VideoColorSpace) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Primaries returns the value of property "VideoColorSpace.primaries".
@@ -308,7 +331,7 @@ func (this VideoColorSpace) Free() {
 // It returns ok=false if there is no such property.
 func (this VideoColorSpace) Primaries() (ret VideoColorPrimaries, ok bool) {
 	ok = js.True == bindings.GetVideoColorSpacePrimaries(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -318,7 +341,7 @@ func (this VideoColorSpace) Primaries() (ret VideoColorPrimaries, ok bool) {
 // It returns ok=false if there is no such property.
 func (this VideoColorSpace) Transfer() (ret VideoTransferCharacteristics, ok bool) {
 	ok = js.True == bindings.GetVideoColorSpaceTransfer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -328,7 +351,7 @@ func (this VideoColorSpace) Transfer() (ret VideoTransferCharacteristics, ok boo
 // It returns ok=false if there is no such property.
 func (this VideoColorSpace) Matrix() (ret VideoMatrixCoefficients, ok bool) {
 	ok = js.True == bindings.GetVideoColorSpaceMatrix(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -338,31 +361,30 @@ func (this VideoColorSpace) Matrix() (ret VideoMatrixCoefficients, ok bool) {
 // It returns ok=false if there is no such property.
 func (this VideoColorSpace) FullRange() (ret bool, ok bool) {
 	ok = js.True == bindings.GetVideoColorSpaceFullRange(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasToJSON returns true if the method "VideoColorSpace.toJSON" exists.
-func (this VideoColorSpace) HasToJSON() bool {
-	return js.True == bindings.HasVideoColorSpaceToJSON(
-		this.Ref(),
+// HasFuncToJSON returns true if the method "VideoColorSpace.toJSON" exists.
+func (this VideoColorSpace) HasFuncToJSON() bool {
+	return js.True == bindings.HasFuncVideoColorSpaceToJSON(
+		this.ref,
 	)
 }
 
-// ToJSONFunc returns the method "VideoColorSpace.toJSON".
-func (this VideoColorSpace) ToJSONFunc() (fn js.Func[func() VideoColorSpaceInit]) {
-	return fn.FromRef(
-		bindings.VideoColorSpaceToJSONFunc(
-			this.Ref(),
-		),
+// FuncToJSON returns the method "VideoColorSpace.toJSON".
+func (this VideoColorSpace) FuncToJSON() (fn js.Func[func() VideoColorSpaceInit]) {
+	bindings.FuncVideoColorSpaceToJSON(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ToJSON calls the method "VideoColorSpace.toJSON".
 func (this VideoColorSpace) ToJSON() (ret VideoColorSpaceInit) {
 	bindings.CallVideoColorSpaceToJSON(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -373,7 +395,7 @@ func (this VideoColorSpace) ToJSON() (ret VideoColorSpaceInit) {
 // the catch clause.
 func (this VideoColorSpace) TryToJSON() (ret VideoColorSpaceInit, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoColorSpaceToJSON(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -404,7 +426,7 @@ type VideoFrame struct {
 }
 
 func (this VideoFrame) Once() VideoFrame {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -418,7 +440,7 @@ func (this VideoFrame) FromRef(ref js.Ref) VideoFrame {
 }
 
 func (this VideoFrame) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Format returns the value of property "VideoFrame.format".
@@ -426,7 +448,7 @@ func (this VideoFrame) Free() {
 // It returns ok=false if there is no such property.
 func (this VideoFrame) Format() (ret VideoPixelFormat, ok bool) {
 	ok = js.True == bindings.GetVideoFrameFormat(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -436,7 +458,7 @@ func (this VideoFrame) Format() (ret VideoPixelFormat, ok bool) {
 // It returns ok=false if there is no such property.
 func (this VideoFrame) CodedWidth() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetVideoFrameCodedWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -446,7 +468,7 @@ func (this VideoFrame) CodedWidth() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this VideoFrame) CodedHeight() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetVideoFrameCodedHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -456,7 +478,7 @@ func (this VideoFrame) CodedHeight() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this VideoFrame) CodedRect() (ret DOMRectReadOnly, ok bool) {
 	ok = js.True == bindings.GetVideoFrameCodedRect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -466,7 +488,7 @@ func (this VideoFrame) CodedRect() (ret DOMRectReadOnly, ok bool) {
 // It returns ok=false if there is no such property.
 func (this VideoFrame) VisibleRect() (ret DOMRectReadOnly, ok bool) {
 	ok = js.True == bindings.GetVideoFrameVisibleRect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -476,7 +498,7 @@ func (this VideoFrame) VisibleRect() (ret DOMRectReadOnly, ok bool) {
 // It returns ok=false if there is no such property.
 func (this VideoFrame) DisplayWidth() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetVideoFrameDisplayWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -486,7 +508,7 @@ func (this VideoFrame) DisplayWidth() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this VideoFrame) DisplayHeight() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetVideoFrameDisplayHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -496,7 +518,7 @@ func (this VideoFrame) DisplayHeight() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this VideoFrame) Duration() (ret uint64, ok bool) {
 	ok = js.True == bindings.GetVideoFrameDuration(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -506,7 +528,7 @@ func (this VideoFrame) Duration() (ret uint64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this VideoFrame) Timestamp() (ret int64, ok bool) {
 	ok = js.True == bindings.GetVideoFrameTimestamp(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -516,31 +538,30 @@ func (this VideoFrame) Timestamp() (ret int64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this VideoFrame) ColorSpace() (ret VideoColorSpace, ok bool) {
 	ok = js.True == bindings.GetVideoFrameColorSpace(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasMetadata returns true if the method "VideoFrame.metadata" exists.
-func (this VideoFrame) HasMetadata() bool {
-	return js.True == bindings.HasVideoFrameMetadata(
-		this.Ref(),
+// HasFuncMetadata returns true if the method "VideoFrame.metadata" exists.
+func (this VideoFrame) HasFuncMetadata() bool {
+	return js.True == bindings.HasFuncVideoFrameMetadata(
+		this.ref,
 	)
 }
 
-// MetadataFunc returns the method "VideoFrame.metadata".
-func (this VideoFrame) MetadataFunc() (fn js.Func[func() VideoFrameMetadata]) {
-	return fn.FromRef(
-		bindings.VideoFrameMetadataFunc(
-			this.Ref(),
-		),
+// FuncMetadata returns the method "VideoFrame.metadata".
+func (this VideoFrame) FuncMetadata() (fn js.Func[func() VideoFrameMetadata]) {
+	bindings.FuncVideoFrameMetadata(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Metadata calls the method "VideoFrame.metadata".
 func (this VideoFrame) Metadata() (ret VideoFrameMetadata) {
 	bindings.CallVideoFrameMetadata(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -551,32 +572,31 @@ func (this VideoFrame) Metadata() (ret VideoFrameMetadata) {
 // the catch clause.
 func (this VideoFrame) TryMetadata() (ret VideoFrameMetadata, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoFrameMetadata(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasAllocationSize returns true if the method "VideoFrame.allocationSize" exists.
-func (this VideoFrame) HasAllocationSize() bool {
-	return js.True == bindings.HasVideoFrameAllocationSize(
-		this.Ref(),
+// HasFuncAllocationSize returns true if the method "VideoFrame.allocationSize" exists.
+func (this VideoFrame) HasFuncAllocationSize() bool {
+	return js.True == bindings.HasFuncVideoFrameAllocationSize(
+		this.ref,
 	)
 }
 
-// AllocationSizeFunc returns the method "VideoFrame.allocationSize".
-func (this VideoFrame) AllocationSizeFunc() (fn js.Func[func(options VideoFrameCopyToOptions) uint32]) {
-	return fn.FromRef(
-		bindings.VideoFrameAllocationSizeFunc(
-			this.Ref(),
-		),
+// FuncAllocationSize returns the method "VideoFrame.allocationSize".
+func (this VideoFrame) FuncAllocationSize() (fn js.Func[func(options VideoFrameCopyToOptions) uint32]) {
+	bindings.FuncVideoFrameAllocationSize(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AllocationSize calls the method "VideoFrame.allocationSize".
 func (this VideoFrame) AllocationSize(options VideoFrameCopyToOptions) (ret uint32) {
 	bindings.CallVideoFrameAllocationSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -588,33 +608,32 @@ func (this VideoFrame) AllocationSize(options VideoFrameCopyToOptions) (ret uint
 // the catch clause.
 func (this VideoFrame) TryAllocationSize(options VideoFrameCopyToOptions) (ret uint32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoFrameAllocationSize(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasAllocationSize1 returns true if the method "VideoFrame.allocationSize" exists.
-func (this VideoFrame) HasAllocationSize1() bool {
-	return js.True == bindings.HasVideoFrameAllocationSize1(
-		this.Ref(),
+// HasFuncAllocationSize1 returns true if the method "VideoFrame.allocationSize" exists.
+func (this VideoFrame) HasFuncAllocationSize1() bool {
+	return js.True == bindings.HasFuncVideoFrameAllocationSize1(
+		this.ref,
 	)
 }
 
-// AllocationSize1Func returns the method "VideoFrame.allocationSize".
-func (this VideoFrame) AllocationSize1Func() (fn js.Func[func() uint32]) {
-	return fn.FromRef(
-		bindings.VideoFrameAllocationSize1Func(
-			this.Ref(),
-		),
+// FuncAllocationSize1 returns the method "VideoFrame.allocationSize".
+func (this VideoFrame) FuncAllocationSize1() (fn js.Func[func() uint32]) {
+	bindings.FuncVideoFrameAllocationSize1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AllocationSize1 calls the method "VideoFrame.allocationSize".
 func (this VideoFrame) AllocationSize1() (ret uint32) {
 	bindings.CallVideoFrameAllocationSize1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -625,32 +644,31 @@ func (this VideoFrame) AllocationSize1() (ret uint32) {
 // the catch clause.
 func (this VideoFrame) TryAllocationSize1() (ret uint32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoFrameAllocationSize1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCopyTo returns true if the method "VideoFrame.copyTo" exists.
-func (this VideoFrame) HasCopyTo() bool {
-	return js.True == bindings.HasVideoFrameCopyTo(
-		this.Ref(),
+// HasFuncCopyTo returns true if the method "VideoFrame.copyTo" exists.
+func (this VideoFrame) HasFuncCopyTo() bool {
+	return js.True == bindings.HasFuncVideoFrameCopyTo(
+		this.ref,
 	)
 }
 
-// CopyToFunc returns the method "VideoFrame.copyTo".
-func (this VideoFrame) CopyToFunc() (fn js.Func[func(destination AllowSharedBufferSource, options VideoFrameCopyToOptions) js.Promise[js.Array[PlaneLayout]]]) {
-	return fn.FromRef(
-		bindings.VideoFrameCopyToFunc(
-			this.Ref(),
-		),
+// FuncCopyTo returns the method "VideoFrame.copyTo".
+func (this VideoFrame) FuncCopyTo() (fn js.Func[func(destination AllowSharedBufferSource, options VideoFrameCopyToOptions) js.Promise[js.Array[PlaneLayout]]]) {
+	bindings.FuncVideoFrameCopyTo(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CopyTo calls the method "VideoFrame.copyTo".
 func (this VideoFrame) CopyTo(destination AllowSharedBufferSource, options VideoFrameCopyToOptions) (ret js.Promise[js.Array[PlaneLayout]]) {
 	bindings.CallVideoFrameCopyTo(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		destination.Ref(),
 		js.Pointer(&options),
 	)
@@ -663,7 +681,7 @@ func (this VideoFrame) CopyTo(destination AllowSharedBufferSource, options Video
 // the catch clause.
 func (this VideoFrame) TryCopyTo(destination AllowSharedBufferSource, options VideoFrameCopyToOptions) (ret js.Promise[js.Array[PlaneLayout]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoFrameCopyTo(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		destination.Ref(),
 		js.Pointer(&options),
 	)
@@ -671,26 +689,25 @@ func (this VideoFrame) TryCopyTo(destination AllowSharedBufferSource, options Vi
 	return
 }
 
-// HasCopyTo1 returns true if the method "VideoFrame.copyTo" exists.
-func (this VideoFrame) HasCopyTo1() bool {
-	return js.True == bindings.HasVideoFrameCopyTo1(
-		this.Ref(),
+// HasFuncCopyTo1 returns true if the method "VideoFrame.copyTo" exists.
+func (this VideoFrame) HasFuncCopyTo1() bool {
+	return js.True == bindings.HasFuncVideoFrameCopyTo1(
+		this.ref,
 	)
 }
 
-// CopyTo1Func returns the method "VideoFrame.copyTo".
-func (this VideoFrame) CopyTo1Func() (fn js.Func[func(destination AllowSharedBufferSource) js.Promise[js.Array[PlaneLayout]]]) {
-	return fn.FromRef(
-		bindings.VideoFrameCopyTo1Func(
-			this.Ref(),
-		),
+// FuncCopyTo1 returns the method "VideoFrame.copyTo".
+func (this VideoFrame) FuncCopyTo1() (fn js.Func[func(destination AllowSharedBufferSource) js.Promise[js.Array[PlaneLayout]]]) {
+	bindings.FuncVideoFrameCopyTo1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CopyTo1 calls the method "VideoFrame.copyTo".
 func (this VideoFrame) CopyTo1(destination AllowSharedBufferSource) (ret js.Promise[js.Array[PlaneLayout]]) {
 	bindings.CallVideoFrameCopyTo1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		destination.Ref(),
 	)
 
@@ -702,33 +719,32 @@ func (this VideoFrame) CopyTo1(destination AllowSharedBufferSource) (ret js.Prom
 // the catch clause.
 func (this VideoFrame) TryCopyTo1(destination AllowSharedBufferSource) (ret js.Promise[js.Array[PlaneLayout]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoFrameCopyTo1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		destination.Ref(),
 	)
 
 	return
 }
 
-// HasClone returns true if the method "VideoFrame.clone" exists.
-func (this VideoFrame) HasClone() bool {
-	return js.True == bindings.HasVideoFrameClone(
-		this.Ref(),
+// HasFuncClone returns true if the method "VideoFrame.clone" exists.
+func (this VideoFrame) HasFuncClone() bool {
+	return js.True == bindings.HasFuncVideoFrameClone(
+		this.ref,
 	)
 }
 
-// CloneFunc returns the method "VideoFrame.clone".
-func (this VideoFrame) CloneFunc() (fn js.Func[func() VideoFrame]) {
-	return fn.FromRef(
-		bindings.VideoFrameCloneFunc(
-			this.Ref(),
-		),
+// FuncClone returns the method "VideoFrame.clone".
+func (this VideoFrame) FuncClone() (fn js.Func[func() VideoFrame]) {
+	bindings.FuncVideoFrameClone(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Clone calls the method "VideoFrame.clone".
 func (this VideoFrame) Clone() (ret VideoFrame) {
 	bindings.CallVideoFrameClone(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -739,32 +755,31 @@ func (this VideoFrame) Clone() (ret VideoFrame) {
 // the catch clause.
 func (this VideoFrame) TryClone() (ret VideoFrame, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoFrameClone(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasClose returns true if the method "VideoFrame.close" exists.
-func (this VideoFrame) HasClose() bool {
-	return js.True == bindings.HasVideoFrameClose(
-		this.Ref(),
+// HasFuncClose returns true if the method "VideoFrame.close" exists.
+func (this VideoFrame) HasFuncClose() bool {
+	return js.True == bindings.HasFuncVideoFrameClose(
+		this.ref,
 	)
 }
 
-// CloseFunc returns the method "VideoFrame.close".
-func (this VideoFrame) CloseFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.VideoFrameCloseFunc(
-			this.Ref(),
-		),
+// FuncClose returns the method "VideoFrame.close".
+func (this VideoFrame) FuncClose() (fn js.Func[func()]) {
+	bindings.FuncVideoFrameClose(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Close calls the method "VideoFrame.close".
 func (this VideoFrame) Close() (ret js.Void) {
 	bindings.CallVideoFrameClose(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -775,7 +790,7 @@ func (this VideoFrame) Close() (ret js.Void) {
 // the catch clause.
 func (this VideoFrame) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoFrameClose(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -862,7 +877,7 @@ type WebGLRenderingContext struct {
 }
 
 func (this WebGLRenderingContext) Once() WebGLRenderingContext {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -876,7 +891,7 @@ func (this WebGLRenderingContext) FromRef(ref js.Ref) WebGLRenderingContext {
 }
 
 func (this WebGLRenderingContext) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Canvas returns the value of property "WebGLRenderingContext.canvas".
@@ -884,7 +899,7 @@ func (this WebGLRenderingContext) Free() {
 // It returns ok=false if there is no such property.
 func (this WebGLRenderingContext) Canvas() (ret OneOf_HTMLCanvasElement_OffscreenCanvas, ok bool) {
 	ok = js.True == bindings.GetWebGLRenderingContextCanvas(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -894,7 +909,7 @@ func (this WebGLRenderingContext) Canvas() (ret OneOf_HTMLCanvasElement_Offscree
 // It returns ok=false if there is no such property.
 func (this WebGLRenderingContext) DrawingBufferWidth() (ret GLsizei, ok bool) {
 	ok = js.True == bindings.GetWebGLRenderingContextDrawingBufferWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -904,7 +919,7 @@ func (this WebGLRenderingContext) DrawingBufferWidth() (ret GLsizei, ok bool) {
 // It returns ok=false if there is no such property.
 func (this WebGLRenderingContext) DrawingBufferHeight() (ret GLsizei, ok bool) {
 	ok = js.True == bindings.GetWebGLRenderingContextDrawingBufferHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -914,7 +929,7 @@ func (this WebGLRenderingContext) DrawingBufferHeight() (ret GLsizei, ok bool) {
 // It returns ok=false if there is no such property.
 func (this WebGLRenderingContext) DrawingBufferColorSpace() (ret PredefinedColorSpace, ok bool) {
 	ok = js.True == bindings.GetWebGLRenderingContextDrawingBufferColorSpace(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -924,7 +939,7 @@ func (this WebGLRenderingContext) DrawingBufferColorSpace() (ret PredefinedColor
 // It returns false if the property cannot be set.
 func (this WebGLRenderingContext) SetDrawingBufferColorSpace(val PredefinedColorSpace) bool {
 	return js.True == bindings.SetWebGLRenderingContextDrawingBufferColorSpace(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
@@ -934,7 +949,7 @@ func (this WebGLRenderingContext) SetDrawingBufferColorSpace(val PredefinedColor
 // It returns ok=false if there is no such property.
 func (this WebGLRenderingContext) UnpackColorSpace() (ret PredefinedColorSpace, ok bool) {
 	ok = js.True == bindings.GetWebGLRenderingContextUnpackColorSpace(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -944,31 +959,30 @@ func (this WebGLRenderingContext) UnpackColorSpace() (ret PredefinedColorSpace, 
 // It returns false if the property cannot be set.
 func (this WebGLRenderingContext) SetUnpackColorSpace(val PredefinedColorSpace) bool {
 	return js.True == bindings.SetWebGLRenderingContextUnpackColorSpace(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
 
-// HasGetContextAttributes returns true if the method "WebGLRenderingContext.getContextAttributes" exists.
-func (this WebGLRenderingContext) HasGetContextAttributes() bool {
-	return js.True == bindings.HasWebGLRenderingContextGetContextAttributes(
-		this.Ref(),
+// HasFuncGetContextAttributes returns true if the method "WebGLRenderingContext.getContextAttributes" exists.
+func (this WebGLRenderingContext) HasFuncGetContextAttributes() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextGetContextAttributes(
+		this.ref,
 	)
 }
 
-// GetContextAttributesFunc returns the method "WebGLRenderingContext.getContextAttributes".
-func (this WebGLRenderingContext) GetContextAttributesFunc() (fn js.Func[func() WebGLContextAttributes]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextGetContextAttributesFunc(
-			this.Ref(),
-		),
+// FuncGetContextAttributes returns the method "WebGLRenderingContext.getContextAttributes".
+func (this WebGLRenderingContext) FuncGetContextAttributes() (fn js.Func[func() WebGLContextAttributes]) {
+	bindings.FuncWebGLRenderingContextGetContextAttributes(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetContextAttributes calls the method "WebGLRenderingContext.getContextAttributes".
 func (this WebGLRenderingContext) GetContextAttributes() (ret WebGLContextAttributes) {
 	bindings.CallWebGLRenderingContextGetContextAttributes(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -979,32 +993,31 @@ func (this WebGLRenderingContext) GetContextAttributes() (ret WebGLContextAttrib
 // the catch clause.
 func (this WebGLRenderingContext) TryGetContextAttributes() (ret WebGLContextAttributes, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetContextAttributes(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasIsContextLost returns true if the method "WebGLRenderingContext.isContextLost" exists.
-func (this WebGLRenderingContext) HasIsContextLost() bool {
-	return js.True == bindings.HasWebGLRenderingContextIsContextLost(
-		this.Ref(),
+// HasFuncIsContextLost returns true if the method "WebGLRenderingContext.isContextLost" exists.
+func (this WebGLRenderingContext) HasFuncIsContextLost() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextIsContextLost(
+		this.ref,
 	)
 }
 
-// IsContextLostFunc returns the method "WebGLRenderingContext.isContextLost".
-func (this WebGLRenderingContext) IsContextLostFunc() (fn js.Func[func() bool]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextIsContextLostFunc(
-			this.Ref(),
-		),
+// FuncIsContextLost returns the method "WebGLRenderingContext.isContextLost".
+func (this WebGLRenderingContext) FuncIsContextLost() (fn js.Func[func() bool]) {
+	bindings.FuncWebGLRenderingContextIsContextLost(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsContextLost calls the method "WebGLRenderingContext.isContextLost".
 func (this WebGLRenderingContext) IsContextLost() (ret bool) {
 	bindings.CallWebGLRenderingContextIsContextLost(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1015,32 +1028,31 @@ func (this WebGLRenderingContext) IsContextLost() (ret bool) {
 // the catch clause.
 func (this WebGLRenderingContext) TryIsContextLost() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextIsContextLost(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetSupportedExtensions returns true if the method "WebGLRenderingContext.getSupportedExtensions" exists.
-func (this WebGLRenderingContext) HasGetSupportedExtensions() bool {
-	return js.True == bindings.HasWebGLRenderingContextGetSupportedExtensions(
-		this.Ref(),
+// HasFuncGetSupportedExtensions returns true if the method "WebGLRenderingContext.getSupportedExtensions" exists.
+func (this WebGLRenderingContext) HasFuncGetSupportedExtensions() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextGetSupportedExtensions(
+		this.ref,
 	)
 }
 
-// GetSupportedExtensionsFunc returns the method "WebGLRenderingContext.getSupportedExtensions".
-func (this WebGLRenderingContext) GetSupportedExtensionsFunc() (fn js.Func[func() js.Array[js.String]]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextGetSupportedExtensionsFunc(
-			this.Ref(),
-		),
+// FuncGetSupportedExtensions returns the method "WebGLRenderingContext.getSupportedExtensions".
+func (this WebGLRenderingContext) FuncGetSupportedExtensions() (fn js.Func[func() js.Array[js.String]]) {
+	bindings.FuncWebGLRenderingContextGetSupportedExtensions(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetSupportedExtensions calls the method "WebGLRenderingContext.getSupportedExtensions".
 func (this WebGLRenderingContext) GetSupportedExtensions() (ret js.Array[js.String]) {
 	bindings.CallWebGLRenderingContextGetSupportedExtensions(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1051,32 +1063,31 @@ func (this WebGLRenderingContext) GetSupportedExtensions() (ret js.Array[js.Stri
 // the catch clause.
 func (this WebGLRenderingContext) TryGetSupportedExtensions() (ret js.Array[js.String], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetSupportedExtensions(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetExtension returns true if the method "WebGLRenderingContext.getExtension" exists.
-func (this WebGLRenderingContext) HasGetExtension() bool {
-	return js.True == bindings.HasWebGLRenderingContextGetExtension(
-		this.Ref(),
+// HasFuncGetExtension returns true if the method "WebGLRenderingContext.getExtension" exists.
+func (this WebGLRenderingContext) HasFuncGetExtension() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextGetExtension(
+		this.ref,
 	)
 }
 
-// GetExtensionFunc returns the method "WebGLRenderingContext.getExtension".
-func (this WebGLRenderingContext) GetExtensionFunc() (fn js.Func[func(name js.String) js.Object]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextGetExtensionFunc(
-			this.Ref(),
-		),
+// FuncGetExtension returns the method "WebGLRenderingContext.getExtension".
+func (this WebGLRenderingContext) FuncGetExtension() (fn js.Func[func(name js.String) js.Object]) {
+	bindings.FuncWebGLRenderingContextGetExtension(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetExtension calls the method "WebGLRenderingContext.getExtension".
 func (this WebGLRenderingContext) GetExtension(name js.String) (ret js.Object) {
 	bindings.CallWebGLRenderingContextGetExtension(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 	)
 
@@ -1088,33 +1099,32 @@ func (this WebGLRenderingContext) GetExtension(name js.String) (ret js.Object) {
 // the catch clause.
 func (this WebGLRenderingContext) TryGetExtension(name js.String) (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetExtension(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 	)
 
 	return
 }
 
-// HasActiveTexture returns true if the method "WebGLRenderingContext.activeTexture" exists.
-func (this WebGLRenderingContext) HasActiveTexture() bool {
-	return js.True == bindings.HasWebGLRenderingContextActiveTexture(
-		this.Ref(),
+// HasFuncActiveTexture returns true if the method "WebGLRenderingContext.activeTexture" exists.
+func (this WebGLRenderingContext) HasFuncActiveTexture() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextActiveTexture(
+		this.ref,
 	)
 }
 
-// ActiveTextureFunc returns the method "WebGLRenderingContext.activeTexture".
-func (this WebGLRenderingContext) ActiveTextureFunc() (fn js.Func[func(texture GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextActiveTextureFunc(
-			this.Ref(),
-		),
+// FuncActiveTexture returns the method "WebGLRenderingContext.activeTexture".
+func (this WebGLRenderingContext) FuncActiveTexture() (fn js.Func[func(texture GLenum)]) {
+	bindings.FuncWebGLRenderingContextActiveTexture(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ActiveTexture calls the method "WebGLRenderingContext.activeTexture".
 func (this WebGLRenderingContext) ActiveTexture(texture GLenum) (ret js.Void) {
 	bindings.CallWebGLRenderingContextActiveTexture(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(texture),
 	)
 
@@ -1126,33 +1136,32 @@ func (this WebGLRenderingContext) ActiveTexture(texture GLenum) (ret js.Void) {
 // the catch clause.
 func (this WebGLRenderingContext) TryActiveTexture(texture GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextActiveTexture(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(texture),
 	)
 
 	return
 }
 
-// HasAttachShader returns true if the method "WebGLRenderingContext.attachShader" exists.
-func (this WebGLRenderingContext) HasAttachShader() bool {
-	return js.True == bindings.HasWebGLRenderingContextAttachShader(
-		this.Ref(),
+// HasFuncAttachShader returns true if the method "WebGLRenderingContext.attachShader" exists.
+func (this WebGLRenderingContext) HasFuncAttachShader() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextAttachShader(
+		this.ref,
 	)
 }
 
-// AttachShaderFunc returns the method "WebGLRenderingContext.attachShader".
-func (this WebGLRenderingContext) AttachShaderFunc() (fn js.Func[func(program WebGLProgram, shader WebGLShader)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextAttachShaderFunc(
-			this.Ref(),
-		),
+// FuncAttachShader returns the method "WebGLRenderingContext.attachShader".
+func (this WebGLRenderingContext) FuncAttachShader() (fn js.Func[func(program WebGLProgram, shader WebGLShader)]) {
+	bindings.FuncWebGLRenderingContextAttachShader(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AttachShader calls the method "WebGLRenderingContext.attachShader".
 func (this WebGLRenderingContext) AttachShader(program WebGLProgram, shader WebGLShader) (ret js.Void) {
 	bindings.CallWebGLRenderingContextAttachShader(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		shader.Ref(),
 	)
@@ -1165,7 +1174,7 @@ func (this WebGLRenderingContext) AttachShader(program WebGLProgram, shader WebG
 // the catch clause.
 func (this WebGLRenderingContext) TryAttachShader(program WebGLProgram, shader WebGLShader) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextAttachShader(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		shader.Ref(),
 	)
@@ -1173,26 +1182,25 @@ func (this WebGLRenderingContext) TryAttachShader(program WebGLProgram, shader W
 	return
 }
 
-// HasBindAttribLocation returns true if the method "WebGLRenderingContext.bindAttribLocation" exists.
-func (this WebGLRenderingContext) HasBindAttribLocation() bool {
-	return js.True == bindings.HasWebGLRenderingContextBindAttribLocation(
-		this.Ref(),
+// HasFuncBindAttribLocation returns true if the method "WebGLRenderingContext.bindAttribLocation" exists.
+func (this WebGLRenderingContext) HasFuncBindAttribLocation() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextBindAttribLocation(
+		this.ref,
 	)
 }
 
-// BindAttribLocationFunc returns the method "WebGLRenderingContext.bindAttribLocation".
-func (this WebGLRenderingContext) BindAttribLocationFunc() (fn js.Func[func(program WebGLProgram, index GLuint, name js.String)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextBindAttribLocationFunc(
-			this.Ref(),
-		),
+// FuncBindAttribLocation returns the method "WebGLRenderingContext.bindAttribLocation".
+func (this WebGLRenderingContext) FuncBindAttribLocation() (fn js.Func[func(program WebGLProgram, index GLuint, name js.String)]) {
+	bindings.FuncWebGLRenderingContextBindAttribLocation(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BindAttribLocation calls the method "WebGLRenderingContext.bindAttribLocation".
 func (this WebGLRenderingContext) BindAttribLocation(program WebGLProgram, index GLuint, name js.String) (ret js.Void) {
 	bindings.CallWebGLRenderingContextBindAttribLocation(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		uint32(index),
 		name.Ref(),
@@ -1206,7 +1214,7 @@ func (this WebGLRenderingContext) BindAttribLocation(program WebGLProgram, index
 // the catch clause.
 func (this WebGLRenderingContext) TryBindAttribLocation(program WebGLProgram, index GLuint, name js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBindAttribLocation(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		uint32(index),
 		name.Ref(),
@@ -1215,26 +1223,25 @@ func (this WebGLRenderingContext) TryBindAttribLocation(program WebGLProgram, in
 	return
 }
 
-// HasBindBuffer returns true if the method "WebGLRenderingContext.bindBuffer" exists.
-func (this WebGLRenderingContext) HasBindBuffer() bool {
-	return js.True == bindings.HasWebGLRenderingContextBindBuffer(
-		this.Ref(),
+// HasFuncBindBuffer returns true if the method "WebGLRenderingContext.bindBuffer" exists.
+func (this WebGLRenderingContext) HasFuncBindBuffer() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextBindBuffer(
+		this.ref,
 	)
 }
 
-// BindBufferFunc returns the method "WebGLRenderingContext.bindBuffer".
-func (this WebGLRenderingContext) BindBufferFunc() (fn js.Func[func(target GLenum, buffer WebGLBuffer)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextBindBufferFunc(
-			this.Ref(),
-		),
+// FuncBindBuffer returns the method "WebGLRenderingContext.bindBuffer".
+func (this WebGLRenderingContext) FuncBindBuffer() (fn js.Func[func(target GLenum, buffer WebGLBuffer)]) {
+	bindings.FuncWebGLRenderingContextBindBuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BindBuffer calls the method "WebGLRenderingContext.bindBuffer".
 func (this WebGLRenderingContext) BindBuffer(target GLenum, buffer WebGLBuffer) (ret js.Void) {
 	bindings.CallWebGLRenderingContextBindBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		buffer.Ref(),
 	)
@@ -1247,7 +1254,7 @@ func (this WebGLRenderingContext) BindBuffer(target GLenum, buffer WebGLBuffer) 
 // the catch clause.
 func (this WebGLRenderingContext) TryBindBuffer(target GLenum, buffer WebGLBuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBindBuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		buffer.Ref(),
 	)
@@ -1255,26 +1262,25 @@ func (this WebGLRenderingContext) TryBindBuffer(target GLenum, buffer WebGLBuffe
 	return
 }
 
-// HasBindFramebuffer returns true if the method "WebGLRenderingContext.bindFramebuffer" exists.
-func (this WebGLRenderingContext) HasBindFramebuffer() bool {
-	return js.True == bindings.HasWebGLRenderingContextBindFramebuffer(
-		this.Ref(),
+// HasFuncBindFramebuffer returns true if the method "WebGLRenderingContext.bindFramebuffer" exists.
+func (this WebGLRenderingContext) HasFuncBindFramebuffer() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextBindFramebuffer(
+		this.ref,
 	)
 }
 
-// BindFramebufferFunc returns the method "WebGLRenderingContext.bindFramebuffer".
-func (this WebGLRenderingContext) BindFramebufferFunc() (fn js.Func[func(target GLenum, framebuffer WebGLFramebuffer)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextBindFramebufferFunc(
-			this.Ref(),
-		),
+// FuncBindFramebuffer returns the method "WebGLRenderingContext.bindFramebuffer".
+func (this WebGLRenderingContext) FuncBindFramebuffer() (fn js.Func[func(target GLenum, framebuffer WebGLFramebuffer)]) {
+	bindings.FuncWebGLRenderingContextBindFramebuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BindFramebuffer calls the method "WebGLRenderingContext.bindFramebuffer".
 func (this WebGLRenderingContext) BindFramebuffer(target GLenum, framebuffer WebGLFramebuffer) (ret js.Void) {
 	bindings.CallWebGLRenderingContextBindFramebuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		framebuffer.Ref(),
 	)
@@ -1287,7 +1293,7 @@ func (this WebGLRenderingContext) BindFramebuffer(target GLenum, framebuffer Web
 // the catch clause.
 func (this WebGLRenderingContext) TryBindFramebuffer(target GLenum, framebuffer WebGLFramebuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBindFramebuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		framebuffer.Ref(),
 	)
@@ -1295,26 +1301,25 @@ func (this WebGLRenderingContext) TryBindFramebuffer(target GLenum, framebuffer 
 	return
 }
 
-// HasBindRenderbuffer returns true if the method "WebGLRenderingContext.bindRenderbuffer" exists.
-func (this WebGLRenderingContext) HasBindRenderbuffer() bool {
-	return js.True == bindings.HasWebGLRenderingContextBindRenderbuffer(
-		this.Ref(),
+// HasFuncBindRenderbuffer returns true if the method "WebGLRenderingContext.bindRenderbuffer" exists.
+func (this WebGLRenderingContext) HasFuncBindRenderbuffer() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextBindRenderbuffer(
+		this.ref,
 	)
 }
 
-// BindRenderbufferFunc returns the method "WebGLRenderingContext.bindRenderbuffer".
-func (this WebGLRenderingContext) BindRenderbufferFunc() (fn js.Func[func(target GLenum, renderbuffer WebGLRenderbuffer)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextBindRenderbufferFunc(
-			this.Ref(),
-		),
+// FuncBindRenderbuffer returns the method "WebGLRenderingContext.bindRenderbuffer".
+func (this WebGLRenderingContext) FuncBindRenderbuffer() (fn js.Func[func(target GLenum, renderbuffer WebGLRenderbuffer)]) {
+	bindings.FuncWebGLRenderingContextBindRenderbuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BindRenderbuffer calls the method "WebGLRenderingContext.bindRenderbuffer".
 func (this WebGLRenderingContext) BindRenderbuffer(target GLenum, renderbuffer WebGLRenderbuffer) (ret js.Void) {
 	bindings.CallWebGLRenderingContextBindRenderbuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		renderbuffer.Ref(),
 	)
@@ -1327,7 +1332,7 @@ func (this WebGLRenderingContext) BindRenderbuffer(target GLenum, renderbuffer W
 // the catch clause.
 func (this WebGLRenderingContext) TryBindRenderbuffer(target GLenum, renderbuffer WebGLRenderbuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBindRenderbuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		renderbuffer.Ref(),
 	)
@@ -1335,26 +1340,25 @@ func (this WebGLRenderingContext) TryBindRenderbuffer(target GLenum, renderbuffe
 	return
 }
 
-// HasBindTexture returns true if the method "WebGLRenderingContext.bindTexture" exists.
-func (this WebGLRenderingContext) HasBindTexture() bool {
-	return js.True == bindings.HasWebGLRenderingContextBindTexture(
-		this.Ref(),
+// HasFuncBindTexture returns true if the method "WebGLRenderingContext.bindTexture" exists.
+func (this WebGLRenderingContext) HasFuncBindTexture() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextBindTexture(
+		this.ref,
 	)
 }
 
-// BindTextureFunc returns the method "WebGLRenderingContext.bindTexture".
-func (this WebGLRenderingContext) BindTextureFunc() (fn js.Func[func(target GLenum, texture WebGLTexture)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextBindTextureFunc(
-			this.Ref(),
-		),
+// FuncBindTexture returns the method "WebGLRenderingContext.bindTexture".
+func (this WebGLRenderingContext) FuncBindTexture() (fn js.Func[func(target GLenum, texture WebGLTexture)]) {
+	bindings.FuncWebGLRenderingContextBindTexture(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BindTexture calls the method "WebGLRenderingContext.bindTexture".
 func (this WebGLRenderingContext) BindTexture(target GLenum, texture WebGLTexture) (ret js.Void) {
 	bindings.CallWebGLRenderingContextBindTexture(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		texture.Ref(),
 	)
@@ -1367,7 +1371,7 @@ func (this WebGLRenderingContext) BindTexture(target GLenum, texture WebGLTextur
 // the catch clause.
 func (this WebGLRenderingContext) TryBindTexture(target GLenum, texture WebGLTexture) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBindTexture(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		texture.Ref(),
 	)
@@ -1375,26 +1379,25 @@ func (this WebGLRenderingContext) TryBindTexture(target GLenum, texture WebGLTex
 	return
 }
 
-// HasBlendColor returns true if the method "WebGLRenderingContext.blendColor" exists.
-func (this WebGLRenderingContext) HasBlendColor() bool {
-	return js.True == bindings.HasWebGLRenderingContextBlendColor(
-		this.Ref(),
+// HasFuncBlendColor returns true if the method "WebGLRenderingContext.blendColor" exists.
+func (this WebGLRenderingContext) HasFuncBlendColor() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextBlendColor(
+		this.ref,
 	)
 }
 
-// BlendColorFunc returns the method "WebGLRenderingContext.blendColor".
-func (this WebGLRenderingContext) BlendColorFunc() (fn js.Func[func(red GLclampf, green GLclampf, blue GLclampf, alpha GLclampf)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextBlendColorFunc(
-			this.Ref(),
-		),
+// FuncBlendColor returns the method "WebGLRenderingContext.blendColor".
+func (this WebGLRenderingContext) FuncBlendColor() (fn js.Func[func(red GLclampf, green GLclampf, blue GLclampf, alpha GLclampf)]) {
+	bindings.FuncWebGLRenderingContextBlendColor(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BlendColor calls the method "WebGLRenderingContext.blendColor".
 func (this WebGLRenderingContext) BlendColor(red GLclampf, green GLclampf, blue GLclampf, alpha GLclampf) (ret js.Void) {
 	bindings.CallWebGLRenderingContextBlendColor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float32(red),
 		float32(green),
 		float32(blue),
@@ -1409,7 +1412,7 @@ func (this WebGLRenderingContext) BlendColor(red GLclampf, green GLclampf, blue 
 // the catch clause.
 func (this WebGLRenderingContext) TryBlendColor(red GLclampf, green GLclampf, blue GLclampf, alpha GLclampf) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBlendColor(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float32(red),
 		float32(green),
 		float32(blue),
@@ -1419,26 +1422,25 @@ func (this WebGLRenderingContext) TryBlendColor(red GLclampf, green GLclampf, bl
 	return
 }
 
-// HasBlendEquation returns true if the method "WebGLRenderingContext.blendEquation" exists.
-func (this WebGLRenderingContext) HasBlendEquation() bool {
-	return js.True == bindings.HasWebGLRenderingContextBlendEquation(
-		this.Ref(),
+// HasFuncBlendEquation returns true if the method "WebGLRenderingContext.blendEquation" exists.
+func (this WebGLRenderingContext) HasFuncBlendEquation() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextBlendEquation(
+		this.ref,
 	)
 }
 
-// BlendEquationFunc returns the method "WebGLRenderingContext.blendEquation".
-func (this WebGLRenderingContext) BlendEquationFunc() (fn js.Func[func(mode GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextBlendEquationFunc(
-			this.Ref(),
-		),
+// FuncBlendEquation returns the method "WebGLRenderingContext.blendEquation".
+func (this WebGLRenderingContext) FuncBlendEquation() (fn js.Func[func(mode GLenum)]) {
+	bindings.FuncWebGLRenderingContextBlendEquation(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BlendEquation calls the method "WebGLRenderingContext.blendEquation".
 func (this WebGLRenderingContext) BlendEquation(mode GLenum) (ret js.Void) {
 	bindings.CallWebGLRenderingContextBlendEquation(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mode),
 	)
 
@@ -1450,33 +1452,32 @@ func (this WebGLRenderingContext) BlendEquation(mode GLenum) (ret js.Void) {
 // the catch clause.
 func (this WebGLRenderingContext) TryBlendEquation(mode GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBlendEquation(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mode),
 	)
 
 	return
 }
 
-// HasBlendEquationSeparate returns true if the method "WebGLRenderingContext.blendEquationSeparate" exists.
-func (this WebGLRenderingContext) HasBlendEquationSeparate() bool {
-	return js.True == bindings.HasWebGLRenderingContextBlendEquationSeparate(
-		this.Ref(),
+// HasFuncBlendEquationSeparate returns true if the method "WebGLRenderingContext.blendEquationSeparate" exists.
+func (this WebGLRenderingContext) HasFuncBlendEquationSeparate() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextBlendEquationSeparate(
+		this.ref,
 	)
 }
 
-// BlendEquationSeparateFunc returns the method "WebGLRenderingContext.blendEquationSeparate".
-func (this WebGLRenderingContext) BlendEquationSeparateFunc() (fn js.Func[func(modeRGB GLenum, modeAlpha GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextBlendEquationSeparateFunc(
-			this.Ref(),
-		),
+// FuncBlendEquationSeparate returns the method "WebGLRenderingContext.blendEquationSeparate".
+func (this WebGLRenderingContext) FuncBlendEquationSeparate() (fn js.Func[func(modeRGB GLenum, modeAlpha GLenum)]) {
+	bindings.FuncWebGLRenderingContextBlendEquationSeparate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BlendEquationSeparate calls the method "WebGLRenderingContext.blendEquationSeparate".
 func (this WebGLRenderingContext) BlendEquationSeparate(modeRGB GLenum, modeAlpha GLenum) (ret js.Void) {
 	bindings.CallWebGLRenderingContextBlendEquationSeparate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(modeRGB),
 		uint32(modeAlpha),
 	)
@@ -1489,7 +1490,7 @@ func (this WebGLRenderingContext) BlendEquationSeparate(modeRGB GLenum, modeAlph
 // the catch clause.
 func (this WebGLRenderingContext) TryBlendEquationSeparate(modeRGB GLenum, modeAlpha GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBlendEquationSeparate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(modeRGB),
 		uint32(modeAlpha),
 	)
@@ -1497,26 +1498,25 @@ func (this WebGLRenderingContext) TryBlendEquationSeparate(modeRGB GLenum, modeA
 	return
 }
 
-// HasBlendFunc returns true if the method "WebGLRenderingContext.blendFunc" exists.
-func (this WebGLRenderingContext) HasBlendFunc() bool {
-	return js.True == bindings.HasWebGLRenderingContextBlendFunc(
-		this.Ref(),
+// HasFuncBlendFunc returns true if the method "WebGLRenderingContext.blendFunc" exists.
+func (this WebGLRenderingContext) HasFuncBlendFunc() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextBlendFunc(
+		this.ref,
 	)
 }
 
-// BlendFuncFunc returns the method "WebGLRenderingContext.blendFunc".
-func (this WebGLRenderingContext) BlendFuncFunc() (fn js.Func[func(sfactor GLenum, dfactor GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextBlendFuncFunc(
-			this.Ref(),
-		),
+// FuncBlendFunc returns the method "WebGLRenderingContext.blendFunc".
+func (this WebGLRenderingContext) FuncBlendFunc() (fn js.Func[func(sfactor GLenum, dfactor GLenum)]) {
+	bindings.FuncWebGLRenderingContextBlendFunc(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BlendFunc calls the method "WebGLRenderingContext.blendFunc".
 func (this WebGLRenderingContext) BlendFunc(sfactor GLenum, dfactor GLenum) (ret js.Void) {
 	bindings.CallWebGLRenderingContextBlendFunc(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(sfactor),
 		uint32(dfactor),
 	)
@@ -1529,7 +1529,7 @@ func (this WebGLRenderingContext) BlendFunc(sfactor GLenum, dfactor GLenum) (ret
 // the catch clause.
 func (this WebGLRenderingContext) TryBlendFunc(sfactor GLenum, dfactor GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBlendFunc(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(sfactor),
 		uint32(dfactor),
 	)
@@ -1537,26 +1537,25 @@ func (this WebGLRenderingContext) TryBlendFunc(sfactor GLenum, dfactor GLenum) (
 	return
 }
 
-// HasBlendFuncSeparate returns true if the method "WebGLRenderingContext.blendFuncSeparate" exists.
-func (this WebGLRenderingContext) HasBlendFuncSeparate() bool {
-	return js.True == bindings.HasWebGLRenderingContextBlendFuncSeparate(
-		this.Ref(),
+// HasFuncBlendFuncSeparate returns true if the method "WebGLRenderingContext.blendFuncSeparate" exists.
+func (this WebGLRenderingContext) HasFuncBlendFuncSeparate() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextBlendFuncSeparate(
+		this.ref,
 	)
 }
 
-// BlendFuncSeparateFunc returns the method "WebGLRenderingContext.blendFuncSeparate".
-func (this WebGLRenderingContext) BlendFuncSeparateFunc() (fn js.Func[func(srcRGB GLenum, dstRGB GLenum, srcAlpha GLenum, dstAlpha GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextBlendFuncSeparateFunc(
-			this.Ref(),
-		),
+// FuncBlendFuncSeparate returns the method "WebGLRenderingContext.blendFuncSeparate".
+func (this WebGLRenderingContext) FuncBlendFuncSeparate() (fn js.Func[func(srcRGB GLenum, dstRGB GLenum, srcAlpha GLenum, dstAlpha GLenum)]) {
+	bindings.FuncWebGLRenderingContextBlendFuncSeparate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BlendFuncSeparate calls the method "WebGLRenderingContext.blendFuncSeparate".
 func (this WebGLRenderingContext) BlendFuncSeparate(srcRGB GLenum, dstRGB GLenum, srcAlpha GLenum, dstAlpha GLenum) (ret js.Void) {
 	bindings.CallWebGLRenderingContextBlendFuncSeparate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(srcRGB),
 		uint32(dstRGB),
 		uint32(srcAlpha),
@@ -1571,7 +1570,7 @@ func (this WebGLRenderingContext) BlendFuncSeparate(srcRGB GLenum, dstRGB GLenum
 // the catch clause.
 func (this WebGLRenderingContext) TryBlendFuncSeparate(srcRGB GLenum, dstRGB GLenum, srcAlpha GLenum, dstAlpha GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBlendFuncSeparate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(srcRGB),
 		uint32(dstRGB),
 		uint32(srcAlpha),
@@ -1581,26 +1580,25 @@ func (this WebGLRenderingContext) TryBlendFuncSeparate(srcRGB GLenum, dstRGB GLe
 	return
 }
 
-// HasCheckFramebufferStatus returns true if the method "WebGLRenderingContext.checkFramebufferStatus" exists.
-func (this WebGLRenderingContext) HasCheckFramebufferStatus() bool {
-	return js.True == bindings.HasWebGLRenderingContextCheckFramebufferStatus(
-		this.Ref(),
+// HasFuncCheckFramebufferStatus returns true if the method "WebGLRenderingContext.checkFramebufferStatus" exists.
+func (this WebGLRenderingContext) HasFuncCheckFramebufferStatus() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextCheckFramebufferStatus(
+		this.ref,
 	)
 }
 
-// CheckFramebufferStatusFunc returns the method "WebGLRenderingContext.checkFramebufferStatus".
-func (this WebGLRenderingContext) CheckFramebufferStatusFunc() (fn js.Func[func(target GLenum) GLenum]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextCheckFramebufferStatusFunc(
-			this.Ref(),
-		),
+// FuncCheckFramebufferStatus returns the method "WebGLRenderingContext.checkFramebufferStatus".
+func (this WebGLRenderingContext) FuncCheckFramebufferStatus() (fn js.Func[func(target GLenum) GLenum]) {
+	bindings.FuncWebGLRenderingContextCheckFramebufferStatus(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CheckFramebufferStatus calls the method "WebGLRenderingContext.checkFramebufferStatus".
 func (this WebGLRenderingContext) CheckFramebufferStatus(target GLenum) (ret GLenum) {
 	bindings.CallWebGLRenderingContextCheckFramebufferStatus(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 	)
 
@@ -1612,33 +1610,32 @@ func (this WebGLRenderingContext) CheckFramebufferStatus(target GLenum) (ret GLe
 // the catch clause.
 func (this WebGLRenderingContext) TryCheckFramebufferStatus(target GLenum) (ret GLenum, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCheckFramebufferStatus(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 	)
 
 	return
 }
 
-// HasClear returns true if the method "WebGLRenderingContext.clear" exists.
-func (this WebGLRenderingContext) HasClear() bool {
-	return js.True == bindings.HasWebGLRenderingContextClear(
-		this.Ref(),
+// HasFuncClear returns true if the method "WebGLRenderingContext.clear" exists.
+func (this WebGLRenderingContext) HasFuncClear() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextClear(
+		this.ref,
 	)
 }
 
-// ClearFunc returns the method "WebGLRenderingContext.clear".
-func (this WebGLRenderingContext) ClearFunc() (fn js.Func[func(mask GLbitfield)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextClearFunc(
-			this.Ref(),
-		),
+// FuncClear returns the method "WebGLRenderingContext.clear".
+func (this WebGLRenderingContext) FuncClear() (fn js.Func[func(mask GLbitfield)]) {
+	bindings.FuncWebGLRenderingContextClear(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Clear calls the method "WebGLRenderingContext.clear".
 func (this WebGLRenderingContext) Clear(mask GLbitfield) (ret js.Void) {
 	bindings.CallWebGLRenderingContextClear(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mask),
 	)
 
@@ -1650,33 +1647,32 @@ func (this WebGLRenderingContext) Clear(mask GLbitfield) (ret js.Void) {
 // the catch clause.
 func (this WebGLRenderingContext) TryClear(mask GLbitfield) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextClear(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mask),
 	)
 
 	return
 }
 
-// HasClearColor returns true if the method "WebGLRenderingContext.clearColor" exists.
-func (this WebGLRenderingContext) HasClearColor() bool {
-	return js.True == bindings.HasWebGLRenderingContextClearColor(
-		this.Ref(),
+// HasFuncClearColor returns true if the method "WebGLRenderingContext.clearColor" exists.
+func (this WebGLRenderingContext) HasFuncClearColor() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextClearColor(
+		this.ref,
 	)
 }
 
-// ClearColorFunc returns the method "WebGLRenderingContext.clearColor".
-func (this WebGLRenderingContext) ClearColorFunc() (fn js.Func[func(red GLclampf, green GLclampf, blue GLclampf, alpha GLclampf)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextClearColorFunc(
-			this.Ref(),
-		),
+// FuncClearColor returns the method "WebGLRenderingContext.clearColor".
+func (this WebGLRenderingContext) FuncClearColor() (fn js.Func[func(red GLclampf, green GLclampf, blue GLclampf, alpha GLclampf)]) {
+	bindings.FuncWebGLRenderingContextClearColor(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ClearColor calls the method "WebGLRenderingContext.clearColor".
 func (this WebGLRenderingContext) ClearColor(red GLclampf, green GLclampf, blue GLclampf, alpha GLclampf) (ret js.Void) {
 	bindings.CallWebGLRenderingContextClearColor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float32(red),
 		float32(green),
 		float32(blue),
@@ -1691,7 +1687,7 @@ func (this WebGLRenderingContext) ClearColor(red GLclampf, green GLclampf, blue 
 // the catch clause.
 func (this WebGLRenderingContext) TryClearColor(red GLclampf, green GLclampf, blue GLclampf, alpha GLclampf) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextClearColor(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float32(red),
 		float32(green),
 		float32(blue),
@@ -1701,26 +1697,25 @@ func (this WebGLRenderingContext) TryClearColor(red GLclampf, green GLclampf, bl
 	return
 }
 
-// HasClearDepth returns true if the method "WebGLRenderingContext.clearDepth" exists.
-func (this WebGLRenderingContext) HasClearDepth() bool {
-	return js.True == bindings.HasWebGLRenderingContextClearDepth(
-		this.Ref(),
+// HasFuncClearDepth returns true if the method "WebGLRenderingContext.clearDepth" exists.
+func (this WebGLRenderingContext) HasFuncClearDepth() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextClearDepth(
+		this.ref,
 	)
 }
 
-// ClearDepthFunc returns the method "WebGLRenderingContext.clearDepth".
-func (this WebGLRenderingContext) ClearDepthFunc() (fn js.Func[func(depth GLclampf)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextClearDepthFunc(
-			this.Ref(),
-		),
+// FuncClearDepth returns the method "WebGLRenderingContext.clearDepth".
+func (this WebGLRenderingContext) FuncClearDepth() (fn js.Func[func(depth GLclampf)]) {
+	bindings.FuncWebGLRenderingContextClearDepth(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ClearDepth calls the method "WebGLRenderingContext.clearDepth".
 func (this WebGLRenderingContext) ClearDepth(depth GLclampf) (ret js.Void) {
 	bindings.CallWebGLRenderingContextClearDepth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float32(depth),
 	)
 
@@ -1732,33 +1727,32 @@ func (this WebGLRenderingContext) ClearDepth(depth GLclampf) (ret js.Void) {
 // the catch clause.
 func (this WebGLRenderingContext) TryClearDepth(depth GLclampf) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextClearDepth(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float32(depth),
 	)
 
 	return
 }
 
-// HasClearStencil returns true if the method "WebGLRenderingContext.clearStencil" exists.
-func (this WebGLRenderingContext) HasClearStencil() bool {
-	return js.True == bindings.HasWebGLRenderingContextClearStencil(
-		this.Ref(),
+// HasFuncClearStencil returns true if the method "WebGLRenderingContext.clearStencil" exists.
+func (this WebGLRenderingContext) HasFuncClearStencil() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextClearStencil(
+		this.ref,
 	)
 }
 
-// ClearStencilFunc returns the method "WebGLRenderingContext.clearStencil".
-func (this WebGLRenderingContext) ClearStencilFunc() (fn js.Func[func(s GLint)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextClearStencilFunc(
-			this.Ref(),
-		),
+// FuncClearStencil returns the method "WebGLRenderingContext.clearStencil".
+func (this WebGLRenderingContext) FuncClearStencil() (fn js.Func[func(s GLint)]) {
+	bindings.FuncWebGLRenderingContextClearStencil(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ClearStencil calls the method "WebGLRenderingContext.clearStencil".
 func (this WebGLRenderingContext) ClearStencil(s GLint) (ret js.Void) {
 	bindings.CallWebGLRenderingContextClearStencil(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		int32(s),
 	)
 
@@ -1770,33 +1764,32 @@ func (this WebGLRenderingContext) ClearStencil(s GLint) (ret js.Void) {
 // the catch clause.
 func (this WebGLRenderingContext) TryClearStencil(s GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextClearStencil(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		int32(s),
 	)
 
 	return
 }
 
-// HasColorMask returns true if the method "WebGLRenderingContext.colorMask" exists.
-func (this WebGLRenderingContext) HasColorMask() bool {
-	return js.True == bindings.HasWebGLRenderingContextColorMask(
-		this.Ref(),
+// HasFuncColorMask returns true if the method "WebGLRenderingContext.colorMask" exists.
+func (this WebGLRenderingContext) HasFuncColorMask() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextColorMask(
+		this.ref,
 	)
 }
 
-// ColorMaskFunc returns the method "WebGLRenderingContext.colorMask".
-func (this WebGLRenderingContext) ColorMaskFunc() (fn js.Func[func(red GLboolean, green GLboolean, blue GLboolean, alpha GLboolean)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextColorMaskFunc(
-			this.Ref(),
-		),
+// FuncColorMask returns the method "WebGLRenderingContext.colorMask".
+func (this WebGLRenderingContext) FuncColorMask() (fn js.Func[func(red GLboolean, green GLboolean, blue GLboolean, alpha GLboolean)]) {
+	bindings.FuncWebGLRenderingContextColorMask(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ColorMask calls the method "WebGLRenderingContext.colorMask".
 func (this WebGLRenderingContext) ColorMask(red GLboolean, green GLboolean, blue GLboolean, alpha GLboolean) (ret js.Void) {
 	bindings.CallWebGLRenderingContextColorMask(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Bool(bool(red)),
 		js.Bool(bool(green)),
 		js.Bool(bool(blue)),
@@ -1811,7 +1804,7 @@ func (this WebGLRenderingContext) ColorMask(red GLboolean, green GLboolean, blue
 // the catch clause.
 func (this WebGLRenderingContext) TryColorMask(red GLboolean, green GLboolean, blue GLboolean, alpha GLboolean) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextColorMask(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Bool(bool(red)),
 		js.Bool(bool(green)),
 		js.Bool(bool(blue)),
@@ -1821,26 +1814,25 @@ func (this WebGLRenderingContext) TryColorMask(red GLboolean, green GLboolean, b
 	return
 }
 
-// HasCompileShader returns true if the method "WebGLRenderingContext.compileShader" exists.
-func (this WebGLRenderingContext) HasCompileShader() bool {
-	return js.True == bindings.HasWebGLRenderingContextCompileShader(
-		this.Ref(),
+// HasFuncCompileShader returns true if the method "WebGLRenderingContext.compileShader" exists.
+func (this WebGLRenderingContext) HasFuncCompileShader() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextCompileShader(
+		this.ref,
 	)
 }
 
-// CompileShaderFunc returns the method "WebGLRenderingContext.compileShader".
-func (this WebGLRenderingContext) CompileShaderFunc() (fn js.Func[func(shader WebGLShader)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextCompileShaderFunc(
-			this.Ref(),
-		),
+// FuncCompileShader returns the method "WebGLRenderingContext.compileShader".
+func (this WebGLRenderingContext) FuncCompileShader() (fn js.Func[func(shader WebGLShader)]) {
+	bindings.FuncWebGLRenderingContextCompileShader(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CompileShader calls the method "WebGLRenderingContext.compileShader".
 func (this WebGLRenderingContext) CompileShader(shader WebGLShader) (ret js.Void) {
 	bindings.CallWebGLRenderingContextCompileShader(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		shader.Ref(),
 	)
 
@@ -1852,33 +1844,32 @@ func (this WebGLRenderingContext) CompileShader(shader WebGLShader) (ret js.Void
 // the catch clause.
 func (this WebGLRenderingContext) TryCompileShader(shader WebGLShader) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCompileShader(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		shader.Ref(),
 	)
 
 	return
 }
 
-// HasCopyTexImage2D returns true if the method "WebGLRenderingContext.copyTexImage2D" exists.
-func (this WebGLRenderingContext) HasCopyTexImage2D() bool {
-	return js.True == bindings.HasWebGLRenderingContextCopyTexImage2D(
-		this.Ref(),
+// HasFuncCopyTexImage2D returns true if the method "WebGLRenderingContext.copyTexImage2D" exists.
+func (this WebGLRenderingContext) HasFuncCopyTexImage2D() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextCopyTexImage2D(
+		this.ref,
 	)
 }
 
-// CopyTexImage2DFunc returns the method "WebGLRenderingContext.copyTexImage2D".
-func (this WebGLRenderingContext) CopyTexImage2DFunc() (fn js.Func[func(target GLenum, level GLint, internalformat GLenum, x GLint, y GLint, width GLsizei, height GLsizei, border GLint)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextCopyTexImage2DFunc(
-			this.Ref(),
-		),
+// FuncCopyTexImage2D returns the method "WebGLRenderingContext.copyTexImage2D".
+func (this WebGLRenderingContext) FuncCopyTexImage2D() (fn js.Func[func(target GLenum, level GLint, internalformat GLenum, x GLint, y GLint, width GLsizei, height GLsizei, border GLint)]) {
+	bindings.FuncWebGLRenderingContextCopyTexImage2D(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CopyTexImage2D calls the method "WebGLRenderingContext.copyTexImage2D".
 func (this WebGLRenderingContext) CopyTexImage2D(target GLenum, level GLint, internalformat GLenum, x GLint, y GLint, width GLsizei, height GLsizei, border GLint) (ret js.Void) {
 	bindings.CallWebGLRenderingContextCopyTexImage2D(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		uint32(internalformat),
@@ -1897,7 +1888,7 @@ func (this WebGLRenderingContext) CopyTexImage2D(target GLenum, level GLint, int
 // the catch clause.
 func (this WebGLRenderingContext) TryCopyTexImage2D(target GLenum, level GLint, internalformat GLenum, x GLint, y GLint, width GLsizei, height GLsizei, border GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCopyTexImage2D(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		uint32(internalformat),
@@ -1911,26 +1902,25 @@ func (this WebGLRenderingContext) TryCopyTexImage2D(target GLenum, level GLint, 
 	return
 }
 
-// HasCopyTexSubImage2D returns true if the method "WebGLRenderingContext.copyTexSubImage2D" exists.
-func (this WebGLRenderingContext) HasCopyTexSubImage2D() bool {
-	return js.True == bindings.HasWebGLRenderingContextCopyTexSubImage2D(
-		this.Ref(),
+// HasFuncCopyTexSubImage2D returns true if the method "WebGLRenderingContext.copyTexSubImage2D" exists.
+func (this WebGLRenderingContext) HasFuncCopyTexSubImage2D() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextCopyTexSubImage2D(
+		this.ref,
 	)
 }
 
-// CopyTexSubImage2DFunc returns the method "WebGLRenderingContext.copyTexSubImage2D".
-func (this WebGLRenderingContext) CopyTexSubImage2DFunc() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, x GLint, y GLint, width GLsizei, height GLsizei)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextCopyTexSubImage2DFunc(
-			this.Ref(),
-		),
+// FuncCopyTexSubImage2D returns the method "WebGLRenderingContext.copyTexSubImage2D".
+func (this WebGLRenderingContext) FuncCopyTexSubImage2D() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, x GLint, y GLint, width GLsizei, height GLsizei)]) {
+	bindings.FuncWebGLRenderingContextCopyTexSubImage2D(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CopyTexSubImage2D calls the method "WebGLRenderingContext.copyTexSubImage2D".
 func (this WebGLRenderingContext) CopyTexSubImage2D(target GLenum, level GLint, xoffset GLint, yoffset GLint, x GLint, y GLint, width GLsizei, height GLsizei) (ret js.Void) {
 	bindings.CallWebGLRenderingContextCopyTexSubImage2D(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -1949,7 +1939,7 @@ func (this WebGLRenderingContext) CopyTexSubImage2D(target GLenum, level GLint, 
 // the catch clause.
 func (this WebGLRenderingContext) TryCopyTexSubImage2D(target GLenum, level GLint, xoffset GLint, yoffset GLint, x GLint, y GLint, width GLsizei, height GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCopyTexSubImage2D(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -1963,26 +1953,25 @@ func (this WebGLRenderingContext) TryCopyTexSubImage2D(target GLenum, level GLin
 	return
 }
 
-// HasCreateBuffer returns true if the method "WebGLRenderingContext.createBuffer" exists.
-func (this WebGLRenderingContext) HasCreateBuffer() bool {
-	return js.True == bindings.HasWebGLRenderingContextCreateBuffer(
-		this.Ref(),
+// HasFuncCreateBuffer returns true if the method "WebGLRenderingContext.createBuffer" exists.
+func (this WebGLRenderingContext) HasFuncCreateBuffer() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextCreateBuffer(
+		this.ref,
 	)
 }
 
-// CreateBufferFunc returns the method "WebGLRenderingContext.createBuffer".
-func (this WebGLRenderingContext) CreateBufferFunc() (fn js.Func[func() WebGLBuffer]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextCreateBufferFunc(
-			this.Ref(),
-		),
+// FuncCreateBuffer returns the method "WebGLRenderingContext.createBuffer".
+func (this WebGLRenderingContext) FuncCreateBuffer() (fn js.Func[func() WebGLBuffer]) {
+	bindings.FuncWebGLRenderingContextCreateBuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateBuffer calls the method "WebGLRenderingContext.createBuffer".
 func (this WebGLRenderingContext) CreateBuffer() (ret WebGLBuffer) {
 	bindings.CallWebGLRenderingContextCreateBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1993,32 +1982,31 @@ func (this WebGLRenderingContext) CreateBuffer() (ret WebGLBuffer) {
 // the catch clause.
 func (this WebGLRenderingContext) TryCreateBuffer() (ret WebGLBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCreateBuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCreateFramebuffer returns true if the method "WebGLRenderingContext.createFramebuffer" exists.
-func (this WebGLRenderingContext) HasCreateFramebuffer() bool {
-	return js.True == bindings.HasWebGLRenderingContextCreateFramebuffer(
-		this.Ref(),
+// HasFuncCreateFramebuffer returns true if the method "WebGLRenderingContext.createFramebuffer" exists.
+func (this WebGLRenderingContext) HasFuncCreateFramebuffer() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextCreateFramebuffer(
+		this.ref,
 	)
 }
 
-// CreateFramebufferFunc returns the method "WebGLRenderingContext.createFramebuffer".
-func (this WebGLRenderingContext) CreateFramebufferFunc() (fn js.Func[func() WebGLFramebuffer]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextCreateFramebufferFunc(
-			this.Ref(),
-		),
+// FuncCreateFramebuffer returns the method "WebGLRenderingContext.createFramebuffer".
+func (this WebGLRenderingContext) FuncCreateFramebuffer() (fn js.Func[func() WebGLFramebuffer]) {
+	bindings.FuncWebGLRenderingContextCreateFramebuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateFramebuffer calls the method "WebGLRenderingContext.createFramebuffer".
 func (this WebGLRenderingContext) CreateFramebuffer() (ret WebGLFramebuffer) {
 	bindings.CallWebGLRenderingContextCreateFramebuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2029,32 +2017,31 @@ func (this WebGLRenderingContext) CreateFramebuffer() (ret WebGLFramebuffer) {
 // the catch clause.
 func (this WebGLRenderingContext) TryCreateFramebuffer() (ret WebGLFramebuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCreateFramebuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCreateProgram returns true if the method "WebGLRenderingContext.createProgram" exists.
-func (this WebGLRenderingContext) HasCreateProgram() bool {
-	return js.True == bindings.HasWebGLRenderingContextCreateProgram(
-		this.Ref(),
+// HasFuncCreateProgram returns true if the method "WebGLRenderingContext.createProgram" exists.
+func (this WebGLRenderingContext) HasFuncCreateProgram() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextCreateProgram(
+		this.ref,
 	)
 }
 
-// CreateProgramFunc returns the method "WebGLRenderingContext.createProgram".
-func (this WebGLRenderingContext) CreateProgramFunc() (fn js.Func[func() WebGLProgram]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextCreateProgramFunc(
-			this.Ref(),
-		),
+// FuncCreateProgram returns the method "WebGLRenderingContext.createProgram".
+func (this WebGLRenderingContext) FuncCreateProgram() (fn js.Func[func() WebGLProgram]) {
+	bindings.FuncWebGLRenderingContextCreateProgram(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateProgram calls the method "WebGLRenderingContext.createProgram".
 func (this WebGLRenderingContext) CreateProgram() (ret WebGLProgram) {
 	bindings.CallWebGLRenderingContextCreateProgram(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2065,32 +2052,31 @@ func (this WebGLRenderingContext) CreateProgram() (ret WebGLProgram) {
 // the catch clause.
 func (this WebGLRenderingContext) TryCreateProgram() (ret WebGLProgram, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCreateProgram(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCreateRenderbuffer returns true if the method "WebGLRenderingContext.createRenderbuffer" exists.
-func (this WebGLRenderingContext) HasCreateRenderbuffer() bool {
-	return js.True == bindings.HasWebGLRenderingContextCreateRenderbuffer(
-		this.Ref(),
+// HasFuncCreateRenderbuffer returns true if the method "WebGLRenderingContext.createRenderbuffer" exists.
+func (this WebGLRenderingContext) HasFuncCreateRenderbuffer() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextCreateRenderbuffer(
+		this.ref,
 	)
 }
 
-// CreateRenderbufferFunc returns the method "WebGLRenderingContext.createRenderbuffer".
-func (this WebGLRenderingContext) CreateRenderbufferFunc() (fn js.Func[func() WebGLRenderbuffer]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextCreateRenderbufferFunc(
-			this.Ref(),
-		),
+// FuncCreateRenderbuffer returns the method "WebGLRenderingContext.createRenderbuffer".
+func (this WebGLRenderingContext) FuncCreateRenderbuffer() (fn js.Func[func() WebGLRenderbuffer]) {
+	bindings.FuncWebGLRenderingContextCreateRenderbuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateRenderbuffer calls the method "WebGLRenderingContext.createRenderbuffer".
 func (this WebGLRenderingContext) CreateRenderbuffer() (ret WebGLRenderbuffer) {
 	bindings.CallWebGLRenderingContextCreateRenderbuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2101,32 +2087,31 @@ func (this WebGLRenderingContext) CreateRenderbuffer() (ret WebGLRenderbuffer) {
 // the catch clause.
 func (this WebGLRenderingContext) TryCreateRenderbuffer() (ret WebGLRenderbuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCreateRenderbuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCreateShader returns true if the method "WebGLRenderingContext.createShader" exists.
-func (this WebGLRenderingContext) HasCreateShader() bool {
-	return js.True == bindings.HasWebGLRenderingContextCreateShader(
-		this.Ref(),
+// HasFuncCreateShader returns true if the method "WebGLRenderingContext.createShader" exists.
+func (this WebGLRenderingContext) HasFuncCreateShader() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextCreateShader(
+		this.ref,
 	)
 }
 
-// CreateShaderFunc returns the method "WebGLRenderingContext.createShader".
-func (this WebGLRenderingContext) CreateShaderFunc() (fn js.Func[func(typ GLenum) WebGLShader]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextCreateShaderFunc(
-			this.Ref(),
-		),
+// FuncCreateShader returns the method "WebGLRenderingContext.createShader".
+func (this WebGLRenderingContext) FuncCreateShader() (fn js.Func[func(typ GLenum) WebGLShader]) {
+	bindings.FuncWebGLRenderingContextCreateShader(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateShader calls the method "WebGLRenderingContext.createShader".
 func (this WebGLRenderingContext) CreateShader(typ GLenum) (ret WebGLShader) {
 	bindings.CallWebGLRenderingContextCreateShader(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(typ),
 	)
 
@@ -2138,33 +2123,32 @@ func (this WebGLRenderingContext) CreateShader(typ GLenum) (ret WebGLShader) {
 // the catch clause.
 func (this WebGLRenderingContext) TryCreateShader(typ GLenum) (ret WebGLShader, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCreateShader(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(typ),
 	)
 
 	return
 }
 
-// HasCreateTexture returns true if the method "WebGLRenderingContext.createTexture" exists.
-func (this WebGLRenderingContext) HasCreateTexture() bool {
-	return js.True == bindings.HasWebGLRenderingContextCreateTexture(
-		this.Ref(),
+// HasFuncCreateTexture returns true if the method "WebGLRenderingContext.createTexture" exists.
+func (this WebGLRenderingContext) HasFuncCreateTexture() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextCreateTexture(
+		this.ref,
 	)
 }
 
-// CreateTextureFunc returns the method "WebGLRenderingContext.createTexture".
-func (this WebGLRenderingContext) CreateTextureFunc() (fn js.Func[func() WebGLTexture]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextCreateTextureFunc(
-			this.Ref(),
-		),
+// FuncCreateTexture returns the method "WebGLRenderingContext.createTexture".
+func (this WebGLRenderingContext) FuncCreateTexture() (fn js.Func[func() WebGLTexture]) {
+	bindings.FuncWebGLRenderingContextCreateTexture(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateTexture calls the method "WebGLRenderingContext.createTexture".
 func (this WebGLRenderingContext) CreateTexture() (ret WebGLTexture) {
 	bindings.CallWebGLRenderingContextCreateTexture(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2175,32 +2159,31 @@ func (this WebGLRenderingContext) CreateTexture() (ret WebGLTexture) {
 // the catch clause.
 func (this WebGLRenderingContext) TryCreateTexture() (ret WebGLTexture, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCreateTexture(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCullFace returns true if the method "WebGLRenderingContext.cullFace" exists.
-func (this WebGLRenderingContext) HasCullFace() bool {
-	return js.True == bindings.HasWebGLRenderingContextCullFace(
-		this.Ref(),
+// HasFuncCullFace returns true if the method "WebGLRenderingContext.cullFace" exists.
+func (this WebGLRenderingContext) HasFuncCullFace() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextCullFace(
+		this.ref,
 	)
 }
 
-// CullFaceFunc returns the method "WebGLRenderingContext.cullFace".
-func (this WebGLRenderingContext) CullFaceFunc() (fn js.Func[func(mode GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextCullFaceFunc(
-			this.Ref(),
-		),
+// FuncCullFace returns the method "WebGLRenderingContext.cullFace".
+func (this WebGLRenderingContext) FuncCullFace() (fn js.Func[func(mode GLenum)]) {
+	bindings.FuncWebGLRenderingContextCullFace(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CullFace calls the method "WebGLRenderingContext.cullFace".
 func (this WebGLRenderingContext) CullFace(mode GLenum) (ret js.Void) {
 	bindings.CallWebGLRenderingContextCullFace(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mode),
 	)
 
@@ -2212,33 +2195,32 @@ func (this WebGLRenderingContext) CullFace(mode GLenum) (ret js.Void) {
 // the catch clause.
 func (this WebGLRenderingContext) TryCullFace(mode GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCullFace(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mode),
 	)
 
 	return
 }
 
-// HasDeleteBuffer returns true if the method "WebGLRenderingContext.deleteBuffer" exists.
-func (this WebGLRenderingContext) HasDeleteBuffer() bool {
-	return js.True == bindings.HasWebGLRenderingContextDeleteBuffer(
-		this.Ref(),
+// HasFuncDeleteBuffer returns true if the method "WebGLRenderingContext.deleteBuffer" exists.
+func (this WebGLRenderingContext) HasFuncDeleteBuffer() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextDeleteBuffer(
+		this.ref,
 	)
 }
 
-// DeleteBufferFunc returns the method "WebGLRenderingContext.deleteBuffer".
-func (this WebGLRenderingContext) DeleteBufferFunc() (fn js.Func[func(buffer WebGLBuffer)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextDeleteBufferFunc(
-			this.Ref(),
-		),
+// FuncDeleteBuffer returns the method "WebGLRenderingContext.deleteBuffer".
+func (this WebGLRenderingContext) FuncDeleteBuffer() (fn js.Func[func(buffer WebGLBuffer)]) {
+	bindings.FuncWebGLRenderingContextDeleteBuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteBuffer calls the method "WebGLRenderingContext.deleteBuffer".
 func (this WebGLRenderingContext) DeleteBuffer(buffer WebGLBuffer) (ret js.Void) {
 	bindings.CallWebGLRenderingContextDeleteBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		buffer.Ref(),
 	)
 
@@ -2250,33 +2232,32 @@ func (this WebGLRenderingContext) DeleteBuffer(buffer WebGLBuffer) (ret js.Void)
 // the catch clause.
 func (this WebGLRenderingContext) TryDeleteBuffer(buffer WebGLBuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDeleteBuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		buffer.Ref(),
 	)
 
 	return
 }
 
-// HasDeleteFramebuffer returns true if the method "WebGLRenderingContext.deleteFramebuffer" exists.
-func (this WebGLRenderingContext) HasDeleteFramebuffer() bool {
-	return js.True == bindings.HasWebGLRenderingContextDeleteFramebuffer(
-		this.Ref(),
+// HasFuncDeleteFramebuffer returns true if the method "WebGLRenderingContext.deleteFramebuffer" exists.
+func (this WebGLRenderingContext) HasFuncDeleteFramebuffer() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextDeleteFramebuffer(
+		this.ref,
 	)
 }
 
-// DeleteFramebufferFunc returns the method "WebGLRenderingContext.deleteFramebuffer".
-func (this WebGLRenderingContext) DeleteFramebufferFunc() (fn js.Func[func(framebuffer WebGLFramebuffer)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextDeleteFramebufferFunc(
-			this.Ref(),
-		),
+// FuncDeleteFramebuffer returns the method "WebGLRenderingContext.deleteFramebuffer".
+func (this WebGLRenderingContext) FuncDeleteFramebuffer() (fn js.Func[func(framebuffer WebGLFramebuffer)]) {
+	bindings.FuncWebGLRenderingContextDeleteFramebuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteFramebuffer calls the method "WebGLRenderingContext.deleteFramebuffer".
 func (this WebGLRenderingContext) DeleteFramebuffer(framebuffer WebGLFramebuffer) (ret js.Void) {
 	bindings.CallWebGLRenderingContextDeleteFramebuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		framebuffer.Ref(),
 	)
 
@@ -2288,33 +2269,32 @@ func (this WebGLRenderingContext) DeleteFramebuffer(framebuffer WebGLFramebuffer
 // the catch clause.
 func (this WebGLRenderingContext) TryDeleteFramebuffer(framebuffer WebGLFramebuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDeleteFramebuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		framebuffer.Ref(),
 	)
 
 	return
 }
 
-// HasDeleteProgram returns true if the method "WebGLRenderingContext.deleteProgram" exists.
-func (this WebGLRenderingContext) HasDeleteProgram() bool {
-	return js.True == bindings.HasWebGLRenderingContextDeleteProgram(
-		this.Ref(),
+// HasFuncDeleteProgram returns true if the method "WebGLRenderingContext.deleteProgram" exists.
+func (this WebGLRenderingContext) HasFuncDeleteProgram() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextDeleteProgram(
+		this.ref,
 	)
 }
 
-// DeleteProgramFunc returns the method "WebGLRenderingContext.deleteProgram".
-func (this WebGLRenderingContext) DeleteProgramFunc() (fn js.Func[func(program WebGLProgram)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextDeleteProgramFunc(
-			this.Ref(),
-		),
+// FuncDeleteProgram returns the method "WebGLRenderingContext.deleteProgram".
+func (this WebGLRenderingContext) FuncDeleteProgram() (fn js.Func[func(program WebGLProgram)]) {
+	bindings.FuncWebGLRenderingContextDeleteProgram(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteProgram calls the method "WebGLRenderingContext.deleteProgram".
 func (this WebGLRenderingContext) DeleteProgram(program WebGLProgram) (ret js.Void) {
 	bindings.CallWebGLRenderingContextDeleteProgram(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 	)
 
@@ -2326,33 +2306,32 @@ func (this WebGLRenderingContext) DeleteProgram(program WebGLProgram) (ret js.Vo
 // the catch clause.
 func (this WebGLRenderingContext) TryDeleteProgram(program WebGLProgram) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDeleteProgram(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 	)
 
 	return
 }
 
-// HasDeleteRenderbuffer returns true if the method "WebGLRenderingContext.deleteRenderbuffer" exists.
-func (this WebGLRenderingContext) HasDeleteRenderbuffer() bool {
-	return js.True == bindings.HasWebGLRenderingContextDeleteRenderbuffer(
-		this.Ref(),
+// HasFuncDeleteRenderbuffer returns true if the method "WebGLRenderingContext.deleteRenderbuffer" exists.
+func (this WebGLRenderingContext) HasFuncDeleteRenderbuffer() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextDeleteRenderbuffer(
+		this.ref,
 	)
 }
 
-// DeleteRenderbufferFunc returns the method "WebGLRenderingContext.deleteRenderbuffer".
-func (this WebGLRenderingContext) DeleteRenderbufferFunc() (fn js.Func[func(renderbuffer WebGLRenderbuffer)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextDeleteRenderbufferFunc(
-			this.Ref(),
-		),
+// FuncDeleteRenderbuffer returns the method "WebGLRenderingContext.deleteRenderbuffer".
+func (this WebGLRenderingContext) FuncDeleteRenderbuffer() (fn js.Func[func(renderbuffer WebGLRenderbuffer)]) {
+	bindings.FuncWebGLRenderingContextDeleteRenderbuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteRenderbuffer calls the method "WebGLRenderingContext.deleteRenderbuffer".
 func (this WebGLRenderingContext) DeleteRenderbuffer(renderbuffer WebGLRenderbuffer) (ret js.Void) {
 	bindings.CallWebGLRenderingContextDeleteRenderbuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		renderbuffer.Ref(),
 	)
 
@@ -2364,33 +2343,32 @@ func (this WebGLRenderingContext) DeleteRenderbuffer(renderbuffer WebGLRenderbuf
 // the catch clause.
 func (this WebGLRenderingContext) TryDeleteRenderbuffer(renderbuffer WebGLRenderbuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDeleteRenderbuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		renderbuffer.Ref(),
 	)
 
 	return
 }
 
-// HasDeleteShader returns true if the method "WebGLRenderingContext.deleteShader" exists.
-func (this WebGLRenderingContext) HasDeleteShader() bool {
-	return js.True == bindings.HasWebGLRenderingContextDeleteShader(
-		this.Ref(),
+// HasFuncDeleteShader returns true if the method "WebGLRenderingContext.deleteShader" exists.
+func (this WebGLRenderingContext) HasFuncDeleteShader() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextDeleteShader(
+		this.ref,
 	)
 }
 
-// DeleteShaderFunc returns the method "WebGLRenderingContext.deleteShader".
-func (this WebGLRenderingContext) DeleteShaderFunc() (fn js.Func[func(shader WebGLShader)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextDeleteShaderFunc(
-			this.Ref(),
-		),
+// FuncDeleteShader returns the method "WebGLRenderingContext.deleteShader".
+func (this WebGLRenderingContext) FuncDeleteShader() (fn js.Func[func(shader WebGLShader)]) {
+	bindings.FuncWebGLRenderingContextDeleteShader(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteShader calls the method "WebGLRenderingContext.deleteShader".
 func (this WebGLRenderingContext) DeleteShader(shader WebGLShader) (ret js.Void) {
 	bindings.CallWebGLRenderingContextDeleteShader(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		shader.Ref(),
 	)
 
@@ -2402,33 +2380,32 @@ func (this WebGLRenderingContext) DeleteShader(shader WebGLShader) (ret js.Void)
 // the catch clause.
 func (this WebGLRenderingContext) TryDeleteShader(shader WebGLShader) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDeleteShader(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		shader.Ref(),
 	)
 
 	return
 }
 
-// HasDeleteTexture returns true if the method "WebGLRenderingContext.deleteTexture" exists.
-func (this WebGLRenderingContext) HasDeleteTexture() bool {
-	return js.True == bindings.HasWebGLRenderingContextDeleteTexture(
-		this.Ref(),
+// HasFuncDeleteTexture returns true if the method "WebGLRenderingContext.deleteTexture" exists.
+func (this WebGLRenderingContext) HasFuncDeleteTexture() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextDeleteTexture(
+		this.ref,
 	)
 }
 
-// DeleteTextureFunc returns the method "WebGLRenderingContext.deleteTexture".
-func (this WebGLRenderingContext) DeleteTextureFunc() (fn js.Func[func(texture WebGLTexture)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextDeleteTextureFunc(
-			this.Ref(),
-		),
+// FuncDeleteTexture returns the method "WebGLRenderingContext.deleteTexture".
+func (this WebGLRenderingContext) FuncDeleteTexture() (fn js.Func[func(texture WebGLTexture)]) {
+	bindings.FuncWebGLRenderingContextDeleteTexture(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteTexture calls the method "WebGLRenderingContext.deleteTexture".
 func (this WebGLRenderingContext) DeleteTexture(texture WebGLTexture) (ret js.Void) {
 	bindings.CallWebGLRenderingContextDeleteTexture(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		texture.Ref(),
 	)
 
@@ -2440,33 +2417,32 @@ func (this WebGLRenderingContext) DeleteTexture(texture WebGLTexture) (ret js.Vo
 // the catch clause.
 func (this WebGLRenderingContext) TryDeleteTexture(texture WebGLTexture) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDeleteTexture(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		texture.Ref(),
 	)
 
 	return
 }
 
-// HasDepthFunc returns true if the method "WebGLRenderingContext.depthFunc" exists.
-func (this WebGLRenderingContext) HasDepthFunc() bool {
-	return js.True == bindings.HasWebGLRenderingContextDepthFunc(
-		this.Ref(),
+// HasFuncDepthFunc returns true if the method "WebGLRenderingContext.depthFunc" exists.
+func (this WebGLRenderingContext) HasFuncDepthFunc() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextDepthFunc(
+		this.ref,
 	)
 }
 
-// DepthFuncFunc returns the method "WebGLRenderingContext.depthFunc".
-func (this WebGLRenderingContext) DepthFuncFunc() (fn js.Func[func(fn GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextDepthFuncFunc(
-			this.Ref(),
-		),
+// FuncDepthFunc returns the method "WebGLRenderingContext.depthFunc".
+func (this WebGLRenderingContext) FuncDepthFunc() (fn js.Func[func(fn GLenum)]) {
+	bindings.FuncWebGLRenderingContextDepthFunc(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DepthFunc calls the method "WebGLRenderingContext.depthFunc".
 func (this WebGLRenderingContext) DepthFunc(fn GLenum) (ret js.Void) {
 	bindings.CallWebGLRenderingContextDepthFunc(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(fn),
 	)
 
@@ -2478,33 +2454,32 @@ func (this WebGLRenderingContext) DepthFunc(fn GLenum) (ret js.Void) {
 // the catch clause.
 func (this WebGLRenderingContext) TryDepthFunc(fn GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDepthFunc(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(fn),
 	)
 
 	return
 }
 
-// HasDepthMask returns true if the method "WebGLRenderingContext.depthMask" exists.
-func (this WebGLRenderingContext) HasDepthMask() bool {
-	return js.True == bindings.HasWebGLRenderingContextDepthMask(
-		this.Ref(),
+// HasFuncDepthMask returns true if the method "WebGLRenderingContext.depthMask" exists.
+func (this WebGLRenderingContext) HasFuncDepthMask() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextDepthMask(
+		this.ref,
 	)
 }
 
-// DepthMaskFunc returns the method "WebGLRenderingContext.depthMask".
-func (this WebGLRenderingContext) DepthMaskFunc() (fn js.Func[func(flag GLboolean)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextDepthMaskFunc(
-			this.Ref(),
-		),
+// FuncDepthMask returns the method "WebGLRenderingContext.depthMask".
+func (this WebGLRenderingContext) FuncDepthMask() (fn js.Func[func(flag GLboolean)]) {
+	bindings.FuncWebGLRenderingContextDepthMask(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DepthMask calls the method "WebGLRenderingContext.depthMask".
 func (this WebGLRenderingContext) DepthMask(flag GLboolean) (ret js.Void) {
 	bindings.CallWebGLRenderingContextDepthMask(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Bool(bool(flag)),
 	)
 
@@ -2516,33 +2491,32 @@ func (this WebGLRenderingContext) DepthMask(flag GLboolean) (ret js.Void) {
 // the catch clause.
 func (this WebGLRenderingContext) TryDepthMask(flag GLboolean) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDepthMask(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Bool(bool(flag)),
 	)
 
 	return
 }
 
-// HasDepthRange returns true if the method "WebGLRenderingContext.depthRange" exists.
-func (this WebGLRenderingContext) HasDepthRange() bool {
-	return js.True == bindings.HasWebGLRenderingContextDepthRange(
-		this.Ref(),
+// HasFuncDepthRange returns true if the method "WebGLRenderingContext.depthRange" exists.
+func (this WebGLRenderingContext) HasFuncDepthRange() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextDepthRange(
+		this.ref,
 	)
 }
 
-// DepthRangeFunc returns the method "WebGLRenderingContext.depthRange".
-func (this WebGLRenderingContext) DepthRangeFunc() (fn js.Func[func(zNear GLclampf, zFar GLclampf)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextDepthRangeFunc(
-			this.Ref(),
-		),
+// FuncDepthRange returns the method "WebGLRenderingContext.depthRange".
+func (this WebGLRenderingContext) FuncDepthRange() (fn js.Func[func(zNear GLclampf, zFar GLclampf)]) {
+	bindings.FuncWebGLRenderingContextDepthRange(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DepthRange calls the method "WebGLRenderingContext.depthRange".
 func (this WebGLRenderingContext) DepthRange(zNear GLclampf, zFar GLclampf) (ret js.Void) {
 	bindings.CallWebGLRenderingContextDepthRange(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float32(zNear),
 		float32(zFar),
 	)
@@ -2555,7 +2529,7 @@ func (this WebGLRenderingContext) DepthRange(zNear GLclampf, zFar GLclampf) (ret
 // the catch clause.
 func (this WebGLRenderingContext) TryDepthRange(zNear GLclampf, zFar GLclampf) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDepthRange(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float32(zNear),
 		float32(zFar),
 	)
@@ -2563,26 +2537,25 @@ func (this WebGLRenderingContext) TryDepthRange(zNear GLclampf, zFar GLclampf) (
 	return
 }
 
-// HasDetachShader returns true if the method "WebGLRenderingContext.detachShader" exists.
-func (this WebGLRenderingContext) HasDetachShader() bool {
-	return js.True == bindings.HasWebGLRenderingContextDetachShader(
-		this.Ref(),
+// HasFuncDetachShader returns true if the method "WebGLRenderingContext.detachShader" exists.
+func (this WebGLRenderingContext) HasFuncDetachShader() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextDetachShader(
+		this.ref,
 	)
 }
 
-// DetachShaderFunc returns the method "WebGLRenderingContext.detachShader".
-func (this WebGLRenderingContext) DetachShaderFunc() (fn js.Func[func(program WebGLProgram, shader WebGLShader)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextDetachShaderFunc(
-			this.Ref(),
-		),
+// FuncDetachShader returns the method "WebGLRenderingContext.detachShader".
+func (this WebGLRenderingContext) FuncDetachShader() (fn js.Func[func(program WebGLProgram, shader WebGLShader)]) {
+	bindings.FuncWebGLRenderingContextDetachShader(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DetachShader calls the method "WebGLRenderingContext.detachShader".
 func (this WebGLRenderingContext) DetachShader(program WebGLProgram, shader WebGLShader) (ret js.Void) {
 	bindings.CallWebGLRenderingContextDetachShader(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		shader.Ref(),
 	)
@@ -2595,7 +2568,7 @@ func (this WebGLRenderingContext) DetachShader(program WebGLProgram, shader WebG
 // the catch clause.
 func (this WebGLRenderingContext) TryDetachShader(program WebGLProgram, shader WebGLShader) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDetachShader(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		shader.Ref(),
 	)
@@ -2603,26 +2576,25 @@ func (this WebGLRenderingContext) TryDetachShader(program WebGLProgram, shader W
 	return
 }
 
-// HasDisable returns true if the method "WebGLRenderingContext.disable" exists.
-func (this WebGLRenderingContext) HasDisable() bool {
-	return js.True == bindings.HasWebGLRenderingContextDisable(
-		this.Ref(),
+// HasFuncDisable returns true if the method "WebGLRenderingContext.disable" exists.
+func (this WebGLRenderingContext) HasFuncDisable() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextDisable(
+		this.ref,
 	)
 }
 
-// DisableFunc returns the method "WebGLRenderingContext.disable".
-func (this WebGLRenderingContext) DisableFunc() (fn js.Func[func(cap GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextDisableFunc(
-			this.Ref(),
-		),
+// FuncDisable returns the method "WebGLRenderingContext.disable".
+func (this WebGLRenderingContext) FuncDisable() (fn js.Func[func(cap GLenum)]) {
+	bindings.FuncWebGLRenderingContextDisable(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Disable calls the method "WebGLRenderingContext.disable".
 func (this WebGLRenderingContext) Disable(cap GLenum) (ret js.Void) {
 	bindings.CallWebGLRenderingContextDisable(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(cap),
 	)
 
@@ -2634,33 +2606,32 @@ func (this WebGLRenderingContext) Disable(cap GLenum) (ret js.Void) {
 // the catch clause.
 func (this WebGLRenderingContext) TryDisable(cap GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDisable(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(cap),
 	)
 
 	return
 }
 
-// HasDisableVertexAttribArray returns true if the method "WebGLRenderingContext.disableVertexAttribArray" exists.
-func (this WebGLRenderingContext) HasDisableVertexAttribArray() bool {
-	return js.True == bindings.HasWebGLRenderingContextDisableVertexAttribArray(
-		this.Ref(),
+// HasFuncDisableVertexAttribArray returns true if the method "WebGLRenderingContext.disableVertexAttribArray" exists.
+func (this WebGLRenderingContext) HasFuncDisableVertexAttribArray() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextDisableVertexAttribArray(
+		this.ref,
 	)
 }
 
-// DisableVertexAttribArrayFunc returns the method "WebGLRenderingContext.disableVertexAttribArray".
-func (this WebGLRenderingContext) DisableVertexAttribArrayFunc() (fn js.Func[func(index GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextDisableVertexAttribArrayFunc(
-			this.Ref(),
-		),
+// FuncDisableVertexAttribArray returns the method "WebGLRenderingContext.disableVertexAttribArray".
+func (this WebGLRenderingContext) FuncDisableVertexAttribArray() (fn js.Func[func(index GLuint)]) {
+	bindings.FuncWebGLRenderingContextDisableVertexAttribArray(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DisableVertexAttribArray calls the method "WebGLRenderingContext.disableVertexAttribArray".
 func (this WebGLRenderingContext) DisableVertexAttribArray(index GLuint) (ret js.Void) {
 	bindings.CallWebGLRenderingContextDisableVertexAttribArray(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 	)
 
@@ -2672,33 +2643,32 @@ func (this WebGLRenderingContext) DisableVertexAttribArray(index GLuint) (ret js
 // the catch clause.
 func (this WebGLRenderingContext) TryDisableVertexAttribArray(index GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDisableVertexAttribArray(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 	)
 
 	return
 }
 
-// HasDrawArrays returns true if the method "WebGLRenderingContext.drawArrays" exists.
-func (this WebGLRenderingContext) HasDrawArrays() bool {
-	return js.True == bindings.HasWebGLRenderingContextDrawArrays(
-		this.Ref(),
+// HasFuncDrawArrays returns true if the method "WebGLRenderingContext.drawArrays" exists.
+func (this WebGLRenderingContext) HasFuncDrawArrays() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextDrawArrays(
+		this.ref,
 	)
 }
 
-// DrawArraysFunc returns the method "WebGLRenderingContext.drawArrays".
-func (this WebGLRenderingContext) DrawArraysFunc() (fn js.Func[func(mode GLenum, first GLint, count GLsizei)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextDrawArraysFunc(
-			this.Ref(),
-		),
+// FuncDrawArrays returns the method "WebGLRenderingContext.drawArrays".
+func (this WebGLRenderingContext) FuncDrawArrays() (fn js.Func[func(mode GLenum, first GLint, count GLsizei)]) {
+	bindings.FuncWebGLRenderingContextDrawArrays(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawArrays calls the method "WebGLRenderingContext.drawArrays".
 func (this WebGLRenderingContext) DrawArrays(mode GLenum, first GLint, count GLsizei) (ret js.Void) {
 	bindings.CallWebGLRenderingContextDrawArrays(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mode),
 		int32(first),
 		int32(count),
@@ -2712,7 +2682,7 @@ func (this WebGLRenderingContext) DrawArrays(mode GLenum, first GLint, count GLs
 // the catch clause.
 func (this WebGLRenderingContext) TryDrawArrays(mode GLenum, first GLint, count GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDrawArrays(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mode),
 		int32(first),
 		int32(count),
@@ -2721,26 +2691,25 @@ func (this WebGLRenderingContext) TryDrawArrays(mode GLenum, first GLint, count 
 	return
 }
 
-// HasDrawElements returns true if the method "WebGLRenderingContext.drawElements" exists.
-func (this WebGLRenderingContext) HasDrawElements() bool {
-	return js.True == bindings.HasWebGLRenderingContextDrawElements(
-		this.Ref(),
+// HasFuncDrawElements returns true if the method "WebGLRenderingContext.drawElements" exists.
+func (this WebGLRenderingContext) HasFuncDrawElements() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextDrawElements(
+		this.ref,
 	)
 }
 
-// DrawElementsFunc returns the method "WebGLRenderingContext.drawElements".
-func (this WebGLRenderingContext) DrawElementsFunc() (fn js.Func[func(mode GLenum, count GLsizei, typ GLenum, offset GLintptr)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextDrawElementsFunc(
-			this.Ref(),
-		),
+// FuncDrawElements returns the method "WebGLRenderingContext.drawElements".
+func (this WebGLRenderingContext) FuncDrawElements() (fn js.Func[func(mode GLenum, count GLsizei, typ GLenum, offset GLintptr)]) {
+	bindings.FuncWebGLRenderingContextDrawElements(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawElements calls the method "WebGLRenderingContext.drawElements".
 func (this WebGLRenderingContext) DrawElements(mode GLenum, count GLsizei, typ GLenum, offset GLintptr) (ret js.Void) {
 	bindings.CallWebGLRenderingContextDrawElements(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mode),
 		int32(count),
 		uint32(typ),
@@ -2755,7 +2724,7 @@ func (this WebGLRenderingContext) DrawElements(mode GLenum, count GLsizei, typ G
 // the catch clause.
 func (this WebGLRenderingContext) TryDrawElements(mode GLenum, count GLsizei, typ GLenum, offset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDrawElements(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mode),
 		int32(count),
 		uint32(typ),
@@ -2765,26 +2734,25 @@ func (this WebGLRenderingContext) TryDrawElements(mode GLenum, count GLsizei, ty
 	return
 }
 
-// HasEnable returns true if the method "WebGLRenderingContext.enable" exists.
-func (this WebGLRenderingContext) HasEnable() bool {
-	return js.True == bindings.HasWebGLRenderingContextEnable(
-		this.Ref(),
+// HasFuncEnable returns true if the method "WebGLRenderingContext.enable" exists.
+func (this WebGLRenderingContext) HasFuncEnable() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextEnable(
+		this.ref,
 	)
 }
 
-// EnableFunc returns the method "WebGLRenderingContext.enable".
-func (this WebGLRenderingContext) EnableFunc() (fn js.Func[func(cap GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextEnableFunc(
-			this.Ref(),
-		),
+// FuncEnable returns the method "WebGLRenderingContext.enable".
+func (this WebGLRenderingContext) FuncEnable() (fn js.Func[func(cap GLenum)]) {
+	bindings.FuncWebGLRenderingContextEnable(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Enable calls the method "WebGLRenderingContext.enable".
 func (this WebGLRenderingContext) Enable(cap GLenum) (ret js.Void) {
 	bindings.CallWebGLRenderingContextEnable(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(cap),
 	)
 
@@ -2796,33 +2764,32 @@ func (this WebGLRenderingContext) Enable(cap GLenum) (ret js.Void) {
 // the catch clause.
 func (this WebGLRenderingContext) TryEnable(cap GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextEnable(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(cap),
 	)
 
 	return
 }
 
-// HasEnableVertexAttribArray returns true if the method "WebGLRenderingContext.enableVertexAttribArray" exists.
-func (this WebGLRenderingContext) HasEnableVertexAttribArray() bool {
-	return js.True == bindings.HasWebGLRenderingContextEnableVertexAttribArray(
-		this.Ref(),
+// HasFuncEnableVertexAttribArray returns true if the method "WebGLRenderingContext.enableVertexAttribArray" exists.
+func (this WebGLRenderingContext) HasFuncEnableVertexAttribArray() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextEnableVertexAttribArray(
+		this.ref,
 	)
 }
 
-// EnableVertexAttribArrayFunc returns the method "WebGLRenderingContext.enableVertexAttribArray".
-func (this WebGLRenderingContext) EnableVertexAttribArrayFunc() (fn js.Func[func(index GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextEnableVertexAttribArrayFunc(
-			this.Ref(),
-		),
+// FuncEnableVertexAttribArray returns the method "WebGLRenderingContext.enableVertexAttribArray".
+func (this WebGLRenderingContext) FuncEnableVertexAttribArray() (fn js.Func[func(index GLuint)]) {
+	bindings.FuncWebGLRenderingContextEnableVertexAttribArray(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // EnableVertexAttribArray calls the method "WebGLRenderingContext.enableVertexAttribArray".
 func (this WebGLRenderingContext) EnableVertexAttribArray(index GLuint) (ret js.Void) {
 	bindings.CallWebGLRenderingContextEnableVertexAttribArray(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 	)
 
@@ -2834,33 +2801,32 @@ func (this WebGLRenderingContext) EnableVertexAttribArray(index GLuint) (ret js.
 // the catch clause.
 func (this WebGLRenderingContext) TryEnableVertexAttribArray(index GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextEnableVertexAttribArray(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 	)
 
 	return
 }
 
-// HasFinish returns true if the method "WebGLRenderingContext.finish" exists.
-func (this WebGLRenderingContext) HasFinish() bool {
-	return js.True == bindings.HasWebGLRenderingContextFinish(
-		this.Ref(),
+// HasFuncFinish returns true if the method "WebGLRenderingContext.finish" exists.
+func (this WebGLRenderingContext) HasFuncFinish() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextFinish(
+		this.ref,
 	)
 }
 
-// FinishFunc returns the method "WebGLRenderingContext.finish".
-func (this WebGLRenderingContext) FinishFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextFinishFunc(
-			this.Ref(),
-		),
+// FuncFinish returns the method "WebGLRenderingContext.finish".
+func (this WebGLRenderingContext) FuncFinish() (fn js.Func[func()]) {
+	bindings.FuncWebGLRenderingContextFinish(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Finish calls the method "WebGLRenderingContext.finish".
 func (this WebGLRenderingContext) Finish() (ret js.Void) {
 	bindings.CallWebGLRenderingContextFinish(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2871,32 +2837,31 @@ func (this WebGLRenderingContext) Finish() (ret js.Void) {
 // the catch clause.
 func (this WebGLRenderingContext) TryFinish() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextFinish(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasFlush returns true if the method "WebGLRenderingContext.flush" exists.
-func (this WebGLRenderingContext) HasFlush() bool {
-	return js.True == bindings.HasWebGLRenderingContextFlush(
-		this.Ref(),
+// HasFuncFlush returns true if the method "WebGLRenderingContext.flush" exists.
+func (this WebGLRenderingContext) HasFuncFlush() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextFlush(
+		this.ref,
 	)
 }
 
-// FlushFunc returns the method "WebGLRenderingContext.flush".
-func (this WebGLRenderingContext) FlushFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextFlushFunc(
-			this.Ref(),
-		),
+// FuncFlush returns the method "WebGLRenderingContext.flush".
+func (this WebGLRenderingContext) FuncFlush() (fn js.Func[func()]) {
+	bindings.FuncWebGLRenderingContextFlush(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Flush calls the method "WebGLRenderingContext.flush".
 func (this WebGLRenderingContext) Flush() (ret js.Void) {
 	bindings.CallWebGLRenderingContextFlush(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2907,32 +2872,31 @@ func (this WebGLRenderingContext) Flush() (ret js.Void) {
 // the catch clause.
 func (this WebGLRenderingContext) TryFlush() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextFlush(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasFramebufferRenderbuffer returns true if the method "WebGLRenderingContext.framebufferRenderbuffer" exists.
-func (this WebGLRenderingContext) HasFramebufferRenderbuffer() bool {
-	return js.True == bindings.HasWebGLRenderingContextFramebufferRenderbuffer(
-		this.Ref(),
+// HasFuncFramebufferRenderbuffer returns true if the method "WebGLRenderingContext.framebufferRenderbuffer" exists.
+func (this WebGLRenderingContext) HasFuncFramebufferRenderbuffer() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextFramebufferRenderbuffer(
+		this.ref,
 	)
 }
 
-// FramebufferRenderbufferFunc returns the method "WebGLRenderingContext.framebufferRenderbuffer".
-func (this WebGLRenderingContext) FramebufferRenderbufferFunc() (fn js.Func[func(target GLenum, attachment GLenum, renderbuffertarget GLenum, renderbuffer WebGLRenderbuffer)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextFramebufferRenderbufferFunc(
-			this.Ref(),
-		),
+// FuncFramebufferRenderbuffer returns the method "WebGLRenderingContext.framebufferRenderbuffer".
+func (this WebGLRenderingContext) FuncFramebufferRenderbuffer() (fn js.Func[func(target GLenum, attachment GLenum, renderbuffertarget GLenum, renderbuffer WebGLRenderbuffer)]) {
+	bindings.FuncWebGLRenderingContextFramebufferRenderbuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // FramebufferRenderbuffer calls the method "WebGLRenderingContext.framebufferRenderbuffer".
 func (this WebGLRenderingContext) FramebufferRenderbuffer(target GLenum, attachment GLenum, renderbuffertarget GLenum, renderbuffer WebGLRenderbuffer) (ret js.Void) {
 	bindings.CallWebGLRenderingContextFramebufferRenderbuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(attachment),
 		uint32(renderbuffertarget),
@@ -2947,7 +2911,7 @@ func (this WebGLRenderingContext) FramebufferRenderbuffer(target GLenum, attachm
 // the catch clause.
 func (this WebGLRenderingContext) TryFramebufferRenderbuffer(target GLenum, attachment GLenum, renderbuffertarget GLenum, renderbuffer WebGLRenderbuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextFramebufferRenderbuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(attachment),
 		uint32(renderbuffertarget),
@@ -2957,26 +2921,25 @@ func (this WebGLRenderingContext) TryFramebufferRenderbuffer(target GLenum, atta
 	return
 }
 
-// HasFramebufferTexture2D returns true if the method "WebGLRenderingContext.framebufferTexture2D" exists.
-func (this WebGLRenderingContext) HasFramebufferTexture2D() bool {
-	return js.True == bindings.HasWebGLRenderingContextFramebufferTexture2D(
-		this.Ref(),
+// HasFuncFramebufferTexture2D returns true if the method "WebGLRenderingContext.framebufferTexture2D" exists.
+func (this WebGLRenderingContext) HasFuncFramebufferTexture2D() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextFramebufferTexture2D(
+		this.ref,
 	)
 }
 
-// FramebufferTexture2DFunc returns the method "WebGLRenderingContext.framebufferTexture2D".
-func (this WebGLRenderingContext) FramebufferTexture2DFunc() (fn js.Func[func(target GLenum, attachment GLenum, textarget GLenum, texture WebGLTexture, level GLint)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextFramebufferTexture2DFunc(
-			this.Ref(),
-		),
+// FuncFramebufferTexture2D returns the method "WebGLRenderingContext.framebufferTexture2D".
+func (this WebGLRenderingContext) FuncFramebufferTexture2D() (fn js.Func[func(target GLenum, attachment GLenum, textarget GLenum, texture WebGLTexture, level GLint)]) {
+	bindings.FuncWebGLRenderingContextFramebufferTexture2D(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // FramebufferTexture2D calls the method "WebGLRenderingContext.framebufferTexture2D".
 func (this WebGLRenderingContext) FramebufferTexture2D(target GLenum, attachment GLenum, textarget GLenum, texture WebGLTexture, level GLint) (ret js.Void) {
 	bindings.CallWebGLRenderingContextFramebufferTexture2D(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(attachment),
 		uint32(textarget),
@@ -2992,7 +2955,7 @@ func (this WebGLRenderingContext) FramebufferTexture2D(target GLenum, attachment
 // the catch clause.
 func (this WebGLRenderingContext) TryFramebufferTexture2D(target GLenum, attachment GLenum, textarget GLenum, texture WebGLTexture, level GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextFramebufferTexture2D(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(attachment),
 		uint32(textarget),
@@ -3003,26 +2966,25 @@ func (this WebGLRenderingContext) TryFramebufferTexture2D(target GLenum, attachm
 	return
 }
 
-// HasFrontFace returns true if the method "WebGLRenderingContext.frontFace" exists.
-func (this WebGLRenderingContext) HasFrontFace() bool {
-	return js.True == bindings.HasWebGLRenderingContextFrontFace(
-		this.Ref(),
+// HasFuncFrontFace returns true if the method "WebGLRenderingContext.frontFace" exists.
+func (this WebGLRenderingContext) HasFuncFrontFace() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextFrontFace(
+		this.ref,
 	)
 }
 
-// FrontFaceFunc returns the method "WebGLRenderingContext.frontFace".
-func (this WebGLRenderingContext) FrontFaceFunc() (fn js.Func[func(mode GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextFrontFaceFunc(
-			this.Ref(),
-		),
+// FuncFrontFace returns the method "WebGLRenderingContext.frontFace".
+func (this WebGLRenderingContext) FuncFrontFace() (fn js.Func[func(mode GLenum)]) {
+	bindings.FuncWebGLRenderingContextFrontFace(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // FrontFace calls the method "WebGLRenderingContext.frontFace".
 func (this WebGLRenderingContext) FrontFace(mode GLenum) (ret js.Void) {
 	bindings.CallWebGLRenderingContextFrontFace(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mode),
 	)
 
@@ -3034,33 +2996,32 @@ func (this WebGLRenderingContext) FrontFace(mode GLenum) (ret js.Void) {
 // the catch clause.
 func (this WebGLRenderingContext) TryFrontFace(mode GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextFrontFace(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mode),
 	)
 
 	return
 }
 
-// HasGenerateMipmap returns true if the method "WebGLRenderingContext.generateMipmap" exists.
-func (this WebGLRenderingContext) HasGenerateMipmap() bool {
-	return js.True == bindings.HasWebGLRenderingContextGenerateMipmap(
-		this.Ref(),
+// HasFuncGenerateMipmap returns true if the method "WebGLRenderingContext.generateMipmap" exists.
+func (this WebGLRenderingContext) HasFuncGenerateMipmap() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextGenerateMipmap(
+		this.ref,
 	)
 }
 
-// GenerateMipmapFunc returns the method "WebGLRenderingContext.generateMipmap".
-func (this WebGLRenderingContext) GenerateMipmapFunc() (fn js.Func[func(target GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextGenerateMipmapFunc(
-			this.Ref(),
-		),
+// FuncGenerateMipmap returns the method "WebGLRenderingContext.generateMipmap".
+func (this WebGLRenderingContext) FuncGenerateMipmap() (fn js.Func[func(target GLenum)]) {
+	bindings.FuncWebGLRenderingContextGenerateMipmap(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GenerateMipmap calls the method "WebGLRenderingContext.generateMipmap".
 func (this WebGLRenderingContext) GenerateMipmap(target GLenum) (ret js.Void) {
 	bindings.CallWebGLRenderingContextGenerateMipmap(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 	)
 
@@ -3072,33 +3033,32 @@ func (this WebGLRenderingContext) GenerateMipmap(target GLenum) (ret js.Void) {
 // the catch clause.
 func (this WebGLRenderingContext) TryGenerateMipmap(target GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGenerateMipmap(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 	)
 
 	return
 }
 
-// HasGetActiveAttrib returns true if the method "WebGLRenderingContext.getActiveAttrib" exists.
-func (this WebGLRenderingContext) HasGetActiveAttrib() bool {
-	return js.True == bindings.HasWebGLRenderingContextGetActiveAttrib(
-		this.Ref(),
+// HasFuncGetActiveAttrib returns true if the method "WebGLRenderingContext.getActiveAttrib" exists.
+func (this WebGLRenderingContext) HasFuncGetActiveAttrib() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextGetActiveAttrib(
+		this.ref,
 	)
 }
 
-// GetActiveAttribFunc returns the method "WebGLRenderingContext.getActiveAttrib".
-func (this WebGLRenderingContext) GetActiveAttribFunc() (fn js.Func[func(program WebGLProgram, index GLuint) WebGLActiveInfo]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextGetActiveAttribFunc(
-			this.Ref(),
-		),
+// FuncGetActiveAttrib returns the method "WebGLRenderingContext.getActiveAttrib".
+func (this WebGLRenderingContext) FuncGetActiveAttrib() (fn js.Func[func(program WebGLProgram, index GLuint) WebGLActiveInfo]) {
+	bindings.FuncWebGLRenderingContextGetActiveAttrib(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetActiveAttrib calls the method "WebGLRenderingContext.getActiveAttrib".
 func (this WebGLRenderingContext) GetActiveAttrib(program WebGLProgram, index GLuint) (ret WebGLActiveInfo) {
 	bindings.CallWebGLRenderingContextGetActiveAttrib(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		uint32(index),
 	)
@@ -3111,7 +3071,7 @@ func (this WebGLRenderingContext) GetActiveAttrib(program WebGLProgram, index GL
 // the catch clause.
 func (this WebGLRenderingContext) TryGetActiveAttrib(program WebGLProgram, index GLuint) (ret WebGLActiveInfo, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetActiveAttrib(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		uint32(index),
 	)
@@ -3119,26 +3079,25 @@ func (this WebGLRenderingContext) TryGetActiveAttrib(program WebGLProgram, index
 	return
 }
 
-// HasGetActiveUniform returns true if the method "WebGLRenderingContext.getActiveUniform" exists.
-func (this WebGLRenderingContext) HasGetActiveUniform() bool {
-	return js.True == bindings.HasWebGLRenderingContextGetActiveUniform(
-		this.Ref(),
+// HasFuncGetActiveUniform returns true if the method "WebGLRenderingContext.getActiveUniform" exists.
+func (this WebGLRenderingContext) HasFuncGetActiveUniform() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextGetActiveUniform(
+		this.ref,
 	)
 }
 
-// GetActiveUniformFunc returns the method "WebGLRenderingContext.getActiveUniform".
-func (this WebGLRenderingContext) GetActiveUniformFunc() (fn js.Func[func(program WebGLProgram, index GLuint) WebGLActiveInfo]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextGetActiveUniformFunc(
-			this.Ref(),
-		),
+// FuncGetActiveUniform returns the method "WebGLRenderingContext.getActiveUniform".
+func (this WebGLRenderingContext) FuncGetActiveUniform() (fn js.Func[func(program WebGLProgram, index GLuint) WebGLActiveInfo]) {
+	bindings.FuncWebGLRenderingContextGetActiveUniform(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetActiveUniform calls the method "WebGLRenderingContext.getActiveUniform".
 func (this WebGLRenderingContext) GetActiveUniform(program WebGLProgram, index GLuint) (ret WebGLActiveInfo) {
 	bindings.CallWebGLRenderingContextGetActiveUniform(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		uint32(index),
 	)
@@ -3151,7 +3110,7 @@ func (this WebGLRenderingContext) GetActiveUniform(program WebGLProgram, index G
 // the catch clause.
 func (this WebGLRenderingContext) TryGetActiveUniform(program WebGLProgram, index GLuint) (ret WebGLActiveInfo, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetActiveUniform(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		uint32(index),
 	)
@@ -3159,26 +3118,25 @@ func (this WebGLRenderingContext) TryGetActiveUniform(program WebGLProgram, inde
 	return
 }
 
-// HasGetAttachedShaders returns true if the method "WebGLRenderingContext.getAttachedShaders" exists.
-func (this WebGLRenderingContext) HasGetAttachedShaders() bool {
-	return js.True == bindings.HasWebGLRenderingContextGetAttachedShaders(
-		this.Ref(),
+// HasFuncGetAttachedShaders returns true if the method "WebGLRenderingContext.getAttachedShaders" exists.
+func (this WebGLRenderingContext) HasFuncGetAttachedShaders() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextGetAttachedShaders(
+		this.ref,
 	)
 }
 
-// GetAttachedShadersFunc returns the method "WebGLRenderingContext.getAttachedShaders".
-func (this WebGLRenderingContext) GetAttachedShadersFunc() (fn js.Func[func(program WebGLProgram) js.Array[WebGLShader]]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextGetAttachedShadersFunc(
-			this.Ref(),
-		),
+// FuncGetAttachedShaders returns the method "WebGLRenderingContext.getAttachedShaders".
+func (this WebGLRenderingContext) FuncGetAttachedShaders() (fn js.Func[func(program WebGLProgram) js.Array[WebGLShader]]) {
+	bindings.FuncWebGLRenderingContextGetAttachedShaders(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAttachedShaders calls the method "WebGLRenderingContext.getAttachedShaders".
 func (this WebGLRenderingContext) GetAttachedShaders(program WebGLProgram) (ret js.Array[WebGLShader]) {
 	bindings.CallWebGLRenderingContextGetAttachedShaders(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 	)
 
@@ -3190,33 +3148,32 @@ func (this WebGLRenderingContext) GetAttachedShaders(program WebGLProgram) (ret 
 // the catch clause.
 func (this WebGLRenderingContext) TryGetAttachedShaders(program WebGLProgram) (ret js.Array[WebGLShader], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetAttachedShaders(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 	)
 
 	return
 }
 
-// HasGetAttribLocation returns true if the method "WebGLRenderingContext.getAttribLocation" exists.
-func (this WebGLRenderingContext) HasGetAttribLocation() bool {
-	return js.True == bindings.HasWebGLRenderingContextGetAttribLocation(
-		this.Ref(),
+// HasFuncGetAttribLocation returns true if the method "WebGLRenderingContext.getAttribLocation" exists.
+func (this WebGLRenderingContext) HasFuncGetAttribLocation() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextGetAttribLocation(
+		this.ref,
 	)
 }
 
-// GetAttribLocationFunc returns the method "WebGLRenderingContext.getAttribLocation".
-func (this WebGLRenderingContext) GetAttribLocationFunc() (fn js.Func[func(program WebGLProgram, name js.String) GLint]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextGetAttribLocationFunc(
-			this.Ref(),
-		),
+// FuncGetAttribLocation returns the method "WebGLRenderingContext.getAttribLocation".
+func (this WebGLRenderingContext) FuncGetAttribLocation() (fn js.Func[func(program WebGLProgram, name js.String) GLint]) {
+	bindings.FuncWebGLRenderingContextGetAttribLocation(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAttribLocation calls the method "WebGLRenderingContext.getAttribLocation".
 func (this WebGLRenderingContext) GetAttribLocation(program WebGLProgram, name js.String) (ret GLint) {
 	bindings.CallWebGLRenderingContextGetAttribLocation(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		name.Ref(),
 	)
@@ -3229,7 +3186,7 @@ func (this WebGLRenderingContext) GetAttribLocation(program WebGLProgram, name j
 // the catch clause.
 func (this WebGLRenderingContext) TryGetAttribLocation(program WebGLProgram, name js.String) (ret GLint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetAttribLocation(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		name.Ref(),
 	)
@@ -3237,26 +3194,25 @@ func (this WebGLRenderingContext) TryGetAttribLocation(program WebGLProgram, nam
 	return
 }
 
-// HasGetBufferParameter returns true if the method "WebGLRenderingContext.getBufferParameter" exists.
-func (this WebGLRenderingContext) HasGetBufferParameter() bool {
-	return js.True == bindings.HasWebGLRenderingContextGetBufferParameter(
-		this.Ref(),
+// HasFuncGetBufferParameter returns true if the method "WebGLRenderingContext.getBufferParameter" exists.
+func (this WebGLRenderingContext) HasFuncGetBufferParameter() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextGetBufferParameter(
+		this.ref,
 	)
 }
 
-// GetBufferParameterFunc returns the method "WebGLRenderingContext.getBufferParameter".
-func (this WebGLRenderingContext) GetBufferParameterFunc() (fn js.Func[func(target GLenum, pname GLenum) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextGetBufferParameterFunc(
-			this.Ref(),
-		),
+// FuncGetBufferParameter returns the method "WebGLRenderingContext.getBufferParameter".
+func (this WebGLRenderingContext) FuncGetBufferParameter() (fn js.Func[func(target GLenum, pname GLenum) js.Any]) {
+	bindings.FuncWebGLRenderingContextGetBufferParameter(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetBufferParameter calls the method "WebGLRenderingContext.getBufferParameter".
 func (this WebGLRenderingContext) GetBufferParameter(target GLenum, pname GLenum) (ret js.Any) {
 	bindings.CallWebGLRenderingContextGetBufferParameter(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(pname),
 	)
@@ -3269,7 +3225,7 @@ func (this WebGLRenderingContext) GetBufferParameter(target GLenum, pname GLenum
 // the catch clause.
 func (this WebGLRenderingContext) TryGetBufferParameter(target GLenum, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetBufferParameter(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(pname),
 	)
@@ -3277,26 +3233,25 @@ func (this WebGLRenderingContext) TryGetBufferParameter(target GLenum, pname GLe
 	return
 }
 
-// HasGetParameter returns true if the method "WebGLRenderingContext.getParameter" exists.
-func (this WebGLRenderingContext) HasGetParameter() bool {
-	return js.True == bindings.HasWebGLRenderingContextGetParameter(
-		this.Ref(),
+// HasFuncGetParameter returns true if the method "WebGLRenderingContext.getParameter" exists.
+func (this WebGLRenderingContext) HasFuncGetParameter() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextGetParameter(
+		this.ref,
 	)
 }
 
-// GetParameterFunc returns the method "WebGLRenderingContext.getParameter".
-func (this WebGLRenderingContext) GetParameterFunc() (fn js.Func[func(pname GLenum) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextGetParameterFunc(
-			this.Ref(),
-		),
+// FuncGetParameter returns the method "WebGLRenderingContext.getParameter".
+func (this WebGLRenderingContext) FuncGetParameter() (fn js.Func[func(pname GLenum) js.Any]) {
+	bindings.FuncWebGLRenderingContextGetParameter(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetParameter calls the method "WebGLRenderingContext.getParameter".
 func (this WebGLRenderingContext) GetParameter(pname GLenum) (ret js.Any) {
 	bindings.CallWebGLRenderingContextGetParameter(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(pname),
 	)
 
@@ -3308,33 +3263,32 @@ func (this WebGLRenderingContext) GetParameter(pname GLenum) (ret js.Any) {
 // the catch clause.
 func (this WebGLRenderingContext) TryGetParameter(pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetParameter(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(pname),
 	)
 
 	return
 }
 
-// HasGetError returns true if the method "WebGLRenderingContext.getError" exists.
-func (this WebGLRenderingContext) HasGetError() bool {
-	return js.True == bindings.HasWebGLRenderingContextGetError(
-		this.Ref(),
+// HasFuncGetError returns true if the method "WebGLRenderingContext.getError" exists.
+func (this WebGLRenderingContext) HasFuncGetError() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextGetError(
+		this.ref,
 	)
 }
 
-// GetErrorFunc returns the method "WebGLRenderingContext.getError".
-func (this WebGLRenderingContext) GetErrorFunc() (fn js.Func[func() GLenum]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextGetErrorFunc(
-			this.Ref(),
-		),
+// FuncGetError returns the method "WebGLRenderingContext.getError".
+func (this WebGLRenderingContext) FuncGetError() (fn js.Func[func() GLenum]) {
+	bindings.FuncWebGLRenderingContextGetError(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetError calls the method "WebGLRenderingContext.getError".
 func (this WebGLRenderingContext) GetError() (ret GLenum) {
 	bindings.CallWebGLRenderingContextGetError(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3345,32 +3299,31 @@ func (this WebGLRenderingContext) GetError() (ret GLenum) {
 // the catch clause.
 func (this WebGLRenderingContext) TryGetError() (ret GLenum, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetError(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetFramebufferAttachmentParameter returns true if the method "WebGLRenderingContext.getFramebufferAttachmentParameter" exists.
-func (this WebGLRenderingContext) HasGetFramebufferAttachmentParameter() bool {
-	return js.True == bindings.HasWebGLRenderingContextGetFramebufferAttachmentParameter(
-		this.Ref(),
+// HasFuncGetFramebufferAttachmentParameter returns true if the method "WebGLRenderingContext.getFramebufferAttachmentParameter" exists.
+func (this WebGLRenderingContext) HasFuncGetFramebufferAttachmentParameter() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextGetFramebufferAttachmentParameter(
+		this.ref,
 	)
 }
 
-// GetFramebufferAttachmentParameterFunc returns the method "WebGLRenderingContext.getFramebufferAttachmentParameter".
-func (this WebGLRenderingContext) GetFramebufferAttachmentParameterFunc() (fn js.Func[func(target GLenum, attachment GLenum, pname GLenum) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextGetFramebufferAttachmentParameterFunc(
-			this.Ref(),
-		),
+// FuncGetFramebufferAttachmentParameter returns the method "WebGLRenderingContext.getFramebufferAttachmentParameter".
+func (this WebGLRenderingContext) FuncGetFramebufferAttachmentParameter() (fn js.Func[func(target GLenum, attachment GLenum, pname GLenum) js.Any]) {
+	bindings.FuncWebGLRenderingContextGetFramebufferAttachmentParameter(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetFramebufferAttachmentParameter calls the method "WebGLRenderingContext.getFramebufferAttachmentParameter".
 func (this WebGLRenderingContext) GetFramebufferAttachmentParameter(target GLenum, attachment GLenum, pname GLenum) (ret js.Any) {
 	bindings.CallWebGLRenderingContextGetFramebufferAttachmentParameter(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(attachment),
 		uint32(pname),
@@ -3384,7 +3337,7 @@ func (this WebGLRenderingContext) GetFramebufferAttachmentParameter(target GLenu
 // the catch clause.
 func (this WebGLRenderingContext) TryGetFramebufferAttachmentParameter(target GLenum, attachment GLenum, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetFramebufferAttachmentParameter(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(attachment),
 		uint32(pname),
@@ -3393,26 +3346,25 @@ func (this WebGLRenderingContext) TryGetFramebufferAttachmentParameter(target GL
 	return
 }
 
-// HasGetProgramParameter returns true if the method "WebGLRenderingContext.getProgramParameter" exists.
-func (this WebGLRenderingContext) HasGetProgramParameter() bool {
-	return js.True == bindings.HasWebGLRenderingContextGetProgramParameter(
-		this.Ref(),
+// HasFuncGetProgramParameter returns true if the method "WebGLRenderingContext.getProgramParameter" exists.
+func (this WebGLRenderingContext) HasFuncGetProgramParameter() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextGetProgramParameter(
+		this.ref,
 	)
 }
 
-// GetProgramParameterFunc returns the method "WebGLRenderingContext.getProgramParameter".
-func (this WebGLRenderingContext) GetProgramParameterFunc() (fn js.Func[func(program WebGLProgram, pname GLenum) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextGetProgramParameterFunc(
-			this.Ref(),
-		),
+// FuncGetProgramParameter returns the method "WebGLRenderingContext.getProgramParameter".
+func (this WebGLRenderingContext) FuncGetProgramParameter() (fn js.Func[func(program WebGLProgram, pname GLenum) js.Any]) {
+	bindings.FuncWebGLRenderingContextGetProgramParameter(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetProgramParameter calls the method "WebGLRenderingContext.getProgramParameter".
 func (this WebGLRenderingContext) GetProgramParameter(program WebGLProgram, pname GLenum) (ret js.Any) {
 	bindings.CallWebGLRenderingContextGetProgramParameter(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		uint32(pname),
 	)
@@ -3425,7 +3377,7 @@ func (this WebGLRenderingContext) GetProgramParameter(program WebGLProgram, pnam
 // the catch clause.
 func (this WebGLRenderingContext) TryGetProgramParameter(program WebGLProgram, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetProgramParameter(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		uint32(pname),
 	)
@@ -3433,26 +3385,25 @@ func (this WebGLRenderingContext) TryGetProgramParameter(program WebGLProgram, p
 	return
 }
 
-// HasGetProgramInfoLog returns true if the method "WebGLRenderingContext.getProgramInfoLog" exists.
-func (this WebGLRenderingContext) HasGetProgramInfoLog() bool {
-	return js.True == bindings.HasWebGLRenderingContextGetProgramInfoLog(
-		this.Ref(),
+// HasFuncGetProgramInfoLog returns true if the method "WebGLRenderingContext.getProgramInfoLog" exists.
+func (this WebGLRenderingContext) HasFuncGetProgramInfoLog() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextGetProgramInfoLog(
+		this.ref,
 	)
 }
 
-// GetProgramInfoLogFunc returns the method "WebGLRenderingContext.getProgramInfoLog".
-func (this WebGLRenderingContext) GetProgramInfoLogFunc() (fn js.Func[func(program WebGLProgram) js.String]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextGetProgramInfoLogFunc(
-			this.Ref(),
-		),
+// FuncGetProgramInfoLog returns the method "WebGLRenderingContext.getProgramInfoLog".
+func (this WebGLRenderingContext) FuncGetProgramInfoLog() (fn js.Func[func(program WebGLProgram) js.String]) {
+	bindings.FuncWebGLRenderingContextGetProgramInfoLog(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetProgramInfoLog calls the method "WebGLRenderingContext.getProgramInfoLog".
 func (this WebGLRenderingContext) GetProgramInfoLog(program WebGLProgram) (ret js.String) {
 	bindings.CallWebGLRenderingContextGetProgramInfoLog(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 	)
 
@@ -3464,33 +3415,32 @@ func (this WebGLRenderingContext) GetProgramInfoLog(program WebGLProgram) (ret j
 // the catch clause.
 func (this WebGLRenderingContext) TryGetProgramInfoLog(program WebGLProgram) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetProgramInfoLog(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 	)
 
 	return
 }
 
-// HasGetRenderbufferParameter returns true if the method "WebGLRenderingContext.getRenderbufferParameter" exists.
-func (this WebGLRenderingContext) HasGetRenderbufferParameter() bool {
-	return js.True == bindings.HasWebGLRenderingContextGetRenderbufferParameter(
-		this.Ref(),
+// HasFuncGetRenderbufferParameter returns true if the method "WebGLRenderingContext.getRenderbufferParameter" exists.
+func (this WebGLRenderingContext) HasFuncGetRenderbufferParameter() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextGetRenderbufferParameter(
+		this.ref,
 	)
 }
 
-// GetRenderbufferParameterFunc returns the method "WebGLRenderingContext.getRenderbufferParameter".
-func (this WebGLRenderingContext) GetRenderbufferParameterFunc() (fn js.Func[func(target GLenum, pname GLenum) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextGetRenderbufferParameterFunc(
-			this.Ref(),
-		),
+// FuncGetRenderbufferParameter returns the method "WebGLRenderingContext.getRenderbufferParameter".
+func (this WebGLRenderingContext) FuncGetRenderbufferParameter() (fn js.Func[func(target GLenum, pname GLenum) js.Any]) {
+	bindings.FuncWebGLRenderingContextGetRenderbufferParameter(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetRenderbufferParameter calls the method "WebGLRenderingContext.getRenderbufferParameter".
 func (this WebGLRenderingContext) GetRenderbufferParameter(target GLenum, pname GLenum) (ret js.Any) {
 	bindings.CallWebGLRenderingContextGetRenderbufferParameter(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(pname),
 	)
@@ -3503,7 +3453,7 @@ func (this WebGLRenderingContext) GetRenderbufferParameter(target GLenum, pname 
 // the catch clause.
 func (this WebGLRenderingContext) TryGetRenderbufferParameter(target GLenum, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetRenderbufferParameter(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(pname),
 	)
@@ -3511,26 +3461,25 @@ func (this WebGLRenderingContext) TryGetRenderbufferParameter(target GLenum, pna
 	return
 }
 
-// HasGetShaderParameter returns true if the method "WebGLRenderingContext.getShaderParameter" exists.
-func (this WebGLRenderingContext) HasGetShaderParameter() bool {
-	return js.True == bindings.HasWebGLRenderingContextGetShaderParameter(
-		this.Ref(),
+// HasFuncGetShaderParameter returns true if the method "WebGLRenderingContext.getShaderParameter" exists.
+func (this WebGLRenderingContext) HasFuncGetShaderParameter() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextGetShaderParameter(
+		this.ref,
 	)
 }
 
-// GetShaderParameterFunc returns the method "WebGLRenderingContext.getShaderParameter".
-func (this WebGLRenderingContext) GetShaderParameterFunc() (fn js.Func[func(shader WebGLShader, pname GLenum) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextGetShaderParameterFunc(
-			this.Ref(),
-		),
+// FuncGetShaderParameter returns the method "WebGLRenderingContext.getShaderParameter".
+func (this WebGLRenderingContext) FuncGetShaderParameter() (fn js.Func[func(shader WebGLShader, pname GLenum) js.Any]) {
+	bindings.FuncWebGLRenderingContextGetShaderParameter(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetShaderParameter calls the method "WebGLRenderingContext.getShaderParameter".
 func (this WebGLRenderingContext) GetShaderParameter(shader WebGLShader, pname GLenum) (ret js.Any) {
 	bindings.CallWebGLRenderingContextGetShaderParameter(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		shader.Ref(),
 		uint32(pname),
 	)
@@ -3543,7 +3492,7 @@ func (this WebGLRenderingContext) GetShaderParameter(shader WebGLShader, pname G
 // the catch clause.
 func (this WebGLRenderingContext) TryGetShaderParameter(shader WebGLShader, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetShaderParameter(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		shader.Ref(),
 		uint32(pname),
 	)
@@ -3551,26 +3500,25 @@ func (this WebGLRenderingContext) TryGetShaderParameter(shader WebGLShader, pnam
 	return
 }
 
-// HasGetShaderPrecisionFormat returns true if the method "WebGLRenderingContext.getShaderPrecisionFormat" exists.
-func (this WebGLRenderingContext) HasGetShaderPrecisionFormat() bool {
-	return js.True == bindings.HasWebGLRenderingContextGetShaderPrecisionFormat(
-		this.Ref(),
+// HasFuncGetShaderPrecisionFormat returns true if the method "WebGLRenderingContext.getShaderPrecisionFormat" exists.
+func (this WebGLRenderingContext) HasFuncGetShaderPrecisionFormat() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextGetShaderPrecisionFormat(
+		this.ref,
 	)
 }
 
-// GetShaderPrecisionFormatFunc returns the method "WebGLRenderingContext.getShaderPrecisionFormat".
-func (this WebGLRenderingContext) GetShaderPrecisionFormatFunc() (fn js.Func[func(shadertype GLenum, precisiontype GLenum) WebGLShaderPrecisionFormat]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextGetShaderPrecisionFormatFunc(
-			this.Ref(),
-		),
+// FuncGetShaderPrecisionFormat returns the method "WebGLRenderingContext.getShaderPrecisionFormat".
+func (this WebGLRenderingContext) FuncGetShaderPrecisionFormat() (fn js.Func[func(shadertype GLenum, precisiontype GLenum) WebGLShaderPrecisionFormat]) {
+	bindings.FuncWebGLRenderingContextGetShaderPrecisionFormat(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetShaderPrecisionFormat calls the method "WebGLRenderingContext.getShaderPrecisionFormat".
 func (this WebGLRenderingContext) GetShaderPrecisionFormat(shadertype GLenum, precisiontype GLenum) (ret WebGLShaderPrecisionFormat) {
 	bindings.CallWebGLRenderingContextGetShaderPrecisionFormat(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(shadertype),
 		uint32(precisiontype),
 	)
@@ -3583,7 +3531,7 @@ func (this WebGLRenderingContext) GetShaderPrecisionFormat(shadertype GLenum, pr
 // the catch clause.
 func (this WebGLRenderingContext) TryGetShaderPrecisionFormat(shadertype GLenum, precisiontype GLenum) (ret WebGLShaderPrecisionFormat, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetShaderPrecisionFormat(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(shadertype),
 		uint32(precisiontype),
 	)
@@ -3591,26 +3539,25 @@ func (this WebGLRenderingContext) TryGetShaderPrecisionFormat(shadertype GLenum,
 	return
 }
 
-// HasGetShaderInfoLog returns true if the method "WebGLRenderingContext.getShaderInfoLog" exists.
-func (this WebGLRenderingContext) HasGetShaderInfoLog() bool {
-	return js.True == bindings.HasWebGLRenderingContextGetShaderInfoLog(
-		this.Ref(),
+// HasFuncGetShaderInfoLog returns true if the method "WebGLRenderingContext.getShaderInfoLog" exists.
+func (this WebGLRenderingContext) HasFuncGetShaderInfoLog() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextGetShaderInfoLog(
+		this.ref,
 	)
 }
 
-// GetShaderInfoLogFunc returns the method "WebGLRenderingContext.getShaderInfoLog".
-func (this WebGLRenderingContext) GetShaderInfoLogFunc() (fn js.Func[func(shader WebGLShader) js.String]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextGetShaderInfoLogFunc(
-			this.Ref(),
-		),
+// FuncGetShaderInfoLog returns the method "WebGLRenderingContext.getShaderInfoLog".
+func (this WebGLRenderingContext) FuncGetShaderInfoLog() (fn js.Func[func(shader WebGLShader) js.String]) {
+	bindings.FuncWebGLRenderingContextGetShaderInfoLog(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetShaderInfoLog calls the method "WebGLRenderingContext.getShaderInfoLog".
 func (this WebGLRenderingContext) GetShaderInfoLog(shader WebGLShader) (ret js.String) {
 	bindings.CallWebGLRenderingContextGetShaderInfoLog(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		shader.Ref(),
 	)
 
@@ -3622,33 +3569,32 @@ func (this WebGLRenderingContext) GetShaderInfoLog(shader WebGLShader) (ret js.S
 // the catch clause.
 func (this WebGLRenderingContext) TryGetShaderInfoLog(shader WebGLShader) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetShaderInfoLog(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		shader.Ref(),
 	)
 
 	return
 }
 
-// HasGetShaderSource returns true if the method "WebGLRenderingContext.getShaderSource" exists.
-func (this WebGLRenderingContext) HasGetShaderSource() bool {
-	return js.True == bindings.HasWebGLRenderingContextGetShaderSource(
-		this.Ref(),
+// HasFuncGetShaderSource returns true if the method "WebGLRenderingContext.getShaderSource" exists.
+func (this WebGLRenderingContext) HasFuncGetShaderSource() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextGetShaderSource(
+		this.ref,
 	)
 }
 
-// GetShaderSourceFunc returns the method "WebGLRenderingContext.getShaderSource".
-func (this WebGLRenderingContext) GetShaderSourceFunc() (fn js.Func[func(shader WebGLShader) js.String]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextGetShaderSourceFunc(
-			this.Ref(),
-		),
+// FuncGetShaderSource returns the method "WebGLRenderingContext.getShaderSource".
+func (this WebGLRenderingContext) FuncGetShaderSource() (fn js.Func[func(shader WebGLShader) js.String]) {
+	bindings.FuncWebGLRenderingContextGetShaderSource(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetShaderSource calls the method "WebGLRenderingContext.getShaderSource".
 func (this WebGLRenderingContext) GetShaderSource(shader WebGLShader) (ret js.String) {
 	bindings.CallWebGLRenderingContextGetShaderSource(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		shader.Ref(),
 	)
 
@@ -3660,33 +3606,32 @@ func (this WebGLRenderingContext) GetShaderSource(shader WebGLShader) (ret js.St
 // the catch clause.
 func (this WebGLRenderingContext) TryGetShaderSource(shader WebGLShader) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetShaderSource(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		shader.Ref(),
 	)
 
 	return
 }
 
-// HasGetTexParameter returns true if the method "WebGLRenderingContext.getTexParameter" exists.
-func (this WebGLRenderingContext) HasGetTexParameter() bool {
-	return js.True == bindings.HasWebGLRenderingContextGetTexParameter(
-		this.Ref(),
+// HasFuncGetTexParameter returns true if the method "WebGLRenderingContext.getTexParameter" exists.
+func (this WebGLRenderingContext) HasFuncGetTexParameter() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextGetTexParameter(
+		this.ref,
 	)
 }
 
-// GetTexParameterFunc returns the method "WebGLRenderingContext.getTexParameter".
-func (this WebGLRenderingContext) GetTexParameterFunc() (fn js.Func[func(target GLenum, pname GLenum) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextGetTexParameterFunc(
-			this.Ref(),
-		),
+// FuncGetTexParameter returns the method "WebGLRenderingContext.getTexParameter".
+func (this WebGLRenderingContext) FuncGetTexParameter() (fn js.Func[func(target GLenum, pname GLenum) js.Any]) {
+	bindings.FuncWebGLRenderingContextGetTexParameter(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetTexParameter calls the method "WebGLRenderingContext.getTexParameter".
 func (this WebGLRenderingContext) GetTexParameter(target GLenum, pname GLenum) (ret js.Any) {
 	bindings.CallWebGLRenderingContextGetTexParameter(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(pname),
 	)
@@ -3699,7 +3644,7 @@ func (this WebGLRenderingContext) GetTexParameter(target GLenum, pname GLenum) (
 // the catch clause.
 func (this WebGLRenderingContext) TryGetTexParameter(target GLenum, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetTexParameter(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(pname),
 	)
@@ -3707,26 +3652,25 @@ func (this WebGLRenderingContext) TryGetTexParameter(target GLenum, pname GLenum
 	return
 }
 
-// HasGetUniform returns true if the method "WebGLRenderingContext.getUniform" exists.
-func (this WebGLRenderingContext) HasGetUniform() bool {
-	return js.True == bindings.HasWebGLRenderingContextGetUniform(
-		this.Ref(),
+// HasFuncGetUniform returns true if the method "WebGLRenderingContext.getUniform" exists.
+func (this WebGLRenderingContext) HasFuncGetUniform() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextGetUniform(
+		this.ref,
 	)
 }
 
-// GetUniformFunc returns the method "WebGLRenderingContext.getUniform".
-func (this WebGLRenderingContext) GetUniformFunc() (fn js.Func[func(program WebGLProgram, location WebGLUniformLocation) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextGetUniformFunc(
-			this.Ref(),
-		),
+// FuncGetUniform returns the method "WebGLRenderingContext.getUniform".
+func (this WebGLRenderingContext) FuncGetUniform() (fn js.Func[func(program WebGLProgram, location WebGLUniformLocation) js.Any]) {
+	bindings.FuncWebGLRenderingContextGetUniform(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetUniform calls the method "WebGLRenderingContext.getUniform".
 func (this WebGLRenderingContext) GetUniform(program WebGLProgram, location WebGLUniformLocation) (ret js.Any) {
 	bindings.CallWebGLRenderingContextGetUniform(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		location.Ref(),
 	)
@@ -3739,7 +3683,7 @@ func (this WebGLRenderingContext) GetUniform(program WebGLProgram, location WebG
 // the catch clause.
 func (this WebGLRenderingContext) TryGetUniform(program WebGLProgram, location WebGLUniformLocation) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetUniform(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		location.Ref(),
 	)
@@ -3747,26 +3691,25 @@ func (this WebGLRenderingContext) TryGetUniform(program WebGLProgram, location W
 	return
 }
 
-// HasGetUniformLocation returns true if the method "WebGLRenderingContext.getUniformLocation" exists.
-func (this WebGLRenderingContext) HasGetUniformLocation() bool {
-	return js.True == bindings.HasWebGLRenderingContextGetUniformLocation(
-		this.Ref(),
+// HasFuncGetUniformLocation returns true if the method "WebGLRenderingContext.getUniformLocation" exists.
+func (this WebGLRenderingContext) HasFuncGetUniformLocation() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextGetUniformLocation(
+		this.ref,
 	)
 }
 
-// GetUniformLocationFunc returns the method "WebGLRenderingContext.getUniformLocation".
-func (this WebGLRenderingContext) GetUniformLocationFunc() (fn js.Func[func(program WebGLProgram, name js.String) WebGLUniformLocation]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextGetUniformLocationFunc(
-			this.Ref(),
-		),
+// FuncGetUniformLocation returns the method "WebGLRenderingContext.getUniformLocation".
+func (this WebGLRenderingContext) FuncGetUniformLocation() (fn js.Func[func(program WebGLProgram, name js.String) WebGLUniformLocation]) {
+	bindings.FuncWebGLRenderingContextGetUniformLocation(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetUniformLocation calls the method "WebGLRenderingContext.getUniformLocation".
 func (this WebGLRenderingContext) GetUniformLocation(program WebGLProgram, name js.String) (ret WebGLUniformLocation) {
 	bindings.CallWebGLRenderingContextGetUniformLocation(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		name.Ref(),
 	)
@@ -3779,7 +3722,7 @@ func (this WebGLRenderingContext) GetUniformLocation(program WebGLProgram, name 
 // the catch clause.
 func (this WebGLRenderingContext) TryGetUniformLocation(program WebGLProgram, name js.String) (ret WebGLUniformLocation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetUniformLocation(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		name.Ref(),
 	)
@@ -3787,26 +3730,25 @@ func (this WebGLRenderingContext) TryGetUniformLocation(program WebGLProgram, na
 	return
 }
 
-// HasGetVertexAttrib returns true if the method "WebGLRenderingContext.getVertexAttrib" exists.
-func (this WebGLRenderingContext) HasGetVertexAttrib() bool {
-	return js.True == bindings.HasWebGLRenderingContextGetVertexAttrib(
-		this.Ref(),
+// HasFuncGetVertexAttrib returns true if the method "WebGLRenderingContext.getVertexAttrib" exists.
+func (this WebGLRenderingContext) HasFuncGetVertexAttrib() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextGetVertexAttrib(
+		this.ref,
 	)
 }
 
-// GetVertexAttribFunc returns the method "WebGLRenderingContext.getVertexAttrib".
-func (this WebGLRenderingContext) GetVertexAttribFunc() (fn js.Func[func(index GLuint, pname GLenum) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextGetVertexAttribFunc(
-			this.Ref(),
-		),
+// FuncGetVertexAttrib returns the method "WebGLRenderingContext.getVertexAttrib".
+func (this WebGLRenderingContext) FuncGetVertexAttrib() (fn js.Func[func(index GLuint, pname GLenum) js.Any]) {
+	bindings.FuncWebGLRenderingContextGetVertexAttrib(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetVertexAttrib calls the method "WebGLRenderingContext.getVertexAttrib".
 func (this WebGLRenderingContext) GetVertexAttrib(index GLuint, pname GLenum) (ret js.Any) {
 	bindings.CallWebGLRenderingContextGetVertexAttrib(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		uint32(pname),
 	)
@@ -3819,7 +3761,7 @@ func (this WebGLRenderingContext) GetVertexAttrib(index GLuint, pname GLenum) (r
 // the catch clause.
 func (this WebGLRenderingContext) TryGetVertexAttrib(index GLuint, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetVertexAttrib(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		uint32(pname),
 	)
@@ -3827,26 +3769,25 @@ func (this WebGLRenderingContext) TryGetVertexAttrib(index GLuint, pname GLenum)
 	return
 }
 
-// HasGetVertexAttribOffset returns true if the method "WebGLRenderingContext.getVertexAttribOffset" exists.
-func (this WebGLRenderingContext) HasGetVertexAttribOffset() bool {
-	return js.True == bindings.HasWebGLRenderingContextGetVertexAttribOffset(
-		this.Ref(),
+// HasFuncGetVertexAttribOffset returns true if the method "WebGLRenderingContext.getVertexAttribOffset" exists.
+func (this WebGLRenderingContext) HasFuncGetVertexAttribOffset() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextGetVertexAttribOffset(
+		this.ref,
 	)
 }
 
-// GetVertexAttribOffsetFunc returns the method "WebGLRenderingContext.getVertexAttribOffset".
-func (this WebGLRenderingContext) GetVertexAttribOffsetFunc() (fn js.Func[func(index GLuint, pname GLenum) GLintptr]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextGetVertexAttribOffsetFunc(
-			this.Ref(),
-		),
+// FuncGetVertexAttribOffset returns the method "WebGLRenderingContext.getVertexAttribOffset".
+func (this WebGLRenderingContext) FuncGetVertexAttribOffset() (fn js.Func[func(index GLuint, pname GLenum) GLintptr]) {
+	bindings.FuncWebGLRenderingContextGetVertexAttribOffset(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetVertexAttribOffset calls the method "WebGLRenderingContext.getVertexAttribOffset".
 func (this WebGLRenderingContext) GetVertexAttribOffset(index GLuint, pname GLenum) (ret GLintptr) {
 	bindings.CallWebGLRenderingContextGetVertexAttribOffset(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		uint32(pname),
 	)
@@ -3859,7 +3800,7 @@ func (this WebGLRenderingContext) GetVertexAttribOffset(index GLuint, pname GLen
 // the catch clause.
 func (this WebGLRenderingContext) TryGetVertexAttribOffset(index GLuint, pname GLenum) (ret GLintptr, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetVertexAttribOffset(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		uint32(pname),
 	)
@@ -3867,26 +3808,25 @@ func (this WebGLRenderingContext) TryGetVertexAttribOffset(index GLuint, pname G
 	return
 }
 
-// HasHint returns true if the method "WebGLRenderingContext.hint" exists.
-func (this WebGLRenderingContext) HasHint() bool {
-	return js.True == bindings.HasWebGLRenderingContextHint(
-		this.Ref(),
+// HasFuncHint returns true if the method "WebGLRenderingContext.hint" exists.
+func (this WebGLRenderingContext) HasFuncHint() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextHint(
+		this.ref,
 	)
 }
 
-// HintFunc returns the method "WebGLRenderingContext.hint".
-func (this WebGLRenderingContext) HintFunc() (fn js.Func[func(target GLenum, mode GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextHintFunc(
-			this.Ref(),
-		),
+// FuncHint returns the method "WebGLRenderingContext.hint".
+func (this WebGLRenderingContext) FuncHint() (fn js.Func[func(target GLenum, mode GLenum)]) {
+	bindings.FuncWebGLRenderingContextHint(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Hint calls the method "WebGLRenderingContext.hint".
 func (this WebGLRenderingContext) Hint(target GLenum, mode GLenum) (ret js.Void) {
 	bindings.CallWebGLRenderingContextHint(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(mode),
 	)
@@ -3899,7 +3839,7 @@ func (this WebGLRenderingContext) Hint(target GLenum, mode GLenum) (ret js.Void)
 // the catch clause.
 func (this WebGLRenderingContext) TryHint(target GLenum, mode GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextHint(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(mode),
 	)
@@ -3907,26 +3847,25 @@ func (this WebGLRenderingContext) TryHint(target GLenum, mode GLenum) (ret js.Vo
 	return
 }
 
-// HasIsBuffer returns true if the method "WebGLRenderingContext.isBuffer" exists.
-func (this WebGLRenderingContext) HasIsBuffer() bool {
-	return js.True == bindings.HasWebGLRenderingContextIsBuffer(
-		this.Ref(),
+// HasFuncIsBuffer returns true if the method "WebGLRenderingContext.isBuffer" exists.
+func (this WebGLRenderingContext) HasFuncIsBuffer() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextIsBuffer(
+		this.ref,
 	)
 }
 
-// IsBufferFunc returns the method "WebGLRenderingContext.isBuffer".
-func (this WebGLRenderingContext) IsBufferFunc() (fn js.Func[func(buffer WebGLBuffer) GLboolean]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextIsBufferFunc(
-			this.Ref(),
-		),
+// FuncIsBuffer returns the method "WebGLRenderingContext.isBuffer".
+func (this WebGLRenderingContext) FuncIsBuffer() (fn js.Func[func(buffer WebGLBuffer) GLboolean]) {
+	bindings.FuncWebGLRenderingContextIsBuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsBuffer calls the method "WebGLRenderingContext.isBuffer".
 func (this WebGLRenderingContext) IsBuffer(buffer WebGLBuffer) (ret GLboolean) {
 	bindings.CallWebGLRenderingContextIsBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		buffer.Ref(),
 	)
 
@@ -3938,33 +3877,32 @@ func (this WebGLRenderingContext) IsBuffer(buffer WebGLBuffer) (ret GLboolean) {
 // the catch clause.
 func (this WebGLRenderingContext) TryIsBuffer(buffer WebGLBuffer) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextIsBuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		buffer.Ref(),
 	)
 
 	return
 }
 
-// HasIsEnabled returns true if the method "WebGLRenderingContext.isEnabled" exists.
-func (this WebGLRenderingContext) HasIsEnabled() bool {
-	return js.True == bindings.HasWebGLRenderingContextIsEnabled(
-		this.Ref(),
+// HasFuncIsEnabled returns true if the method "WebGLRenderingContext.isEnabled" exists.
+func (this WebGLRenderingContext) HasFuncIsEnabled() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextIsEnabled(
+		this.ref,
 	)
 }
 
-// IsEnabledFunc returns the method "WebGLRenderingContext.isEnabled".
-func (this WebGLRenderingContext) IsEnabledFunc() (fn js.Func[func(cap GLenum) GLboolean]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextIsEnabledFunc(
-			this.Ref(),
-		),
+// FuncIsEnabled returns the method "WebGLRenderingContext.isEnabled".
+func (this WebGLRenderingContext) FuncIsEnabled() (fn js.Func[func(cap GLenum) GLboolean]) {
+	bindings.FuncWebGLRenderingContextIsEnabled(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsEnabled calls the method "WebGLRenderingContext.isEnabled".
 func (this WebGLRenderingContext) IsEnabled(cap GLenum) (ret GLboolean) {
 	bindings.CallWebGLRenderingContextIsEnabled(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(cap),
 	)
 
@@ -3976,33 +3914,32 @@ func (this WebGLRenderingContext) IsEnabled(cap GLenum) (ret GLboolean) {
 // the catch clause.
 func (this WebGLRenderingContext) TryIsEnabled(cap GLenum) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextIsEnabled(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(cap),
 	)
 
 	return
 }
 
-// HasIsFramebuffer returns true if the method "WebGLRenderingContext.isFramebuffer" exists.
-func (this WebGLRenderingContext) HasIsFramebuffer() bool {
-	return js.True == bindings.HasWebGLRenderingContextIsFramebuffer(
-		this.Ref(),
+// HasFuncIsFramebuffer returns true if the method "WebGLRenderingContext.isFramebuffer" exists.
+func (this WebGLRenderingContext) HasFuncIsFramebuffer() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextIsFramebuffer(
+		this.ref,
 	)
 }
 
-// IsFramebufferFunc returns the method "WebGLRenderingContext.isFramebuffer".
-func (this WebGLRenderingContext) IsFramebufferFunc() (fn js.Func[func(framebuffer WebGLFramebuffer) GLboolean]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextIsFramebufferFunc(
-			this.Ref(),
-		),
+// FuncIsFramebuffer returns the method "WebGLRenderingContext.isFramebuffer".
+func (this WebGLRenderingContext) FuncIsFramebuffer() (fn js.Func[func(framebuffer WebGLFramebuffer) GLboolean]) {
+	bindings.FuncWebGLRenderingContextIsFramebuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsFramebuffer calls the method "WebGLRenderingContext.isFramebuffer".
 func (this WebGLRenderingContext) IsFramebuffer(framebuffer WebGLFramebuffer) (ret GLboolean) {
 	bindings.CallWebGLRenderingContextIsFramebuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		framebuffer.Ref(),
 	)
 
@@ -4014,33 +3951,32 @@ func (this WebGLRenderingContext) IsFramebuffer(framebuffer WebGLFramebuffer) (r
 // the catch clause.
 func (this WebGLRenderingContext) TryIsFramebuffer(framebuffer WebGLFramebuffer) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextIsFramebuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		framebuffer.Ref(),
 	)
 
 	return
 }
 
-// HasIsProgram returns true if the method "WebGLRenderingContext.isProgram" exists.
-func (this WebGLRenderingContext) HasIsProgram() bool {
-	return js.True == bindings.HasWebGLRenderingContextIsProgram(
-		this.Ref(),
+// HasFuncIsProgram returns true if the method "WebGLRenderingContext.isProgram" exists.
+func (this WebGLRenderingContext) HasFuncIsProgram() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextIsProgram(
+		this.ref,
 	)
 }
 
-// IsProgramFunc returns the method "WebGLRenderingContext.isProgram".
-func (this WebGLRenderingContext) IsProgramFunc() (fn js.Func[func(program WebGLProgram) GLboolean]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextIsProgramFunc(
-			this.Ref(),
-		),
+// FuncIsProgram returns the method "WebGLRenderingContext.isProgram".
+func (this WebGLRenderingContext) FuncIsProgram() (fn js.Func[func(program WebGLProgram) GLboolean]) {
+	bindings.FuncWebGLRenderingContextIsProgram(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsProgram calls the method "WebGLRenderingContext.isProgram".
 func (this WebGLRenderingContext) IsProgram(program WebGLProgram) (ret GLboolean) {
 	bindings.CallWebGLRenderingContextIsProgram(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 	)
 
@@ -4052,33 +3988,32 @@ func (this WebGLRenderingContext) IsProgram(program WebGLProgram) (ret GLboolean
 // the catch clause.
 func (this WebGLRenderingContext) TryIsProgram(program WebGLProgram) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextIsProgram(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 	)
 
 	return
 }
 
-// HasIsRenderbuffer returns true if the method "WebGLRenderingContext.isRenderbuffer" exists.
-func (this WebGLRenderingContext) HasIsRenderbuffer() bool {
-	return js.True == bindings.HasWebGLRenderingContextIsRenderbuffer(
-		this.Ref(),
+// HasFuncIsRenderbuffer returns true if the method "WebGLRenderingContext.isRenderbuffer" exists.
+func (this WebGLRenderingContext) HasFuncIsRenderbuffer() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextIsRenderbuffer(
+		this.ref,
 	)
 }
 
-// IsRenderbufferFunc returns the method "WebGLRenderingContext.isRenderbuffer".
-func (this WebGLRenderingContext) IsRenderbufferFunc() (fn js.Func[func(renderbuffer WebGLRenderbuffer) GLboolean]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextIsRenderbufferFunc(
-			this.Ref(),
-		),
+// FuncIsRenderbuffer returns the method "WebGLRenderingContext.isRenderbuffer".
+func (this WebGLRenderingContext) FuncIsRenderbuffer() (fn js.Func[func(renderbuffer WebGLRenderbuffer) GLboolean]) {
+	bindings.FuncWebGLRenderingContextIsRenderbuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsRenderbuffer calls the method "WebGLRenderingContext.isRenderbuffer".
 func (this WebGLRenderingContext) IsRenderbuffer(renderbuffer WebGLRenderbuffer) (ret GLboolean) {
 	bindings.CallWebGLRenderingContextIsRenderbuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		renderbuffer.Ref(),
 	)
 
@@ -4090,33 +4025,32 @@ func (this WebGLRenderingContext) IsRenderbuffer(renderbuffer WebGLRenderbuffer)
 // the catch clause.
 func (this WebGLRenderingContext) TryIsRenderbuffer(renderbuffer WebGLRenderbuffer) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextIsRenderbuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		renderbuffer.Ref(),
 	)
 
 	return
 }
 
-// HasIsShader returns true if the method "WebGLRenderingContext.isShader" exists.
-func (this WebGLRenderingContext) HasIsShader() bool {
-	return js.True == bindings.HasWebGLRenderingContextIsShader(
-		this.Ref(),
+// HasFuncIsShader returns true if the method "WebGLRenderingContext.isShader" exists.
+func (this WebGLRenderingContext) HasFuncIsShader() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextIsShader(
+		this.ref,
 	)
 }
 
-// IsShaderFunc returns the method "WebGLRenderingContext.isShader".
-func (this WebGLRenderingContext) IsShaderFunc() (fn js.Func[func(shader WebGLShader) GLboolean]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextIsShaderFunc(
-			this.Ref(),
-		),
+// FuncIsShader returns the method "WebGLRenderingContext.isShader".
+func (this WebGLRenderingContext) FuncIsShader() (fn js.Func[func(shader WebGLShader) GLboolean]) {
+	bindings.FuncWebGLRenderingContextIsShader(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsShader calls the method "WebGLRenderingContext.isShader".
 func (this WebGLRenderingContext) IsShader(shader WebGLShader) (ret GLboolean) {
 	bindings.CallWebGLRenderingContextIsShader(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		shader.Ref(),
 	)
 
@@ -4128,33 +4062,32 @@ func (this WebGLRenderingContext) IsShader(shader WebGLShader) (ret GLboolean) {
 // the catch clause.
 func (this WebGLRenderingContext) TryIsShader(shader WebGLShader) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextIsShader(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		shader.Ref(),
 	)
 
 	return
 }
 
-// HasIsTexture returns true if the method "WebGLRenderingContext.isTexture" exists.
-func (this WebGLRenderingContext) HasIsTexture() bool {
-	return js.True == bindings.HasWebGLRenderingContextIsTexture(
-		this.Ref(),
+// HasFuncIsTexture returns true if the method "WebGLRenderingContext.isTexture" exists.
+func (this WebGLRenderingContext) HasFuncIsTexture() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextIsTexture(
+		this.ref,
 	)
 }
 
-// IsTextureFunc returns the method "WebGLRenderingContext.isTexture".
-func (this WebGLRenderingContext) IsTextureFunc() (fn js.Func[func(texture WebGLTexture) GLboolean]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextIsTextureFunc(
-			this.Ref(),
-		),
+// FuncIsTexture returns the method "WebGLRenderingContext.isTexture".
+func (this WebGLRenderingContext) FuncIsTexture() (fn js.Func[func(texture WebGLTexture) GLboolean]) {
+	bindings.FuncWebGLRenderingContextIsTexture(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsTexture calls the method "WebGLRenderingContext.isTexture".
 func (this WebGLRenderingContext) IsTexture(texture WebGLTexture) (ret GLboolean) {
 	bindings.CallWebGLRenderingContextIsTexture(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		texture.Ref(),
 	)
 
@@ -4166,33 +4099,32 @@ func (this WebGLRenderingContext) IsTexture(texture WebGLTexture) (ret GLboolean
 // the catch clause.
 func (this WebGLRenderingContext) TryIsTexture(texture WebGLTexture) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextIsTexture(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		texture.Ref(),
 	)
 
 	return
 }
 
-// HasLineWidth returns true if the method "WebGLRenderingContext.lineWidth" exists.
-func (this WebGLRenderingContext) HasLineWidth() bool {
-	return js.True == bindings.HasWebGLRenderingContextLineWidth(
-		this.Ref(),
+// HasFuncLineWidth returns true if the method "WebGLRenderingContext.lineWidth" exists.
+func (this WebGLRenderingContext) HasFuncLineWidth() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextLineWidth(
+		this.ref,
 	)
 }
 
-// LineWidthFunc returns the method "WebGLRenderingContext.lineWidth".
-func (this WebGLRenderingContext) LineWidthFunc() (fn js.Func[func(width GLfloat)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextLineWidthFunc(
-			this.Ref(),
-		),
+// FuncLineWidth returns the method "WebGLRenderingContext.lineWidth".
+func (this WebGLRenderingContext) FuncLineWidth() (fn js.Func[func(width GLfloat)]) {
+	bindings.FuncWebGLRenderingContextLineWidth(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // LineWidth calls the method "WebGLRenderingContext.lineWidth".
 func (this WebGLRenderingContext) LineWidth(width GLfloat) (ret js.Void) {
 	bindings.CallWebGLRenderingContextLineWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float32(width),
 	)
 
@@ -4204,33 +4136,32 @@ func (this WebGLRenderingContext) LineWidth(width GLfloat) (ret js.Void) {
 // the catch clause.
 func (this WebGLRenderingContext) TryLineWidth(width GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextLineWidth(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float32(width),
 	)
 
 	return
 }
 
-// HasLinkProgram returns true if the method "WebGLRenderingContext.linkProgram" exists.
-func (this WebGLRenderingContext) HasLinkProgram() bool {
-	return js.True == bindings.HasWebGLRenderingContextLinkProgram(
-		this.Ref(),
+// HasFuncLinkProgram returns true if the method "WebGLRenderingContext.linkProgram" exists.
+func (this WebGLRenderingContext) HasFuncLinkProgram() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextLinkProgram(
+		this.ref,
 	)
 }
 
-// LinkProgramFunc returns the method "WebGLRenderingContext.linkProgram".
-func (this WebGLRenderingContext) LinkProgramFunc() (fn js.Func[func(program WebGLProgram)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextLinkProgramFunc(
-			this.Ref(),
-		),
+// FuncLinkProgram returns the method "WebGLRenderingContext.linkProgram".
+func (this WebGLRenderingContext) FuncLinkProgram() (fn js.Func[func(program WebGLProgram)]) {
+	bindings.FuncWebGLRenderingContextLinkProgram(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // LinkProgram calls the method "WebGLRenderingContext.linkProgram".
 func (this WebGLRenderingContext) LinkProgram(program WebGLProgram) (ret js.Void) {
 	bindings.CallWebGLRenderingContextLinkProgram(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 	)
 
@@ -4242,33 +4173,32 @@ func (this WebGLRenderingContext) LinkProgram(program WebGLProgram) (ret js.Void
 // the catch clause.
 func (this WebGLRenderingContext) TryLinkProgram(program WebGLProgram) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextLinkProgram(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 	)
 
 	return
 }
 
-// HasPixelStorei returns true if the method "WebGLRenderingContext.pixelStorei" exists.
-func (this WebGLRenderingContext) HasPixelStorei() bool {
-	return js.True == bindings.HasWebGLRenderingContextPixelStorei(
-		this.Ref(),
+// HasFuncPixelStorei returns true if the method "WebGLRenderingContext.pixelStorei" exists.
+func (this WebGLRenderingContext) HasFuncPixelStorei() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextPixelStorei(
+		this.ref,
 	)
 }
 
-// PixelStoreiFunc returns the method "WebGLRenderingContext.pixelStorei".
-func (this WebGLRenderingContext) PixelStoreiFunc() (fn js.Func[func(pname GLenum, param GLint)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextPixelStoreiFunc(
-			this.Ref(),
-		),
+// FuncPixelStorei returns the method "WebGLRenderingContext.pixelStorei".
+func (this WebGLRenderingContext) FuncPixelStorei() (fn js.Func[func(pname GLenum, param GLint)]) {
+	bindings.FuncWebGLRenderingContextPixelStorei(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PixelStorei calls the method "WebGLRenderingContext.pixelStorei".
 func (this WebGLRenderingContext) PixelStorei(pname GLenum, param GLint) (ret js.Void) {
 	bindings.CallWebGLRenderingContextPixelStorei(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(pname),
 		int32(param),
 	)
@@ -4281,7 +4211,7 @@ func (this WebGLRenderingContext) PixelStorei(pname GLenum, param GLint) (ret js
 // the catch clause.
 func (this WebGLRenderingContext) TryPixelStorei(pname GLenum, param GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextPixelStorei(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(pname),
 		int32(param),
 	)
@@ -4289,26 +4219,25 @@ func (this WebGLRenderingContext) TryPixelStorei(pname GLenum, param GLint) (ret
 	return
 }
 
-// HasPolygonOffset returns true if the method "WebGLRenderingContext.polygonOffset" exists.
-func (this WebGLRenderingContext) HasPolygonOffset() bool {
-	return js.True == bindings.HasWebGLRenderingContextPolygonOffset(
-		this.Ref(),
+// HasFuncPolygonOffset returns true if the method "WebGLRenderingContext.polygonOffset" exists.
+func (this WebGLRenderingContext) HasFuncPolygonOffset() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextPolygonOffset(
+		this.ref,
 	)
 }
 
-// PolygonOffsetFunc returns the method "WebGLRenderingContext.polygonOffset".
-func (this WebGLRenderingContext) PolygonOffsetFunc() (fn js.Func[func(factor GLfloat, units GLfloat)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextPolygonOffsetFunc(
-			this.Ref(),
-		),
+// FuncPolygonOffset returns the method "WebGLRenderingContext.polygonOffset".
+func (this WebGLRenderingContext) FuncPolygonOffset() (fn js.Func[func(factor GLfloat, units GLfloat)]) {
+	bindings.FuncWebGLRenderingContextPolygonOffset(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PolygonOffset calls the method "WebGLRenderingContext.polygonOffset".
 func (this WebGLRenderingContext) PolygonOffset(factor GLfloat, units GLfloat) (ret js.Void) {
 	bindings.CallWebGLRenderingContextPolygonOffset(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float32(factor),
 		float32(units),
 	)
@@ -4321,7 +4250,7 @@ func (this WebGLRenderingContext) PolygonOffset(factor GLfloat, units GLfloat) (
 // the catch clause.
 func (this WebGLRenderingContext) TryPolygonOffset(factor GLfloat, units GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextPolygonOffset(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float32(factor),
 		float32(units),
 	)
@@ -4329,26 +4258,25 @@ func (this WebGLRenderingContext) TryPolygonOffset(factor GLfloat, units GLfloat
 	return
 }
 
-// HasRenderbufferStorage returns true if the method "WebGLRenderingContext.renderbufferStorage" exists.
-func (this WebGLRenderingContext) HasRenderbufferStorage() bool {
-	return js.True == bindings.HasWebGLRenderingContextRenderbufferStorage(
-		this.Ref(),
+// HasFuncRenderbufferStorage returns true if the method "WebGLRenderingContext.renderbufferStorage" exists.
+func (this WebGLRenderingContext) HasFuncRenderbufferStorage() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextRenderbufferStorage(
+		this.ref,
 	)
 }
 
-// RenderbufferStorageFunc returns the method "WebGLRenderingContext.renderbufferStorage".
-func (this WebGLRenderingContext) RenderbufferStorageFunc() (fn js.Func[func(target GLenum, internalformat GLenum, width GLsizei, height GLsizei)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextRenderbufferStorageFunc(
-			this.Ref(),
-		),
+// FuncRenderbufferStorage returns the method "WebGLRenderingContext.renderbufferStorage".
+func (this WebGLRenderingContext) FuncRenderbufferStorage() (fn js.Func[func(target GLenum, internalformat GLenum, width GLsizei, height GLsizei)]) {
+	bindings.FuncWebGLRenderingContextRenderbufferStorage(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RenderbufferStorage calls the method "WebGLRenderingContext.renderbufferStorage".
 func (this WebGLRenderingContext) RenderbufferStorage(target GLenum, internalformat GLenum, width GLsizei, height GLsizei) (ret js.Void) {
 	bindings.CallWebGLRenderingContextRenderbufferStorage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(internalformat),
 		int32(width),
@@ -4363,7 +4291,7 @@ func (this WebGLRenderingContext) RenderbufferStorage(target GLenum, internalfor
 // the catch clause.
 func (this WebGLRenderingContext) TryRenderbufferStorage(target GLenum, internalformat GLenum, width GLsizei, height GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextRenderbufferStorage(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(internalformat),
 		int32(width),
@@ -4373,26 +4301,25 @@ func (this WebGLRenderingContext) TryRenderbufferStorage(target GLenum, internal
 	return
 }
 
-// HasSampleCoverage returns true if the method "WebGLRenderingContext.sampleCoverage" exists.
-func (this WebGLRenderingContext) HasSampleCoverage() bool {
-	return js.True == bindings.HasWebGLRenderingContextSampleCoverage(
-		this.Ref(),
+// HasFuncSampleCoverage returns true if the method "WebGLRenderingContext.sampleCoverage" exists.
+func (this WebGLRenderingContext) HasFuncSampleCoverage() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextSampleCoverage(
+		this.ref,
 	)
 }
 
-// SampleCoverageFunc returns the method "WebGLRenderingContext.sampleCoverage".
-func (this WebGLRenderingContext) SampleCoverageFunc() (fn js.Func[func(value GLclampf, invert GLboolean)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextSampleCoverageFunc(
-			this.Ref(),
-		),
+// FuncSampleCoverage returns the method "WebGLRenderingContext.sampleCoverage".
+func (this WebGLRenderingContext) FuncSampleCoverage() (fn js.Func[func(value GLclampf, invert GLboolean)]) {
+	bindings.FuncWebGLRenderingContextSampleCoverage(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SampleCoverage calls the method "WebGLRenderingContext.sampleCoverage".
 func (this WebGLRenderingContext) SampleCoverage(value GLclampf, invert GLboolean) (ret js.Void) {
 	bindings.CallWebGLRenderingContextSampleCoverage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float32(value),
 		js.Bool(bool(invert)),
 	)
@@ -4405,7 +4332,7 @@ func (this WebGLRenderingContext) SampleCoverage(value GLclampf, invert GLboolea
 // the catch clause.
 func (this WebGLRenderingContext) TrySampleCoverage(value GLclampf, invert GLboolean) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextSampleCoverage(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float32(value),
 		js.Bool(bool(invert)),
 	)
@@ -4413,26 +4340,25 @@ func (this WebGLRenderingContext) TrySampleCoverage(value GLclampf, invert GLboo
 	return
 }
 
-// HasScissor returns true if the method "WebGLRenderingContext.scissor" exists.
-func (this WebGLRenderingContext) HasScissor() bool {
-	return js.True == bindings.HasWebGLRenderingContextScissor(
-		this.Ref(),
+// HasFuncScissor returns true if the method "WebGLRenderingContext.scissor" exists.
+func (this WebGLRenderingContext) HasFuncScissor() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextScissor(
+		this.ref,
 	)
 }
 
-// ScissorFunc returns the method "WebGLRenderingContext.scissor".
-func (this WebGLRenderingContext) ScissorFunc() (fn js.Func[func(x GLint, y GLint, width GLsizei, height GLsizei)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextScissorFunc(
-			this.Ref(),
-		),
+// FuncScissor returns the method "WebGLRenderingContext.scissor".
+func (this WebGLRenderingContext) FuncScissor() (fn js.Func[func(x GLint, y GLint, width GLsizei, height GLsizei)]) {
+	bindings.FuncWebGLRenderingContextScissor(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Scissor calls the method "WebGLRenderingContext.scissor".
 func (this WebGLRenderingContext) Scissor(x GLint, y GLint, width GLsizei, height GLsizei) (ret js.Void) {
 	bindings.CallWebGLRenderingContextScissor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		int32(x),
 		int32(y),
 		int32(width),
@@ -4447,7 +4373,7 @@ func (this WebGLRenderingContext) Scissor(x GLint, y GLint, width GLsizei, heigh
 // the catch clause.
 func (this WebGLRenderingContext) TryScissor(x GLint, y GLint, width GLsizei, height GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextScissor(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		int32(x),
 		int32(y),
 		int32(width),
@@ -4457,26 +4383,25 @@ func (this WebGLRenderingContext) TryScissor(x GLint, y GLint, width GLsizei, he
 	return
 }
 
-// HasShaderSource returns true if the method "WebGLRenderingContext.shaderSource" exists.
-func (this WebGLRenderingContext) HasShaderSource() bool {
-	return js.True == bindings.HasWebGLRenderingContextShaderSource(
-		this.Ref(),
+// HasFuncShaderSource returns true if the method "WebGLRenderingContext.shaderSource" exists.
+func (this WebGLRenderingContext) HasFuncShaderSource() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextShaderSource(
+		this.ref,
 	)
 }
 
-// ShaderSourceFunc returns the method "WebGLRenderingContext.shaderSource".
-func (this WebGLRenderingContext) ShaderSourceFunc() (fn js.Func[func(shader WebGLShader, source js.String)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextShaderSourceFunc(
-			this.Ref(),
-		),
+// FuncShaderSource returns the method "WebGLRenderingContext.shaderSource".
+func (this WebGLRenderingContext) FuncShaderSource() (fn js.Func[func(shader WebGLShader, source js.String)]) {
+	bindings.FuncWebGLRenderingContextShaderSource(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ShaderSource calls the method "WebGLRenderingContext.shaderSource".
 func (this WebGLRenderingContext) ShaderSource(shader WebGLShader, source js.String) (ret js.Void) {
 	bindings.CallWebGLRenderingContextShaderSource(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		shader.Ref(),
 		source.Ref(),
 	)
@@ -4489,7 +4414,7 @@ func (this WebGLRenderingContext) ShaderSource(shader WebGLShader, source js.Str
 // the catch clause.
 func (this WebGLRenderingContext) TryShaderSource(shader WebGLShader, source js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextShaderSource(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		shader.Ref(),
 		source.Ref(),
 	)
@@ -4497,26 +4422,25 @@ func (this WebGLRenderingContext) TryShaderSource(shader WebGLShader, source js.
 	return
 }
 
-// HasStencilFunc returns true if the method "WebGLRenderingContext.stencilFunc" exists.
-func (this WebGLRenderingContext) HasStencilFunc() bool {
-	return js.True == bindings.HasWebGLRenderingContextStencilFunc(
-		this.Ref(),
+// HasFuncStencilFunc returns true if the method "WebGLRenderingContext.stencilFunc" exists.
+func (this WebGLRenderingContext) HasFuncStencilFunc() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextStencilFunc(
+		this.ref,
 	)
 }
 
-// StencilFuncFunc returns the method "WebGLRenderingContext.stencilFunc".
-func (this WebGLRenderingContext) StencilFuncFunc() (fn js.Func[func(fn GLenum, ref GLint, mask GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextStencilFuncFunc(
-			this.Ref(),
-		),
+// FuncStencilFunc returns the method "WebGLRenderingContext.stencilFunc".
+func (this WebGLRenderingContext) FuncStencilFunc() (fn js.Func[func(fn GLenum, ref GLint, mask GLuint)]) {
+	bindings.FuncWebGLRenderingContextStencilFunc(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // StencilFunc calls the method "WebGLRenderingContext.stencilFunc".
 func (this WebGLRenderingContext) StencilFunc(fn GLenum, ref GLint, mask GLuint) (ret js.Void) {
 	bindings.CallWebGLRenderingContextStencilFunc(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(fn),
 		int32(ref),
 		uint32(mask),
@@ -4530,7 +4454,7 @@ func (this WebGLRenderingContext) StencilFunc(fn GLenum, ref GLint, mask GLuint)
 // the catch clause.
 func (this WebGLRenderingContext) TryStencilFunc(fn GLenum, ref GLint, mask GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextStencilFunc(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(fn),
 		int32(ref),
 		uint32(mask),
@@ -4539,26 +4463,25 @@ func (this WebGLRenderingContext) TryStencilFunc(fn GLenum, ref GLint, mask GLui
 	return
 }
 
-// HasStencilFuncSeparate returns true if the method "WebGLRenderingContext.stencilFuncSeparate" exists.
-func (this WebGLRenderingContext) HasStencilFuncSeparate() bool {
-	return js.True == bindings.HasWebGLRenderingContextStencilFuncSeparate(
-		this.Ref(),
+// HasFuncStencilFuncSeparate returns true if the method "WebGLRenderingContext.stencilFuncSeparate" exists.
+func (this WebGLRenderingContext) HasFuncStencilFuncSeparate() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextStencilFuncSeparate(
+		this.ref,
 	)
 }
 
-// StencilFuncSeparateFunc returns the method "WebGLRenderingContext.stencilFuncSeparate".
-func (this WebGLRenderingContext) StencilFuncSeparateFunc() (fn js.Func[func(face GLenum, fn GLenum, ref GLint, mask GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextStencilFuncSeparateFunc(
-			this.Ref(),
-		),
+// FuncStencilFuncSeparate returns the method "WebGLRenderingContext.stencilFuncSeparate".
+func (this WebGLRenderingContext) FuncStencilFuncSeparate() (fn js.Func[func(face GLenum, fn GLenum, ref GLint, mask GLuint)]) {
+	bindings.FuncWebGLRenderingContextStencilFuncSeparate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // StencilFuncSeparate calls the method "WebGLRenderingContext.stencilFuncSeparate".
 func (this WebGLRenderingContext) StencilFuncSeparate(face GLenum, fn GLenum, ref GLint, mask GLuint) (ret js.Void) {
 	bindings.CallWebGLRenderingContextStencilFuncSeparate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(face),
 		uint32(fn),
 		int32(ref),
@@ -4573,7 +4496,7 @@ func (this WebGLRenderingContext) StencilFuncSeparate(face GLenum, fn GLenum, re
 // the catch clause.
 func (this WebGLRenderingContext) TryStencilFuncSeparate(face GLenum, fn GLenum, ref GLint, mask GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextStencilFuncSeparate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(face),
 		uint32(fn),
 		int32(ref),
@@ -4583,26 +4506,25 @@ func (this WebGLRenderingContext) TryStencilFuncSeparate(face GLenum, fn GLenum,
 	return
 }
 
-// HasStencilMask returns true if the method "WebGLRenderingContext.stencilMask" exists.
-func (this WebGLRenderingContext) HasStencilMask() bool {
-	return js.True == bindings.HasWebGLRenderingContextStencilMask(
-		this.Ref(),
+// HasFuncStencilMask returns true if the method "WebGLRenderingContext.stencilMask" exists.
+func (this WebGLRenderingContext) HasFuncStencilMask() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextStencilMask(
+		this.ref,
 	)
 }
 
-// StencilMaskFunc returns the method "WebGLRenderingContext.stencilMask".
-func (this WebGLRenderingContext) StencilMaskFunc() (fn js.Func[func(mask GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextStencilMaskFunc(
-			this.Ref(),
-		),
+// FuncStencilMask returns the method "WebGLRenderingContext.stencilMask".
+func (this WebGLRenderingContext) FuncStencilMask() (fn js.Func[func(mask GLuint)]) {
+	bindings.FuncWebGLRenderingContextStencilMask(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // StencilMask calls the method "WebGLRenderingContext.stencilMask".
 func (this WebGLRenderingContext) StencilMask(mask GLuint) (ret js.Void) {
 	bindings.CallWebGLRenderingContextStencilMask(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mask),
 	)
 
@@ -4614,33 +4536,32 @@ func (this WebGLRenderingContext) StencilMask(mask GLuint) (ret js.Void) {
 // the catch clause.
 func (this WebGLRenderingContext) TryStencilMask(mask GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextStencilMask(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mask),
 	)
 
 	return
 }
 
-// HasStencilMaskSeparate returns true if the method "WebGLRenderingContext.stencilMaskSeparate" exists.
-func (this WebGLRenderingContext) HasStencilMaskSeparate() bool {
-	return js.True == bindings.HasWebGLRenderingContextStencilMaskSeparate(
-		this.Ref(),
+// HasFuncStencilMaskSeparate returns true if the method "WebGLRenderingContext.stencilMaskSeparate" exists.
+func (this WebGLRenderingContext) HasFuncStencilMaskSeparate() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextStencilMaskSeparate(
+		this.ref,
 	)
 }
 
-// StencilMaskSeparateFunc returns the method "WebGLRenderingContext.stencilMaskSeparate".
-func (this WebGLRenderingContext) StencilMaskSeparateFunc() (fn js.Func[func(face GLenum, mask GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextStencilMaskSeparateFunc(
-			this.Ref(),
-		),
+// FuncStencilMaskSeparate returns the method "WebGLRenderingContext.stencilMaskSeparate".
+func (this WebGLRenderingContext) FuncStencilMaskSeparate() (fn js.Func[func(face GLenum, mask GLuint)]) {
+	bindings.FuncWebGLRenderingContextStencilMaskSeparate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // StencilMaskSeparate calls the method "WebGLRenderingContext.stencilMaskSeparate".
 func (this WebGLRenderingContext) StencilMaskSeparate(face GLenum, mask GLuint) (ret js.Void) {
 	bindings.CallWebGLRenderingContextStencilMaskSeparate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(face),
 		uint32(mask),
 	)
@@ -4653,7 +4574,7 @@ func (this WebGLRenderingContext) StencilMaskSeparate(face GLenum, mask GLuint) 
 // the catch clause.
 func (this WebGLRenderingContext) TryStencilMaskSeparate(face GLenum, mask GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextStencilMaskSeparate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(face),
 		uint32(mask),
 	)
@@ -4661,26 +4582,25 @@ func (this WebGLRenderingContext) TryStencilMaskSeparate(face GLenum, mask GLuin
 	return
 }
 
-// HasStencilOp returns true if the method "WebGLRenderingContext.stencilOp" exists.
-func (this WebGLRenderingContext) HasStencilOp() bool {
-	return js.True == bindings.HasWebGLRenderingContextStencilOp(
-		this.Ref(),
+// HasFuncStencilOp returns true if the method "WebGLRenderingContext.stencilOp" exists.
+func (this WebGLRenderingContext) HasFuncStencilOp() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextStencilOp(
+		this.ref,
 	)
 }
 
-// StencilOpFunc returns the method "WebGLRenderingContext.stencilOp".
-func (this WebGLRenderingContext) StencilOpFunc() (fn js.Func[func(fail GLenum, zfail GLenum, zpass GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextStencilOpFunc(
-			this.Ref(),
-		),
+// FuncStencilOp returns the method "WebGLRenderingContext.stencilOp".
+func (this WebGLRenderingContext) FuncStencilOp() (fn js.Func[func(fail GLenum, zfail GLenum, zpass GLenum)]) {
+	bindings.FuncWebGLRenderingContextStencilOp(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // StencilOp calls the method "WebGLRenderingContext.stencilOp".
 func (this WebGLRenderingContext) StencilOp(fail GLenum, zfail GLenum, zpass GLenum) (ret js.Void) {
 	bindings.CallWebGLRenderingContextStencilOp(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(fail),
 		uint32(zfail),
 		uint32(zpass),
@@ -4694,7 +4614,7 @@ func (this WebGLRenderingContext) StencilOp(fail GLenum, zfail GLenum, zpass GLe
 // the catch clause.
 func (this WebGLRenderingContext) TryStencilOp(fail GLenum, zfail GLenum, zpass GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextStencilOp(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(fail),
 		uint32(zfail),
 		uint32(zpass),
@@ -4703,26 +4623,25 @@ func (this WebGLRenderingContext) TryStencilOp(fail GLenum, zfail GLenum, zpass 
 	return
 }
 
-// HasStencilOpSeparate returns true if the method "WebGLRenderingContext.stencilOpSeparate" exists.
-func (this WebGLRenderingContext) HasStencilOpSeparate() bool {
-	return js.True == bindings.HasWebGLRenderingContextStencilOpSeparate(
-		this.Ref(),
+// HasFuncStencilOpSeparate returns true if the method "WebGLRenderingContext.stencilOpSeparate" exists.
+func (this WebGLRenderingContext) HasFuncStencilOpSeparate() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextStencilOpSeparate(
+		this.ref,
 	)
 }
 
-// StencilOpSeparateFunc returns the method "WebGLRenderingContext.stencilOpSeparate".
-func (this WebGLRenderingContext) StencilOpSeparateFunc() (fn js.Func[func(face GLenum, fail GLenum, zfail GLenum, zpass GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextStencilOpSeparateFunc(
-			this.Ref(),
-		),
+// FuncStencilOpSeparate returns the method "WebGLRenderingContext.stencilOpSeparate".
+func (this WebGLRenderingContext) FuncStencilOpSeparate() (fn js.Func[func(face GLenum, fail GLenum, zfail GLenum, zpass GLenum)]) {
+	bindings.FuncWebGLRenderingContextStencilOpSeparate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // StencilOpSeparate calls the method "WebGLRenderingContext.stencilOpSeparate".
 func (this WebGLRenderingContext) StencilOpSeparate(face GLenum, fail GLenum, zfail GLenum, zpass GLenum) (ret js.Void) {
 	bindings.CallWebGLRenderingContextStencilOpSeparate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(face),
 		uint32(fail),
 		uint32(zfail),
@@ -4737,7 +4656,7 @@ func (this WebGLRenderingContext) StencilOpSeparate(face GLenum, fail GLenum, zf
 // the catch clause.
 func (this WebGLRenderingContext) TryStencilOpSeparate(face GLenum, fail GLenum, zfail GLenum, zpass GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextStencilOpSeparate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(face),
 		uint32(fail),
 		uint32(zfail),
@@ -4747,26 +4666,25 @@ func (this WebGLRenderingContext) TryStencilOpSeparate(face GLenum, fail GLenum,
 	return
 }
 
-// HasTexParameterf returns true if the method "WebGLRenderingContext.texParameterf" exists.
-func (this WebGLRenderingContext) HasTexParameterf() bool {
-	return js.True == bindings.HasWebGLRenderingContextTexParameterf(
-		this.Ref(),
+// HasFuncTexParameterf returns true if the method "WebGLRenderingContext.texParameterf" exists.
+func (this WebGLRenderingContext) HasFuncTexParameterf() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextTexParameterf(
+		this.ref,
 	)
 }
 
-// TexParameterfFunc returns the method "WebGLRenderingContext.texParameterf".
-func (this WebGLRenderingContext) TexParameterfFunc() (fn js.Func[func(target GLenum, pname GLenum, param GLfloat)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextTexParameterfFunc(
-			this.Ref(),
-		),
+// FuncTexParameterf returns the method "WebGLRenderingContext.texParameterf".
+func (this WebGLRenderingContext) FuncTexParameterf() (fn js.Func[func(target GLenum, pname GLenum, param GLfloat)]) {
+	bindings.FuncWebGLRenderingContextTexParameterf(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexParameterf calls the method "WebGLRenderingContext.texParameterf".
 func (this WebGLRenderingContext) TexParameterf(target GLenum, pname GLenum, param GLfloat) (ret js.Void) {
 	bindings.CallWebGLRenderingContextTexParameterf(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(pname),
 		float32(param),
@@ -4780,7 +4698,7 @@ func (this WebGLRenderingContext) TexParameterf(target GLenum, pname GLenum, par
 // the catch clause.
 func (this WebGLRenderingContext) TryTexParameterf(target GLenum, pname GLenum, param GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextTexParameterf(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(pname),
 		float32(param),
@@ -4789,26 +4707,25 @@ func (this WebGLRenderingContext) TryTexParameterf(target GLenum, pname GLenum, 
 	return
 }
 
-// HasTexParameteri returns true if the method "WebGLRenderingContext.texParameteri" exists.
-func (this WebGLRenderingContext) HasTexParameteri() bool {
-	return js.True == bindings.HasWebGLRenderingContextTexParameteri(
-		this.Ref(),
+// HasFuncTexParameteri returns true if the method "WebGLRenderingContext.texParameteri" exists.
+func (this WebGLRenderingContext) HasFuncTexParameteri() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextTexParameteri(
+		this.ref,
 	)
 }
 
-// TexParameteriFunc returns the method "WebGLRenderingContext.texParameteri".
-func (this WebGLRenderingContext) TexParameteriFunc() (fn js.Func[func(target GLenum, pname GLenum, param GLint)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextTexParameteriFunc(
-			this.Ref(),
-		),
+// FuncTexParameteri returns the method "WebGLRenderingContext.texParameteri".
+func (this WebGLRenderingContext) FuncTexParameteri() (fn js.Func[func(target GLenum, pname GLenum, param GLint)]) {
+	bindings.FuncWebGLRenderingContextTexParameteri(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexParameteri calls the method "WebGLRenderingContext.texParameteri".
 func (this WebGLRenderingContext) TexParameteri(target GLenum, pname GLenum, param GLint) (ret js.Void) {
 	bindings.CallWebGLRenderingContextTexParameteri(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(pname),
 		int32(param),
@@ -4822,7 +4739,7 @@ func (this WebGLRenderingContext) TexParameteri(target GLenum, pname GLenum, par
 // the catch clause.
 func (this WebGLRenderingContext) TryTexParameteri(target GLenum, pname GLenum, param GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextTexParameteri(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(pname),
 		int32(param),
@@ -4831,26 +4748,25 @@ func (this WebGLRenderingContext) TryTexParameteri(target GLenum, pname GLenum, 
 	return
 }
 
-// HasUniform1f returns true if the method "WebGLRenderingContext.uniform1f" exists.
-func (this WebGLRenderingContext) HasUniform1f() bool {
-	return js.True == bindings.HasWebGLRenderingContextUniform1f(
-		this.Ref(),
+// HasFuncUniform1f returns true if the method "WebGLRenderingContext.uniform1f" exists.
+func (this WebGLRenderingContext) HasFuncUniform1f() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextUniform1f(
+		this.ref,
 	)
 }
 
-// Uniform1fFunc returns the method "WebGLRenderingContext.uniform1f".
-func (this WebGLRenderingContext) Uniform1fFunc() (fn js.Func[func(location WebGLUniformLocation, x GLfloat)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextUniform1fFunc(
-			this.Ref(),
-		),
+// FuncUniform1f returns the method "WebGLRenderingContext.uniform1f".
+func (this WebGLRenderingContext) FuncUniform1f() (fn js.Func[func(location WebGLUniformLocation, x GLfloat)]) {
+	bindings.FuncWebGLRenderingContextUniform1f(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform1f calls the method "WebGLRenderingContext.uniform1f".
 func (this WebGLRenderingContext) Uniform1f(location WebGLUniformLocation, x GLfloat) (ret js.Void) {
 	bindings.CallWebGLRenderingContextUniform1f(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		float32(x),
 	)
@@ -4863,7 +4779,7 @@ func (this WebGLRenderingContext) Uniform1f(location WebGLUniformLocation, x GLf
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform1f(location WebGLUniformLocation, x GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform1f(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		float32(x),
 	)
@@ -4871,26 +4787,25 @@ func (this WebGLRenderingContext) TryUniform1f(location WebGLUniformLocation, x 
 	return
 }
 
-// HasUniform2f returns true if the method "WebGLRenderingContext.uniform2f" exists.
-func (this WebGLRenderingContext) HasUniform2f() bool {
-	return js.True == bindings.HasWebGLRenderingContextUniform2f(
-		this.Ref(),
+// HasFuncUniform2f returns true if the method "WebGLRenderingContext.uniform2f" exists.
+func (this WebGLRenderingContext) HasFuncUniform2f() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextUniform2f(
+		this.ref,
 	)
 }
 
-// Uniform2fFunc returns the method "WebGLRenderingContext.uniform2f".
-func (this WebGLRenderingContext) Uniform2fFunc() (fn js.Func[func(location WebGLUniformLocation, x GLfloat, y GLfloat)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextUniform2fFunc(
-			this.Ref(),
-		),
+// FuncUniform2f returns the method "WebGLRenderingContext.uniform2f".
+func (this WebGLRenderingContext) FuncUniform2f() (fn js.Func[func(location WebGLUniformLocation, x GLfloat, y GLfloat)]) {
+	bindings.FuncWebGLRenderingContextUniform2f(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform2f calls the method "WebGLRenderingContext.uniform2f".
 func (this WebGLRenderingContext) Uniform2f(location WebGLUniformLocation, x GLfloat, y GLfloat) (ret js.Void) {
 	bindings.CallWebGLRenderingContextUniform2f(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		float32(x),
 		float32(y),
@@ -4904,7 +4819,7 @@ func (this WebGLRenderingContext) Uniform2f(location WebGLUniformLocation, x GLf
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform2f(location WebGLUniformLocation, x GLfloat, y GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform2f(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		float32(x),
 		float32(y),
@@ -4913,26 +4828,25 @@ func (this WebGLRenderingContext) TryUniform2f(location WebGLUniformLocation, x 
 	return
 }
 
-// HasUniform3f returns true if the method "WebGLRenderingContext.uniform3f" exists.
-func (this WebGLRenderingContext) HasUniform3f() bool {
-	return js.True == bindings.HasWebGLRenderingContextUniform3f(
-		this.Ref(),
+// HasFuncUniform3f returns true if the method "WebGLRenderingContext.uniform3f" exists.
+func (this WebGLRenderingContext) HasFuncUniform3f() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextUniform3f(
+		this.ref,
 	)
 }
 
-// Uniform3fFunc returns the method "WebGLRenderingContext.uniform3f".
-func (this WebGLRenderingContext) Uniform3fFunc() (fn js.Func[func(location WebGLUniformLocation, x GLfloat, y GLfloat, z GLfloat)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextUniform3fFunc(
-			this.Ref(),
-		),
+// FuncUniform3f returns the method "WebGLRenderingContext.uniform3f".
+func (this WebGLRenderingContext) FuncUniform3f() (fn js.Func[func(location WebGLUniformLocation, x GLfloat, y GLfloat, z GLfloat)]) {
+	bindings.FuncWebGLRenderingContextUniform3f(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform3f calls the method "WebGLRenderingContext.uniform3f".
 func (this WebGLRenderingContext) Uniform3f(location WebGLUniformLocation, x GLfloat, y GLfloat, z GLfloat) (ret js.Void) {
 	bindings.CallWebGLRenderingContextUniform3f(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		float32(x),
 		float32(y),
@@ -4947,7 +4861,7 @@ func (this WebGLRenderingContext) Uniform3f(location WebGLUniformLocation, x GLf
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform3f(location WebGLUniformLocation, x GLfloat, y GLfloat, z GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform3f(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		float32(x),
 		float32(y),
@@ -4957,26 +4871,25 @@ func (this WebGLRenderingContext) TryUniform3f(location WebGLUniformLocation, x 
 	return
 }
 
-// HasUniform4f returns true if the method "WebGLRenderingContext.uniform4f" exists.
-func (this WebGLRenderingContext) HasUniform4f() bool {
-	return js.True == bindings.HasWebGLRenderingContextUniform4f(
-		this.Ref(),
+// HasFuncUniform4f returns true if the method "WebGLRenderingContext.uniform4f" exists.
+func (this WebGLRenderingContext) HasFuncUniform4f() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextUniform4f(
+		this.ref,
 	)
 }
 
-// Uniform4fFunc returns the method "WebGLRenderingContext.uniform4f".
-func (this WebGLRenderingContext) Uniform4fFunc() (fn js.Func[func(location WebGLUniformLocation, x GLfloat, y GLfloat, z GLfloat, w GLfloat)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextUniform4fFunc(
-			this.Ref(),
-		),
+// FuncUniform4f returns the method "WebGLRenderingContext.uniform4f".
+func (this WebGLRenderingContext) FuncUniform4f() (fn js.Func[func(location WebGLUniformLocation, x GLfloat, y GLfloat, z GLfloat, w GLfloat)]) {
+	bindings.FuncWebGLRenderingContextUniform4f(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform4f calls the method "WebGLRenderingContext.uniform4f".
 func (this WebGLRenderingContext) Uniform4f(location WebGLUniformLocation, x GLfloat, y GLfloat, z GLfloat, w GLfloat) (ret js.Void) {
 	bindings.CallWebGLRenderingContextUniform4f(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		float32(x),
 		float32(y),
@@ -4992,7 +4905,7 @@ func (this WebGLRenderingContext) Uniform4f(location WebGLUniformLocation, x GLf
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform4f(location WebGLUniformLocation, x GLfloat, y GLfloat, z GLfloat, w GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform4f(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		float32(x),
 		float32(y),
@@ -5003,26 +4916,25 @@ func (this WebGLRenderingContext) TryUniform4f(location WebGLUniformLocation, x 
 	return
 }
 
-// HasUniform1i returns true if the method "WebGLRenderingContext.uniform1i" exists.
-func (this WebGLRenderingContext) HasUniform1i() bool {
-	return js.True == bindings.HasWebGLRenderingContextUniform1i(
-		this.Ref(),
+// HasFuncUniform1i returns true if the method "WebGLRenderingContext.uniform1i" exists.
+func (this WebGLRenderingContext) HasFuncUniform1i() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextUniform1i(
+		this.ref,
 	)
 }
 
-// Uniform1iFunc returns the method "WebGLRenderingContext.uniform1i".
-func (this WebGLRenderingContext) Uniform1iFunc() (fn js.Func[func(location WebGLUniformLocation, x GLint)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextUniform1iFunc(
-			this.Ref(),
-		),
+// FuncUniform1i returns the method "WebGLRenderingContext.uniform1i".
+func (this WebGLRenderingContext) FuncUniform1i() (fn js.Func[func(location WebGLUniformLocation, x GLint)]) {
+	bindings.FuncWebGLRenderingContextUniform1i(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform1i calls the method "WebGLRenderingContext.uniform1i".
 func (this WebGLRenderingContext) Uniform1i(location WebGLUniformLocation, x GLint) (ret js.Void) {
 	bindings.CallWebGLRenderingContextUniform1i(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		int32(x),
 	)
@@ -5035,7 +4947,7 @@ func (this WebGLRenderingContext) Uniform1i(location WebGLUniformLocation, x GLi
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform1i(location WebGLUniformLocation, x GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform1i(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		int32(x),
 	)
@@ -5043,26 +4955,25 @@ func (this WebGLRenderingContext) TryUniform1i(location WebGLUniformLocation, x 
 	return
 }
 
-// HasUniform2i returns true if the method "WebGLRenderingContext.uniform2i" exists.
-func (this WebGLRenderingContext) HasUniform2i() bool {
-	return js.True == bindings.HasWebGLRenderingContextUniform2i(
-		this.Ref(),
+// HasFuncUniform2i returns true if the method "WebGLRenderingContext.uniform2i" exists.
+func (this WebGLRenderingContext) HasFuncUniform2i() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextUniform2i(
+		this.ref,
 	)
 }
 
-// Uniform2iFunc returns the method "WebGLRenderingContext.uniform2i".
-func (this WebGLRenderingContext) Uniform2iFunc() (fn js.Func[func(location WebGLUniformLocation, x GLint, y GLint)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextUniform2iFunc(
-			this.Ref(),
-		),
+// FuncUniform2i returns the method "WebGLRenderingContext.uniform2i".
+func (this WebGLRenderingContext) FuncUniform2i() (fn js.Func[func(location WebGLUniformLocation, x GLint, y GLint)]) {
+	bindings.FuncWebGLRenderingContextUniform2i(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform2i calls the method "WebGLRenderingContext.uniform2i".
 func (this WebGLRenderingContext) Uniform2i(location WebGLUniformLocation, x GLint, y GLint) (ret js.Void) {
 	bindings.CallWebGLRenderingContextUniform2i(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		int32(x),
 		int32(y),
@@ -5076,7 +4987,7 @@ func (this WebGLRenderingContext) Uniform2i(location WebGLUniformLocation, x GLi
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform2i(location WebGLUniformLocation, x GLint, y GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform2i(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		int32(x),
 		int32(y),
@@ -5085,26 +4996,25 @@ func (this WebGLRenderingContext) TryUniform2i(location WebGLUniformLocation, x 
 	return
 }
 
-// HasUniform3i returns true if the method "WebGLRenderingContext.uniform3i" exists.
-func (this WebGLRenderingContext) HasUniform3i() bool {
-	return js.True == bindings.HasWebGLRenderingContextUniform3i(
-		this.Ref(),
+// HasFuncUniform3i returns true if the method "WebGLRenderingContext.uniform3i" exists.
+func (this WebGLRenderingContext) HasFuncUniform3i() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextUniform3i(
+		this.ref,
 	)
 }
 
-// Uniform3iFunc returns the method "WebGLRenderingContext.uniform3i".
-func (this WebGLRenderingContext) Uniform3iFunc() (fn js.Func[func(location WebGLUniformLocation, x GLint, y GLint, z GLint)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextUniform3iFunc(
-			this.Ref(),
-		),
+// FuncUniform3i returns the method "WebGLRenderingContext.uniform3i".
+func (this WebGLRenderingContext) FuncUniform3i() (fn js.Func[func(location WebGLUniformLocation, x GLint, y GLint, z GLint)]) {
+	bindings.FuncWebGLRenderingContextUniform3i(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform3i calls the method "WebGLRenderingContext.uniform3i".
 func (this WebGLRenderingContext) Uniform3i(location WebGLUniformLocation, x GLint, y GLint, z GLint) (ret js.Void) {
 	bindings.CallWebGLRenderingContextUniform3i(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		int32(x),
 		int32(y),
@@ -5119,7 +5029,7 @@ func (this WebGLRenderingContext) Uniform3i(location WebGLUniformLocation, x GLi
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform3i(location WebGLUniformLocation, x GLint, y GLint, z GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform3i(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		int32(x),
 		int32(y),
@@ -5129,26 +5039,25 @@ func (this WebGLRenderingContext) TryUniform3i(location WebGLUniformLocation, x 
 	return
 }
 
-// HasUniform4i returns true if the method "WebGLRenderingContext.uniform4i" exists.
-func (this WebGLRenderingContext) HasUniform4i() bool {
-	return js.True == bindings.HasWebGLRenderingContextUniform4i(
-		this.Ref(),
+// HasFuncUniform4i returns true if the method "WebGLRenderingContext.uniform4i" exists.
+func (this WebGLRenderingContext) HasFuncUniform4i() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextUniform4i(
+		this.ref,
 	)
 }
 
-// Uniform4iFunc returns the method "WebGLRenderingContext.uniform4i".
-func (this WebGLRenderingContext) Uniform4iFunc() (fn js.Func[func(location WebGLUniformLocation, x GLint, y GLint, z GLint, w GLint)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextUniform4iFunc(
-			this.Ref(),
-		),
+// FuncUniform4i returns the method "WebGLRenderingContext.uniform4i".
+func (this WebGLRenderingContext) FuncUniform4i() (fn js.Func[func(location WebGLUniformLocation, x GLint, y GLint, z GLint, w GLint)]) {
+	bindings.FuncWebGLRenderingContextUniform4i(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform4i calls the method "WebGLRenderingContext.uniform4i".
 func (this WebGLRenderingContext) Uniform4i(location WebGLUniformLocation, x GLint, y GLint, z GLint, w GLint) (ret js.Void) {
 	bindings.CallWebGLRenderingContextUniform4i(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		int32(x),
 		int32(y),
@@ -5164,7 +5073,7 @@ func (this WebGLRenderingContext) Uniform4i(location WebGLUniformLocation, x GLi
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform4i(location WebGLUniformLocation, x GLint, y GLint, z GLint, w GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform4i(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		int32(x),
 		int32(y),
@@ -5175,26 +5084,25 @@ func (this WebGLRenderingContext) TryUniform4i(location WebGLUniformLocation, x 
 	return
 }
 
-// HasUseProgram returns true if the method "WebGLRenderingContext.useProgram" exists.
-func (this WebGLRenderingContext) HasUseProgram() bool {
-	return js.True == bindings.HasWebGLRenderingContextUseProgram(
-		this.Ref(),
+// HasFuncUseProgram returns true if the method "WebGLRenderingContext.useProgram" exists.
+func (this WebGLRenderingContext) HasFuncUseProgram() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextUseProgram(
+		this.ref,
 	)
 }
 
-// UseProgramFunc returns the method "WebGLRenderingContext.useProgram".
-func (this WebGLRenderingContext) UseProgramFunc() (fn js.Func[func(program WebGLProgram)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextUseProgramFunc(
-			this.Ref(),
-		),
+// FuncUseProgram returns the method "WebGLRenderingContext.useProgram".
+func (this WebGLRenderingContext) FuncUseProgram() (fn js.Func[func(program WebGLProgram)]) {
+	bindings.FuncWebGLRenderingContextUseProgram(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UseProgram calls the method "WebGLRenderingContext.useProgram".
 func (this WebGLRenderingContext) UseProgram(program WebGLProgram) (ret js.Void) {
 	bindings.CallWebGLRenderingContextUseProgram(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 	)
 
@@ -5206,33 +5114,32 @@ func (this WebGLRenderingContext) UseProgram(program WebGLProgram) (ret js.Void)
 // the catch clause.
 func (this WebGLRenderingContext) TryUseProgram(program WebGLProgram) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUseProgram(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 	)
 
 	return
 }
 
-// HasValidateProgram returns true if the method "WebGLRenderingContext.validateProgram" exists.
-func (this WebGLRenderingContext) HasValidateProgram() bool {
-	return js.True == bindings.HasWebGLRenderingContextValidateProgram(
-		this.Ref(),
+// HasFuncValidateProgram returns true if the method "WebGLRenderingContext.validateProgram" exists.
+func (this WebGLRenderingContext) HasFuncValidateProgram() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextValidateProgram(
+		this.ref,
 	)
 }
 
-// ValidateProgramFunc returns the method "WebGLRenderingContext.validateProgram".
-func (this WebGLRenderingContext) ValidateProgramFunc() (fn js.Func[func(program WebGLProgram)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextValidateProgramFunc(
-			this.Ref(),
-		),
+// FuncValidateProgram returns the method "WebGLRenderingContext.validateProgram".
+func (this WebGLRenderingContext) FuncValidateProgram() (fn js.Func[func(program WebGLProgram)]) {
+	bindings.FuncWebGLRenderingContextValidateProgram(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ValidateProgram calls the method "WebGLRenderingContext.validateProgram".
 func (this WebGLRenderingContext) ValidateProgram(program WebGLProgram) (ret js.Void) {
 	bindings.CallWebGLRenderingContextValidateProgram(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 	)
 
@@ -5244,33 +5151,32 @@ func (this WebGLRenderingContext) ValidateProgram(program WebGLProgram) (ret js.
 // the catch clause.
 func (this WebGLRenderingContext) TryValidateProgram(program WebGLProgram) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextValidateProgram(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 	)
 
 	return
 }
 
-// HasVertexAttrib1f returns true if the method "WebGLRenderingContext.vertexAttrib1f" exists.
-func (this WebGLRenderingContext) HasVertexAttrib1f() bool {
-	return js.True == bindings.HasWebGLRenderingContextVertexAttrib1f(
-		this.Ref(),
+// HasFuncVertexAttrib1f returns true if the method "WebGLRenderingContext.vertexAttrib1f" exists.
+func (this WebGLRenderingContext) HasFuncVertexAttrib1f() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextVertexAttrib1f(
+		this.ref,
 	)
 }
 
-// VertexAttrib1fFunc returns the method "WebGLRenderingContext.vertexAttrib1f".
-func (this WebGLRenderingContext) VertexAttrib1fFunc() (fn js.Func[func(index GLuint, x GLfloat)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextVertexAttrib1fFunc(
-			this.Ref(),
-		),
+// FuncVertexAttrib1f returns the method "WebGLRenderingContext.vertexAttrib1f".
+func (this WebGLRenderingContext) FuncVertexAttrib1f() (fn js.Func[func(index GLuint, x GLfloat)]) {
+	bindings.FuncWebGLRenderingContextVertexAttrib1f(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // VertexAttrib1f calls the method "WebGLRenderingContext.vertexAttrib1f".
 func (this WebGLRenderingContext) VertexAttrib1f(index GLuint, x GLfloat) (ret js.Void) {
 	bindings.CallWebGLRenderingContextVertexAttrib1f(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		float32(x),
 	)
@@ -5283,7 +5189,7 @@ func (this WebGLRenderingContext) VertexAttrib1f(index GLuint, x GLfloat) (ret j
 // the catch clause.
 func (this WebGLRenderingContext) TryVertexAttrib1f(index GLuint, x GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextVertexAttrib1f(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		float32(x),
 	)
@@ -5291,26 +5197,25 @@ func (this WebGLRenderingContext) TryVertexAttrib1f(index GLuint, x GLfloat) (re
 	return
 }
 
-// HasVertexAttrib2f returns true if the method "WebGLRenderingContext.vertexAttrib2f" exists.
-func (this WebGLRenderingContext) HasVertexAttrib2f() bool {
-	return js.True == bindings.HasWebGLRenderingContextVertexAttrib2f(
-		this.Ref(),
+// HasFuncVertexAttrib2f returns true if the method "WebGLRenderingContext.vertexAttrib2f" exists.
+func (this WebGLRenderingContext) HasFuncVertexAttrib2f() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextVertexAttrib2f(
+		this.ref,
 	)
 }
 
-// VertexAttrib2fFunc returns the method "WebGLRenderingContext.vertexAttrib2f".
-func (this WebGLRenderingContext) VertexAttrib2fFunc() (fn js.Func[func(index GLuint, x GLfloat, y GLfloat)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextVertexAttrib2fFunc(
-			this.Ref(),
-		),
+// FuncVertexAttrib2f returns the method "WebGLRenderingContext.vertexAttrib2f".
+func (this WebGLRenderingContext) FuncVertexAttrib2f() (fn js.Func[func(index GLuint, x GLfloat, y GLfloat)]) {
+	bindings.FuncWebGLRenderingContextVertexAttrib2f(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // VertexAttrib2f calls the method "WebGLRenderingContext.vertexAttrib2f".
 func (this WebGLRenderingContext) VertexAttrib2f(index GLuint, x GLfloat, y GLfloat) (ret js.Void) {
 	bindings.CallWebGLRenderingContextVertexAttrib2f(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		float32(x),
 		float32(y),
@@ -5324,7 +5229,7 @@ func (this WebGLRenderingContext) VertexAttrib2f(index GLuint, x GLfloat, y GLfl
 // the catch clause.
 func (this WebGLRenderingContext) TryVertexAttrib2f(index GLuint, x GLfloat, y GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextVertexAttrib2f(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		float32(x),
 		float32(y),
@@ -5333,26 +5238,25 @@ func (this WebGLRenderingContext) TryVertexAttrib2f(index GLuint, x GLfloat, y G
 	return
 }
 
-// HasVertexAttrib3f returns true if the method "WebGLRenderingContext.vertexAttrib3f" exists.
-func (this WebGLRenderingContext) HasVertexAttrib3f() bool {
-	return js.True == bindings.HasWebGLRenderingContextVertexAttrib3f(
-		this.Ref(),
+// HasFuncVertexAttrib3f returns true if the method "WebGLRenderingContext.vertexAttrib3f" exists.
+func (this WebGLRenderingContext) HasFuncVertexAttrib3f() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextVertexAttrib3f(
+		this.ref,
 	)
 }
 
-// VertexAttrib3fFunc returns the method "WebGLRenderingContext.vertexAttrib3f".
-func (this WebGLRenderingContext) VertexAttrib3fFunc() (fn js.Func[func(index GLuint, x GLfloat, y GLfloat, z GLfloat)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextVertexAttrib3fFunc(
-			this.Ref(),
-		),
+// FuncVertexAttrib3f returns the method "WebGLRenderingContext.vertexAttrib3f".
+func (this WebGLRenderingContext) FuncVertexAttrib3f() (fn js.Func[func(index GLuint, x GLfloat, y GLfloat, z GLfloat)]) {
+	bindings.FuncWebGLRenderingContextVertexAttrib3f(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // VertexAttrib3f calls the method "WebGLRenderingContext.vertexAttrib3f".
 func (this WebGLRenderingContext) VertexAttrib3f(index GLuint, x GLfloat, y GLfloat, z GLfloat) (ret js.Void) {
 	bindings.CallWebGLRenderingContextVertexAttrib3f(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		float32(x),
 		float32(y),
@@ -5367,7 +5271,7 @@ func (this WebGLRenderingContext) VertexAttrib3f(index GLuint, x GLfloat, y GLfl
 // the catch clause.
 func (this WebGLRenderingContext) TryVertexAttrib3f(index GLuint, x GLfloat, y GLfloat, z GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextVertexAttrib3f(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		float32(x),
 		float32(y),
@@ -5377,26 +5281,25 @@ func (this WebGLRenderingContext) TryVertexAttrib3f(index GLuint, x GLfloat, y G
 	return
 }
 
-// HasVertexAttrib4f returns true if the method "WebGLRenderingContext.vertexAttrib4f" exists.
-func (this WebGLRenderingContext) HasVertexAttrib4f() bool {
-	return js.True == bindings.HasWebGLRenderingContextVertexAttrib4f(
-		this.Ref(),
+// HasFuncVertexAttrib4f returns true if the method "WebGLRenderingContext.vertexAttrib4f" exists.
+func (this WebGLRenderingContext) HasFuncVertexAttrib4f() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextVertexAttrib4f(
+		this.ref,
 	)
 }
 
-// VertexAttrib4fFunc returns the method "WebGLRenderingContext.vertexAttrib4f".
-func (this WebGLRenderingContext) VertexAttrib4fFunc() (fn js.Func[func(index GLuint, x GLfloat, y GLfloat, z GLfloat, w GLfloat)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextVertexAttrib4fFunc(
-			this.Ref(),
-		),
+// FuncVertexAttrib4f returns the method "WebGLRenderingContext.vertexAttrib4f".
+func (this WebGLRenderingContext) FuncVertexAttrib4f() (fn js.Func[func(index GLuint, x GLfloat, y GLfloat, z GLfloat, w GLfloat)]) {
+	bindings.FuncWebGLRenderingContextVertexAttrib4f(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // VertexAttrib4f calls the method "WebGLRenderingContext.vertexAttrib4f".
 func (this WebGLRenderingContext) VertexAttrib4f(index GLuint, x GLfloat, y GLfloat, z GLfloat, w GLfloat) (ret js.Void) {
 	bindings.CallWebGLRenderingContextVertexAttrib4f(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		float32(x),
 		float32(y),
@@ -5412,7 +5315,7 @@ func (this WebGLRenderingContext) VertexAttrib4f(index GLuint, x GLfloat, y GLfl
 // the catch clause.
 func (this WebGLRenderingContext) TryVertexAttrib4f(index GLuint, x GLfloat, y GLfloat, z GLfloat, w GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextVertexAttrib4f(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		float32(x),
 		float32(y),
@@ -5423,26 +5326,25 @@ func (this WebGLRenderingContext) TryVertexAttrib4f(index GLuint, x GLfloat, y G
 	return
 }
 
-// HasVertexAttrib1fv returns true if the method "WebGLRenderingContext.vertexAttrib1fv" exists.
-func (this WebGLRenderingContext) HasVertexAttrib1fv() bool {
-	return js.True == bindings.HasWebGLRenderingContextVertexAttrib1fv(
-		this.Ref(),
+// HasFuncVertexAttrib1fv returns true if the method "WebGLRenderingContext.vertexAttrib1fv" exists.
+func (this WebGLRenderingContext) HasFuncVertexAttrib1fv() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextVertexAttrib1fv(
+		this.ref,
 	)
 }
 
-// VertexAttrib1fvFunc returns the method "WebGLRenderingContext.vertexAttrib1fv".
-func (this WebGLRenderingContext) VertexAttrib1fvFunc() (fn js.Func[func(index GLuint, values Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextVertexAttrib1fvFunc(
-			this.Ref(),
-		),
+// FuncVertexAttrib1fv returns the method "WebGLRenderingContext.vertexAttrib1fv".
+func (this WebGLRenderingContext) FuncVertexAttrib1fv() (fn js.Func[func(index GLuint, values Float32List)]) {
+	bindings.FuncWebGLRenderingContextVertexAttrib1fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // VertexAttrib1fv calls the method "WebGLRenderingContext.vertexAttrib1fv".
 func (this WebGLRenderingContext) VertexAttrib1fv(index GLuint, values Float32List) (ret js.Void) {
 	bindings.CallWebGLRenderingContextVertexAttrib1fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		values.Ref(),
 	)
@@ -5455,7 +5357,7 @@ func (this WebGLRenderingContext) VertexAttrib1fv(index GLuint, values Float32Li
 // the catch clause.
 func (this WebGLRenderingContext) TryVertexAttrib1fv(index GLuint, values Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextVertexAttrib1fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		values.Ref(),
 	)
@@ -5463,26 +5365,25 @@ func (this WebGLRenderingContext) TryVertexAttrib1fv(index GLuint, values Float3
 	return
 }
 
-// HasVertexAttrib2fv returns true if the method "WebGLRenderingContext.vertexAttrib2fv" exists.
-func (this WebGLRenderingContext) HasVertexAttrib2fv() bool {
-	return js.True == bindings.HasWebGLRenderingContextVertexAttrib2fv(
-		this.Ref(),
+// HasFuncVertexAttrib2fv returns true if the method "WebGLRenderingContext.vertexAttrib2fv" exists.
+func (this WebGLRenderingContext) HasFuncVertexAttrib2fv() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextVertexAttrib2fv(
+		this.ref,
 	)
 }
 
-// VertexAttrib2fvFunc returns the method "WebGLRenderingContext.vertexAttrib2fv".
-func (this WebGLRenderingContext) VertexAttrib2fvFunc() (fn js.Func[func(index GLuint, values Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextVertexAttrib2fvFunc(
-			this.Ref(),
-		),
+// FuncVertexAttrib2fv returns the method "WebGLRenderingContext.vertexAttrib2fv".
+func (this WebGLRenderingContext) FuncVertexAttrib2fv() (fn js.Func[func(index GLuint, values Float32List)]) {
+	bindings.FuncWebGLRenderingContextVertexAttrib2fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // VertexAttrib2fv calls the method "WebGLRenderingContext.vertexAttrib2fv".
 func (this WebGLRenderingContext) VertexAttrib2fv(index GLuint, values Float32List) (ret js.Void) {
 	bindings.CallWebGLRenderingContextVertexAttrib2fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		values.Ref(),
 	)
@@ -5495,7 +5396,7 @@ func (this WebGLRenderingContext) VertexAttrib2fv(index GLuint, values Float32Li
 // the catch clause.
 func (this WebGLRenderingContext) TryVertexAttrib2fv(index GLuint, values Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextVertexAttrib2fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		values.Ref(),
 	)
@@ -5503,26 +5404,25 @@ func (this WebGLRenderingContext) TryVertexAttrib2fv(index GLuint, values Float3
 	return
 }
 
-// HasVertexAttrib3fv returns true if the method "WebGLRenderingContext.vertexAttrib3fv" exists.
-func (this WebGLRenderingContext) HasVertexAttrib3fv() bool {
-	return js.True == bindings.HasWebGLRenderingContextVertexAttrib3fv(
-		this.Ref(),
+// HasFuncVertexAttrib3fv returns true if the method "WebGLRenderingContext.vertexAttrib3fv" exists.
+func (this WebGLRenderingContext) HasFuncVertexAttrib3fv() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextVertexAttrib3fv(
+		this.ref,
 	)
 }
 
-// VertexAttrib3fvFunc returns the method "WebGLRenderingContext.vertexAttrib3fv".
-func (this WebGLRenderingContext) VertexAttrib3fvFunc() (fn js.Func[func(index GLuint, values Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextVertexAttrib3fvFunc(
-			this.Ref(),
-		),
+// FuncVertexAttrib3fv returns the method "WebGLRenderingContext.vertexAttrib3fv".
+func (this WebGLRenderingContext) FuncVertexAttrib3fv() (fn js.Func[func(index GLuint, values Float32List)]) {
+	bindings.FuncWebGLRenderingContextVertexAttrib3fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // VertexAttrib3fv calls the method "WebGLRenderingContext.vertexAttrib3fv".
 func (this WebGLRenderingContext) VertexAttrib3fv(index GLuint, values Float32List) (ret js.Void) {
 	bindings.CallWebGLRenderingContextVertexAttrib3fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		values.Ref(),
 	)
@@ -5535,7 +5435,7 @@ func (this WebGLRenderingContext) VertexAttrib3fv(index GLuint, values Float32Li
 // the catch clause.
 func (this WebGLRenderingContext) TryVertexAttrib3fv(index GLuint, values Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextVertexAttrib3fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		values.Ref(),
 	)
@@ -5543,26 +5443,25 @@ func (this WebGLRenderingContext) TryVertexAttrib3fv(index GLuint, values Float3
 	return
 }
 
-// HasVertexAttrib4fv returns true if the method "WebGLRenderingContext.vertexAttrib4fv" exists.
-func (this WebGLRenderingContext) HasVertexAttrib4fv() bool {
-	return js.True == bindings.HasWebGLRenderingContextVertexAttrib4fv(
-		this.Ref(),
+// HasFuncVertexAttrib4fv returns true if the method "WebGLRenderingContext.vertexAttrib4fv" exists.
+func (this WebGLRenderingContext) HasFuncVertexAttrib4fv() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextVertexAttrib4fv(
+		this.ref,
 	)
 }
 
-// VertexAttrib4fvFunc returns the method "WebGLRenderingContext.vertexAttrib4fv".
-func (this WebGLRenderingContext) VertexAttrib4fvFunc() (fn js.Func[func(index GLuint, values Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextVertexAttrib4fvFunc(
-			this.Ref(),
-		),
+// FuncVertexAttrib4fv returns the method "WebGLRenderingContext.vertexAttrib4fv".
+func (this WebGLRenderingContext) FuncVertexAttrib4fv() (fn js.Func[func(index GLuint, values Float32List)]) {
+	bindings.FuncWebGLRenderingContextVertexAttrib4fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // VertexAttrib4fv calls the method "WebGLRenderingContext.vertexAttrib4fv".
 func (this WebGLRenderingContext) VertexAttrib4fv(index GLuint, values Float32List) (ret js.Void) {
 	bindings.CallWebGLRenderingContextVertexAttrib4fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		values.Ref(),
 	)
@@ -5575,7 +5474,7 @@ func (this WebGLRenderingContext) VertexAttrib4fv(index GLuint, values Float32Li
 // the catch clause.
 func (this WebGLRenderingContext) TryVertexAttrib4fv(index GLuint, values Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextVertexAttrib4fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		values.Ref(),
 	)
@@ -5583,26 +5482,25 @@ func (this WebGLRenderingContext) TryVertexAttrib4fv(index GLuint, values Float3
 	return
 }
 
-// HasVertexAttribPointer returns true if the method "WebGLRenderingContext.vertexAttribPointer" exists.
-func (this WebGLRenderingContext) HasVertexAttribPointer() bool {
-	return js.True == bindings.HasWebGLRenderingContextVertexAttribPointer(
-		this.Ref(),
+// HasFuncVertexAttribPointer returns true if the method "WebGLRenderingContext.vertexAttribPointer" exists.
+func (this WebGLRenderingContext) HasFuncVertexAttribPointer() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextVertexAttribPointer(
+		this.ref,
 	)
 }
 
-// VertexAttribPointerFunc returns the method "WebGLRenderingContext.vertexAttribPointer".
-func (this WebGLRenderingContext) VertexAttribPointerFunc() (fn js.Func[func(index GLuint, size GLint, typ GLenum, normalized GLboolean, stride GLsizei, offset GLintptr)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextVertexAttribPointerFunc(
-			this.Ref(),
-		),
+// FuncVertexAttribPointer returns the method "WebGLRenderingContext.vertexAttribPointer".
+func (this WebGLRenderingContext) FuncVertexAttribPointer() (fn js.Func[func(index GLuint, size GLint, typ GLenum, normalized GLboolean, stride GLsizei, offset GLintptr)]) {
+	bindings.FuncWebGLRenderingContextVertexAttribPointer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // VertexAttribPointer calls the method "WebGLRenderingContext.vertexAttribPointer".
 func (this WebGLRenderingContext) VertexAttribPointer(index GLuint, size GLint, typ GLenum, normalized GLboolean, stride GLsizei, offset GLintptr) (ret js.Void) {
 	bindings.CallWebGLRenderingContextVertexAttribPointer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		int32(size),
 		uint32(typ),
@@ -5619,7 +5517,7 @@ func (this WebGLRenderingContext) VertexAttribPointer(index GLuint, size GLint, 
 // the catch clause.
 func (this WebGLRenderingContext) TryVertexAttribPointer(index GLuint, size GLint, typ GLenum, normalized GLboolean, stride GLsizei, offset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextVertexAttribPointer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		int32(size),
 		uint32(typ),
@@ -5631,26 +5529,25 @@ func (this WebGLRenderingContext) TryVertexAttribPointer(index GLuint, size GLin
 	return
 }
 
-// HasViewport returns true if the method "WebGLRenderingContext.viewport" exists.
-func (this WebGLRenderingContext) HasViewport() bool {
-	return js.True == bindings.HasWebGLRenderingContextViewport(
-		this.Ref(),
+// HasFuncViewport returns true if the method "WebGLRenderingContext.viewport" exists.
+func (this WebGLRenderingContext) HasFuncViewport() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextViewport(
+		this.ref,
 	)
 }
 
-// ViewportFunc returns the method "WebGLRenderingContext.viewport".
-func (this WebGLRenderingContext) ViewportFunc() (fn js.Func[func(x GLint, y GLint, width GLsizei, height GLsizei)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextViewportFunc(
-			this.Ref(),
-		),
+// FuncViewport returns the method "WebGLRenderingContext.viewport".
+func (this WebGLRenderingContext) FuncViewport() (fn js.Func[func(x GLint, y GLint, width GLsizei, height GLsizei)]) {
+	bindings.FuncWebGLRenderingContextViewport(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Viewport calls the method "WebGLRenderingContext.viewport".
 func (this WebGLRenderingContext) Viewport(x GLint, y GLint, width GLsizei, height GLsizei) (ret js.Void) {
 	bindings.CallWebGLRenderingContextViewport(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		int32(x),
 		int32(y),
 		int32(width),
@@ -5665,7 +5562,7 @@ func (this WebGLRenderingContext) Viewport(x GLint, y GLint, width GLsizei, heig
 // the catch clause.
 func (this WebGLRenderingContext) TryViewport(x GLint, y GLint, width GLsizei, height GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextViewport(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		int32(x),
 		int32(y),
 		int32(width),
@@ -5675,26 +5572,25 @@ func (this WebGLRenderingContext) TryViewport(x GLint, y GLint, width GLsizei, h
 	return
 }
 
-// HasMakeXRCompatible returns true if the method "WebGLRenderingContext.makeXRCompatible" exists.
-func (this WebGLRenderingContext) HasMakeXRCompatible() bool {
-	return js.True == bindings.HasWebGLRenderingContextMakeXRCompatible(
-		this.Ref(),
+// HasFuncMakeXRCompatible returns true if the method "WebGLRenderingContext.makeXRCompatible" exists.
+func (this WebGLRenderingContext) HasFuncMakeXRCompatible() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextMakeXRCompatible(
+		this.ref,
 	)
 }
 
-// MakeXRCompatibleFunc returns the method "WebGLRenderingContext.makeXRCompatible".
-func (this WebGLRenderingContext) MakeXRCompatibleFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextMakeXRCompatibleFunc(
-			this.Ref(),
-		),
+// FuncMakeXRCompatible returns the method "WebGLRenderingContext.makeXRCompatible".
+func (this WebGLRenderingContext) FuncMakeXRCompatible() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncWebGLRenderingContextMakeXRCompatible(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // MakeXRCompatible calls the method "WebGLRenderingContext.makeXRCompatible".
 func (this WebGLRenderingContext) MakeXRCompatible() (ret js.Promise[js.Void]) {
 	bindings.CallWebGLRenderingContextMakeXRCompatible(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -5705,32 +5601,31 @@ func (this WebGLRenderingContext) MakeXRCompatible() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this WebGLRenderingContext) TryMakeXRCompatible() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextMakeXRCompatible(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasBufferData returns true if the method "WebGLRenderingContext.bufferData" exists.
-func (this WebGLRenderingContext) HasBufferData() bool {
-	return js.True == bindings.HasWebGLRenderingContextBufferData(
-		this.Ref(),
+// HasFuncBufferData returns true if the method "WebGLRenderingContext.bufferData" exists.
+func (this WebGLRenderingContext) HasFuncBufferData() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextBufferData(
+		this.ref,
 	)
 }
 
-// BufferDataFunc returns the method "WebGLRenderingContext.bufferData".
-func (this WebGLRenderingContext) BufferDataFunc() (fn js.Func[func(target GLenum, size GLsizeiptr, usage GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextBufferDataFunc(
-			this.Ref(),
-		),
+// FuncBufferData returns the method "WebGLRenderingContext.bufferData".
+func (this WebGLRenderingContext) FuncBufferData() (fn js.Func[func(target GLenum, size GLsizeiptr, usage GLenum)]) {
+	bindings.FuncWebGLRenderingContextBufferData(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BufferData calls the method "WebGLRenderingContext.bufferData".
 func (this WebGLRenderingContext) BufferData(target GLenum, size GLsizeiptr, usage GLenum) (ret js.Void) {
 	bindings.CallWebGLRenderingContextBufferData(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		float64(size),
 		uint32(usage),
@@ -5744,7 +5639,7 @@ func (this WebGLRenderingContext) BufferData(target GLenum, size GLsizeiptr, usa
 // the catch clause.
 func (this WebGLRenderingContext) TryBufferData(target GLenum, size GLsizeiptr, usage GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBufferData(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		float64(size),
 		uint32(usage),
@@ -5753,26 +5648,25 @@ func (this WebGLRenderingContext) TryBufferData(target GLenum, size GLsizeiptr, 
 	return
 }
 
-// HasBufferData1 returns true if the method "WebGLRenderingContext.bufferData" exists.
-func (this WebGLRenderingContext) HasBufferData1() bool {
-	return js.True == bindings.HasWebGLRenderingContextBufferData1(
-		this.Ref(),
+// HasFuncBufferData1 returns true if the method "WebGLRenderingContext.bufferData" exists.
+func (this WebGLRenderingContext) HasFuncBufferData1() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextBufferData1(
+		this.ref,
 	)
 }
 
-// BufferData1Func returns the method "WebGLRenderingContext.bufferData".
-func (this WebGLRenderingContext) BufferData1Func() (fn js.Func[func(target GLenum, data AllowSharedBufferSource, usage GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextBufferData1Func(
-			this.Ref(),
-		),
+// FuncBufferData1 returns the method "WebGLRenderingContext.bufferData".
+func (this WebGLRenderingContext) FuncBufferData1() (fn js.Func[func(target GLenum, data AllowSharedBufferSource, usage GLenum)]) {
+	bindings.FuncWebGLRenderingContextBufferData1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BufferData1 calls the method "WebGLRenderingContext.bufferData".
 func (this WebGLRenderingContext) BufferData1(target GLenum, data AllowSharedBufferSource, usage GLenum) (ret js.Void) {
 	bindings.CallWebGLRenderingContextBufferData1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		data.Ref(),
 		uint32(usage),
@@ -5786,7 +5680,7 @@ func (this WebGLRenderingContext) BufferData1(target GLenum, data AllowSharedBuf
 // the catch clause.
 func (this WebGLRenderingContext) TryBufferData1(target GLenum, data AllowSharedBufferSource, usage GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBufferData1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		data.Ref(),
 		uint32(usage),
@@ -5795,26 +5689,25 @@ func (this WebGLRenderingContext) TryBufferData1(target GLenum, data AllowShared
 	return
 }
 
-// HasBufferSubData returns true if the method "WebGLRenderingContext.bufferSubData" exists.
-func (this WebGLRenderingContext) HasBufferSubData() bool {
-	return js.True == bindings.HasWebGLRenderingContextBufferSubData(
-		this.Ref(),
+// HasFuncBufferSubData returns true if the method "WebGLRenderingContext.bufferSubData" exists.
+func (this WebGLRenderingContext) HasFuncBufferSubData() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextBufferSubData(
+		this.ref,
 	)
 }
 
-// BufferSubDataFunc returns the method "WebGLRenderingContext.bufferSubData".
-func (this WebGLRenderingContext) BufferSubDataFunc() (fn js.Func[func(target GLenum, offset GLintptr, data AllowSharedBufferSource)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextBufferSubDataFunc(
-			this.Ref(),
-		),
+// FuncBufferSubData returns the method "WebGLRenderingContext.bufferSubData".
+func (this WebGLRenderingContext) FuncBufferSubData() (fn js.Func[func(target GLenum, offset GLintptr, data AllowSharedBufferSource)]) {
+	bindings.FuncWebGLRenderingContextBufferSubData(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BufferSubData calls the method "WebGLRenderingContext.bufferSubData".
 func (this WebGLRenderingContext) BufferSubData(target GLenum, offset GLintptr, data AllowSharedBufferSource) (ret js.Void) {
 	bindings.CallWebGLRenderingContextBufferSubData(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		float64(offset),
 		data.Ref(),
@@ -5828,7 +5721,7 @@ func (this WebGLRenderingContext) BufferSubData(target GLenum, offset GLintptr, 
 // the catch clause.
 func (this WebGLRenderingContext) TryBufferSubData(target GLenum, offset GLintptr, data AllowSharedBufferSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBufferSubData(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		float64(offset),
 		data.Ref(),
@@ -5837,26 +5730,25 @@ func (this WebGLRenderingContext) TryBufferSubData(target GLenum, offset GLintpt
 	return
 }
 
-// HasCompressedTexImage2D returns true if the method "WebGLRenderingContext.compressedTexImage2D" exists.
-func (this WebGLRenderingContext) HasCompressedTexImage2D() bool {
-	return js.True == bindings.HasWebGLRenderingContextCompressedTexImage2D(
-		this.Ref(),
+// HasFuncCompressedTexImage2D returns true if the method "WebGLRenderingContext.compressedTexImage2D" exists.
+func (this WebGLRenderingContext) HasFuncCompressedTexImage2D() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextCompressedTexImage2D(
+		this.ref,
 	)
 }
 
-// CompressedTexImage2DFunc returns the method "WebGLRenderingContext.compressedTexImage2D".
-func (this WebGLRenderingContext) CompressedTexImage2DFunc() (fn js.Func[func(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, data js.ArrayBufferView)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextCompressedTexImage2DFunc(
-			this.Ref(),
-		),
+// FuncCompressedTexImage2D returns the method "WebGLRenderingContext.compressedTexImage2D".
+func (this WebGLRenderingContext) FuncCompressedTexImage2D() (fn js.Func[func(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, data js.ArrayBufferView)]) {
+	bindings.FuncWebGLRenderingContextCompressedTexImage2D(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CompressedTexImage2D calls the method "WebGLRenderingContext.compressedTexImage2D".
 func (this WebGLRenderingContext) CompressedTexImage2D(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, data js.ArrayBufferView) (ret js.Void) {
 	bindings.CallWebGLRenderingContextCompressedTexImage2D(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		uint32(internalformat),
@@ -5874,7 +5766,7 @@ func (this WebGLRenderingContext) CompressedTexImage2D(target GLenum, level GLin
 // the catch clause.
 func (this WebGLRenderingContext) TryCompressedTexImage2D(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, data js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCompressedTexImage2D(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		uint32(internalformat),
@@ -5887,26 +5779,25 @@ func (this WebGLRenderingContext) TryCompressedTexImage2D(target GLenum, level G
 	return
 }
 
-// HasCompressedTexSubImage2D returns true if the method "WebGLRenderingContext.compressedTexSubImage2D" exists.
-func (this WebGLRenderingContext) HasCompressedTexSubImage2D() bool {
-	return js.True == bindings.HasWebGLRenderingContextCompressedTexSubImage2D(
-		this.Ref(),
+// HasFuncCompressedTexSubImage2D returns true if the method "WebGLRenderingContext.compressedTexSubImage2D" exists.
+func (this WebGLRenderingContext) HasFuncCompressedTexSubImage2D() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextCompressedTexSubImage2D(
+		this.ref,
 	)
 }
 
-// CompressedTexSubImage2DFunc returns the method "WebGLRenderingContext.compressedTexSubImage2D".
-func (this WebGLRenderingContext) CompressedTexSubImage2DFunc() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, data js.ArrayBufferView)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextCompressedTexSubImage2DFunc(
-			this.Ref(),
-		),
+// FuncCompressedTexSubImage2D returns the method "WebGLRenderingContext.compressedTexSubImage2D".
+func (this WebGLRenderingContext) FuncCompressedTexSubImage2D() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, data js.ArrayBufferView)]) {
+	bindings.FuncWebGLRenderingContextCompressedTexSubImage2D(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CompressedTexSubImage2D calls the method "WebGLRenderingContext.compressedTexSubImage2D".
 func (this WebGLRenderingContext) CompressedTexSubImage2D(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, data js.ArrayBufferView) (ret js.Void) {
 	bindings.CallWebGLRenderingContextCompressedTexSubImage2D(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -5925,7 +5816,7 @@ func (this WebGLRenderingContext) CompressedTexSubImage2D(target GLenum, level G
 // the catch clause.
 func (this WebGLRenderingContext) TryCompressedTexSubImage2D(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, data js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCompressedTexSubImage2D(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -5939,26 +5830,25 @@ func (this WebGLRenderingContext) TryCompressedTexSubImage2D(target GLenum, leve
 	return
 }
 
-// HasReadPixels returns true if the method "WebGLRenderingContext.readPixels" exists.
-func (this WebGLRenderingContext) HasReadPixels() bool {
-	return js.True == bindings.HasWebGLRenderingContextReadPixels(
-		this.Ref(),
+// HasFuncReadPixels returns true if the method "WebGLRenderingContext.readPixels" exists.
+func (this WebGLRenderingContext) HasFuncReadPixels() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextReadPixels(
+		this.ref,
 	)
 }
 
-// ReadPixelsFunc returns the method "WebGLRenderingContext.readPixels".
-func (this WebGLRenderingContext) ReadPixelsFunc() (fn js.Func[func(x GLint, y GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, pixels js.ArrayBufferView)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextReadPixelsFunc(
-			this.Ref(),
-		),
+// FuncReadPixels returns the method "WebGLRenderingContext.readPixels".
+func (this WebGLRenderingContext) FuncReadPixels() (fn js.Func[func(x GLint, y GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, pixels js.ArrayBufferView)]) {
+	bindings.FuncWebGLRenderingContextReadPixels(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReadPixels calls the method "WebGLRenderingContext.readPixels".
 func (this WebGLRenderingContext) ReadPixels(x GLint, y GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, pixels js.ArrayBufferView) (ret js.Void) {
 	bindings.CallWebGLRenderingContextReadPixels(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		int32(x),
 		int32(y),
 		int32(width),
@@ -5976,7 +5866,7 @@ func (this WebGLRenderingContext) ReadPixels(x GLint, y GLint, width GLsizei, he
 // the catch clause.
 func (this WebGLRenderingContext) TryReadPixels(x GLint, y GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, pixels js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextReadPixels(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		int32(x),
 		int32(y),
 		int32(width),
@@ -5989,26 +5879,25 @@ func (this WebGLRenderingContext) TryReadPixels(x GLint, y GLint, width GLsizei,
 	return
 }
 
-// HasTexImage2D returns true if the method "WebGLRenderingContext.texImage2D" exists.
-func (this WebGLRenderingContext) HasTexImage2D() bool {
-	return js.True == bindings.HasWebGLRenderingContextTexImage2D(
-		this.Ref(),
+// HasFuncTexImage2D returns true if the method "WebGLRenderingContext.texImage2D" exists.
+func (this WebGLRenderingContext) HasFuncTexImage2D() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextTexImage2D(
+		this.ref,
 	)
 }
 
-// TexImage2DFunc returns the method "WebGLRenderingContext.texImage2D".
-func (this WebGLRenderingContext) TexImage2DFunc() (fn js.Func[func(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, pixels js.ArrayBufferView)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextTexImage2DFunc(
-			this.Ref(),
-		),
+// FuncTexImage2D returns the method "WebGLRenderingContext.texImage2D".
+func (this WebGLRenderingContext) FuncTexImage2D() (fn js.Func[func(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, pixels js.ArrayBufferView)]) {
+	bindings.FuncWebGLRenderingContextTexImage2D(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexImage2D calls the method "WebGLRenderingContext.texImage2D".
 func (this WebGLRenderingContext) TexImage2D(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, pixels js.ArrayBufferView) (ret js.Void) {
 	bindings.CallWebGLRenderingContextTexImage2D(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(internalformat),
@@ -6028,7 +5917,7 @@ func (this WebGLRenderingContext) TexImage2D(target GLenum, level GLint, interna
 // the catch clause.
 func (this WebGLRenderingContext) TryTexImage2D(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, pixels js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextTexImage2D(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(internalformat),
@@ -6043,26 +5932,25 @@ func (this WebGLRenderingContext) TryTexImage2D(target GLenum, level GLint, inte
 	return
 }
 
-// HasTexImage2D1 returns true if the method "WebGLRenderingContext.texImage2D" exists.
-func (this WebGLRenderingContext) HasTexImage2D1() bool {
-	return js.True == bindings.HasWebGLRenderingContextTexImage2D1(
-		this.Ref(),
+// HasFuncTexImage2D1 returns true if the method "WebGLRenderingContext.texImage2D" exists.
+func (this WebGLRenderingContext) HasFuncTexImage2D1() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextTexImage2D1(
+		this.ref,
 	)
 }
 
-// TexImage2D1Func returns the method "WebGLRenderingContext.texImage2D".
-func (this WebGLRenderingContext) TexImage2D1Func() (fn js.Func[func(target GLenum, level GLint, internalformat GLint, format GLenum, typ GLenum, source TexImageSource)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextTexImage2D1Func(
-			this.Ref(),
-		),
+// FuncTexImage2D1 returns the method "WebGLRenderingContext.texImage2D".
+func (this WebGLRenderingContext) FuncTexImage2D1() (fn js.Func[func(target GLenum, level GLint, internalformat GLint, format GLenum, typ GLenum, source TexImageSource)]) {
+	bindings.FuncWebGLRenderingContextTexImage2D1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexImage2D1 calls the method "WebGLRenderingContext.texImage2D".
 func (this WebGLRenderingContext) TexImage2D1(target GLenum, level GLint, internalformat GLint, format GLenum, typ GLenum, source TexImageSource) (ret js.Void) {
 	bindings.CallWebGLRenderingContextTexImage2D1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(internalformat),
@@ -6079,7 +5967,7 @@ func (this WebGLRenderingContext) TexImage2D1(target GLenum, level GLint, intern
 // the catch clause.
 func (this WebGLRenderingContext) TryTexImage2D1(target GLenum, level GLint, internalformat GLint, format GLenum, typ GLenum, source TexImageSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextTexImage2D1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(internalformat),
@@ -6091,26 +5979,25 @@ func (this WebGLRenderingContext) TryTexImage2D1(target GLenum, level GLint, int
 	return
 }
 
-// HasTexSubImage2D returns true if the method "WebGLRenderingContext.texSubImage2D" exists.
-func (this WebGLRenderingContext) HasTexSubImage2D() bool {
-	return js.True == bindings.HasWebGLRenderingContextTexSubImage2D(
-		this.Ref(),
+// HasFuncTexSubImage2D returns true if the method "WebGLRenderingContext.texSubImage2D" exists.
+func (this WebGLRenderingContext) HasFuncTexSubImage2D() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextTexSubImage2D(
+		this.ref,
 	)
 }
 
-// TexSubImage2DFunc returns the method "WebGLRenderingContext.texSubImage2D".
-func (this WebGLRenderingContext) TexSubImage2DFunc() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, pixels js.ArrayBufferView)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextTexSubImage2DFunc(
-			this.Ref(),
-		),
+// FuncTexSubImage2D returns the method "WebGLRenderingContext.texSubImage2D".
+func (this WebGLRenderingContext) FuncTexSubImage2D() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, pixels js.ArrayBufferView)]) {
+	bindings.FuncWebGLRenderingContextTexSubImage2D(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexSubImage2D calls the method "WebGLRenderingContext.texSubImage2D".
 func (this WebGLRenderingContext) TexSubImage2D(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, pixels js.ArrayBufferView) (ret js.Void) {
 	bindings.CallWebGLRenderingContextTexSubImage2D(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -6130,7 +6017,7 @@ func (this WebGLRenderingContext) TexSubImage2D(target GLenum, level GLint, xoff
 // the catch clause.
 func (this WebGLRenderingContext) TryTexSubImage2D(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, pixels js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextTexSubImage2D(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -6145,26 +6032,25 @@ func (this WebGLRenderingContext) TryTexSubImage2D(target GLenum, level GLint, x
 	return
 }
 
-// HasTexSubImage2D1 returns true if the method "WebGLRenderingContext.texSubImage2D" exists.
-func (this WebGLRenderingContext) HasTexSubImage2D1() bool {
-	return js.True == bindings.HasWebGLRenderingContextTexSubImage2D1(
-		this.Ref(),
+// HasFuncTexSubImage2D1 returns true if the method "WebGLRenderingContext.texSubImage2D" exists.
+func (this WebGLRenderingContext) HasFuncTexSubImage2D1() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextTexSubImage2D1(
+		this.ref,
 	)
 }
 
-// TexSubImage2D1Func returns the method "WebGLRenderingContext.texSubImage2D".
-func (this WebGLRenderingContext) TexSubImage2D1Func() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, format GLenum, typ GLenum, source TexImageSource)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextTexSubImage2D1Func(
-			this.Ref(),
-		),
+// FuncTexSubImage2D1 returns the method "WebGLRenderingContext.texSubImage2D".
+func (this WebGLRenderingContext) FuncTexSubImage2D1() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, format GLenum, typ GLenum, source TexImageSource)]) {
+	bindings.FuncWebGLRenderingContextTexSubImage2D1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexSubImage2D1 calls the method "WebGLRenderingContext.texSubImage2D".
 func (this WebGLRenderingContext) TexSubImage2D1(target GLenum, level GLint, xoffset GLint, yoffset GLint, format GLenum, typ GLenum, source TexImageSource) (ret js.Void) {
 	bindings.CallWebGLRenderingContextTexSubImage2D1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -6182,7 +6068,7 @@ func (this WebGLRenderingContext) TexSubImage2D1(target GLenum, level GLint, xof
 // the catch clause.
 func (this WebGLRenderingContext) TryTexSubImage2D1(target GLenum, level GLint, xoffset GLint, yoffset GLint, format GLenum, typ GLenum, source TexImageSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextTexSubImage2D1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -6195,26 +6081,25 @@ func (this WebGLRenderingContext) TryTexSubImage2D1(target GLenum, level GLint, 
 	return
 }
 
-// HasUniform1fv returns true if the method "WebGLRenderingContext.uniform1fv" exists.
-func (this WebGLRenderingContext) HasUniform1fv() bool {
-	return js.True == bindings.HasWebGLRenderingContextUniform1fv(
-		this.Ref(),
+// HasFuncUniform1fv returns true if the method "WebGLRenderingContext.uniform1fv" exists.
+func (this WebGLRenderingContext) HasFuncUniform1fv() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextUniform1fv(
+		this.ref,
 	)
 }
 
-// Uniform1fvFunc returns the method "WebGLRenderingContext.uniform1fv".
-func (this WebGLRenderingContext) Uniform1fvFunc() (fn js.Func[func(location WebGLUniformLocation, v Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextUniform1fvFunc(
-			this.Ref(),
-		),
+// FuncUniform1fv returns the method "WebGLRenderingContext.uniform1fv".
+func (this WebGLRenderingContext) FuncUniform1fv() (fn js.Func[func(location WebGLUniformLocation, v Float32List)]) {
+	bindings.FuncWebGLRenderingContextUniform1fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform1fv calls the method "WebGLRenderingContext.uniform1fv".
 func (this WebGLRenderingContext) Uniform1fv(location WebGLUniformLocation, v Float32List) (ret js.Void) {
 	bindings.CallWebGLRenderingContextUniform1fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		v.Ref(),
 	)
@@ -6227,7 +6112,7 @@ func (this WebGLRenderingContext) Uniform1fv(location WebGLUniformLocation, v Fl
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform1fv(location WebGLUniformLocation, v Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform1fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		v.Ref(),
 	)
@@ -6235,26 +6120,25 @@ func (this WebGLRenderingContext) TryUniform1fv(location WebGLUniformLocation, v
 	return
 }
 
-// HasUniform2fv returns true if the method "WebGLRenderingContext.uniform2fv" exists.
-func (this WebGLRenderingContext) HasUniform2fv() bool {
-	return js.True == bindings.HasWebGLRenderingContextUniform2fv(
-		this.Ref(),
+// HasFuncUniform2fv returns true if the method "WebGLRenderingContext.uniform2fv" exists.
+func (this WebGLRenderingContext) HasFuncUniform2fv() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextUniform2fv(
+		this.ref,
 	)
 }
 
-// Uniform2fvFunc returns the method "WebGLRenderingContext.uniform2fv".
-func (this WebGLRenderingContext) Uniform2fvFunc() (fn js.Func[func(location WebGLUniformLocation, v Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextUniform2fvFunc(
-			this.Ref(),
-		),
+// FuncUniform2fv returns the method "WebGLRenderingContext.uniform2fv".
+func (this WebGLRenderingContext) FuncUniform2fv() (fn js.Func[func(location WebGLUniformLocation, v Float32List)]) {
+	bindings.FuncWebGLRenderingContextUniform2fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform2fv calls the method "WebGLRenderingContext.uniform2fv".
 func (this WebGLRenderingContext) Uniform2fv(location WebGLUniformLocation, v Float32List) (ret js.Void) {
 	bindings.CallWebGLRenderingContextUniform2fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		v.Ref(),
 	)
@@ -6267,7 +6151,7 @@ func (this WebGLRenderingContext) Uniform2fv(location WebGLUniformLocation, v Fl
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform2fv(location WebGLUniformLocation, v Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform2fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		v.Ref(),
 	)
@@ -6275,26 +6159,25 @@ func (this WebGLRenderingContext) TryUniform2fv(location WebGLUniformLocation, v
 	return
 }
 
-// HasUniform3fv returns true if the method "WebGLRenderingContext.uniform3fv" exists.
-func (this WebGLRenderingContext) HasUniform3fv() bool {
-	return js.True == bindings.HasWebGLRenderingContextUniform3fv(
-		this.Ref(),
+// HasFuncUniform3fv returns true if the method "WebGLRenderingContext.uniform3fv" exists.
+func (this WebGLRenderingContext) HasFuncUniform3fv() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextUniform3fv(
+		this.ref,
 	)
 }
 
-// Uniform3fvFunc returns the method "WebGLRenderingContext.uniform3fv".
-func (this WebGLRenderingContext) Uniform3fvFunc() (fn js.Func[func(location WebGLUniformLocation, v Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextUniform3fvFunc(
-			this.Ref(),
-		),
+// FuncUniform3fv returns the method "WebGLRenderingContext.uniform3fv".
+func (this WebGLRenderingContext) FuncUniform3fv() (fn js.Func[func(location WebGLUniformLocation, v Float32List)]) {
+	bindings.FuncWebGLRenderingContextUniform3fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform3fv calls the method "WebGLRenderingContext.uniform3fv".
 func (this WebGLRenderingContext) Uniform3fv(location WebGLUniformLocation, v Float32List) (ret js.Void) {
 	bindings.CallWebGLRenderingContextUniform3fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		v.Ref(),
 	)
@@ -6307,7 +6190,7 @@ func (this WebGLRenderingContext) Uniform3fv(location WebGLUniformLocation, v Fl
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform3fv(location WebGLUniformLocation, v Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform3fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		v.Ref(),
 	)
@@ -6315,26 +6198,25 @@ func (this WebGLRenderingContext) TryUniform3fv(location WebGLUniformLocation, v
 	return
 }
 
-// HasUniform4fv returns true if the method "WebGLRenderingContext.uniform4fv" exists.
-func (this WebGLRenderingContext) HasUniform4fv() bool {
-	return js.True == bindings.HasWebGLRenderingContextUniform4fv(
-		this.Ref(),
+// HasFuncUniform4fv returns true if the method "WebGLRenderingContext.uniform4fv" exists.
+func (this WebGLRenderingContext) HasFuncUniform4fv() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextUniform4fv(
+		this.ref,
 	)
 }
 
-// Uniform4fvFunc returns the method "WebGLRenderingContext.uniform4fv".
-func (this WebGLRenderingContext) Uniform4fvFunc() (fn js.Func[func(location WebGLUniformLocation, v Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextUniform4fvFunc(
-			this.Ref(),
-		),
+// FuncUniform4fv returns the method "WebGLRenderingContext.uniform4fv".
+func (this WebGLRenderingContext) FuncUniform4fv() (fn js.Func[func(location WebGLUniformLocation, v Float32List)]) {
+	bindings.FuncWebGLRenderingContextUniform4fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform4fv calls the method "WebGLRenderingContext.uniform4fv".
 func (this WebGLRenderingContext) Uniform4fv(location WebGLUniformLocation, v Float32List) (ret js.Void) {
 	bindings.CallWebGLRenderingContextUniform4fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		v.Ref(),
 	)
@@ -6347,7 +6229,7 @@ func (this WebGLRenderingContext) Uniform4fv(location WebGLUniformLocation, v Fl
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform4fv(location WebGLUniformLocation, v Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform4fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		v.Ref(),
 	)
@@ -6355,26 +6237,25 @@ func (this WebGLRenderingContext) TryUniform4fv(location WebGLUniformLocation, v
 	return
 }
 
-// HasUniform1iv returns true if the method "WebGLRenderingContext.uniform1iv" exists.
-func (this WebGLRenderingContext) HasUniform1iv() bool {
-	return js.True == bindings.HasWebGLRenderingContextUniform1iv(
-		this.Ref(),
+// HasFuncUniform1iv returns true if the method "WebGLRenderingContext.uniform1iv" exists.
+func (this WebGLRenderingContext) HasFuncUniform1iv() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextUniform1iv(
+		this.ref,
 	)
 }
 
-// Uniform1ivFunc returns the method "WebGLRenderingContext.uniform1iv".
-func (this WebGLRenderingContext) Uniform1ivFunc() (fn js.Func[func(location WebGLUniformLocation, v Int32List)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextUniform1ivFunc(
-			this.Ref(),
-		),
+// FuncUniform1iv returns the method "WebGLRenderingContext.uniform1iv".
+func (this WebGLRenderingContext) FuncUniform1iv() (fn js.Func[func(location WebGLUniformLocation, v Int32List)]) {
+	bindings.FuncWebGLRenderingContextUniform1iv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform1iv calls the method "WebGLRenderingContext.uniform1iv".
 func (this WebGLRenderingContext) Uniform1iv(location WebGLUniformLocation, v Int32List) (ret js.Void) {
 	bindings.CallWebGLRenderingContextUniform1iv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		v.Ref(),
 	)
@@ -6387,7 +6268,7 @@ func (this WebGLRenderingContext) Uniform1iv(location WebGLUniformLocation, v In
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform1iv(location WebGLUniformLocation, v Int32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform1iv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		v.Ref(),
 	)
@@ -6395,26 +6276,25 @@ func (this WebGLRenderingContext) TryUniform1iv(location WebGLUniformLocation, v
 	return
 }
 
-// HasUniform2iv returns true if the method "WebGLRenderingContext.uniform2iv" exists.
-func (this WebGLRenderingContext) HasUniform2iv() bool {
-	return js.True == bindings.HasWebGLRenderingContextUniform2iv(
-		this.Ref(),
+// HasFuncUniform2iv returns true if the method "WebGLRenderingContext.uniform2iv" exists.
+func (this WebGLRenderingContext) HasFuncUniform2iv() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextUniform2iv(
+		this.ref,
 	)
 }
 
-// Uniform2ivFunc returns the method "WebGLRenderingContext.uniform2iv".
-func (this WebGLRenderingContext) Uniform2ivFunc() (fn js.Func[func(location WebGLUniformLocation, v Int32List)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextUniform2ivFunc(
-			this.Ref(),
-		),
+// FuncUniform2iv returns the method "WebGLRenderingContext.uniform2iv".
+func (this WebGLRenderingContext) FuncUniform2iv() (fn js.Func[func(location WebGLUniformLocation, v Int32List)]) {
+	bindings.FuncWebGLRenderingContextUniform2iv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform2iv calls the method "WebGLRenderingContext.uniform2iv".
 func (this WebGLRenderingContext) Uniform2iv(location WebGLUniformLocation, v Int32List) (ret js.Void) {
 	bindings.CallWebGLRenderingContextUniform2iv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		v.Ref(),
 	)
@@ -6427,7 +6307,7 @@ func (this WebGLRenderingContext) Uniform2iv(location WebGLUniformLocation, v In
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform2iv(location WebGLUniformLocation, v Int32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform2iv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		v.Ref(),
 	)
@@ -6435,26 +6315,25 @@ func (this WebGLRenderingContext) TryUniform2iv(location WebGLUniformLocation, v
 	return
 }
 
-// HasUniform3iv returns true if the method "WebGLRenderingContext.uniform3iv" exists.
-func (this WebGLRenderingContext) HasUniform3iv() bool {
-	return js.True == bindings.HasWebGLRenderingContextUniform3iv(
-		this.Ref(),
+// HasFuncUniform3iv returns true if the method "WebGLRenderingContext.uniform3iv" exists.
+func (this WebGLRenderingContext) HasFuncUniform3iv() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextUniform3iv(
+		this.ref,
 	)
 }
 
-// Uniform3ivFunc returns the method "WebGLRenderingContext.uniform3iv".
-func (this WebGLRenderingContext) Uniform3ivFunc() (fn js.Func[func(location WebGLUniformLocation, v Int32List)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextUniform3ivFunc(
-			this.Ref(),
-		),
+// FuncUniform3iv returns the method "WebGLRenderingContext.uniform3iv".
+func (this WebGLRenderingContext) FuncUniform3iv() (fn js.Func[func(location WebGLUniformLocation, v Int32List)]) {
+	bindings.FuncWebGLRenderingContextUniform3iv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform3iv calls the method "WebGLRenderingContext.uniform3iv".
 func (this WebGLRenderingContext) Uniform3iv(location WebGLUniformLocation, v Int32List) (ret js.Void) {
 	bindings.CallWebGLRenderingContextUniform3iv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		v.Ref(),
 	)
@@ -6467,7 +6346,7 @@ func (this WebGLRenderingContext) Uniform3iv(location WebGLUniformLocation, v In
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform3iv(location WebGLUniformLocation, v Int32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform3iv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		v.Ref(),
 	)
@@ -6475,26 +6354,25 @@ func (this WebGLRenderingContext) TryUniform3iv(location WebGLUniformLocation, v
 	return
 }
 
-// HasUniform4iv returns true if the method "WebGLRenderingContext.uniform4iv" exists.
-func (this WebGLRenderingContext) HasUniform4iv() bool {
-	return js.True == bindings.HasWebGLRenderingContextUniform4iv(
-		this.Ref(),
+// HasFuncUniform4iv returns true if the method "WebGLRenderingContext.uniform4iv" exists.
+func (this WebGLRenderingContext) HasFuncUniform4iv() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextUniform4iv(
+		this.ref,
 	)
 }
 
-// Uniform4ivFunc returns the method "WebGLRenderingContext.uniform4iv".
-func (this WebGLRenderingContext) Uniform4ivFunc() (fn js.Func[func(location WebGLUniformLocation, v Int32List)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextUniform4ivFunc(
-			this.Ref(),
-		),
+// FuncUniform4iv returns the method "WebGLRenderingContext.uniform4iv".
+func (this WebGLRenderingContext) FuncUniform4iv() (fn js.Func[func(location WebGLUniformLocation, v Int32List)]) {
+	bindings.FuncWebGLRenderingContextUniform4iv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform4iv calls the method "WebGLRenderingContext.uniform4iv".
 func (this WebGLRenderingContext) Uniform4iv(location WebGLUniformLocation, v Int32List) (ret js.Void) {
 	bindings.CallWebGLRenderingContextUniform4iv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		v.Ref(),
 	)
@@ -6507,7 +6385,7 @@ func (this WebGLRenderingContext) Uniform4iv(location WebGLUniformLocation, v In
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform4iv(location WebGLUniformLocation, v Int32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform4iv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		v.Ref(),
 	)
@@ -6515,26 +6393,25 @@ func (this WebGLRenderingContext) TryUniform4iv(location WebGLUniformLocation, v
 	return
 }
 
-// HasUniformMatrix2fv returns true if the method "WebGLRenderingContext.uniformMatrix2fv" exists.
-func (this WebGLRenderingContext) HasUniformMatrix2fv() bool {
-	return js.True == bindings.HasWebGLRenderingContextUniformMatrix2fv(
-		this.Ref(),
+// HasFuncUniformMatrix2fv returns true if the method "WebGLRenderingContext.uniformMatrix2fv" exists.
+func (this WebGLRenderingContext) HasFuncUniformMatrix2fv() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextUniformMatrix2fv(
+		this.ref,
 	)
 }
 
-// UniformMatrix2fvFunc returns the method "WebGLRenderingContext.uniformMatrix2fv".
-func (this WebGLRenderingContext) UniformMatrix2fvFunc() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, value Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextUniformMatrix2fvFunc(
-			this.Ref(),
-		),
+// FuncUniformMatrix2fv returns the method "WebGLRenderingContext.uniformMatrix2fv".
+func (this WebGLRenderingContext) FuncUniformMatrix2fv() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, value Float32List)]) {
+	bindings.FuncWebGLRenderingContextUniformMatrix2fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix2fv calls the method "WebGLRenderingContext.uniformMatrix2fv".
 func (this WebGLRenderingContext) UniformMatrix2fv(location WebGLUniformLocation, transpose GLboolean, value Float32List) (ret js.Void) {
 	bindings.CallWebGLRenderingContextUniformMatrix2fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		value.Ref(),
@@ -6548,7 +6425,7 @@ func (this WebGLRenderingContext) UniformMatrix2fv(location WebGLUniformLocation
 // the catch clause.
 func (this WebGLRenderingContext) TryUniformMatrix2fv(location WebGLUniformLocation, transpose GLboolean, value Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniformMatrix2fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		value.Ref(),
@@ -6557,26 +6434,25 @@ func (this WebGLRenderingContext) TryUniformMatrix2fv(location WebGLUniformLocat
 	return
 }
 
-// HasUniformMatrix3fv returns true if the method "WebGLRenderingContext.uniformMatrix3fv" exists.
-func (this WebGLRenderingContext) HasUniformMatrix3fv() bool {
-	return js.True == bindings.HasWebGLRenderingContextUniformMatrix3fv(
-		this.Ref(),
+// HasFuncUniformMatrix3fv returns true if the method "WebGLRenderingContext.uniformMatrix3fv" exists.
+func (this WebGLRenderingContext) HasFuncUniformMatrix3fv() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextUniformMatrix3fv(
+		this.ref,
 	)
 }
 
-// UniformMatrix3fvFunc returns the method "WebGLRenderingContext.uniformMatrix3fv".
-func (this WebGLRenderingContext) UniformMatrix3fvFunc() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, value Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextUniformMatrix3fvFunc(
-			this.Ref(),
-		),
+// FuncUniformMatrix3fv returns the method "WebGLRenderingContext.uniformMatrix3fv".
+func (this WebGLRenderingContext) FuncUniformMatrix3fv() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, value Float32List)]) {
+	bindings.FuncWebGLRenderingContextUniformMatrix3fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix3fv calls the method "WebGLRenderingContext.uniformMatrix3fv".
 func (this WebGLRenderingContext) UniformMatrix3fv(location WebGLUniformLocation, transpose GLboolean, value Float32List) (ret js.Void) {
 	bindings.CallWebGLRenderingContextUniformMatrix3fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		value.Ref(),
@@ -6590,7 +6466,7 @@ func (this WebGLRenderingContext) UniformMatrix3fv(location WebGLUniformLocation
 // the catch clause.
 func (this WebGLRenderingContext) TryUniformMatrix3fv(location WebGLUniformLocation, transpose GLboolean, value Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniformMatrix3fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		value.Ref(),
@@ -6599,26 +6475,25 @@ func (this WebGLRenderingContext) TryUniformMatrix3fv(location WebGLUniformLocat
 	return
 }
 
-// HasUniformMatrix4fv returns true if the method "WebGLRenderingContext.uniformMatrix4fv" exists.
-func (this WebGLRenderingContext) HasUniformMatrix4fv() bool {
-	return js.True == bindings.HasWebGLRenderingContextUniformMatrix4fv(
-		this.Ref(),
+// HasFuncUniformMatrix4fv returns true if the method "WebGLRenderingContext.uniformMatrix4fv" exists.
+func (this WebGLRenderingContext) HasFuncUniformMatrix4fv() bool {
+	return js.True == bindings.HasFuncWebGLRenderingContextUniformMatrix4fv(
+		this.ref,
 	)
 }
 
-// UniformMatrix4fvFunc returns the method "WebGLRenderingContext.uniformMatrix4fv".
-func (this WebGLRenderingContext) UniformMatrix4fvFunc() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, value Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGLRenderingContextUniformMatrix4fvFunc(
-			this.Ref(),
-		),
+// FuncUniformMatrix4fv returns the method "WebGLRenderingContext.uniformMatrix4fv".
+func (this WebGLRenderingContext) FuncUniformMatrix4fv() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, value Float32List)]) {
+	bindings.FuncWebGLRenderingContextUniformMatrix4fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix4fv calls the method "WebGLRenderingContext.uniformMatrix4fv".
 func (this WebGLRenderingContext) UniformMatrix4fv(location WebGLUniformLocation, transpose GLboolean, value Float32List) (ret js.Void) {
 	bindings.CallWebGLRenderingContextUniformMatrix4fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		value.Ref(),
@@ -6632,7 +6507,7 @@ func (this WebGLRenderingContext) UniformMatrix4fv(location WebGLUniformLocation
 // the catch clause.
 func (this WebGLRenderingContext) TryUniformMatrix4fv(location WebGLUniformLocation, transpose GLboolean, value Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniformMatrix4fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		value.Ref(),
@@ -6948,7 +6823,7 @@ type WebGLQuery struct {
 }
 
 func (this WebGLQuery) Once() WebGLQuery {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -6962,7 +6837,7 @@ func (this WebGLQuery) FromRef(ref js.Ref) WebGLQuery {
 }
 
 func (this WebGLQuery) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type WebGLSampler struct {
@@ -6970,7 +6845,7 @@ type WebGLSampler struct {
 }
 
 func (this WebGLSampler) Once() WebGLSampler {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -6984,7 +6859,7 @@ func (this WebGLSampler) FromRef(ref js.Ref) WebGLSampler {
 }
 
 func (this WebGLSampler) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type WebGLSync struct {
@@ -6992,7 +6867,7 @@ type WebGLSync struct {
 }
 
 func (this WebGLSync) Once() WebGLSync {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -7006,7 +6881,7 @@ func (this WebGLSync) FromRef(ref js.Ref) WebGLSync {
 }
 
 func (this WebGLSync) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type GLuint64 uint64
@@ -7016,7 +6891,7 @@ type WebGLTransformFeedback struct {
 }
 
 func (this WebGLTransformFeedback) Once() WebGLTransformFeedback {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -7030,7 +6905,7 @@ func (this WebGLTransformFeedback) FromRef(ref js.Ref) WebGLTransformFeedback {
 }
 
 func (this WebGLTransformFeedback) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type WebGLVertexArrayObject struct {
@@ -7038,7 +6913,7 @@ type WebGLVertexArrayObject struct {
 }
 
 func (this WebGLVertexArrayObject) Once() WebGLVertexArrayObject {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -7052,7 +6927,7 @@ func (this WebGLVertexArrayObject) FromRef(ref js.Ref) WebGLVertexArrayObject {
 }
 
 func (this WebGLVertexArrayObject) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type WebGL2RenderingContext struct {
@@ -7060,7 +6935,7 @@ type WebGL2RenderingContext struct {
 }
 
 func (this WebGL2RenderingContext) Once() WebGL2RenderingContext {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -7074,7 +6949,7 @@ func (this WebGL2RenderingContext) FromRef(ref js.Ref) WebGL2RenderingContext {
 }
 
 func (this WebGL2RenderingContext) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Canvas returns the value of property "WebGL2RenderingContext.canvas".
@@ -7082,7 +6957,7 @@ func (this WebGL2RenderingContext) Free() {
 // It returns ok=false if there is no such property.
 func (this WebGL2RenderingContext) Canvas() (ret OneOf_HTMLCanvasElement_OffscreenCanvas, ok bool) {
 	ok = js.True == bindings.GetWebGL2RenderingContextCanvas(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -7092,7 +6967,7 @@ func (this WebGL2RenderingContext) Canvas() (ret OneOf_HTMLCanvasElement_Offscre
 // It returns ok=false if there is no such property.
 func (this WebGL2RenderingContext) DrawingBufferWidth() (ret GLsizei, ok bool) {
 	ok = js.True == bindings.GetWebGL2RenderingContextDrawingBufferWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -7102,7 +6977,7 @@ func (this WebGL2RenderingContext) DrawingBufferWidth() (ret GLsizei, ok bool) {
 // It returns ok=false if there is no such property.
 func (this WebGL2RenderingContext) DrawingBufferHeight() (ret GLsizei, ok bool) {
 	ok = js.True == bindings.GetWebGL2RenderingContextDrawingBufferHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -7112,7 +6987,7 @@ func (this WebGL2RenderingContext) DrawingBufferHeight() (ret GLsizei, ok bool) 
 // It returns ok=false if there is no such property.
 func (this WebGL2RenderingContext) DrawingBufferColorSpace() (ret PredefinedColorSpace, ok bool) {
 	ok = js.True == bindings.GetWebGL2RenderingContextDrawingBufferColorSpace(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -7122,7 +6997,7 @@ func (this WebGL2RenderingContext) DrawingBufferColorSpace() (ret PredefinedColo
 // It returns false if the property cannot be set.
 func (this WebGL2RenderingContext) SetDrawingBufferColorSpace(val PredefinedColorSpace) bool {
 	return js.True == bindings.SetWebGL2RenderingContextDrawingBufferColorSpace(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
@@ -7132,7 +7007,7 @@ func (this WebGL2RenderingContext) SetDrawingBufferColorSpace(val PredefinedColo
 // It returns ok=false if there is no such property.
 func (this WebGL2RenderingContext) UnpackColorSpace() (ret PredefinedColorSpace, ok bool) {
 	ok = js.True == bindings.GetWebGL2RenderingContextUnpackColorSpace(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -7142,31 +7017,30 @@ func (this WebGL2RenderingContext) UnpackColorSpace() (ret PredefinedColorSpace,
 // It returns false if the property cannot be set.
 func (this WebGL2RenderingContext) SetUnpackColorSpace(val PredefinedColorSpace) bool {
 	return js.True == bindings.SetWebGL2RenderingContextUnpackColorSpace(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
 
-// HasBufferData returns true if the method "WebGL2RenderingContext.bufferData" exists.
-func (this WebGL2RenderingContext) HasBufferData() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBufferData(
-		this.Ref(),
+// HasFuncBufferData returns true if the method "WebGL2RenderingContext.bufferData" exists.
+func (this WebGL2RenderingContext) HasFuncBufferData() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBufferData(
+		this.ref,
 	)
 }
 
-// BufferDataFunc returns the method "WebGL2RenderingContext.bufferData".
-func (this WebGL2RenderingContext) BufferDataFunc() (fn js.Func[func(target GLenum, size GLsizeiptr, usage GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBufferDataFunc(
-			this.Ref(),
-		),
+// FuncBufferData returns the method "WebGL2RenderingContext.bufferData".
+func (this WebGL2RenderingContext) FuncBufferData() (fn js.Func[func(target GLenum, size GLsizeiptr, usage GLenum)]) {
+	bindings.FuncWebGL2RenderingContextBufferData(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BufferData calls the method "WebGL2RenderingContext.bufferData".
 func (this WebGL2RenderingContext) BufferData(target GLenum, size GLsizeiptr, usage GLenum) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBufferData(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		float64(size),
 		uint32(usage),
@@ -7180,7 +7054,7 @@ func (this WebGL2RenderingContext) BufferData(target GLenum, size GLsizeiptr, us
 // the catch clause.
 func (this WebGL2RenderingContext) TryBufferData(target GLenum, size GLsizeiptr, usage GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBufferData(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		float64(size),
 		uint32(usage),
@@ -7189,26 +7063,25 @@ func (this WebGL2RenderingContext) TryBufferData(target GLenum, size GLsizeiptr,
 	return
 }
 
-// HasBufferData1 returns true if the method "WebGL2RenderingContext.bufferData" exists.
-func (this WebGL2RenderingContext) HasBufferData1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBufferData1(
-		this.Ref(),
+// HasFuncBufferData1 returns true if the method "WebGL2RenderingContext.bufferData" exists.
+func (this WebGL2RenderingContext) HasFuncBufferData1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBufferData1(
+		this.ref,
 	)
 }
 
-// BufferData1Func returns the method "WebGL2RenderingContext.bufferData".
-func (this WebGL2RenderingContext) BufferData1Func() (fn js.Func[func(target GLenum, srcData AllowSharedBufferSource, usage GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBufferData1Func(
-			this.Ref(),
-		),
+// FuncBufferData1 returns the method "WebGL2RenderingContext.bufferData".
+func (this WebGL2RenderingContext) FuncBufferData1() (fn js.Func[func(target GLenum, srcData AllowSharedBufferSource, usage GLenum)]) {
+	bindings.FuncWebGL2RenderingContextBufferData1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BufferData1 calls the method "WebGL2RenderingContext.bufferData".
 func (this WebGL2RenderingContext) BufferData1(target GLenum, srcData AllowSharedBufferSource, usage GLenum) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBufferData1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		srcData.Ref(),
 		uint32(usage),
@@ -7222,7 +7095,7 @@ func (this WebGL2RenderingContext) BufferData1(target GLenum, srcData AllowShare
 // the catch clause.
 func (this WebGL2RenderingContext) TryBufferData1(target GLenum, srcData AllowSharedBufferSource, usage GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBufferData1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		srcData.Ref(),
 		uint32(usage),
@@ -7231,26 +7104,25 @@ func (this WebGL2RenderingContext) TryBufferData1(target GLenum, srcData AllowSh
 	return
 }
 
-// HasBufferSubData returns true if the method "WebGL2RenderingContext.bufferSubData" exists.
-func (this WebGL2RenderingContext) HasBufferSubData() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBufferSubData(
-		this.Ref(),
+// HasFuncBufferSubData returns true if the method "WebGL2RenderingContext.bufferSubData" exists.
+func (this WebGL2RenderingContext) HasFuncBufferSubData() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBufferSubData(
+		this.ref,
 	)
 }
 
-// BufferSubDataFunc returns the method "WebGL2RenderingContext.bufferSubData".
-func (this WebGL2RenderingContext) BufferSubDataFunc() (fn js.Func[func(target GLenum, dstByteOffset GLintptr, srcData AllowSharedBufferSource)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBufferSubDataFunc(
-			this.Ref(),
-		),
+// FuncBufferSubData returns the method "WebGL2RenderingContext.bufferSubData".
+func (this WebGL2RenderingContext) FuncBufferSubData() (fn js.Func[func(target GLenum, dstByteOffset GLintptr, srcData AllowSharedBufferSource)]) {
+	bindings.FuncWebGL2RenderingContextBufferSubData(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BufferSubData calls the method "WebGL2RenderingContext.bufferSubData".
 func (this WebGL2RenderingContext) BufferSubData(target GLenum, dstByteOffset GLintptr, srcData AllowSharedBufferSource) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBufferSubData(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		float64(dstByteOffset),
 		srcData.Ref(),
@@ -7264,7 +7136,7 @@ func (this WebGL2RenderingContext) BufferSubData(target GLenum, dstByteOffset GL
 // the catch clause.
 func (this WebGL2RenderingContext) TryBufferSubData(target GLenum, dstByteOffset GLintptr, srcData AllowSharedBufferSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBufferSubData(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		float64(dstByteOffset),
 		srcData.Ref(),
@@ -7273,26 +7145,25 @@ func (this WebGL2RenderingContext) TryBufferSubData(target GLenum, dstByteOffset
 	return
 }
 
-// HasBufferData2 returns true if the method "WebGL2RenderingContext.bufferData" exists.
-func (this WebGL2RenderingContext) HasBufferData2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBufferData2(
-		this.Ref(),
+// HasFuncBufferData2 returns true if the method "WebGL2RenderingContext.bufferData" exists.
+func (this WebGL2RenderingContext) HasFuncBufferData2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBufferData2(
+		this.ref,
 	)
 }
 
-// BufferData2Func returns the method "WebGL2RenderingContext.bufferData".
-func (this WebGL2RenderingContext) BufferData2Func() (fn js.Func[func(target GLenum, srcData js.ArrayBufferView, usage GLenum, srcOffset GLuint, length GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBufferData2Func(
-			this.Ref(),
-		),
+// FuncBufferData2 returns the method "WebGL2RenderingContext.bufferData".
+func (this WebGL2RenderingContext) FuncBufferData2() (fn js.Func[func(target GLenum, srcData js.ArrayBufferView, usage GLenum, srcOffset GLuint, length GLuint)]) {
+	bindings.FuncWebGL2RenderingContextBufferData2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BufferData2 calls the method "WebGL2RenderingContext.bufferData".
 func (this WebGL2RenderingContext) BufferData2(target GLenum, srcData js.ArrayBufferView, usage GLenum, srcOffset GLuint, length GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBufferData2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		srcData.Ref(),
 		uint32(usage),
@@ -7308,7 +7179,7 @@ func (this WebGL2RenderingContext) BufferData2(target GLenum, srcData js.ArrayBu
 // the catch clause.
 func (this WebGL2RenderingContext) TryBufferData2(target GLenum, srcData js.ArrayBufferView, usage GLenum, srcOffset GLuint, length GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBufferData2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		srcData.Ref(),
 		uint32(usage),
@@ -7319,26 +7190,25 @@ func (this WebGL2RenderingContext) TryBufferData2(target GLenum, srcData js.Arra
 	return
 }
 
-// HasBufferData3 returns true if the method "WebGL2RenderingContext.bufferData" exists.
-func (this WebGL2RenderingContext) HasBufferData3() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBufferData3(
-		this.Ref(),
+// HasFuncBufferData3 returns true if the method "WebGL2RenderingContext.bufferData" exists.
+func (this WebGL2RenderingContext) HasFuncBufferData3() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBufferData3(
+		this.ref,
 	)
 }
 
-// BufferData3Func returns the method "WebGL2RenderingContext.bufferData".
-func (this WebGL2RenderingContext) BufferData3Func() (fn js.Func[func(target GLenum, srcData js.ArrayBufferView, usage GLenum, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBufferData3Func(
-			this.Ref(),
-		),
+// FuncBufferData3 returns the method "WebGL2RenderingContext.bufferData".
+func (this WebGL2RenderingContext) FuncBufferData3() (fn js.Func[func(target GLenum, srcData js.ArrayBufferView, usage GLenum, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextBufferData3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BufferData3 calls the method "WebGL2RenderingContext.bufferData".
 func (this WebGL2RenderingContext) BufferData3(target GLenum, srcData js.ArrayBufferView, usage GLenum, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBufferData3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		srcData.Ref(),
 		uint32(usage),
@@ -7353,7 +7223,7 @@ func (this WebGL2RenderingContext) BufferData3(target GLenum, srcData js.ArrayBu
 // the catch clause.
 func (this WebGL2RenderingContext) TryBufferData3(target GLenum, srcData js.ArrayBufferView, usage GLenum, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBufferData3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		srcData.Ref(),
 		uint32(usage),
@@ -7363,26 +7233,25 @@ func (this WebGL2RenderingContext) TryBufferData3(target GLenum, srcData js.Arra
 	return
 }
 
-// HasBufferSubData1 returns true if the method "WebGL2RenderingContext.bufferSubData" exists.
-func (this WebGL2RenderingContext) HasBufferSubData1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBufferSubData1(
-		this.Ref(),
+// HasFuncBufferSubData1 returns true if the method "WebGL2RenderingContext.bufferSubData" exists.
+func (this WebGL2RenderingContext) HasFuncBufferSubData1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBufferSubData1(
+		this.ref,
 	)
 }
 
-// BufferSubData1Func returns the method "WebGL2RenderingContext.bufferSubData".
-func (this WebGL2RenderingContext) BufferSubData1Func() (fn js.Func[func(target GLenum, dstByteOffset GLintptr, srcData js.ArrayBufferView, srcOffset GLuint, length GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBufferSubData1Func(
-			this.Ref(),
-		),
+// FuncBufferSubData1 returns the method "WebGL2RenderingContext.bufferSubData".
+func (this WebGL2RenderingContext) FuncBufferSubData1() (fn js.Func[func(target GLenum, dstByteOffset GLintptr, srcData js.ArrayBufferView, srcOffset GLuint, length GLuint)]) {
+	bindings.FuncWebGL2RenderingContextBufferSubData1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BufferSubData1 calls the method "WebGL2RenderingContext.bufferSubData".
 func (this WebGL2RenderingContext) BufferSubData1(target GLenum, dstByteOffset GLintptr, srcData js.ArrayBufferView, srcOffset GLuint, length GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBufferSubData1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		float64(dstByteOffset),
 		srcData.Ref(),
@@ -7398,7 +7267,7 @@ func (this WebGL2RenderingContext) BufferSubData1(target GLenum, dstByteOffset G
 // the catch clause.
 func (this WebGL2RenderingContext) TryBufferSubData1(target GLenum, dstByteOffset GLintptr, srcData js.ArrayBufferView, srcOffset GLuint, length GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBufferSubData1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		float64(dstByteOffset),
 		srcData.Ref(),
@@ -7409,26 +7278,25 @@ func (this WebGL2RenderingContext) TryBufferSubData1(target GLenum, dstByteOffse
 	return
 }
 
-// HasBufferSubData2 returns true if the method "WebGL2RenderingContext.bufferSubData" exists.
-func (this WebGL2RenderingContext) HasBufferSubData2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBufferSubData2(
-		this.Ref(),
+// HasFuncBufferSubData2 returns true if the method "WebGL2RenderingContext.bufferSubData" exists.
+func (this WebGL2RenderingContext) HasFuncBufferSubData2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBufferSubData2(
+		this.ref,
 	)
 }
 
-// BufferSubData2Func returns the method "WebGL2RenderingContext.bufferSubData".
-func (this WebGL2RenderingContext) BufferSubData2Func() (fn js.Func[func(target GLenum, dstByteOffset GLintptr, srcData js.ArrayBufferView, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBufferSubData2Func(
-			this.Ref(),
-		),
+// FuncBufferSubData2 returns the method "WebGL2RenderingContext.bufferSubData".
+func (this WebGL2RenderingContext) FuncBufferSubData2() (fn js.Func[func(target GLenum, dstByteOffset GLintptr, srcData js.ArrayBufferView, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextBufferSubData2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BufferSubData2 calls the method "WebGL2RenderingContext.bufferSubData".
 func (this WebGL2RenderingContext) BufferSubData2(target GLenum, dstByteOffset GLintptr, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBufferSubData2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		float64(dstByteOffset),
 		srcData.Ref(),
@@ -7443,7 +7311,7 @@ func (this WebGL2RenderingContext) BufferSubData2(target GLenum, dstByteOffset G
 // the catch clause.
 func (this WebGL2RenderingContext) TryBufferSubData2(target GLenum, dstByteOffset GLintptr, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBufferSubData2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		float64(dstByteOffset),
 		srcData.Ref(),
@@ -7453,26 +7321,25 @@ func (this WebGL2RenderingContext) TryBufferSubData2(target GLenum, dstByteOffse
 	return
 }
 
-// HasTexImage2D returns true if the method "WebGL2RenderingContext.texImage2D" exists.
-func (this WebGL2RenderingContext) HasTexImage2D() bool {
-	return js.True == bindings.HasWebGL2RenderingContextTexImage2D(
-		this.Ref(),
+// HasFuncTexImage2D returns true if the method "WebGL2RenderingContext.texImage2D" exists.
+func (this WebGL2RenderingContext) HasFuncTexImage2D() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextTexImage2D(
+		this.ref,
 	)
 }
 
-// TexImage2DFunc returns the method "WebGL2RenderingContext.texImage2D".
-func (this WebGL2RenderingContext) TexImage2DFunc() (fn js.Func[func(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, pixels js.ArrayBufferView)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextTexImage2DFunc(
-			this.Ref(),
-		),
+// FuncTexImage2D returns the method "WebGL2RenderingContext.texImage2D".
+func (this WebGL2RenderingContext) FuncTexImage2D() (fn js.Func[func(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, pixels js.ArrayBufferView)]) {
+	bindings.FuncWebGL2RenderingContextTexImage2D(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexImage2D calls the method "WebGL2RenderingContext.texImage2D".
 func (this WebGL2RenderingContext) TexImage2D(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, pixels js.ArrayBufferView) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextTexImage2D(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(internalformat),
@@ -7492,7 +7359,7 @@ func (this WebGL2RenderingContext) TexImage2D(target GLenum, level GLint, intern
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexImage2D(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, pixels js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexImage2D(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(internalformat),
@@ -7507,26 +7374,25 @@ func (this WebGL2RenderingContext) TryTexImage2D(target GLenum, level GLint, int
 	return
 }
 
-// HasTexImage2D1 returns true if the method "WebGL2RenderingContext.texImage2D" exists.
-func (this WebGL2RenderingContext) HasTexImage2D1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextTexImage2D1(
-		this.Ref(),
+// HasFuncTexImage2D1 returns true if the method "WebGL2RenderingContext.texImage2D" exists.
+func (this WebGL2RenderingContext) HasFuncTexImage2D1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextTexImage2D1(
+		this.ref,
 	)
 }
 
-// TexImage2D1Func returns the method "WebGL2RenderingContext.texImage2D".
-func (this WebGL2RenderingContext) TexImage2D1Func() (fn js.Func[func(target GLenum, level GLint, internalformat GLint, format GLenum, typ GLenum, source TexImageSource)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextTexImage2D1Func(
-			this.Ref(),
-		),
+// FuncTexImage2D1 returns the method "WebGL2RenderingContext.texImage2D".
+func (this WebGL2RenderingContext) FuncTexImage2D1() (fn js.Func[func(target GLenum, level GLint, internalformat GLint, format GLenum, typ GLenum, source TexImageSource)]) {
+	bindings.FuncWebGL2RenderingContextTexImage2D1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexImage2D1 calls the method "WebGL2RenderingContext.texImage2D".
 func (this WebGL2RenderingContext) TexImage2D1(target GLenum, level GLint, internalformat GLint, format GLenum, typ GLenum, source TexImageSource) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextTexImage2D1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(internalformat),
@@ -7543,7 +7409,7 @@ func (this WebGL2RenderingContext) TexImage2D1(target GLenum, level GLint, inter
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexImage2D1(target GLenum, level GLint, internalformat GLint, format GLenum, typ GLenum, source TexImageSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexImage2D1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(internalformat),
@@ -7555,26 +7421,25 @@ func (this WebGL2RenderingContext) TryTexImage2D1(target GLenum, level GLint, in
 	return
 }
 
-// HasTexSubImage2D returns true if the method "WebGL2RenderingContext.texSubImage2D" exists.
-func (this WebGL2RenderingContext) HasTexSubImage2D() bool {
-	return js.True == bindings.HasWebGL2RenderingContextTexSubImage2D(
-		this.Ref(),
+// HasFuncTexSubImage2D returns true if the method "WebGL2RenderingContext.texSubImage2D" exists.
+func (this WebGL2RenderingContext) HasFuncTexSubImage2D() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextTexSubImage2D(
+		this.ref,
 	)
 }
 
-// TexSubImage2DFunc returns the method "WebGL2RenderingContext.texSubImage2D".
-func (this WebGL2RenderingContext) TexSubImage2DFunc() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, pixels js.ArrayBufferView)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextTexSubImage2DFunc(
-			this.Ref(),
-		),
+// FuncTexSubImage2D returns the method "WebGL2RenderingContext.texSubImage2D".
+func (this WebGL2RenderingContext) FuncTexSubImage2D() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, pixels js.ArrayBufferView)]) {
+	bindings.FuncWebGL2RenderingContextTexSubImage2D(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexSubImage2D calls the method "WebGL2RenderingContext.texSubImage2D".
 func (this WebGL2RenderingContext) TexSubImage2D(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, pixels js.ArrayBufferView) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextTexSubImage2D(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -7594,7 +7459,7 @@ func (this WebGL2RenderingContext) TexSubImage2D(target GLenum, level GLint, xof
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexSubImage2D(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, pixels js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexSubImage2D(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -7609,26 +7474,25 @@ func (this WebGL2RenderingContext) TryTexSubImage2D(target GLenum, level GLint, 
 	return
 }
 
-// HasTexSubImage2D1 returns true if the method "WebGL2RenderingContext.texSubImage2D" exists.
-func (this WebGL2RenderingContext) HasTexSubImage2D1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextTexSubImage2D1(
-		this.Ref(),
+// HasFuncTexSubImage2D1 returns true if the method "WebGL2RenderingContext.texSubImage2D" exists.
+func (this WebGL2RenderingContext) HasFuncTexSubImage2D1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextTexSubImage2D1(
+		this.ref,
 	)
 }
 
-// TexSubImage2D1Func returns the method "WebGL2RenderingContext.texSubImage2D".
-func (this WebGL2RenderingContext) TexSubImage2D1Func() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, format GLenum, typ GLenum, source TexImageSource)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextTexSubImage2D1Func(
-			this.Ref(),
-		),
+// FuncTexSubImage2D1 returns the method "WebGL2RenderingContext.texSubImage2D".
+func (this WebGL2RenderingContext) FuncTexSubImage2D1() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, format GLenum, typ GLenum, source TexImageSource)]) {
+	bindings.FuncWebGL2RenderingContextTexSubImage2D1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexSubImage2D1 calls the method "WebGL2RenderingContext.texSubImage2D".
 func (this WebGL2RenderingContext) TexSubImage2D1(target GLenum, level GLint, xoffset GLint, yoffset GLint, format GLenum, typ GLenum, source TexImageSource) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextTexSubImage2D1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -7646,7 +7510,7 @@ func (this WebGL2RenderingContext) TexSubImage2D1(target GLenum, level GLint, xo
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexSubImage2D1(target GLenum, level GLint, xoffset GLint, yoffset GLint, format GLenum, typ GLenum, source TexImageSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexSubImage2D1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -7659,26 +7523,25 @@ func (this WebGL2RenderingContext) TryTexSubImage2D1(target GLenum, level GLint,
 	return
 }
 
-// HasTexImage2D2 returns true if the method "WebGL2RenderingContext.texImage2D" exists.
-func (this WebGL2RenderingContext) HasTexImage2D2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextTexImage2D2(
-		this.Ref(),
+// HasFuncTexImage2D2 returns true if the method "WebGL2RenderingContext.texImage2D" exists.
+func (this WebGL2RenderingContext) HasFuncTexImage2D2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextTexImage2D2(
+		this.ref,
 	)
 }
 
-// TexImage2D2Func returns the method "WebGL2RenderingContext.texImage2D".
-func (this WebGL2RenderingContext) TexImage2D2Func() (fn js.Func[func(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, pboOffset GLintptr)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextTexImage2D2Func(
-			this.Ref(),
-		),
+// FuncTexImage2D2 returns the method "WebGL2RenderingContext.texImage2D".
+func (this WebGL2RenderingContext) FuncTexImage2D2() (fn js.Func[func(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, pboOffset GLintptr)]) {
+	bindings.FuncWebGL2RenderingContextTexImage2D2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexImage2D2 calls the method "WebGL2RenderingContext.texImage2D".
 func (this WebGL2RenderingContext) TexImage2D2(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, pboOffset GLintptr) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextTexImage2D2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(internalformat),
@@ -7698,7 +7561,7 @@ func (this WebGL2RenderingContext) TexImage2D2(target GLenum, level GLint, inter
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexImage2D2(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, pboOffset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexImage2D2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(internalformat),
@@ -7713,26 +7576,25 @@ func (this WebGL2RenderingContext) TryTexImage2D2(target GLenum, level GLint, in
 	return
 }
 
-// HasTexImage2D3 returns true if the method "WebGL2RenderingContext.texImage2D" exists.
-func (this WebGL2RenderingContext) HasTexImage2D3() bool {
-	return js.True == bindings.HasWebGL2RenderingContextTexImage2D3(
-		this.Ref(),
+// HasFuncTexImage2D3 returns true if the method "WebGL2RenderingContext.texImage2D" exists.
+func (this WebGL2RenderingContext) HasFuncTexImage2D3() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextTexImage2D3(
+		this.ref,
 	)
 }
 
-// TexImage2D3Func returns the method "WebGL2RenderingContext.texImage2D".
-func (this WebGL2RenderingContext) TexImage2D3Func() (fn js.Func[func(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, source TexImageSource)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextTexImage2D3Func(
-			this.Ref(),
-		),
+// FuncTexImage2D3 returns the method "WebGL2RenderingContext.texImage2D".
+func (this WebGL2RenderingContext) FuncTexImage2D3() (fn js.Func[func(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, source TexImageSource)]) {
+	bindings.FuncWebGL2RenderingContextTexImage2D3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexImage2D3 calls the method "WebGL2RenderingContext.texImage2D".
 func (this WebGL2RenderingContext) TexImage2D3(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, source TexImageSource) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextTexImage2D3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(internalformat),
@@ -7752,7 +7614,7 @@ func (this WebGL2RenderingContext) TexImage2D3(target GLenum, level GLint, inter
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexImage2D3(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, source TexImageSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexImage2D3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(internalformat),
@@ -7767,26 +7629,25 @@ func (this WebGL2RenderingContext) TryTexImage2D3(target GLenum, level GLint, in
 	return
 }
 
-// HasTexImage2D4 returns true if the method "WebGL2RenderingContext.texImage2D" exists.
-func (this WebGL2RenderingContext) HasTexImage2D4() bool {
-	return js.True == bindings.HasWebGL2RenderingContextTexImage2D4(
-		this.Ref(),
+// HasFuncTexImage2D4 returns true if the method "WebGL2RenderingContext.texImage2D" exists.
+func (this WebGL2RenderingContext) HasFuncTexImage2D4() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextTexImage2D4(
+		this.ref,
 	)
 }
 
-// TexImage2D4Func returns the method "WebGL2RenderingContext.texImage2D".
-func (this WebGL2RenderingContext) TexImage2D4Func() (fn js.Func[func(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, srcData js.ArrayBufferView, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextTexImage2D4Func(
-			this.Ref(),
-		),
+// FuncTexImage2D4 returns the method "WebGL2RenderingContext.texImage2D".
+func (this WebGL2RenderingContext) FuncTexImage2D4() (fn js.Func[func(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, srcData js.ArrayBufferView, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextTexImage2D4(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexImage2D4 calls the method "WebGL2RenderingContext.texImage2D".
 func (this WebGL2RenderingContext) TexImage2D4(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextTexImage2D4(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(internalformat),
@@ -7807,7 +7668,7 @@ func (this WebGL2RenderingContext) TexImage2D4(target GLenum, level GLint, inter
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexImage2D4(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexImage2D4(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(internalformat),
@@ -7823,26 +7684,25 @@ func (this WebGL2RenderingContext) TryTexImage2D4(target GLenum, level GLint, in
 	return
 }
 
-// HasTexSubImage2D2 returns true if the method "WebGL2RenderingContext.texSubImage2D" exists.
-func (this WebGL2RenderingContext) HasTexSubImage2D2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextTexSubImage2D2(
-		this.Ref(),
+// HasFuncTexSubImage2D2 returns true if the method "WebGL2RenderingContext.texSubImage2D" exists.
+func (this WebGL2RenderingContext) HasFuncTexSubImage2D2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextTexSubImage2D2(
+		this.ref,
 	)
 }
 
-// TexSubImage2D2Func returns the method "WebGL2RenderingContext.texSubImage2D".
-func (this WebGL2RenderingContext) TexSubImage2D2Func() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, pboOffset GLintptr)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextTexSubImage2D2Func(
-			this.Ref(),
-		),
+// FuncTexSubImage2D2 returns the method "WebGL2RenderingContext.texSubImage2D".
+func (this WebGL2RenderingContext) FuncTexSubImage2D2() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, pboOffset GLintptr)]) {
+	bindings.FuncWebGL2RenderingContextTexSubImage2D2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexSubImage2D2 calls the method "WebGL2RenderingContext.texSubImage2D".
 func (this WebGL2RenderingContext) TexSubImage2D2(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, pboOffset GLintptr) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextTexSubImage2D2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -7862,7 +7722,7 @@ func (this WebGL2RenderingContext) TexSubImage2D2(target GLenum, level GLint, xo
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexSubImage2D2(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, pboOffset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexSubImage2D2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -7877,26 +7737,25 @@ func (this WebGL2RenderingContext) TryTexSubImage2D2(target GLenum, level GLint,
 	return
 }
 
-// HasTexSubImage2D3 returns true if the method "WebGL2RenderingContext.texSubImage2D" exists.
-func (this WebGL2RenderingContext) HasTexSubImage2D3() bool {
-	return js.True == bindings.HasWebGL2RenderingContextTexSubImage2D3(
-		this.Ref(),
+// HasFuncTexSubImage2D3 returns true if the method "WebGL2RenderingContext.texSubImage2D" exists.
+func (this WebGL2RenderingContext) HasFuncTexSubImage2D3() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextTexSubImage2D3(
+		this.ref,
 	)
 }
 
-// TexSubImage2D3Func returns the method "WebGL2RenderingContext.texSubImage2D".
-func (this WebGL2RenderingContext) TexSubImage2D3Func() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, source TexImageSource)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextTexSubImage2D3Func(
-			this.Ref(),
-		),
+// FuncTexSubImage2D3 returns the method "WebGL2RenderingContext.texSubImage2D".
+func (this WebGL2RenderingContext) FuncTexSubImage2D3() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, source TexImageSource)]) {
+	bindings.FuncWebGL2RenderingContextTexSubImage2D3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexSubImage2D3 calls the method "WebGL2RenderingContext.texSubImage2D".
 func (this WebGL2RenderingContext) TexSubImage2D3(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, source TexImageSource) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextTexSubImage2D3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -7916,7 +7775,7 @@ func (this WebGL2RenderingContext) TexSubImage2D3(target GLenum, level GLint, xo
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexSubImage2D3(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, source TexImageSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexSubImage2D3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -7931,26 +7790,25 @@ func (this WebGL2RenderingContext) TryTexSubImage2D3(target GLenum, level GLint,
 	return
 }
 
-// HasTexSubImage2D4 returns true if the method "WebGL2RenderingContext.texSubImage2D" exists.
-func (this WebGL2RenderingContext) HasTexSubImage2D4() bool {
-	return js.True == bindings.HasWebGL2RenderingContextTexSubImage2D4(
-		this.Ref(),
+// HasFuncTexSubImage2D4 returns true if the method "WebGL2RenderingContext.texSubImage2D" exists.
+func (this WebGL2RenderingContext) HasFuncTexSubImage2D4() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextTexSubImage2D4(
+		this.ref,
 	)
 }
 
-// TexSubImage2D4Func returns the method "WebGL2RenderingContext.texSubImage2D".
-func (this WebGL2RenderingContext) TexSubImage2D4Func() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, srcData js.ArrayBufferView, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextTexSubImage2D4Func(
-			this.Ref(),
-		),
+// FuncTexSubImage2D4 returns the method "WebGL2RenderingContext.texSubImage2D".
+func (this WebGL2RenderingContext) FuncTexSubImage2D4() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, srcData js.ArrayBufferView, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextTexSubImage2D4(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexSubImage2D4 calls the method "WebGL2RenderingContext.texSubImage2D".
 func (this WebGL2RenderingContext) TexSubImage2D4(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextTexSubImage2D4(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -7971,7 +7829,7 @@ func (this WebGL2RenderingContext) TexSubImage2D4(target GLenum, level GLint, xo
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexSubImage2D4(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexSubImage2D4(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -7987,26 +7845,25 @@ func (this WebGL2RenderingContext) TryTexSubImage2D4(target GLenum, level GLint,
 	return
 }
 
-// HasCompressedTexImage2D returns true if the method "WebGL2RenderingContext.compressedTexImage2D" exists.
-func (this WebGL2RenderingContext) HasCompressedTexImage2D() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCompressedTexImage2D(
-		this.Ref(),
+// HasFuncCompressedTexImage2D returns true if the method "WebGL2RenderingContext.compressedTexImage2D" exists.
+func (this WebGL2RenderingContext) HasFuncCompressedTexImage2D() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCompressedTexImage2D(
+		this.ref,
 	)
 }
 
-// CompressedTexImage2DFunc returns the method "WebGL2RenderingContext.compressedTexImage2D".
-func (this WebGL2RenderingContext) CompressedTexImage2DFunc() (fn js.Func[func(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, imageSize GLsizei, offset GLintptr)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCompressedTexImage2DFunc(
-			this.Ref(),
-		),
+// FuncCompressedTexImage2D returns the method "WebGL2RenderingContext.compressedTexImage2D".
+func (this WebGL2RenderingContext) FuncCompressedTexImage2D() (fn js.Func[func(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, imageSize GLsizei, offset GLintptr)]) {
+	bindings.FuncWebGL2RenderingContextCompressedTexImage2D(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CompressedTexImage2D calls the method "WebGL2RenderingContext.compressedTexImage2D".
 func (this WebGL2RenderingContext) CompressedTexImage2D(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, imageSize GLsizei, offset GLintptr) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextCompressedTexImage2D(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		uint32(internalformat),
@@ -8025,7 +7882,7 @@ func (this WebGL2RenderingContext) CompressedTexImage2D(target GLenum, level GLi
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexImage2D(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, imageSize GLsizei, offset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexImage2D(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		uint32(internalformat),
@@ -8039,26 +7896,25 @@ func (this WebGL2RenderingContext) TryCompressedTexImage2D(target GLenum, level 
 	return
 }
 
-// HasCompressedTexImage2D1 returns true if the method "WebGL2RenderingContext.compressedTexImage2D" exists.
-func (this WebGL2RenderingContext) HasCompressedTexImage2D1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCompressedTexImage2D1(
-		this.Ref(),
+// HasFuncCompressedTexImage2D1 returns true if the method "WebGL2RenderingContext.compressedTexImage2D" exists.
+func (this WebGL2RenderingContext) HasFuncCompressedTexImage2D1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCompressedTexImage2D1(
+		this.ref,
 	)
 }
 
-// CompressedTexImage2D1Func returns the method "WebGL2RenderingContext.compressedTexImage2D".
-func (this WebGL2RenderingContext) CompressedTexImage2D1Func() (fn js.Func[func(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, srcData js.ArrayBufferView, srcOffset GLuint, srcLengthOverride GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCompressedTexImage2D1Func(
-			this.Ref(),
-		),
+// FuncCompressedTexImage2D1 returns the method "WebGL2RenderingContext.compressedTexImage2D".
+func (this WebGL2RenderingContext) FuncCompressedTexImage2D1() (fn js.Func[func(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, srcData js.ArrayBufferView, srcOffset GLuint, srcLengthOverride GLuint)]) {
+	bindings.FuncWebGL2RenderingContextCompressedTexImage2D1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CompressedTexImage2D1 calls the method "WebGL2RenderingContext.compressedTexImage2D".
 func (this WebGL2RenderingContext) CompressedTexImage2D1(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, srcData js.ArrayBufferView, srcOffset GLuint, srcLengthOverride GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextCompressedTexImage2D1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		uint32(internalformat),
@@ -8078,7 +7934,7 @@ func (this WebGL2RenderingContext) CompressedTexImage2D1(target GLenum, level GL
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexImage2D1(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, srcData js.ArrayBufferView, srcOffset GLuint, srcLengthOverride GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexImage2D1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		uint32(internalformat),
@@ -8093,26 +7949,25 @@ func (this WebGL2RenderingContext) TryCompressedTexImage2D1(target GLenum, level
 	return
 }
 
-// HasCompressedTexImage2D2 returns true if the method "WebGL2RenderingContext.compressedTexImage2D" exists.
-func (this WebGL2RenderingContext) HasCompressedTexImage2D2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCompressedTexImage2D2(
-		this.Ref(),
+// HasFuncCompressedTexImage2D2 returns true if the method "WebGL2RenderingContext.compressedTexImage2D" exists.
+func (this WebGL2RenderingContext) HasFuncCompressedTexImage2D2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCompressedTexImage2D2(
+		this.ref,
 	)
 }
 
-// CompressedTexImage2D2Func returns the method "WebGL2RenderingContext.compressedTexImage2D".
-func (this WebGL2RenderingContext) CompressedTexImage2D2Func() (fn js.Func[func(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, srcData js.ArrayBufferView, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCompressedTexImage2D2Func(
-			this.Ref(),
-		),
+// FuncCompressedTexImage2D2 returns the method "WebGL2RenderingContext.compressedTexImage2D".
+func (this WebGL2RenderingContext) FuncCompressedTexImage2D2() (fn js.Func[func(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, srcData js.ArrayBufferView, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextCompressedTexImage2D2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CompressedTexImage2D2 calls the method "WebGL2RenderingContext.compressedTexImage2D".
 func (this WebGL2RenderingContext) CompressedTexImage2D2(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextCompressedTexImage2D2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		uint32(internalformat),
@@ -8131,7 +7986,7 @@ func (this WebGL2RenderingContext) CompressedTexImage2D2(target GLenum, level GL
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexImage2D2(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexImage2D2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		uint32(internalformat),
@@ -8145,26 +8000,25 @@ func (this WebGL2RenderingContext) TryCompressedTexImage2D2(target GLenum, level
 	return
 }
 
-// HasCompressedTexImage2D3 returns true if the method "WebGL2RenderingContext.compressedTexImage2D" exists.
-func (this WebGL2RenderingContext) HasCompressedTexImage2D3() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCompressedTexImage2D3(
-		this.Ref(),
+// HasFuncCompressedTexImage2D3 returns true if the method "WebGL2RenderingContext.compressedTexImage2D" exists.
+func (this WebGL2RenderingContext) HasFuncCompressedTexImage2D3() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCompressedTexImage2D3(
+		this.ref,
 	)
 }
 
-// CompressedTexImage2D3Func returns the method "WebGL2RenderingContext.compressedTexImage2D".
-func (this WebGL2RenderingContext) CompressedTexImage2D3Func() (fn js.Func[func(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, srcData js.ArrayBufferView)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCompressedTexImage2D3Func(
-			this.Ref(),
-		),
+// FuncCompressedTexImage2D3 returns the method "WebGL2RenderingContext.compressedTexImage2D".
+func (this WebGL2RenderingContext) FuncCompressedTexImage2D3() (fn js.Func[func(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, srcData js.ArrayBufferView)]) {
+	bindings.FuncWebGL2RenderingContextCompressedTexImage2D3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CompressedTexImage2D3 calls the method "WebGL2RenderingContext.compressedTexImage2D".
 func (this WebGL2RenderingContext) CompressedTexImage2D3(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, srcData js.ArrayBufferView) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextCompressedTexImage2D3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		uint32(internalformat),
@@ -8182,7 +8036,7 @@ func (this WebGL2RenderingContext) CompressedTexImage2D3(target GLenum, level GL
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexImage2D3(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, srcData js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexImage2D3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		uint32(internalformat),
@@ -8195,26 +8049,25 @@ func (this WebGL2RenderingContext) TryCompressedTexImage2D3(target GLenum, level
 	return
 }
 
-// HasCompressedTexSubImage2D returns true if the method "WebGL2RenderingContext.compressedTexSubImage2D" exists.
-func (this WebGL2RenderingContext) HasCompressedTexSubImage2D() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCompressedTexSubImage2D(
-		this.Ref(),
+// HasFuncCompressedTexSubImage2D returns true if the method "WebGL2RenderingContext.compressedTexSubImage2D" exists.
+func (this WebGL2RenderingContext) HasFuncCompressedTexSubImage2D() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCompressedTexSubImage2D(
+		this.ref,
 	)
 }
 
-// CompressedTexSubImage2DFunc returns the method "WebGL2RenderingContext.compressedTexSubImage2D".
-func (this WebGL2RenderingContext) CompressedTexSubImage2DFunc() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, imageSize GLsizei, offset GLintptr)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCompressedTexSubImage2DFunc(
-			this.Ref(),
-		),
+// FuncCompressedTexSubImage2D returns the method "WebGL2RenderingContext.compressedTexSubImage2D".
+func (this WebGL2RenderingContext) FuncCompressedTexSubImage2D() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, imageSize GLsizei, offset GLintptr)]) {
+	bindings.FuncWebGL2RenderingContextCompressedTexSubImage2D(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CompressedTexSubImage2D calls the method "WebGL2RenderingContext.compressedTexSubImage2D".
 func (this WebGL2RenderingContext) CompressedTexSubImage2D(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, imageSize GLsizei, offset GLintptr) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextCompressedTexSubImage2D(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -8234,7 +8087,7 @@ func (this WebGL2RenderingContext) CompressedTexSubImage2D(target GLenum, level 
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexSubImage2D(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, imageSize GLsizei, offset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexSubImage2D(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -8249,26 +8102,25 @@ func (this WebGL2RenderingContext) TryCompressedTexSubImage2D(target GLenum, lev
 	return
 }
 
-// HasCompressedTexSubImage2D1 returns true if the method "WebGL2RenderingContext.compressedTexSubImage2D" exists.
-func (this WebGL2RenderingContext) HasCompressedTexSubImage2D1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCompressedTexSubImage2D1(
-		this.Ref(),
+// HasFuncCompressedTexSubImage2D1 returns true if the method "WebGL2RenderingContext.compressedTexSubImage2D" exists.
+func (this WebGL2RenderingContext) HasFuncCompressedTexSubImage2D1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCompressedTexSubImage2D1(
+		this.ref,
 	)
 }
 
-// CompressedTexSubImage2D1Func returns the method "WebGL2RenderingContext.compressedTexSubImage2D".
-func (this WebGL2RenderingContext) CompressedTexSubImage2D1Func() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, srcData js.ArrayBufferView, srcOffset GLuint, srcLengthOverride GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCompressedTexSubImage2D1Func(
-			this.Ref(),
-		),
+// FuncCompressedTexSubImage2D1 returns the method "WebGL2RenderingContext.compressedTexSubImage2D".
+func (this WebGL2RenderingContext) FuncCompressedTexSubImage2D1() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, srcData js.ArrayBufferView, srcOffset GLuint, srcLengthOverride GLuint)]) {
+	bindings.FuncWebGL2RenderingContextCompressedTexSubImage2D1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CompressedTexSubImage2D1 calls the method "WebGL2RenderingContext.compressedTexSubImage2D".
 func (this WebGL2RenderingContext) CompressedTexSubImage2D1(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, srcData js.ArrayBufferView, srcOffset GLuint, srcLengthOverride GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextCompressedTexSubImage2D1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -8289,7 +8141,7 @@ func (this WebGL2RenderingContext) CompressedTexSubImage2D1(target GLenum, level
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexSubImage2D1(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, srcData js.ArrayBufferView, srcOffset GLuint, srcLengthOverride GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexSubImage2D1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -8305,26 +8157,25 @@ func (this WebGL2RenderingContext) TryCompressedTexSubImage2D1(target GLenum, le
 	return
 }
 
-// HasCompressedTexSubImage2D2 returns true if the method "WebGL2RenderingContext.compressedTexSubImage2D" exists.
-func (this WebGL2RenderingContext) HasCompressedTexSubImage2D2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCompressedTexSubImage2D2(
-		this.Ref(),
+// HasFuncCompressedTexSubImage2D2 returns true if the method "WebGL2RenderingContext.compressedTexSubImage2D" exists.
+func (this WebGL2RenderingContext) HasFuncCompressedTexSubImage2D2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCompressedTexSubImage2D2(
+		this.ref,
 	)
 }
 
-// CompressedTexSubImage2D2Func returns the method "WebGL2RenderingContext.compressedTexSubImage2D".
-func (this WebGL2RenderingContext) CompressedTexSubImage2D2Func() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, srcData js.ArrayBufferView, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCompressedTexSubImage2D2Func(
-			this.Ref(),
-		),
+// FuncCompressedTexSubImage2D2 returns the method "WebGL2RenderingContext.compressedTexSubImage2D".
+func (this WebGL2RenderingContext) FuncCompressedTexSubImage2D2() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, srcData js.ArrayBufferView, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextCompressedTexSubImage2D2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CompressedTexSubImage2D2 calls the method "WebGL2RenderingContext.compressedTexSubImage2D".
 func (this WebGL2RenderingContext) CompressedTexSubImage2D2(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextCompressedTexSubImage2D2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -8344,7 +8195,7 @@ func (this WebGL2RenderingContext) CompressedTexSubImage2D2(target GLenum, level
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexSubImage2D2(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexSubImage2D2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -8359,26 +8210,25 @@ func (this WebGL2RenderingContext) TryCompressedTexSubImage2D2(target GLenum, le
 	return
 }
 
-// HasCompressedTexSubImage2D3 returns true if the method "WebGL2RenderingContext.compressedTexSubImage2D" exists.
-func (this WebGL2RenderingContext) HasCompressedTexSubImage2D3() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCompressedTexSubImage2D3(
-		this.Ref(),
+// HasFuncCompressedTexSubImage2D3 returns true if the method "WebGL2RenderingContext.compressedTexSubImage2D" exists.
+func (this WebGL2RenderingContext) HasFuncCompressedTexSubImage2D3() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCompressedTexSubImage2D3(
+		this.ref,
 	)
 }
 
-// CompressedTexSubImage2D3Func returns the method "WebGL2RenderingContext.compressedTexSubImage2D".
-func (this WebGL2RenderingContext) CompressedTexSubImage2D3Func() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, srcData js.ArrayBufferView)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCompressedTexSubImage2D3Func(
-			this.Ref(),
-		),
+// FuncCompressedTexSubImage2D3 returns the method "WebGL2RenderingContext.compressedTexSubImage2D".
+func (this WebGL2RenderingContext) FuncCompressedTexSubImage2D3() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, srcData js.ArrayBufferView)]) {
+	bindings.FuncWebGL2RenderingContextCompressedTexSubImage2D3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CompressedTexSubImage2D3 calls the method "WebGL2RenderingContext.compressedTexSubImage2D".
 func (this WebGL2RenderingContext) CompressedTexSubImage2D3(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, srcData js.ArrayBufferView) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextCompressedTexSubImage2D3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -8397,7 +8247,7 @@ func (this WebGL2RenderingContext) CompressedTexSubImage2D3(target GLenum, level
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexSubImage2D3(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, srcData js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexSubImage2D3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -8411,26 +8261,25 @@ func (this WebGL2RenderingContext) TryCompressedTexSubImage2D3(target GLenum, le
 	return
 }
 
-// HasUniform1fv returns true if the method "WebGL2RenderingContext.uniform1fv" exists.
-func (this WebGL2RenderingContext) HasUniform1fv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform1fv(
-		this.Ref(),
+// HasFuncUniform1fv returns true if the method "WebGL2RenderingContext.uniform1fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform1fv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform1fv(
+		this.ref,
 	)
 }
 
-// Uniform1fvFunc returns the method "WebGL2RenderingContext.uniform1fv".
-func (this WebGL2RenderingContext) Uniform1fvFunc() (fn js.Func[func(location WebGLUniformLocation, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform1fvFunc(
-			this.Ref(),
-		),
+// FuncUniform1fv returns the method "WebGL2RenderingContext.uniform1fv".
+func (this WebGL2RenderingContext) FuncUniform1fv() (fn js.Func[func(location WebGLUniformLocation, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform1fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform1fv calls the method "WebGL2RenderingContext.uniform1fv".
 func (this WebGL2RenderingContext) Uniform1fv(location WebGLUniformLocation, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform1fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -8445,7 +8294,7 @@ func (this WebGL2RenderingContext) Uniform1fv(location WebGLUniformLocation, dat
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform1fv(location WebGLUniformLocation, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform1fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -8455,26 +8304,25 @@ func (this WebGL2RenderingContext) TryUniform1fv(location WebGLUniformLocation, 
 	return
 }
 
-// HasUniform1fv1 returns true if the method "WebGL2RenderingContext.uniform1fv" exists.
-func (this WebGL2RenderingContext) HasUniform1fv1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform1fv1(
-		this.Ref(),
+// HasFuncUniform1fv1 returns true if the method "WebGL2RenderingContext.uniform1fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform1fv1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform1fv1(
+		this.ref,
 	)
 }
 
-// Uniform1fv1Func returns the method "WebGL2RenderingContext.uniform1fv".
-func (this WebGL2RenderingContext) Uniform1fv1Func() (fn js.Func[func(location WebGLUniformLocation, data Float32List, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform1fv1Func(
-			this.Ref(),
-		),
+// FuncUniform1fv1 returns the method "WebGL2RenderingContext.uniform1fv".
+func (this WebGL2RenderingContext) FuncUniform1fv1() (fn js.Func[func(location WebGLUniformLocation, data Float32List, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform1fv1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform1fv1 calls the method "WebGL2RenderingContext.uniform1fv".
 func (this WebGL2RenderingContext) Uniform1fv1(location WebGLUniformLocation, data Float32List, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform1fv1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -8488,7 +8336,7 @@ func (this WebGL2RenderingContext) Uniform1fv1(location WebGLUniformLocation, da
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform1fv1(location WebGLUniformLocation, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform1fv1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -8497,26 +8345,25 @@ func (this WebGL2RenderingContext) TryUniform1fv1(location WebGLUniformLocation,
 	return
 }
 
-// HasUniform1fv2 returns true if the method "WebGL2RenderingContext.uniform1fv" exists.
-func (this WebGL2RenderingContext) HasUniform1fv2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform1fv2(
-		this.Ref(),
+// HasFuncUniform1fv2 returns true if the method "WebGL2RenderingContext.uniform1fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform1fv2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform1fv2(
+		this.ref,
 	)
 }
 
-// Uniform1fv2Func returns the method "WebGL2RenderingContext.uniform1fv".
-func (this WebGL2RenderingContext) Uniform1fv2Func() (fn js.Func[func(location WebGLUniformLocation, data Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform1fv2Func(
-			this.Ref(),
-		),
+// FuncUniform1fv2 returns the method "WebGL2RenderingContext.uniform1fv".
+func (this WebGL2RenderingContext) FuncUniform1fv2() (fn js.Func[func(location WebGLUniformLocation, data Float32List)]) {
+	bindings.FuncWebGL2RenderingContextUniform1fv2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform1fv2 calls the method "WebGL2RenderingContext.uniform1fv".
 func (this WebGL2RenderingContext) Uniform1fv2(location WebGLUniformLocation, data Float32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform1fv2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 	)
@@ -8529,7 +8376,7 @@ func (this WebGL2RenderingContext) Uniform1fv2(location WebGLUniformLocation, da
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform1fv2(location WebGLUniformLocation, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform1fv2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 	)
@@ -8537,26 +8384,25 @@ func (this WebGL2RenderingContext) TryUniform1fv2(location WebGLUniformLocation,
 	return
 }
 
-// HasUniform2fv returns true if the method "WebGL2RenderingContext.uniform2fv" exists.
-func (this WebGL2RenderingContext) HasUniform2fv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform2fv(
-		this.Ref(),
+// HasFuncUniform2fv returns true if the method "WebGL2RenderingContext.uniform2fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform2fv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform2fv(
+		this.ref,
 	)
 }
 
-// Uniform2fvFunc returns the method "WebGL2RenderingContext.uniform2fv".
-func (this WebGL2RenderingContext) Uniform2fvFunc() (fn js.Func[func(location WebGLUniformLocation, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform2fvFunc(
-			this.Ref(),
-		),
+// FuncUniform2fv returns the method "WebGL2RenderingContext.uniform2fv".
+func (this WebGL2RenderingContext) FuncUniform2fv() (fn js.Func[func(location WebGLUniformLocation, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform2fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform2fv calls the method "WebGL2RenderingContext.uniform2fv".
 func (this WebGL2RenderingContext) Uniform2fv(location WebGLUniformLocation, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform2fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -8571,7 +8417,7 @@ func (this WebGL2RenderingContext) Uniform2fv(location WebGLUniformLocation, dat
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform2fv(location WebGLUniformLocation, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform2fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -8581,26 +8427,25 @@ func (this WebGL2RenderingContext) TryUniform2fv(location WebGLUniformLocation, 
 	return
 }
 
-// HasUniform2fv1 returns true if the method "WebGL2RenderingContext.uniform2fv" exists.
-func (this WebGL2RenderingContext) HasUniform2fv1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform2fv1(
-		this.Ref(),
+// HasFuncUniform2fv1 returns true if the method "WebGL2RenderingContext.uniform2fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform2fv1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform2fv1(
+		this.ref,
 	)
 }
 
-// Uniform2fv1Func returns the method "WebGL2RenderingContext.uniform2fv".
-func (this WebGL2RenderingContext) Uniform2fv1Func() (fn js.Func[func(location WebGLUniformLocation, data Float32List, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform2fv1Func(
-			this.Ref(),
-		),
+// FuncUniform2fv1 returns the method "WebGL2RenderingContext.uniform2fv".
+func (this WebGL2RenderingContext) FuncUniform2fv1() (fn js.Func[func(location WebGLUniformLocation, data Float32List, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform2fv1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform2fv1 calls the method "WebGL2RenderingContext.uniform2fv".
 func (this WebGL2RenderingContext) Uniform2fv1(location WebGLUniformLocation, data Float32List, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform2fv1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -8614,7 +8459,7 @@ func (this WebGL2RenderingContext) Uniform2fv1(location WebGLUniformLocation, da
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform2fv1(location WebGLUniformLocation, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform2fv1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -8623,26 +8468,25 @@ func (this WebGL2RenderingContext) TryUniform2fv1(location WebGLUniformLocation,
 	return
 }
 
-// HasUniform2fv2 returns true if the method "WebGL2RenderingContext.uniform2fv" exists.
-func (this WebGL2RenderingContext) HasUniform2fv2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform2fv2(
-		this.Ref(),
+// HasFuncUniform2fv2 returns true if the method "WebGL2RenderingContext.uniform2fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform2fv2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform2fv2(
+		this.ref,
 	)
 }
 
-// Uniform2fv2Func returns the method "WebGL2RenderingContext.uniform2fv".
-func (this WebGL2RenderingContext) Uniform2fv2Func() (fn js.Func[func(location WebGLUniformLocation, data Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform2fv2Func(
-			this.Ref(),
-		),
+// FuncUniform2fv2 returns the method "WebGL2RenderingContext.uniform2fv".
+func (this WebGL2RenderingContext) FuncUniform2fv2() (fn js.Func[func(location WebGLUniformLocation, data Float32List)]) {
+	bindings.FuncWebGL2RenderingContextUniform2fv2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform2fv2 calls the method "WebGL2RenderingContext.uniform2fv".
 func (this WebGL2RenderingContext) Uniform2fv2(location WebGLUniformLocation, data Float32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform2fv2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 	)
@@ -8655,7 +8499,7 @@ func (this WebGL2RenderingContext) Uniform2fv2(location WebGLUniformLocation, da
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform2fv2(location WebGLUniformLocation, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform2fv2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 	)
@@ -8663,26 +8507,25 @@ func (this WebGL2RenderingContext) TryUniform2fv2(location WebGLUniformLocation,
 	return
 }
 
-// HasUniform3fv returns true if the method "WebGL2RenderingContext.uniform3fv" exists.
-func (this WebGL2RenderingContext) HasUniform3fv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform3fv(
-		this.Ref(),
+// HasFuncUniform3fv returns true if the method "WebGL2RenderingContext.uniform3fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform3fv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform3fv(
+		this.ref,
 	)
 }
 
-// Uniform3fvFunc returns the method "WebGL2RenderingContext.uniform3fv".
-func (this WebGL2RenderingContext) Uniform3fvFunc() (fn js.Func[func(location WebGLUniformLocation, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform3fvFunc(
-			this.Ref(),
-		),
+// FuncUniform3fv returns the method "WebGL2RenderingContext.uniform3fv".
+func (this WebGL2RenderingContext) FuncUniform3fv() (fn js.Func[func(location WebGLUniformLocation, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform3fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform3fv calls the method "WebGL2RenderingContext.uniform3fv".
 func (this WebGL2RenderingContext) Uniform3fv(location WebGLUniformLocation, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform3fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -8697,7 +8540,7 @@ func (this WebGL2RenderingContext) Uniform3fv(location WebGLUniformLocation, dat
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform3fv(location WebGLUniformLocation, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform3fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -8707,26 +8550,25 @@ func (this WebGL2RenderingContext) TryUniform3fv(location WebGLUniformLocation, 
 	return
 }
 
-// HasUniform3fv1 returns true if the method "WebGL2RenderingContext.uniform3fv" exists.
-func (this WebGL2RenderingContext) HasUniform3fv1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform3fv1(
-		this.Ref(),
+// HasFuncUniform3fv1 returns true if the method "WebGL2RenderingContext.uniform3fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform3fv1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform3fv1(
+		this.ref,
 	)
 }
 
-// Uniform3fv1Func returns the method "WebGL2RenderingContext.uniform3fv".
-func (this WebGL2RenderingContext) Uniform3fv1Func() (fn js.Func[func(location WebGLUniformLocation, data Float32List, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform3fv1Func(
-			this.Ref(),
-		),
+// FuncUniform3fv1 returns the method "WebGL2RenderingContext.uniform3fv".
+func (this WebGL2RenderingContext) FuncUniform3fv1() (fn js.Func[func(location WebGLUniformLocation, data Float32List, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform3fv1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform3fv1 calls the method "WebGL2RenderingContext.uniform3fv".
 func (this WebGL2RenderingContext) Uniform3fv1(location WebGLUniformLocation, data Float32List, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform3fv1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -8740,7 +8582,7 @@ func (this WebGL2RenderingContext) Uniform3fv1(location WebGLUniformLocation, da
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform3fv1(location WebGLUniformLocation, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform3fv1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -8749,26 +8591,25 @@ func (this WebGL2RenderingContext) TryUniform3fv1(location WebGLUniformLocation,
 	return
 }
 
-// HasUniform3fv2 returns true if the method "WebGL2RenderingContext.uniform3fv" exists.
-func (this WebGL2RenderingContext) HasUniform3fv2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform3fv2(
-		this.Ref(),
+// HasFuncUniform3fv2 returns true if the method "WebGL2RenderingContext.uniform3fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform3fv2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform3fv2(
+		this.ref,
 	)
 }
 
-// Uniform3fv2Func returns the method "WebGL2RenderingContext.uniform3fv".
-func (this WebGL2RenderingContext) Uniform3fv2Func() (fn js.Func[func(location WebGLUniformLocation, data Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform3fv2Func(
-			this.Ref(),
-		),
+// FuncUniform3fv2 returns the method "WebGL2RenderingContext.uniform3fv".
+func (this WebGL2RenderingContext) FuncUniform3fv2() (fn js.Func[func(location WebGLUniformLocation, data Float32List)]) {
+	bindings.FuncWebGL2RenderingContextUniform3fv2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform3fv2 calls the method "WebGL2RenderingContext.uniform3fv".
 func (this WebGL2RenderingContext) Uniform3fv2(location WebGLUniformLocation, data Float32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform3fv2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 	)
@@ -8781,7 +8622,7 @@ func (this WebGL2RenderingContext) Uniform3fv2(location WebGLUniformLocation, da
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform3fv2(location WebGLUniformLocation, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform3fv2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 	)
@@ -8789,26 +8630,25 @@ func (this WebGL2RenderingContext) TryUniform3fv2(location WebGLUniformLocation,
 	return
 }
 
-// HasUniform4fv returns true if the method "WebGL2RenderingContext.uniform4fv" exists.
-func (this WebGL2RenderingContext) HasUniform4fv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform4fv(
-		this.Ref(),
+// HasFuncUniform4fv returns true if the method "WebGL2RenderingContext.uniform4fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform4fv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform4fv(
+		this.ref,
 	)
 }
 
-// Uniform4fvFunc returns the method "WebGL2RenderingContext.uniform4fv".
-func (this WebGL2RenderingContext) Uniform4fvFunc() (fn js.Func[func(location WebGLUniformLocation, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform4fvFunc(
-			this.Ref(),
-		),
+// FuncUniform4fv returns the method "WebGL2RenderingContext.uniform4fv".
+func (this WebGL2RenderingContext) FuncUniform4fv() (fn js.Func[func(location WebGLUniformLocation, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform4fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform4fv calls the method "WebGL2RenderingContext.uniform4fv".
 func (this WebGL2RenderingContext) Uniform4fv(location WebGLUniformLocation, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform4fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -8823,7 +8663,7 @@ func (this WebGL2RenderingContext) Uniform4fv(location WebGLUniformLocation, dat
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform4fv(location WebGLUniformLocation, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform4fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -8833,26 +8673,25 @@ func (this WebGL2RenderingContext) TryUniform4fv(location WebGLUniformLocation, 
 	return
 }
 
-// HasUniform4fv1 returns true if the method "WebGL2RenderingContext.uniform4fv" exists.
-func (this WebGL2RenderingContext) HasUniform4fv1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform4fv1(
-		this.Ref(),
+// HasFuncUniform4fv1 returns true if the method "WebGL2RenderingContext.uniform4fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform4fv1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform4fv1(
+		this.ref,
 	)
 }
 
-// Uniform4fv1Func returns the method "WebGL2RenderingContext.uniform4fv".
-func (this WebGL2RenderingContext) Uniform4fv1Func() (fn js.Func[func(location WebGLUniformLocation, data Float32List, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform4fv1Func(
-			this.Ref(),
-		),
+// FuncUniform4fv1 returns the method "WebGL2RenderingContext.uniform4fv".
+func (this WebGL2RenderingContext) FuncUniform4fv1() (fn js.Func[func(location WebGLUniformLocation, data Float32List, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform4fv1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform4fv1 calls the method "WebGL2RenderingContext.uniform4fv".
 func (this WebGL2RenderingContext) Uniform4fv1(location WebGLUniformLocation, data Float32List, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform4fv1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -8866,7 +8705,7 @@ func (this WebGL2RenderingContext) Uniform4fv1(location WebGLUniformLocation, da
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform4fv1(location WebGLUniformLocation, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform4fv1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -8875,26 +8714,25 @@ func (this WebGL2RenderingContext) TryUniform4fv1(location WebGLUniformLocation,
 	return
 }
 
-// HasUniform4fv2 returns true if the method "WebGL2RenderingContext.uniform4fv" exists.
-func (this WebGL2RenderingContext) HasUniform4fv2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform4fv2(
-		this.Ref(),
+// HasFuncUniform4fv2 returns true if the method "WebGL2RenderingContext.uniform4fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform4fv2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform4fv2(
+		this.ref,
 	)
 }
 
-// Uniform4fv2Func returns the method "WebGL2RenderingContext.uniform4fv".
-func (this WebGL2RenderingContext) Uniform4fv2Func() (fn js.Func[func(location WebGLUniformLocation, data Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform4fv2Func(
-			this.Ref(),
-		),
+// FuncUniform4fv2 returns the method "WebGL2RenderingContext.uniform4fv".
+func (this WebGL2RenderingContext) FuncUniform4fv2() (fn js.Func[func(location WebGLUniformLocation, data Float32List)]) {
+	bindings.FuncWebGL2RenderingContextUniform4fv2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform4fv2 calls the method "WebGL2RenderingContext.uniform4fv".
 func (this WebGL2RenderingContext) Uniform4fv2(location WebGLUniformLocation, data Float32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform4fv2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 	)
@@ -8907,7 +8745,7 @@ func (this WebGL2RenderingContext) Uniform4fv2(location WebGLUniformLocation, da
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform4fv2(location WebGLUniformLocation, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform4fv2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 	)
@@ -8915,26 +8753,25 @@ func (this WebGL2RenderingContext) TryUniform4fv2(location WebGLUniformLocation,
 	return
 }
 
-// HasUniform1iv returns true if the method "WebGL2RenderingContext.uniform1iv" exists.
-func (this WebGL2RenderingContext) HasUniform1iv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform1iv(
-		this.Ref(),
+// HasFuncUniform1iv returns true if the method "WebGL2RenderingContext.uniform1iv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform1iv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform1iv(
+		this.ref,
 	)
 }
 
-// Uniform1ivFunc returns the method "WebGL2RenderingContext.uniform1iv".
-func (this WebGL2RenderingContext) Uniform1ivFunc() (fn js.Func[func(location WebGLUniformLocation, data Int32List, srcOffset GLuint, srcLength GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform1ivFunc(
-			this.Ref(),
-		),
+// FuncUniform1iv returns the method "WebGL2RenderingContext.uniform1iv".
+func (this WebGL2RenderingContext) FuncUniform1iv() (fn js.Func[func(location WebGLUniformLocation, data Int32List, srcOffset GLuint, srcLength GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform1iv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform1iv calls the method "WebGL2RenderingContext.uniform1iv".
 func (this WebGL2RenderingContext) Uniform1iv(location WebGLUniformLocation, data Int32List, srcOffset GLuint, srcLength GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform1iv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -8949,7 +8786,7 @@ func (this WebGL2RenderingContext) Uniform1iv(location WebGLUniformLocation, dat
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform1iv(location WebGLUniformLocation, data Int32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform1iv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -8959,26 +8796,25 @@ func (this WebGL2RenderingContext) TryUniform1iv(location WebGLUniformLocation, 
 	return
 }
 
-// HasUniform1iv1 returns true if the method "WebGL2RenderingContext.uniform1iv" exists.
-func (this WebGL2RenderingContext) HasUniform1iv1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform1iv1(
-		this.Ref(),
+// HasFuncUniform1iv1 returns true if the method "WebGL2RenderingContext.uniform1iv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform1iv1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform1iv1(
+		this.ref,
 	)
 }
 
-// Uniform1iv1Func returns the method "WebGL2RenderingContext.uniform1iv".
-func (this WebGL2RenderingContext) Uniform1iv1Func() (fn js.Func[func(location WebGLUniformLocation, data Int32List, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform1iv1Func(
-			this.Ref(),
-		),
+// FuncUniform1iv1 returns the method "WebGL2RenderingContext.uniform1iv".
+func (this WebGL2RenderingContext) FuncUniform1iv1() (fn js.Func[func(location WebGLUniformLocation, data Int32List, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform1iv1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform1iv1 calls the method "WebGL2RenderingContext.uniform1iv".
 func (this WebGL2RenderingContext) Uniform1iv1(location WebGLUniformLocation, data Int32List, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform1iv1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -8992,7 +8828,7 @@ func (this WebGL2RenderingContext) Uniform1iv1(location WebGLUniformLocation, da
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform1iv1(location WebGLUniformLocation, data Int32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform1iv1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -9001,26 +8837,25 @@ func (this WebGL2RenderingContext) TryUniform1iv1(location WebGLUniformLocation,
 	return
 }
 
-// HasUniform1iv2 returns true if the method "WebGL2RenderingContext.uniform1iv" exists.
-func (this WebGL2RenderingContext) HasUniform1iv2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform1iv2(
-		this.Ref(),
+// HasFuncUniform1iv2 returns true if the method "WebGL2RenderingContext.uniform1iv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform1iv2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform1iv2(
+		this.ref,
 	)
 }
 
-// Uniform1iv2Func returns the method "WebGL2RenderingContext.uniform1iv".
-func (this WebGL2RenderingContext) Uniform1iv2Func() (fn js.Func[func(location WebGLUniformLocation, data Int32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform1iv2Func(
-			this.Ref(),
-		),
+// FuncUniform1iv2 returns the method "WebGL2RenderingContext.uniform1iv".
+func (this WebGL2RenderingContext) FuncUniform1iv2() (fn js.Func[func(location WebGLUniformLocation, data Int32List)]) {
+	bindings.FuncWebGL2RenderingContextUniform1iv2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform1iv2 calls the method "WebGL2RenderingContext.uniform1iv".
 func (this WebGL2RenderingContext) Uniform1iv2(location WebGLUniformLocation, data Int32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform1iv2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 	)
@@ -9033,7 +8868,7 @@ func (this WebGL2RenderingContext) Uniform1iv2(location WebGLUniformLocation, da
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform1iv2(location WebGLUniformLocation, data Int32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform1iv2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 	)
@@ -9041,26 +8876,25 @@ func (this WebGL2RenderingContext) TryUniform1iv2(location WebGLUniformLocation,
 	return
 }
 
-// HasUniform2iv returns true if the method "WebGL2RenderingContext.uniform2iv" exists.
-func (this WebGL2RenderingContext) HasUniform2iv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform2iv(
-		this.Ref(),
+// HasFuncUniform2iv returns true if the method "WebGL2RenderingContext.uniform2iv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform2iv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform2iv(
+		this.ref,
 	)
 }
 
-// Uniform2ivFunc returns the method "WebGL2RenderingContext.uniform2iv".
-func (this WebGL2RenderingContext) Uniform2ivFunc() (fn js.Func[func(location WebGLUniformLocation, data Int32List, srcOffset GLuint, srcLength GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform2ivFunc(
-			this.Ref(),
-		),
+// FuncUniform2iv returns the method "WebGL2RenderingContext.uniform2iv".
+func (this WebGL2RenderingContext) FuncUniform2iv() (fn js.Func[func(location WebGLUniformLocation, data Int32List, srcOffset GLuint, srcLength GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform2iv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform2iv calls the method "WebGL2RenderingContext.uniform2iv".
 func (this WebGL2RenderingContext) Uniform2iv(location WebGLUniformLocation, data Int32List, srcOffset GLuint, srcLength GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform2iv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -9075,7 +8909,7 @@ func (this WebGL2RenderingContext) Uniform2iv(location WebGLUniformLocation, dat
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform2iv(location WebGLUniformLocation, data Int32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform2iv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -9085,26 +8919,25 @@ func (this WebGL2RenderingContext) TryUniform2iv(location WebGLUniformLocation, 
 	return
 }
 
-// HasUniform2iv1 returns true if the method "WebGL2RenderingContext.uniform2iv" exists.
-func (this WebGL2RenderingContext) HasUniform2iv1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform2iv1(
-		this.Ref(),
+// HasFuncUniform2iv1 returns true if the method "WebGL2RenderingContext.uniform2iv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform2iv1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform2iv1(
+		this.ref,
 	)
 }
 
-// Uniform2iv1Func returns the method "WebGL2RenderingContext.uniform2iv".
-func (this WebGL2RenderingContext) Uniform2iv1Func() (fn js.Func[func(location WebGLUniformLocation, data Int32List, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform2iv1Func(
-			this.Ref(),
-		),
+// FuncUniform2iv1 returns the method "WebGL2RenderingContext.uniform2iv".
+func (this WebGL2RenderingContext) FuncUniform2iv1() (fn js.Func[func(location WebGLUniformLocation, data Int32List, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform2iv1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform2iv1 calls the method "WebGL2RenderingContext.uniform2iv".
 func (this WebGL2RenderingContext) Uniform2iv1(location WebGLUniformLocation, data Int32List, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform2iv1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -9118,7 +8951,7 @@ func (this WebGL2RenderingContext) Uniform2iv1(location WebGLUniformLocation, da
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform2iv1(location WebGLUniformLocation, data Int32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform2iv1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -9127,26 +8960,25 @@ func (this WebGL2RenderingContext) TryUniform2iv1(location WebGLUniformLocation,
 	return
 }
 
-// HasUniform2iv2 returns true if the method "WebGL2RenderingContext.uniform2iv" exists.
-func (this WebGL2RenderingContext) HasUniform2iv2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform2iv2(
-		this.Ref(),
+// HasFuncUniform2iv2 returns true if the method "WebGL2RenderingContext.uniform2iv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform2iv2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform2iv2(
+		this.ref,
 	)
 }
 
-// Uniform2iv2Func returns the method "WebGL2RenderingContext.uniform2iv".
-func (this WebGL2RenderingContext) Uniform2iv2Func() (fn js.Func[func(location WebGLUniformLocation, data Int32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform2iv2Func(
-			this.Ref(),
-		),
+// FuncUniform2iv2 returns the method "WebGL2RenderingContext.uniform2iv".
+func (this WebGL2RenderingContext) FuncUniform2iv2() (fn js.Func[func(location WebGLUniformLocation, data Int32List)]) {
+	bindings.FuncWebGL2RenderingContextUniform2iv2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform2iv2 calls the method "WebGL2RenderingContext.uniform2iv".
 func (this WebGL2RenderingContext) Uniform2iv2(location WebGLUniformLocation, data Int32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform2iv2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 	)
@@ -9159,7 +8991,7 @@ func (this WebGL2RenderingContext) Uniform2iv2(location WebGLUniformLocation, da
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform2iv2(location WebGLUniformLocation, data Int32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform2iv2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 	)
@@ -9167,26 +8999,25 @@ func (this WebGL2RenderingContext) TryUniform2iv2(location WebGLUniformLocation,
 	return
 }
 
-// HasUniform3iv returns true if the method "WebGL2RenderingContext.uniform3iv" exists.
-func (this WebGL2RenderingContext) HasUniform3iv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform3iv(
-		this.Ref(),
+// HasFuncUniform3iv returns true if the method "WebGL2RenderingContext.uniform3iv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform3iv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform3iv(
+		this.ref,
 	)
 }
 
-// Uniform3ivFunc returns the method "WebGL2RenderingContext.uniform3iv".
-func (this WebGL2RenderingContext) Uniform3ivFunc() (fn js.Func[func(location WebGLUniformLocation, data Int32List, srcOffset GLuint, srcLength GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform3ivFunc(
-			this.Ref(),
-		),
+// FuncUniform3iv returns the method "WebGL2RenderingContext.uniform3iv".
+func (this WebGL2RenderingContext) FuncUniform3iv() (fn js.Func[func(location WebGLUniformLocation, data Int32List, srcOffset GLuint, srcLength GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform3iv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform3iv calls the method "WebGL2RenderingContext.uniform3iv".
 func (this WebGL2RenderingContext) Uniform3iv(location WebGLUniformLocation, data Int32List, srcOffset GLuint, srcLength GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform3iv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -9201,7 +9032,7 @@ func (this WebGL2RenderingContext) Uniform3iv(location WebGLUniformLocation, dat
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform3iv(location WebGLUniformLocation, data Int32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform3iv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -9211,26 +9042,25 @@ func (this WebGL2RenderingContext) TryUniform3iv(location WebGLUniformLocation, 
 	return
 }
 
-// HasUniform3iv1 returns true if the method "WebGL2RenderingContext.uniform3iv" exists.
-func (this WebGL2RenderingContext) HasUniform3iv1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform3iv1(
-		this.Ref(),
+// HasFuncUniform3iv1 returns true if the method "WebGL2RenderingContext.uniform3iv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform3iv1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform3iv1(
+		this.ref,
 	)
 }
 
-// Uniform3iv1Func returns the method "WebGL2RenderingContext.uniform3iv".
-func (this WebGL2RenderingContext) Uniform3iv1Func() (fn js.Func[func(location WebGLUniformLocation, data Int32List, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform3iv1Func(
-			this.Ref(),
-		),
+// FuncUniform3iv1 returns the method "WebGL2RenderingContext.uniform3iv".
+func (this WebGL2RenderingContext) FuncUniform3iv1() (fn js.Func[func(location WebGLUniformLocation, data Int32List, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform3iv1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform3iv1 calls the method "WebGL2RenderingContext.uniform3iv".
 func (this WebGL2RenderingContext) Uniform3iv1(location WebGLUniformLocation, data Int32List, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform3iv1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -9244,7 +9074,7 @@ func (this WebGL2RenderingContext) Uniform3iv1(location WebGLUniformLocation, da
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform3iv1(location WebGLUniformLocation, data Int32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform3iv1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -9253,26 +9083,25 @@ func (this WebGL2RenderingContext) TryUniform3iv1(location WebGLUniformLocation,
 	return
 }
 
-// HasUniform3iv2 returns true if the method "WebGL2RenderingContext.uniform3iv" exists.
-func (this WebGL2RenderingContext) HasUniform3iv2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform3iv2(
-		this.Ref(),
+// HasFuncUniform3iv2 returns true if the method "WebGL2RenderingContext.uniform3iv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform3iv2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform3iv2(
+		this.ref,
 	)
 }
 
-// Uniform3iv2Func returns the method "WebGL2RenderingContext.uniform3iv".
-func (this WebGL2RenderingContext) Uniform3iv2Func() (fn js.Func[func(location WebGLUniformLocation, data Int32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform3iv2Func(
-			this.Ref(),
-		),
+// FuncUniform3iv2 returns the method "WebGL2RenderingContext.uniform3iv".
+func (this WebGL2RenderingContext) FuncUniform3iv2() (fn js.Func[func(location WebGLUniformLocation, data Int32List)]) {
+	bindings.FuncWebGL2RenderingContextUniform3iv2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform3iv2 calls the method "WebGL2RenderingContext.uniform3iv".
 func (this WebGL2RenderingContext) Uniform3iv2(location WebGLUniformLocation, data Int32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform3iv2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 	)
@@ -9285,7 +9114,7 @@ func (this WebGL2RenderingContext) Uniform3iv2(location WebGLUniformLocation, da
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform3iv2(location WebGLUniformLocation, data Int32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform3iv2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 	)
@@ -9293,26 +9122,25 @@ func (this WebGL2RenderingContext) TryUniform3iv2(location WebGLUniformLocation,
 	return
 }
 
-// HasUniform4iv returns true if the method "WebGL2RenderingContext.uniform4iv" exists.
-func (this WebGL2RenderingContext) HasUniform4iv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform4iv(
-		this.Ref(),
+// HasFuncUniform4iv returns true if the method "WebGL2RenderingContext.uniform4iv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform4iv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform4iv(
+		this.ref,
 	)
 }
 
-// Uniform4ivFunc returns the method "WebGL2RenderingContext.uniform4iv".
-func (this WebGL2RenderingContext) Uniform4ivFunc() (fn js.Func[func(location WebGLUniformLocation, data Int32List, srcOffset GLuint, srcLength GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform4ivFunc(
-			this.Ref(),
-		),
+// FuncUniform4iv returns the method "WebGL2RenderingContext.uniform4iv".
+func (this WebGL2RenderingContext) FuncUniform4iv() (fn js.Func[func(location WebGLUniformLocation, data Int32List, srcOffset GLuint, srcLength GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform4iv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform4iv calls the method "WebGL2RenderingContext.uniform4iv".
 func (this WebGL2RenderingContext) Uniform4iv(location WebGLUniformLocation, data Int32List, srcOffset GLuint, srcLength GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform4iv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -9327,7 +9155,7 @@ func (this WebGL2RenderingContext) Uniform4iv(location WebGLUniformLocation, dat
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform4iv(location WebGLUniformLocation, data Int32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform4iv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -9337,26 +9165,25 @@ func (this WebGL2RenderingContext) TryUniform4iv(location WebGLUniformLocation, 
 	return
 }
 
-// HasUniform4iv1 returns true if the method "WebGL2RenderingContext.uniform4iv" exists.
-func (this WebGL2RenderingContext) HasUniform4iv1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform4iv1(
-		this.Ref(),
+// HasFuncUniform4iv1 returns true if the method "WebGL2RenderingContext.uniform4iv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform4iv1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform4iv1(
+		this.ref,
 	)
 }
 
-// Uniform4iv1Func returns the method "WebGL2RenderingContext.uniform4iv".
-func (this WebGL2RenderingContext) Uniform4iv1Func() (fn js.Func[func(location WebGLUniformLocation, data Int32List, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform4iv1Func(
-			this.Ref(),
-		),
+// FuncUniform4iv1 returns the method "WebGL2RenderingContext.uniform4iv".
+func (this WebGL2RenderingContext) FuncUniform4iv1() (fn js.Func[func(location WebGLUniformLocation, data Int32List, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform4iv1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform4iv1 calls the method "WebGL2RenderingContext.uniform4iv".
 func (this WebGL2RenderingContext) Uniform4iv1(location WebGLUniformLocation, data Int32List, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform4iv1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -9370,7 +9197,7 @@ func (this WebGL2RenderingContext) Uniform4iv1(location WebGLUniformLocation, da
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform4iv1(location WebGLUniformLocation, data Int32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform4iv1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -9379,26 +9206,25 @@ func (this WebGL2RenderingContext) TryUniform4iv1(location WebGLUniformLocation,
 	return
 }
 
-// HasUniform4iv2 returns true if the method "WebGL2RenderingContext.uniform4iv" exists.
-func (this WebGL2RenderingContext) HasUniform4iv2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform4iv2(
-		this.Ref(),
+// HasFuncUniform4iv2 returns true if the method "WebGL2RenderingContext.uniform4iv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform4iv2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform4iv2(
+		this.ref,
 	)
 }
 
-// Uniform4iv2Func returns the method "WebGL2RenderingContext.uniform4iv".
-func (this WebGL2RenderingContext) Uniform4iv2Func() (fn js.Func[func(location WebGLUniformLocation, data Int32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform4iv2Func(
-			this.Ref(),
-		),
+// FuncUniform4iv2 returns the method "WebGL2RenderingContext.uniform4iv".
+func (this WebGL2RenderingContext) FuncUniform4iv2() (fn js.Func[func(location WebGLUniformLocation, data Int32List)]) {
+	bindings.FuncWebGL2RenderingContextUniform4iv2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform4iv2 calls the method "WebGL2RenderingContext.uniform4iv".
 func (this WebGL2RenderingContext) Uniform4iv2(location WebGLUniformLocation, data Int32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform4iv2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 	)
@@ -9411,7 +9237,7 @@ func (this WebGL2RenderingContext) Uniform4iv2(location WebGLUniformLocation, da
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform4iv2(location WebGLUniformLocation, data Int32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform4iv2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 	)
@@ -9419,26 +9245,25 @@ func (this WebGL2RenderingContext) TryUniform4iv2(location WebGLUniformLocation,
 	return
 }
 
-// HasUniformMatrix2fv returns true if the method "WebGL2RenderingContext.uniformMatrix2fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix2fv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix2fv(
-		this.Ref(),
+// HasFuncUniformMatrix2fv returns true if the method "WebGL2RenderingContext.uniformMatrix2fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix2fv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix2fv(
+		this.ref,
 	)
 }
 
-// UniformMatrix2fvFunc returns the method "WebGL2RenderingContext.uniformMatrix2fv".
-func (this WebGL2RenderingContext) UniformMatrix2fvFunc() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix2fvFunc(
-			this.Ref(),
-		),
+// FuncUniformMatrix2fv returns the method "WebGL2RenderingContext.uniformMatrix2fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix2fv() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix2fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix2fv calls the method "WebGL2RenderingContext.uniformMatrix2fv".
 func (this WebGL2RenderingContext) UniformMatrix2fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix2fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -9454,7 +9279,7 @@ func (this WebGL2RenderingContext) UniformMatrix2fv(location WebGLUniformLocatio
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix2fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix2fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -9465,26 +9290,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix2fv(location WebGLUniformLoca
 	return
 }
 
-// HasUniformMatrix2fv1 returns true if the method "WebGL2RenderingContext.uniformMatrix2fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix2fv1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix2fv1(
-		this.Ref(),
+// HasFuncUniformMatrix2fv1 returns true if the method "WebGL2RenderingContext.uniformMatrix2fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix2fv1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix2fv1(
+		this.ref,
 	)
 }
 
-// UniformMatrix2fv1Func returns the method "WebGL2RenderingContext.uniformMatrix2fv".
-func (this WebGL2RenderingContext) UniformMatrix2fv1Func() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix2fv1Func(
-			this.Ref(),
-		),
+// FuncUniformMatrix2fv1 returns the method "WebGL2RenderingContext.uniformMatrix2fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix2fv1() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix2fv1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix2fv1 calls the method "WebGL2RenderingContext.uniformMatrix2fv".
 func (this WebGL2RenderingContext) UniformMatrix2fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix2fv1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -9499,7 +9323,7 @@ func (this WebGL2RenderingContext) UniformMatrix2fv1(location WebGLUniformLocati
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix2fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix2fv1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -9509,26 +9333,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix2fv1(location WebGLUniformLoc
 	return
 }
 
-// HasUniformMatrix2fv2 returns true if the method "WebGL2RenderingContext.uniformMatrix2fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix2fv2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix2fv2(
-		this.Ref(),
+// HasFuncUniformMatrix2fv2 returns true if the method "WebGL2RenderingContext.uniformMatrix2fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix2fv2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix2fv2(
+		this.ref,
 	)
 }
 
-// UniformMatrix2fv2Func returns the method "WebGL2RenderingContext.uniformMatrix2fv".
-func (this WebGL2RenderingContext) UniformMatrix2fv2Func() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix2fv2Func(
-			this.Ref(),
-		),
+// FuncUniformMatrix2fv2 returns the method "WebGL2RenderingContext.uniformMatrix2fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix2fv2() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix2fv2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix2fv2 calls the method "WebGL2RenderingContext.uniformMatrix2fv".
 func (this WebGL2RenderingContext) UniformMatrix2fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix2fv2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -9542,7 +9365,7 @@ func (this WebGL2RenderingContext) UniformMatrix2fv2(location WebGLUniformLocati
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix2fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix2fv2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -9551,26 +9374,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix2fv2(location WebGLUniformLoc
 	return
 }
 
-// HasUniformMatrix3fv returns true if the method "WebGL2RenderingContext.uniformMatrix3fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix3fv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix3fv(
-		this.Ref(),
+// HasFuncUniformMatrix3fv returns true if the method "WebGL2RenderingContext.uniformMatrix3fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix3fv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix3fv(
+		this.ref,
 	)
 }
 
-// UniformMatrix3fvFunc returns the method "WebGL2RenderingContext.uniformMatrix3fv".
-func (this WebGL2RenderingContext) UniformMatrix3fvFunc() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix3fvFunc(
-			this.Ref(),
-		),
+// FuncUniformMatrix3fv returns the method "WebGL2RenderingContext.uniformMatrix3fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix3fv() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix3fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix3fv calls the method "WebGL2RenderingContext.uniformMatrix3fv".
 func (this WebGL2RenderingContext) UniformMatrix3fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix3fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -9586,7 +9408,7 @@ func (this WebGL2RenderingContext) UniformMatrix3fv(location WebGLUniformLocatio
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix3fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix3fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -9597,26 +9419,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix3fv(location WebGLUniformLoca
 	return
 }
 
-// HasUniformMatrix3fv1 returns true if the method "WebGL2RenderingContext.uniformMatrix3fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix3fv1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix3fv1(
-		this.Ref(),
+// HasFuncUniformMatrix3fv1 returns true if the method "WebGL2RenderingContext.uniformMatrix3fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix3fv1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix3fv1(
+		this.ref,
 	)
 }
 
-// UniformMatrix3fv1Func returns the method "WebGL2RenderingContext.uniformMatrix3fv".
-func (this WebGL2RenderingContext) UniformMatrix3fv1Func() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix3fv1Func(
-			this.Ref(),
-		),
+// FuncUniformMatrix3fv1 returns the method "WebGL2RenderingContext.uniformMatrix3fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix3fv1() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix3fv1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix3fv1 calls the method "WebGL2RenderingContext.uniformMatrix3fv".
 func (this WebGL2RenderingContext) UniformMatrix3fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix3fv1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -9631,7 +9452,7 @@ func (this WebGL2RenderingContext) UniformMatrix3fv1(location WebGLUniformLocati
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix3fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix3fv1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -9641,26 +9462,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix3fv1(location WebGLUniformLoc
 	return
 }
 
-// HasUniformMatrix3fv2 returns true if the method "WebGL2RenderingContext.uniformMatrix3fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix3fv2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix3fv2(
-		this.Ref(),
+// HasFuncUniformMatrix3fv2 returns true if the method "WebGL2RenderingContext.uniformMatrix3fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix3fv2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix3fv2(
+		this.ref,
 	)
 }
 
-// UniformMatrix3fv2Func returns the method "WebGL2RenderingContext.uniformMatrix3fv".
-func (this WebGL2RenderingContext) UniformMatrix3fv2Func() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix3fv2Func(
-			this.Ref(),
-		),
+// FuncUniformMatrix3fv2 returns the method "WebGL2RenderingContext.uniformMatrix3fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix3fv2() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix3fv2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix3fv2 calls the method "WebGL2RenderingContext.uniformMatrix3fv".
 func (this WebGL2RenderingContext) UniformMatrix3fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix3fv2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -9674,7 +9494,7 @@ func (this WebGL2RenderingContext) UniformMatrix3fv2(location WebGLUniformLocati
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix3fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix3fv2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -9683,26 +9503,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix3fv2(location WebGLUniformLoc
 	return
 }
 
-// HasUniformMatrix4fv returns true if the method "WebGL2RenderingContext.uniformMatrix4fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix4fv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix4fv(
-		this.Ref(),
+// HasFuncUniformMatrix4fv returns true if the method "WebGL2RenderingContext.uniformMatrix4fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix4fv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix4fv(
+		this.ref,
 	)
 }
 
-// UniformMatrix4fvFunc returns the method "WebGL2RenderingContext.uniformMatrix4fv".
-func (this WebGL2RenderingContext) UniformMatrix4fvFunc() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix4fvFunc(
-			this.Ref(),
-		),
+// FuncUniformMatrix4fv returns the method "WebGL2RenderingContext.uniformMatrix4fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix4fv() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix4fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix4fv calls the method "WebGL2RenderingContext.uniformMatrix4fv".
 func (this WebGL2RenderingContext) UniformMatrix4fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix4fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -9718,7 +9537,7 @@ func (this WebGL2RenderingContext) UniformMatrix4fv(location WebGLUniformLocatio
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix4fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix4fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -9729,26 +9548,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix4fv(location WebGLUniformLoca
 	return
 }
 
-// HasUniformMatrix4fv1 returns true if the method "WebGL2RenderingContext.uniformMatrix4fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix4fv1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix4fv1(
-		this.Ref(),
+// HasFuncUniformMatrix4fv1 returns true if the method "WebGL2RenderingContext.uniformMatrix4fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix4fv1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix4fv1(
+		this.ref,
 	)
 }
 
-// UniformMatrix4fv1Func returns the method "WebGL2RenderingContext.uniformMatrix4fv".
-func (this WebGL2RenderingContext) UniformMatrix4fv1Func() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix4fv1Func(
-			this.Ref(),
-		),
+// FuncUniformMatrix4fv1 returns the method "WebGL2RenderingContext.uniformMatrix4fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix4fv1() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix4fv1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix4fv1 calls the method "WebGL2RenderingContext.uniformMatrix4fv".
 func (this WebGL2RenderingContext) UniformMatrix4fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix4fv1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -9763,7 +9581,7 @@ func (this WebGL2RenderingContext) UniformMatrix4fv1(location WebGLUniformLocati
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix4fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix4fv1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -9773,26 +9591,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix4fv1(location WebGLUniformLoc
 	return
 }
 
-// HasUniformMatrix4fv2 returns true if the method "WebGL2RenderingContext.uniformMatrix4fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix4fv2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix4fv2(
-		this.Ref(),
+// HasFuncUniformMatrix4fv2 returns true if the method "WebGL2RenderingContext.uniformMatrix4fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix4fv2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix4fv2(
+		this.ref,
 	)
 }
 
-// UniformMatrix4fv2Func returns the method "WebGL2RenderingContext.uniformMatrix4fv".
-func (this WebGL2RenderingContext) UniformMatrix4fv2Func() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix4fv2Func(
-			this.Ref(),
-		),
+// FuncUniformMatrix4fv2 returns the method "WebGL2RenderingContext.uniformMatrix4fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix4fv2() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix4fv2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix4fv2 calls the method "WebGL2RenderingContext.uniformMatrix4fv".
 func (this WebGL2RenderingContext) UniformMatrix4fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix4fv2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -9806,7 +9623,7 @@ func (this WebGL2RenderingContext) UniformMatrix4fv2(location WebGLUniformLocati
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix4fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix4fv2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -9815,26 +9632,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix4fv2(location WebGLUniformLoc
 	return
 }
 
-// HasReadPixels returns true if the method "WebGL2RenderingContext.readPixels" exists.
-func (this WebGL2RenderingContext) HasReadPixels() bool {
-	return js.True == bindings.HasWebGL2RenderingContextReadPixels(
-		this.Ref(),
+// HasFuncReadPixels returns true if the method "WebGL2RenderingContext.readPixels" exists.
+func (this WebGL2RenderingContext) HasFuncReadPixels() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextReadPixels(
+		this.ref,
 	)
 }
 
-// ReadPixelsFunc returns the method "WebGL2RenderingContext.readPixels".
-func (this WebGL2RenderingContext) ReadPixelsFunc() (fn js.Func[func(x GLint, y GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, dstData js.ArrayBufferView)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextReadPixelsFunc(
-			this.Ref(),
-		),
+// FuncReadPixels returns the method "WebGL2RenderingContext.readPixels".
+func (this WebGL2RenderingContext) FuncReadPixels() (fn js.Func[func(x GLint, y GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, dstData js.ArrayBufferView)]) {
+	bindings.FuncWebGL2RenderingContextReadPixels(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReadPixels calls the method "WebGL2RenderingContext.readPixels".
 func (this WebGL2RenderingContext) ReadPixels(x GLint, y GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, dstData js.ArrayBufferView) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextReadPixels(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		int32(x),
 		int32(y),
 		int32(width),
@@ -9852,7 +9668,7 @@ func (this WebGL2RenderingContext) ReadPixels(x GLint, y GLint, width GLsizei, h
 // the catch clause.
 func (this WebGL2RenderingContext) TryReadPixels(x GLint, y GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, dstData js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextReadPixels(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		int32(x),
 		int32(y),
 		int32(width),
@@ -9865,26 +9681,25 @@ func (this WebGL2RenderingContext) TryReadPixels(x GLint, y GLint, width GLsizei
 	return
 }
 
-// HasReadPixels1 returns true if the method "WebGL2RenderingContext.readPixels" exists.
-func (this WebGL2RenderingContext) HasReadPixels1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextReadPixels1(
-		this.Ref(),
+// HasFuncReadPixels1 returns true if the method "WebGL2RenderingContext.readPixels" exists.
+func (this WebGL2RenderingContext) HasFuncReadPixels1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextReadPixels1(
+		this.ref,
 	)
 }
 
-// ReadPixels1Func returns the method "WebGL2RenderingContext.readPixels".
-func (this WebGL2RenderingContext) ReadPixels1Func() (fn js.Func[func(x GLint, y GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, offset GLintptr)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextReadPixels1Func(
-			this.Ref(),
-		),
+// FuncReadPixels1 returns the method "WebGL2RenderingContext.readPixels".
+func (this WebGL2RenderingContext) FuncReadPixels1() (fn js.Func[func(x GLint, y GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, offset GLintptr)]) {
+	bindings.FuncWebGL2RenderingContextReadPixels1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReadPixels1 calls the method "WebGL2RenderingContext.readPixels".
 func (this WebGL2RenderingContext) ReadPixels1(x GLint, y GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, offset GLintptr) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextReadPixels1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		int32(x),
 		int32(y),
 		int32(width),
@@ -9902,7 +9717,7 @@ func (this WebGL2RenderingContext) ReadPixels1(x GLint, y GLint, width GLsizei, 
 // the catch clause.
 func (this WebGL2RenderingContext) TryReadPixels1(x GLint, y GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, offset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextReadPixels1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		int32(x),
 		int32(y),
 		int32(width),
@@ -9915,26 +9730,25 @@ func (this WebGL2RenderingContext) TryReadPixels1(x GLint, y GLint, width GLsize
 	return
 }
 
-// HasReadPixels2 returns true if the method "WebGL2RenderingContext.readPixels" exists.
-func (this WebGL2RenderingContext) HasReadPixels2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextReadPixels2(
-		this.Ref(),
+// HasFuncReadPixels2 returns true if the method "WebGL2RenderingContext.readPixels" exists.
+func (this WebGL2RenderingContext) HasFuncReadPixels2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextReadPixels2(
+		this.ref,
 	)
 }
 
-// ReadPixels2Func returns the method "WebGL2RenderingContext.readPixels".
-func (this WebGL2RenderingContext) ReadPixels2Func() (fn js.Func[func(x GLint, y GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, dstData js.ArrayBufferView, dstOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextReadPixels2Func(
-			this.Ref(),
-		),
+// FuncReadPixels2 returns the method "WebGL2RenderingContext.readPixels".
+func (this WebGL2RenderingContext) FuncReadPixels2() (fn js.Func[func(x GLint, y GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, dstData js.ArrayBufferView, dstOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextReadPixels2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReadPixels2 calls the method "WebGL2RenderingContext.readPixels".
 func (this WebGL2RenderingContext) ReadPixels2(x GLint, y GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, dstData js.ArrayBufferView, dstOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextReadPixels2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		int32(x),
 		int32(y),
 		int32(width),
@@ -9953,7 +9767,7 @@ func (this WebGL2RenderingContext) ReadPixels2(x GLint, y GLint, width GLsizei, 
 // the catch clause.
 func (this WebGL2RenderingContext) TryReadPixels2(x GLint, y GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, dstData js.ArrayBufferView, dstOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextReadPixels2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		int32(x),
 		int32(y),
 		int32(width),
@@ -9967,26 +9781,25 @@ func (this WebGL2RenderingContext) TryReadPixels2(x GLint, y GLint, width GLsize
 	return
 }
 
-// HasCopyBufferSubData returns true if the method "WebGL2RenderingContext.copyBufferSubData" exists.
-func (this WebGL2RenderingContext) HasCopyBufferSubData() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCopyBufferSubData(
-		this.Ref(),
+// HasFuncCopyBufferSubData returns true if the method "WebGL2RenderingContext.copyBufferSubData" exists.
+func (this WebGL2RenderingContext) HasFuncCopyBufferSubData() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCopyBufferSubData(
+		this.ref,
 	)
 }
 
-// CopyBufferSubDataFunc returns the method "WebGL2RenderingContext.copyBufferSubData".
-func (this WebGL2RenderingContext) CopyBufferSubDataFunc() (fn js.Func[func(readTarget GLenum, writeTarget GLenum, readOffset GLintptr, writeOffset GLintptr, size GLsizeiptr)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCopyBufferSubDataFunc(
-			this.Ref(),
-		),
+// FuncCopyBufferSubData returns the method "WebGL2RenderingContext.copyBufferSubData".
+func (this WebGL2RenderingContext) FuncCopyBufferSubData() (fn js.Func[func(readTarget GLenum, writeTarget GLenum, readOffset GLintptr, writeOffset GLintptr, size GLsizeiptr)]) {
+	bindings.FuncWebGL2RenderingContextCopyBufferSubData(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CopyBufferSubData calls the method "WebGL2RenderingContext.copyBufferSubData".
 func (this WebGL2RenderingContext) CopyBufferSubData(readTarget GLenum, writeTarget GLenum, readOffset GLintptr, writeOffset GLintptr, size GLsizeiptr) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextCopyBufferSubData(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(readTarget),
 		uint32(writeTarget),
 		float64(readOffset),
@@ -10002,7 +9815,7 @@ func (this WebGL2RenderingContext) CopyBufferSubData(readTarget GLenum, writeTar
 // the catch clause.
 func (this WebGL2RenderingContext) TryCopyBufferSubData(readTarget GLenum, writeTarget GLenum, readOffset GLintptr, writeOffset GLintptr, size GLsizeiptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCopyBufferSubData(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(readTarget),
 		uint32(writeTarget),
 		float64(readOffset),
@@ -10013,26 +9826,25 @@ func (this WebGL2RenderingContext) TryCopyBufferSubData(readTarget GLenum, write
 	return
 }
 
-// HasGetBufferSubData returns true if the method "WebGL2RenderingContext.getBufferSubData" exists.
-func (this WebGL2RenderingContext) HasGetBufferSubData() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetBufferSubData(
-		this.Ref(),
+// HasFuncGetBufferSubData returns true if the method "WebGL2RenderingContext.getBufferSubData" exists.
+func (this WebGL2RenderingContext) HasFuncGetBufferSubData() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetBufferSubData(
+		this.ref,
 	)
 }
 
-// GetBufferSubDataFunc returns the method "WebGL2RenderingContext.getBufferSubData".
-func (this WebGL2RenderingContext) GetBufferSubDataFunc() (fn js.Func[func(target GLenum, srcByteOffset GLintptr, dstBuffer js.ArrayBufferView, dstOffset GLuint, length GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetBufferSubDataFunc(
-			this.Ref(),
-		),
+// FuncGetBufferSubData returns the method "WebGL2RenderingContext.getBufferSubData".
+func (this WebGL2RenderingContext) FuncGetBufferSubData() (fn js.Func[func(target GLenum, srcByteOffset GLintptr, dstBuffer js.ArrayBufferView, dstOffset GLuint, length GLuint)]) {
+	bindings.FuncWebGL2RenderingContextGetBufferSubData(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetBufferSubData calls the method "WebGL2RenderingContext.getBufferSubData".
 func (this WebGL2RenderingContext) GetBufferSubData(target GLenum, srcByteOffset GLintptr, dstBuffer js.ArrayBufferView, dstOffset GLuint, length GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextGetBufferSubData(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		float64(srcByteOffset),
 		dstBuffer.Ref(),
@@ -10048,7 +9860,7 @@ func (this WebGL2RenderingContext) GetBufferSubData(target GLenum, srcByteOffset
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetBufferSubData(target GLenum, srcByteOffset GLintptr, dstBuffer js.ArrayBufferView, dstOffset GLuint, length GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetBufferSubData(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		float64(srcByteOffset),
 		dstBuffer.Ref(),
@@ -10059,26 +9871,25 @@ func (this WebGL2RenderingContext) TryGetBufferSubData(target GLenum, srcByteOff
 	return
 }
 
-// HasGetBufferSubData1 returns true if the method "WebGL2RenderingContext.getBufferSubData" exists.
-func (this WebGL2RenderingContext) HasGetBufferSubData1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetBufferSubData1(
-		this.Ref(),
+// HasFuncGetBufferSubData1 returns true if the method "WebGL2RenderingContext.getBufferSubData" exists.
+func (this WebGL2RenderingContext) HasFuncGetBufferSubData1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetBufferSubData1(
+		this.ref,
 	)
 }
 
-// GetBufferSubData1Func returns the method "WebGL2RenderingContext.getBufferSubData".
-func (this WebGL2RenderingContext) GetBufferSubData1Func() (fn js.Func[func(target GLenum, srcByteOffset GLintptr, dstBuffer js.ArrayBufferView, dstOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetBufferSubData1Func(
-			this.Ref(),
-		),
+// FuncGetBufferSubData1 returns the method "WebGL2RenderingContext.getBufferSubData".
+func (this WebGL2RenderingContext) FuncGetBufferSubData1() (fn js.Func[func(target GLenum, srcByteOffset GLintptr, dstBuffer js.ArrayBufferView, dstOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextGetBufferSubData1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetBufferSubData1 calls the method "WebGL2RenderingContext.getBufferSubData".
 func (this WebGL2RenderingContext) GetBufferSubData1(target GLenum, srcByteOffset GLintptr, dstBuffer js.ArrayBufferView, dstOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextGetBufferSubData1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		float64(srcByteOffset),
 		dstBuffer.Ref(),
@@ -10093,7 +9904,7 @@ func (this WebGL2RenderingContext) GetBufferSubData1(target GLenum, srcByteOffse
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetBufferSubData1(target GLenum, srcByteOffset GLintptr, dstBuffer js.ArrayBufferView, dstOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetBufferSubData1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		float64(srcByteOffset),
 		dstBuffer.Ref(),
@@ -10103,26 +9914,25 @@ func (this WebGL2RenderingContext) TryGetBufferSubData1(target GLenum, srcByteOf
 	return
 }
 
-// HasGetBufferSubData2 returns true if the method "WebGL2RenderingContext.getBufferSubData" exists.
-func (this WebGL2RenderingContext) HasGetBufferSubData2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetBufferSubData2(
-		this.Ref(),
+// HasFuncGetBufferSubData2 returns true if the method "WebGL2RenderingContext.getBufferSubData" exists.
+func (this WebGL2RenderingContext) HasFuncGetBufferSubData2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetBufferSubData2(
+		this.ref,
 	)
 }
 
-// GetBufferSubData2Func returns the method "WebGL2RenderingContext.getBufferSubData".
-func (this WebGL2RenderingContext) GetBufferSubData2Func() (fn js.Func[func(target GLenum, srcByteOffset GLintptr, dstBuffer js.ArrayBufferView)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetBufferSubData2Func(
-			this.Ref(),
-		),
+// FuncGetBufferSubData2 returns the method "WebGL2RenderingContext.getBufferSubData".
+func (this WebGL2RenderingContext) FuncGetBufferSubData2() (fn js.Func[func(target GLenum, srcByteOffset GLintptr, dstBuffer js.ArrayBufferView)]) {
+	bindings.FuncWebGL2RenderingContextGetBufferSubData2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetBufferSubData2 calls the method "WebGL2RenderingContext.getBufferSubData".
 func (this WebGL2RenderingContext) GetBufferSubData2(target GLenum, srcByteOffset GLintptr, dstBuffer js.ArrayBufferView) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextGetBufferSubData2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		float64(srcByteOffset),
 		dstBuffer.Ref(),
@@ -10136,7 +9946,7 @@ func (this WebGL2RenderingContext) GetBufferSubData2(target GLenum, srcByteOffse
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetBufferSubData2(target GLenum, srcByteOffset GLintptr, dstBuffer js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetBufferSubData2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		float64(srcByteOffset),
 		dstBuffer.Ref(),
@@ -10145,26 +9955,25 @@ func (this WebGL2RenderingContext) TryGetBufferSubData2(target GLenum, srcByteOf
 	return
 }
 
-// HasBlitFramebuffer returns true if the method "WebGL2RenderingContext.blitFramebuffer" exists.
-func (this WebGL2RenderingContext) HasBlitFramebuffer() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBlitFramebuffer(
-		this.Ref(),
+// HasFuncBlitFramebuffer returns true if the method "WebGL2RenderingContext.blitFramebuffer" exists.
+func (this WebGL2RenderingContext) HasFuncBlitFramebuffer() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBlitFramebuffer(
+		this.ref,
 	)
 }
 
-// BlitFramebufferFunc returns the method "WebGL2RenderingContext.blitFramebuffer".
-func (this WebGL2RenderingContext) BlitFramebufferFunc() (fn js.Func[func(srcX0 GLint, srcY0 GLint, srcX1 GLint, srcY1 GLint, dstX0 GLint, dstY0 GLint, dstX1 GLint, dstY1 GLint, mask GLbitfield, filter GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBlitFramebufferFunc(
-			this.Ref(),
-		),
+// FuncBlitFramebuffer returns the method "WebGL2RenderingContext.blitFramebuffer".
+func (this WebGL2RenderingContext) FuncBlitFramebuffer() (fn js.Func[func(srcX0 GLint, srcY0 GLint, srcX1 GLint, srcY1 GLint, dstX0 GLint, dstY0 GLint, dstX1 GLint, dstY1 GLint, mask GLbitfield, filter GLenum)]) {
+	bindings.FuncWebGL2RenderingContextBlitFramebuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BlitFramebuffer calls the method "WebGL2RenderingContext.blitFramebuffer".
 func (this WebGL2RenderingContext) BlitFramebuffer(srcX0 GLint, srcY0 GLint, srcX1 GLint, srcY1 GLint, dstX0 GLint, dstY0 GLint, dstX1 GLint, dstY1 GLint, mask GLbitfield, filter GLenum) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBlitFramebuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		int32(srcX0),
 		int32(srcY0),
 		int32(srcX1),
@@ -10185,7 +9994,7 @@ func (this WebGL2RenderingContext) BlitFramebuffer(srcX0 GLint, srcY0 GLint, src
 // the catch clause.
 func (this WebGL2RenderingContext) TryBlitFramebuffer(srcX0 GLint, srcY0 GLint, srcX1 GLint, srcY1 GLint, dstX0 GLint, dstY0 GLint, dstX1 GLint, dstY1 GLint, mask GLbitfield, filter GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBlitFramebuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		int32(srcX0),
 		int32(srcY0),
 		int32(srcX1),
@@ -10201,26 +10010,25 @@ func (this WebGL2RenderingContext) TryBlitFramebuffer(srcX0 GLint, srcY0 GLint, 
 	return
 }
 
-// HasFramebufferTextureLayer returns true if the method "WebGL2RenderingContext.framebufferTextureLayer" exists.
-func (this WebGL2RenderingContext) HasFramebufferTextureLayer() bool {
-	return js.True == bindings.HasWebGL2RenderingContextFramebufferTextureLayer(
-		this.Ref(),
+// HasFuncFramebufferTextureLayer returns true if the method "WebGL2RenderingContext.framebufferTextureLayer" exists.
+func (this WebGL2RenderingContext) HasFuncFramebufferTextureLayer() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextFramebufferTextureLayer(
+		this.ref,
 	)
 }
 
-// FramebufferTextureLayerFunc returns the method "WebGL2RenderingContext.framebufferTextureLayer".
-func (this WebGL2RenderingContext) FramebufferTextureLayerFunc() (fn js.Func[func(target GLenum, attachment GLenum, texture WebGLTexture, level GLint, layer GLint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextFramebufferTextureLayerFunc(
-			this.Ref(),
-		),
+// FuncFramebufferTextureLayer returns the method "WebGL2RenderingContext.framebufferTextureLayer".
+func (this WebGL2RenderingContext) FuncFramebufferTextureLayer() (fn js.Func[func(target GLenum, attachment GLenum, texture WebGLTexture, level GLint, layer GLint)]) {
+	bindings.FuncWebGL2RenderingContextFramebufferTextureLayer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // FramebufferTextureLayer calls the method "WebGL2RenderingContext.framebufferTextureLayer".
 func (this WebGL2RenderingContext) FramebufferTextureLayer(target GLenum, attachment GLenum, texture WebGLTexture, level GLint, layer GLint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextFramebufferTextureLayer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(attachment),
 		texture.Ref(),
@@ -10236,7 +10044,7 @@ func (this WebGL2RenderingContext) FramebufferTextureLayer(target GLenum, attach
 // the catch clause.
 func (this WebGL2RenderingContext) TryFramebufferTextureLayer(target GLenum, attachment GLenum, texture WebGLTexture, level GLint, layer GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextFramebufferTextureLayer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(attachment),
 		texture.Ref(),
@@ -10247,26 +10055,25 @@ func (this WebGL2RenderingContext) TryFramebufferTextureLayer(target GLenum, att
 	return
 }
 
-// HasInvalidateFramebuffer returns true if the method "WebGL2RenderingContext.invalidateFramebuffer" exists.
-func (this WebGL2RenderingContext) HasInvalidateFramebuffer() bool {
-	return js.True == bindings.HasWebGL2RenderingContextInvalidateFramebuffer(
-		this.Ref(),
+// HasFuncInvalidateFramebuffer returns true if the method "WebGL2RenderingContext.invalidateFramebuffer" exists.
+func (this WebGL2RenderingContext) HasFuncInvalidateFramebuffer() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextInvalidateFramebuffer(
+		this.ref,
 	)
 }
 
-// InvalidateFramebufferFunc returns the method "WebGL2RenderingContext.invalidateFramebuffer".
-func (this WebGL2RenderingContext) InvalidateFramebufferFunc() (fn js.Func[func(target GLenum, attachments js.Array[GLenum])]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextInvalidateFramebufferFunc(
-			this.Ref(),
-		),
+// FuncInvalidateFramebuffer returns the method "WebGL2RenderingContext.invalidateFramebuffer".
+func (this WebGL2RenderingContext) FuncInvalidateFramebuffer() (fn js.Func[func(target GLenum, attachments js.Array[GLenum])]) {
+	bindings.FuncWebGL2RenderingContextInvalidateFramebuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InvalidateFramebuffer calls the method "WebGL2RenderingContext.invalidateFramebuffer".
 func (this WebGL2RenderingContext) InvalidateFramebuffer(target GLenum, attachments js.Array[GLenum]) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextInvalidateFramebuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		attachments.Ref(),
 	)
@@ -10279,7 +10086,7 @@ func (this WebGL2RenderingContext) InvalidateFramebuffer(target GLenum, attachme
 // the catch clause.
 func (this WebGL2RenderingContext) TryInvalidateFramebuffer(target GLenum, attachments js.Array[GLenum]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextInvalidateFramebuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		attachments.Ref(),
 	)
@@ -10287,26 +10094,25 @@ func (this WebGL2RenderingContext) TryInvalidateFramebuffer(target GLenum, attac
 	return
 }
 
-// HasInvalidateSubFramebuffer returns true if the method "WebGL2RenderingContext.invalidateSubFramebuffer" exists.
-func (this WebGL2RenderingContext) HasInvalidateSubFramebuffer() bool {
-	return js.True == bindings.HasWebGL2RenderingContextInvalidateSubFramebuffer(
-		this.Ref(),
+// HasFuncInvalidateSubFramebuffer returns true if the method "WebGL2RenderingContext.invalidateSubFramebuffer" exists.
+func (this WebGL2RenderingContext) HasFuncInvalidateSubFramebuffer() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextInvalidateSubFramebuffer(
+		this.ref,
 	)
 }
 
-// InvalidateSubFramebufferFunc returns the method "WebGL2RenderingContext.invalidateSubFramebuffer".
-func (this WebGL2RenderingContext) InvalidateSubFramebufferFunc() (fn js.Func[func(target GLenum, attachments js.Array[GLenum], x GLint, y GLint, width GLsizei, height GLsizei)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextInvalidateSubFramebufferFunc(
-			this.Ref(),
-		),
+// FuncInvalidateSubFramebuffer returns the method "WebGL2RenderingContext.invalidateSubFramebuffer".
+func (this WebGL2RenderingContext) FuncInvalidateSubFramebuffer() (fn js.Func[func(target GLenum, attachments js.Array[GLenum], x GLint, y GLint, width GLsizei, height GLsizei)]) {
+	bindings.FuncWebGL2RenderingContextInvalidateSubFramebuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InvalidateSubFramebuffer calls the method "WebGL2RenderingContext.invalidateSubFramebuffer".
 func (this WebGL2RenderingContext) InvalidateSubFramebuffer(target GLenum, attachments js.Array[GLenum], x GLint, y GLint, width GLsizei, height GLsizei) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextInvalidateSubFramebuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		attachments.Ref(),
 		int32(x),
@@ -10323,7 +10129,7 @@ func (this WebGL2RenderingContext) InvalidateSubFramebuffer(target GLenum, attac
 // the catch clause.
 func (this WebGL2RenderingContext) TryInvalidateSubFramebuffer(target GLenum, attachments js.Array[GLenum], x GLint, y GLint, width GLsizei, height GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextInvalidateSubFramebuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		attachments.Ref(),
 		int32(x),
@@ -10335,26 +10141,25 @@ func (this WebGL2RenderingContext) TryInvalidateSubFramebuffer(target GLenum, at
 	return
 }
 
-// HasReadBuffer returns true if the method "WebGL2RenderingContext.readBuffer" exists.
-func (this WebGL2RenderingContext) HasReadBuffer() bool {
-	return js.True == bindings.HasWebGL2RenderingContextReadBuffer(
-		this.Ref(),
+// HasFuncReadBuffer returns true if the method "WebGL2RenderingContext.readBuffer" exists.
+func (this WebGL2RenderingContext) HasFuncReadBuffer() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextReadBuffer(
+		this.ref,
 	)
 }
 
-// ReadBufferFunc returns the method "WebGL2RenderingContext.readBuffer".
-func (this WebGL2RenderingContext) ReadBufferFunc() (fn js.Func[func(src GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextReadBufferFunc(
-			this.Ref(),
-		),
+// FuncReadBuffer returns the method "WebGL2RenderingContext.readBuffer".
+func (this WebGL2RenderingContext) FuncReadBuffer() (fn js.Func[func(src GLenum)]) {
+	bindings.FuncWebGL2RenderingContextReadBuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ReadBuffer calls the method "WebGL2RenderingContext.readBuffer".
 func (this WebGL2RenderingContext) ReadBuffer(src GLenum) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextReadBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(src),
 	)
 
@@ -10366,33 +10171,32 @@ func (this WebGL2RenderingContext) ReadBuffer(src GLenum) (ret js.Void) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryReadBuffer(src GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextReadBuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(src),
 	)
 
 	return
 }
 
-// HasGetInternalformatParameter returns true if the method "WebGL2RenderingContext.getInternalformatParameter" exists.
-func (this WebGL2RenderingContext) HasGetInternalformatParameter() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetInternalformatParameter(
-		this.Ref(),
+// HasFuncGetInternalformatParameter returns true if the method "WebGL2RenderingContext.getInternalformatParameter" exists.
+func (this WebGL2RenderingContext) HasFuncGetInternalformatParameter() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetInternalformatParameter(
+		this.ref,
 	)
 }
 
-// GetInternalformatParameterFunc returns the method "WebGL2RenderingContext.getInternalformatParameter".
-func (this WebGL2RenderingContext) GetInternalformatParameterFunc() (fn js.Func[func(target GLenum, internalformat GLenum, pname GLenum) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetInternalformatParameterFunc(
-			this.Ref(),
-		),
+// FuncGetInternalformatParameter returns the method "WebGL2RenderingContext.getInternalformatParameter".
+func (this WebGL2RenderingContext) FuncGetInternalformatParameter() (fn js.Func[func(target GLenum, internalformat GLenum, pname GLenum) js.Any]) {
+	bindings.FuncWebGL2RenderingContextGetInternalformatParameter(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetInternalformatParameter calls the method "WebGL2RenderingContext.getInternalformatParameter".
 func (this WebGL2RenderingContext) GetInternalformatParameter(target GLenum, internalformat GLenum, pname GLenum) (ret js.Any) {
 	bindings.CallWebGL2RenderingContextGetInternalformatParameter(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(internalformat),
 		uint32(pname),
@@ -10406,7 +10210,7 @@ func (this WebGL2RenderingContext) GetInternalformatParameter(target GLenum, int
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetInternalformatParameter(target GLenum, internalformat GLenum, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetInternalformatParameter(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(internalformat),
 		uint32(pname),
@@ -10415,26 +10219,25 @@ func (this WebGL2RenderingContext) TryGetInternalformatParameter(target GLenum, 
 	return
 }
 
-// HasRenderbufferStorageMultisample returns true if the method "WebGL2RenderingContext.renderbufferStorageMultisample" exists.
-func (this WebGL2RenderingContext) HasRenderbufferStorageMultisample() bool {
-	return js.True == bindings.HasWebGL2RenderingContextRenderbufferStorageMultisample(
-		this.Ref(),
+// HasFuncRenderbufferStorageMultisample returns true if the method "WebGL2RenderingContext.renderbufferStorageMultisample" exists.
+func (this WebGL2RenderingContext) HasFuncRenderbufferStorageMultisample() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextRenderbufferStorageMultisample(
+		this.ref,
 	)
 }
 
-// RenderbufferStorageMultisampleFunc returns the method "WebGL2RenderingContext.renderbufferStorageMultisample".
-func (this WebGL2RenderingContext) RenderbufferStorageMultisampleFunc() (fn js.Func[func(target GLenum, samples GLsizei, internalformat GLenum, width GLsizei, height GLsizei)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextRenderbufferStorageMultisampleFunc(
-			this.Ref(),
-		),
+// FuncRenderbufferStorageMultisample returns the method "WebGL2RenderingContext.renderbufferStorageMultisample".
+func (this WebGL2RenderingContext) FuncRenderbufferStorageMultisample() (fn js.Func[func(target GLenum, samples GLsizei, internalformat GLenum, width GLsizei, height GLsizei)]) {
+	bindings.FuncWebGL2RenderingContextRenderbufferStorageMultisample(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RenderbufferStorageMultisample calls the method "WebGL2RenderingContext.renderbufferStorageMultisample".
 func (this WebGL2RenderingContext) RenderbufferStorageMultisample(target GLenum, samples GLsizei, internalformat GLenum, width GLsizei, height GLsizei) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextRenderbufferStorageMultisample(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(samples),
 		uint32(internalformat),
@@ -10450,7 +10253,7 @@ func (this WebGL2RenderingContext) RenderbufferStorageMultisample(target GLenum,
 // the catch clause.
 func (this WebGL2RenderingContext) TryRenderbufferStorageMultisample(target GLenum, samples GLsizei, internalformat GLenum, width GLsizei, height GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextRenderbufferStorageMultisample(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(samples),
 		uint32(internalformat),
@@ -10461,26 +10264,25 @@ func (this WebGL2RenderingContext) TryRenderbufferStorageMultisample(target GLen
 	return
 }
 
-// HasTexStorage2D returns true if the method "WebGL2RenderingContext.texStorage2D" exists.
-func (this WebGL2RenderingContext) HasTexStorage2D() bool {
-	return js.True == bindings.HasWebGL2RenderingContextTexStorage2D(
-		this.Ref(),
+// HasFuncTexStorage2D returns true if the method "WebGL2RenderingContext.texStorage2D" exists.
+func (this WebGL2RenderingContext) HasFuncTexStorage2D() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextTexStorage2D(
+		this.ref,
 	)
 }
 
-// TexStorage2DFunc returns the method "WebGL2RenderingContext.texStorage2D".
-func (this WebGL2RenderingContext) TexStorage2DFunc() (fn js.Func[func(target GLenum, levels GLsizei, internalformat GLenum, width GLsizei, height GLsizei)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextTexStorage2DFunc(
-			this.Ref(),
-		),
+// FuncTexStorage2D returns the method "WebGL2RenderingContext.texStorage2D".
+func (this WebGL2RenderingContext) FuncTexStorage2D() (fn js.Func[func(target GLenum, levels GLsizei, internalformat GLenum, width GLsizei, height GLsizei)]) {
+	bindings.FuncWebGL2RenderingContextTexStorage2D(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexStorage2D calls the method "WebGL2RenderingContext.texStorage2D".
 func (this WebGL2RenderingContext) TexStorage2D(target GLenum, levels GLsizei, internalformat GLenum, width GLsizei, height GLsizei) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextTexStorage2D(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(levels),
 		uint32(internalformat),
@@ -10496,7 +10298,7 @@ func (this WebGL2RenderingContext) TexStorage2D(target GLenum, levels GLsizei, i
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexStorage2D(target GLenum, levels GLsizei, internalformat GLenum, width GLsizei, height GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexStorage2D(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(levels),
 		uint32(internalformat),
@@ -10507,26 +10309,25 @@ func (this WebGL2RenderingContext) TryTexStorage2D(target GLenum, levels GLsizei
 	return
 }
 
-// HasTexStorage3D returns true if the method "WebGL2RenderingContext.texStorage3D" exists.
-func (this WebGL2RenderingContext) HasTexStorage3D() bool {
-	return js.True == bindings.HasWebGL2RenderingContextTexStorage3D(
-		this.Ref(),
+// HasFuncTexStorage3D returns true if the method "WebGL2RenderingContext.texStorage3D" exists.
+func (this WebGL2RenderingContext) HasFuncTexStorage3D() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextTexStorage3D(
+		this.ref,
 	)
 }
 
-// TexStorage3DFunc returns the method "WebGL2RenderingContext.texStorage3D".
-func (this WebGL2RenderingContext) TexStorage3DFunc() (fn js.Func[func(target GLenum, levels GLsizei, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextTexStorage3DFunc(
-			this.Ref(),
-		),
+// FuncTexStorage3D returns the method "WebGL2RenderingContext.texStorage3D".
+func (this WebGL2RenderingContext) FuncTexStorage3D() (fn js.Func[func(target GLenum, levels GLsizei, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei)]) {
+	bindings.FuncWebGL2RenderingContextTexStorage3D(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexStorage3D calls the method "WebGL2RenderingContext.texStorage3D".
 func (this WebGL2RenderingContext) TexStorage3D(target GLenum, levels GLsizei, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextTexStorage3D(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(levels),
 		uint32(internalformat),
@@ -10543,7 +10344,7 @@ func (this WebGL2RenderingContext) TexStorage3D(target GLenum, levels GLsizei, i
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexStorage3D(target GLenum, levels GLsizei, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexStorage3D(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(levels),
 		uint32(internalformat),
@@ -10555,26 +10356,25 @@ func (this WebGL2RenderingContext) TryTexStorage3D(target GLenum, levels GLsizei
 	return
 }
 
-// HasTexImage3D returns true if the method "WebGL2RenderingContext.texImage3D" exists.
-func (this WebGL2RenderingContext) HasTexImage3D() bool {
-	return js.True == bindings.HasWebGL2RenderingContextTexImage3D(
-		this.Ref(),
+// HasFuncTexImage3D returns true if the method "WebGL2RenderingContext.texImage3D" exists.
+func (this WebGL2RenderingContext) HasFuncTexImage3D() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextTexImage3D(
+		this.ref,
 	)
 }
 
-// TexImage3DFunc returns the method "WebGL2RenderingContext.texImage3D".
-func (this WebGL2RenderingContext) TexImage3DFunc() (fn js.Func[func(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, depth GLsizei, border GLint, format GLenum, typ GLenum, pboOffset GLintptr)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextTexImage3DFunc(
-			this.Ref(),
-		),
+// FuncTexImage3D returns the method "WebGL2RenderingContext.texImage3D".
+func (this WebGL2RenderingContext) FuncTexImage3D() (fn js.Func[func(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, depth GLsizei, border GLint, format GLenum, typ GLenum, pboOffset GLintptr)]) {
+	bindings.FuncWebGL2RenderingContextTexImage3D(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexImage3D calls the method "WebGL2RenderingContext.texImage3D".
 func (this WebGL2RenderingContext) TexImage3D(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, depth GLsizei, border GLint, format GLenum, typ GLenum, pboOffset GLintptr) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextTexImage3D(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(internalformat),
@@ -10595,7 +10395,7 @@ func (this WebGL2RenderingContext) TexImage3D(target GLenum, level GLint, intern
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexImage3D(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, depth GLsizei, border GLint, format GLenum, typ GLenum, pboOffset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexImage3D(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(internalformat),
@@ -10611,26 +10411,25 @@ func (this WebGL2RenderingContext) TryTexImage3D(target GLenum, level GLint, int
 	return
 }
 
-// HasTexImage3D1 returns true if the method "WebGL2RenderingContext.texImage3D" exists.
-func (this WebGL2RenderingContext) HasTexImage3D1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextTexImage3D1(
-		this.Ref(),
+// HasFuncTexImage3D1 returns true if the method "WebGL2RenderingContext.texImage3D" exists.
+func (this WebGL2RenderingContext) HasFuncTexImage3D1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextTexImage3D1(
+		this.ref,
 	)
 }
 
-// TexImage3D1Func returns the method "WebGL2RenderingContext.texImage3D".
-func (this WebGL2RenderingContext) TexImage3D1Func() (fn js.Func[func(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, depth GLsizei, border GLint, format GLenum, typ GLenum, source TexImageSource)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextTexImage3D1Func(
-			this.Ref(),
-		),
+// FuncTexImage3D1 returns the method "WebGL2RenderingContext.texImage3D".
+func (this WebGL2RenderingContext) FuncTexImage3D1() (fn js.Func[func(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, depth GLsizei, border GLint, format GLenum, typ GLenum, source TexImageSource)]) {
+	bindings.FuncWebGL2RenderingContextTexImage3D1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexImage3D1 calls the method "WebGL2RenderingContext.texImage3D".
 func (this WebGL2RenderingContext) TexImage3D1(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, depth GLsizei, border GLint, format GLenum, typ GLenum, source TexImageSource) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextTexImage3D1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(internalformat),
@@ -10651,7 +10450,7 @@ func (this WebGL2RenderingContext) TexImage3D1(target GLenum, level GLint, inter
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexImage3D1(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, depth GLsizei, border GLint, format GLenum, typ GLenum, source TexImageSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexImage3D1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(internalformat),
@@ -10667,26 +10466,25 @@ func (this WebGL2RenderingContext) TryTexImage3D1(target GLenum, level GLint, in
 	return
 }
 
-// HasTexImage3D2 returns true if the method "WebGL2RenderingContext.texImage3D" exists.
-func (this WebGL2RenderingContext) HasTexImage3D2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextTexImage3D2(
-		this.Ref(),
+// HasFuncTexImage3D2 returns true if the method "WebGL2RenderingContext.texImage3D" exists.
+func (this WebGL2RenderingContext) HasFuncTexImage3D2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextTexImage3D2(
+		this.ref,
 	)
 }
 
-// TexImage3D2Func returns the method "WebGL2RenderingContext.texImage3D".
-func (this WebGL2RenderingContext) TexImage3D2Func() (fn js.Func[func(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, depth GLsizei, border GLint, format GLenum, typ GLenum, srcData js.ArrayBufferView)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextTexImage3D2Func(
-			this.Ref(),
-		),
+// FuncTexImage3D2 returns the method "WebGL2RenderingContext.texImage3D".
+func (this WebGL2RenderingContext) FuncTexImage3D2() (fn js.Func[func(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, depth GLsizei, border GLint, format GLenum, typ GLenum, srcData js.ArrayBufferView)]) {
+	bindings.FuncWebGL2RenderingContextTexImage3D2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexImage3D2 calls the method "WebGL2RenderingContext.texImage3D".
 func (this WebGL2RenderingContext) TexImage3D2(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, depth GLsizei, border GLint, format GLenum, typ GLenum, srcData js.ArrayBufferView) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextTexImage3D2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(internalformat),
@@ -10707,7 +10505,7 @@ func (this WebGL2RenderingContext) TexImage3D2(target GLenum, level GLint, inter
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexImage3D2(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, depth GLsizei, border GLint, format GLenum, typ GLenum, srcData js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexImage3D2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(internalformat),
@@ -10723,26 +10521,25 @@ func (this WebGL2RenderingContext) TryTexImage3D2(target GLenum, level GLint, in
 	return
 }
 
-// HasTexImage3D3 returns true if the method "WebGL2RenderingContext.texImage3D" exists.
-func (this WebGL2RenderingContext) HasTexImage3D3() bool {
-	return js.True == bindings.HasWebGL2RenderingContextTexImage3D3(
-		this.Ref(),
+// HasFuncTexImage3D3 returns true if the method "WebGL2RenderingContext.texImage3D" exists.
+func (this WebGL2RenderingContext) HasFuncTexImage3D3() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextTexImage3D3(
+		this.ref,
 	)
 }
 
-// TexImage3D3Func returns the method "WebGL2RenderingContext.texImage3D".
-func (this WebGL2RenderingContext) TexImage3D3Func() (fn js.Func[func(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, depth GLsizei, border GLint, format GLenum, typ GLenum, srcData js.ArrayBufferView, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextTexImage3D3Func(
-			this.Ref(),
-		),
+// FuncTexImage3D3 returns the method "WebGL2RenderingContext.texImage3D".
+func (this WebGL2RenderingContext) FuncTexImage3D3() (fn js.Func[func(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, depth GLsizei, border GLint, format GLenum, typ GLenum, srcData js.ArrayBufferView, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextTexImage3D3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexImage3D3 calls the method "WebGL2RenderingContext.texImage3D".
 func (this WebGL2RenderingContext) TexImage3D3(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, depth GLsizei, border GLint, format GLenum, typ GLenum, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextTexImage3D3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(internalformat),
@@ -10764,7 +10561,7 @@ func (this WebGL2RenderingContext) TexImage3D3(target GLenum, level GLint, inter
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexImage3D3(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, depth GLsizei, border GLint, format GLenum, typ GLenum, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexImage3D3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(internalformat),
@@ -10781,26 +10578,25 @@ func (this WebGL2RenderingContext) TryTexImage3D3(target GLenum, level GLint, in
 	return
 }
 
-// HasTexSubImage3D returns true if the method "WebGL2RenderingContext.texSubImage3D" exists.
-func (this WebGL2RenderingContext) HasTexSubImage3D() bool {
-	return js.True == bindings.HasWebGL2RenderingContextTexSubImage3D(
-		this.Ref(),
+// HasFuncTexSubImage3D returns true if the method "WebGL2RenderingContext.texSubImage3D" exists.
+func (this WebGL2RenderingContext) HasFuncTexSubImage3D() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextTexSubImage3D(
+		this.ref,
 	)
 }
 
-// TexSubImage3DFunc returns the method "WebGL2RenderingContext.texSubImage3D".
-func (this WebGL2RenderingContext) TexSubImage3DFunc() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, typ GLenum, pboOffset GLintptr)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextTexSubImage3DFunc(
-			this.Ref(),
-		),
+// FuncTexSubImage3D returns the method "WebGL2RenderingContext.texSubImage3D".
+func (this WebGL2RenderingContext) FuncTexSubImage3D() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, typ GLenum, pboOffset GLintptr)]) {
+	bindings.FuncWebGL2RenderingContextTexSubImage3D(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexSubImage3D calls the method "WebGL2RenderingContext.texSubImage3D".
 func (this WebGL2RenderingContext) TexSubImage3D(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, typ GLenum, pboOffset GLintptr) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextTexSubImage3D(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -10822,7 +10618,7 @@ func (this WebGL2RenderingContext) TexSubImage3D(target GLenum, level GLint, xof
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexSubImage3D(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, typ GLenum, pboOffset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexSubImage3D(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -10839,26 +10635,25 @@ func (this WebGL2RenderingContext) TryTexSubImage3D(target GLenum, level GLint, 
 	return
 }
 
-// HasTexSubImage3D1 returns true if the method "WebGL2RenderingContext.texSubImage3D" exists.
-func (this WebGL2RenderingContext) HasTexSubImage3D1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextTexSubImage3D1(
-		this.Ref(),
+// HasFuncTexSubImage3D1 returns true if the method "WebGL2RenderingContext.texSubImage3D" exists.
+func (this WebGL2RenderingContext) HasFuncTexSubImage3D1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextTexSubImage3D1(
+		this.ref,
 	)
 }
 
-// TexSubImage3D1Func returns the method "WebGL2RenderingContext.texSubImage3D".
-func (this WebGL2RenderingContext) TexSubImage3D1Func() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, typ GLenum, source TexImageSource)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextTexSubImage3D1Func(
-			this.Ref(),
-		),
+// FuncTexSubImage3D1 returns the method "WebGL2RenderingContext.texSubImage3D".
+func (this WebGL2RenderingContext) FuncTexSubImage3D1() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, typ GLenum, source TexImageSource)]) {
+	bindings.FuncWebGL2RenderingContextTexSubImage3D1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexSubImage3D1 calls the method "WebGL2RenderingContext.texSubImage3D".
 func (this WebGL2RenderingContext) TexSubImage3D1(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, typ GLenum, source TexImageSource) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextTexSubImage3D1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -10880,7 +10675,7 @@ func (this WebGL2RenderingContext) TexSubImage3D1(target GLenum, level GLint, xo
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexSubImage3D1(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, typ GLenum, source TexImageSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexSubImage3D1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -10897,26 +10692,25 @@ func (this WebGL2RenderingContext) TryTexSubImage3D1(target GLenum, level GLint,
 	return
 }
 
-// HasTexSubImage3D2 returns true if the method "WebGL2RenderingContext.texSubImage3D" exists.
-func (this WebGL2RenderingContext) HasTexSubImage3D2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextTexSubImage3D2(
-		this.Ref(),
+// HasFuncTexSubImage3D2 returns true if the method "WebGL2RenderingContext.texSubImage3D" exists.
+func (this WebGL2RenderingContext) HasFuncTexSubImage3D2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextTexSubImage3D2(
+		this.ref,
 	)
 }
 
-// TexSubImage3D2Func returns the method "WebGL2RenderingContext.texSubImage3D".
-func (this WebGL2RenderingContext) TexSubImage3D2Func() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, typ GLenum, srcData js.ArrayBufferView, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextTexSubImage3D2Func(
-			this.Ref(),
-		),
+// FuncTexSubImage3D2 returns the method "WebGL2RenderingContext.texSubImage3D".
+func (this WebGL2RenderingContext) FuncTexSubImage3D2() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, typ GLenum, srcData js.ArrayBufferView, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextTexSubImage3D2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexSubImage3D2 calls the method "WebGL2RenderingContext.texSubImage3D".
 func (this WebGL2RenderingContext) TexSubImage3D2(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, typ GLenum, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextTexSubImage3D2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -10939,7 +10733,7 @@ func (this WebGL2RenderingContext) TexSubImage3D2(target GLenum, level GLint, xo
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexSubImage3D2(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, typ GLenum, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexSubImage3D2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -10957,26 +10751,25 @@ func (this WebGL2RenderingContext) TryTexSubImage3D2(target GLenum, level GLint,
 	return
 }
 
-// HasTexSubImage3D3 returns true if the method "WebGL2RenderingContext.texSubImage3D" exists.
-func (this WebGL2RenderingContext) HasTexSubImage3D3() bool {
-	return js.True == bindings.HasWebGL2RenderingContextTexSubImage3D3(
-		this.Ref(),
+// HasFuncTexSubImage3D3 returns true if the method "WebGL2RenderingContext.texSubImage3D" exists.
+func (this WebGL2RenderingContext) HasFuncTexSubImage3D3() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextTexSubImage3D3(
+		this.ref,
 	)
 }
 
-// TexSubImage3D3Func returns the method "WebGL2RenderingContext.texSubImage3D".
-func (this WebGL2RenderingContext) TexSubImage3D3Func() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, typ GLenum, srcData js.ArrayBufferView)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextTexSubImage3D3Func(
-			this.Ref(),
-		),
+// FuncTexSubImage3D3 returns the method "WebGL2RenderingContext.texSubImage3D".
+func (this WebGL2RenderingContext) FuncTexSubImage3D3() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, typ GLenum, srcData js.ArrayBufferView)]) {
+	bindings.FuncWebGL2RenderingContextTexSubImage3D3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexSubImage3D3 calls the method "WebGL2RenderingContext.texSubImage3D".
 func (this WebGL2RenderingContext) TexSubImage3D3(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, typ GLenum, srcData js.ArrayBufferView) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextTexSubImage3D3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -10998,7 +10791,7 @@ func (this WebGL2RenderingContext) TexSubImage3D3(target GLenum, level GLint, xo
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexSubImage3D3(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, typ GLenum, srcData js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexSubImage3D3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -11015,26 +10808,25 @@ func (this WebGL2RenderingContext) TryTexSubImage3D3(target GLenum, level GLint,
 	return
 }
 
-// HasCopyTexSubImage3D returns true if the method "WebGL2RenderingContext.copyTexSubImage3D" exists.
-func (this WebGL2RenderingContext) HasCopyTexSubImage3D() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCopyTexSubImage3D(
-		this.Ref(),
+// HasFuncCopyTexSubImage3D returns true if the method "WebGL2RenderingContext.copyTexSubImage3D" exists.
+func (this WebGL2RenderingContext) HasFuncCopyTexSubImage3D() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCopyTexSubImage3D(
+		this.ref,
 	)
 }
 
-// CopyTexSubImage3DFunc returns the method "WebGL2RenderingContext.copyTexSubImage3D".
-func (this WebGL2RenderingContext) CopyTexSubImage3DFunc() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, x GLint, y GLint, width GLsizei, height GLsizei)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCopyTexSubImage3DFunc(
-			this.Ref(),
-		),
+// FuncCopyTexSubImage3D returns the method "WebGL2RenderingContext.copyTexSubImage3D".
+func (this WebGL2RenderingContext) FuncCopyTexSubImage3D() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, x GLint, y GLint, width GLsizei, height GLsizei)]) {
+	bindings.FuncWebGL2RenderingContextCopyTexSubImage3D(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CopyTexSubImage3D calls the method "WebGL2RenderingContext.copyTexSubImage3D".
 func (this WebGL2RenderingContext) CopyTexSubImage3D(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, x GLint, y GLint, width GLsizei, height GLsizei) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextCopyTexSubImage3D(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -11054,7 +10846,7 @@ func (this WebGL2RenderingContext) CopyTexSubImage3D(target GLenum, level GLint,
 // the catch clause.
 func (this WebGL2RenderingContext) TryCopyTexSubImage3D(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, x GLint, y GLint, width GLsizei, height GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCopyTexSubImage3D(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -11069,26 +10861,25 @@ func (this WebGL2RenderingContext) TryCopyTexSubImage3D(target GLenum, level GLi
 	return
 }
 
-// HasCompressedTexImage3D returns true if the method "WebGL2RenderingContext.compressedTexImage3D" exists.
-func (this WebGL2RenderingContext) HasCompressedTexImage3D() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCompressedTexImage3D(
-		this.Ref(),
+// HasFuncCompressedTexImage3D returns true if the method "WebGL2RenderingContext.compressedTexImage3D" exists.
+func (this WebGL2RenderingContext) HasFuncCompressedTexImage3D() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCompressedTexImage3D(
+		this.ref,
 	)
 }
 
-// CompressedTexImage3DFunc returns the method "WebGL2RenderingContext.compressedTexImage3D".
-func (this WebGL2RenderingContext) CompressedTexImage3DFunc() (fn js.Func[func(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei, border GLint, imageSize GLsizei, offset GLintptr)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCompressedTexImage3DFunc(
-			this.Ref(),
-		),
+// FuncCompressedTexImage3D returns the method "WebGL2RenderingContext.compressedTexImage3D".
+func (this WebGL2RenderingContext) FuncCompressedTexImage3D() (fn js.Func[func(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei, border GLint, imageSize GLsizei, offset GLintptr)]) {
+	bindings.FuncWebGL2RenderingContextCompressedTexImage3D(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CompressedTexImage3D calls the method "WebGL2RenderingContext.compressedTexImage3D".
 func (this WebGL2RenderingContext) CompressedTexImage3D(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei, border GLint, imageSize GLsizei, offset GLintptr) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextCompressedTexImage3D(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		uint32(internalformat),
@@ -11108,7 +10899,7 @@ func (this WebGL2RenderingContext) CompressedTexImage3D(target GLenum, level GLi
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexImage3D(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei, border GLint, imageSize GLsizei, offset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexImage3D(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		uint32(internalformat),
@@ -11123,26 +10914,25 @@ func (this WebGL2RenderingContext) TryCompressedTexImage3D(target GLenum, level 
 	return
 }
 
-// HasCompressedTexImage3D1 returns true if the method "WebGL2RenderingContext.compressedTexImage3D" exists.
-func (this WebGL2RenderingContext) HasCompressedTexImage3D1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCompressedTexImage3D1(
-		this.Ref(),
+// HasFuncCompressedTexImage3D1 returns true if the method "WebGL2RenderingContext.compressedTexImage3D" exists.
+func (this WebGL2RenderingContext) HasFuncCompressedTexImage3D1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCompressedTexImage3D1(
+		this.ref,
 	)
 }
 
-// CompressedTexImage3D1Func returns the method "WebGL2RenderingContext.compressedTexImage3D".
-func (this WebGL2RenderingContext) CompressedTexImage3D1Func() (fn js.Func[func(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei, border GLint, srcData js.ArrayBufferView, srcOffset GLuint, srcLengthOverride GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCompressedTexImage3D1Func(
-			this.Ref(),
-		),
+// FuncCompressedTexImage3D1 returns the method "WebGL2RenderingContext.compressedTexImage3D".
+func (this WebGL2RenderingContext) FuncCompressedTexImage3D1() (fn js.Func[func(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei, border GLint, srcData js.ArrayBufferView, srcOffset GLuint, srcLengthOverride GLuint)]) {
+	bindings.FuncWebGL2RenderingContextCompressedTexImage3D1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CompressedTexImage3D1 calls the method "WebGL2RenderingContext.compressedTexImage3D".
 func (this WebGL2RenderingContext) CompressedTexImage3D1(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei, border GLint, srcData js.ArrayBufferView, srcOffset GLuint, srcLengthOverride GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextCompressedTexImage3D1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		uint32(internalformat),
@@ -11163,7 +10953,7 @@ func (this WebGL2RenderingContext) CompressedTexImage3D1(target GLenum, level GL
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexImage3D1(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei, border GLint, srcData js.ArrayBufferView, srcOffset GLuint, srcLengthOverride GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexImage3D1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		uint32(internalformat),
@@ -11179,26 +10969,25 @@ func (this WebGL2RenderingContext) TryCompressedTexImage3D1(target GLenum, level
 	return
 }
 
-// HasCompressedTexImage3D2 returns true if the method "WebGL2RenderingContext.compressedTexImage3D" exists.
-func (this WebGL2RenderingContext) HasCompressedTexImage3D2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCompressedTexImage3D2(
-		this.Ref(),
+// HasFuncCompressedTexImage3D2 returns true if the method "WebGL2RenderingContext.compressedTexImage3D" exists.
+func (this WebGL2RenderingContext) HasFuncCompressedTexImage3D2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCompressedTexImage3D2(
+		this.ref,
 	)
 }
 
-// CompressedTexImage3D2Func returns the method "WebGL2RenderingContext.compressedTexImage3D".
-func (this WebGL2RenderingContext) CompressedTexImage3D2Func() (fn js.Func[func(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei, border GLint, srcData js.ArrayBufferView, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCompressedTexImage3D2Func(
-			this.Ref(),
-		),
+// FuncCompressedTexImage3D2 returns the method "WebGL2RenderingContext.compressedTexImage3D".
+func (this WebGL2RenderingContext) FuncCompressedTexImage3D2() (fn js.Func[func(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei, border GLint, srcData js.ArrayBufferView, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextCompressedTexImage3D2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CompressedTexImage3D2 calls the method "WebGL2RenderingContext.compressedTexImage3D".
 func (this WebGL2RenderingContext) CompressedTexImage3D2(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei, border GLint, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextCompressedTexImage3D2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		uint32(internalformat),
@@ -11218,7 +11007,7 @@ func (this WebGL2RenderingContext) CompressedTexImage3D2(target GLenum, level GL
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexImage3D2(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei, border GLint, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexImage3D2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		uint32(internalformat),
@@ -11233,26 +11022,25 @@ func (this WebGL2RenderingContext) TryCompressedTexImage3D2(target GLenum, level
 	return
 }
 
-// HasCompressedTexImage3D3 returns true if the method "WebGL2RenderingContext.compressedTexImage3D" exists.
-func (this WebGL2RenderingContext) HasCompressedTexImage3D3() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCompressedTexImage3D3(
-		this.Ref(),
+// HasFuncCompressedTexImage3D3 returns true if the method "WebGL2RenderingContext.compressedTexImage3D" exists.
+func (this WebGL2RenderingContext) HasFuncCompressedTexImage3D3() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCompressedTexImage3D3(
+		this.ref,
 	)
 }
 
-// CompressedTexImage3D3Func returns the method "WebGL2RenderingContext.compressedTexImage3D".
-func (this WebGL2RenderingContext) CompressedTexImage3D3Func() (fn js.Func[func(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei, border GLint, srcData js.ArrayBufferView)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCompressedTexImage3D3Func(
-			this.Ref(),
-		),
+// FuncCompressedTexImage3D3 returns the method "WebGL2RenderingContext.compressedTexImage3D".
+func (this WebGL2RenderingContext) FuncCompressedTexImage3D3() (fn js.Func[func(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei, border GLint, srcData js.ArrayBufferView)]) {
+	bindings.FuncWebGL2RenderingContextCompressedTexImage3D3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CompressedTexImage3D3 calls the method "WebGL2RenderingContext.compressedTexImage3D".
 func (this WebGL2RenderingContext) CompressedTexImage3D3(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei, border GLint, srcData js.ArrayBufferView) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextCompressedTexImage3D3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		uint32(internalformat),
@@ -11271,7 +11059,7 @@ func (this WebGL2RenderingContext) CompressedTexImage3D3(target GLenum, level GL
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexImage3D3(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei, border GLint, srcData js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexImage3D3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		uint32(internalformat),
@@ -11285,26 +11073,25 @@ func (this WebGL2RenderingContext) TryCompressedTexImage3D3(target GLenum, level
 	return
 }
 
-// HasCompressedTexSubImage3D returns true if the method "WebGL2RenderingContext.compressedTexSubImage3D" exists.
-func (this WebGL2RenderingContext) HasCompressedTexSubImage3D() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCompressedTexSubImage3D(
-		this.Ref(),
+// HasFuncCompressedTexSubImage3D returns true if the method "WebGL2RenderingContext.compressedTexSubImage3D" exists.
+func (this WebGL2RenderingContext) HasFuncCompressedTexSubImage3D() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCompressedTexSubImage3D(
+		this.ref,
 	)
 }
 
-// CompressedTexSubImage3DFunc returns the method "WebGL2RenderingContext.compressedTexSubImage3D".
-func (this WebGL2RenderingContext) CompressedTexSubImage3DFunc() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, imageSize GLsizei, offset GLintptr)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCompressedTexSubImage3DFunc(
-			this.Ref(),
-		),
+// FuncCompressedTexSubImage3D returns the method "WebGL2RenderingContext.compressedTexSubImage3D".
+func (this WebGL2RenderingContext) FuncCompressedTexSubImage3D() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, imageSize GLsizei, offset GLintptr)]) {
+	bindings.FuncWebGL2RenderingContextCompressedTexSubImage3D(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CompressedTexSubImage3D calls the method "WebGL2RenderingContext.compressedTexSubImage3D".
 func (this WebGL2RenderingContext) CompressedTexSubImage3D(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, imageSize GLsizei, offset GLintptr) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextCompressedTexSubImage3D(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -11326,7 +11113,7 @@ func (this WebGL2RenderingContext) CompressedTexSubImage3D(target GLenum, level 
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexSubImage3D(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, imageSize GLsizei, offset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexSubImage3D(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -11343,26 +11130,25 @@ func (this WebGL2RenderingContext) TryCompressedTexSubImage3D(target GLenum, lev
 	return
 }
 
-// HasCompressedTexSubImage3D1 returns true if the method "WebGL2RenderingContext.compressedTexSubImage3D" exists.
-func (this WebGL2RenderingContext) HasCompressedTexSubImage3D1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCompressedTexSubImage3D1(
-		this.Ref(),
+// HasFuncCompressedTexSubImage3D1 returns true if the method "WebGL2RenderingContext.compressedTexSubImage3D" exists.
+func (this WebGL2RenderingContext) HasFuncCompressedTexSubImage3D1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCompressedTexSubImage3D1(
+		this.ref,
 	)
 }
 
-// CompressedTexSubImage3D1Func returns the method "WebGL2RenderingContext.compressedTexSubImage3D".
-func (this WebGL2RenderingContext) CompressedTexSubImage3D1Func() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, srcData js.ArrayBufferView, srcOffset GLuint, srcLengthOverride GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCompressedTexSubImage3D1Func(
-			this.Ref(),
-		),
+// FuncCompressedTexSubImage3D1 returns the method "WebGL2RenderingContext.compressedTexSubImage3D".
+func (this WebGL2RenderingContext) FuncCompressedTexSubImage3D1() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, srcData js.ArrayBufferView, srcOffset GLuint, srcLengthOverride GLuint)]) {
+	bindings.FuncWebGL2RenderingContextCompressedTexSubImage3D1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CompressedTexSubImage3D1 calls the method "WebGL2RenderingContext.compressedTexSubImage3D".
 func (this WebGL2RenderingContext) CompressedTexSubImage3D1(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, srcData js.ArrayBufferView, srcOffset GLuint, srcLengthOverride GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextCompressedTexSubImage3D1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -11385,7 +11171,7 @@ func (this WebGL2RenderingContext) CompressedTexSubImage3D1(target GLenum, level
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexSubImage3D1(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, srcData js.ArrayBufferView, srcOffset GLuint, srcLengthOverride GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexSubImage3D1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -11403,26 +11189,25 @@ func (this WebGL2RenderingContext) TryCompressedTexSubImage3D1(target GLenum, le
 	return
 }
 
-// HasCompressedTexSubImage3D2 returns true if the method "WebGL2RenderingContext.compressedTexSubImage3D" exists.
-func (this WebGL2RenderingContext) HasCompressedTexSubImage3D2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCompressedTexSubImage3D2(
-		this.Ref(),
+// HasFuncCompressedTexSubImage3D2 returns true if the method "WebGL2RenderingContext.compressedTexSubImage3D" exists.
+func (this WebGL2RenderingContext) HasFuncCompressedTexSubImage3D2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCompressedTexSubImage3D2(
+		this.ref,
 	)
 }
 
-// CompressedTexSubImage3D2Func returns the method "WebGL2RenderingContext.compressedTexSubImage3D".
-func (this WebGL2RenderingContext) CompressedTexSubImage3D2Func() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, srcData js.ArrayBufferView, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCompressedTexSubImage3D2Func(
-			this.Ref(),
-		),
+// FuncCompressedTexSubImage3D2 returns the method "WebGL2RenderingContext.compressedTexSubImage3D".
+func (this WebGL2RenderingContext) FuncCompressedTexSubImage3D2() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, srcData js.ArrayBufferView, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextCompressedTexSubImage3D2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CompressedTexSubImage3D2 calls the method "WebGL2RenderingContext.compressedTexSubImage3D".
 func (this WebGL2RenderingContext) CompressedTexSubImage3D2(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextCompressedTexSubImage3D2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -11444,7 +11229,7 @@ func (this WebGL2RenderingContext) CompressedTexSubImage3D2(target GLenum, level
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexSubImage3D2(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexSubImage3D2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -11461,26 +11246,25 @@ func (this WebGL2RenderingContext) TryCompressedTexSubImage3D2(target GLenum, le
 	return
 }
 
-// HasCompressedTexSubImage3D3 returns true if the method "WebGL2RenderingContext.compressedTexSubImage3D" exists.
-func (this WebGL2RenderingContext) HasCompressedTexSubImage3D3() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCompressedTexSubImage3D3(
-		this.Ref(),
+// HasFuncCompressedTexSubImage3D3 returns true if the method "WebGL2RenderingContext.compressedTexSubImage3D" exists.
+func (this WebGL2RenderingContext) HasFuncCompressedTexSubImage3D3() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCompressedTexSubImage3D3(
+		this.ref,
 	)
 }
 
-// CompressedTexSubImage3D3Func returns the method "WebGL2RenderingContext.compressedTexSubImage3D".
-func (this WebGL2RenderingContext) CompressedTexSubImage3D3Func() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, srcData js.ArrayBufferView)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCompressedTexSubImage3D3Func(
-			this.Ref(),
-		),
+// FuncCompressedTexSubImage3D3 returns the method "WebGL2RenderingContext.compressedTexSubImage3D".
+func (this WebGL2RenderingContext) FuncCompressedTexSubImage3D3() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, srcData js.ArrayBufferView)]) {
+	bindings.FuncWebGL2RenderingContextCompressedTexSubImage3D3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CompressedTexSubImage3D3 calls the method "WebGL2RenderingContext.compressedTexSubImage3D".
 func (this WebGL2RenderingContext) CompressedTexSubImage3D3(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, srcData js.ArrayBufferView) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextCompressedTexSubImage3D3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -11501,7 +11285,7 @@ func (this WebGL2RenderingContext) CompressedTexSubImage3D3(target GLenum, level
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexSubImage3D3(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, srcData js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexSubImage3D3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -11517,26 +11301,25 @@ func (this WebGL2RenderingContext) TryCompressedTexSubImage3D3(target GLenum, le
 	return
 }
 
-// HasGetFragDataLocation returns true if the method "WebGL2RenderingContext.getFragDataLocation" exists.
-func (this WebGL2RenderingContext) HasGetFragDataLocation() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetFragDataLocation(
-		this.Ref(),
+// HasFuncGetFragDataLocation returns true if the method "WebGL2RenderingContext.getFragDataLocation" exists.
+func (this WebGL2RenderingContext) HasFuncGetFragDataLocation() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetFragDataLocation(
+		this.ref,
 	)
 }
 
-// GetFragDataLocationFunc returns the method "WebGL2RenderingContext.getFragDataLocation".
-func (this WebGL2RenderingContext) GetFragDataLocationFunc() (fn js.Func[func(program WebGLProgram, name js.String) GLint]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetFragDataLocationFunc(
-			this.Ref(),
-		),
+// FuncGetFragDataLocation returns the method "WebGL2RenderingContext.getFragDataLocation".
+func (this WebGL2RenderingContext) FuncGetFragDataLocation() (fn js.Func[func(program WebGLProgram, name js.String) GLint]) {
+	bindings.FuncWebGL2RenderingContextGetFragDataLocation(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetFragDataLocation calls the method "WebGL2RenderingContext.getFragDataLocation".
 func (this WebGL2RenderingContext) GetFragDataLocation(program WebGLProgram, name js.String) (ret GLint) {
 	bindings.CallWebGL2RenderingContextGetFragDataLocation(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		name.Ref(),
 	)
@@ -11549,7 +11332,7 @@ func (this WebGL2RenderingContext) GetFragDataLocation(program WebGLProgram, nam
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetFragDataLocation(program WebGLProgram, name js.String) (ret GLint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetFragDataLocation(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		name.Ref(),
 	)
@@ -11557,26 +11340,25 @@ func (this WebGL2RenderingContext) TryGetFragDataLocation(program WebGLProgram, 
 	return
 }
 
-// HasUniform1ui returns true if the method "WebGL2RenderingContext.uniform1ui" exists.
-func (this WebGL2RenderingContext) HasUniform1ui() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform1ui(
-		this.Ref(),
+// HasFuncUniform1ui returns true if the method "WebGL2RenderingContext.uniform1ui" exists.
+func (this WebGL2RenderingContext) HasFuncUniform1ui() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform1ui(
+		this.ref,
 	)
 }
 
-// Uniform1uiFunc returns the method "WebGL2RenderingContext.uniform1ui".
-func (this WebGL2RenderingContext) Uniform1uiFunc() (fn js.Func[func(location WebGLUniformLocation, v0 GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform1uiFunc(
-			this.Ref(),
-		),
+// FuncUniform1ui returns the method "WebGL2RenderingContext.uniform1ui".
+func (this WebGL2RenderingContext) FuncUniform1ui() (fn js.Func[func(location WebGLUniformLocation, v0 GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform1ui(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform1ui calls the method "WebGL2RenderingContext.uniform1ui".
 func (this WebGL2RenderingContext) Uniform1ui(location WebGLUniformLocation, v0 GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform1ui(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		uint32(v0),
 	)
@@ -11589,7 +11371,7 @@ func (this WebGL2RenderingContext) Uniform1ui(location WebGLUniformLocation, v0 
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform1ui(location WebGLUniformLocation, v0 GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform1ui(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		uint32(v0),
 	)
@@ -11597,26 +11379,25 @@ func (this WebGL2RenderingContext) TryUniform1ui(location WebGLUniformLocation, 
 	return
 }
 
-// HasUniform2ui returns true if the method "WebGL2RenderingContext.uniform2ui" exists.
-func (this WebGL2RenderingContext) HasUniform2ui() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform2ui(
-		this.Ref(),
+// HasFuncUniform2ui returns true if the method "WebGL2RenderingContext.uniform2ui" exists.
+func (this WebGL2RenderingContext) HasFuncUniform2ui() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform2ui(
+		this.ref,
 	)
 }
 
-// Uniform2uiFunc returns the method "WebGL2RenderingContext.uniform2ui".
-func (this WebGL2RenderingContext) Uniform2uiFunc() (fn js.Func[func(location WebGLUniformLocation, v0 GLuint, v1 GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform2uiFunc(
-			this.Ref(),
-		),
+// FuncUniform2ui returns the method "WebGL2RenderingContext.uniform2ui".
+func (this WebGL2RenderingContext) FuncUniform2ui() (fn js.Func[func(location WebGLUniformLocation, v0 GLuint, v1 GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform2ui(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform2ui calls the method "WebGL2RenderingContext.uniform2ui".
 func (this WebGL2RenderingContext) Uniform2ui(location WebGLUniformLocation, v0 GLuint, v1 GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform2ui(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		uint32(v0),
 		uint32(v1),
@@ -11630,7 +11411,7 @@ func (this WebGL2RenderingContext) Uniform2ui(location WebGLUniformLocation, v0 
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform2ui(location WebGLUniformLocation, v0 GLuint, v1 GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform2ui(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		uint32(v0),
 		uint32(v1),
@@ -11639,26 +11420,25 @@ func (this WebGL2RenderingContext) TryUniform2ui(location WebGLUniformLocation, 
 	return
 }
 
-// HasUniform3ui returns true if the method "WebGL2RenderingContext.uniform3ui" exists.
-func (this WebGL2RenderingContext) HasUniform3ui() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform3ui(
-		this.Ref(),
+// HasFuncUniform3ui returns true if the method "WebGL2RenderingContext.uniform3ui" exists.
+func (this WebGL2RenderingContext) HasFuncUniform3ui() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform3ui(
+		this.ref,
 	)
 }
 
-// Uniform3uiFunc returns the method "WebGL2RenderingContext.uniform3ui".
-func (this WebGL2RenderingContext) Uniform3uiFunc() (fn js.Func[func(location WebGLUniformLocation, v0 GLuint, v1 GLuint, v2 GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform3uiFunc(
-			this.Ref(),
-		),
+// FuncUniform3ui returns the method "WebGL2RenderingContext.uniform3ui".
+func (this WebGL2RenderingContext) FuncUniform3ui() (fn js.Func[func(location WebGLUniformLocation, v0 GLuint, v1 GLuint, v2 GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform3ui(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform3ui calls the method "WebGL2RenderingContext.uniform3ui".
 func (this WebGL2RenderingContext) Uniform3ui(location WebGLUniformLocation, v0 GLuint, v1 GLuint, v2 GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform3ui(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		uint32(v0),
 		uint32(v1),
@@ -11673,7 +11453,7 @@ func (this WebGL2RenderingContext) Uniform3ui(location WebGLUniformLocation, v0 
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform3ui(location WebGLUniformLocation, v0 GLuint, v1 GLuint, v2 GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform3ui(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		uint32(v0),
 		uint32(v1),
@@ -11683,26 +11463,25 @@ func (this WebGL2RenderingContext) TryUniform3ui(location WebGLUniformLocation, 
 	return
 }
 
-// HasUniform4ui returns true if the method "WebGL2RenderingContext.uniform4ui" exists.
-func (this WebGL2RenderingContext) HasUniform4ui() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform4ui(
-		this.Ref(),
+// HasFuncUniform4ui returns true if the method "WebGL2RenderingContext.uniform4ui" exists.
+func (this WebGL2RenderingContext) HasFuncUniform4ui() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform4ui(
+		this.ref,
 	)
 }
 
-// Uniform4uiFunc returns the method "WebGL2RenderingContext.uniform4ui".
-func (this WebGL2RenderingContext) Uniform4uiFunc() (fn js.Func[func(location WebGLUniformLocation, v0 GLuint, v1 GLuint, v2 GLuint, v3 GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform4uiFunc(
-			this.Ref(),
-		),
+// FuncUniform4ui returns the method "WebGL2RenderingContext.uniform4ui".
+func (this WebGL2RenderingContext) FuncUniform4ui() (fn js.Func[func(location WebGLUniformLocation, v0 GLuint, v1 GLuint, v2 GLuint, v3 GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform4ui(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform4ui calls the method "WebGL2RenderingContext.uniform4ui".
 func (this WebGL2RenderingContext) Uniform4ui(location WebGLUniformLocation, v0 GLuint, v1 GLuint, v2 GLuint, v3 GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform4ui(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		uint32(v0),
 		uint32(v1),
@@ -11718,7 +11497,7 @@ func (this WebGL2RenderingContext) Uniform4ui(location WebGLUniformLocation, v0 
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform4ui(location WebGLUniformLocation, v0 GLuint, v1 GLuint, v2 GLuint, v3 GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform4ui(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		uint32(v0),
 		uint32(v1),
@@ -11729,26 +11508,25 @@ func (this WebGL2RenderingContext) TryUniform4ui(location WebGLUniformLocation, 
 	return
 }
 
-// HasUniform1uiv returns true if the method "WebGL2RenderingContext.uniform1uiv" exists.
-func (this WebGL2RenderingContext) HasUniform1uiv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform1uiv(
-		this.Ref(),
+// HasFuncUniform1uiv returns true if the method "WebGL2RenderingContext.uniform1uiv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform1uiv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform1uiv(
+		this.ref,
 	)
 }
 
-// Uniform1uivFunc returns the method "WebGL2RenderingContext.uniform1uiv".
-func (this WebGL2RenderingContext) Uniform1uivFunc() (fn js.Func[func(location WebGLUniformLocation, data Uint32List, srcOffset GLuint, srcLength GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform1uivFunc(
-			this.Ref(),
-		),
+// FuncUniform1uiv returns the method "WebGL2RenderingContext.uniform1uiv".
+func (this WebGL2RenderingContext) FuncUniform1uiv() (fn js.Func[func(location WebGLUniformLocation, data Uint32List, srcOffset GLuint, srcLength GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform1uiv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform1uiv calls the method "WebGL2RenderingContext.uniform1uiv".
 func (this WebGL2RenderingContext) Uniform1uiv(location WebGLUniformLocation, data Uint32List, srcOffset GLuint, srcLength GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform1uiv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -11763,7 +11541,7 @@ func (this WebGL2RenderingContext) Uniform1uiv(location WebGLUniformLocation, da
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform1uiv(location WebGLUniformLocation, data Uint32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform1uiv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -11773,26 +11551,25 @@ func (this WebGL2RenderingContext) TryUniform1uiv(location WebGLUniformLocation,
 	return
 }
 
-// HasUniform1uiv1 returns true if the method "WebGL2RenderingContext.uniform1uiv" exists.
-func (this WebGL2RenderingContext) HasUniform1uiv1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform1uiv1(
-		this.Ref(),
+// HasFuncUniform1uiv1 returns true if the method "WebGL2RenderingContext.uniform1uiv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform1uiv1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform1uiv1(
+		this.ref,
 	)
 }
 
-// Uniform1uiv1Func returns the method "WebGL2RenderingContext.uniform1uiv".
-func (this WebGL2RenderingContext) Uniform1uiv1Func() (fn js.Func[func(location WebGLUniformLocation, data Uint32List, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform1uiv1Func(
-			this.Ref(),
-		),
+// FuncUniform1uiv1 returns the method "WebGL2RenderingContext.uniform1uiv".
+func (this WebGL2RenderingContext) FuncUniform1uiv1() (fn js.Func[func(location WebGLUniformLocation, data Uint32List, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform1uiv1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform1uiv1 calls the method "WebGL2RenderingContext.uniform1uiv".
 func (this WebGL2RenderingContext) Uniform1uiv1(location WebGLUniformLocation, data Uint32List, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform1uiv1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -11806,7 +11583,7 @@ func (this WebGL2RenderingContext) Uniform1uiv1(location WebGLUniformLocation, d
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform1uiv1(location WebGLUniformLocation, data Uint32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform1uiv1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -11815,26 +11592,25 @@ func (this WebGL2RenderingContext) TryUniform1uiv1(location WebGLUniformLocation
 	return
 }
 
-// HasUniform1uiv2 returns true if the method "WebGL2RenderingContext.uniform1uiv" exists.
-func (this WebGL2RenderingContext) HasUniform1uiv2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform1uiv2(
-		this.Ref(),
+// HasFuncUniform1uiv2 returns true if the method "WebGL2RenderingContext.uniform1uiv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform1uiv2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform1uiv2(
+		this.ref,
 	)
 }
 
-// Uniform1uiv2Func returns the method "WebGL2RenderingContext.uniform1uiv".
-func (this WebGL2RenderingContext) Uniform1uiv2Func() (fn js.Func[func(location WebGLUniformLocation, data Uint32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform1uiv2Func(
-			this.Ref(),
-		),
+// FuncUniform1uiv2 returns the method "WebGL2RenderingContext.uniform1uiv".
+func (this WebGL2RenderingContext) FuncUniform1uiv2() (fn js.Func[func(location WebGLUniformLocation, data Uint32List)]) {
+	bindings.FuncWebGL2RenderingContextUniform1uiv2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform1uiv2 calls the method "WebGL2RenderingContext.uniform1uiv".
 func (this WebGL2RenderingContext) Uniform1uiv2(location WebGLUniformLocation, data Uint32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform1uiv2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 	)
@@ -11847,7 +11623,7 @@ func (this WebGL2RenderingContext) Uniform1uiv2(location WebGLUniformLocation, d
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform1uiv2(location WebGLUniformLocation, data Uint32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform1uiv2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 	)
@@ -11855,26 +11631,25 @@ func (this WebGL2RenderingContext) TryUniform1uiv2(location WebGLUniformLocation
 	return
 }
 
-// HasUniform2uiv returns true if the method "WebGL2RenderingContext.uniform2uiv" exists.
-func (this WebGL2RenderingContext) HasUniform2uiv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform2uiv(
-		this.Ref(),
+// HasFuncUniform2uiv returns true if the method "WebGL2RenderingContext.uniform2uiv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform2uiv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform2uiv(
+		this.ref,
 	)
 }
 
-// Uniform2uivFunc returns the method "WebGL2RenderingContext.uniform2uiv".
-func (this WebGL2RenderingContext) Uniform2uivFunc() (fn js.Func[func(location WebGLUniformLocation, data Uint32List, srcOffset GLuint, srcLength GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform2uivFunc(
-			this.Ref(),
-		),
+// FuncUniform2uiv returns the method "WebGL2RenderingContext.uniform2uiv".
+func (this WebGL2RenderingContext) FuncUniform2uiv() (fn js.Func[func(location WebGLUniformLocation, data Uint32List, srcOffset GLuint, srcLength GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform2uiv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform2uiv calls the method "WebGL2RenderingContext.uniform2uiv".
 func (this WebGL2RenderingContext) Uniform2uiv(location WebGLUniformLocation, data Uint32List, srcOffset GLuint, srcLength GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform2uiv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -11889,7 +11664,7 @@ func (this WebGL2RenderingContext) Uniform2uiv(location WebGLUniformLocation, da
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform2uiv(location WebGLUniformLocation, data Uint32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform2uiv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -11899,26 +11674,25 @@ func (this WebGL2RenderingContext) TryUniform2uiv(location WebGLUniformLocation,
 	return
 }
 
-// HasUniform2uiv1 returns true if the method "WebGL2RenderingContext.uniform2uiv" exists.
-func (this WebGL2RenderingContext) HasUniform2uiv1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform2uiv1(
-		this.Ref(),
+// HasFuncUniform2uiv1 returns true if the method "WebGL2RenderingContext.uniform2uiv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform2uiv1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform2uiv1(
+		this.ref,
 	)
 }
 
-// Uniform2uiv1Func returns the method "WebGL2RenderingContext.uniform2uiv".
-func (this WebGL2RenderingContext) Uniform2uiv1Func() (fn js.Func[func(location WebGLUniformLocation, data Uint32List, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform2uiv1Func(
-			this.Ref(),
-		),
+// FuncUniform2uiv1 returns the method "WebGL2RenderingContext.uniform2uiv".
+func (this WebGL2RenderingContext) FuncUniform2uiv1() (fn js.Func[func(location WebGLUniformLocation, data Uint32List, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform2uiv1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform2uiv1 calls the method "WebGL2RenderingContext.uniform2uiv".
 func (this WebGL2RenderingContext) Uniform2uiv1(location WebGLUniformLocation, data Uint32List, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform2uiv1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -11932,7 +11706,7 @@ func (this WebGL2RenderingContext) Uniform2uiv1(location WebGLUniformLocation, d
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform2uiv1(location WebGLUniformLocation, data Uint32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform2uiv1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -11941,26 +11715,25 @@ func (this WebGL2RenderingContext) TryUniform2uiv1(location WebGLUniformLocation
 	return
 }
 
-// HasUniform2uiv2 returns true if the method "WebGL2RenderingContext.uniform2uiv" exists.
-func (this WebGL2RenderingContext) HasUniform2uiv2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform2uiv2(
-		this.Ref(),
+// HasFuncUniform2uiv2 returns true if the method "WebGL2RenderingContext.uniform2uiv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform2uiv2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform2uiv2(
+		this.ref,
 	)
 }
 
-// Uniform2uiv2Func returns the method "WebGL2RenderingContext.uniform2uiv".
-func (this WebGL2RenderingContext) Uniform2uiv2Func() (fn js.Func[func(location WebGLUniformLocation, data Uint32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform2uiv2Func(
-			this.Ref(),
-		),
+// FuncUniform2uiv2 returns the method "WebGL2RenderingContext.uniform2uiv".
+func (this WebGL2RenderingContext) FuncUniform2uiv2() (fn js.Func[func(location WebGLUniformLocation, data Uint32List)]) {
+	bindings.FuncWebGL2RenderingContextUniform2uiv2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform2uiv2 calls the method "WebGL2RenderingContext.uniform2uiv".
 func (this WebGL2RenderingContext) Uniform2uiv2(location WebGLUniformLocation, data Uint32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform2uiv2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 	)
@@ -11973,7 +11746,7 @@ func (this WebGL2RenderingContext) Uniform2uiv2(location WebGLUniformLocation, d
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform2uiv2(location WebGLUniformLocation, data Uint32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform2uiv2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 	)
@@ -11981,26 +11754,25 @@ func (this WebGL2RenderingContext) TryUniform2uiv2(location WebGLUniformLocation
 	return
 }
 
-// HasUniform3uiv returns true if the method "WebGL2RenderingContext.uniform3uiv" exists.
-func (this WebGL2RenderingContext) HasUniform3uiv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform3uiv(
-		this.Ref(),
+// HasFuncUniform3uiv returns true if the method "WebGL2RenderingContext.uniform3uiv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform3uiv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform3uiv(
+		this.ref,
 	)
 }
 
-// Uniform3uivFunc returns the method "WebGL2RenderingContext.uniform3uiv".
-func (this WebGL2RenderingContext) Uniform3uivFunc() (fn js.Func[func(location WebGLUniformLocation, data Uint32List, srcOffset GLuint, srcLength GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform3uivFunc(
-			this.Ref(),
-		),
+// FuncUniform3uiv returns the method "WebGL2RenderingContext.uniform3uiv".
+func (this WebGL2RenderingContext) FuncUniform3uiv() (fn js.Func[func(location WebGLUniformLocation, data Uint32List, srcOffset GLuint, srcLength GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform3uiv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform3uiv calls the method "WebGL2RenderingContext.uniform3uiv".
 func (this WebGL2RenderingContext) Uniform3uiv(location WebGLUniformLocation, data Uint32List, srcOffset GLuint, srcLength GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform3uiv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -12015,7 +11787,7 @@ func (this WebGL2RenderingContext) Uniform3uiv(location WebGLUniformLocation, da
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform3uiv(location WebGLUniformLocation, data Uint32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform3uiv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -12025,26 +11797,25 @@ func (this WebGL2RenderingContext) TryUniform3uiv(location WebGLUniformLocation,
 	return
 }
 
-// HasUniform3uiv1 returns true if the method "WebGL2RenderingContext.uniform3uiv" exists.
-func (this WebGL2RenderingContext) HasUniform3uiv1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform3uiv1(
-		this.Ref(),
+// HasFuncUniform3uiv1 returns true if the method "WebGL2RenderingContext.uniform3uiv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform3uiv1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform3uiv1(
+		this.ref,
 	)
 }
 
-// Uniform3uiv1Func returns the method "WebGL2RenderingContext.uniform3uiv".
-func (this WebGL2RenderingContext) Uniform3uiv1Func() (fn js.Func[func(location WebGLUniformLocation, data Uint32List, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform3uiv1Func(
-			this.Ref(),
-		),
+// FuncUniform3uiv1 returns the method "WebGL2RenderingContext.uniform3uiv".
+func (this WebGL2RenderingContext) FuncUniform3uiv1() (fn js.Func[func(location WebGLUniformLocation, data Uint32List, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform3uiv1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform3uiv1 calls the method "WebGL2RenderingContext.uniform3uiv".
 func (this WebGL2RenderingContext) Uniform3uiv1(location WebGLUniformLocation, data Uint32List, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform3uiv1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -12058,7 +11829,7 @@ func (this WebGL2RenderingContext) Uniform3uiv1(location WebGLUniformLocation, d
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform3uiv1(location WebGLUniformLocation, data Uint32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform3uiv1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -12067,26 +11838,25 @@ func (this WebGL2RenderingContext) TryUniform3uiv1(location WebGLUniformLocation
 	return
 }
 
-// HasUniform3uiv2 returns true if the method "WebGL2RenderingContext.uniform3uiv" exists.
-func (this WebGL2RenderingContext) HasUniform3uiv2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform3uiv2(
-		this.Ref(),
+// HasFuncUniform3uiv2 returns true if the method "WebGL2RenderingContext.uniform3uiv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform3uiv2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform3uiv2(
+		this.ref,
 	)
 }
 
-// Uniform3uiv2Func returns the method "WebGL2RenderingContext.uniform3uiv".
-func (this WebGL2RenderingContext) Uniform3uiv2Func() (fn js.Func[func(location WebGLUniformLocation, data Uint32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform3uiv2Func(
-			this.Ref(),
-		),
+// FuncUniform3uiv2 returns the method "WebGL2RenderingContext.uniform3uiv".
+func (this WebGL2RenderingContext) FuncUniform3uiv2() (fn js.Func[func(location WebGLUniformLocation, data Uint32List)]) {
+	bindings.FuncWebGL2RenderingContextUniform3uiv2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform3uiv2 calls the method "WebGL2RenderingContext.uniform3uiv".
 func (this WebGL2RenderingContext) Uniform3uiv2(location WebGLUniformLocation, data Uint32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform3uiv2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 	)
@@ -12099,7 +11869,7 @@ func (this WebGL2RenderingContext) Uniform3uiv2(location WebGLUniformLocation, d
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform3uiv2(location WebGLUniformLocation, data Uint32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform3uiv2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 	)
@@ -12107,26 +11877,25 @@ func (this WebGL2RenderingContext) TryUniform3uiv2(location WebGLUniformLocation
 	return
 }
 
-// HasUniform4uiv returns true if the method "WebGL2RenderingContext.uniform4uiv" exists.
-func (this WebGL2RenderingContext) HasUniform4uiv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform4uiv(
-		this.Ref(),
+// HasFuncUniform4uiv returns true if the method "WebGL2RenderingContext.uniform4uiv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform4uiv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform4uiv(
+		this.ref,
 	)
 }
 
-// Uniform4uivFunc returns the method "WebGL2RenderingContext.uniform4uiv".
-func (this WebGL2RenderingContext) Uniform4uivFunc() (fn js.Func[func(location WebGLUniformLocation, data Uint32List, srcOffset GLuint, srcLength GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform4uivFunc(
-			this.Ref(),
-		),
+// FuncUniform4uiv returns the method "WebGL2RenderingContext.uniform4uiv".
+func (this WebGL2RenderingContext) FuncUniform4uiv() (fn js.Func[func(location WebGLUniformLocation, data Uint32List, srcOffset GLuint, srcLength GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform4uiv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform4uiv calls the method "WebGL2RenderingContext.uniform4uiv".
 func (this WebGL2RenderingContext) Uniform4uiv(location WebGLUniformLocation, data Uint32List, srcOffset GLuint, srcLength GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform4uiv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -12141,7 +11910,7 @@ func (this WebGL2RenderingContext) Uniform4uiv(location WebGLUniformLocation, da
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform4uiv(location WebGLUniformLocation, data Uint32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform4uiv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -12151,26 +11920,25 @@ func (this WebGL2RenderingContext) TryUniform4uiv(location WebGLUniformLocation,
 	return
 }
 
-// HasUniform4uiv1 returns true if the method "WebGL2RenderingContext.uniform4uiv" exists.
-func (this WebGL2RenderingContext) HasUniform4uiv1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform4uiv1(
-		this.Ref(),
+// HasFuncUniform4uiv1 returns true if the method "WebGL2RenderingContext.uniform4uiv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform4uiv1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform4uiv1(
+		this.ref,
 	)
 }
 
-// Uniform4uiv1Func returns the method "WebGL2RenderingContext.uniform4uiv".
-func (this WebGL2RenderingContext) Uniform4uiv1Func() (fn js.Func[func(location WebGLUniformLocation, data Uint32List, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform4uiv1Func(
-			this.Ref(),
-		),
+// FuncUniform4uiv1 returns the method "WebGL2RenderingContext.uniform4uiv".
+func (this WebGL2RenderingContext) FuncUniform4uiv1() (fn js.Func[func(location WebGLUniformLocation, data Uint32List, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniform4uiv1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform4uiv1 calls the method "WebGL2RenderingContext.uniform4uiv".
 func (this WebGL2RenderingContext) Uniform4uiv1(location WebGLUniformLocation, data Uint32List, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform4uiv1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -12184,7 +11952,7 @@ func (this WebGL2RenderingContext) Uniform4uiv1(location WebGLUniformLocation, d
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform4uiv1(location WebGLUniformLocation, data Uint32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform4uiv1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 		uint32(srcOffset),
@@ -12193,26 +11961,25 @@ func (this WebGL2RenderingContext) TryUniform4uiv1(location WebGLUniformLocation
 	return
 }
 
-// HasUniform4uiv2 returns true if the method "WebGL2RenderingContext.uniform4uiv" exists.
-func (this WebGL2RenderingContext) HasUniform4uiv2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform4uiv2(
-		this.Ref(),
+// HasFuncUniform4uiv2 returns true if the method "WebGL2RenderingContext.uniform4uiv" exists.
+func (this WebGL2RenderingContext) HasFuncUniform4uiv2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform4uiv2(
+		this.ref,
 	)
 }
 
-// Uniform4uiv2Func returns the method "WebGL2RenderingContext.uniform4uiv".
-func (this WebGL2RenderingContext) Uniform4uiv2Func() (fn js.Func[func(location WebGLUniformLocation, data Uint32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform4uiv2Func(
-			this.Ref(),
-		),
+// FuncUniform4uiv2 returns the method "WebGL2RenderingContext.uniform4uiv".
+func (this WebGL2RenderingContext) FuncUniform4uiv2() (fn js.Func[func(location WebGLUniformLocation, data Uint32List)]) {
+	bindings.FuncWebGL2RenderingContextUniform4uiv2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform4uiv2 calls the method "WebGL2RenderingContext.uniform4uiv".
 func (this WebGL2RenderingContext) Uniform4uiv2(location WebGLUniformLocation, data Uint32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform4uiv2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		data.Ref(),
 	)
@@ -12225,7 +11992,7 @@ func (this WebGL2RenderingContext) Uniform4uiv2(location WebGLUniformLocation, d
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform4uiv2(location WebGLUniformLocation, data Uint32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform4uiv2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		data.Ref(),
 	)
@@ -12233,26 +12000,25 @@ func (this WebGL2RenderingContext) TryUniform4uiv2(location WebGLUniformLocation
 	return
 }
 
-// HasUniformMatrix3x2fv returns true if the method "WebGL2RenderingContext.uniformMatrix3x2fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix3x2fv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix3x2fv(
-		this.Ref(),
+// HasFuncUniformMatrix3x2fv returns true if the method "WebGL2RenderingContext.uniformMatrix3x2fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix3x2fv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix3x2fv(
+		this.ref,
 	)
 }
 
-// UniformMatrix3x2fvFunc returns the method "WebGL2RenderingContext.uniformMatrix3x2fv".
-func (this WebGL2RenderingContext) UniformMatrix3x2fvFunc() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix3x2fvFunc(
-			this.Ref(),
-		),
+// FuncUniformMatrix3x2fv returns the method "WebGL2RenderingContext.uniformMatrix3x2fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix3x2fv() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix3x2fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix3x2fv calls the method "WebGL2RenderingContext.uniformMatrix3x2fv".
 func (this WebGL2RenderingContext) UniformMatrix3x2fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix3x2fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12268,7 +12034,7 @@ func (this WebGL2RenderingContext) UniformMatrix3x2fv(location WebGLUniformLocat
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix3x2fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix3x2fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12279,26 +12045,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix3x2fv(location WebGLUniformLo
 	return
 }
 
-// HasUniformMatrix3x2fv1 returns true if the method "WebGL2RenderingContext.uniformMatrix3x2fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix3x2fv1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix3x2fv1(
-		this.Ref(),
+// HasFuncUniformMatrix3x2fv1 returns true if the method "WebGL2RenderingContext.uniformMatrix3x2fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix3x2fv1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix3x2fv1(
+		this.ref,
 	)
 }
 
-// UniformMatrix3x2fv1Func returns the method "WebGL2RenderingContext.uniformMatrix3x2fv".
-func (this WebGL2RenderingContext) UniformMatrix3x2fv1Func() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix3x2fv1Func(
-			this.Ref(),
-		),
+// FuncUniformMatrix3x2fv1 returns the method "WebGL2RenderingContext.uniformMatrix3x2fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix3x2fv1() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix3x2fv1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix3x2fv1 calls the method "WebGL2RenderingContext.uniformMatrix3x2fv".
 func (this WebGL2RenderingContext) UniformMatrix3x2fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix3x2fv1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12313,7 +12078,7 @@ func (this WebGL2RenderingContext) UniformMatrix3x2fv1(location WebGLUniformLoca
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix3x2fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix3x2fv1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12323,26 +12088,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix3x2fv1(location WebGLUniformL
 	return
 }
 
-// HasUniformMatrix3x2fv2 returns true if the method "WebGL2RenderingContext.uniformMatrix3x2fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix3x2fv2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix3x2fv2(
-		this.Ref(),
+// HasFuncUniformMatrix3x2fv2 returns true if the method "WebGL2RenderingContext.uniformMatrix3x2fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix3x2fv2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix3x2fv2(
+		this.ref,
 	)
 }
 
-// UniformMatrix3x2fv2Func returns the method "WebGL2RenderingContext.uniformMatrix3x2fv".
-func (this WebGL2RenderingContext) UniformMatrix3x2fv2Func() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix3x2fv2Func(
-			this.Ref(),
-		),
+// FuncUniformMatrix3x2fv2 returns the method "WebGL2RenderingContext.uniformMatrix3x2fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix3x2fv2() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix3x2fv2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix3x2fv2 calls the method "WebGL2RenderingContext.uniformMatrix3x2fv".
 func (this WebGL2RenderingContext) UniformMatrix3x2fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix3x2fv2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12356,7 +12120,7 @@ func (this WebGL2RenderingContext) UniformMatrix3x2fv2(location WebGLUniformLoca
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix3x2fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix3x2fv2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12365,26 +12129,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix3x2fv2(location WebGLUniformL
 	return
 }
 
-// HasUniformMatrix4x2fv returns true if the method "WebGL2RenderingContext.uniformMatrix4x2fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix4x2fv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix4x2fv(
-		this.Ref(),
+// HasFuncUniformMatrix4x2fv returns true if the method "WebGL2RenderingContext.uniformMatrix4x2fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix4x2fv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix4x2fv(
+		this.ref,
 	)
 }
 
-// UniformMatrix4x2fvFunc returns the method "WebGL2RenderingContext.uniformMatrix4x2fv".
-func (this WebGL2RenderingContext) UniformMatrix4x2fvFunc() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix4x2fvFunc(
-			this.Ref(),
-		),
+// FuncUniformMatrix4x2fv returns the method "WebGL2RenderingContext.uniformMatrix4x2fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix4x2fv() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix4x2fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix4x2fv calls the method "WebGL2RenderingContext.uniformMatrix4x2fv".
 func (this WebGL2RenderingContext) UniformMatrix4x2fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix4x2fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12400,7 +12163,7 @@ func (this WebGL2RenderingContext) UniformMatrix4x2fv(location WebGLUniformLocat
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix4x2fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix4x2fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12411,26 +12174,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix4x2fv(location WebGLUniformLo
 	return
 }
 
-// HasUniformMatrix4x2fv1 returns true if the method "WebGL2RenderingContext.uniformMatrix4x2fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix4x2fv1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix4x2fv1(
-		this.Ref(),
+// HasFuncUniformMatrix4x2fv1 returns true if the method "WebGL2RenderingContext.uniformMatrix4x2fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix4x2fv1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix4x2fv1(
+		this.ref,
 	)
 }
 
-// UniformMatrix4x2fv1Func returns the method "WebGL2RenderingContext.uniformMatrix4x2fv".
-func (this WebGL2RenderingContext) UniformMatrix4x2fv1Func() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix4x2fv1Func(
-			this.Ref(),
-		),
+// FuncUniformMatrix4x2fv1 returns the method "WebGL2RenderingContext.uniformMatrix4x2fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix4x2fv1() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix4x2fv1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix4x2fv1 calls the method "WebGL2RenderingContext.uniformMatrix4x2fv".
 func (this WebGL2RenderingContext) UniformMatrix4x2fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix4x2fv1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12445,7 +12207,7 @@ func (this WebGL2RenderingContext) UniformMatrix4x2fv1(location WebGLUniformLoca
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix4x2fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix4x2fv1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12455,26 +12217,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix4x2fv1(location WebGLUniformL
 	return
 }
 
-// HasUniformMatrix4x2fv2 returns true if the method "WebGL2RenderingContext.uniformMatrix4x2fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix4x2fv2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix4x2fv2(
-		this.Ref(),
+// HasFuncUniformMatrix4x2fv2 returns true if the method "WebGL2RenderingContext.uniformMatrix4x2fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix4x2fv2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix4x2fv2(
+		this.ref,
 	)
 }
 
-// UniformMatrix4x2fv2Func returns the method "WebGL2RenderingContext.uniformMatrix4x2fv".
-func (this WebGL2RenderingContext) UniformMatrix4x2fv2Func() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix4x2fv2Func(
-			this.Ref(),
-		),
+// FuncUniformMatrix4x2fv2 returns the method "WebGL2RenderingContext.uniformMatrix4x2fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix4x2fv2() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix4x2fv2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix4x2fv2 calls the method "WebGL2RenderingContext.uniformMatrix4x2fv".
 func (this WebGL2RenderingContext) UniformMatrix4x2fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix4x2fv2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12488,7 +12249,7 @@ func (this WebGL2RenderingContext) UniformMatrix4x2fv2(location WebGLUniformLoca
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix4x2fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix4x2fv2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12497,26 +12258,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix4x2fv2(location WebGLUniformL
 	return
 }
 
-// HasUniformMatrix2x3fv returns true if the method "WebGL2RenderingContext.uniformMatrix2x3fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix2x3fv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix2x3fv(
-		this.Ref(),
+// HasFuncUniformMatrix2x3fv returns true if the method "WebGL2RenderingContext.uniformMatrix2x3fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix2x3fv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix2x3fv(
+		this.ref,
 	)
 }
 
-// UniformMatrix2x3fvFunc returns the method "WebGL2RenderingContext.uniformMatrix2x3fv".
-func (this WebGL2RenderingContext) UniformMatrix2x3fvFunc() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix2x3fvFunc(
-			this.Ref(),
-		),
+// FuncUniformMatrix2x3fv returns the method "WebGL2RenderingContext.uniformMatrix2x3fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix2x3fv() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix2x3fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix2x3fv calls the method "WebGL2RenderingContext.uniformMatrix2x3fv".
 func (this WebGL2RenderingContext) UniformMatrix2x3fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix2x3fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12532,7 +12292,7 @@ func (this WebGL2RenderingContext) UniformMatrix2x3fv(location WebGLUniformLocat
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix2x3fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix2x3fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12543,26 +12303,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix2x3fv(location WebGLUniformLo
 	return
 }
 
-// HasUniformMatrix2x3fv1 returns true if the method "WebGL2RenderingContext.uniformMatrix2x3fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix2x3fv1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix2x3fv1(
-		this.Ref(),
+// HasFuncUniformMatrix2x3fv1 returns true if the method "WebGL2RenderingContext.uniformMatrix2x3fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix2x3fv1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix2x3fv1(
+		this.ref,
 	)
 }
 
-// UniformMatrix2x3fv1Func returns the method "WebGL2RenderingContext.uniformMatrix2x3fv".
-func (this WebGL2RenderingContext) UniformMatrix2x3fv1Func() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix2x3fv1Func(
-			this.Ref(),
-		),
+// FuncUniformMatrix2x3fv1 returns the method "WebGL2RenderingContext.uniformMatrix2x3fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix2x3fv1() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix2x3fv1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix2x3fv1 calls the method "WebGL2RenderingContext.uniformMatrix2x3fv".
 func (this WebGL2RenderingContext) UniformMatrix2x3fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix2x3fv1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12577,7 +12336,7 @@ func (this WebGL2RenderingContext) UniformMatrix2x3fv1(location WebGLUniformLoca
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix2x3fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix2x3fv1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12587,26 +12346,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix2x3fv1(location WebGLUniformL
 	return
 }
 
-// HasUniformMatrix2x3fv2 returns true if the method "WebGL2RenderingContext.uniformMatrix2x3fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix2x3fv2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix2x3fv2(
-		this.Ref(),
+// HasFuncUniformMatrix2x3fv2 returns true if the method "WebGL2RenderingContext.uniformMatrix2x3fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix2x3fv2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix2x3fv2(
+		this.ref,
 	)
 }
 
-// UniformMatrix2x3fv2Func returns the method "WebGL2RenderingContext.uniformMatrix2x3fv".
-func (this WebGL2RenderingContext) UniformMatrix2x3fv2Func() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix2x3fv2Func(
-			this.Ref(),
-		),
+// FuncUniformMatrix2x3fv2 returns the method "WebGL2RenderingContext.uniformMatrix2x3fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix2x3fv2() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix2x3fv2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix2x3fv2 calls the method "WebGL2RenderingContext.uniformMatrix2x3fv".
 func (this WebGL2RenderingContext) UniformMatrix2x3fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix2x3fv2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12620,7 +12378,7 @@ func (this WebGL2RenderingContext) UniformMatrix2x3fv2(location WebGLUniformLoca
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix2x3fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix2x3fv2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12629,26 +12387,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix2x3fv2(location WebGLUniformL
 	return
 }
 
-// HasUniformMatrix4x3fv returns true if the method "WebGL2RenderingContext.uniformMatrix4x3fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix4x3fv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix4x3fv(
-		this.Ref(),
+// HasFuncUniformMatrix4x3fv returns true if the method "WebGL2RenderingContext.uniformMatrix4x3fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix4x3fv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix4x3fv(
+		this.ref,
 	)
 }
 
-// UniformMatrix4x3fvFunc returns the method "WebGL2RenderingContext.uniformMatrix4x3fv".
-func (this WebGL2RenderingContext) UniformMatrix4x3fvFunc() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix4x3fvFunc(
-			this.Ref(),
-		),
+// FuncUniformMatrix4x3fv returns the method "WebGL2RenderingContext.uniformMatrix4x3fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix4x3fv() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix4x3fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix4x3fv calls the method "WebGL2RenderingContext.uniformMatrix4x3fv".
 func (this WebGL2RenderingContext) UniformMatrix4x3fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix4x3fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12664,7 +12421,7 @@ func (this WebGL2RenderingContext) UniformMatrix4x3fv(location WebGLUniformLocat
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix4x3fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix4x3fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12675,26 +12432,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix4x3fv(location WebGLUniformLo
 	return
 }
 
-// HasUniformMatrix4x3fv1 returns true if the method "WebGL2RenderingContext.uniformMatrix4x3fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix4x3fv1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix4x3fv1(
-		this.Ref(),
+// HasFuncUniformMatrix4x3fv1 returns true if the method "WebGL2RenderingContext.uniformMatrix4x3fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix4x3fv1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix4x3fv1(
+		this.ref,
 	)
 }
 
-// UniformMatrix4x3fv1Func returns the method "WebGL2RenderingContext.uniformMatrix4x3fv".
-func (this WebGL2RenderingContext) UniformMatrix4x3fv1Func() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix4x3fv1Func(
-			this.Ref(),
-		),
+// FuncUniformMatrix4x3fv1 returns the method "WebGL2RenderingContext.uniformMatrix4x3fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix4x3fv1() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix4x3fv1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix4x3fv1 calls the method "WebGL2RenderingContext.uniformMatrix4x3fv".
 func (this WebGL2RenderingContext) UniformMatrix4x3fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix4x3fv1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12709,7 +12465,7 @@ func (this WebGL2RenderingContext) UniformMatrix4x3fv1(location WebGLUniformLoca
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix4x3fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix4x3fv1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12719,26 +12475,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix4x3fv1(location WebGLUniformL
 	return
 }
 
-// HasUniformMatrix4x3fv2 returns true if the method "WebGL2RenderingContext.uniformMatrix4x3fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix4x3fv2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix4x3fv2(
-		this.Ref(),
+// HasFuncUniformMatrix4x3fv2 returns true if the method "WebGL2RenderingContext.uniformMatrix4x3fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix4x3fv2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix4x3fv2(
+		this.ref,
 	)
 }
 
-// UniformMatrix4x3fv2Func returns the method "WebGL2RenderingContext.uniformMatrix4x3fv".
-func (this WebGL2RenderingContext) UniformMatrix4x3fv2Func() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix4x3fv2Func(
-			this.Ref(),
-		),
+// FuncUniformMatrix4x3fv2 returns the method "WebGL2RenderingContext.uniformMatrix4x3fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix4x3fv2() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix4x3fv2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix4x3fv2 calls the method "WebGL2RenderingContext.uniformMatrix4x3fv".
 func (this WebGL2RenderingContext) UniformMatrix4x3fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix4x3fv2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12752,7 +12507,7 @@ func (this WebGL2RenderingContext) UniformMatrix4x3fv2(location WebGLUniformLoca
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix4x3fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix4x3fv2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12761,26 +12516,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix4x3fv2(location WebGLUniformL
 	return
 }
 
-// HasUniformMatrix2x4fv returns true if the method "WebGL2RenderingContext.uniformMatrix2x4fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix2x4fv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix2x4fv(
-		this.Ref(),
+// HasFuncUniformMatrix2x4fv returns true if the method "WebGL2RenderingContext.uniformMatrix2x4fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix2x4fv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix2x4fv(
+		this.ref,
 	)
 }
 
-// UniformMatrix2x4fvFunc returns the method "WebGL2RenderingContext.uniformMatrix2x4fv".
-func (this WebGL2RenderingContext) UniformMatrix2x4fvFunc() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix2x4fvFunc(
-			this.Ref(),
-		),
+// FuncUniformMatrix2x4fv returns the method "WebGL2RenderingContext.uniformMatrix2x4fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix2x4fv() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix2x4fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix2x4fv calls the method "WebGL2RenderingContext.uniformMatrix2x4fv".
 func (this WebGL2RenderingContext) UniformMatrix2x4fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix2x4fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12796,7 +12550,7 @@ func (this WebGL2RenderingContext) UniformMatrix2x4fv(location WebGLUniformLocat
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix2x4fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix2x4fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12807,26 +12561,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix2x4fv(location WebGLUniformLo
 	return
 }
 
-// HasUniformMatrix2x4fv1 returns true if the method "WebGL2RenderingContext.uniformMatrix2x4fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix2x4fv1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix2x4fv1(
-		this.Ref(),
+// HasFuncUniformMatrix2x4fv1 returns true if the method "WebGL2RenderingContext.uniformMatrix2x4fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix2x4fv1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix2x4fv1(
+		this.ref,
 	)
 }
 
-// UniformMatrix2x4fv1Func returns the method "WebGL2RenderingContext.uniformMatrix2x4fv".
-func (this WebGL2RenderingContext) UniformMatrix2x4fv1Func() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix2x4fv1Func(
-			this.Ref(),
-		),
+// FuncUniformMatrix2x4fv1 returns the method "WebGL2RenderingContext.uniformMatrix2x4fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix2x4fv1() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix2x4fv1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix2x4fv1 calls the method "WebGL2RenderingContext.uniformMatrix2x4fv".
 func (this WebGL2RenderingContext) UniformMatrix2x4fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix2x4fv1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12841,7 +12594,7 @@ func (this WebGL2RenderingContext) UniformMatrix2x4fv1(location WebGLUniformLoca
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix2x4fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix2x4fv1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12851,26 +12604,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix2x4fv1(location WebGLUniformL
 	return
 }
 
-// HasUniformMatrix2x4fv2 returns true if the method "WebGL2RenderingContext.uniformMatrix2x4fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix2x4fv2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix2x4fv2(
-		this.Ref(),
+// HasFuncUniformMatrix2x4fv2 returns true if the method "WebGL2RenderingContext.uniformMatrix2x4fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix2x4fv2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix2x4fv2(
+		this.ref,
 	)
 }
 
-// UniformMatrix2x4fv2Func returns the method "WebGL2RenderingContext.uniformMatrix2x4fv".
-func (this WebGL2RenderingContext) UniformMatrix2x4fv2Func() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix2x4fv2Func(
-			this.Ref(),
-		),
+// FuncUniformMatrix2x4fv2 returns the method "WebGL2RenderingContext.uniformMatrix2x4fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix2x4fv2() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix2x4fv2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix2x4fv2 calls the method "WebGL2RenderingContext.uniformMatrix2x4fv".
 func (this WebGL2RenderingContext) UniformMatrix2x4fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix2x4fv2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12884,7 +12636,7 @@ func (this WebGL2RenderingContext) UniformMatrix2x4fv2(location WebGLUniformLoca
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix2x4fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix2x4fv2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12893,26 +12645,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix2x4fv2(location WebGLUniformL
 	return
 }
 
-// HasUniformMatrix3x4fv returns true if the method "WebGL2RenderingContext.uniformMatrix3x4fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix3x4fv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix3x4fv(
-		this.Ref(),
+// HasFuncUniformMatrix3x4fv returns true if the method "WebGL2RenderingContext.uniformMatrix3x4fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix3x4fv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix3x4fv(
+		this.ref,
 	)
 }
 
-// UniformMatrix3x4fvFunc returns the method "WebGL2RenderingContext.uniformMatrix3x4fv".
-func (this WebGL2RenderingContext) UniformMatrix3x4fvFunc() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix3x4fvFunc(
-			this.Ref(),
-		),
+// FuncUniformMatrix3x4fv returns the method "WebGL2RenderingContext.uniformMatrix3x4fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix3x4fv() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix3x4fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix3x4fv calls the method "WebGL2RenderingContext.uniformMatrix3x4fv".
 func (this WebGL2RenderingContext) UniformMatrix3x4fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix3x4fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12928,7 +12679,7 @@ func (this WebGL2RenderingContext) UniformMatrix3x4fv(location WebGLUniformLocat
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix3x4fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix3x4fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12939,26 +12690,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix3x4fv(location WebGLUniformLo
 	return
 }
 
-// HasUniformMatrix3x4fv1 returns true if the method "WebGL2RenderingContext.uniformMatrix3x4fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix3x4fv1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix3x4fv1(
-		this.Ref(),
+// HasFuncUniformMatrix3x4fv1 returns true if the method "WebGL2RenderingContext.uniformMatrix3x4fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix3x4fv1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix3x4fv1(
+		this.ref,
 	)
 }
 
-// UniformMatrix3x4fv1Func returns the method "WebGL2RenderingContext.uniformMatrix3x4fv".
-func (this WebGL2RenderingContext) UniformMatrix3x4fv1Func() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix3x4fv1Func(
-			this.Ref(),
-		),
+// FuncUniformMatrix3x4fv1 returns the method "WebGL2RenderingContext.uniformMatrix3x4fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix3x4fv1() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix3x4fv1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix3x4fv1 calls the method "WebGL2RenderingContext.uniformMatrix3x4fv".
 func (this WebGL2RenderingContext) UniformMatrix3x4fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix3x4fv1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12973,7 +12723,7 @@ func (this WebGL2RenderingContext) UniformMatrix3x4fv1(location WebGLUniformLoca
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix3x4fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix3x4fv1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -12983,26 +12733,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix3x4fv1(location WebGLUniformL
 	return
 }
 
-// HasUniformMatrix3x4fv2 returns true if the method "WebGL2RenderingContext.uniformMatrix3x4fv" exists.
-func (this WebGL2RenderingContext) HasUniformMatrix3x4fv2() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformMatrix3x4fv2(
-		this.Ref(),
+// HasFuncUniformMatrix3x4fv2 returns true if the method "WebGL2RenderingContext.uniformMatrix3x4fv" exists.
+func (this WebGL2RenderingContext) HasFuncUniformMatrix3x4fv2() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformMatrix3x4fv2(
+		this.ref,
 	)
 }
 
-// UniformMatrix3x4fv2Func returns the method "WebGL2RenderingContext.uniformMatrix3x4fv".
-func (this WebGL2RenderingContext) UniformMatrix3x4fv2Func() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformMatrix3x4fv2Func(
-			this.Ref(),
-		),
+// FuncUniformMatrix3x4fv2 returns the method "WebGL2RenderingContext.uniformMatrix3x4fv".
+func (this WebGL2RenderingContext) FuncUniformMatrix3x4fv2() (fn js.Func[func(location WebGLUniformLocation, transpose GLboolean, data Float32List)]) {
+	bindings.FuncWebGL2RenderingContextUniformMatrix3x4fv2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformMatrix3x4fv2 calls the method "WebGL2RenderingContext.uniformMatrix3x4fv".
 func (this WebGL2RenderingContext) UniformMatrix3x4fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformMatrix3x4fv2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -13016,7 +12765,7 @@ func (this WebGL2RenderingContext) UniformMatrix3x4fv2(location WebGLUniformLoca
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix3x4fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix3x4fv2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		js.Bool(bool(transpose)),
 		data.Ref(),
@@ -13025,26 +12774,25 @@ func (this WebGL2RenderingContext) TryUniformMatrix3x4fv2(location WebGLUniformL
 	return
 }
 
-// HasVertexAttribI4i returns true if the method "WebGL2RenderingContext.vertexAttribI4i" exists.
-func (this WebGL2RenderingContext) HasVertexAttribI4i() bool {
-	return js.True == bindings.HasWebGL2RenderingContextVertexAttribI4i(
-		this.Ref(),
+// HasFuncVertexAttribI4i returns true if the method "WebGL2RenderingContext.vertexAttribI4i" exists.
+func (this WebGL2RenderingContext) HasFuncVertexAttribI4i() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextVertexAttribI4i(
+		this.ref,
 	)
 }
 
-// VertexAttribI4iFunc returns the method "WebGL2RenderingContext.vertexAttribI4i".
-func (this WebGL2RenderingContext) VertexAttribI4iFunc() (fn js.Func[func(index GLuint, x GLint, y GLint, z GLint, w GLint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextVertexAttribI4iFunc(
-			this.Ref(),
-		),
+// FuncVertexAttribI4i returns the method "WebGL2RenderingContext.vertexAttribI4i".
+func (this WebGL2RenderingContext) FuncVertexAttribI4i() (fn js.Func[func(index GLuint, x GLint, y GLint, z GLint, w GLint)]) {
+	bindings.FuncWebGL2RenderingContextVertexAttribI4i(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // VertexAttribI4i calls the method "WebGL2RenderingContext.vertexAttribI4i".
 func (this WebGL2RenderingContext) VertexAttribI4i(index GLuint, x GLint, y GLint, z GLint, w GLint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextVertexAttribI4i(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		int32(x),
 		int32(y),
@@ -13060,7 +12808,7 @@ func (this WebGL2RenderingContext) VertexAttribI4i(index GLuint, x GLint, y GLin
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttribI4i(index GLuint, x GLint, y GLint, z GLint, w GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttribI4i(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		int32(x),
 		int32(y),
@@ -13071,26 +12819,25 @@ func (this WebGL2RenderingContext) TryVertexAttribI4i(index GLuint, x GLint, y G
 	return
 }
 
-// HasVertexAttribI4iv returns true if the method "WebGL2RenderingContext.vertexAttribI4iv" exists.
-func (this WebGL2RenderingContext) HasVertexAttribI4iv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextVertexAttribI4iv(
-		this.Ref(),
+// HasFuncVertexAttribI4iv returns true if the method "WebGL2RenderingContext.vertexAttribI4iv" exists.
+func (this WebGL2RenderingContext) HasFuncVertexAttribI4iv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextVertexAttribI4iv(
+		this.ref,
 	)
 }
 
-// VertexAttribI4ivFunc returns the method "WebGL2RenderingContext.vertexAttribI4iv".
-func (this WebGL2RenderingContext) VertexAttribI4ivFunc() (fn js.Func[func(index GLuint, values Int32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextVertexAttribI4ivFunc(
-			this.Ref(),
-		),
+// FuncVertexAttribI4iv returns the method "WebGL2RenderingContext.vertexAttribI4iv".
+func (this WebGL2RenderingContext) FuncVertexAttribI4iv() (fn js.Func[func(index GLuint, values Int32List)]) {
+	bindings.FuncWebGL2RenderingContextVertexAttribI4iv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // VertexAttribI4iv calls the method "WebGL2RenderingContext.vertexAttribI4iv".
 func (this WebGL2RenderingContext) VertexAttribI4iv(index GLuint, values Int32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextVertexAttribI4iv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		values.Ref(),
 	)
@@ -13103,7 +12850,7 @@ func (this WebGL2RenderingContext) VertexAttribI4iv(index GLuint, values Int32Li
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttribI4iv(index GLuint, values Int32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttribI4iv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		values.Ref(),
 	)
@@ -13111,26 +12858,25 @@ func (this WebGL2RenderingContext) TryVertexAttribI4iv(index GLuint, values Int3
 	return
 }
 
-// HasVertexAttribI4ui returns true if the method "WebGL2RenderingContext.vertexAttribI4ui" exists.
-func (this WebGL2RenderingContext) HasVertexAttribI4ui() bool {
-	return js.True == bindings.HasWebGL2RenderingContextVertexAttribI4ui(
-		this.Ref(),
+// HasFuncVertexAttribI4ui returns true if the method "WebGL2RenderingContext.vertexAttribI4ui" exists.
+func (this WebGL2RenderingContext) HasFuncVertexAttribI4ui() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextVertexAttribI4ui(
+		this.ref,
 	)
 }
 
-// VertexAttribI4uiFunc returns the method "WebGL2RenderingContext.vertexAttribI4ui".
-func (this WebGL2RenderingContext) VertexAttribI4uiFunc() (fn js.Func[func(index GLuint, x GLuint, y GLuint, z GLuint, w GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextVertexAttribI4uiFunc(
-			this.Ref(),
-		),
+// FuncVertexAttribI4ui returns the method "WebGL2RenderingContext.vertexAttribI4ui".
+func (this WebGL2RenderingContext) FuncVertexAttribI4ui() (fn js.Func[func(index GLuint, x GLuint, y GLuint, z GLuint, w GLuint)]) {
+	bindings.FuncWebGL2RenderingContextVertexAttribI4ui(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // VertexAttribI4ui calls the method "WebGL2RenderingContext.vertexAttribI4ui".
 func (this WebGL2RenderingContext) VertexAttribI4ui(index GLuint, x GLuint, y GLuint, z GLuint, w GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextVertexAttribI4ui(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		uint32(x),
 		uint32(y),
@@ -13146,7 +12892,7 @@ func (this WebGL2RenderingContext) VertexAttribI4ui(index GLuint, x GLuint, y GL
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttribI4ui(index GLuint, x GLuint, y GLuint, z GLuint, w GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttribI4ui(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		uint32(x),
 		uint32(y),
@@ -13157,26 +12903,25 @@ func (this WebGL2RenderingContext) TryVertexAttribI4ui(index GLuint, x GLuint, y
 	return
 }
 
-// HasVertexAttribI4uiv returns true if the method "WebGL2RenderingContext.vertexAttribI4uiv" exists.
-func (this WebGL2RenderingContext) HasVertexAttribI4uiv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextVertexAttribI4uiv(
-		this.Ref(),
+// HasFuncVertexAttribI4uiv returns true if the method "WebGL2RenderingContext.vertexAttribI4uiv" exists.
+func (this WebGL2RenderingContext) HasFuncVertexAttribI4uiv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextVertexAttribI4uiv(
+		this.ref,
 	)
 }
 
-// VertexAttribI4uivFunc returns the method "WebGL2RenderingContext.vertexAttribI4uiv".
-func (this WebGL2RenderingContext) VertexAttribI4uivFunc() (fn js.Func[func(index GLuint, values Uint32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextVertexAttribI4uivFunc(
-			this.Ref(),
-		),
+// FuncVertexAttribI4uiv returns the method "WebGL2RenderingContext.vertexAttribI4uiv".
+func (this WebGL2RenderingContext) FuncVertexAttribI4uiv() (fn js.Func[func(index GLuint, values Uint32List)]) {
+	bindings.FuncWebGL2RenderingContextVertexAttribI4uiv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // VertexAttribI4uiv calls the method "WebGL2RenderingContext.vertexAttribI4uiv".
 func (this WebGL2RenderingContext) VertexAttribI4uiv(index GLuint, values Uint32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextVertexAttribI4uiv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		values.Ref(),
 	)
@@ -13189,7 +12934,7 @@ func (this WebGL2RenderingContext) VertexAttribI4uiv(index GLuint, values Uint32
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttribI4uiv(index GLuint, values Uint32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttribI4uiv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		values.Ref(),
 	)
@@ -13197,26 +12942,25 @@ func (this WebGL2RenderingContext) TryVertexAttribI4uiv(index GLuint, values Uin
 	return
 }
 
-// HasVertexAttribIPointer returns true if the method "WebGL2RenderingContext.vertexAttribIPointer" exists.
-func (this WebGL2RenderingContext) HasVertexAttribIPointer() bool {
-	return js.True == bindings.HasWebGL2RenderingContextVertexAttribIPointer(
-		this.Ref(),
+// HasFuncVertexAttribIPointer returns true if the method "WebGL2RenderingContext.vertexAttribIPointer" exists.
+func (this WebGL2RenderingContext) HasFuncVertexAttribIPointer() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextVertexAttribIPointer(
+		this.ref,
 	)
 }
 
-// VertexAttribIPointerFunc returns the method "WebGL2RenderingContext.vertexAttribIPointer".
-func (this WebGL2RenderingContext) VertexAttribIPointerFunc() (fn js.Func[func(index GLuint, size GLint, typ GLenum, stride GLsizei, offset GLintptr)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextVertexAttribIPointerFunc(
-			this.Ref(),
-		),
+// FuncVertexAttribIPointer returns the method "WebGL2RenderingContext.vertexAttribIPointer".
+func (this WebGL2RenderingContext) FuncVertexAttribIPointer() (fn js.Func[func(index GLuint, size GLint, typ GLenum, stride GLsizei, offset GLintptr)]) {
+	bindings.FuncWebGL2RenderingContextVertexAttribIPointer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // VertexAttribIPointer calls the method "WebGL2RenderingContext.vertexAttribIPointer".
 func (this WebGL2RenderingContext) VertexAttribIPointer(index GLuint, size GLint, typ GLenum, stride GLsizei, offset GLintptr) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextVertexAttribIPointer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		int32(size),
 		uint32(typ),
@@ -13232,7 +12976,7 @@ func (this WebGL2RenderingContext) VertexAttribIPointer(index GLuint, size GLint
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttribIPointer(index GLuint, size GLint, typ GLenum, stride GLsizei, offset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttribIPointer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		int32(size),
 		uint32(typ),
@@ -13243,26 +12987,25 @@ func (this WebGL2RenderingContext) TryVertexAttribIPointer(index GLuint, size GL
 	return
 }
 
-// HasVertexAttribDivisor returns true if the method "WebGL2RenderingContext.vertexAttribDivisor" exists.
-func (this WebGL2RenderingContext) HasVertexAttribDivisor() bool {
-	return js.True == bindings.HasWebGL2RenderingContextVertexAttribDivisor(
-		this.Ref(),
+// HasFuncVertexAttribDivisor returns true if the method "WebGL2RenderingContext.vertexAttribDivisor" exists.
+func (this WebGL2RenderingContext) HasFuncVertexAttribDivisor() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextVertexAttribDivisor(
+		this.ref,
 	)
 }
 
-// VertexAttribDivisorFunc returns the method "WebGL2RenderingContext.vertexAttribDivisor".
-func (this WebGL2RenderingContext) VertexAttribDivisorFunc() (fn js.Func[func(index GLuint, divisor GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextVertexAttribDivisorFunc(
-			this.Ref(),
-		),
+// FuncVertexAttribDivisor returns the method "WebGL2RenderingContext.vertexAttribDivisor".
+func (this WebGL2RenderingContext) FuncVertexAttribDivisor() (fn js.Func[func(index GLuint, divisor GLuint)]) {
+	bindings.FuncWebGL2RenderingContextVertexAttribDivisor(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // VertexAttribDivisor calls the method "WebGL2RenderingContext.vertexAttribDivisor".
 func (this WebGL2RenderingContext) VertexAttribDivisor(index GLuint, divisor GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextVertexAttribDivisor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		uint32(divisor),
 	)
@@ -13275,7 +13018,7 @@ func (this WebGL2RenderingContext) VertexAttribDivisor(index GLuint, divisor GLu
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttribDivisor(index GLuint, divisor GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttribDivisor(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		uint32(divisor),
 	)
@@ -13283,26 +13026,25 @@ func (this WebGL2RenderingContext) TryVertexAttribDivisor(index GLuint, divisor 
 	return
 }
 
-// HasDrawArraysInstanced returns true if the method "WebGL2RenderingContext.drawArraysInstanced" exists.
-func (this WebGL2RenderingContext) HasDrawArraysInstanced() bool {
-	return js.True == bindings.HasWebGL2RenderingContextDrawArraysInstanced(
-		this.Ref(),
+// HasFuncDrawArraysInstanced returns true if the method "WebGL2RenderingContext.drawArraysInstanced" exists.
+func (this WebGL2RenderingContext) HasFuncDrawArraysInstanced() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextDrawArraysInstanced(
+		this.ref,
 	)
 }
 
-// DrawArraysInstancedFunc returns the method "WebGL2RenderingContext.drawArraysInstanced".
-func (this WebGL2RenderingContext) DrawArraysInstancedFunc() (fn js.Func[func(mode GLenum, first GLint, count GLsizei, instanceCount GLsizei)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextDrawArraysInstancedFunc(
-			this.Ref(),
-		),
+// FuncDrawArraysInstanced returns the method "WebGL2RenderingContext.drawArraysInstanced".
+func (this WebGL2RenderingContext) FuncDrawArraysInstanced() (fn js.Func[func(mode GLenum, first GLint, count GLsizei, instanceCount GLsizei)]) {
+	bindings.FuncWebGL2RenderingContextDrawArraysInstanced(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawArraysInstanced calls the method "WebGL2RenderingContext.drawArraysInstanced".
 func (this WebGL2RenderingContext) DrawArraysInstanced(mode GLenum, first GLint, count GLsizei, instanceCount GLsizei) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextDrawArraysInstanced(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mode),
 		int32(first),
 		int32(count),
@@ -13317,7 +13059,7 @@ func (this WebGL2RenderingContext) DrawArraysInstanced(mode GLenum, first GLint,
 // the catch clause.
 func (this WebGL2RenderingContext) TryDrawArraysInstanced(mode GLenum, first GLint, count GLsizei, instanceCount GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDrawArraysInstanced(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mode),
 		int32(first),
 		int32(count),
@@ -13327,26 +13069,25 @@ func (this WebGL2RenderingContext) TryDrawArraysInstanced(mode GLenum, first GLi
 	return
 }
 
-// HasDrawElementsInstanced returns true if the method "WebGL2RenderingContext.drawElementsInstanced" exists.
-func (this WebGL2RenderingContext) HasDrawElementsInstanced() bool {
-	return js.True == bindings.HasWebGL2RenderingContextDrawElementsInstanced(
-		this.Ref(),
+// HasFuncDrawElementsInstanced returns true if the method "WebGL2RenderingContext.drawElementsInstanced" exists.
+func (this WebGL2RenderingContext) HasFuncDrawElementsInstanced() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextDrawElementsInstanced(
+		this.ref,
 	)
 }
 
-// DrawElementsInstancedFunc returns the method "WebGL2RenderingContext.drawElementsInstanced".
-func (this WebGL2RenderingContext) DrawElementsInstancedFunc() (fn js.Func[func(mode GLenum, count GLsizei, typ GLenum, offset GLintptr, instanceCount GLsizei)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextDrawElementsInstancedFunc(
-			this.Ref(),
-		),
+// FuncDrawElementsInstanced returns the method "WebGL2RenderingContext.drawElementsInstanced".
+func (this WebGL2RenderingContext) FuncDrawElementsInstanced() (fn js.Func[func(mode GLenum, count GLsizei, typ GLenum, offset GLintptr, instanceCount GLsizei)]) {
+	bindings.FuncWebGL2RenderingContextDrawElementsInstanced(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawElementsInstanced calls the method "WebGL2RenderingContext.drawElementsInstanced".
 func (this WebGL2RenderingContext) DrawElementsInstanced(mode GLenum, count GLsizei, typ GLenum, offset GLintptr, instanceCount GLsizei) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextDrawElementsInstanced(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mode),
 		int32(count),
 		uint32(typ),
@@ -13362,7 +13103,7 @@ func (this WebGL2RenderingContext) DrawElementsInstanced(mode GLenum, count GLsi
 // the catch clause.
 func (this WebGL2RenderingContext) TryDrawElementsInstanced(mode GLenum, count GLsizei, typ GLenum, offset GLintptr, instanceCount GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDrawElementsInstanced(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mode),
 		int32(count),
 		uint32(typ),
@@ -13373,26 +13114,25 @@ func (this WebGL2RenderingContext) TryDrawElementsInstanced(mode GLenum, count G
 	return
 }
 
-// HasDrawRangeElements returns true if the method "WebGL2RenderingContext.drawRangeElements" exists.
-func (this WebGL2RenderingContext) HasDrawRangeElements() bool {
-	return js.True == bindings.HasWebGL2RenderingContextDrawRangeElements(
-		this.Ref(),
+// HasFuncDrawRangeElements returns true if the method "WebGL2RenderingContext.drawRangeElements" exists.
+func (this WebGL2RenderingContext) HasFuncDrawRangeElements() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextDrawRangeElements(
+		this.ref,
 	)
 }
 
-// DrawRangeElementsFunc returns the method "WebGL2RenderingContext.drawRangeElements".
-func (this WebGL2RenderingContext) DrawRangeElementsFunc() (fn js.Func[func(mode GLenum, start GLuint, end GLuint, count GLsizei, typ GLenum, offset GLintptr)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextDrawRangeElementsFunc(
-			this.Ref(),
-		),
+// FuncDrawRangeElements returns the method "WebGL2RenderingContext.drawRangeElements".
+func (this WebGL2RenderingContext) FuncDrawRangeElements() (fn js.Func[func(mode GLenum, start GLuint, end GLuint, count GLsizei, typ GLenum, offset GLintptr)]) {
+	bindings.FuncWebGL2RenderingContextDrawRangeElements(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawRangeElements calls the method "WebGL2RenderingContext.drawRangeElements".
 func (this WebGL2RenderingContext) DrawRangeElements(mode GLenum, start GLuint, end GLuint, count GLsizei, typ GLenum, offset GLintptr) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextDrawRangeElements(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mode),
 		uint32(start),
 		uint32(end),
@@ -13409,7 +13149,7 @@ func (this WebGL2RenderingContext) DrawRangeElements(mode GLenum, start GLuint, 
 // the catch clause.
 func (this WebGL2RenderingContext) TryDrawRangeElements(mode GLenum, start GLuint, end GLuint, count GLsizei, typ GLenum, offset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDrawRangeElements(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mode),
 		uint32(start),
 		uint32(end),
@@ -13421,26 +13161,25 @@ func (this WebGL2RenderingContext) TryDrawRangeElements(mode GLenum, start GLuin
 	return
 }
 
-// HasDrawBuffers returns true if the method "WebGL2RenderingContext.drawBuffers" exists.
-func (this WebGL2RenderingContext) HasDrawBuffers() bool {
-	return js.True == bindings.HasWebGL2RenderingContextDrawBuffers(
-		this.Ref(),
+// HasFuncDrawBuffers returns true if the method "WebGL2RenderingContext.drawBuffers" exists.
+func (this WebGL2RenderingContext) HasFuncDrawBuffers() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextDrawBuffers(
+		this.ref,
 	)
 }
 
-// DrawBuffersFunc returns the method "WebGL2RenderingContext.drawBuffers".
-func (this WebGL2RenderingContext) DrawBuffersFunc() (fn js.Func[func(buffers js.Array[GLenum])]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextDrawBuffersFunc(
-			this.Ref(),
-		),
+// FuncDrawBuffers returns the method "WebGL2RenderingContext.drawBuffers".
+func (this WebGL2RenderingContext) FuncDrawBuffers() (fn js.Func[func(buffers js.Array[GLenum])]) {
+	bindings.FuncWebGL2RenderingContextDrawBuffers(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawBuffers calls the method "WebGL2RenderingContext.drawBuffers".
 func (this WebGL2RenderingContext) DrawBuffers(buffers js.Array[GLenum]) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextDrawBuffers(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		buffers.Ref(),
 	)
 
@@ -13452,33 +13191,32 @@ func (this WebGL2RenderingContext) DrawBuffers(buffers js.Array[GLenum]) (ret js
 // the catch clause.
 func (this WebGL2RenderingContext) TryDrawBuffers(buffers js.Array[GLenum]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDrawBuffers(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		buffers.Ref(),
 	)
 
 	return
 }
 
-// HasClearBufferfv returns true if the method "WebGL2RenderingContext.clearBufferfv" exists.
-func (this WebGL2RenderingContext) HasClearBufferfv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextClearBufferfv(
-		this.Ref(),
+// HasFuncClearBufferfv returns true if the method "WebGL2RenderingContext.clearBufferfv" exists.
+func (this WebGL2RenderingContext) HasFuncClearBufferfv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextClearBufferfv(
+		this.ref,
 	)
 }
 
-// ClearBufferfvFunc returns the method "WebGL2RenderingContext.clearBufferfv".
-func (this WebGL2RenderingContext) ClearBufferfvFunc() (fn js.Func[func(buffer GLenum, drawbuffer GLint, values Float32List, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextClearBufferfvFunc(
-			this.Ref(),
-		),
+// FuncClearBufferfv returns the method "WebGL2RenderingContext.clearBufferfv".
+func (this WebGL2RenderingContext) FuncClearBufferfv() (fn js.Func[func(buffer GLenum, drawbuffer GLint, values Float32List, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextClearBufferfv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ClearBufferfv calls the method "WebGL2RenderingContext.clearBufferfv".
 func (this WebGL2RenderingContext) ClearBufferfv(buffer GLenum, drawbuffer GLint, values Float32List, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextClearBufferfv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(buffer),
 		int32(drawbuffer),
 		values.Ref(),
@@ -13493,7 +13231,7 @@ func (this WebGL2RenderingContext) ClearBufferfv(buffer GLenum, drawbuffer GLint
 // the catch clause.
 func (this WebGL2RenderingContext) TryClearBufferfv(buffer GLenum, drawbuffer GLint, values Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextClearBufferfv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(buffer),
 		int32(drawbuffer),
 		values.Ref(),
@@ -13503,26 +13241,25 @@ func (this WebGL2RenderingContext) TryClearBufferfv(buffer GLenum, drawbuffer GL
 	return
 }
 
-// HasClearBufferfv1 returns true if the method "WebGL2RenderingContext.clearBufferfv" exists.
-func (this WebGL2RenderingContext) HasClearBufferfv1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextClearBufferfv1(
-		this.Ref(),
+// HasFuncClearBufferfv1 returns true if the method "WebGL2RenderingContext.clearBufferfv" exists.
+func (this WebGL2RenderingContext) HasFuncClearBufferfv1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextClearBufferfv1(
+		this.ref,
 	)
 }
 
-// ClearBufferfv1Func returns the method "WebGL2RenderingContext.clearBufferfv".
-func (this WebGL2RenderingContext) ClearBufferfv1Func() (fn js.Func[func(buffer GLenum, drawbuffer GLint, values Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextClearBufferfv1Func(
-			this.Ref(),
-		),
+// FuncClearBufferfv1 returns the method "WebGL2RenderingContext.clearBufferfv".
+func (this WebGL2RenderingContext) FuncClearBufferfv1() (fn js.Func[func(buffer GLenum, drawbuffer GLint, values Float32List)]) {
+	bindings.FuncWebGL2RenderingContextClearBufferfv1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ClearBufferfv1 calls the method "WebGL2RenderingContext.clearBufferfv".
 func (this WebGL2RenderingContext) ClearBufferfv1(buffer GLenum, drawbuffer GLint, values Float32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextClearBufferfv1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(buffer),
 		int32(drawbuffer),
 		values.Ref(),
@@ -13536,7 +13273,7 @@ func (this WebGL2RenderingContext) ClearBufferfv1(buffer GLenum, drawbuffer GLin
 // the catch clause.
 func (this WebGL2RenderingContext) TryClearBufferfv1(buffer GLenum, drawbuffer GLint, values Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextClearBufferfv1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(buffer),
 		int32(drawbuffer),
 		values.Ref(),
@@ -13545,26 +13282,25 @@ func (this WebGL2RenderingContext) TryClearBufferfv1(buffer GLenum, drawbuffer G
 	return
 }
 
-// HasClearBufferiv returns true if the method "WebGL2RenderingContext.clearBufferiv" exists.
-func (this WebGL2RenderingContext) HasClearBufferiv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextClearBufferiv(
-		this.Ref(),
+// HasFuncClearBufferiv returns true if the method "WebGL2RenderingContext.clearBufferiv" exists.
+func (this WebGL2RenderingContext) HasFuncClearBufferiv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextClearBufferiv(
+		this.ref,
 	)
 }
 
-// ClearBufferivFunc returns the method "WebGL2RenderingContext.clearBufferiv".
-func (this WebGL2RenderingContext) ClearBufferivFunc() (fn js.Func[func(buffer GLenum, drawbuffer GLint, values Int32List, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextClearBufferivFunc(
-			this.Ref(),
-		),
+// FuncClearBufferiv returns the method "WebGL2RenderingContext.clearBufferiv".
+func (this WebGL2RenderingContext) FuncClearBufferiv() (fn js.Func[func(buffer GLenum, drawbuffer GLint, values Int32List, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextClearBufferiv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ClearBufferiv calls the method "WebGL2RenderingContext.clearBufferiv".
 func (this WebGL2RenderingContext) ClearBufferiv(buffer GLenum, drawbuffer GLint, values Int32List, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextClearBufferiv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(buffer),
 		int32(drawbuffer),
 		values.Ref(),
@@ -13579,7 +13315,7 @@ func (this WebGL2RenderingContext) ClearBufferiv(buffer GLenum, drawbuffer GLint
 // the catch clause.
 func (this WebGL2RenderingContext) TryClearBufferiv(buffer GLenum, drawbuffer GLint, values Int32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextClearBufferiv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(buffer),
 		int32(drawbuffer),
 		values.Ref(),
@@ -13589,26 +13325,25 @@ func (this WebGL2RenderingContext) TryClearBufferiv(buffer GLenum, drawbuffer GL
 	return
 }
 
-// HasClearBufferiv1 returns true if the method "WebGL2RenderingContext.clearBufferiv" exists.
-func (this WebGL2RenderingContext) HasClearBufferiv1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextClearBufferiv1(
-		this.Ref(),
+// HasFuncClearBufferiv1 returns true if the method "WebGL2RenderingContext.clearBufferiv" exists.
+func (this WebGL2RenderingContext) HasFuncClearBufferiv1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextClearBufferiv1(
+		this.ref,
 	)
 }
 
-// ClearBufferiv1Func returns the method "WebGL2RenderingContext.clearBufferiv".
-func (this WebGL2RenderingContext) ClearBufferiv1Func() (fn js.Func[func(buffer GLenum, drawbuffer GLint, values Int32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextClearBufferiv1Func(
-			this.Ref(),
-		),
+// FuncClearBufferiv1 returns the method "WebGL2RenderingContext.clearBufferiv".
+func (this WebGL2RenderingContext) FuncClearBufferiv1() (fn js.Func[func(buffer GLenum, drawbuffer GLint, values Int32List)]) {
+	bindings.FuncWebGL2RenderingContextClearBufferiv1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ClearBufferiv1 calls the method "WebGL2RenderingContext.clearBufferiv".
 func (this WebGL2RenderingContext) ClearBufferiv1(buffer GLenum, drawbuffer GLint, values Int32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextClearBufferiv1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(buffer),
 		int32(drawbuffer),
 		values.Ref(),
@@ -13622,7 +13357,7 @@ func (this WebGL2RenderingContext) ClearBufferiv1(buffer GLenum, drawbuffer GLin
 // the catch clause.
 func (this WebGL2RenderingContext) TryClearBufferiv1(buffer GLenum, drawbuffer GLint, values Int32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextClearBufferiv1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(buffer),
 		int32(drawbuffer),
 		values.Ref(),
@@ -13631,26 +13366,25 @@ func (this WebGL2RenderingContext) TryClearBufferiv1(buffer GLenum, drawbuffer G
 	return
 }
 
-// HasClearBufferuiv returns true if the method "WebGL2RenderingContext.clearBufferuiv" exists.
-func (this WebGL2RenderingContext) HasClearBufferuiv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextClearBufferuiv(
-		this.Ref(),
+// HasFuncClearBufferuiv returns true if the method "WebGL2RenderingContext.clearBufferuiv" exists.
+func (this WebGL2RenderingContext) HasFuncClearBufferuiv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextClearBufferuiv(
+		this.ref,
 	)
 }
 
-// ClearBufferuivFunc returns the method "WebGL2RenderingContext.clearBufferuiv".
-func (this WebGL2RenderingContext) ClearBufferuivFunc() (fn js.Func[func(buffer GLenum, drawbuffer GLint, values Uint32List, srcOffset GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextClearBufferuivFunc(
-			this.Ref(),
-		),
+// FuncClearBufferuiv returns the method "WebGL2RenderingContext.clearBufferuiv".
+func (this WebGL2RenderingContext) FuncClearBufferuiv() (fn js.Func[func(buffer GLenum, drawbuffer GLint, values Uint32List, srcOffset GLuint)]) {
+	bindings.FuncWebGL2RenderingContextClearBufferuiv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ClearBufferuiv calls the method "WebGL2RenderingContext.clearBufferuiv".
 func (this WebGL2RenderingContext) ClearBufferuiv(buffer GLenum, drawbuffer GLint, values Uint32List, srcOffset GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextClearBufferuiv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(buffer),
 		int32(drawbuffer),
 		values.Ref(),
@@ -13665,7 +13399,7 @@ func (this WebGL2RenderingContext) ClearBufferuiv(buffer GLenum, drawbuffer GLin
 // the catch clause.
 func (this WebGL2RenderingContext) TryClearBufferuiv(buffer GLenum, drawbuffer GLint, values Uint32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextClearBufferuiv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(buffer),
 		int32(drawbuffer),
 		values.Ref(),
@@ -13675,26 +13409,25 @@ func (this WebGL2RenderingContext) TryClearBufferuiv(buffer GLenum, drawbuffer G
 	return
 }
 
-// HasClearBufferuiv1 returns true if the method "WebGL2RenderingContext.clearBufferuiv" exists.
-func (this WebGL2RenderingContext) HasClearBufferuiv1() bool {
-	return js.True == bindings.HasWebGL2RenderingContextClearBufferuiv1(
-		this.Ref(),
+// HasFuncClearBufferuiv1 returns true if the method "WebGL2RenderingContext.clearBufferuiv" exists.
+func (this WebGL2RenderingContext) HasFuncClearBufferuiv1() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextClearBufferuiv1(
+		this.ref,
 	)
 }
 
-// ClearBufferuiv1Func returns the method "WebGL2RenderingContext.clearBufferuiv".
-func (this WebGL2RenderingContext) ClearBufferuiv1Func() (fn js.Func[func(buffer GLenum, drawbuffer GLint, values Uint32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextClearBufferuiv1Func(
-			this.Ref(),
-		),
+// FuncClearBufferuiv1 returns the method "WebGL2RenderingContext.clearBufferuiv".
+func (this WebGL2RenderingContext) FuncClearBufferuiv1() (fn js.Func[func(buffer GLenum, drawbuffer GLint, values Uint32List)]) {
+	bindings.FuncWebGL2RenderingContextClearBufferuiv1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ClearBufferuiv1 calls the method "WebGL2RenderingContext.clearBufferuiv".
 func (this WebGL2RenderingContext) ClearBufferuiv1(buffer GLenum, drawbuffer GLint, values Uint32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextClearBufferuiv1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(buffer),
 		int32(drawbuffer),
 		values.Ref(),
@@ -13708,7 +13441,7 @@ func (this WebGL2RenderingContext) ClearBufferuiv1(buffer GLenum, drawbuffer GLi
 // the catch clause.
 func (this WebGL2RenderingContext) TryClearBufferuiv1(buffer GLenum, drawbuffer GLint, values Uint32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextClearBufferuiv1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(buffer),
 		int32(drawbuffer),
 		values.Ref(),
@@ -13717,26 +13450,25 @@ func (this WebGL2RenderingContext) TryClearBufferuiv1(buffer GLenum, drawbuffer 
 	return
 }
 
-// HasClearBufferfi returns true if the method "WebGL2RenderingContext.clearBufferfi" exists.
-func (this WebGL2RenderingContext) HasClearBufferfi() bool {
-	return js.True == bindings.HasWebGL2RenderingContextClearBufferfi(
-		this.Ref(),
+// HasFuncClearBufferfi returns true if the method "WebGL2RenderingContext.clearBufferfi" exists.
+func (this WebGL2RenderingContext) HasFuncClearBufferfi() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextClearBufferfi(
+		this.ref,
 	)
 }
 
-// ClearBufferfiFunc returns the method "WebGL2RenderingContext.clearBufferfi".
-func (this WebGL2RenderingContext) ClearBufferfiFunc() (fn js.Func[func(buffer GLenum, drawbuffer GLint, depth GLfloat, stencil GLint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextClearBufferfiFunc(
-			this.Ref(),
-		),
+// FuncClearBufferfi returns the method "WebGL2RenderingContext.clearBufferfi".
+func (this WebGL2RenderingContext) FuncClearBufferfi() (fn js.Func[func(buffer GLenum, drawbuffer GLint, depth GLfloat, stencil GLint)]) {
+	bindings.FuncWebGL2RenderingContextClearBufferfi(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ClearBufferfi calls the method "WebGL2RenderingContext.clearBufferfi".
 func (this WebGL2RenderingContext) ClearBufferfi(buffer GLenum, drawbuffer GLint, depth GLfloat, stencil GLint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextClearBufferfi(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(buffer),
 		int32(drawbuffer),
 		float32(depth),
@@ -13751,7 +13483,7 @@ func (this WebGL2RenderingContext) ClearBufferfi(buffer GLenum, drawbuffer GLint
 // the catch clause.
 func (this WebGL2RenderingContext) TryClearBufferfi(buffer GLenum, drawbuffer GLint, depth GLfloat, stencil GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextClearBufferfi(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(buffer),
 		int32(drawbuffer),
 		float32(depth),
@@ -13761,26 +13493,25 @@ func (this WebGL2RenderingContext) TryClearBufferfi(buffer GLenum, drawbuffer GL
 	return
 }
 
-// HasCreateQuery returns true if the method "WebGL2RenderingContext.createQuery" exists.
-func (this WebGL2RenderingContext) HasCreateQuery() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCreateQuery(
-		this.Ref(),
+// HasFuncCreateQuery returns true if the method "WebGL2RenderingContext.createQuery" exists.
+func (this WebGL2RenderingContext) HasFuncCreateQuery() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCreateQuery(
+		this.ref,
 	)
 }
 
-// CreateQueryFunc returns the method "WebGL2RenderingContext.createQuery".
-func (this WebGL2RenderingContext) CreateQueryFunc() (fn js.Func[func() WebGLQuery]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCreateQueryFunc(
-			this.Ref(),
-		),
+// FuncCreateQuery returns the method "WebGL2RenderingContext.createQuery".
+func (this WebGL2RenderingContext) FuncCreateQuery() (fn js.Func[func() WebGLQuery]) {
+	bindings.FuncWebGL2RenderingContextCreateQuery(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateQuery calls the method "WebGL2RenderingContext.createQuery".
 func (this WebGL2RenderingContext) CreateQuery() (ret WebGLQuery) {
 	bindings.CallWebGL2RenderingContextCreateQuery(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -13791,32 +13522,31 @@ func (this WebGL2RenderingContext) CreateQuery() (ret WebGLQuery) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryCreateQuery() (ret WebGLQuery, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCreateQuery(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasDeleteQuery returns true if the method "WebGL2RenderingContext.deleteQuery" exists.
-func (this WebGL2RenderingContext) HasDeleteQuery() bool {
-	return js.True == bindings.HasWebGL2RenderingContextDeleteQuery(
-		this.Ref(),
+// HasFuncDeleteQuery returns true if the method "WebGL2RenderingContext.deleteQuery" exists.
+func (this WebGL2RenderingContext) HasFuncDeleteQuery() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextDeleteQuery(
+		this.ref,
 	)
 }
 
-// DeleteQueryFunc returns the method "WebGL2RenderingContext.deleteQuery".
-func (this WebGL2RenderingContext) DeleteQueryFunc() (fn js.Func[func(query WebGLQuery)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextDeleteQueryFunc(
-			this.Ref(),
-		),
+// FuncDeleteQuery returns the method "WebGL2RenderingContext.deleteQuery".
+func (this WebGL2RenderingContext) FuncDeleteQuery() (fn js.Func[func(query WebGLQuery)]) {
+	bindings.FuncWebGL2RenderingContextDeleteQuery(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteQuery calls the method "WebGL2RenderingContext.deleteQuery".
 func (this WebGL2RenderingContext) DeleteQuery(query WebGLQuery) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextDeleteQuery(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 	)
 
@@ -13828,33 +13558,32 @@ func (this WebGL2RenderingContext) DeleteQuery(query WebGLQuery) (ret js.Void) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryDeleteQuery(query WebGLQuery) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDeleteQuery(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 	)
 
 	return
 }
 
-// HasIsQuery returns true if the method "WebGL2RenderingContext.isQuery" exists.
-func (this WebGL2RenderingContext) HasIsQuery() bool {
-	return js.True == bindings.HasWebGL2RenderingContextIsQuery(
-		this.Ref(),
+// HasFuncIsQuery returns true if the method "WebGL2RenderingContext.isQuery" exists.
+func (this WebGL2RenderingContext) HasFuncIsQuery() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextIsQuery(
+		this.ref,
 	)
 }
 
-// IsQueryFunc returns the method "WebGL2RenderingContext.isQuery".
-func (this WebGL2RenderingContext) IsQueryFunc() (fn js.Func[func(query WebGLQuery) GLboolean]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextIsQueryFunc(
-			this.Ref(),
-		),
+// FuncIsQuery returns the method "WebGL2RenderingContext.isQuery".
+func (this WebGL2RenderingContext) FuncIsQuery() (fn js.Func[func(query WebGLQuery) GLboolean]) {
+	bindings.FuncWebGL2RenderingContextIsQuery(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsQuery calls the method "WebGL2RenderingContext.isQuery".
 func (this WebGL2RenderingContext) IsQuery(query WebGLQuery) (ret GLboolean) {
 	bindings.CallWebGL2RenderingContextIsQuery(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 	)
 
@@ -13866,33 +13595,32 @@ func (this WebGL2RenderingContext) IsQuery(query WebGLQuery) (ret GLboolean) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsQuery(query WebGLQuery) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsQuery(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 	)
 
 	return
 }
 
-// HasBeginQuery returns true if the method "WebGL2RenderingContext.beginQuery" exists.
-func (this WebGL2RenderingContext) HasBeginQuery() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBeginQuery(
-		this.Ref(),
+// HasFuncBeginQuery returns true if the method "WebGL2RenderingContext.beginQuery" exists.
+func (this WebGL2RenderingContext) HasFuncBeginQuery() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBeginQuery(
+		this.ref,
 	)
 }
 
-// BeginQueryFunc returns the method "WebGL2RenderingContext.beginQuery".
-func (this WebGL2RenderingContext) BeginQueryFunc() (fn js.Func[func(target GLenum, query WebGLQuery)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBeginQueryFunc(
-			this.Ref(),
-		),
+// FuncBeginQuery returns the method "WebGL2RenderingContext.beginQuery".
+func (this WebGL2RenderingContext) FuncBeginQuery() (fn js.Func[func(target GLenum, query WebGLQuery)]) {
+	bindings.FuncWebGL2RenderingContextBeginQuery(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BeginQuery calls the method "WebGL2RenderingContext.beginQuery".
 func (this WebGL2RenderingContext) BeginQuery(target GLenum, query WebGLQuery) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBeginQuery(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		query.Ref(),
 	)
@@ -13905,7 +13633,7 @@ func (this WebGL2RenderingContext) BeginQuery(target GLenum, query WebGLQuery) (
 // the catch clause.
 func (this WebGL2RenderingContext) TryBeginQuery(target GLenum, query WebGLQuery) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBeginQuery(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		query.Ref(),
 	)
@@ -13913,26 +13641,25 @@ func (this WebGL2RenderingContext) TryBeginQuery(target GLenum, query WebGLQuery
 	return
 }
 
-// HasEndQuery returns true if the method "WebGL2RenderingContext.endQuery" exists.
-func (this WebGL2RenderingContext) HasEndQuery() bool {
-	return js.True == bindings.HasWebGL2RenderingContextEndQuery(
-		this.Ref(),
+// HasFuncEndQuery returns true if the method "WebGL2RenderingContext.endQuery" exists.
+func (this WebGL2RenderingContext) HasFuncEndQuery() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextEndQuery(
+		this.ref,
 	)
 }
 
-// EndQueryFunc returns the method "WebGL2RenderingContext.endQuery".
-func (this WebGL2RenderingContext) EndQueryFunc() (fn js.Func[func(target GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextEndQueryFunc(
-			this.Ref(),
-		),
+// FuncEndQuery returns the method "WebGL2RenderingContext.endQuery".
+func (this WebGL2RenderingContext) FuncEndQuery() (fn js.Func[func(target GLenum)]) {
+	bindings.FuncWebGL2RenderingContextEndQuery(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // EndQuery calls the method "WebGL2RenderingContext.endQuery".
 func (this WebGL2RenderingContext) EndQuery(target GLenum) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextEndQuery(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 	)
 
@@ -13944,33 +13671,32 @@ func (this WebGL2RenderingContext) EndQuery(target GLenum) (ret js.Void) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryEndQuery(target GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextEndQuery(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 	)
 
 	return
 }
 
-// HasGetQuery returns true if the method "WebGL2RenderingContext.getQuery" exists.
-func (this WebGL2RenderingContext) HasGetQuery() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetQuery(
-		this.Ref(),
+// HasFuncGetQuery returns true if the method "WebGL2RenderingContext.getQuery" exists.
+func (this WebGL2RenderingContext) HasFuncGetQuery() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetQuery(
+		this.ref,
 	)
 }
 
-// GetQueryFunc returns the method "WebGL2RenderingContext.getQuery".
-func (this WebGL2RenderingContext) GetQueryFunc() (fn js.Func[func(target GLenum, pname GLenum) WebGLQuery]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetQueryFunc(
-			this.Ref(),
-		),
+// FuncGetQuery returns the method "WebGL2RenderingContext.getQuery".
+func (this WebGL2RenderingContext) FuncGetQuery() (fn js.Func[func(target GLenum, pname GLenum) WebGLQuery]) {
+	bindings.FuncWebGL2RenderingContextGetQuery(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetQuery calls the method "WebGL2RenderingContext.getQuery".
 func (this WebGL2RenderingContext) GetQuery(target GLenum, pname GLenum) (ret WebGLQuery) {
 	bindings.CallWebGL2RenderingContextGetQuery(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(pname),
 	)
@@ -13983,7 +13709,7 @@ func (this WebGL2RenderingContext) GetQuery(target GLenum, pname GLenum) (ret We
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetQuery(target GLenum, pname GLenum) (ret WebGLQuery, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetQuery(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(pname),
 	)
@@ -13991,26 +13717,25 @@ func (this WebGL2RenderingContext) TryGetQuery(target GLenum, pname GLenum) (ret
 	return
 }
 
-// HasGetQueryParameter returns true if the method "WebGL2RenderingContext.getQueryParameter" exists.
-func (this WebGL2RenderingContext) HasGetQueryParameter() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetQueryParameter(
-		this.Ref(),
+// HasFuncGetQueryParameter returns true if the method "WebGL2RenderingContext.getQueryParameter" exists.
+func (this WebGL2RenderingContext) HasFuncGetQueryParameter() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetQueryParameter(
+		this.ref,
 	)
 }
 
-// GetQueryParameterFunc returns the method "WebGL2RenderingContext.getQueryParameter".
-func (this WebGL2RenderingContext) GetQueryParameterFunc() (fn js.Func[func(query WebGLQuery, pname GLenum) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetQueryParameterFunc(
-			this.Ref(),
-		),
+// FuncGetQueryParameter returns the method "WebGL2RenderingContext.getQueryParameter".
+func (this WebGL2RenderingContext) FuncGetQueryParameter() (fn js.Func[func(query WebGLQuery, pname GLenum) js.Any]) {
+	bindings.FuncWebGL2RenderingContextGetQueryParameter(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetQueryParameter calls the method "WebGL2RenderingContext.getQueryParameter".
 func (this WebGL2RenderingContext) GetQueryParameter(query WebGLQuery, pname GLenum) (ret js.Any) {
 	bindings.CallWebGL2RenderingContextGetQueryParameter(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 		uint32(pname),
 	)
@@ -14023,7 +13748,7 @@ func (this WebGL2RenderingContext) GetQueryParameter(query WebGLQuery, pname GLe
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetQueryParameter(query WebGLQuery, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetQueryParameter(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 		uint32(pname),
 	)
@@ -14031,26 +13756,25 @@ func (this WebGL2RenderingContext) TryGetQueryParameter(query WebGLQuery, pname 
 	return
 }
 
-// HasCreateSampler returns true if the method "WebGL2RenderingContext.createSampler" exists.
-func (this WebGL2RenderingContext) HasCreateSampler() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCreateSampler(
-		this.Ref(),
+// HasFuncCreateSampler returns true if the method "WebGL2RenderingContext.createSampler" exists.
+func (this WebGL2RenderingContext) HasFuncCreateSampler() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCreateSampler(
+		this.ref,
 	)
 }
 
-// CreateSamplerFunc returns the method "WebGL2RenderingContext.createSampler".
-func (this WebGL2RenderingContext) CreateSamplerFunc() (fn js.Func[func() WebGLSampler]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCreateSamplerFunc(
-			this.Ref(),
-		),
+// FuncCreateSampler returns the method "WebGL2RenderingContext.createSampler".
+func (this WebGL2RenderingContext) FuncCreateSampler() (fn js.Func[func() WebGLSampler]) {
+	bindings.FuncWebGL2RenderingContextCreateSampler(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateSampler calls the method "WebGL2RenderingContext.createSampler".
 func (this WebGL2RenderingContext) CreateSampler() (ret WebGLSampler) {
 	bindings.CallWebGL2RenderingContextCreateSampler(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -14061,32 +13785,31 @@ func (this WebGL2RenderingContext) CreateSampler() (ret WebGLSampler) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryCreateSampler() (ret WebGLSampler, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCreateSampler(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasDeleteSampler returns true if the method "WebGL2RenderingContext.deleteSampler" exists.
-func (this WebGL2RenderingContext) HasDeleteSampler() bool {
-	return js.True == bindings.HasWebGL2RenderingContextDeleteSampler(
-		this.Ref(),
+// HasFuncDeleteSampler returns true if the method "WebGL2RenderingContext.deleteSampler" exists.
+func (this WebGL2RenderingContext) HasFuncDeleteSampler() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextDeleteSampler(
+		this.ref,
 	)
 }
 
-// DeleteSamplerFunc returns the method "WebGL2RenderingContext.deleteSampler".
-func (this WebGL2RenderingContext) DeleteSamplerFunc() (fn js.Func[func(sampler WebGLSampler)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextDeleteSamplerFunc(
-			this.Ref(),
-		),
+// FuncDeleteSampler returns the method "WebGL2RenderingContext.deleteSampler".
+func (this WebGL2RenderingContext) FuncDeleteSampler() (fn js.Func[func(sampler WebGLSampler)]) {
+	bindings.FuncWebGL2RenderingContextDeleteSampler(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteSampler calls the method "WebGL2RenderingContext.deleteSampler".
 func (this WebGL2RenderingContext) DeleteSampler(sampler WebGLSampler) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextDeleteSampler(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		sampler.Ref(),
 	)
 
@@ -14098,33 +13821,32 @@ func (this WebGL2RenderingContext) DeleteSampler(sampler WebGLSampler) (ret js.V
 // the catch clause.
 func (this WebGL2RenderingContext) TryDeleteSampler(sampler WebGLSampler) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDeleteSampler(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		sampler.Ref(),
 	)
 
 	return
 }
 
-// HasIsSampler returns true if the method "WebGL2RenderingContext.isSampler" exists.
-func (this WebGL2RenderingContext) HasIsSampler() bool {
-	return js.True == bindings.HasWebGL2RenderingContextIsSampler(
-		this.Ref(),
+// HasFuncIsSampler returns true if the method "WebGL2RenderingContext.isSampler" exists.
+func (this WebGL2RenderingContext) HasFuncIsSampler() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextIsSampler(
+		this.ref,
 	)
 }
 
-// IsSamplerFunc returns the method "WebGL2RenderingContext.isSampler".
-func (this WebGL2RenderingContext) IsSamplerFunc() (fn js.Func[func(sampler WebGLSampler) GLboolean]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextIsSamplerFunc(
-			this.Ref(),
-		),
+// FuncIsSampler returns the method "WebGL2RenderingContext.isSampler".
+func (this WebGL2RenderingContext) FuncIsSampler() (fn js.Func[func(sampler WebGLSampler) GLboolean]) {
+	bindings.FuncWebGL2RenderingContextIsSampler(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsSampler calls the method "WebGL2RenderingContext.isSampler".
 func (this WebGL2RenderingContext) IsSampler(sampler WebGLSampler) (ret GLboolean) {
 	bindings.CallWebGL2RenderingContextIsSampler(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		sampler.Ref(),
 	)
 
@@ -14136,33 +13858,32 @@ func (this WebGL2RenderingContext) IsSampler(sampler WebGLSampler) (ret GLboolea
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsSampler(sampler WebGLSampler) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsSampler(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		sampler.Ref(),
 	)
 
 	return
 }
 
-// HasBindSampler returns true if the method "WebGL2RenderingContext.bindSampler" exists.
-func (this WebGL2RenderingContext) HasBindSampler() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBindSampler(
-		this.Ref(),
+// HasFuncBindSampler returns true if the method "WebGL2RenderingContext.bindSampler" exists.
+func (this WebGL2RenderingContext) HasFuncBindSampler() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBindSampler(
+		this.ref,
 	)
 }
 
-// BindSamplerFunc returns the method "WebGL2RenderingContext.bindSampler".
-func (this WebGL2RenderingContext) BindSamplerFunc() (fn js.Func[func(unit GLuint, sampler WebGLSampler)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBindSamplerFunc(
-			this.Ref(),
-		),
+// FuncBindSampler returns the method "WebGL2RenderingContext.bindSampler".
+func (this WebGL2RenderingContext) FuncBindSampler() (fn js.Func[func(unit GLuint, sampler WebGLSampler)]) {
+	bindings.FuncWebGL2RenderingContextBindSampler(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BindSampler calls the method "WebGL2RenderingContext.bindSampler".
 func (this WebGL2RenderingContext) BindSampler(unit GLuint, sampler WebGLSampler) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBindSampler(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(unit),
 		sampler.Ref(),
 	)
@@ -14175,7 +13896,7 @@ func (this WebGL2RenderingContext) BindSampler(unit GLuint, sampler WebGLSampler
 // the catch clause.
 func (this WebGL2RenderingContext) TryBindSampler(unit GLuint, sampler WebGLSampler) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBindSampler(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(unit),
 		sampler.Ref(),
 	)
@@ -14183,26 +13904,25 @@ func (this WebGL2RenderingContext) TryBindSampler(unit GLuint, sampler WebGLSamp
 	return
 }
 
-// HasSamplerParameteri returns true if the method "WebGL2RenderingContext.samplerParameteri" exists.
-func (this WebGL2RenderingContext) HasSamplerParameteri() bool {
-	return js.True == bindings.HasWebGL2RenderingContextSamplerParameteri(
-		this.Ref(),
+// HasFuncSamplerParameteri returns true if the method "WebGL2RenderingContext.samplerParameteri" exists.
+func (this WebGL2RenderingContext) HasFuncSamplerParameteri() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextSamplerParameteri(
+		this.ref,
 	)
 }
 
-// SamplerParameteriFunc returns the method "WebGL2RenderingContext.samplerParameteri".
-func (this WebGL2RenderingContext) SamplerParameteriFunc() (fn js.Func[func(sampler WebGLSampler, pname GLenum, param GLint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextSamplerParameteriFunc(
-			this.Ref(),
-		),
+// FuncSamplerParameteri returns the method "WebGL2RenderingContext.samplerParameteri".
+func (this WebGL2RenderingContext) FuncSamplerParameteri() (fn js.Func[func(sampler WebGLSampler, pname GLenum, param GLint)]) {
+	bindings.FuncWebGL2RenderingContextSamplerParameteri(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SamplerParameteri calls the method "WebGL2RenderingContext.samplerParameteri".
 func (this WebGL2RenderingContext) SamplerParameteri(sampler WebGLSampler, pname GLenum, param GLint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextSamplerParameteri(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		sampler.Ref(),
 		uint32(pname),
 		int32(param),
@@ -14216,7 +13936,7 @@ func (this WebGL2RenderingContext) SamplerParameteri(sampler WebGLSampler, pname
 // the catch clause.
 func (this WebGL2RenderingContext) TrySamplerParameteri(sampler WebGLSampler, pname GLenum, param GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextSamplerParameteri(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		sampler.Ref(),
 		uint32(pname),
 		int32(param),
@@ -14225,26 +13945,25 @@ func (this WebGL2RenderingContext) TrySamplerParameteri(sampler WebGLSampler, pn
 	return
 }
 
-// HasSamplerParameterf returns true if the method "WebGL2RenderingContext.samplerParameterf" exists.
-func (this WebGL2RenderingContext) HasSamplerParameterf() bool {
-	return js.True == bindings.HasWebGL2RenderingContextSamplerParameterf(
-		this.Ref(),
+// HasFuncSamplerParameterf returns true if the method "WebGL2RenderingContext.samplerParameterf" exists.
+func (this WebGL2RenderingContext) HasFuncSamplerParameterf() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextSamplerParameterf(
+		this.ref,
 	)
 }
 
-// SamplerParameterfFunc returns the method "WebGL2RenderingContext.samplerParameterf".
-func (this WebGL2RenderingContext) SamplerParameterfFunc() (fn js.Func[func(sampler WebGLSampler, pname GLenum, param GLfloat)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextSamplerParameterfFunc(
-			this.Ref(),
-		),
+// FuncSamplerParameterf returns the method "WebGL2RenderingContext.samplerParameterf".
+func (this WebGL2RenderingContext) FuncSamplerParameterf() (fn js.Func[func(sampler WebGLSampler, pname GLenum, param GLfloat)]) {
+	bindings.FuncWebGL2RenderingContextSamplerParameterf(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SamplerParameterf calls the method "WebGL2RenderingContext.samplerParameterf".
 func (this WebGL2RenderingContext) SamplerParameterf(sampler WebGLSampler, pname GLenum, param GLfloat) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextSamplerParameterf(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		sampler.Ref(),
 		uint32(pname),
 		float32(param),
@@ -14258,7 +13977,7 @@ func (this WebGL2RenderingContext) SamplerParameterf(sampler WebGLSampler, pname
 // the catch clause.
 func (this WebGL2RenderingContext) TrySamplerParameterf(sampler WebGLSampler, pname GLenum, param GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextSamplerParameterf(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		sampler.Ref(),
 		uint32(pname),
 		float32(param),
@@ -14267,26 +13986,25 @@ func (this WebGL2RenderingContext) TrySamplerParameterf(sampler WebGLSampler, pn
 	return
 }
 
-// HasGetSamplerParameter returns true if the method "WebGL2RenderingContext.getSamplerParameter" exists.
-func (this WebGL2RenderingContext) HasGetSamplerParameter() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetSamplerParameter(
-		this.Ref(),
+// HasFuncGetSamplerParameter returns true if the method "WebGL2RenderingContext.getSamplerParameter" exists.
+func (this WebGL2RenderingContext) HasFuncGetSamplerParameter() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetSamplerParameter(
+		this.ref,
 	)
 }
 
-// GetSamplerParameterFunc returns the method "WebGL2RenderingContext.getSamplerParameter".
-func (this WebGL2RenderingContext) GetSamplerParameterFunc() (fn js.Func[func(sampler WebGLSampler, pname GLenum) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetSamplerParameterFunc(
-			this.Ref(),
-		),
+// FuncGetSamplerParameter returns the method "WebGL2RenderingContext.getSamplerParameter".
+func (this WebGL2RenderingContext) FuncGetSamplerParameter() (fn js.Func[func(sampler WebGLSampler, pname GLenum) js.Any]) {
+	bindings.FuncWebGL2RenderingContextGetSamplerParameter(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetSamplerParameter calls the method "WebGL2RenderingContext.getSamplerParameter".
 func (this WebGL2RenderingContext) GetSamplerParameter(sampler WebGLSampler, pname GLenum) (ret js.Any) {
 	bindings.CallWebGL2RenderingContextGetSamplerParameter(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		sampler.Ref(),
 		uint32(pname),
 	)
@@ -14299,7 +14017,7 @@ func (this WebGL2RenderingContext) GetSamplerParameter(sampler WebGLSampler, pna
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetSamplerParameter(sampler WebGLSampler, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetSamplerParameter(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		sampler.Ref(),
 		uint32(pname),
 	)
@@ -14307,26 +14025,25 @@ func (this WebGL2RenderingContext) TryGetSamplerParameter(sampler WebGLSampler, 
 	return
 }
 
-// HasFenceSync returns true if the method "WebGL2RenderingContext.fenceSync" exists.
-func (this WebGL2RenderingContext) HasFenceSync() bool {
-	return js.True == bindings.HasWebGL2RenderingContextFenceSync(
-		this.Ref(),
+// HasFuncFenceSync returns true if the method "WebGL2RenderingContext.fenceSync" exists.
+func (this WebGL2RenderingContext) HasFuncFenceSync() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextFenceSync(
+		this.ref,
 	)
 }
 
-// FenceSyncFunc returns the method "WebGL2RenderingContext.fenceSync".
-func (this WebGL2RenderingContext) FenceSyncFunc() (fn js.Func[func(condition GLenum, flags GLbitfield) WebGLSync]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextFenceSyncFunc(
-			this.Ref(),
-		),
+// FuncFenceSync returns the method "WebGL2RenderingContext.fenceSync".
+func (this WebGL2RenderingContext) FuncFenceSync() (fn js.Func[func(condition GLenum, flags GLbitfield) WebGLSync]) {
+	bindings.FuncWebGL2RenderingContextFenceSync(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // FenceSync calls the method "WebGL2RenderingContext.fenceSync".
 func (this WebGL2RenderingContext) FenceSync(condition GLenum, flags GLbitfield) (ret WebGLSync) {
 	bindings.CallWebGL2RenderingContextFenceSync(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(condition),
 		uint32(flags),
 	)
@@ -14339,7 +14056,7 @@ func (this WebGL2RenderingContext) FenceSync(condition GLenum, flags GLbitfield)
 // the catch clause.
 func (this WebGL2RenderingContext) TryFenceSync(condition GLenum, flags GLbitfield) (ret WebGLSync, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextFenceSync(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(condition),
 		uint32(flags),
 	)
@@ -14347,26 +14064,25 @@ func (this WebGL2RenderingContext) TryFenceSync(condition GLenum, flags GLbitfie
 	return
 }
 
-// HasIsSync returns true if the method "WebGL2RenderingContext.isSync" exists.
-func (this WebGL2RenderingContext) HasIsSync() bool {
-	return js.True == bindings.HasWebGL2RenderingContextIsSync(
-		this.Ref(),
+// HasFuncIsSync returns true if the method "WebGL2RenderingContext.isSync" exists.
+func (this WebGL2RenderingContext) HasFuncIsSync() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextIsSync(
+		this.ref,
 	)
 }
 
-// IsSyncFunc returns the method "WebGL2RenderingContext.isSync".
-func (this WebGL2RenderingContext) IsSyncFunc() (fn js.Func[func(sync WebGLSync) GLboolean]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextIsSyncFunc(
-			this.Ref(),
-		),
+// FuncIsSync returns the method "WebGL2RenderingContext.isSync".
+func (this WebGL2RenderingContext) FuncIsSync() (fn js.Func[func(sync WebGLSync) GLboolean]) {
+	bindings.FuncWebGL2RenderingContextIsSync(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsSync calls the method "WebGL2RenderingContext.isSync".
 func (this WebGL2RenderingContext) IsSync(sync WebGLSync) (ret GLboolean) {
 	bindings.CallWebGL2RenderingContextIsSync(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		sync.Ref(),
 	)
 
@@ -14378,33 +14094,32 @@ func (this WebGL2RenderingContext) IsSync(sync WebGLSync) (ret GLboolean) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsSync(sync WebGLSync) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsSync(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		sync.Ref(),
 	)
 
 	return
 }
 
-// HasDeleteSync returns true if the method "WebGL2RenderingContext.deleteSync" exists.
-func (this WebGL2RenderingContext) HasDeleteSync() bool {
-	return js.True == bindings.HasWebGL2RenderingContextDeleteSync(
-		this.Ref(),
+// HasFuncDeleteSync returns true if the method "WebGL2RenderingContext.deleteSync" exists.
+func (this WebGL2RenderingContext) HasFuncDeleteSync() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextDeleteSync(
+		this.ref,
 	)
 }
 
-// DeleteSyncFunc returns the method "WebGL2RenderingContext.deleteSync".
-func (this WebGL2RenderingContext) DeleteSyncFunc() (fn js.Func[func(sync WebGLSync)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextDeleteSyncFunc(
-			this.Ref(),
-		),
+// FuncDeleteSync returns the method "WebGL2RenderingContext.deleteSync".
+func (this WebGL2RenderingContext) FuncDeleteSync() (fn js.Func[func(sync WebGLSync)]) {
+	bindings.FuncWebGL2RenderingContextDeleteSync(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteSync calls the method "WebGL2RenderingContext.deleteSync".
 func (this WebGL2RenderingContext) DeleteSync(sync WebGLSync) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextDeleteSync(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		sync.Ref(),
 	)
 
@@ -14416,33 +14131,32 @@ func (this WebGL2RenderingContext) DeleteSync(sync WebGLSync) (ret js.Void) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryDeleteSync(sync WebGLSync) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDeleteSync(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		sync.Ref(),
 	)
 
 	return
 }
 
-// HasClientWaitSync returns true if the method "WebGL2RenderingContext.clientWaitSync" exists.
-func (this WebGL2RenderingContext) HasClientWaitSync() bool {
-	return js.True == bindings.HasWebGL2RenderingContextClientWaitSync(
-		this.Ref(),
+// HasFuncClientWaitSync returns true if the method "WebGL2RenderingContext.clientWaitSync" exists.
+func (this WebGL2RenderingContext) HasFuncClientWaitSync() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextClientWaitSync(
+		this.ref,
 	)
 }
 
-// ClientWaitSyncFunc returns the method "WebGL2RenderingContext.clientWaitSync".
-func (this WebGL2RenderingContext) ClientWaitSyncFunc() (fn js.Func[func(sync WebGLSync, flags GLbitfield, timeout GLuint64) GLenum]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextClientWaitSyncFunc(
-			this.Ref(),
-		),
+// FuncClientWaitSync returns the method "WebGL2RenderingContext.clientWaitSync".
+func (this WebGL2RenderingContext) FuncClientWaitSync() (fn js.Func[func(sync WebGLSync, flags GLbitfield, timeout GLuint64) GLenum]) {
+	bindings.FuncWebGL2RenderingContextClientWaitSync(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ClientWaitSync calls the method "WebGL2RenderingContext.clientWaitSync".
 func (this WebGL2RenderingContext) ClientWaitSync(sync WebGLSync, flags GLbitfield, timeout GLuint64) (ret GLenum) {
 	bindings.CallWebGL2RenderingContextClientWaitSync(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		sync.Ref(),
 		uint32(flags),
 		float64(timeout),
@@ -14456,7 +14170,7 @@ func (this WebGL2RenderingContext) ClientWaitSync(sync WebGLSync, flags GLbitfie
 // the catch clause.
 func (this WebGL2RenderingContext) TryClientWaitSync(sync WebGLSync, flags GLbitfield, timeout GLuint64) (ret GLenum, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextClientWaitSync(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		sync.Ref(),
 		uint32(flags),
 		float64(timeout),
@@ -14465,26 +14179,25 @@ func (this WebGL2RenderingContext) TryClientWaitSync(sync WebGLSync, flags GLbit
 	return
 }
 
-// HasWaitSync returns true if the method "WebGL2RenderingContext.waitSync" exists.
-func (this WebGL2RenderingContext) HasWaitSync() bool {
-	return js.True == bindings.HasWebGL2RenderingContextWaitSync(
-		this.Ref(),
+// HasFuncWaitSync returns true if the method "WebGL2RenderingContext.waitSync" exists.
+func (this WebGL2RenderingContext) HasFuncWaitSync() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextWaitSync(
+		this.ref,
 	)
 }
 
-// WaitSyncFunc returns the method "WebGL2RenderingContext.waitSync".
-func (this WebGL2RenderingContext) WaitSyncFunc() (fn js.Func[func(sync WebGLSync, flags GLbitfield, timeout GLint64)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextWaitSyncFunc(
-			this.Ref(),
-		),
+// FuncWaitSync returns the method "WebGL2RenderingContext.waitSync".
+func (this WebGL2RenderingContext) FuncWaitSync() (fn js.Func[func(sync WebGLSync, flags GLbitfield, timeout GLint64)]) {
+	bindings.FuncWebGL2RenderingContextWaitSync(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // WaitSync calls the method "WebGL2RenderingContext.waitSync".
 func (this WebGL2RenderingContext) WaitSync(sync WebGLSync, flags GLbitfield, timeout GLint64) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextWaitSync(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		sync.Ref(),
 		uint32(flags),
 		float64(timeout),
@@ -14498,7 +14211,7 @@ func (this WebGL2RenderingContext) WaitSync(sync WebGLSync, flags GLbitfield, ti
 // the catch clause.
 func (this WebGL2RenderingContext) TryWaitSync(sync WebGLSync, flags GLbitfield, timeout GLint64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextWaitSync(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		sync.Ref(),
 		uint32(flags),
 		float64(timeout),
@@ -14507,26 +14220,25 @@ func (this WebGL2RenderingContext) TryWaitSync(sync WebGLSync, flags GLbitfield,
 	return
 }
 
-// HasGetSyncParameter returns true if the method "WebGL2RenderingContext.getSyncParameter" exists.
-func (this WebGL2RenderingContext) HasGetSyncParameter() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetSyncParameter(
-		this.Ref(),
+// HasFuncGetSyncParameter returns true if the method "WebGL2RenderingContext.getSyncParameter" exists.
+func (this WebGL2RenderingContext) HasFuncGetSyncParameter() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetSyncParameter(
+		this.ref,
 	)
 }
 
-// GetSyncParameterFunc returns the method "WebGL2RenderingContext.getSyncParameter".
-func (this WebGL2RenderingContext) GetSyncParameterFunc() (fn js.Func[func(sync WebGLSync, pname GLenum) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetSyncParameterFunc(
-			this.Ref(),
-		),
+// FuncGetSyncParameter returns the method "WebGL2RenderingContext.getSyncParameter".
+func (this WebGL2RenderingContext) FuncGetSyncParameter() (fn js.Func[func(sync WebGLSync, pname GLenum) js.Any]) {
+	bindings.FuncWebGL2RenderingContextGetSyncParameter(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetSyncParameter calls the method "WebGL2RenderingContext.getSyncParameter".
 func (this WebGL2RenderingContext) GetSyncParameter(sync WebGLSync, pname GLenum) (ret js.Any) {
 	bindings.CallWebGL2RenderingContextGetSyncParameter(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		sync.Ref(),
 		uint32(pname),
 	)
@@ -14539,7 +14251,7 @@ func (this WebGL2RenderingContext) GetSyncParameter(sync WebGLSync, pname GLenum
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetSyncParameter(sync WebGLSync, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetSyncParameter(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		sync.Ref(),
 		uint32(pname),
 	)
@@ -14547,26 +14259,25 @@ func (this WebGL2RenderingContext) TryGetSyncParameter(sync WebGLSync, pname GLe
 	return
 }
 
-// HasCreateTransformFeedback returns true if the method "WebGL2RenderingContext.createTransformFeedback" exists.
-func (this WebGL2RenderingContext) HasCreateTransformFeedback() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCreateTransformFeedback(
-		this.Ref(),
+// HasFuncCreateTransformFeedback returns true if the method "WebGL2RenderingContext.createTransformFeedback" exists.
+func (this WebGL2RenderingContext) HasFuncCreateTransformFeedback() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCreateTransformFeedback(
+		this.ref,
 	)
 }
 
-// CreateTransformFeedbackFunc returns the method "WebGL2RenderingContext.createTransformFeedback".
-func (this WebGL2RenderingContext) CreateTransformFeedbackFunc() (fn js.Func[func() WebGLTransformFeedback]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCreateTransformFeedbackFunc(
-			this.Ref(),
-		),
+// FuncCreateTransformFeedback returns the method "WebGL2RenderingContext.createTransformFeedback".
+func (this WebGL2RenderingContext) FuncCreateTransformFeedback() (fn js.Func[func() WebGLTransformFeedback]) {
+	bindings.FuncWebGL2RenderingContextCreateTransformFeedback(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateTransformFeedback calls the method "WebGL2RenderingContext.createTransformFeedback".
 func (this WebGL2RenderingContext) CreateTransformFeedback() (ret WebGLTransformFeedback) {
 	bindings.CallWebGL2RenderingContextCreateTransformFeedback(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -14577,32 +14288,31 @@ func (this WebGL2RenderingContext) CreateTransformFeedback() (ret WebGLTransform
 // the catch clause.
 func (this WebGL2RenderingContext) TryCreateTransformFeedback() (ret WebGLTransformFeedback, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCreateTransformFeedback(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasDeleteTransformFeedback returns true if the method "WebGL2RenderingContext.deleteTransformFeedback" exists.
-func (this WebGL2RenderingContext) HasDeleteTransformFeedback() bool {
-	return js.True == bindings.HasWebGL2RenderingContextDeleteTransformFeedback(
-		this.Ref(),
+// HasFuncDeleteTransformFeedback returns true if the method "WebGL2RenderingContext.deleteTransformFeedback" exists.
+func (this WebGL2RenderingContext) HasFuncDeleteTransformFeedback() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextDeleteTransformFeedback(
+		this.ref,
 	)
 }
 
-// DeleteTransformFeedbackFunc returns the method "WebGL2RenderingContext.deleteTransformFeedback".
-func (this WebGL2RenderingContext) DeleteTransformFeedbackFunc() (fn js.Func[func(tf WebGLTransformFeedback)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextDeleteTransformFeedbackFunc(
-			this.Ref(),
-		),
+// FuncDeleteTransformFeedback returns the method "WebGL2RenderingContext.deleteTransformFeedback".
+func (this WebGL2RenderingContext) FuncDeleteTransformFeedback() (fn js.Func[func(tf WebGLTransformFeedback)]) {
+	bindings.FuncWebGL2RenderingContextDeleteTransformFeedback(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteTransformFeedback calls the method "WebGL2RenderingContext.deleteTransformFeedback".
 func (this WebGL2RenderingContext) DeleteTransformFeedback(tf WebGLTransformFeedback) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextDeleteTransformFeedback(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		tf.Ref(),
 	)
 
@@ -14614,33 +14324,32 @@ func (this WebGL2RenderingContext) DeleteTransformFeedback(tf WebGLTransformFeed
 // the catch clause.
 func (this WebGL2RenderingContext) TryDeleteTransformFeedback(tf WebGLTransformFeedback) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDeleteTransformFeedback(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		tf.Ref(),
 	)
 
 	return
 }
 
-// HasIsTransformFeedback returns true if the method "WebGL2RenderingContext.isTransformFeedback" exists.
-func (this WebGL2RenderingContext) HasIsTransformFeedback() bool {
-	return js.True == bindings.HasWebGL2RenderingContextIsTransformFeedback(
-		this.Ref(),
+// HasFuncIsTransformFeedback returns true if the method "WebGL2RenderingContext.isTransformFeedback" exists.
+func (this WebGL2RenderingContext) HasFuncIsTransformFeedback() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextIsTransformFeedback(
+		this.ref,
 	)
 }
 
-// IsTransformFeedbackFunc returns the method "WebGL2RenderingContext.isTransformFeedback".
-func (this WebGL2RenderingContext) IsTransformFeedbackFunc() (fn js.Func[func(tf WebGLTransformFeedback) GLboolean]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextIsTransformFeedbackFunc(
-			this.Ref(),
-		),
+// FuncIsTransformFeedback returns the method "WebGL2RenderingContext.isTransformFeedback".
+func (this WebGL2RenderingContext) FuncIsTransformFeedback() (fn js.Func[func(tf WebGLTransformFeedback) GLboolean]) {
+	bindings.FuncWebGL2RenderingContextIsTransformFeedback(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsTransformFeedback calls the method "WebGL2RenderingContext.isTransformFeedback".
 func (this WebGL2RenderingContext) IsTransformFeedback(tf WebGLTransformFeedback) (ret GLboolean) {
 	bindings.CallWebGL2RenderingContextIsTransformFeedback(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		tf.Ref(),
 	)
 
@@ -14652,33 +14361,32 @@ func (this WebGL2RenderingContext) IsTransformFeedback(tf WebGLTransformFeedback
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsTransformFeedback(tf WebGLTransformFeedback) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsTransformFeedback(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		tf.Ref(),
 	)
 
 	return
 }
 
-// HasBindTransformFeedback returns true if the method "WebGL2RenderingContext.bindTransformFeedback" exists.
-func (this WebGL2RenderingContext) HasBindTransformFeedback() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBindTransformFeedback(
-		this.Ref(),
+// HasFuncBindTransformFeedback returns true if the method "WebGL2RenderingContext.bindTransformFeedback" exists.
+func (this WebGL2RenderingContext) HasFuncBindTransformFeedback() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBindTransformFeedback(
+		this.ref,
 	)
 }
 
-// BindTransformFeedbackFunc returns the method "WebGL2RenderingContext.bindTransformFeedback".
-func (this WebGL2RenderingContext) BindTransformFeedbackFunc() (fn js.Func[func(target GLenum, tf WebGLTransformFeedback)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBindTransformFeedbackFunc(
-			this.Ref(),
-		),
+// FuncBindTransformFeedback returns the method "WebGL2RenderingContext.bindTransformFeedback".
+func (this WebGL2RenderingContext) FuncBindTransformFeedback() (fn js.Func[func(target GLenum, tf WebGLTransformFeedback)]) {
+	bindings.FuncWebGL2RenderingContextBindTransformFeedback(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BindTransformFeedback calls the method "WebGL2RenderingContext.bindTransformFeedback".
 func (this WebGL2RenderingContext) BindTransformFeedback(target GLenum, tf WebGLTransformFeedback) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBindTransformFeedback(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		tf.Ref(),
 	)
@@ -14691,7 +14399,7 @@ func (this WebGL2RenderingContext) BindTransformFeedback(target GLenum, tf WebGL
 // the catch clause.
 func (this WebGL2RenderingContext) TryBindTransformFeedback(target GLenum, tf WebGLTransformFeedback) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBindTransformFeedback(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		tf.Ref(),
 	)
@@ -14699,26 +14407,25 @@ func (this WebGL2RenderingContext) TryBindTransformFeedback(target GLenum, tf We
 	return
 }
 
-// HasBeginTransformFeedback returns true if the method "WebGL2RenderingContext.beginTransformFeedback" exists.
-func (this WebGL2RenderingContext) HasBeginTransformFeedback() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBeginTransformFeedback(
-		this.Ref(),
+// HasFuncBeginTransformFeedback returns true if the method "WebGL2RenderingContext.beginTransformFeedback" exists.
+func (this WebGL2RenderingContext) HasFuncBeginTransformFeedback() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBeginTransformFeedback(
+		this.ref,
 	)
 }
 
-// BeginTransformFeedbackFunc returns the method "WebGL2RenderingContext.beginTransformFeedback".
-func (this WebGL2RenderingContext) BeginTransformFeedbackFunc() (fn js.Func[func(primitiveMode GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBeginTransformFeedbackFunc(
-			this.Ref(),
-		),
+// FuncBeginTransformFeedback returns the method "WebGL2RenderingContext.beginTransformFeedback".
+func (this WebGL2RenderingContext) FuncBeginTransformFeedback() (fn js.Func[func(primitiveMode GLenum)]) {
+	bindings.FuncWebGL2RenderingContextBeginTransformFeedback(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BeginTransformFeedback calls the method "WebGL2RenderingContext.beginTransformFeedback".
 func (this WebGL2RenderingContext) BeginTransformFeedback(primitiveMode GLenum) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBeginTransformFeedback(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(primitiveMode),
 	)
 
@@ -14730,33 +14437,32 @@ func (this WebGL2RenderingContext) BeginTransformFeedback(primitiveMode GLenum) 
 // the catch clause.
 func (this WebGL2RenderingContext) TryBeginTransformFeedback(primitiveMode GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBeginTransformFeedback(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(primitiveMode),
 	)
 
 	return
 }
 
-// HasEndTransformFeedback returns true if the method "WebGL2RenderingContext.endTransformFeedback" exists.
-func (this WebGL2RenderingContext) HasEndTransformFeedback() bool {
-	return js.True == bindings.HasWebGL2RenderingContextEndTransformFeedback(
-		this.Ref(),
+// HasFuncEndTransformFeedback returns true if the method "WebGL2RenderingContext.endTransformFeedback" exists.
+func (this WebGL2RenderingContext) HasFuncEndTransformFeedback() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextEndTransformFeedback(
+		this.ref,
 	)
 }
 
-// EndTransformFeedbackFunc returns the method "WebGL2RenderingContext.endTransformFeedback".
-func (this WebGL2RenderingContext) EndTransformFeedbackFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextEndTransformFeedbackFunc(
-			this.Ref(),
-		),
+// FuncEndTransformFeedback returns the method "WebGL2RenderingContext.endTransformFeedback".
+func (this WebGL2RenderingContext) FuncEndTransformFeedback() (fn js.Func[func()]) {
+	bindings.FuncWebGL2RenderingContextEndTransformFeedback(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // EndTransformFeedback calls the method "WebGL2RenderingContext.endTransformFeedback".
 func (this WebGL2RenderingContext) EndTransformFeedback() (ret js.Void) {
 	bindings.CallWebGL2RenderingContextEndTransformFeedback(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -14767,32 +14473,31 @@ func (this WebGL2RenderingContext) EndTransformFeedback() (ret js.Void) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryEndTransformFeedback() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextEndTransformFeedback(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasTransformFeedbackVaryings returns true if the method "WebGL2RenderingContext.transformFeedbackVaryings" exists.
-func (this WebGL2RenderingContext) HasTransformFeedbackVaryings() bool {
-	return js.True == bindings.HasWebGL2RenderingContextTransformFeedbackVaryings(
-		this.Ref(),
+// HasFuncTransformFeedbackVaryings returns true if the method "WebGL2RenderingContext.transformFeedbackVaryings" exists.
+func (this WebGL2RenderingContext) HasFuncTransformFeedbackVaryings() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextTransformFeedbackVaryings(
+		this.ref,
 	)
 }
 
-// TransformFeedbackVaryingsFunc returns the method "WebGL2RenderingContext.transformFeedbackVaryings".
-func (this WebGL2RenderingContext) TransformFeedbackVaryingsFunc() (fn js.Func[func(program WebGLProgram, varyings js.Array[js.String], bufferMode GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextTransformFeedbackVaryingsFunc(
-			this.Ref(),
-		),
+// FuncTransformFeedbackVaryings returns the method "WebGL2RenderingContext.transformFeedbackVaryings".
+func (this WebGL2RenderingContext) FuncTransformFeedbackVaryings() (fn js.Func[func(program WebGLProgram, varyings js.Array[js.String], bufferMode GLenum)]) {
+	bindings.FuncWebGL2RenderingContextTransformFeedbackVaryings(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TransformFeedbackVaryings calls the method "WebGL2RenderingContext.transformFeedbackVaryings".
 func (this WebGL2RenderingContext) TransformFeedbackVaryings(program WebGLProgram, varyings js.Array[js.String], bufferMode GLenum) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextTransformFeedbackVaryings(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		varyings.Ref(),
 		uint32(bufferMode),
@@ -14806,7 +14511,7 @@ func (this WebGL2RenderingContext) TransformFeedbackVaryings(program WebGLProgra
 // the catch clause.
 func (this WebGL2RenderingContext) TryTransformFeedbackVaryings(program WebGLProgram, varyings js.Array[js.String], bufferMode GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTransformFeedbackVaryings(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		varyings.Ref(),
 		uint32(bufferMode),
@@ -14815,26 +14520,25 @@ func (this WebGL2RenderingContext) TryTransformFeedbackVaryings(program WebGLPro
 	return
 }
 
-// HasGetTransformFeedbackVarying returns true if the method "WebGL2RenderingContext.getTransformFeedbackVarying" exists.
-func (this WebGL2RenderingContext) HasGetTransformFeedbackVarying() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetTransformFeedbackVarying(
-		this.Ref(),
+// HasFuncGetTransformFeedbackVarying returns true if the method "WebGL2RenderingContext.getTransformFeedbackVarying" exists.
+func (this WebGL2RenderingContext) HasFuncGetTransformFeedbackVarying() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetTransformFeedbackVarying(
+		this.ref,
 	)
 }
 
-// GetTransformFeedbackVaryingFunc returns the method "WebGL2RenderingContext.getTransformFeedbackVarying".
-func (this WebGL2RenderingContext) GetTransformFeedbackVaryingFunc() (fn js.Func[func(program WebGLProgram, index GLuint) WebGLActiveInfo]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetTransformFeedbackVaryingFunc(
-			this.Ref(),
-		),
+// FuncGetTransformFeedbackVarying returns the method "WebGL2RenderingContext.getTransformFeedbackVarying".
+func (this WebGL2RenderingContext) FuncGetTransformFeedbackVarying() (fn js.Func[func(program WebGLProgram, index GLuint) WebGLActiveInfo]) {
+	bindings.FuncWebGL2RenderingContextGetTransformFeedbackVarying(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetTransformFeedbackVarying calls the method "WebGL2RenderingContext.getTransformFeedbackVarying".
 func (this WebGL2RenderingContext) GetTransformFeedbackVarying(program WebGLProgram, index GLuint) (ret WebGLActiveInfo) {
 	bindings.CallWebGL2RenderingContextGetTransformFeedbackVarying(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		uint32(index),
 	)
@@ -14847,7 +14551,7 @@ func (this WebGL2RenderingContext) GetTransformFeedbackVarying(program WebGLProg
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetTransformFeedbackVarying(program WebGLProgram, index GLuint) (ret WebGLActiveInfo, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetTransformFeedbackVarying(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		uint32(index),
 	)
@@ -14855,26 +14559,25 @@ func (this WebGL2RenderingContext) TryGetTransformFeedbackVarying(program WebGLP
 	return
 }
 
-// HasPauseTransformFeedback returns true if the method "WebGL2RenderingContext.pauseTransformFeedback" exists.
-func (this WebGL2RenderingContext) HasPauseTransformFeedback() bool {
-	return js.True == bindings.HasWebGL2RenderingContextPauseTransformFeedback(
-		this.Ref(),
+// HasFuncPauseTransformFeedback returns true if the method "WebGL2RenderingContext.pauseTransformFeedback" exists.
+func (this WebGL2RenderingContext) HasFuncPauseTransformFeedback() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextPauseTransformFeedback(
+		this.ref,
 	)
 }
 
-// PauseTransformFeedbackFunc returns the method "WebGL2RenderingContext.pauseTransformFeedback".
-func (this WebGL2RenderingContext) PauseTransformFeedbackFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextPauseTransformFeedbackFunc(
-			this.Ref(),
-		),
+// FuncPauseTransformFeedback returns the method "WebGL2RenderingContext.pauseTransformFeedback".
+func (this WebGL2RenderingContext) FuncPauseTransformFeedback() (fn js.Func[func()]) {
+	bindings.FuncWebGL2RenderingContextPauseTransformFeedback(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PauseTransformFeedback calls the method "WebGL2RenderingContext.pauseTransformFeedback".
 func (this WebGL2RenderingContext) PauseTransformFeedback() (ret js.Void) {
 	bindings.CallWebGL2RenderingContextPauseTransformFeedback(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -14885,32 +14588,31 @@ func (this WebGL2RenderingContext) PauseTransformFeedback() (ret js.Void) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryPauseTransformFeedback() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextPauseTransformFeedback(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasResumeTransformFeedback returns true if the method "WebGL2RenderingContext.resumeTransformFeedback" exists.
-func (this WebGL2RenderingContext) HasResumeTransformFeedback() bool {
-	return js.True == bindings.HasWebGL2RenderingContextResumeTransformFeedback(
-		this.Ref(),
+// HasFuncResumeTransformFeedback returns true if the method "WebGL2RenderingContext.resumeTransformFeedback" exists.
+func (this WebGL2RenderingContext) HasFuncResumeTransformFeedback() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextResumeTransformFeedback(
+		this.ref,
 	)
 }
 
-// ResumeTransformFeedbackFunc returns the method "WebGL2RenderingContext.resumeTransformFeedback".
-func (this WebGL2RenderingContext) ResumeTransformFeedbackFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextResumeTransformFeedbackFunc(
-			this.Ref(),
-		),
+// FuncResumeTransformFeedback returns the method "WebGL2RenderingContext.resumeTransformFeedback".
+func (this WebGL2RenderingContext) FuncResumeTransformFeedback() (fn js.Func[func()]) {
+	bindings.FuncWebGL2RenderingContextResumeTransformFeedback(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ResumeTransformFeedback calls the method "WebGL2RenderingContext.resumeTransformFeedback".
 func (this WebGL2RenderingContext) ResumeTransformFeedback() (ret js.Void) {
 	bindings.CallWebGL2RenderingContextResumeTransformFeedback(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -14921,32 +14623,31 @@ func (this WebGL2RenderingContext) ResumeTransformFeedback() (ret js.Void) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryResumeTransformFeedback() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextResumeTransformFeedback(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasBindBufferBase returns true if the method "WebGL2RenderingContext.bindBufferBase" exists.
-func (this WebGL2RenderingContext) HasBindBufferBase() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBindBufferBase(
-		this.Ref(),
+// HasFuncBindBufferBase returns true if the method "WebGL2RenderingContext.bindBufferBase" exists.
+func (this WebGL2RenderingContext) HasFuncBindBufferBase() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBindBufferBase(
+		this.ref,
 	)
 }
 
-// BindBufferBaseFunc returns the method "WebGL2RenderingContext.bindBufferBase".
-func (this WebGL2RenderingContext) BindBufferBaseFunc() (fn js.Func[func(target GLenum, index GLuint, buffer WebGLBuffer)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBindBufferBaseFunc(
-			this.Ref(),
-		),
+// FuncBindBufferBase returns the method "WebGL2RenderingContext.bindBufferBase".
+func (this WebGL2RenderingContext) FuncBindBufferBase() (fn js.Func[func(target GLenum, index GLuint, buffer WebGLBuffer)]) {
+	bindings.FuncWebGL2RenderingContextBindBufferBase(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BindBufferBase calls the method "WebGL2RenderingContext.bindBufferBase".
 func (this WebGL2RenderingContext) BindBufferBase(target GLenum, index GLuint, buffer WebGLBuffer) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBindBufferBase(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(index),
 		buffer.Ref(),
@@ -14960,7 +14661,7 @@ func (this WebGL2RenderingContext) BindBufferBase(target GLenum, index GLuint, b
 // the catch clause.
 func (this WebGL2RenderingContext) TryBindBufferBase(target GLenum, index GLuint, buffer WebGLBuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBindBufferBase(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(index),
 		buffer.Ref(),
@@ -14969,26 +14670,25 @@ func (this WebGL2RenderingContext) TryBindBufferBase(target GLenum, index GLuint
 	return
 }
 
-// HasBindBufferRange returns true if the method "WebGL2RenderingContext.bindBufferRange" exists.
-func (this WebGL2RenderingContext) HasBindBufferRange() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBindBufferRange(
-		this.Ref(),
+// HasFuncBindBufferRange returns true if the method "WebGL2RenderingContext.bindBufferRange" exists.
+func (this WebGL2RenderingContext) HasFuncBindBufferRange() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBindBufferRange(
+		this.ref,
 	)
 }
 
-// BindBufferRangeFunc returns the method "WebGL2RenderingContext.bindBufferRange".
-func (this WebGL2RenderingContext) BindBufferRangeFunc() (fn js.Func[func(target GLenum, index GLuint, buffer WebGLBuffer, offset GLintptr, size GLsizeiptr)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBindBufferRangeFunc(
-			this.Ref(),
-		),
+// FuncBindBufferRange returns the method "WebGL2RenderingContext.bindBufferRange".
+func (this WebGL2RenderingContext) FuncBindBufferRange() (fn js.Func[func(target GLenum, index GLuint, buffer WebGLBuffer, offset GLintptr, size GLsizeiptr)]) {
+	bindings.FuncWebGL2RenderingContextBindBufferRange(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BindBufferRange calls the method "WebGL2RenderingContext.bindBufferRange".
 func (this WebGL2RenderingContext) BindBufferRange(target GLenum, index GLuint, buffer WebGLBuffer, offset GLintptr, size GLsizeiptr) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBindBufferRange(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(index),
 		buffer.Ref(),
@@ -15004,7 +14704,7 @@ func (this WebGL2RenderingContext) BindBufferRange(target GLenum, index GLuint, 
 // the catch clause.
 func (this WebGL2RenderingContext) TryBindBufferRange(target GLenum, index GLuint, buffer WebGLBuffer, offset GLintptr, size GLsizeiptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBindBufferRange(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(index),
 		buffer.Ref(),
@@ -15015,26 +14715,25 @@ func (this WebGL2RenderingContext) TryBindBufferRange(target GLenum, index GLuin
 	return
 }
 
-// HasGetIndexedParameter returns true if the method "WebGL2RenderingContext.getIndexedParameter" exists.
-func (this WebGL2RenderingContext) HasGetIndexedParameter() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetIndexedParameter(
-		this.Ref(),
+// HasFuncGetIndexedParameter returns true if the method "WebGL2RenderingContext.getIndexedParameter" exists.
+func (this WebGL2RenderingContext) HasFuncGetIndexedParameter() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetIndexedParameter(
+		this.ref,
 	)
 }
 
-// GetIndexedParameterFunc returns the method "WebGL2RenderingContext.getIndexedParameter".
-func (this WebGL2RenderingContext) GetIndexedParameterFunc() (fn js.Func[func(target GLenum, index GLuint) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetIndexedParameterFunc(
-			this.Ref(),
-		),
+// FuncGetIndexedParameter returns the method "WebGL2RenderingContext.getIndexedParameter".
+func (this WebGL2RenderingContext) FuncGetIndexedParameter() (fn js.Func[func(target GLenum, index GLuint) js.Any]) {
+	bindings.FuncWebGL2RenderingContextGetIndexedParameter(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetIndexedParameter calls the method "WebGL2RenderingContext.getIndexedParameter".
 func (this WebGL2RenderingContext) GetIndexedParameter(target GLenum, index GLuint) (ret js.Any) {
 	bindings.CallWebGL2RenderingContextGetIndexedParameter(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(index),
 	)
@@ -15047,7 +14746,7 @@ func (this WebGL2RenderingContext) GetIndexedParameter(target GLenum, index GLui
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetIndexedParameter(target GLenum, index GLuint) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetIndexedParameter(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(index),
 	)
@@ -15055,26 +14754,25 @@ func (this WebGL2RenderingContext) TryGetIndexedParameter(target GLenum, index G
 	return
 }
 
-// HasGetUniformIndices returns true if the method "WebGL2RenderingContext.getUniformIndices" exists.
-func (this WebGL2RenderingContext) HasGetUniformIndices() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetUniformIndices(
-		this.Ref(),
+// HasFuncGetUniformIndices returns true if the method "WebGL2RenderingContext.getUniformIndices" exists.
+func (this WebGL2RenderingContext) HasFuncGetUniformIndices() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetUniformIndices(
+		this.ref,
 	)
 }
 
-// GetUniformIndicesFunc returns the method "WebGL2RenderingContext.getUniformIndices".
-func (this WebGL2RenderingContext) GetUniformIndicesFunc() (fn js.Func[func(program WebGLProgram, uniformNames js.Array[js.String]) js.Array[GLuint]]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetUniformIndicesFunc(
-			this.Ref(),
-		),
+// FuncGetUniformIndices returns the method "WebGL2RenderingContext.getUniformIndices".
+func (this WebGL2RenderingContext) FuncGetUniformIndices() (fn js.Func[func(program WebGLProgram, uniformNames js.Array[js.String]) js.Array[GLuint]]) {
+	bindings.FuncWebGL2RenderingContextGetUniformIndices(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetUniformIndices calls the method "WebGL2RenderingContext.getUniformIndices".
 func (this WebGL2RenderingContext) GetUniformIndices(program WebGLProgram, uniformNames js.Array[js.String]) (ret js.Array[GLuint]) {
 	bindings.CallWebGL2RenderingContextGetUniformIndices(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		uniformNames.Ref(),
 	)
@@ -15087,7 +14785,7 @@ func (this WebGL2RenderingContext) GetUniformIndices(program WebGLProgram, unifo
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetUniformIndices(program WebGLProgram, uniformNames js.Array[js.String]) (ret js.Array[GLuint], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetUniformIndices(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		uniformNames.Ref(),
 	)
@@ -15095,26 +14793,25 @@ func (this WebGL2RenderingContext) TryGetUniformIndices(program WebGLProgram, un
 	return
 }
 
-// HasGetActiveUniforms returns true if the method "WebGL2RenderingContext.getActiveUniforms" exists.
-func (this WebGL2RenderingContext) HasGetActiveUniforms() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetActiveUniforms(
-		this.Ref(),
+// HasFuncGetActiveUniforms returns true if the method "WebGL2RenderingContext.getActiveUniforms" exists.
+func (this WebGL2RenderingContext) HasFuncGetActiveUniforms() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetActiveUniforms(
+		this.ref,
 	)
 }
 
-// GetActiveUniformsFunc returns the method "WebGL2RenderingContext.getActiveUniforms".
-func (this WebGL2RenderingContext) GetActiveUniformsFunc() (fn js.Func[func(program WebGLProgram, uniformIndices js.Array[GLuint], pname GLenum) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetActiveUniformsFunc(
-			this.Ref(),
-		),
+// FuncGetActiveUniforms returns the method "WebGL2RenderingContext.getActiveUniforms".
+func (this WebGL2RenderingContext) FuncGetActiveUniforms() (fn js.Func[func(program WebGLProgram, uniformIndices js.Array[GLuint], pname GLenum) js.Any]) {
+	bindings.FuncWebGL2RenderingContextGetActiveUniforms(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetActiveUniforms calls the method "WebGL2RenderingContext.getActiveUniforms".
 func (this WebGL2RenderingContext) GetActiveUniforms(program WebGLProgram, uniformIndices js.Array[GLuint], pname GLenum) (ret js.Any) {
 	bindings.CallWebGL2RenderingContextGetActiveUniforms(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		uniformIndices.Ref(),
 		uint32(pname),
@@ -15128,7 +14825,7 @@ func (this WebGL2RenderingContext) GetActiveUniforms(program WebGLProgram, unifo
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetActiveUniforms(program WebGLProgram, uniformIndices js.Array[GLuint], pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetActiveUniforms(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		uniformIndices.Ref(),
 		uint32(pname),
@@ -15137,26 +14834,25 @@ func (this WebGL2RenderingContext) TryGetActiveUniforms(program WebGLProgram, un
 	return
 }
 
-// HasGetUniformBlockIndex returns true if the method "WebGL2RenderingContext.getUniformBlockIndex" exists.
-func (this WebGL2RenderingContext) HasGetUniformBlockIndex() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetUniformBlockIndex(
-		this.Ref(),
+// HasFuncGetUniformBlockIndex returns true if the method "WebGL2RenderingContext.getUniformBlockIndex" exists.
+func (this WebGL2RenderingContext) HasFuncGetUniformBlockIndex() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetUniformBlockIndex(
+		this.ref,
 	)
 }
 
-// GetUniformBlockIndexFunc returns the method "WebGL2RenderingContext.getUniformBlockIndex".
-func (this WebGL2RenderingContext) GetUniformBlockIndexFunc() (fn js.Func[func(program WebGLProgram, uniformBlockName js.String) GLuint]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetUniformBlockIndexFunc(
-			this.Ref(),
-		),
+// FuncGetUniformBlockIndex returns the method "WebGL2RenderingContext.getUniformBlockIndex".
+func (this WebGL2RenderingContext) FuncGetUniformBlockIndex() (fn js.Func[func(program WebGLProgram, uniformBlockName js.String) GLuint]) {
+	bindings.FuncWebGL2RenderingContextGetUniformBlockIndex(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetUniformBlockIndex calls the method "WebGL2RenderingContext.getUniformBlockIndex".
 func (this WebGL2RenderingContext) GetUniformBlockIndex(program WebGLProgram, uniformBlockName js.String) (ret GLuint) {
 	bindings.CallWebGL2RenderingContextGetUniformBlockIndex(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		uniformBlockName.Ref(),
 	)
@@ -15169,7 +14865,7 @@ func (this WebGL2RenderingContext) GetUniformBlockIndex(program WebGLProgram, un
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetUniformBlockIndex(program WebGLProgram, uniformBlockName js.String) (ret GLuint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetUniformBlockIndex(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		uniformBlockName.Ref(),
 	)
@@ -15177,26 +14873,25 @@ func (this WebGL2RenderingContext) TryGetUniformBlockIndex(program WebGLProgram,
 	return
 }
 
-// HasGetActiveUniformBlockParameter returns true if the method "WebGL2RenderingContext.getActiveUniformBlockParameter" exists.
-func (this WebGL2RenderingContext) HasGetActiveUniformBlockParameter() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetActiveUniformBlockParameter(
-		this.Ref(),
+// HasFuncGetActiveUniformBlockParameter returns true if the method "WebGL2RenderingContext.getActiveUniformBlockParameter" exists.
+func (this WebGL2RenderingContext) HasFuncGetActiveUniformBlockParameter() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetActiveUniformBlockParameter(
+		this.ref,
 	)
 }
 
-// GetActiveUniformBlockParameterFunc returns the method "WebGL2RenderingContext.getActiveUniformBlockParameter".
-func (this WebGL2RenderingContext) GetActiveUniformBlockParameterFunc() (fn js.Func[func(program WebGLProgram, uniformBlockIndex GLuint, pname GLenum) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetActiveUniformBlockParameterFunc(
-			this.Ref(),
-		),
+// FuncGetActiveUniformBlockParameter returns the method "WebGL2RenderingContext.getActiveUniformBlockParameter".
+func (this WebGL2RenderingContext) FuncGetActiveUniformBlockParameter() (fn js.Func[func(program WebGLProgram, uniformBlockIndex GLuint, pname GLenum) js.Any]) {
+	bindings.FuncWebGL2RenderingContextGetActiveUniformBlockParameter(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetActiveUniformBlockParameter calls the method "WebGL2RenderingContext.getActiveUniformBlockParameter".
 func (this WebGL2RenderingContext) GetActiveUniformBlockParameter(program WebGLProgram, uniformBlockIndex GLuint, pname GLenum) (ret js.Any) {
 	bindings.CallWebGL2RenderingContextGetActiveUniformBlockParameter(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		uint32(uniformBlockIndex),
 		uint32(pname),
@@ -15210,7 +14905,7 @@ func (this WebGL2RenderingContext) GetActiveUniformBlockParameter(program WebGLP
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetActiveUniformBlockParameter(program WebGLProgram, uniformBlockIndex GLuint, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetActiveUniformBlockParameter(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		uint32(uniformBlockIndex),
 		uint32(pname),
@@ -15219,26 +14914,25 @@ func (this WebGL2RenderingContext) TryGetActiveUniformBlockParameter(program Web
 	return
 }
 
-// HasGetActiveUniformBlockName returns true if the method "WebGL2RenderingContext.getActiveUniformBlockName" exists.
-func (this WebGL2RenderingContext) HasGetActiveUniformBlockName() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetActiveUniformBlockName(
-		this.Ref(),
+// HasFuncGetActiveUniformBlockName returns true if the method "WebGL2RenderingContext.getActiveUniformBlockName" exists.
+func (this WebGL2RenderingContext) HasFuncGetActiveUniformBlockName() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetActiveUniformBlockName(
+		this.ref,
 	)
 }
 
-// GetActiveUniformBlockNameFunc returns the method "WebGL2RenderingContext.getActiveUniformBlockName".
-func (this WebGL2RenderingContext) GetActiveUniformBlockNameFunc() (fn js.Func[func(program WebGLProgram, uniformBlockIndex GLuint) js.String]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetActiveUniformBlockNameFunc(
-			this.Ref(),
-		),
+// FuncGetActiveUniformBlockName returns the method "WebGL2RenderingContext.getActiveUniformBlockName".
+func (this WebGL2RenderingContext) FuncGetActiveUniformBlockName() (fn js.Func[func(program WebGLProgram, uniformBlockIndex GLuint) js.String]) {
+	bindings.FuncWebGL2RenderingContextGetActiveUniformBlockName(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetActiveUniformBlockName calls the method "WebGL2RenderingContext.getActiveUniformBlockName".
 func (this WebGL2RenderingContext) GetActiveUniformBlockName(program WebGLProgram, uniformBlockIndex GLuint) (ret js.String) {
 	bindings.CallWebGL2RenderingContextGetActiveUniformBlockName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		uint32(uniformBlockIndex),
 	)
@@ -15251,7 +14945,7 @@ func (this WebGL2RenderingContext) GetActiveUniformBlockName(program WebGLProgra
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetActiveUniformBlockName(program WebGLProgram, uniformBlockIndex GLuint) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetActiveUniformBlockName(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		uint32(uniformBlockIndex),
 	)
@@ -15259,26 +14953,25 @@ func (this WebGL2RenderingContext) TryGetActiveUniformBlockName(program WebGLPro
 	return
 }
 
-// HasUniformBlockBinding returns true if the method "WebGL2RenderingContext.uniformBlockBinding" exists.
-func (this WebGL2RenderingContext) HasUniformBlockBinding() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniformBlockBinding(
-		this.Ref(),
+// HasFuncUniformBlockBinding returns true if the method "WebGL2RenderingContext.uniformBlockBinding" exists.
+func (this WebGL2RenderingContext) HasFuncUniformBlockBinding() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniformBlockBinding(
+		this.ref,
 	)
 }
 
-// UniformBlockBindingFunc returns the method "WebGL2RenderingContext.uniformBlockBinding".
-func (this WebGL2RenderingContext) UniformBlockBindingFunc() (fn js.Func[func(program WebGLProgram, uniformBlockIndex GLuint, uniformBlockBinding GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniformBlockBindingFunc(
-			this.Ref(),
-		),
+// FuncUniformBlockBinding returns the method "WebGL2RenderingContext.uniformBlockBinding".
+func (this WebGL2RenderingContext) FuncUniformBlockBinding() (fn js.Func[func(program WebGLProgram, uniformBlockIndex GLuint, uniformBlockBinding GLuint)]) {
+	bindings.FuncWebGL2RenderingContextUniformBlockBinding(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UniformBlockBinding calls the method "WebGL2RenderingContext.uniformBlockBinding".
 func (this WebGL2RenderingContext) UniformBlockBinding(program WebGLProgram, uniformBlockIndex GLuint, uniformBlockBinding GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniformBlockBinding(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		uint32(uniformBlockIndex),
 		uint32(uniformBlockBinding),
@@ -15292,7 +14985,7 @@ func (this WebGL2RenderingContext) UniformBlockBinding(program WebGLProgram, uni
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformBlockBinding(program WebGLProgram, uniformBlockIndex GLuint, uniformBlockBinding GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformBlockBinding(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		uint32(uniformBlockIndex),
 		uint32(uniformBlockBinding),
@@ -15301,26 +14994,25 @@ func (this WebGL2RenderingContext) TryUniformBlockBinding(program WebGLProgram, 
 	return
 }
 
-// HasCreateVertexArray returns true if the method "WebGL2RenderingContext.createVertexArray" exists.
-func (this WebGL2RenderingContext) HasCreateVertexArray() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCreateVertexArray(
-		this.Ref(),
+// HasFuncCreateVertexArray returns true if the method "WebGL2RenderingContext.createVertexArray" exists.
+func (this WebGL2RenderingContext) HasFuncCreateVertexArray() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCreateVertexArray(
+		this.ref,
 	)
 }
 
-// CreateVertexArrayFunc returns the method "WebGL2RenderingContext.createVertexArray".
-func (this WebGL2RenderingContext) CreateVertexArrayFunc() (fn js.Func[func() WebGLVertexArrayObject]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCreateVertexArrayFunc(
-			this.Ref(),
-		),
+// FuncCreateVertexArray returns the method "WebGL2RenderingContext.createVertexArray".
+func (this WebGL2RenderingContext) FuncCreateVertexArray() (fn js.Func[func() WebGLVertexArrayObject]) {
+	bindings.FuncWebGL2RenderingContextCreateVertexArray(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateVertexArray calls the method "WebGL2RenderingContext.createVertexArray".
 func (this WebGL2RenderingContext) CreateVertexArray() (ret WebGLVertexArrayObject) {
 	bindings.CallWebGL2RenderingContextCreateVertexArray(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -15331,32 +15023,31 @@ func (this WebGL2RenderingContext) CreateVertexArray() (ret WebGLVertexArrayObje
 // the catch clause.
 func (this WebGL2RenderingContext) TryCreateVertexArray() (ret WebGLVertexArrayObject, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCreateVertexArray(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasDeleteVertexArray returns true if the method "WebGL2RenderingContext.deleteVertexArray" exists.
-func (this WebGL2RenderingContext) HasDeleteVertexArray() bool {
-	return js.True == bindings.HasWebGL2RenderingContextDeleteVertexArray(
-		this.Ref(),
+// HasFuncDeleteVertexArray returns true if the method "WebGL2RenderingContext.deleteVertexArray" exists.
+func (this WebGL2RenderingContext) HasFuncDeleteVertexArray() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextDeleteVertexArray(
+		this.ref,
 	)
 }
 
-// DeleteVertexArrayFunc returns the method "WebGL2RenderingContext.deleteVertexArray".
-func (this WebGL2RenderingContext) DeleteVertexArrayFunc() (fn js.Func[func(vertexArray WebGLVertexArrayObject)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextDeleteVertexArrayFunc(
-			this.Ref(),
-		),
+// FuncDeleteVertexArray returns the method "WebGL2RenderingContext.deleteVertexArray".
+func (this WebGL2RenderingContext) FuncDeleteVertexArray() (fn js.Func[func(vertexArray WebGLVertexArrayObject)]) {
+	bindings.FuncWebGL2RenderingContextDeleteVertexArray(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteVertexArray calls the method "WebGL2RenderingContext.deleteVertexArray".
 func (this WebGL2RenderingContext) DeleteVertexArray(vertexArray WebGLVertexArrayObject) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextDeleteVertexArray(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		vertexArray.Ref(),
 	)
 
@@ -15368,33 +15059,32 @@ func (this WebGL2RenderingContext) DeleteVertexArray(vertexArray WebGLVertexArra
 // the catch clause.
 func (this WebGL2RenderingContext) TryDeleteVertexArray(vertexArray WebGLVertexArrayObject) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDeleteVertexArray(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		vertexArray.Ref(),
 	)
 
 	return
 }
 
-// HasIsVertexArray returns true if the method "WebGL2RenderingContext.isVertexArray" exists.
-func (this WebGL2RenderingContext) HasIsVertexArray() bool {
-	return js.True == bindings.HasWebGL2RenderingContextIsVertexArray(
-		this.Ref(),
+// HasFuncIsVertexArray returns true if the method "WebGL2RenderingContext.isVertexArray" exists.
+func (this WebGL2RenderingContext) HasFuncIsVertexArray() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextIsVertexArray(
+		this.ref,
 	)
 }
 
-// IsVertexArrayFunc returns the method "WebGL2RenderingContext.isVertexArray".
-func (this WebGL2RenderingContext) IsVertexArrayFunc() (fn js.Func[func(vertexArray WebGLVertexArrayObject) GLboolean]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextIsVertexArrayFunc(
-			this.Ref(),
-		),
+// FuncIsVertexArray returns the method "WebGL2RenderingContext.isVertexArray".
+func (this WebGL2RenderingContext) FuncIsVertexArray() (fn js.Func[func(vertexArray WebGLVertexArrayObject) GLboolean]) {
+	bindings.FuncWebGL2RenderingContextIsVertexArray(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsVertexArray calls the method "WebGL2RenderingContext.isVertexArray".
 func (this WebGL2RenderingContext) IsVertexArray(vertexArray WebGLVertexArrayObject) (ret GLboolean) {
 	bindings.CallWebGL2RenderingContextIsVertexArray(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		vertexArray.Ref(),
 	)
 
@@ -15406,33 +15096,32 @@ func (this WebGL2RenderingContext) IsVertexArray(vertexArray WebGLVertexArrayObj
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsVertexArray(vertexArray WebGLVertexArrayObject) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsVertexArray(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		vertexArray.Ref(),
 	)
 
 	return
 }
 
-// HasBindVertexArray returns true if the method "WebGL2RenderingContext.bindVertexArray" exists.
-func (this WebGL2RenderingContext) HasBindVertexArray() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBindVertexArray(
-		this.Ref(),
+// HasFuncBindVertexArray returns true if the method "WebGL2RenderingContext.bindVertexArray" exists.
+func (this WebGL2RenderingContext) HasFuncBindVertexArray() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBindVertexArray(
+		this.ref,
 	)
 }
 
-// BindVertexArrayFunc returns the method "WebGL2RenderingContext.bindVertexArray".
-func (this WebGL2RenderingContext) BindVertexArrayFunc() (fn js.Func[func(array WebGLVertexArrayObject)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBindVertexArrayFunc(
-			this.Ref(),
-		),
+// FuncBindVertexArray returns the method "WebGL2RenderingContext.bindVertexArray".
+func (this WebGL2RenderingContext) FuncBindVertexArray() (fn js.Func[func(array WebGLVertexArrayObject)]) {
+	bindings.FuncWebGL2RenderingContextBindVertexArray(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BindVertexArray calls the method "WebGL2RenderingContext.bindVertexArray".
 func (this WebGL2RenderingContext) BindVertexArray(array WebGLVertexArrayObject) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBindVertexArray(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		array.Ref(),
 	)
 
@@ -15444,33 +15133,32 @@ func (this WebGL2RenderingContext) BindVertexArray(array WebGLVertexArrayObject)
 // the catch clause.
 func (this WebGL2RenderingContext) TryBindVertexArray(array WebGLVertexArrayObject) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBindVertexArray(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		array.Ref(),
 	)
 
 	return
 }
 
-// HasGetContextAttributes returns true if the method "WebGL2RenderingContext.getContextAttributes" exists.
-func (this WebGL2RenderingContext) HasGetContextAttributes() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetContextAttributes(
-		this.Ref(),
+// HasFuncGetContextAttributes returns true if the method "WebGL2RenderingContext.getContextAttributes" exists.
+func (this WebGL2RenderingContext) HasFuncGetContextAttributes() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetContextAttributes(
+		this.ref,
 	)
 }
 
-// GetContextAttributesFunc returns the method "WebGL2RenderingContext.getContextAttributes".
-func (this WebGL2RenderingContext) GetContextAttributesFunc() (fn js.Func[func() WebGLContextAttributes]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetContextAttributesFunc(
-			this.Ref(),
-		),
+// FuncGetContextAttributes returns the method "WebGL2RenderingContext.getContextAttributes".
+func (this WebGL2RenderingContext) FuncGetContextAttributes() (fn js.Func[func() WebGLContextAttributes]) {
+	bindings.FuncWebGL2RenderingContextGetContextAttributes(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetContextAttributes calls the method "WebGL2RenderingContext.getContextAttributes".
 func (this WebGL2RenderingContext) GetContextAttributes() (ret WebGLContextAttributes) {
 	bindings.CallWebGL2RenderingContextGetContextAttributes(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -15481,32 +15169,31 @@ func (this WebGL2RenderingContext) GetContextAttributes() (ret WebGLContextAttri
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetContextAttributes() (ret WebGLContextAttributes, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetContextAttributes(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasIsContextLost returns true if the method "WebGL2RenderingContext.isContextLost" exists.
-func (this WebGL2RenderingContext) HasIsContextLost() bool {
-	return js.True == bindings.HasWebGL2RenderingContextIsContextLost(
-		this.Ref(),
+// HasFuncIsContextLost returns true if the method "WebGL2RenderingContext.isContextLost" exists.
+func (this WebGL2RenderingContext) HasFuncIsContextLost() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextIsContextLost(
+		this.ref,
 	)
 }
 
-// IsContextLostFunc returns the method "WebGL2RenderingContext.isContextLost".
-func (this WebGL2RenderingContext) IsContextLostFunc() (fn js.Func[func() bool]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextIsContextLostFunc(
-			this.Ref(),
-		),
+// FuncIsContextLost returns the method "WebGL2RenderingContext.isContextLost".
+func (this WebGL2RenderingContext) FuncIsContextLost() (fn js.Func[func() bool]) {
+	bindings.FuncWebGL2RenderingContextIsContextLost(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsContextLost calls the method "WebGL2RenderingContext.isContextLost".
 func (this WebGL2RenderingContext) IsContextLost() (ret bool) {
 	bindings.CallWebGL2RenderingContextIsContextLost(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -15517,32 +15204,31 @@ func (this WebGL2RenderingContext) IsContextLost() (ret bool) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsContextLost() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsContextLost(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetSupportedExtensions returns true if the method "WebGL2RenderingContext.getSupportedExtensions" exists.
-func (this WebGL2RenderingContext) HasGetSupportedExtensions() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetSupportedExtensions(
-		this.Ref(),
+// HasFuncGetSupportedExtensions returns true if the method "WebGL2RenderingContext.getSupportedExtensions" exists.
+func (this WebGL2RenderingContext) HasFuncGetSupportedExtensions() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetSupportedExtensions(
+		this.ref,
 	)
 }
 
-// GetSupportedExtensionsFunc returns the method "WebGL2RenderingContext.getSupportedExtensions".
-func (this WebGL2RenderingContext) GetSupportedExtensionsFunc() (fn js.Func[func() js.Array[js.String]]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetSupportedExtensionsFunc(
-			this.Ref(),
-		),
+// FuncGetSupportedExtensions returns the method "WebGL2RenderingContext.getSupportedExtensions".
+func (this WebGL2RenderingContext) FuncGetSupportedExtensions() (fn js.Func[func() js.Array[js.String]]) {
+	bindings.FuncWebGL2RenderingContextGetSupportedExtensions(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetSupportedExtensions calls the method "WebGL2RenderingContext.getSupportedExtensions".
 func (this WebGL2RenderingContext) GetSupportedExtensions() (ret js.Array[js.String]) {
 	bindings.CallWebGL2RenderingContextGetSupportedExtensions(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -15553,32 +15239,31 @@ func (this WebGL2RenderingContext) GetSupportedExtensions() (ret js.Array[js.Str
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetSupportedExtensions() (ret js.Array[js.String], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetSupportedExtensions(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetExtension returns true if the method "WebGL2RenderingContext.getExtension" exists.
-func (this WebGL2RenderingContext) HasGetExtension() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetExtension(
-		this.Ref(),
+// HasFuncGetExtension returns true if the method "WebGL2RenderingContext.getExtension" exists.
+func (this WebGL2RenderingContext) HasFuncGetExtension() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetExtension(
+		this.ref,
 	)
 }
 
-// GetExtensionFunc returns the method "WebGL2RenderingContext.getExtension".
-func (this WebGL2RenderingContext) GetExtensionFunc() (fn js.Func[func(name js.String) js.Object]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetExtensionFunc(
-			this.Ref(),
-		),
+// FuncGetExtension returns the method "WebGL2RenderingContext.getExtension".
+func (this WebGL2RenderingContext) FuncGetExtension() (fn js.Func[func(name js.String) js.Object]) {
+	bindings.FuncWebGL2RenderingContextGetExtension(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetExtension calls the method "WebGL2RenderingContext.getExtension".
 func (this WebGL2RenderingContext) GetExtension(name js.String) (ret js.Object) {
 	bindings.CallWebGL2RenderingContextGetExtension(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 	)
 
@@ -15590,33 +15275,32 @@ func (this WebGL2RenderingContext) GetExtension(name js.String) (ret js.Object) 
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetExtension(name js.String) (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetExtension(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 	)
 
 	return
 }
 
-// HasActiveTexture returns true if the method "WebGL2RenderingContext.activeTexture" exists.
-func (this WebGL2RenderingContext) HasActiveTexture() bool {
-	return js.True == bindings.HasWebGL2RenderingContextActiveTexture(
-		this.Ref(),
+// HasFuncActiveTexture returns true if the method "WebGL2RenderingContext.activeTexture" exists.
+func (this WebGL2RenderingContext) HasFuncActiveTexture() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextActiveTexture(
+		this.ref,
 	)
 }
 
-// ActiveTextureFunc returns the method "WebGL2RenderingContext.activeTexture".
-func (this WebGL2RenderingContext) ActiveTextureFunc() (fn js.Func[func(texture GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextActiveTextureFunc(
-			this.Ref(),
-		),
+// FuncActiveTexture returns the method "WebGL2RenderingContext.activeTexture".
+func (this WebGL2RenderingContext) FuncActiveTexture() (fn js.Func[func(texture GLenum)]) {
+	bindings.FuncWebGL2RenderingContextActiveTexture(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ActiveTexture calls the method "WebGL2RenderingContext.activeTexture".
 func (this WebGL2RenderingContext) ActiveTexture(texture GLenum) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextActiveTexture(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(texture),
 	)
 
@@ -15628,33 +15312,32 @@ func (this WebGL2RenderingContext) ActiveTexture(texture GLenum) (ret js.Void) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryActiveTexture(texture GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextActiveTexture(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(texture),
 	)
 
 	return
 }
 
-// HasAttachShader returns true if the method "WebGL2RenderingContext.attachShader" exists.
-func (this WebGL2RenderingContext) HasAttachShader() bool {
-	return js.True == bindings.HasWebGL2RenderingContextAttachShader(
-		this.Ref(),
+// HasFuncAttachShader returns true if the method "WebGL2RenderingContext.attachShader" exists.
+func (this WebGL2RenderingContext) HasFuncAttachShader() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextAttachShader(
+		this.ref,
 	)
 }
 
-// AttachShaderFunc returns the method "WebGL2RenderingContext.attachShader".
-func (this WebGL2RenderingContext) AttachShaderFunc() (fn js.Func[func(program WebGLProgram, shader WebGLShader)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextAttachShaderFunc(
-			this.Ref(),
-		),
+// FuncAttachShader returns the method "WebGL2RenderingContext.attachShader".
+func (this WebGL2RenderingContext) FuncAttachShader() (fn js.Func[func(program WebGLProgram, shader WebGLShader)]) {
+	bindings.FuncWebGL2RenderingContextAttachShader(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AttachShader calls the method "WebGL2RenderingContext.attachShader".
 func (this WebGL2RenderingContext) AttachShader(program WebGLProgram, shader WebGLShader) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextAttachShader(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		shader.Ref(),
 	)
@@ -15667,7 +15350,7 @@ func (this WebGL2RenderingContext) AttachShader(program WebGLProgram, shader Web
 // the catch clause.
 func (this WebGL2RenderingContext) TryAttachShader(program WebGLProgram, shader WebGLShader) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextAttachShader(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		shader.Ref(),
 	)
@@ -15675,26 +15358,25 @@ func (this WebGL2RenderingContext) TryAttachShader(program WebGLProgram, shader 
 	return
 }
 
-// HasBindAttribLocation returns true if the method "WebGL2RenderingContext.bindAttribLocation" exists.
-func (this WebGL2RenderingContext) HasBindAttribLocation() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBindAttribLocation(
-		this.Ref(),
+// HasFuncBindAttribLocation returns true if the method "WebGL2RenderingContext.bindAttribLocation" exists.
+func (this WebGL2RenderingContext) HasFuncBindAttribLocation() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBindAttribLocation(
+		this.ref,
 	)
 }
 
-// BindAttribLocationFunc returns the method "WebGL2RenderingContext.bindAttribLocation".
-func (this WebGL2RenderingContext) BindAttribLocationFunc() (fn js.Func[func(program WebGLProgram, index GLuint, name js.String)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBindAttribLocationFunc(
-			this.Ref(),
-		),
+// FuncBindAttribLocation returns the method "WebGL2RenderingContext.bindAttribLocation".
+func (this WebGL2RenderingContext) FuncBindAttribLocation() (fn js.Func[func(program WebGLProgram, index GLuint, name js.String)]) {
+	bindings.FuncWebGL2RenderingContextBindAttribLocation(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BindAttribLocation calls the method "WebGL2RenderingContext.bindAttribLocation".
 func (this WebGL2RenderingContext) BindAttribLocation(program WebGLProgram, index GLuint, name js.String) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBindAttribLocation(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		uint32(index),
 		name.Ref(),
@@ -15708,7 +15390,7 @@ func (this WebGL2RenderingContext) BindAttribLocation(program WebGLProgram, inde
 // the catch clause.
 func (this WebGL2RenderingContext) TryBindAttribLocation(program WebGLProgram, index GLuint, name js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBindAttribLocation(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		uint32(index),
 		name.Ref(),
@@ -15717,26 +15399,25 @@ func (this WebGL2RenderingContext) TryBindAttribLocation(program WebGLProgram, i
 	return
 }
 
-// HasBindBuffer returns true if the method "WebGL2RenderingContext.bindBuffer" exists.
-func (this WebGL2RenderingContext) HasBindBuffer() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBindBuffer(
-		this.Ref(),
+// HasFuncBindBuffer returns true if the method "WebGL2RenderingContext.bindBuffer" exists.
+func (this WebGL2RenderingContext) HasFuncBindBuffer() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBindBuffer(
+		this.ref,
 	)
 }
 
-// BindBufferFunc returns the method "WebGL2RenderingContext.bindBuffer".
-func (this WebGL2RenderingContext) BindBufferFunc() (fn js.Func[func(target GLenum, buffer WebGLBuffer)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBindBufferFunc(
-			this.Ref(),
-		),
+// FuncBindBuffer returns the method "WebGL2RenderingContext.bindBuffer".
+func (this WebGL2RenderingContext) FuncBindBuffer() (fn js.Func[func(target GLenum, buffer WebGLBuffer)]) {
+	bindings.FuncWebGL2RenderingContextBindBuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BindBuffer calls the method "WebGL2RenderingContext.bindBuffer".
 func (this WebGL2RenderingContext) BindBuffer(target GLenum, buffer WebGLBuffer) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBindBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		buffer.Ref(),
 	)
@@ -15749,7 +15430,7 @@ func (this WebGL2RenderingContext) BindBuffer(target GLenum, buffer WebGLBuffer)
 // the catch clause.
 func (this WebGL2RenderingContext) TryBindBuffer(target GLenum, buffer WebGLBuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBindBuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		buffer.Ref(),
 	)
@@ -15757,26 +15438,25 @@ func (this WebGL2RenderingContext) TryBindBuffer(target GLenum, buffer WebGLBuff
 	return
 }
 
-// HasBindFramebuffer returns true if the method "WebGL2RenderingContext.bindFramebuffer" exists.
-func (this WebGL2RenderingContext) HasBindFramebuffer() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBindFramebuffer(
-		this.Ref(),
+// HasFuncBindFramebuffer returns true if the method "WebGL2RenderingContext.bindFramebuffer" exists.
+func (this WebGL2RenderingContext) HasFuncBindFramebuffer() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBindFramebuffer(
+		this.ref,
 	)
 }
 
-// BindFramebufferFunc returns the method "WebGL2RenderingContext.bindFramebuffer".
-func (this WebGL2RenderingContext) BindFramebufferFunc() (fn js.Func[func(target GLenum, framebuffer WebGLFramebuffer)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBindFramebufferFunc(
-			this.Ref(),
-		),
+// FuncBindFramebuffer returns the method "WebGL2RenderingContext.bindFramebuffer".
+func (this WebGL2RenderingContext) FuncBindFramebuffer() (fn js.Func[func(target GLenum, framebuffer WebGLFramebuffer)]) {
+	bindings.FuncWebGL2RenderingContextBindFramebuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BindFramebuffer calls the method "WebGL2RenderingContext.bindFramebuffer".
 func (this WebGL2RenderingContext) BindFramebuffer(target GLenum, framebuffer WebGLFramebuffer) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBindFramebuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		framebuffer.Ref(),
 	)
@@ -15789,7 +15469,7 @@ func (this WebGL2RenderingContext) BindFramebuffer(target GLenum, framebuffer We
 // the catch clause.
 func (this WebGL2RenderingContext) TryBindFramebuffer(target GLenum, framebuffer WebGLFramebuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBindFramebuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		framebuffer.Ref(),
 	)
@@ -15797,26 +15477,25 @@ func (this WebGL2RenderingContext) TryBindFramebuffer(target GLenum, framebuffer
 	return
 }
 
-// HasBindRenderbuffer returns true if the method "WebGL2RenderingContext.bindRenderbuffer" exists.
-func (this WebGL2RenderingContext) HasBindRenderbuffer() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBindRenderbuffer(
-		this.Ref(),
+// HasFuncBindRenderbuffer returns true if the method "WebGL2RenderingContext.bindRenderbuffer" exists.
+func (this WebGL2RenderingContext) HasFuncBindRenderbuffer() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBindRenderbuffer(
+		this.ref,
 	)
 }
 
-// BindRenderbufferFunc returns the method "WebGL2RenderingContext.bindRenderbuffer".
-func (this WebGL2RenderingContext) BindRenderbufferFunc() (fn js.Func[func(target GLenum, renderbuffer WebGLRenderbuffer)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBindRenderbufferFunc(
-			this.Ref(),
-		),
+// FuncBindRenderbuffer returns the method "WebGL2RenderingContext.bindRenderbuffer".
+func (this WebGL2RenderingContext) FuncBindRenderbuffer() (fn js.Func[func(target GLenum, renderbuffer WebGLRenderbuffer)]) {
+	bindings.FuncWebGL2RenderingContextBindRenderbuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BindRenderbuffer calls the method "WebGL2RenderingContext.bindRenderbuffer".
 func (this WebGL2RenderingContext) BindRenderbuffer(target GLenum, renderbuffer WebGLRenderbuffer) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBindRenderbuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		renderbuffer.Ref(),
 	)
@@ -15829,7 +15508,7 @@ func (this WebGL2RenderingContext) BindRenderbuffer(target GLenum, renderbuffer 
 // the catch clause.
 func (this WebGL2RenderingContext) TryBindRenderbuffer(target GLenum, renderbuffer WebGLRenderbuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBindRenderbuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		renderbuffer.Ref(),
 	)
@@ -15837,26 +15516,25 @@ func (this WebGL2RenderingContext) TryBindRenderbuffer(target GLenum, renderbuff
 	return
 }
 
-// HasBindTexture returns true if the method "WebGL2RenderingContext.bindTexture" exists.
-func (this WebGL2RenderingContext) HasBindTexture() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBindTexture(
-		this.Ref(),
+// HasFuncBindTexture returns true if the method "WebGL2RenderingContext.bindTexture" exists.
+func (this WebGL2RenderingContext) HasFuncBindTexture() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBindTexture(
+		this.ref,
 	)
 }
 
-// BindTextureFunc returns the method "WebGL2RenderingContext.bindTexture".
-func (this WebGL2RenderingContext) BindTextureFunc() (fn js.Func[func(target GLenum, texture WebGLTexture)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBindTextureFunc(
-			this.Ref(),
-		),
+// FuncBindTexture returns the method "WebGL2RenderingContext.bindTexture".
+func (this WebGL2RenderingContext) FuncBindTexture() (fn js.Func[func(target GLenum, texture WebGLTexture)]) {
+	bindings.FuncWebGL2RenderingContextBindTexture(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BindTexture calls the method "WebGL2RenderingContext.bindTexture".
 func (this WebGL2RenderingContext) BindTexture(target GLenum, texture WebGLTexture) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBindTexture(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		texture.Ref(),
 	)
@@ -15869,7 +15547,7 @@ func (this WebGL2RenderingContext) BindTexture(target GLenum, texture WebGLTextu
 // the catch clause.
 func (this WebGL2RenderingContext) TryBindTexture(target GLenum, texture WebGLTexture) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBindTexture(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		texture.Ref(),
 	)
@@ -15877,26 +15555,25 @@ func (this WebGL2RenderingContext) TryBindTexture(target GLenum, texture WebGLTe
 	return
 }
 
-// HasBlendColor returns true if the method "WebGL2RenderingContext.blendColor" exists.
-func (this WebGL2RenderingContext) HasBlendColor() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBlendColor(
-		this.Ref(),
+// HasFuncBlendColor returns true if the method "WebGL2RenderingContext.blendColor" exists.
+func (this WebGL2RenderingContext) HasFuncBlendColor() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBlendColor(
+		this.ref,
 	)
 }
 
-// BlendColorFunc returns the method "WebGL2RenderingContext.blendColor".
-func (this WebGL2RenderingContext) BlendColorFunc() (fn js.Func[func(red GLclampf, green GLclampf, blue GLclampf, alpha GLclampf)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBlendColorFunc(
-			this.Ref(),
-		),
+// FuncBlendColor returns the method "WebGL2RenderingContext.blendColor".
+func (this WebGL2RenderingContext) FuncBlendColor() (fn js.Func[func(red GLclampf, green GLclampf, blue GLclampf, alpha GLclampf)]) {
+	bindings.FuncWebGL2RenderingContextBlendColor(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BlendColor calls the method "WebGL2RenderingContext.blendColor".
 func (this WebGL2RenderingContext) BlendColor(red GLclampf, green GLclampf, blue GLclampf, alpha GLclampf) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBlendColor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float32(red),
 		float32(green),
 		float32(blue),
@@ -15911,7 +15588,7 @@ func (this WebGL2RenderingContext) BlendColor(red GLclampf, green GLclampf, blue
 // the catch clause.
 func (this WebGL2RenderingContext) TryBlendColor(red GLclampf, green GLclampf, blue GLclampf, alpha GLclampf) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBlendColor(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float32(red),
 		float32(green),
 		float32(blue),
@@ -15921,26 +15598,25 @@ func (this WebGL2RenderingContext) TryBlendColor(red GLclampf, green GLclampf, b
 	return
 }
 
-// HasBlendEquation returns true if the method "WebGL2RenderingContext.blendEquation" exists.
-func (this WebGL2RenderingContext) HasBlendEquation() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBlendEquation(
-		this.Ref(),
+// HasFuncBlendEquation returns true if the method "WebGL2RenderingContext.blendEquation" exists.
+func (this WebGL2RenderingContext) HasFuncBlendEquation() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBlendEquation(
+		this.ref,
 	)
 }
 
-// BlendEquationFunc returns the method "WebGL2RenderingContext.blendEquation".
-func (this WebGL2RenderingContext) BlendEquationFunc() (fn js.Func[func(mode GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBlendEquationFunc(
-			this.Ref(),
-		),
+// FuncBlendEquation returns the method "WebGL2RenderingContext.blendEquation".
+func (this WebGL2RenderingContext) FuncBlendEquation() (fn js.Func[func(mode GLenum)]) {
+	bindings.FuncWebGL2RenderingContextBlendEquation(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BlendEquation calls the method "WebGL2RenderingContext.blendEquation".
 func (this WebGL2RenderingContext) BlendEquation(mode GLenum) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBlendEquation(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mode),
 	)
 
@@ -15952,33 +15628,32 @@ func (this WebGL2RenderingContext) BlendEquation(mode GLenum) (ret js.Void) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryBlendEquation(mode GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBlendEquation(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mode),
 	)
 
 	return
 }
 
-// HasBlendEquationSeparate returns true if the method "WebGL2RenderingContext.blendEquationSeparate" exists.
-func (this WebGL2RenderingContext) HasBlendEquationSeparate() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBlendEquationSeparate(
-		this.Ref(),
+// HasFuncBlendEquationSeparate returns true if the method "WebGL2RenderingContext.blendEquationSeparate" exists.
+func (this WebGL2RenderingContext) HasFuncBlendEquationSeparate() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBlendEquationSeparate(
+		this.ref,
 	)
 }
 
-// BlendEquationSeparateFunc returns the method "WebGL2RenderingContext.blendEquationSeparate".
-func (this WebGL2RenderingContext) BlendEquationSeparateFunc() (fn js.Func[func(modeRGB GLenum, modeAlpha GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBlendEquationSeparateFunc(
-			this.Ref(),
-		),
+// FuncBlendEquationSeparate returns the method "WebGL2RenderingContext.blendEquationSeparate".
+func (this WebGL2RenderingContext) FuncBlendEquationSeparate() (fn js.Func[func(modeRGB GLenum, modeAlpha GLenum)]) {
+	bindings.FuncWebGL2RenderingContextBlendEquationSeparate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BlendEquationSeparate calls the method "WebGL2RenderingContext.blendEquationSeparate".
 func (this WebGL2RenderingContext) BlendEquationSeparate(modeRGB GLenum, modeAlpha GLenum) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBlendEquationSeparate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(modeRGB),
 		uint32(modeAlpha),
 	)
@@ -15991,7 +15666,7 @@ func (this WebGL2RenderingContext) BlendEquationSeparate(modeRGB GLenum, modeAlp
 // the catch clause.
 func (this WebGL2RenderingContext) TryBlendEquationSeparate(modeRGB GLenum, modeAlpha GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBlendEquationSeparate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(modeRGB),
 		uint32(modeAlpha),
 	)
@@ -15999,26 +15674,25 @@ func (this WebGL2RenderingContext) TryBlendEquationSeparate(modeRGB GLenum, mode
 	return
 }
 
-// HasBlendFunc returns true if the method "WebGL2RenderingContext.blendFunc" exists.
-func (this WebGL2RenderingContext) HasBlendFunc() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBlendFunc(
-		this.Ref(),
+// HasFuncBlendFunc returns true if the method "WebGL2RenderingContext.blendFunc" exists.
+func (this WebGL2RenderingContext) HasFuncBlendFunc() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBlendFunc(
+		this.ref,
 	)
 }
 
-// BlendFuncFunc returns the method "WebGL2RenderingContext.blendFunc".
-func (this WebGL2RenderingContext) BlendFuncFunc() (fn js.Func[func(sfactor GLenum, dfactor GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBlendFuncFunc(
-			this.Ref(),
-		),
+// FuncBlendFunc returns the method "WebGL2RenderingContext.blendFunc".
+func (this WebGL2RenderingContext) FuncBlendFunc() (fn js.Func[func(sfactor GLenum, dfactor GLenum)]) {
+	bindings.FuncWebGL2RenderingContextBlendFunc(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BlendFunc calls the method "WebGL2RenderingContext.blendFunc".
 func (this WebGL2RenderingContext) BlendFunc(sfactor GLenum, dfactor GLenum) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBlendFunc(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(sfactor),
 		uint32(dfactor),
 	)
@@ -16031,7 +15705,7 @@ func (this WebGL2RenderingContext) BlendFunc(sfactor GLenum, dfactor GLenum) (re
 // the catch clause.
 func (this WebGL2RenderingContext) TryBlendFunc(sfactor GLenum, dfactor GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBlendFunc(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(sfactor),
 		uint32(dfactor),
 	)
@@ -16039,26 +15713,25 @@ func (this WebGL2RenderingContext) TryBlendFunc(sfactor GLenum, dfactor GLenum) 
 	return
 }
 
-// HasBlendFuncSeparate returns true if the method "WebGL2RenderingContext.blendFuncSeparate" exists.
-func (this WebGL2RenderingContext) HasBlendFuncSeparate() bool {
-	return js.True == bindings.HasWebGL2RenderingContextBlendFuncSeparate(
-		this.Ref(),
+// HasFuncBlendFuncSeparate returns true if the method "WebGL2RenderingContext.blendFuncSeparate" exists.
+func (this WebGL2RenderingContext) HasFuncBlendFuncSeparate() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextBlendFuncSeparate(
+		this.ref,
 	)
 }
 
-// BlendFuncSeparateFunc returns the method "WebGL2RenderingContext.blendFuncSeparate".
-func (this WebGL2RenderingContext) BlendFuncSeparateFunc() (fn js.Func[func(srcRGB GLenum, dstRGB GLenum, srcAlpha GLenum, dstAlpha GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextBlendFuncSeparateFunc(
-			this.Ref(),
-		),
+// FuncBlendFuncSeparate returns the method "WebGL2RenderingContext.blendFuncSeparate".
+func (this WebGL2RenderingContext) FuncBlendFuncSeparate() (fn js.Func[func(srcRGB GLenum, dstRGB GLenum, srcAlpha GLenum, dstAlpha GLenum)]) {
+	bindings.FuncWebGL2RenderingContextBlendFuncSeparate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BlendFuncSeparate calls the method "WebGL2RenderingContext.blendFuncSeparate".
 func (this WebGL2RenderingContext) BlendFuncSeparate(srcRGB GLenum, dstRGB GLenum, srcAlpha GLenum, dstAlpha GLenum) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextBlendFuncSeparate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(srcRGB),
 		uint32(dstRGB),
 		uint32(srcAlpha),
@@ -16073,7 +15746,7 @@ func (this WebGL2RenderingContext) BlendFuncSeparate(srcRGB GLenum, dstRGB GLenu
 // the catch clause.
 func (this WebGL2RenderingContext) TryBlendFuncSeparate(srcRGB GLenum, dstRGB GLenum, srcAlpha GLenum, dstAlpha GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBlendFuncSeparate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(srcRGB),
 		uint32(dstRGB),
 		uint32(srcAlpha),
@@ -16083,26 +15756,25 @@ func (this WebGL2RenderingContext) TryBlendFuncSeparate(srcRGB GLenum, dstRGB GL
 	return
 }
 
-// HasCheckFramebufferStatus returns true if the method "WebGL2RenderingContext.checkFramebufferStatus" exists.
-func (this WebGL2RenderingContext) HasCheckFramebufferStatus() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCheckFramebufferStatus(
-		this.Ref(),
+// HasFuncCheckFramebufferStatus returns true if the method "WebGL2RenderingContext.checkFramebufferStatus" exists.
+func (this WebGL2RenderingContext) HasFuncCheckFramebufferStatus() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCheckFramebufferStatus(
+		this.ref,
 	)
 }
 
-// CheckFramebufferStatusFunc returns the method "WebGL2RenderingContext.checkFramebufferStatus".
-func (this WebGL2RenderingContext) CheckFramebufferStatusFunc() (fn js.Func[func(target GLenum) GLenum]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCheckFramebufferStatusFunc(
-			this.Ref(),
-		),
+// FuncCheckFramebufferStatus returns the method "WebGL2RenderingContext.checkFramebufferStatus".
+func (this WebGL2RenderingContext) FuncCheckFramebufferStatus() (fn js.Func[func(target GLenum) GLenum]) {
+	bindings.FuncWebGL2RenderingContextCheckFramebufferStatus(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CheckFramebufferStatus calls the method "WebGL2RenderingContext.checkFramebufferStatus".
 func (this WebGL2RenderingContext) CheckFramebufferStatus(target GLenum) (ret GLenum) {
 	bindings.CallWebGL2RenderingContextCheckFramebufferStatus(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 	)
 
@@ -16114,33 +15786,32 @@ func (this WebGL2RenderingContext) CheckFramebufferStatus(target GLenum) (ret GL
 // the catch clause.
 func (this WebGL2RenderingContext) TryCheckFramebufferStatus(target GLenum) (ret GLenum, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCheckFramebufferStatus(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 	)
 
 	return
 }
 
-// HasClear returns true if the method "WebGL2RenderingContext.clear" exists.
-func (this WebGL2RenderingContext) HasClear() bool {
-	return js.True == bindings.HasWebGL2RenderingContextClear(
-		this.Ref(),
+// HasFuncClear returns true if the method "WebGL2RenderingContext.clear" exists.
+func (this WebGL2RenderingContext) HasFuncClear() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextClear(
+		this.ref,
 	)
 }
 
-// ClearFunc returns the method "WebGL2RenderingContext.clear".
-func (this WebGL2RenderingContext) ClearFunc() (fn js.Func[func(mask GLbitfield)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextClearFunc(
-			this.Ref(),
-		),
+// FuncClear returns the method "WebGL2RenderingContext.clear".
+func (this WebGL2RenderingContext) FuncClear() (fn js.Func[func(mask GLbitfield)]) {
+	bindings.FuncWebGL2RenderingContextClear(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Clear calls the method "WebGL2RenderingContext.clear".
 func (this WebGL2RenderingContext) Clear(mask GLbitfield) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextClear(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mask),
 	)
 
@@ -16152,33 +15823,32 @@ func (this WebGL2RenderingContext) Clear(mask GLbitfield) (ret js.Void) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryClear(mask GLbitfield) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextClear(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mask),
 	)
 
 	return
 }
 
-// HasClearColor returns true if the method "WebGL2RenderingContext.clearColor" exists.
-func (this WebGL2RenderingContext) HasClearColor() bool {
-	return js.True == bindings.HasWebGL2RenderingContextClearColor(
-		this.Ref(),
+// HasFuncClearColor returns true if the method "WebGL2RenderingContext.clearColor" exists.
+func (this WebGL2RenderingContext) HasFuncClearColor() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextClearColor(
+		this.ref,
 	)
 }
 
-// ClearColorFunc returns the method "WebGL2RenderingContext.clearColor".
-func (this WebGL2RenderingContext) ClearColorFunc() (fn js.Func[func(red GLclampf, green GLclampf, blue GLclampf, alpha GLclampf)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextClearColorFunc(
-			this.Ref(),
-		),
+// FuncClearColor returns the method "WebGL2RenderingContext.clearColor".
+func (this WebGL2RenderingContext) FuncClearColor() (fn js.Func[func(red GLclampf, green GLclampf, blue GLclampf, alpha GLclampf)]) {
+	bindings.FuncWebGL2RenderingContextClearColor(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ClearColor calls the method "WebGL2RenderingContext.clearColor".
 func (this WebGL2RenderingContext) ClearColor(red GLclampf, green GLclampf, blue GLclampf, alpha GLclampf) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextClearColor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float32(red),
 		float32(green),
 		float32(blue),
@@ -16193,7 +15863,7 @@ func (this WebGL2RenderingContext) ClearColor(red GLclampf, green GLclampf, blue
 // the catch clause.
 func (this WebGL2RenderingContext) TryClearColor(red GLclampf, green GLclampf, blue GLclampf, alpha GLclampf) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextClearColor(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float32(red),
 		float32(green),
 		float32(blue),
@@ -16203,26 +15873,25 @@ func (this WebGL2RenderingContext) TryClearColor(red GLclampf, green GLclampf, b
 	return
 }
 
-// HasClearDepth returns true if the method "WebGL2RenderingContext.clearDepth" exists.
-func (this WebGL2RenderingContext) HasClearDepth() bool {
-	return js.True == bindings.HasWebGL2RenderingContextClearDepth(
-		this.Ref(),
+// HasFuncClearDepth returns true if the method "WebGL2RenderingContext.clearDepth" exists.
+func (this WebGL2RenderingContext) HasFuncClearDepth() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextClearDepth(
+		this.ref,
 	)
 }
 
-// ClearDepthFunc returns the method "WebGL2RenderingContext.clearDepth".
-func (this WebGL2RenderingContext) ClearDepthFunc() (fn js.Func[func(depth GLclampf)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextClearDepthFunc(
-			this.Ref(),
-		),
+// FuncClearDepth returns the method "WebGL2RenderingContext.clearDepth".
+func (this WebGL2RenderingContext) FuncClearDepth() (fn js.Func[func(depth GLclampf)]) {
+	bindings.FuncWebGL2RenderingContextClearDepth(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ClearDepth calls the method "WebGL2RenderingContext.clearDepth".
 func (this WebGL2RenderingContext) ClearDepth(depth GLclampf) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextClearDepth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float32(depth),
 	)
 
@@ -16234,33 +15903,32 @@ func (this WebGL2RenderingContext) ClearDepth(depth GLclampf) (ret js.Void) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryClearDepth(depth GLclampf) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextClearDepth(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float32(depth),
 	)
 
 	return
 }
 
-// HasClearStencil returns true if the method "WebGL2RenderingContext.clearStencil" exists.
-func (this WebGL2RenderingContext) HasClearStencil() bool {
-	return js.True == bindings.HasWebGL2RenderingContextClearStencil(
-		this.Ref(),
+// HasFuncClearStencil returns true if the method "WebGL2RenderingContext.clearStencil" exists.
+func (this WebGL2RenderingContext) HasFuncClearStencil() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextClearStencil(
+		this.ref,
 	)
 }
 
-// ClearStencilFunc returns the method "WebGL2RenderingContext.clearStencil".
-func (this WebGL2RenderingContext) ClearStencilFunc() (fn js.Func[func(s GLint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextClearStencilFunc(
-			this.Ref(),
-		),
+// FuncClearStencil returns the method "WebGL2RenderingContext.clearStencil".
+func (this WebGL2RenderingContext) FuncClearStencil() (fn js.Func[func(s GLint)]) {
+	bindings.FuncWebGL2RenderingContextClearStencil(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ClearStencil calls the method "WebGL2RenderingContext.clearStencil".
 func (this WebGL2RenderingContext) ClearStencil(s GLint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextClearStencil(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		int32(s),
 	)
 
@@ -16272,33 +15940,32 @@ func (this WebGL2RenderingContext) ClearStencil(s GLint) (ret js.Void) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryClearStencil(s GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextClearStencil(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		int32(s),
 	)
 
 	return
 }
 
-// HasColorMask returns true if the method "WebGL2RenderingContext.colorMask" exists.
-func (this WebGL2RenderingContext) HasColorMask() bool {
-	return js.True == bindings.HasWebGL2RenderingContextColorMask(
-		this.Ref(),
+// HasFuncColorMask returns true if the method "WebGL2RenderingContext.colorMask" exists.
+func (this WebGL2RenderingContext) HasFuncColorMask() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextColorMask(
+		this.ref,
 	)
 }
 
-// ColorMaskFunc returns the method "WebGL2RenderingContext.colorMask".
-func (this WebGL2RenderingContext) ColorMaskFunc() (fn js.Func[func(red GLboolean, green GLboolean, blue GLboolean, alpha GLboolean)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextColorMaskFunc(
-			this.Ref(),
-		),
+// FuncColorMask returns the method "WebGL2RenderingContext.colorMask".
+func (this WebGL2RenderingContext) FuncColorMask() (fn js.Func[func(red GLboolean, green GLboolean, blue GLboolean, alpha GLboolean)]) {
+	bindings.FuncWebGL2RenderingContextColorMask(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ColorMask calls the method "WebGL2RenderingContext.colorMask".
 func (this WebGL2RenderingContext) ColorMask(red GLboolean, green GLboolean, blue GLboolean, alpha GLboolean) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextColorMask(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Bool(bool(red)),
 		js.Bool(bool(green)),
 		js.Bool(bool(blue)),
@@ -16313,7 +15980,7 @@ func (this WebGL2RenderingContext) ColorMask(red GLboolean, green GLboolean, blu
 // the catch clause.
 func (this WebGL2RenderingContext) TryColorMask(red GLboolean, green GLboolean, blue GLboolean, alpha GLboolean) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextColorMask(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Bool(bool(red)),
 		js.Bool(bool(green)),
 		js.Bool(bool(blue)),
@@ -16323,26 +15990,25 @@ func (this WebGL2RenderingContext) TryColorMask(red GLboolean, green GLboolean, 
 	return
 }
 
-// HasCompileShader returns true if the method "WebGL2RenderingContext.compileShader" exists.
-func (this WebGL2RenderingContext) HasCompileShader() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCompileShader(
-		this.Ref(),
+// HasFuncCompileShader returns true if the method "WebGL2RenderingContext.compileShader" exists.
+func (this WebGL2RenderingContext) HasFuncCompileShader() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCompileShader(
+		this.ref,
 	)
 }
 
-// CompileShaderFunc returns the method "WebGL2RenderingContext.compileShader".
-func (this WebGL2RenderingContext) CompileShaderFunc() (fn js.Func[func(shader WebGLShader)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCompileShaderFunc(
-			this.Ref(),
-		),
+// FuncCompileShader returns the method "WebGL2RenderingContext.compileShader".
+func (this WebGL2RenderingContext) FuncCompileShader() (fn js.Func[func(shader WebGLShader)]) {
+	bindings.FuncWebGL2RenderingContextCompileShader(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CompileShader calls the method "WebGL2RenderingContext.compileShader".
 func (this WebGL2RenderingContext) CompileShader(shader WebGLShader) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextCompileShader(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		shader.Ref(),
 	)
 
@@ -16354,33 +16020,32 @@ func (this WebGL2RenderingContext) CompileShader(shader WebGLShader) (ret js.Voi
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompileShader(shader WebGLShader) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompileShader(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		shader.Ref(),
 	)
 
 	return
 }
 
-// HasCopyTexImage2D returns true if the method "WebGL2RenderingContext.copyTexImage2D" exists.
-func (this WebGL2RenderingContext) HasCopyTexImage2D() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCopyTexImage2D(
-		this.Ref(),
+// HasFuncCopyTexImage2D returns true if the method "WebGL2RenderingContext.copyTexImage2D" exists.
+func (this WebGL2RenderingContext) HasFuncCopyTexImage2D() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCopyTexImage2D(
+		this.ref,
 	)
 }
 
-// CopyTexImage2DFunc returns the method "WebGL2RenderingContext.copyTexImage2D".
-func (this WebGL2RenderingContext) CopyTexImage2DFunc() (fn js.Func[func(target GLenum, level GLint, internalformat GLenum, x GLint, y GLint, width GLsizei, height GLsizei, border GLint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCopyTexImage2DFunc(
-			this.Ref(),
-		),
+// FuncCopyTexImage2D returns the method "WebGL2RenderingContext.copyTexImage2D".
+func (this WebGL2RenderingContext) FuncCopyTexImage2D() (fn js.Func[func(target GLenum, level GLint, internalformat GLenum, x GLint, y GLint, width GLsizei, height GLsizei, border GLint)]) {
+	bindings.FuncWebGL2RenderingContextCopyTexImage2D(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CopyTexImage2D calls the method "WebGL2RenderingContext.copyTexImage2D".
 func (this WebGL2RenderingContext) CopyTexImage2D(target GLenum, level GLint, internalformat GLenum, x GLint, y GLint, width GLsizei, height GLsizei, border GLint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextCopyTexImage2D(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		uint32(internalformat),
@@ -16399,7 +16064,7 @@ func (this WebGL2RenderingContext) CopyTexImage2D(target GLenum, level GLint, in
 // the catch clause.
 func (this WebGL2RenderingContext) TryCopyTexImage2D(target GLenum, level GLint, internalformat GLenum, x GLint, y GLint, width GLsizei, height GLsizei, border GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCopyTexImage2D(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		uint32(internalformat),
@@ -16413,26 +16078,25 @@ func (this WebGL2RenderingContext) TryCopyTexImage2D(target GLenum, level GLint,
 	return
 }
 
-// HasCopyTexSubImage2D returns true if the method "WebGL2RenderingContext.copyTexSubImage2D" exists.
-func (this WebGL2RenderingContext) HasCopyTexSubImage2D() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCopyTexSubImage2D(
-		this.Ref(),
+// HasFuncCopyTexSubImage2D returns true if the method "WebGL2RenderingContext.copyTexSubImage2D" exists.
+func (this WebGL2RenderingContext) HasFuncCopyTexSubImage2D() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCopyTexSubImage2D(
+		this.ref,
 	)
 }
 
-// CopyTexSubImage2DFunc returns the method "WebGL2RenderingContext.copyTexSubImage2D".
-func (this WebGL2RenderingContext) CopyTexSubImage2DFunc() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, x GLint, y GLint, width GLsizei, height GLsizei)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCopyTexSubImage2DFunc(
-			this.Ref(),
-		),
+// FuncCopyTexSubImage2D returns the method "WebGL2RenderingContext.copyTexSubImage2D".
+func (this WebGL2RenderingContext) FuncCopyTexSubImage2D() (fn js.Func[func(target GLenum, level GLint, xoffset GLint, yoffset GLint, x GLint, y GLint, width GLsizei, height GLsizei)]) {
+	bindings.FuncWebGL2RenderingContextCopyTexSubImage2D(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CopyTexSubImage2D calls the method "WebGL2RenderingContext.copyTexSubImage2D".
 func (this WebGL2RenderingContext) CopyTexSubImage2D(target GLenum, level GLint, xoffset GLint, yoffset GLint, x GLint, y GLint, width GLsizei, height GLsizei) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextCopyTexSubImage2D(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -16451,7 +16115,7 @@ func (this WebGL2RenderingContext) CopyTexSubImage2D(target GLenum, level GLint,
 // the catch clause.
 func (this WebGL2RenderingContext) TryCopyTexSubImage2D(target GLenum, level GLint, xoffset GLint, yoffset GLint, x GLint, y GLint, width GLsizei, height GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCopyTexSubImage2D(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		int32(level),
 		int32(xoffset),
@@ -16465,26 +16129,25 @@ func (this WebGL2RenderingContext) TryCopyTexSubImage2D(target GLenum, level GLi
 	return
 }
 
-// HasCreateBuffer returns true if the method "WebGL2RenderingContext.createBuffer" exists.
-func (this WebGL2RenderingContext) HasCreateBuffer() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCreateBuffer(
-		this.Ref(),
+// HasFuncCreateBuffer returns true if the method "WebGL2RenderingContext.createBuffer" exists.
+func (this WebGL2RenderingContext) HasFuncCreateBuffer() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCreateBuffer(
+		this.ref,
 	)
 }
 
-// CreateBufferFunc returns the method "WebGL2RenderingContext.createBuffer".
-func (this WebGL2RenderingContext) CreateBufferFunc() (fn js.Func[func() WebGLBuffer]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCreateBufferFunc(
-			this.Ref(),
-		),
+// FuncCreateBuffer returns the method "WebGL2RenderingContext.createBuffer".
+func (this WebGL2RenderingContext) FuncCreateBuffer() (fn js.Func[func() WebGLBuffer]) {
+	bindings.FuncWebGL2RenderingContextCreateBuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateBuffer calls the method "WebGL2RenderingContext.createBuffer".
 func (this WebGL2RenderingContext) CreateBuffer() (ret WebGLBuffer) {
 	bindings.CallWebGL2RenderingContextCreateBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -16495,32 +16158,31 @@ func (this WebGL2RenderingContext) CreateBuffer() (ret WebGLBuffer) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryCreateBuffer() (ret WebGLBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCreateBuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCreateFramebuffer returns true if the method "WebGL2RenderingContext.createFramebuffer" exists.
-func (this WebGL2RenderingContext) HasCreateFramebuffer() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCreateFramebuffer(
-		this.Ref(),
+// HasFuncCreateFramebuffer returns true if the method "WebGL2RenderingContext.createFramebuffer" exists.
+func (this WebGL2RenderingContext) HasFuncCreateFramebuffer() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCreateFramebuffer(
+		this.ref,
 	)
 }
 
-// CreateFramebufferFunc returns the method "WebGL2RenderingContext.createFramebuffer".
-func (this WebGL2RenderingContext) CreateFramebufferFunc() (fn js.Func[func() WebGLFramebuffer]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCreateFramebufferFunc(
-			this.Ref(),
-		),
+// FuncCreateFramebuffer returns the method "WebGL2RenderingContext.createFramebuffer".
+func (this WebGL2RenderingContext) FuncCreateFramebuffer() (fn js.Func[func() WebGLFramebuffer]) {
+	bindings.FuncWebGL2RenderingContextCreateFramebuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateFramebuffer calls the method "WebGL2RenderingContext.createFramebuffer".
 func (this WebGL2RenderingContext) CreateFramebuffer() (ret WebGLFramebuffer) {
 	bindings.CallWebGL2RenderingContextCreateFramebuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -16531,32 +16193,31 @@ func (this WebGL2RenderingContext) CreateFramebuffer() (ret WebGLFramebuffer) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryCreateFramebuffer() (ret WebGLFramebuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCreateFramebuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCreateProgram returns true if the method "WebGL2RenderingContext.createProgram" exists.
-func (this WebGL2RenderingContext) HasCreateProgram() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCreateProgram(
-		this.Ref(),
+// HasFuncCreateProgram returns true if the method "WebGL2RenderingContext.createProgram" exists.
+func (this WebGL2RenderingContext) HasFuncCreateProgram() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCreateProgram(
+		this.ref,
 	)
 }
 
-// CreateProgramFunc returns the method "WebGL2RenderingContext.createProgram".
-func (this WebGL2RenderingContext) CreateProgramFunc() (fn js.Func[func() WebGLProgram]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCreateProgramFunc(
-			this.Ref(),
-		),
+// FuncCreateProgram returns the method "WebGL2RenderingContext.createProgram".
+func (this WebGL2RenderingContext) FuncCreateProgram() (fn js.Func[func() WebGLProgram]) {
+	bindings.FuncWebGL2RenderingContextCreateProgram(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateProgram calls the method "WebGL2RenderingContext.createProgram".
 func (this WebGL2RenderingContext) CreateProgram() (ret WebGLProgram) {
 	bindings.CallWebGL2RenderingContextCreateProgram(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -16567,32 +16228,31 @@ func (this WebGL2RenderingContext) CreateProgram() (ret WebGLProgram) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryCreateProgram() (ret WebGLProgram, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCreateProgram(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCreateRenderbuffer returns true if the method "WebGL2RenderingContext.createRenderbuffer" exists.
-func (this WebGL2RenderingContext) HasCreateRenderbuffer() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCreateRenderbuffer(
-		this.Ref(),
+// HasFuncCreateRenderbuffer returns true if the method "WebGL2RenderingContext.createRenderbuffer" exists.
+func (this WebGL2RenderingContext) HasFuncCreateRenderbuffer() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCreateRenderbuffer(
+		this.ref,
 	)
 }
 
-// CreateRenderbufferFunc returns the method "WebGL2RenderingContext.createRenderbuffer".
-func (this WebGL2RenderingContext) CreateRenderbufferFunc() (fn js.Func[func() WebGLRenderbuffer]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCreateRenderbufferFunc(
-			this.Ref(),
-		),
+// FuncCreateRenderbuffer returns the method "WebGL2RenderingContext.createRenderbuffer".
+func (this WebGL2RenderingContext) FuncCreateRenderbuffer() (fn js.Func[func() WebGLRenderbuffer]) {
+	bindings.FuncWebGL2RenderingContextCreateRenderbuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateRenderbuffer calls the method "WebGL2RenderingContext.createRenderbuffer".
 func (this WebGL2RenderingContext) CreateRenderbuffer() (ret WebGLRenderbuffer) {
 	bindings.CallWebGL2RenderingContextCreateRenderbuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -16603,32 +16263,31 @@ func (this WebGL2RenderingContext) CreateRenderbuffer() (ret WebGLRenderbuffer) 
 // the catch clause.
 func (this WebGL2RenderingContext) TryCreateRenderbuffer() (ret WebGLRenderbuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCreateRenderbuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCreateShader returns true if the method "WebGL2RenderingContext.createShader" exists.
-func (this WebGL2RenderingContext) HasCreateShader() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCreateShader(
-		this.Ref(),
+// HasFuncCreateShader returns true if the method "WebGL2RenderingContext.createShader" exists.
+func (this WebGL2RenderingContext) HasFuncCreateShader() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCreateShader(
+		this.ref,
 	)
 }
 
-// CreateShaderFunc returns the method "WebGL2RenderingContext.createShader".
-func (this WebGL2RenderingContext) CreateShaderFunc() (fn js.Func[func(typ GLenum) WebGLShader]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCreateShaderFunc(
-			this.Ref(),
-		),
+// FuncCreateShader returns the method "WebGL2RenderingContext.createShader".
+func (this WebGL2RenderingContext) FuncCreateShader() (fn js.Func[func(typ GLenum) WebGLShader]) {
+	bindings.FuncWebGL2RenderingContextCreateShader(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateShader calls the method "WebGL2RenderingContext.createShader".
 func (this WebGL2RenderingContext) CreateShader(typ GLenum) (ret WebGLShader) {
 	bindings.CallWebGL2RenderingContextCreateShader(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(typ),
 	)
 
@@ -16640,33 +16299,32 @@ func (this WebGL2RenderingContext) CreateShader(typ GLenum) (ret WebGLShader) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryCreateShader(typ GLenum) (ret WebGLShader, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCreateShader(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(typ),
 	)
 
 	return
 }
 
-// HasCreateTexture returns true if the method "WebGL2RenderingContext.createTexture" exists.
-func (this WebGL2RenderingContext) HasCreateTexture() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCreateTexture(
-		this.Ref(),
+// HasFuncCreateTexture returns true if the method "WebGL2RenderingContext.createTexture" exists.
+func (this WebGL2RenderingContext) HasFuncCreateTexture() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCreateTexture(
+		this.ref,
 	)
 }
 
-// CreateTextureFunc returns the method "WebGL2RenderingContext.createTexture".
-func (this WebGL2RenderingContext) CreateTextureFunc() (fn js.Func[func() WebGLTexture]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCreateTextureFunc(
-			this.Ref(),
-		),
+// FuncCreateTexture returns the method "WebGL2RenderingContext.createTexture".
+func (this WebGL2RenderingContext) FuncCreateTexture() (fn js.Func[func() WebGLTexture]) {
+	bindings.FuncWebGL2RenderingContextCreateTexture(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateTexture calls the method "WebGL2RenderingContext.createTexture".
 func (this WebGL2RenderingContext) CreateTexture() (ret WebGLTexture) {
 	bindings.CallWebGL2RenderingContextCreateTexture(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -16677,32 +16335,31 @@ func (this WebGL2RenderingContext) CreateTexture() (ret WebGLTexture) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryCreateTexture() (ret WebGLTexture, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCreateTexture(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasCullFace returns true if the method "WebGL2RenderingContext.cullFace" exists.
-func (this WebGL2RenderingContext) HasCullFace() bool {
-	return js.True == bindings.HasWebGL2RenderingContextCullFace(
-		this.Ref(),
+// HasFuncCullFace returns true if the method "WebGL2RenderingContext.cullFace" exists.
+func (this WebGL2RenderingContext) HasFuncCullFace() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextCullFace(
+		this.ref,
 	)
 }
 
-// CullFaceFunc returns the method "WebGL2RenderingContext.cullFace".
-func (this WebGL2RenderingContext) CullFaceFunc() (fn js.Func[func(mode GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextCullFaceFunc(
-			this.Ref(),
-		),
+// FuncCullFace returns the method "WebGL2RenderingContext.cullFace".
+func (this WebGL2RenderingContext) FuncCullFace() (fn js.Func[func(mode GLenum)]) {
+	bindings.FuncWebGL2RenderingContextCullFace(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CullFace calls the method "WebGL2RenderingContext.cullFace".
 func (this WebGL2RenderingContext) CullFace(mode GLenum) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextCullFace(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mode),
 	)
 
@@ -16714,33 +16371,32 @@ func (this WebGL2RenderingContext) CullFace(mode GLenum) (ret js.Void) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryCullFace(mode GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCullFace(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mode),
 	)
 
 	return
 }
 
-// HasDeleteBuffer returns true if the method "WebGL2RenderingContext.deleteBuffer" exists.
-func (this WebGL2RenderingContext) HasDeleteBuffer() bool {
-	return js.True == bindings.HasWebGL2RenderingContextDeleteBuffer(
-		this.Ref(),
+// HasFuncDeleteBuffer returns true if the method "WebGL2RenderingContext.deleteBuffer" exists.
+func (this WebGL2RenderingContext) HasFuncDeleteBuffer() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextDeleteBuffer(
+		this.ref,
 	)
 }
 
-// DeleteBufferFunc returns the method "WebGL2RenderingContext.deleteBuffer".
-func (this WebGL2RenderingContext) DeleteBufferFunc() (fn js.Func[func(buffer WebGLBuffer)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextDeleteBufferFunc(
-			this.Ref(),
-		),
+// FuncDeleteBuffer returns the method "WebGL2RenderingContext.deleteBuffer".
+func (this WebGL2RenderingContext) FuncDeleteBuffer() (fn js.Func[func(buffer WebGLBuffer)]) {
+	bindings.FuncWebGL2RenderingContextDeleteBuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteBuffer calls the method "WebGL2RenderingContext.deleteBuffer".
 func (this WebGL2RenderingContext) DeleteBuffer(buffer WebGLBuffer) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextDeleteBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		buffer.Ref(),
 	)
 
@@ -16752,33 +16408,32 @@ func (this WebGL2RenderingContext) DeleteBuffer(buffer WebGLBuffer) (ret js.Void
 // the catch clause.
 func (this WebGL2RenderingContext) TryDeleteBuffer(buffer WebGLBuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDeleteBuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		buffer.Ref(),
 	)
 
 	return
 }
 
-// HasDeleteFramebuffer returns true if the method "WebGL2RenderingContext.deleteFramebuffer" exists.
-func (this WebGL2RenderingContext) HasDeleteFramebuffer() bool {
-	return js.True == bindings.HasWebGL2RenderingContextDeleteFramebuffer(
-		this.Ref(),
+// HasFuncDeleteFramebuffer returns true if the method "WebGL2RenderingContext.deleteFramebuffer" exists.
+func (this WebGL2RenderingContext) HasFuncDeleteFramebuffer() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextDeleteFramebuffer(
+		this.ref,
 	)
 }
 
-// DeleteFramebufferFunc returns the method "WebGL2RenderingContext.deleteFramebuffer".
-func (this WebGL2RenderingContext) DeleteFramebufferFunc() (fn js.Func[func(framebuffer WebGLFramebuffer)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextDeleteFramebufferFunc(
-			this.Ref(),
-		),
+// FuncDeleteFramebuffer returns the method "WebGL2RenderingContext.deleteFramebuffer".
+func (this WebGL2RenderingContext) FuncDeleteFramebuffer() (fn js.Func[func(framebuffer WebGLFramebuffer)]) {
+	bindings.FuncWebGL2RenderingContextDeleteFramebuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteFramebuffer calls the method "WebGL2RenderingContext.deleteFramebuffer".
 func (this WebGL2RenderingContext) DeleteFramebuffer(framebuffer WebGLFramebuffer) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextDeleteFramebuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		framebuffer.Ref(),
 	)
 
@@ -16790,33 +16445,32 @@ func (this WebGL2RenderingContext) DeleteFramebuffer(framebuffer WebGLFramebuffe
 // the catch clause.
 func (this WebGL2RenderingContext) TryDeleteFramebuffer(framebuffer WebGLFramebuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDeleteFramebuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		framebuffer.Ref(),
 	)
 
 	return
 }
 
-// HasDeleteProgram returns true if the method "WebGL2RenderingContext.deleteProgram" exists.
-func (this WebGL2RenderingContext) HasDeleteProgram() bool {
-	return js.True == bindings.HasWebGL2RenderingContextDeleteProgram(
-		this.Ref(),
+// HasFuncDeleteProgram returns true if the method "WebGL2RenderingContext.deleteProgram" exists.
+func (this WebGL2RenderingContext) HasFuncDeleteProgram() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextDeleteProgram(
+		this.ref,
 	)
 }
 
-// DeleteProgramFunc returns the method "WebGL2RenderingContext.deleteProgram".
-func (this WebGL2RenderingContext) DeleteProgramFunc() (fn js.Func[func(program WebGLProgram)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextDeleteProgramFunc(
-			this.Ref(),
-		),
+// FuncDeleteProgram returns the method "WebGL2RenderingContext.deleteProgram".
+func (this WebGL2RenderingContext) FuncDeleteProgram() (fn js.Func[func(program WebGLProgram)]) {
+	bindings.FuncWebGL2RenderingContextDeleteProgram(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteProgram calls the method "WebGL2RenderingContext.deleteProgram".
 func (this WebGL2RenderingContext) DeleteProgram(program WebGLProgram) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextDeleteProgram(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 	)
 
@@ -16828,33 +16482,32 @@ func (this WebGL2RenderingContext) DeleteProgram(program WebGLProgram) (ret js.V
 // the catch clause.
 func (this WebGL2RenderingContext) TryDeleteProgram(program WebGLProgram) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDeleteProgram(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 	)
 
 	return
 }
 
-// HasDeleteRenderbuffer returns true if the method "WebGL2RenderingContext.deleteRenderbuffer" exists.
-func (this WebGL2RenderingContext) HasDeleteRenderbuffer() bool {
-	return js.True == bindings.HasWebGL2RenderingContextDeleteRenderbuffer(
-		this.Ref(),
+// HasFuncDeleteRenderbuffer returns true if the method "WebGL2RenderingContext.deleteRenderbuffer" exists.
+func (this WebGL2RenderingContext) HasFuncDeleteRenderbuffer() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextDeleteRenderbuffer(
+		this.ref,
 	)
 }
 
-// DeleteRenderbufferFunc returns the method "WebGL2RenderingContext.deleteRenderbuffer".
-func (this WebGL2RenderingContext) DeleteRenderbufferFunc() (fn js.Func[func(renderbuffer WebGLRenderbuffer)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextDeleteRenderbufferFunc(
-			this.Ref(),
-		),
+// FuncDeleteRenderbuffer returns the method "WebGL2RenderingContext.deleteRenderbuffer".
+func (this WebGL2RenderingContext) FuncDeleteRenderbuffer() (fn js.Func[func(renderbuffer WebGLRenderbuffer)]) {
+	bindings.FuncWebGL2RenderingContextDeleteRenderbuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteRenderbuffer calls the method "WebGL2RenderingContext.deleteRenderbuffer".
 func (this WebGL2RenderingContext) DeleteRenderbuffer(renderbuffer WebGLRenderbuffer) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextDeleteRenderbuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		renderbuffer.Ref(),
 	)
 
@@ -16866,33 +16519,32 @@ func (this WebGL2RenderingContext) DeleteRenderbuffer(renderbuffer WebGLRenderbu
 // the catch clause.
 func (this WebGL2RenderingContext) TryDeleteRenderbuffer(renderbuffer WebGLRenderbuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDeleteRenderbuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		renderbuffer.Ref(),
 	)
 
 	return
 }
 
-// HasDeleteShader returns true if the method "WebGL2RenderingContext.deleteShader" exists.
-func (this WebGL2RenderingContext) HasDeleteShader() bool {
-	return js.True == bindings.HasWebGL2RenderingContextDeleteShader(
-		this.Ref(),
+// HasFuncDeleteShader returns true if the method "WebGL2RenderingContext.deleteShader" exists.
+func (this WebGL2RenderingContext) HasFuncDeleteShader() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextDeleteShader(
+		this.ref,
 	)
 }
 
-// DeleteShaderFunc returns the method "WebGL2RenderingContext.deleteShader".
-func (this WebGL2RenderingContext) DeleteShaderFunc() (fn js.Func[func(shader WebGLShader)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextDeleteShaderFunc(
-			this.Ref(),
-		),
+// FuncDeleteShader returns the method "WebGL2RenderingContext.deleteShader".
+func (this WebGL2RenderingContext) FuncDeleteShader() (fn js.Func[func(shader WebGLShader)]) {
+	bindings.FuncWebGL2RenderingContextDeleteShader(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteShader calls the method "WebGL2RenderingContext.deleteShader".
 func (this WebGL2RenderingContext) DeleteShader(shader WebGLShader) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextDeleteShader(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		shader.Ref(),
 	)
 
@@ -16904,33 +16556,32 @@ func (this WebGL2RenderingContext) DeleteShader(shader WebGLShader) (ret js.Void
 // the catch clause.
 func (this WebGL2RenderingContext) TryDeleteShader(shader WebGLShader) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDeleteShader(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		shader.Ref(),
 	)
 
 	return
 }
 
-// HasDeleteTexture returns true if the method "WebGL2RenderingContext.deleteTexture" exists.
-func (this WebGL2RenderingContext) HasDeleteTexture() bool {
-	return js.True == bindings.HasWebGL2RenderingContextDeleteTexture(
-		this.Ref(),
+// HasFuncDeleteTexture returns true if the method "WebGL2RenderingContext.deleteTexture" exists.
+func (this WebGL2RenderingContext) HasFuncDeleteTexture() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextDeleteTexture(
+		this.ref,
 	)
 }
 
-// DeleteTextureFunc returns the method "WebGL2RenderingContext.deleteTexture".
-func (this WebGL2RenderingContext) DeleteTextureFunc() (fn js.Func[func(texture WebGLTexture)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextDeleteTextureFunc(
-			this.Ref(),
-		),
+// FuncDeleteTexture returns the method "WebGL2RenderingContext.deleteTexture".
+func (this WebGL2RenderingContext) FuncDeleteTexture() (fn js.Func[func(texture WebGLTexture)]) {
+	bindings.FuncWebGL2RenderingContextDeleteTexture(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteTexture calls the method "WebGL2RenderingContext.deleteTexture".
 func (this WebGL2RenderingContext) DeleteTexture(texture WebGLTexture) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextDeleteTexture(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		texture.Ref(),
 	)
 
@@ -16942,33 +16593,32 @@ func (this WebGL2RenderingContext) DeleteTexture(texture WebGLTexture) (ret js.V
 // the catch clause.
 func (this WebGL2RenderingContext) TryDeleteTexture(texture WebGLTexture) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDeleteTexture(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		texture.Ref(),
 	)
 
 	return
 }
 
-// HasDepthFunc returns true if the method "WebGL2RenderingContext.depthFunc" exists.
-func (this WebGL2RenderingContext) HasDepthFunc() bool {
-	return js.True == bindings.HasWebGL2RenderingContextDepthFunc(
-		this.Ref(),
+// HasFuncDepthFunc returns true if the method "WebGL2RenderingContext.depthFunc" exists.
+func (this WebGL2RenderingContext) HasFuncDepthFunc() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextDepthFunc(
+		this.ref,
 	)
 }
 
-// DepthFuncFunc returns the method "WebGL2RenderingContext.depthFunc".
-func (this WebGL2RenderingContext) DepthFuncFunc() (fn js.Func[func(fn GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextDepthFuncFunc(
-			this.Ref(),
-		),
+// FuncDepthFunc returns the method "WebGL2RenderingContext.depthFunc".
+func (this WebGL2RenderingContext) FuncDepthFunc() (fn js.Func[func(fn GLenum)]) {
+	bindings.FuncWebGL2RenderingContextDepthFunc(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DepthFunc calls the method "WebGL2RenderingContext.depthFunc".
 func (this WebGL2RenderingContext) DepthFunc(fn GLenum) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextDepthFunc(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(fn),
 	)
 
@@ -16980,33 +16630,32 @@ func (this WebGL2RenderingContext) DepthFunc(fn GLenum) (ret js.Void) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryDepthFunc(fn GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDepthFunc(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(fn),
 	)
 
 	return
 }
 
-// HasDepthMask returns true if the method "WebGL2RenderingContext.depthMask" exists.
-func (this WebGL2RenderingContext) HasDepthMask() bool {
-	return js.True == bindings.HasWebGL2RenderingContextDepthMask(
-		this.Ref(),
+// HasFuncDepthMask returns true if the method "WebGL2RenderingContext.depthMask" exists.
+func (this WebGL2RenderingContext) HasFuncDepthMask() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextDepthMask(
+		this.ref,
 	)
 }
 
-// DepthMaskFunc returns the method "WebGL2RenderingContext.depthMask".
-func (this WebGL2RenderingContext) DepthMaskFunc() (fn js.Func[func(flag GLboolean)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextDepthMaskFunc(
-			this.Ref(),
-		),
+// FuncDepthMask returns the method "WebGL2RenderingContext.depthMask".
+func (this WebGL2RenderingContext) FuncDepthMask() (fn js.Func[func(flag GLboolean)]) {
+	bindings.FuncWebGL2RenderingContextDepthMask(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DepthMask calls the method "WebGL2RenderingContext.depthMask".
 func (this WebGL2RenderingContext) DepthMask(flag GLboolean) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextDepthMask(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Bool(bool(flag)),
 	)
 
@@ -17018,33 +16667,32 @@ func (this WebGL2RenderingContext) DepthMask(flag GLboolean) (ret js.Void) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryDepthMask(flag GLboolean) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDepthMask(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Bool(bool(flag)),
 	)
 
 	return
 }
 
-// HasDepthRange returns true if the method "WebGL2RenderingContext.depthRange" exists.
-func (this WebGL2RenderingContext) HasDepthRange() bool {
-	return js.True == bindings.HasWebGL2RenderingContextDepthRange(
-		this.Ref(),
+// HasFuncDepthRange returns true if the method "WebGL2RenderingContext.depthRange" exists.
+func (this WebGL2RenderingContext) HasFuncDepthRange() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextDepthRange(
+		this.ref,
 	)
 }
 
-// DepthRangeFunc returns the method "WebGL2RenderingContext.depthRange".
-func (this WebGL2RenderingContext) DepthRangeFunc() (fn js.Func[func(zNear GLclampf, zFar GLclampf)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextDepthRangeFunc(
-			this.Ref(),
-		),
+// FuncDepthRange returns the method "WebGL2RenderingContext.depthRange".
+func (this WebGL2RenderingContext) FuncDepthRange() (fn js.Func[func(zNear GLclampf, zFar GLclampf)]) {
+	bindings.FuncWebGL2RenderingContextDepthRange(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DepthRange calls the method "WebGL2RenderingContext.depthRange".
 func (this WebGL2RenderingContext) DepthRange(zNear GLclampf, zFar GLclampf) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextDepthRange(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float32(zNear),
 		float32(zFar),
 	)
@@ -17057,7 +16705,7 @@ func (this WebGL2RenderingContext) DepthRange(zNear GLclampf, zFar GLclampf) (re
 // the catch clause.
 func (this WebGL2RenderingContext) TryDepthRange(zNear GLclampf, zFar GLclampf) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDepthRange(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float32(zNear),
 		float32(zFar),
 	)
@@ -17065,26 +16713,25 @@ func (this WebGL2RenderingContext) TryDepthRange(zNear GLclampf, zFar GLclampf) 
 	return
 }
 
-// HasDetachShader returns true if the method "WebGL2RenderingContext.detachShader" exists.
-func (this WebGL2RenderingContext) HasDetachShader() bool {
-	return js.True == bindings.HasWebGL2RenderingContextDetachShader(
-		this.Ref(),
+// HasFuncDetachShader returns true if the method "WebGL2RenderingContext.detachShader" exists.
+func (this WebGL2RenderingContext) HasFuncDetachShader() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextDetachShader(
+		this.ref,
 	)
 }
 
-// DetachShaderFunc returns the method "WebGL2RenderingContext.detachShader".
-func (this WebGL2RenderingContext) DetachShaderFunc() (fn js.Func[func(program WebGLProgram, shader WebGLShader)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextDetachShaderFunc(
-			this.Ref(),
-		),
+// FuncDetachShader returns the method "WebGL2RenderingContext.detachShader".
+func (this WebGL2RenderingContext) FuncDetachShader() (fn js.Func[func(program WebGLProgram, shader WebGLShader)]) {
+	bindings.FuncWebGL2RenderingContextDetachShader(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DetachShader calls the method "WebGL2RenderingContext.detachShader".
 func (this WebGL2RenderingContext) DetachShader(program WebGLProgram, shader WebGLShader) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextDetachShader(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		shader.Ref(),
 	)
@@ -17097,7 +16744,7 @@ func (this WebGL2RenderingContext) DetachShader(program WebGLProgram, shader Web
 // the catch clause.
 func (this WebGL2RenderingContext) TryDetachShader(program WebGLProgram, shader WebGLShader) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDetachShader(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		shader.Ref(),
 	)
@@ -17105,26 +16752,25 @@ func (this WebGL2RenderingContext) TryDetachShader(program WebGLProgram, shader 
 	return
 }
 
-// HasDisable returns true if the method "WebGL2RenderingContext.disable" exists.
-func (this WebGL2RenderingContext) HasDisable() bool {
-	return js.True == bindings.HasWebGL2RenderingContextDisable(
-		this.Ref(),
+// HasFuncDisable returns true if the method "WebGL2RenderingContext.disable" exists.
+func (this WebGL2RenderingContext) HasFuncDisable() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextDisable(
+		this.ref,
 	)
 }
 
-// DisableFunc returns the method "WebGL2RenderingContext.disable".
-func (this WebGL2RenderingContext) DisableFunc() (fn js.Func[func(cap GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextDisableFunc(
-			this.Ref(),
-		),
+// FuncDisable returns the method "WebGL2RenderingContext.disable".
+func (this WebGL2RenderingContext) FuncDisable() (fn js.Func[func(cap GLenum)]) {
+	bindings.FuncWebGL2RenderingContextDisable(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Disable calls the method "WebGL2RenderingContext.disable".
 func (this WebGL2RenderingContext) Disable(cap GLenum) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextDisable(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(cap),
 	)
 
@@ -17136,33 +16782,32 @@ func (this WebGL2RenderingContext) Disable(cap GLenum) (ret js.Void) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryDisable(cap GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDisable(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(cap),
 	)
 
 	return
 }
 
-// HasDisableVertexAttribArray returns true if the method "WebGL2RenderingContext.disableVertexAttribArray" exists.
-func (this WebGL2RenderingContext) HasDisableVertexAttribArray() bool {
-	return js.True == bindings.HasWebGL2RenderingContextDisableVertexAttribArray(
-		this.Ref(),
+// HasFuncDisableVertexAttribArray returns true if the method "WebGL2RenderingContext.disableVertexAttribArray" exists.
+func (this WebGL2RenderingContext) HasFuncDisableVertexAttribArray() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextDisableVertexAttribArray(
+		this.ref,
 	)
 }
 
-// DisableVertexAttribArrayFunc returns the method "WebGL2RenderingContext.disableVertexAttribArray".
-func (this WebGL2RenderingContext) DisableVertexAttribArrayFunc() (fn js.Func[func(index GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextDisableVertexAttribArrayFunc(
-			this.Ref(),
-		),
+// FuncDisableVertexAttribArray returns the method "WebGL2RenderingContext.disableVertexAttribArray".
+func (this WebGL2RenderingContext) FuncDisableVertexAttribArray() (fn js.Func[func(index GLuint)]) {
+	bindings.FuncWebGL2RenderingContextDisableVertexAttribArray(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DisableVertexAttribArray calls the method "WebGL2RenderingContext.disableVertexAttribArray".
 func (this WebGL2RenderingContext) DisableVertexAttribArray(index GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextDisableVertexAttribArray(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 	)
 
@@ -17174,33 +16819,32 @@ func (this WebGL2RenderingContext) DisableVertexAttribArray(index GLuint) (ret j
 // the catch clause.
 func (this WebGL2RenderingContext) TryDisableVertexAttribArray(index GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDisableVertexAttribArray(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 	)
 
 	return
 }
 
-// HasDrawArrays returns true if the method "WebGL2RenderingContext.drawArrays" exists.
-func (this WebGL2RenderingContext) HasDrawArrays() bool {
-	return js.True == bindings.HasWebGL2RenderingContextDrawArrays(
-		this.Ref(),
+// HasFuncDrawArrays returns true if the method "WebGL2RenderingContext.drawArrays" exists.
+func (this WebGL2RenderingContext) HasFuncDrawArrays() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextDrawArrays(
+		this.ref,
 	)
 }
 
-// DrawArraysFunc returns the method "WebGL2RenderingContext.drawArrays".
-func (this WebGL2RenderingContext) DrawArraysFunc() (fn js.Func[func(mode GLenum, first GLint, count GLsizei)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextDrawArraysFunc(
-			this.Ref(),
-		),
+// FuncDrawArrays returns the method "WebGL2RenderingContext.drawArrays".
+func (this WebGL2RenderingContext) FuncDrawArrays() (fn js.Func[func(mode GLenum, first GLint, count GLsizei)]) {
+	bindings.FuncWebGL2RenderingContextDrawArrays(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawArrays calls the method "WebGL2RenderingContext.drawArrays".
 func (this WebGL2RenderingContext) DrawArrays(mode GLenum, first GLint, count GLsizei) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextDrawArrays(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mode),
 		int32(first),
 		int32(count),
@@ -17214,7 +16858,7 @@ func (this WebGL2RenderingContext) DrawArrays(mode GLenum, first GLint, count GL
 // the catch clause.
 func (this WebGL2RenderingContext) TryDrawArrays(mode GLenum, first GLint, count GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDrawArrays(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mode),
 		int32(first),
 		int32(count),
@@ -17223,26 +16867,25 @@ func (this WebGL2RenderingContext) TryDrawArrays(mode GLenum, first GLint, count
 	return
 }
 
-// HasDrawElements returns true if the method "WebGL2RenderingContext.drawElements" exists.
-func (this WebGL2RenderingContext) HasDrawElements() bool {
-	return js.True == bindings.HasWebGL2RenderingContextDrawElements(
-		this.Ref(),
+// HasFuncDrawElements returns true if the method "WebGL2RenderingContext.drawElements" exists.
+func (this WebGL2RenderingContext) HasFuncDrawElements() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextDrawElements(
+		this.ref,
 	)
 }
 
-// DrawElementsFunc returns the method "WebGL2RenderingContext.drawElements".
-func (this WebGL2RenderingContext) DrawElementsFunc() (fn js.Func[func(mode GLenum, count GLsizei, typ GLenum, offset GLintptr)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextDrawElementsFunc(
-			this.Ref(),
-		),
+// FuncDrawElements returns the method "WebGL2RenderingContext.drawElements".
+func (this WebGL2RenderingContext) FuncDrawElements() (fn js.Func[func(mode GLenum, count GLsizei, typ GLenum, offset GLintptr)]) {
+	bindings.FuncWebGL2RenderingContextDrawElements(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DrawElements calls the method "WebGL2RenderingContext.drawElements".
 func (this WebGL2RenderingContext) DrawElements(mode GLenum, count GLsizei, typ GLenum, offset GLintptr) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextDrawElements(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mode),
 		int32(count),
 		uint32(typ),
@@ -17257,7 +16900,7 @@ func (this WebGL2RenderingContext) DrawElements(mode GLenum, count GLsizei, typ 
 // the catch clause.
 func (this WebGL2RenderingContext) TryDrawElements(mode GLenum, count GLsizei, typ GLenum, offset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDrawElements(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mode),
 		int32(count),
 		uint32(typ),
@@ -17267,26 +16910,25 @@ func (this WebGL2RenderingContext) TryDrawElements(mode GLenum, count GLsizei, t
 	return
 }
 
-// HasEnable returns true if the method "WebGL2RenderingContext.enable" exists.
-func (this WebGL2RenderingContext) HasEnable() bool {
-	return js.True == bindings.HasWebGL2RenderingContextEnable(
-		this.Ref(),
+// HasFuncEnable returns true if the method "WebGL2RenderingContext.enable" exists.
+func (this WebGL2RenderingContext) HasFuncEnable() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextEnable(
+		this.ref,
 	)
 }
 
-// EnableFunc returns the method "WebGL2RenderingContext.enable".
-func (this WebGL2RenderingContext) EnableFunc() (fn js.Func[func(cap GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextEnableFunc(
-			this.Ref(),
-		),
+// FuncEnable returns the method "WebGL2RenderingContext.enable".
+func (this WebGL2RenderingContext) FuncEnable() (fn js.Func[func(cap GLenum)]) {
+	bindings.FuncWebGL2RenderingContextEnable(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Enable calls the method "WebGL2RenderingContext.enable".
 func (this WebGL2RenderingContext) Enable(cap GLenum) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextEnable(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(cap),
 	)
 
@@ -17298,33 +16940,32 @@ func (this WebGL2RenderingContext) Enable(cap GLenum) (ret js.Void) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryEnable(cap GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextEnable(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(cap),
 	)
 
 	return
 }
 
-// HasEnableVertexAttribArray returns true if the method "WebGL2RenderingContext.enableVertexAttribArray" exists.
-func (this WebGL2RenderingContext) HasEnableVertexAttribArray() bool {
-	return js.True == bindings.HasWebGL2RenderingContextEnableVertexAttribArray(
-		this.Ref(),
+// HasFuncEnableVertexAttribArray returns true if the method "WebGL2RenderingContext.enableVertexAttribArray" exists.
+func (this WebGL2RenderingContext) HasFuncEnableVertexAttribArray() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextEnableVertexAttribArray(
+		this.ref,
 	)
 }
 
-// EnableVertexAttribArrayFunc returns the method "WebGL2RenderingContext.enableVertexAttribArray".
-func (this WebGL2RenderingContext) EnableVertexAttribArrayFunc() (fn js.Func[func(index GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextEnableVertexAttribArrayFunc(
-			this.Ref(),
-		),
+// FuncEnableVertexAttribArray returns the method "WebGL2RenderingContext.enableVertexAttribArray".
+func (this WebGL2RenderingContext) FuncEnableVertexAttribArray() (fn js.Func[func(index GLuint)]) {
+	bindings.FuncWebGL2RenderingContextEnableVertexAttribArray(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // EnableVertexAttribArray calls the method "WebGL2RenderingContext.enableVertexAttribArray".
 func (this WebGL2RenderingContext) EnableVertexAttribArray(index GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextEnableVertexAttribArray(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 	)
 
@@ -17336,33 +16977,32 @@ func (this WebGL2RenderingContext) EnableVertexAttribArray(index GLuint) (ret js
 // the catch clause.
 func (this WebGL2RenderingContext) TryEnableVertexAttribArray(index GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextEnableVertexAttribArray(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 	)
 
 	return
 }
 
-// HasFinish returns true if the method "WebGL2RenderingContext.finish" exists.
-func (this WebGL2RenderingContext) HasFinish() bool {
-	return js.True == bindings.HasWebGL2RenderingContextFinish(
-		this.Ref(),
+// HasFuncFinish returns true if the method "WebGL2RenderingContext.finish" exists.
+func (this WebGL2RenderingContext) HasFuncFinish() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextFinish(
+		this.ref,
 	)
 }
 
-// FinishFunc returns the method "WebGL2RenderingContext.finish".
-func (this WebGL2RenderingContext) FinishFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextFinishFunc(
-			this.Ref(),
-		),
+// FuncFinish returns the method "WebGL2RenderingContext.finish".
+func (this WebGL2RenderingContext) FuncFinish() (fn js.Func[func()]) {
+	bindings.FuncWebGL2RenderingContextFinish(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Finish calls the method "WebGL2RenderingContext.finish".
 func (this WebGL2RenderingContext) Finish() (ret js.Void) {
 	bindings.CallWebGL2RenderingContextFinish(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -17373,32 +17013,31 @@ func (this WebGL2RenderingContext) Finish() (ret js.Void) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryFinish() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextFinish(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasFlush returns true if the method "WebGL2RenderingContext.flush" exists.
-func (this WebGL2RenderingContext) HasFlush() bool {
-	return js.True == bindings.HasWebGL2RenderingContextFlush(
-		this.Ref(),
+// HasFuncFlush returns true if the method "WebGL2RenderingContext.flush" exists.
+func (this WebGL2RenderingContext) HasFuncFlush() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextFlush(
+		this.ref,
 	)
 }
 
-// FlushFunc returns the method "WebGL2RenderingContext.flush".
-func (this WebGL2RenderingContext) FlushFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextFlushFunc(
-			this.Ref(),
-		),
+// FuncFlush returns the method "WebGL2RenderingContext.flush".
+func (this WebGL2RenderingContext) FuncFlush() (fn js.Func[func()]) {
+	bindings.FuncWebGL2RenderingContextFlush(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Flush calls the method "WebGL2RenderingContext.flush".
 func (this WebGL2RenderingContext) Flush() (ret js.Void) {
 	bindings.CallWebGL2RenderingContextFlush(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -17409,32 +17048,31 @@ func (this WebGL2RenderingContext) Flush() (ret js.Void) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryFlush() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextFlush(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasFramebufferRenderbuffer returns true if the method "WebGL2RenderingContext.framebufferRenderbuffer" exists.
-func (this WebGL2RenderingContext) HasFramebufferRenderbuffer() bool {
-	return js.True == bindings.HasWebGL2RenderingContextFramebufferRenderbuffer(
-		this.Ref(),
+// HasFuncFramebufferRenderbuffer returns true if the method "WebGL2RenderingContext.framebufferRenderbuffer" exists.
+func (this WebGL2RenderingContext) HasFuncFramebufferRenderbuffer() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextFramebufferRenderbuffer(
+		this.ref,
 	)
 }
 
-// FramebufferRenderbufferFunc returns the method "WebGL2RenderingContext.framebufferRenderbuffer".
-func (this WebGL2RenderingContext) FramebufferRenderbufferFunc() (fn js.Func[func(target GLenum, attachment GLenum, renderbuffertarget GLenum, renderbuffer WebGLRenderbuffer)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextFramebufferRenderbufferFunc(
-			this.Ref(),
-		),
+// FuncFramebufferRenderbuffer returns the method "WebGL2RenderingContext.framebufferRenderbuffer".
+func (this WebGL2RenderingContext) FuncFramebufferRenderbuffer() (fn js.Func[func(target GLenum, attachment GLenum, renderbuffertarget GLenum, renderbuffer WebGLRenderbuffer)]) {
+	bindings.FuncWebGL2RenderingContextFramebufferRenderbuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // FramebufferRenderbuffer calls the method "WebGL2RenderingContext.framebufferRenderbuffer".
 func (this WebGL2RenderingContext) FramebufferRenderbuffer(target GLenum, attachment GLenum, renderbuffertarget GLenum, renderbuffer WebGLRenderbuffer) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextFramebufferRenderbuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(attachment),
 		uint32(renderbuffertarget),
@@ -17449,7 +17087,7 @@ func (this WebGL2RenderingContext) FramebufferRenderbuffer(target GLenum, attach
 // the catch clause.
 func (this WebGL2RenderingContext) TryFramebufferRenderbuffer(target GLenum, attachment GLenum, renderbuffertarget GLenum, renderbuffer WebGLRenderbuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextFramebufferRenderbuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(attachment),
 		uint32(renderbuffertarget),
@@ -17459,26 +17097,25 @@ func (this WebGL2RenderingContext) TryFramebufferRenderbuffer(target GLenum, att
 	return
 }
 
-// HasFramebufferTexture2D returns true if the method "WebGL2RenderingContext.framebufferTexture2D" exists.
-func (this WebGL2RenderingContext) HasFramebufferTexture2D() bool {
-	return js.True == bindings.HasWebGL2RenderingContextFramebufferTexture2D(
-		this.Ref(),
+// HasFuncFramebufferTexture2D returns true if the method "WebGL2RenderingContext.framebufferTexture2D" exists.
+func (this WebGL2RenderingContext) HasFuncFramebufferTexture2D() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextFramebufferTexture2D(
+		this.ref,
 	)
 }
 
-// FramebufferTexture2DFunc returns the method "WebGL2RenderingContext.framebufferTexture2D".
-func (this WebGL2RenderingContext) FramebufferTexture2DFunc() (fn js.Func[func(target GLenum, attachment GLenum, textarget GLenum, texture WebGLTexture, level GLint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextFramebufferTexture2DFunc(
-			this.Ref(),
-		),
+// FuncFramebufferTexture2D returns the method "WebGL2RenderingContext.framebufferTexture2D".
+func (this WebGL2RenderingContext) FuncFramebufferTexture2D() (fn js.Func[func(target GLenum, attachment GLenum, textarget GLenum, texture WebGLTexture, level GLint)]) {
+	bindings.FuncWebGL2RenderingContextFramebufferTexture2D(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // FramebufferTexture2D calls the method "WebGL2RenderingContext.framebufferTexture2D".
 func (this WebGL2RenderingContext) FramebufferTexture2D(target GLenum, attachment GLenum, textarget GLenum, texture WebGLTexture, level GLint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextFramebufferTexture2D(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(attachment),
 		uint32(textarget),
@@ -17494,7 +17131,7 @@ func (this WebGL2RenderingContext) FramebufferTexture2D(target GLenum, attachmen
 // the catch clause.
 func (this WebGL2RenderingContext) TryFramebufferTexture2D(target GLenum, attachment GLenum, textarget GLenum, texture WebGLTexture, level GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextFramebufferTexture2D(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(attachment),
 		uint32(textarget),
@@ -17505,26 +17142,25 @@ func (this WebGL2RenderingContext) TryFramebufferTexture2D(target GLenum, attach
 	return
 }
 
-// HasFrontFace returns true if the method "WebGL2RenderingContext.frontFace" exists.
-func (this WebGL2RenderingContext) HasFrontFace() bool {
-	return js.True == bindings.HasWebGL2RenderingContextFrontFace(
-		this.Ref(),
+// HasFuncFrontFace returns true if the method "WebGL2RenderingContext.frontFace" exists.
+func (this WebGL2RenderingContext) HasFuncFrontFace() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextFrontFace(
+		this.ref,
 	)
 }
 
-// FrontFaceFunc returns the method "WebGL2RenderingContext.frontFace".
-func (this WebGL2RenderingContext) FrontFaceFunc() (fn js.Func[func(mode GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextFrontFaceFunc(
-			this.Ref(),
-		),
+// FuncFrontFace returns the method "WebGL2RenderingContext.frontFace".
+func (this WebGL2RenderingContext) FuncFrontFace() (fn js.Func[func(mode GLenum)]) {
+	bindings.FuncWebGL2RenderingContextFrontFace(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // FrontFace calls the method "WebGL2RenderingContext.frontFace".
 func (this WebGL2RenderingContext) FrontFace(mode GLenum) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextFrontFace(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mode),
 	)
 
@@ -17536,33 +17172,32 @@ func (this WebGL2RenderingContext) FrontFace(mode GLenum) (ret js.Void) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryFrontFace(mode GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextFrontFace(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mode),
 	)
 
 	return
 }
 
-// HasGenerateMipmap returns true if the method "WebGL2RenderingContext.generateMipmap" exists.
-func (this WebGL2RenderingContext) HasGenerateMipmap() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGenerateMipmap(
-		this.Ref(),
+// HasFuncGenerateMipmap returns true if the method "WebGL2RenderingContext.generateMipmap" exists.
+func (this WebGL2RenderingContext) HasFuncGenerateMipmap() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGenerateMipmap(
+		this.ref,
 	)
 }
 
-// GenerateMipmapFunc returns the method "WebGL2RenderingContext.generateMipmap".
-func (this WebGL2RenderingContext) GenerateMipmapFunc() (fn js.Func[func(target GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGenerateMipmapFunc(
-			this.Ref(),
-		),
+// FuncGenerateMipmap returns the method "WebGL2RenderingContext.generateMipmap".
+func (this WebGL2RenderingContext) FuncGenerateMipmap() (fn js.Func[func(target GLenum)]) {
+	bindings.FuncWebGL2RenderingContextGenerateMipmap(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GenerateMipmap calls the method "WebGL2RenderingContext.generateMipmap".
 func (this WebGL2RenderingContext) GenerateMipmap(target GLenum) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextGenerateMipmap(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 	)
 
@@ -17574,33 +17209,32 @@ func (this WebGL2RenderingContext) GenerateMipmap(target GLenum) (ret js.Void) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryGenerateMipmap(target GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGenerateMipmap(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 	)
 
 	return
 }
 
-// HasGetActiveAttrib returns true if the method "WebGL2RenderingContext.getActiveAttrib" exists.
-func (this WebGL2RenderingContext) HasGetActiveAttrib() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetActiveAttrib(
-		this.Ref(),
+// HasFuncGetActiveAttrib returns true if the method "WebGL2RenderingContext.getActiveAttrib" exists.
+func (this WebGL2RenderingContext) HasFuncGetActiveAttrib() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetActiveAttrib(
+		this.ref,
 	)
 }
 
-// GetActiveAttribFunc returns the method "WebGL2RenderingContext.getActiveAttrib".
-func (this WebGL2RenderingContext) GetActiveAttribFunc() (fn js.Func[func(program WebGLProgram, index GLuint) WebGLActiveInfo]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetActiveAttribFunc(
-			this.Ref(),
-		),
+// FuncGetActiveAttrib returns the method "WebGL2RenderingContext.getActiveAttrib".
+func (this WebGL2RenderingContext) FuncGetActiveAttrib() (fn js.Func[func(program WebGLProgram, index GLuint) WebGLActiveInfo]) {
+	bindings.FuncWebGL2RenderingContextGetActiveAttrib(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetActiveAttrib calls the method "WebGL2RenderingContext.getActiveAttrib".
 func (this WebGL2RenderingContext) GetActiveAttrib(program WebGLProgram, index GLuint) (ret WebGLActiveInfo) {
 	bindings.CallWebGL2RenderingContextGetActiveAttrib(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		uint32(index),
 	)
@@ -17613,7 +17247,7 @@ func (this WebGL2RenderingContext) GetActiveAttrib(program WebGLProgram, index G
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetActiveAttrib(program WebGLProgram, index GLuint) (ret WebGLActiveInfo, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetActiveAttrib(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		uint32(index),
 	)
@@ -17621,26 +17255,25 @@ func (this WebGL2RenderingContext) TryGetActiveAttrib(program WebGLProgram, inde
 	return
 }
 
-// HasGetActiveUniform returns true if the method "WebGL2RenderingContext.getActiveUniform" exists.
-func (this WebGL2RenderingContext) HasGetActiveUniform() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetActiveUniform(
-		this.Ref(),
+// HasFuncGetActiveUniform returns true if the method "WebGL2RenderingContext.getActiveUniform" exists.
+func (this WebGL2RenderingContext) HasFuncGetActiveUniform() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetActiveUniform(
+		this.ref,
 	)
 }
 
-// GetActiveUniformFunc returns the method "WebGL2RenderingContext.getActiveUniform".
-func (this WebGL2RenderingContext) GetActiveUniformFunc() (fn js.Func[func(program WebGLProgram, index GLuint) WebGLActiveInfo]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetActiveUniformFunc(
-			this.Ref(),
-		),
+// FuncGetActiveUniform returns the method "WebGL2RenderingContext.getActiveUniform".
+func (this WebGL2RenderingContext) FuncGetActiveUniform() (fn js.Func[func(program WebGLProgram, index GLuint) WebGLActiveInfo]) {
+	bindings.FuncWebGL2RenderingContextGetActiveUniform(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetActiveUniform calls the method "WebGL2RenderingContext.getActiveUniform".
 func (this WebGL2RenderingContext) GetActiveUniform(program WebGLProgram, index GLuint) (ret WebGLActiveInfo) {
 	bindings.CallWebGL2RenderingContextGetActiveUniform(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		uint32(index),
 	)
@@ -17653,7 +17286,7 @@ func (this WebGL2RenderingContext) GetActiveUniform(program WebGLProgram, index 
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetActiveUniform(program WebGLProgram, index GLuint) (ret WebGLActiveInfo, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetActiveUniform(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		uint32(index),
 	)
@@ -17661,26 +17294,25 @@ func (this WebGL2RenderingContext) TryGetActiveUniform(program WebGLProgram, ind
 	return
 }
 
-// HasGetAttachedShaders returns true if the method "WebGL2RenderingContext.getAttachedShaders" exists.
-func (this WebGL2RenderingContext) HasGetAttachedShaders() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetAttachedShaders(
-		this.Ref(),
+// HasFuncGetAttachedShaders returns true if the method "WebGL2RenderingContext.getAttachedShaders" exists.
+func (this WebGL2RenderingContext) HasFuncGetAttachedShaders() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetAttachedShaders(
+		this.ref,
 	)
 }
 
-// GetAttachedShadersFunc returns the method "WebGL2RenderingContext.getAttachedShaders".
-func (this WebGL2RenderingContext) GetAttachedShadersFunc() (fn js.Func[func(program WebGLProgram) js.Array[WebGLShader]]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetAttachedShadersFunc(
-			this.Ref(),
-		),
+// FuncGetAttachedShaders returns the method "WebGL2RenderingContext.getAttachedShaders".
+func (this WebGL2RenderingContext) FuncGetAttachedShaders() (fn js.Func[func(program WebGLProgram) js.Array[WebGLShader]]) {
+	bindings.FuncWebGL2RenderingContextGetAttachedShaders(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAttachedShaders calls the method "WebGL2RenderingContext.getAttachedShaders".
 func (this WebGL2RenderingContext) GetAttachedShaders(program WebGLProgram) (ret js.Array[WebGLShader]) {
 	bindings.CallWebGL2RenderingContextGetAttachedShaders(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 	)
 
@@ -17692,33 +17324,32 @@ func (this WebGL2RenderingContext) GetAttachedShaders(program WebGLProgram) (ret
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetAttachedShaders(program WebGLProgram) (ret js.Array[WebGLShader], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetAttachedShaders(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 	)
 
 	return
 }
 
-// HasGetAttribLocation returns true if the method "WebGL2RenderingContext.getAttribLocation" exists.
-func (this WebGL2RenderingContext) HasGetAttribLocation() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetAttribLocation(
-		this.Ref(),
+// HasFuncGetAttribLocation returns true if the method "WebGL2RenderingContext.getAttribLocation" exists.
+func (this WebGL2RenderingContext) HasFuncGetAttribLocation() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetAttribLocation(
+		this.ref,
 	)
 }
 
-// GetAttribLocationFunc returns the method "WebGL2RenderingContext.getAttribLocation".
-func (this WebGL2RenderingContext) GetAttribLocationFunc() (fn js.Func[func(program WebGLProgram, name js.String) GLint]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetAttribLocationFunc(
-			this.Ref(),
-		),
+// FuncGetAttribLocation returns the method "WebGL2RenderingContext.getAttribLocation".
+func (this WebGL2RenderingContext) FuncGetAttribLocation() (fn js.Func[func(program WebGLProgram, name js.String) GLint]) {
+	bindings.FuncWebGL2RenderingContextGetAttribLocation(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetAttribLocation calls the method "WebGL2RenderingContext.getAttribLocation".
 func (this WebGL2RenderingContext) GetAttribLocation(program WebGLProgram, name js.String) (ret GLint) {
 	bindings.CallWebGL2RenderingContextGetAttribLocation(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		name.Ref(),
 	)
@@ -17731,7 +17362,7 @@ func (this WebGL2RenderingContext) GetAttribLocation(program WebGLProgram, name 
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetAttribLocation(program WebGLProgram, name js.String) (ret GLint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetAttribLocation(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		name.Ref(),
 	)
@@ -17739,26 +17370,25 @@ func (this WebGL2RenderingContext) TryGetAttribLocation(program WebGLProgram, na
 	return
 }
 
-// HasGetBufferParameter returns true if the method "WebGL2RenderingContext.getBufferParameter" exists.
-func (this WebGL2RenderingContext) HasGetBufferParameter() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetBufferParameter(
-		this.Ref(),
+// HasFuncGetBufferParameter returns true if the method "WebGL2RenderingContext.getBufferParameter" exists.
+func (this WebGL2RenderingContext) HasFuncGetBufferParameter() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetBufferParameter(
+		this.ref,
 	)
 }
 
-// GetBufferParameterFunc returns the method "WebGL2RenderingContext.getBufferParameter".
-func (this WebGL2RenderingContext) GetBufferParameterFunc() (fn js.Func[func(target GLenum, pname GLenum) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetBufferParameterFunc(
-			this.Ref(),
-		),
+// FuncGetBufferParameter returns the method "WebGL2RenderingContext.getBufferParameter".
+func (this WebGL2RenderingContext) FuncGetBufferParameter() (fn js.Func[func(target GLenum, pname GLenum) js.Any]) {
+	bindings.FuncWebGL2RenderingContextGetBufferParameter(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetBufferParameter calls the method "WebGL2RenderingContext.getBufferParameter".
 func (this WebGL2RenderingContext) GetBufferParameter(target GLenum, pname GLenum) (ret js.Any) {
 	bindings.CallWebGL2RenderingContextGetBufferParameter(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(pname),
 	)
@@ -17771,7 +17401,7 @@ func (this WebGL2RenderingContext) GetBufferParameter(target GLenum, pname GLenu
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetBufferParameter(target GLenum, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetBufferParameter(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(pname),
 	)
@@ -17779,26 +17409,25 @@ func (this WebGL2RenderingContext) TryGetBufferParameter(target GLenum, pname GL
 	return
 }
 
-// HasGetParameter returns true if the method "WebGL2RenderingContext.getParameter" exists.
-func (this WebGL2RenderingContext) HasGetParameter() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetParameter(
-		this.Ref(),
+// HasFuncGetParameter returns true if the method "WebGL2RenderingContext.getParameter" exists.
+func (this WebGL2RenderingContext) HasFuncGetParameter() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetParameter(
+		this.ref,
 	)
 }
 
-// GetParameterFunc returns the method "WebGL2RenderingContext.getParameter".
-func (this WebGL2RenderingContext) GetParameterFunc() (fn js.Func[func(pname GLenum) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetParameterFunc(
-			this.Ref(),
-		),
+// FuncGetParameter returns the method "WebGL2RenderingContext.getParameter".
+func (this WebGL2RenderingContext) FuncGetParameter() (fn js.Func[func(pname GLenum) js.Any]) {
+	bindings.FuncWebGL2RenderingContextGetParameter(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetParameter calls the method "WebGL2RenderingContext.getParameter".
 func (this WebGL2RenderingContext) GetParameter(pname GLenum) (ret js.Any) {
 	bindings.CallWebGL2RenderingContextGetParameter(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(pname),
 	)
 
@@ -17810,33 +17439,32 @@ func (this WebGL2RenderingContext) GetParameter(pname GLenum) (ret js.Any) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetParameter(pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetParameter(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(pname),
 	)
 
 	return
 }
 
-// HasGetError returns true if the method "WebGL2RenderingContext.getError" exists.
-func (this WebGL2RenderingContext) HasGetError() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetError(
-		this.Ref(),
+// HasFuncGetError returns true if the method "WebGL2RenderingContext.getError" exists.
+func (this WebGL2RenderingContext) HasFuncGetError() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetError(
+		this.ref,
 	)
 }
 
-// GetErrorFunc returns the method "WebGL2RenderingContext.getError".
-func (this WebGL2RenderingContext) GetErrorFunc() (fn js.Func[func() GLenum]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetErrorFunc(
-			this.Ref(),
-		),
+// FuncGetError returns the method "WebGL2RenderingContext.getError".
+func (this WebGL2RenderingContext) FuncGetError() (fn js.Func[func() GLenum]) {
+	bindings.FuncWebGL2RenderingContextGetError(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetError calls the method "WebGL2RenderingContext.getError".
 func (this WebGL2RenderingContext) GetError() (ret GLenum) {
 	bindings.CallWebGL2RenderingContextGetError(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -17847,32 +17475,31 @@ func (this WebGL2RenderingContext) GetError() (ret GLenum) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetError() (ret GLenum, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetError(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetFramebufferAttachmentParameter returns true if the method "WebGL2RenderingContext.getFramebufferAttachmentParameter" exists.
-func (this WebGL2RenderingContext) HasGetFramebufferAttachmentParameter() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetFramebufferAttachmentParameter(
-		this.Ref(),
+// HasFuncGetFramebufferAttachmentParameter returns true if the method "WebGL2RenderingContext.getFramebufferAttachmentParameter" exists.
+func (this WebGL2RenderingContext) HasFuncGetFramebufferAttachmentParameter() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetFramebufferAttachmentParameter(
+		this.ref,
 	)
 }
 
-// GetFramebufferAttachmentParameterFunc returns the method "WebGL2RenderingContext.getFramebufferAttachmentParameter".
-func (this WebGL2RenderingContext) GetFramebufferAttachmentParameterFunc() (fn js.Func[func(target GLenum, attachment GLenum, pname GLenum) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetFramebufferAttachmentParameterFunc(
-			this.Ref(),
-		),
+// FuncGetFramebufferAttachmentParameter returns the method "WebGL2RenderingContext.getFramebufferAttachmentParameter".
+func (this WebGL2RenderingContext) FuncGetFramebufferAttachmentParameter() (fn js.Func[func(target GLenum, attachment GLenum, pname GLenum) js.Any]) {
+	bindings.FuncWebGL2RenderingContextGetFramebufferAttachmentParameter(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetFramebufferAttachmentParameter calls the method "WebGL2RenderingContext.getFramebufferAttachmentParameter".
 func (this WebGL2RenderingContext) GetFramebufferAttachmentParameter(target GLenum, attachment GLenum, pname GLenum) (ret js.Any) {
 	bindings.CallWebGL2RenderingContextGetFramebufferAttachmentParameter(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(attachment),
 		uint32(pname),
@@ -17886,7 +17513,7 @@ func (this WebGL2RenderingContext) GetFramebufferAttachmentParameter(target GLen
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetFramebufferAttachmentParameter(target GLenum, attachment GLenum, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetFramebufferAttachmentParameter(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(attachment),
 		uint32(pname),
@@ -17895,26 +17522,25 @@ func (this WebGL2RenderingContext) TryGetFramebufferAttachmentParameter(target G
 	return
 }
 
-// HasGetProgramParameter returns true if the method "WebGL2RenderingContext.getProgramParameter" exists.
-func (this WebGL2RenderingContext) HasGetProgramParameter() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetProgramParameter(
-		this.Ref(),
+// HasFuncGetProgramParameter returns true if the method "WebGL2RenderingContext.getProgramParameter" exists.
+func (this WebGL2RenderingContext) HasFuncGetProgramParameter() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetProgramParameter(
+		this.ref,
 	)
 }
 
-// GetProgramParameterFunc returns the method "WebGL2RenderingContext.getProgramParameter".
-func (this WebGL2RenderingContext) GetProgramParameterFunc() (fn js.Func[func(program WebGLProgram, pname GLenum) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetProgramParameterFunc(
-			this.Ref(),
-		),
+// FuncGetProgramParameter returns the method "WebGL2RenderingContext.getProgramParameter".
+func (this WebGL2RenderingContext) FuncGetProgramParameter() (fn js.Func[func(program WebGLProgram, pname GLenum) js.Any]) {
+	bindings.FuncWebGL2RenderingContextGetProgramParameter(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetProgramParameter calls the method "WebGL2RenderingContext.getProgramParameter".
 func (this WebGL2RenderingContext) GetProgramParameter(program WebGLProgram, pname GLenum) (ret js.Any) {
 	bindings.CallWebGL2RenderingContextGetProgramParameter(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		uint32(pname),
 	)
@@ -17927,7 +17553,7 @@ func (this WebGL2RenderingContext) GetProgramParameter(program WebGLProgram, pna
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetProgramParameter(program WebGLProgram, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetProgramParameter(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		uint32(pname),
 	)
@@ -17935,26 +17561,25 @@ func (this WebGL2RenderingContext) TryGetProgramParameter(program WebGLProgram, 
 	return
 }
 
-// HasGetProgramInfoLog returns true if the method "WebGL2RenderingContext.getProgramInfoLog" exists.
-func (this WebGL2RenderingContext) HasGetProgramInfoLog() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetProgramInfoLog(
-		this.Ref(),
+// HasFuncGetProgramInfoLog returns true if the method "WebGL2RenderingContext.getProgramInfoLog" exists.
+func (this WebGL2RenderingContext) HasFuncGetProgramInfoLog() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetProgramInfoLog(
+		this.ref,
 	)
 }
 
-// GetProgramInfoLogFunc returns the method "WebGL2RenderingContext.getProgramInfoLog".
-func (this WebGL2RenderingContext) GetProgramInfoLogFunc() (fn js.Func[func(program WebGLProgram) js.String]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetProgramInfoLogFunc(
-			this.Ref(),
-		),
+// FuncGetProgramInfoLog returns the method "WebGL2RenderingContext.getProgramInfoLog".
+func (this WebGL2RenderingContext) FuncGetProgramInfoLog() (fn js.Func[func(program WebGLProgram) js.String]) {
+	bindings.FuncWebGL2RenderingContextGetProgramInfoLog(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetProgramInfoLog calls the method "WebGL2RenderingContext.getProgramInfoLog".
 func (this WebGL2RenderingContext) GetProgramInfoLog(program WebGLProgram) (ret js.String) {
 	bindings.CallWebGL2RenderingContextGetProgramInfoLog(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 	)
 
@@ -17966,33 +17591,32 @@ func (this WebGL2RenderingContext) GetProgramInfoLog(program WebGLProgram) (ret 
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetProgramInfoLog(program WebGLProgram) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetProgramInfoLog(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 	)
 
 	return
 }
 
-// HasGetRenderbufferParameter returns true if the method "WebGL2RenderingContext.getRenderbufferParameter" exists.
-func (this WebGL2RenderingContext) HasGetRenderbufferParameter() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetRenderbufferParameter(
-		this.Ref(),
+// HasFuncGetRenderbufferParameter returns true if the method "WebGL2RenderingContext.getRenderbufferParameter" exists.
+func (this WebGL2RenderingContext) HasFuncGetRenderbufferParameter() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetRenderbufferParameter(
+		this.ref,
 	)
 }
 
-// GetRenderbufferParameterFunc returns the method "WebGL2RenderingContext.getRenderbufferParameter".
-func (this WebGL2RenderingContext) GetRenderbufferParameterFunc() (fn js.Func[func(target GLenum, pname GLenum) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetRenderbufferParameterFunc(
-			this.Ref(),
-		),
+// FuncGetRenderbufferParameter returns the method "WebGL2RenderingContext.getRenderbufferParameter".
+func (this WebGL2RenderingContext) FuncGetRenderbufferParameter() (fn js.Func[func(target GLenum, pname GLenum) js.Any]) {
+	bindings.FuncWebGL2RenderingContextGetRenderbufferParameter(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetRenderbufferParameter calls the method "WebGL2RenderingContext.getRenderbufferParameter".
 func (this WebGL2RenderingContext) GetRenderbufferParameter(target GLenum, pname GLenum) (ret js.Any) {
 	bindings.CallWebGL2RenderingContextGetRenderbufferParameter(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(pname),
 	)
@@ -18005,7 +17629,7 @@ func (this WebGL2RenderingContext) GetRenderbufferParameter(target GLenum, pname
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetRenderbufferParameter(target GLenum, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetRenderbufferParameter(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(pname),
 	)
@@ -18013,26 +17637,25 @@ func (this WebGL2RenderingContext) TryGetRenderbufferParameter(target GLenum, pn
 	return
 }
 
-// HasGetShaderParameter returns true if the method "WebGL2RenderingContext.getShaderParameter" exists.
-func (this WebGL2RenderingContext) HasGetShaderParameter() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetShaderParameter(
-		this.Ref(),
+// HasFuncGetShaderParameter returns true if the method "WebGL2RenderingContext.getShaderParameter" exists.
+func (this WebGL2RenderingContext) HasFuncGetShaderParameter() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetShaderParameter(
+		this.ref,
 	)
 }
 
-// GetShaderParameterFunc returns the method "WebGL2RenderingContext.getShaderParameter".
-func (this WebGL2RenderingContext) GetShaderParameterFunc() (fn js.Func[func(shader WebGLShader, pname GLenum) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetShaderParameterFunc(
-			this.Ref(),
-		),
+// FuncGetShaderParameter returns the method "WebGL2RenderingContext.getShaderParameter".
+func (this WebGL2RenderingContext) FuncGetShaderParameter() (fn js.Func[func(shader WebGLShader, pname GLenum) js.Any]) {
+	bindings.FuncWebGL2RenderingContextGetShaderParameter(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetShaderParameter calls the method "WebGL2RenderingContext.getShaderParameter".
 func (this WebGL2RenderingContext) GetShaderParameter(shader WebGLShader, pname GLenum) (ret js.Any) {
 	bindings.CallWebGL2RenderingContextGetShaderParameter(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		shader.Ref(),
 		uint32(pname),
 	)
@@ -18045,7 +17668,7 @@ func (this WebGL2RenderingContext) GetShaderParameter(shader WebGLShader, pname 
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetShaderParameter(shader WebGLShader, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetShaderParameter(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		shader.Ref(),
 		uint32(pname),
 	)
@@ -18053,26 +17676,25 @@ func (this WebGL2RenderingContext) TryGetShaderParameter(shader WebGLShader, pna
 	return
 }
 
-// HasGetShaderPrecisionFormat returns true if the method "WebGL2RenderingContext.getShaderPrecisionFormat" exists.
-func (this WebGL2RenderingContext) HasGetShaderPrecisionFormat() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetShaderPrecisionFormat(
-		this.Ref(),
+// HasFuncGetShaderPrecisionFormat returns true if the method "WebGL2RenderingContext.getShaderPrecisionFormat" exists.
+func (this WebGL2RenderingContext) HasFuncGetShaderPrecisionFormat() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetShaderPrecisionFormat(
+		this.ref,
 	)
 }
 
-// GetShaderPrecisionFormatFunc returns the method "WebGL2RenderingContext.getShaderPrecisionFormat".
-func (this WebGL2RenderingContext) GetShaderPrecisionFormatFunc() (fn js.Func[func(shadertype GLenum, precisiontype GLenum) WebGLShaderPrecisionFormat]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetShaderPrecisionFormatFunc(
-			this.Ref(),
-		),
+// FuncGetShaderPrecisionFormat returns the method "WebGL2RenderingContext.getShaderPrecisionFormat".
+func (this WebGL2RenderingContext) FuncGetShaderPrecisionFormat() (fn js.Func[func(shadertype GLenum, precisiontype GLenum) WebGLShaderPrecisionFormat]) {
+	bindings.FuncWebGL2RenderingContextGetShaderPrecisionFormat(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetShaderPrecisionFormat calls the method "WebGL2RenderingContext.getShaderPrecisionFormat".
 func (this WebGL2RenderingContext) GetShaderPrecisionFormat(shadertype GLenum, precisiontype GLenum) (ret WebGLShaderPrecisionFormat) {
 	bindings.CallWebGL2RenderingContextGetShaderPrecisionFormat(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(shadertype),
 		uint32(precisiontype),
 	)
@@ -18085,7 +17707,7 @@ func (this WebGL2RenderingContext) GetShaderPrecisionFormat(shadertype GLenum, p
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetShaderPrecisionFormat(shadertype GLenum, precisiontype GLenum) (ret WebGLShaderPrecisionFormat, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetShaderPrecisionFormat(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(shadertype),
 		uint32(precisiontype),
 	)
@@ -18093,26 +17715,25 @@ func (this WebGL2RenderingContext) TryGetShaderPrecisionFormat(shadertype GLenum
 	return
 }
 
-// HasGetShaderInfoLog returns true if the method "WebGL2RenderingContext.getShaderInfoLog" exists.
-func (this WebGL2RenderingContext) HasGetShaderInfoLog() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetShaderInfoLog(
-		this.Ref(),
+// HasFuncGetShaderInfoLog returns true if the method "WebGL2RenderingContext.getShaderInfoLog" exists.
+func (this WebGL2RenderingContext) HasFuncGetShaderInfoLog() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetShaderInfoLog(
+		this.ref,
 	)
 }
 
-// GetShaderInfoLogFunc returns the method "WebGL2RenderingContext.getShaderInfoLog".
-func (this WebGL2RenderingContext) GetShaderInfoLogFunc() (fn js.Func[func(shader WebGLShader) js.String]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetShaderInfoLogFunc(
-			this.Ref(),
-		),
+// FuncGetShaderInfoLog returns the method "WebGL2RenderingContext.getShaderInfoLog".
+func (this WebGL2RenderingContext) FuncGetShaderInfoLog() (fn js.Func[func(shader WebGLShader) js.String]) {
+	bindings.FuncWebGL2RenderingContextGetShaderInfoLog(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetShaderInfoLog calls the method "WebGL2RenderingContext.getShaderInfoLog".
 func (this WebGL2RenderingContext) GetShaderInfoLog(shader WebGLShader) (ret js.String) {
 	bindings.CallWebGL2RenderingContextGetShaderInfoLog(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		shader.Ref(),
 	)
 
@@ -18124,33 +17745,32 @@ func (this WebGL2RenderingContext) GetShaderInfoLog(shader WebGLShader) (ret js.
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetShaderInfoLog(shader WebGLShader) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetShaderInfoLog(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		shader.Ref(),
 	)
 
 	return
 }
 
-// HasGetShaderSource returns true if the method "WebGL2RenderingContext.getShaderSource" exists.
-func (this WebGL2RenderingContext) HasGetShaderSource() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetShaderSource(
-		this.Ref(),
+// HasFuncGetShaderSource returns true if the method "WebGL2RenderingContext.getShaderSource" exists.
+func (this WebGL2RenderingContext) HasFuncGetShaderSource() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetShaderSource(
+		this.ref,
 	)
 }
 
-// GetShaderSourceFunc returns the method "WebGL2RenderingContext.getShaderSource".
-func (this WebGL2RenderingContext) GetShaderSourceFunc() (fn js.Func[func(shader WebGLShader) js.String]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetShaderSourceFunc(
-			this.Ref(),
-		),
+// FuncGetShaderSource returns the method "WebGL2RenderingContext.getShaderSource".
+func (this WebGL2RenderingContext) FuncGetShaderSource() (fn js.Func[func(shader WebGLShader) js.String]) {
+	bindings.FuncWebGL2RenderingContextGetShaderSource(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetShaderSource calls the method "WebGL2RenderingContext.getShaderSource".
 func (this WebGL2RenderingContext) GetShaderSource(shader WebGLShader) (ret js.String) {
 	bindings.CallWebGL2RenderingContextGetShaderSource(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		shader.Ref(),
 	)
 
@@ -18162,33 +17782,32 @@ func (this WebGL2RenderingContext) GetShaderSource(shader WebGLShader) (ret js.S
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetShaderSource(shader WebGLShader) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetShaderSource(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		shader.Ref(),
 	)
 
 	return
 }
 
-// HasGetTexParameter returns true if the method "WebGL2RenderingContext.getTexParameter" exists.
-func (this WebGL2RenderingContext) HasGetTexParameter() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetTexParameter(
-		this.Ref(),
+// HasFuncGetTexParameter returns true if the method "WebGL2RenderingContext.getTexParameter" exists.
+func (this WebGL2RenderingContext) HasFuncGetTexParameter() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetTexParameter(
+		this.ref,
 	)
 }
 
-// GetTexParameterFunc returns the method "WebGL2RenderingContext.getTexParameter".
-func (this WebGL2RenderingContext) GetTexParameterFunc() (fn js.Func[func(target GLenum, pname GLenum) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetTexParameterFunc(
-			this.Ref(),
-		),
+// FuncGetTexParameter returns the method "WebGL2RenderingContext.getTexParameter".
+func (this WebGL2RenderingContext) FuncGetTexParameter() (fn js.Func[func(target GLenum, pname GLenum) js.Any]) {
+	bindings.FuncWebGL2RenderingContextGetTexParameter(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetTexParameter calls the method "WebGL2RenderingContext.getTexParameter".
 func (this WebGL2RenderingContext) GetTexParameter(target GLenum, pname GLenum) (ret js.Any) {
 	bindings.CallWebGL2RenderingContextGetTexParameter(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(pname),
 	)
@@ -18201,7 +17820,7 @@ func (this WebGL2RenderingContext) GetTexParameter(target GLenum, pname GLenum) 
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetTexParameter(target GLenum, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetTexParameter(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(pname),
 	)
@@ -18209,26 +17828,25 @@ func (this WebGL2RenderingContext) TryGetTexParameter(target GLenum, pname GLenu
 	return
 }
 
-// HasGetUniform returns true if the method "WebGL2RenderingContext.getUniform" exists.
-func (this WebGL2RenderingContext) HasGetUniform() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetUniform(
-		this.Ref(),
+// HasFuncGetUniform returns true if the method "WebGL2RenderingContext.getUniform" exists.
+func (this WebGL2RenderingContext) HasFuncGetUniform() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetUniform(
+		this.ref,
 	)
 }
 
-// GetUniformFunc returns the method "WebGL2RenderingContext.getUniform".
-func (this WebGL2RenderingContext) GetUniformFunc() (fn js.Func[func(program WebGLProgram, location WebGLUniformLocation) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetUniformFunc(
-			this.Ref(),
-		),
+// FuncGetUniform returns the method "WebGL2RenderingContext.getUniform".
+func (this WebGL2RenderingContext) FuncGetUniform() (fn js.Func[func(program WebGLProgram, location WebGLUniformLocation) js.Any]) {
+	bindings.FuncWebGL2RenderingContextGetUniform(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetUniform calls the method "WebGL2RenderingContext.getUniform".
 func (this WebGL2RenderingContext) GetUniform(program WebGLProgram, location WebGLUniformLocation) (ret js.Any) {
 	bindings.CallWebGL2RenderingContextGetUniform(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		location.Ref(),
 	)
@@ -18241,7 +17859,7 @@ func (this WebGL2RenderingContext) GetUniform(program WebGLProgram, location Web
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetUniform(program WebGLProgram, location WebGLUniformLocation) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetUniform(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		location.Ref(),
 	)
@@ -18249,26 +17867,25 @@ func (this WebGL2RenderingContext) TryGetUniform(program WebGLProgram, location 
 	return
 }
 
-// HasGetUniformLocation returns true if the method "WebGL2RenderingContext.getUniformLocation" exists.
-func (this WebGL2RenderingContext) HasGetUniformLocation() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetUniformLocation(
-		this.Ref(),
+// HasFuncGetUniformLocation returns true if the method "WebGL2RenderingContext.getUniformLocation" exists.
+func (this WebGL2RenderingContext) HasFuncGetUniformLocation() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetUniformLocation(
+		this.ref,
 	)
 }
 
-// GetUniformLocationFunc returns the method "WebGL2RenderingContext.getUniformLocation".
-func (this WebGL2RenderingContext) GetUniformLocationFunc() (fn js.Func[func(program WebGLProgram, name js.String) WebGLUniformLocation]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetUniformLocationFunc(
-			this.Ref(),
-		),
+// FuncGetUniformLocation returns the method "WebGL2RenderingContext.getUniformLocation".
+func (this WebGL2RenderingContext) FuncGetUniformLocation() (fn js.Func[func(program WebGLProgram, name js.String) WebGLUniformLocation]) {
+	bindings.FuncWebGL2RenderingContextGetUniformLocation(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetUniformLocation calls the method "WebGL2RenderingContext.getUniformLocation".
 func (this WebGL2RenderingContext) GetUniformLocation(program WebGLProgram, name js.String) (ret WebGLUniformLocation) {
 	bindings.CallWebGL2RenderingContextGetUniformLocation(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 		name.Ref(),
 	)
@@ -18281,7 +17898,7 @@ func (this WebGL2RenderingContext) GetUniformLocation(program WebGLProgram, name
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetUniformLocation(program WebGLProgram, name js.String) (ret WebGLUniformLocation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetUniformLocation(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 		name.Ref(),
 	)
@@ -18289,26 +17906,25 @@ func (this WebGL2RenderingContext) TryGetUniformLocation(program WebGLProgram, n
 	return
 }
 
-// HasGetVertexAttrib returns true if the method "WebGL2RenderingContext.getVertexAttrib" exists.
-func (this WebGL2RenderingContext) HasGetVertexAttrib() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetVertexAttrib(
-		this.Ref(),
+// HasFuncGetVertexAttrib returns true if the method "WebGL2RenderingContext.getVertexAttrib" exists.
+func (this WebGL2RenderingContext) HasFuncGetVertexAttrib() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetVertexAttrib(
+		this.ref,
 	)
 }
 
-// GetVertexAttribFunc returns the method "WebGL2RenderingContext.getVertexAttrib".
-func (this WebGL2RenderingContext) GetVertexAttribFunc() (fn js.Func[func(index GLuint, pname GLenum) js.Any]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetVertexAttribFunc(
-			this.Ref(),
-		),
+// FuncGetVertexAttrib returns the method "WebGL2RenderingContext.getVertexAttrib".
+func (this WebGL2RenderingContext) FuncGetVertexAttrib() (fn js.Func[func(index GLuint, pname GLenum) js.Any]) {
+	bindings.FuncWebGL2RenderingContextGetVertexAttrib(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetVertexAttrib calls the method "WebGL2RenderingContext.getVertexAttrib".
 func (this WebGL2RenderingContext) GetVertexAttrib(index GLuint, pname GLenum) (ret js.Any) {
 	bindings.CallWebGL2RenderingContextGetVertexAttrib(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		uint32(pname),
 	)
@@ -18321,7 +17937,7 @@ func (this WebGL2RenderingContext) GetVertexAttrib(index GLuint, pname GLenum) (
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetVertexAttrib(index GLuint, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetVertexAttrib(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		uint32(pname),
 	)
@@ -18329,26 +17945,25 @@ func (this WebGL2RenderingContext) TryGetVertexAttrib(index GLuint, pname GLenum
 	return
 }
 
-// HasGetVertexAttribOffset returns true if the method "WebGL2RenderingContext.getVertexAttribOffset" exists.
-func (this WebGL2RenderingContext) HasGetVertexAttribOffset() bool {
-	return js.True == bindings.HasWebGL2RenderingContextGetVertexAttribOffset(
-		this.Ref(),
+// HasFuncGetVertexAttribOffset returns true if the method "WebGL2RenderingContext.getVertexAttribOffset" exists.
+func (this WebGL2RenderingContext) HasFuncGetVertexAttribOffset() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextGetVertexAttribOffset(
+		this.ref,
 	)
 }
 
-// GetVertexAttribOffsetFunc returns the method "WebGL2RenderingContext.getVertexAttribOffset".
-func (this WebGL2RenderingContext) GetVertexAttribOffsetFunc() (fn js.Func[func(index GLuint, pname GLenum) GLintptr]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextGetVertexAttribOffsetFunc(
-			this.Ref(),
-		),
+// FuncGetVertexAttribOffset returns the method "WebGL2RenderingContext.getVertexAttribOffset".
+func (this WebGL2RenderingContext) FuncGetVertexAttribOffset() (fn js.Func[func(index GLuint, pname GLenum) GLintptr]) {
+	bindings.FuncWebGL2RenderingContextGetVertexAttribOffset(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetVertexAttribOffset calls the method "WebGL2RenderingContext.getVertexAttribOffset".
 func (this WebGL2RenderingContext) GetVertexAttribOffset(index GLuint, pname GLenum) (ret GLintptr) {
 	bindings.CallWebGL2RenderingContextGetVertexAttribOffset(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		uint32(pname),
 	)
@@ -18361,7 +17976,7 @@ func (this WebGL2RenderingContext) GetVertexAttribOffset(index GLuint, pname GLe
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetVertexAttribOffset(index GLuint, pname GLenum) (ret GLintptr, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetVertexAttribOffset(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		uint32(pname),
 	)
@@ -18369,26 +17984,25 @@ func (this WebGL2RenderingContext) TryGetVertexAttribOffset(index GLuint, pname 
 	return
 }
 
-// HasHint returns true if the method "WebGL2RenderingContext.hint" exists.
-func (this WebGL2RenderingContext) HasHint() bool {
-	return js.True == bindings.HasWebGL2RenderingContextHint(
-		this.Ref(),
+// HasFuncHint returns true if the method "WebGL2RenderingContext.hint" exists.
+func (this WebGL2RenderingContext) HasFuncHint() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextHint(
+		this.ref,
 	)
 }
 
-// HintFunc returns the method "WebGL2RenderingContext.hint".
-func (this WebGL2RenderingContext) HintFunc() (fn js.Func[func(target GLenum, mode GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextHintFunc(
-			this.Ref(),
-		),
+// FuncHint returns the method "WebGL2RenderingContext.hint".
+func (this WebGL2RenderingContext) FuncHint() (fn js.Func[func(target GLenum, mode GLenum)]) {
+	bindings.FuncWebGL2RenderingContextHint(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Hint calls the method "WebGL2RenderingContext.hint".
 func (this WebGL2RenderingContext) Hint(target GLenum, mode GLenum) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextHint(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(mode),
 	)
@@ -18401,7 +18015,7 @@ func (this WebGL2RenderingContext) Hint(target GLenum, mode GLenum) (ret js.Void
 // the catch clause.
 func (this WebGL2RenderingContext) TryHint(target GLenum, mode GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextHint(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(mode),
 	)
@@ -18409,26 +18023,25 @@ func (this WebGL2RenderingContext) TryHint(target GLenum, mode GLenum) (ret js.V
 	return
 }
 
-// HasIsBuffer returns true if the method "WebGL2RenderingContext.isBuffer" exists.
-func (this WebGL2RenderingContext) HasIsBuffer() bool {
-	return js.True == bindings.HasWebGL2RenderingContextIsBuffer(
-		this.Ref(),
+// HasFuncIsBuffer returns true if the method "WebGL2RenderingContext.isBuffer" exists.
+func (this WebGL2RenderingContext) HasFuncIsBuffer() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextIsBuffer(
+		this.ref,
 	)
 }
 
-// IsBufferFunc returns the method "WebGL2RenderingContext.isBuffer".
-func (this WebGL2RenderingContext) IsBufferFunc() (fn js.Func[func(buffer WebGLBuffer) GLboolean]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextIsBufferFunc(
-			this.Ref(),
-		),
+// FuncIsBuffer returns the method "WebGL2RenderingContext.isBuffer".
+func (this WebGL2RenderingContext) FuncIsBuffer() (fn js.Func[func(buffer WebGLBuffer) GLboolean]) {
+	bindings.FuncWebGL2RenderingContextIsBuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsBuffer calls the method "WebGL2RenderingContext.isBuffer".
 func (this WebGL2RenderingContext) IsBuffer(buffer WebGLBuffer) (ret GLboolean) {
 	bindings.CallWebGL2RenderingContextIsBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		buffer.Ref(),
 	)
 
@@ -18440,33 +18053,32 @@ func (this WebGL2RenderingContext) IsBuffer(buffer WebGLBuffer) (ret GLboolean) 
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsBuffer(buffer WebGLBuffer) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsBuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		buffer.Ref(),
 	)
 
 	return
 }
 
-// HasIsEnabled returns true if the method "WebGL2RenderingContext.isEnabled" exists.
-func (this WebGL2RenderingContext) HasIsEnabled() bool {
-	return js.True == bindings.HasWebGL2RenderingContextIsEnabled(
-		this.Ref(),
+// HasFuncIsEnabled returns true if the method "WebGL2RenderingContext.isEnabled" exists.
+func (this WebGL2RenderingContext) HasFuncIsEnabled() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextIsEnabled(
+		this.ref,
 	)
 }
 
-// IsEnabledFunc returns the method "WebGL2RenderingContext.isEnabled".
-func (this WebGL2RenderingContext) IsEnabledFunc() (fn js.Func[func(cap GLenum) GLboolean]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextIsEnabledFunc(
-			this.Ref(),
-		),
+// FuncIsEnabled returns the method "WebGL2RenderingContext.isEnabled".
+func (this WebGL2RenderingContext) FuncIsEnabled() (fn js.Func[func(cap GLenum) GLboolean]) {
+	bindings.FuncWebGL2RenderingContextIsEnabled(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsEnabled calls the method "WebGL2RenderingContext.isEnabled".
 func (this WebGL2RenderingContext) IsEnabled(cap GLenum) (ret GLboolean) {
 	bindings.CallWebGL2RenderingContextIsEnabled(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(cap),
 	)
 
@@ -18478,33 +18090,32 @@ func (this WebGL2RenderingContext) IsEnabled(cap GLenum) (ret GLboolean) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsEnabled(cap GLenum) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsEnabled(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(cap),
 	)
 
 	return
 }
 
-// HasIsFramebuffer returns true if the method "WebGL2RenderingContext.isFramebuffer" exists.
-func (this WebGL2RenderingContext) HasIsFramebuffer() bool {
-	return js.True == bindings.HasWebGL2RenderingContextIsFramebuffer(
-		this.Ref(),
+// HasFuncIsFramebuffer returns true if the method "WebGL2RenderingContext.isFramebuffer" exists.
+func (this WebGL2RenderingContext) HasFuncIsFramebuffer() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextIsFramebuffer(
+		this.ref,
 	)
 }
 
-// IsFramebufferFunc returns the method "WebGL2RenderingContext.isFramebuffer".
-func (this WebGL2RenderingContext) IsFramebufferFunc() (fn js.Func[func(framebuffer WebGLFramebuffer) GLboolean]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextIsFramebufferFunc(
-			this.Ref(),
-		),
+// FuncIsFramebuffer returns the method "WebGL2RenderingContext.isFramebuffer".
+func (this WebGL2RenderingContext) FuncIsFramebuffer() (fn js.Func[func(framebuffer WebGLFramebuffer) GLboolean]) {
+	bindings.FuncWebGL2RenderingContextIsFramebuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsFramebuffer calls the method "WebGL2RenderingContext.isFramebuffer".
 func (this WebGL2RenderingContext) IsFramebuffer(framebuffer WebGLFramebuffer) (ret GLboolean) {
 	bindings.CallWebGL2RenderingContextIsFramebuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		framebuffer.Ref(),
 	)
 
@@ -18516,33 +18127,32 @@ func (this WebGL2RenderingContext) IsFramebuffer(framebuffer WebGLFramebuffer) (
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsFramebuffer(framebuffer WebGLFramebuffer) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsFramebuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		framebuffer.Ref(),
 	)
 
 	return
 }
 
-// HasIsProgram returns true if the method "WebGL2RenderingContext.isProgram" exists.
-func (this WebGL2RenderingContext) HasIsProgram() bool {
-	return js.True == bindings.HasWebGL2RenderingContextIsProgram(
-		this.Ref(),
+// HasFuncIsProgram returns true if the method "WebGL2RenderingContext.isProgram" exists.
+func (this WebGL2RenderingContext) HasFuncIsProgram() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextIsProgram(
+		this.ref,
 	)
 }
 
-// IsProgramFunc returns the method "WebGL2RenderingContext.isProgram".
-func (this WebGL2RenderingContext) IsProgramFunc() (fn js.Func[func(program WebGLProgram) GLboolean]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextIsProgramFunc(
-			this.Ref(),
-		),
+// FuncIsProgram returns the method "WebGL2RenderingContext.isProgram".
+func (this WebGL2RenderingContext) FuncIsProgram() (fn js.Func[func(program WebGLProgram) GLboolean]) {
+	bindings.FuncWebGL2RenderingContextIsProgram(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsProgram calls the method "WebGL2RenderingContext.isProgram".
 func (this WebGL2RenderingContext) IsProgram(program WebGLProgram) (ret GLboolean) {
 	bindings.CallWebGL2RenderingContextIsProgram(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 	)
 
@@ -18554,33 +18164,32 @@ func (this WebGL2RenderingContext) IsProgram(program WebGLProgram) (ret GLboolea
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsProgram(program WebGLProgram) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsProgram(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 	)
 
 	return
 }
 
-// HasIsRenderbuffer returns true if the method "WebGL2RenderingContext.isRenderbuffer" exists.
-func (this WebGL2RenderingContext) HasIsRenderbuffer() bool {
-	return js.True == bindings.HasWebGL2RenderingContextIsRenderbuffer(
-		this.Ref(),
+// HasFuncIsRenderbuffer returns true if the method "WebGL2RenderingContext.isRenderbuffer" exists.
+func (this WebGL2RenderingContext) HasFuncIsRenderbuffer() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextIsRenderbuffer(
+		this.ref,
 	)
 }
 
-// IsRenderbufferFunc returns the method "WebGL2RenderingContext.isRenderbuffer".
-func (this WebGL2RenderingContext) IsRenderbufferFunc() (fn js.Func[func(renderbuffer WebGLRenderbuffer) GLboolean]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextIsRenderbufferFunc(
-			this.Ref(),
-		),
+// FuncIsRenderbuffer returns the method "WebGL2RenderingContext.isRenderbuffer".
+func (this WebGL2RenderingContext) FuncIsRenderbuffer() (fn js.Func[func(renderbuffer WebGLRenderbuffer) GLboolean]) {
+	bindings.FuncWebGL2RenderingContextIsRenderbuffer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsRenderbuffer calls the method "WebGL2RenderingContext.isRenderbuffer".
 func (this WebGL2RenderingContext) IsRenderbuffer(renderbuffer WebGLRenderbuffer) (ret GLboolean) {
 	bindings.CallWebGL2RenderingContextIsRenderbuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		renderbuffer.Ref(),
 	)
 
@@ -18592,33 +18201,32 @@ func (this WebGL2RenderingContext) IsRenderbuffer(renderbuffer WebGLRenderbuffer
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsRenderbuffer(renderbuffer WebGLRenderbuffer) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsRenderbuffer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		renderbuffer.Ref(),
 	)
 
 	return
 }
 
-// HasIsShader returns true if the method "WebGL2RenderingContext.isShader" exists.
-func (this WebGL2RenderingContext) HasIsShader() bool {
-	return js.True == bindings.HasWebGL2RenderingContextIsShader(
-		this.Ref(),
+// HasFuncIsShader returns true if the method "WebGL2RenderingContext.isShader" exists.
+func (this WebGL2RenderingContext) HasFuncIsShader() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextIsShader(
+		this.ref,
 	)
 }
 
-// IsShaderFunc returns the method "WebGL2RenderingContext.isShader".
-func (this WebGL2RenderingContext) IsShaderFunc() (fn js.Func[func(shader WebGLShader) GLboolean]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextIsShaderFunc(
-			this.Ref(),
-		),
+// FuncIsShader returns the method "WebGL2RenderingContext.isShader".
+func (this WebGL2RenderingContext) FuncIsShader() (fn js.Func[func(shader WebGLShader) GLboolean]) {
+	bindings.FuncWebGL2RenderingContextIsShader(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsShader calls the method "WebGL2RenderingContext.isShader".
 func (this WebGL2RenderingContext) IsShader(shader WebGLShader) (ret GLboolean) {
 	bindings.CallWebGL2RenderingContextIsShader(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		shader.Ref(),
 	)
 
@@ -18630,33 +18238,32 @@ func (this WebGL2RenderingContext) IsShader(shader WebGLShader) (ret GLboolean) 
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsShader(shader WebGLShader) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsShader(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		shader.Ref(),
 	)
 
 	return
 }
 
-// HasIsTexture returns true if the method "WebGL2RenderingContext.isTexture" exists.
-func (this WebGL2RenderingContext) HasIsTexture() bool {
-	return js.True == bindings.HasWebGL2RenderingContextIsTexture(
-		this.Ref(),
+// HasFuncIsTexture returns true if the method "WebGL2RenderingContext.isTexture" exists.
+func (this WebGL2RenderingContext) HasFuncIsTexture() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextIsTexture(
+		this.ref,
 	)
 }
 
-// IsTextureFunc returns the method "WebGL2RenderingContext.isTexture".
-func (this WebGL2RenderingContext) IsTextureFunc() (fn js.Func[func(texture WebGLTexture) GLboolean]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextIsTextureFunc(
-			this.Ref(),
-		),
+// FuncIsTexture returns the method "WebGL2RenderingContext.isTexture".
+func (this WebGL2RenderingContext) FuncIsTexture() (fn js.Func[func(texture WebGLTexture) GLboolean]) {
+	bindings.FuncWebGL2RenderingContextIsTexture(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsTexture calls the method "WebGL2RenderingContext.isTexture".
 func (this WebGL2RenderingContext) IsTexture(texture WebGLTexture) (ret GLboolean) {
 	bindings.CallWebGL2RenderingContextIsTexture(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		texture.Ref(),
 	)
 
@@ -18668,33 +18275,32 @@ func (this WebGL2RenderingContext) IsTexture(texture WebGLTexture) (ret GLboolea
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsTexture(texture WebGLTexture) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsTexture(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		texture.Ref(),
 	)
 
 	return
 }
 
-// HasLineWidth returns true if the method "WebGL2RenderingContext.lineWidth" exists.
-func (this WebGL2RenderingContext) HasLineWidth() bool {
-	return js.True == bindings.HasWebGL2RenderingContextLineWidth(
-		this.Ref(),
+// HasFuncLineWidth returns true if the method "WebGL2RenderingContext.lineWidth" exists.
+func (this WebGL2RenderingContext) HasFuncLineWidth() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextLineWidth(
+		this.ref,
 	)
 }
 
-// LineWidthFunc returns the method "WebGL2RenderingContext.lineWidth".
-func (this WebGL2RenderingContext) LineWidthFunc() (fn js.Func[func(width GLfloat)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextLineWidthFunc(
-			this.Ref(),
-		),
+// FuncLineWidth returns the method "WebGL2RenderingContext.lineWidth".
+func (this WebGL2RenderingContext) FuncLineWidth() (fn js.Func[func(width GLfloat)]) {
+	bindings.FuncWebGL2RenderingContextLineWidth(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // LineWidth calls the method "WebGL2RenderingContext.lineWidth".
 func (this WebGL2RenderingContext) LineWidth(width GLfloat) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextLineWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float32(width),
 	)
 
@@ -18706,33 +18312,32 @@ func (this WebGL2RenderingContext) LineWidth(width GLfloat) (ret js.Void) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryLineWidth(width GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextLineWidth(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float32(width),
 	)
 
 	return
 }
 
-// HasLinkProgram returns true if the method "WebGL2RenderingContext.linkProgram" exists.
-func (this WebGL2RenderingContext) HasLinkProgram() bool {
-	return js.True == bindings.HasWebGL2RenderingContextLinkProgram(
-		this.Ref(),
+// HasFuncLinkProgram returns true if the method "WebGL2RenderingContext.linkProgram" exists.
+func (this WebGL2RenderingContext) HasFuncLinkProgram() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextLinkProgram(
+		this.ref,
 	)
 }
 
-// LinkProgramFunc returns the method "WebGL2RenderingContext.linkProgram".
-func (this WebGL2RenderingContext) LinkProgramFunc() (fn js.Func[func(program WebGLProgram)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextLinkProgramFunc(
-			this.Ref(),
-		),
+// FuncLinkProgram returns the method "WebGL2RenderingContext.linkProgram".
+func (this WebGL2RenderingContext) FuncLinkProgram() (fn js.Func[func(program WebGLProgram)]) {
+	bindings.FuncWebGL2RenderingContextLinkProgram(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // LinkProgram calls the method "WebGL2RenderingContext.linkProgram".
 func (this WebGL2RenderingContext) LinkProgram(program WebGLProgram) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextLinkProgram(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 	)
 
@@ -18744,33 +18349,32 @@ func (this WebGL2RenderingContext) LinkProgram(program WebGLProgram) (ret js.Voi
 // the catch clause.
 func (this WebGL2RenderingContext) TryLinkProgram(program WebGLProgram) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextLinkProgram(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 	)
 
 	return
 }
 
-// HasPixelStorei returns true if the method "WebGL2RenderingContext.pixelStorei" exists.
-func (this WebGL2RenderingContext) HasPixelStorei() bool {
-	return js.True == bindings.HasWebGL2RenderingContextPixelStorei(
-		this.Ref(),
+// HasFuncPixelStorei returns true if the method "WebGL2RenderingContext.pixelStorei" exists.
+func (this WebGL2RenderingContext) HasFuncPixelStorei() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextPixelStorei(
+		this.ref,
 	)
 }
 
-// PixelStoreiFunc returns the method "WebGL2RenderingContext.pixelStorei".
-func (this WebGL2RenderingContext) PixelStoreiFunc() (fn js.Func[func(pname GLenum, param GLint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextPixelStoreiFunc(
-			this.Ref(),
-		),
+// FuncPixelStorei returns the method "WebGL2RenderingContext.pixelStorei".
+func (this WebGL2RenderingContext) FuncPixelStorei() (fn js.Func[func(pname GLenum, param GLint)]) {
+	bindings.FuncWebGL2RenderingContextPixelStorei(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PixelStorei calls the method "WebGL2RenderingContext.pixelStorei".
 func (this WebGL2RenderingContext) PixelStorei(pname GLenum, param GLint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextPixelStorei(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(pname),
 		int32(param),
 	)
@@ -18783,7 +18387,7 @@ func (this WebGL2RenderingContext) PixelStorei(pname GLenum, param GLint) (ret j
 // the catch clause.
 func (this WebGL2RenderingContext) TryPixelStorei(pname GLenum, param GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextPixelStorei(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(pname),
 		int32(param),
 	)
@@ -18791,26 +18395,25 @@ func (this WebGL2RenderingContext) TryPixelStorei(pname GLenum, param GLint) (re
 	return
 }
 
-// HasPolygonOffset returns true if the method "WebGL2RenderingContext.polygonOffset" exists.
-func (this WebGL2RenderingContext) HasPolygonOffset() bool {
-	return js.True == bindings.HasWebGL2RenderingContextPolygonOffset(
-		this.Ref(),
+// HasFuncPolygonOffset returns true if the method "WebGL2RenderingContext.polygonOffset" exists.
+func (this WebGL2RenderingContext) HasFuncPolygonOffset() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextPolygonOffset(
+		this.ref,
 	)
 }
 
-// PolygonOffsetFunc returns the method "WebGL2RenderingContext.polygonOffset".
-func (this WebGL2RenderingContext) PolygonOffsetFunc() (fn js.Func[func(factor GLfloat, units GLfloat)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextPolygonOffsetFunc(
-			this.Ref(),
-		),
+// FuncPolygonOffset returns the method "WebGL2RenderingContext.polygonOffset".
+func (this WebGL2RenderingContext) FuncPolygonOffset() (fn js.Func[func(factor GLfloat, units GLfloat)]) {
+	bindings.FuncWebGL2RenderingContextPolygonOffset(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // PolygonOffset calls the method "WebGL2RenderingContext.polygonOffset".
 func (this WebGL2RenderingContext) PolygonOffset(factor GLfloat, units GLfloat) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextPolygonOffset(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float32(factor),
 		float32(units),
 	)
@@ -18823,7 +18426,7 @@ func (this WebGL2RenderingContext) PolygonOffset(factor GLfloat, units GLfloat) 
 // the catch clause.
 func (this WebGL2RenderingContext) TryPolygonOffset(factor GLfloat, units GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextPolygonOffset(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float32(factor),
 		float32(units),
 	)
@@ -18831,26 +18434,25 @@ func (this WebGL2RenderingContext) TryPolygonOffset(factor GLfloat, units GLfloa
 	return
 }
 
-// HasRenderbufferStorage returns true if the method "WebGL2RenderingContext.renderbufferStorage" exists.
-func (this WebGL2RenderingContext) HasRenderbufferStorage() bool {
-	return js.True == bindings.HasWebGL2RenderingContextRenderbufferStorage(
-		this.Ref(),
+// HasFuncRenderbufferStorage returns true if the method "WebGL2RenderingContext.renderbufferStorage" exists.
+func (this WebGL2RenderingContext) HasFuncRenderbufferStorage() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextRenderbufferStorage(
+		this.ref,
 	)
 }
 
-// RenderbufferStorageFunc returns the method "WebGL2RenderingContext.renderbufferStorage".
-func (this WebGL2RenderingContext) RenderbufferStorageFunc() (fn js.Func[func(target GLenum, internalformat GLenum, width GLsizei, height GLsizei)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextRenderbufferStorageFunc(
-			this.Ref(),
-		),
+// FuncRenderbufferStorage returns the method "WebGL2RenderingContext.renderbufferStorage".
+func (this WebGL2RenderingContext) FuncRenderbufferStorage() (fn js.Func[func(target GLenum, internalformat GLenum, width GLsizei, height GLsizei)]) {
+	bindings.FuncWebGL2RenderingContextRenderbufferStorage(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RenderbufferStorage calls the method "WebGL2RenderingContext.renderbufferStorage".
 func (this WebGL2RenderingContext) RenderbufferStorage(target GLenum, internalformat GLenum, width GLsizei, height GLsizei) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextRenderbufferStorage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(internalformat),
 		int32(width),
@@ -18865,7 +18467,7 @@ func (this WebGL2RenderingContext) RenderbufferStorage(target GLenum, internalfo
 // the catch clause.
 func (this WebGL2RenderingContext) TryRenderbufferStorage(target GLenum, internalformat GLenum, width GLsizei, height GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextRenderbufferStorage(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(internalformat),
 		int32(width),
@@ -18875,26 +18477,25 @@ func (this WebGL2RenderingContext) TryRenderbufferStorage(target GLenum, interna
 	return
 }
 
-// HasSampleCoverage returns true if the method "WebGL2RenderingContext.sampleCoverage" exists.
-func (this WebGL2RenderingContext) HasSampleCoverage() bool {
-	return js.True == bindings.HasWebGL2RenderingContextSampleCoverage(
-		this.Ref(),
+// HasFuncSampleCoverage returns true if the method "WebGL2RenderingContext.sampleCoverage" exists.
+func (this WebGL2RenderingContext) HasFuncSampleCoverage() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextSampleCoverage(
+		this.ref,
 	)
 }
 
-// SampleCoverageFunc returns the method "WebGL2RenderingContext.sampleCoverage".
-func (this WebGL2RenderingContext) SampleCoverageFunc() (fn js.Func[func(value GLclampf, invert GLboolean)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextSampleCoverageFunc(
-			this.Ref(),
-		),
+// FuncSampleCoverage returns the method "WebGL2RenderingContext.sampleCoverage".
+func (this WebGL2RenderingContext) FuncSampleCoverage() (fn js.Func[func(value GLclampf, invert GLboolean)]) {
+	bindings.FuncWebGL2RenderingContextSampleCoverage(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SampleCoverage calls the method "WebGL2RenderingContext.sampleCoverage".
 func (this WebGL2RenderingContext) SampleCoverage(value GLclampf, invert GLboolean) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextSampleCoverage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float32(value),
 		js.Bool(bool(invert)),
 	)
@@ -18907,7 +18508,7 @@ func (this WebGL2RenderingContext) SampleCoverage(value GLclampf, invert GLboole
 // the catch clause.
 func (this WebGL2RenderingContext) TrySampleCoverage(value GLclampf, invert GLboolean) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextSampleCoverage(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float32(value),
 		js.Bool(bool(invert)),
 	)
@@ -18915,26 +18516,25 @@ func (this WebGL2RenderingContext) TrySampleCoverage(value GLclampf, invert GLbo
 	return
 }
 
-// HasScissor returns true if the method "WebGL2RenderingContext.scissor" exists.
-func (this WebGL2RenderingContext) HasScissor() bool {
-	return js.True == bindings.HasWebGL2RenderingContextScissor(
-		this.Ref(),
+// HasFuncScissor returns true if the method "WebGL2RenderingContext.scissor" exists.
+func (this WebGL2RenderingContext) HasFuncScissor() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextScissor(
+		this.ref,
 	)
 }
 
-// ScissorFunc returns the method "WebGL2RenderingContext.scissor".
-func (this WebGL2RenderingContext) ScissorFunc() (fn js.Func[func(x GLint, y GLint, width GLsizei, height GLsizei)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextScissorFunc(
-			this.Ref(),
-		),
+// FuncScissor returns the method "WebGL2RenderingContext.scissor".
+func (this WebGL2RenderingContext) FuncScissor() (fn js.Func[func(x GLint, y GLint, width GLsizei, height GLsizei)]) {
+	bindings.FuncWebGL2RenderingContextScissor(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Scissor calls the method "WebGL2RenderingContext.scissor".
 func (this WebGL2RenderingContext) Scissor(x GLint, y GLint, width GLsizei, height GLsizei) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextScissor(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		int32(x),
 		int32(y),
 		int32(width),
@@ -18949,7 +18549,7 @@ func (this WebGL2RenderingContext) Scissor(x GLint, y GLint, width GLsizei, heig
 // the catch clause.
 func (this WebGL2RenderingContext) TryScissor(x GLint, y GLint, width GLsizei, height GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextScissor(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		int32(x),
 		int32(y),
 		int32(width),
@@ -18959,26 +18559,25 @@ func (this WebGL2RenderingContext) TryScissor(x GLint, y GLint, width GLsizei, h
 	return
 }
 
-// HasShaderSource returns true if the method "WebGL2RenderingContext.shaderSource" exists.
-func (this WebGL2RenderingContext) HasShaderSource() bool {
-	return js.True == bindings.HasWebGL2RenderingContextShaderSource(
-		this.Ref(),
+// HasFuncShaderSource returns true if the method "WebGL2RenderingContext.shaderSource" exists.
+func (this WebGL2RenderingContext) HasFuncShaderSource() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextShaderSource(
+		this.ref,
 	)
 }
 
-// ShaderSourceFunc returns the method "WebGL2RenderingContext.shaderSource".
-func (this WebGL2RenderingContext) ShaderSourceFunc() (fn js.Func[func(shader WebGLShader, source js.String)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextShaderSourceFunc(
-			this.Ref(),
-		),
+// FuncShaderSource returns the method "WebGL2RenderingContext.shaderSource".
+func (this WebGL2RenderingContext) FuncShaderSource() (fn js.Func[func(shader WebGLShader, source js.String)]) {
+	bindings.FuncWebGL2RenderingContextShaderSource(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ShaderSource calls the method "WebGL2RenderingContext.shaderSource".
 func (this WebGL2RenderingContext) ShaderSource(shader WebGLShader, source js.String) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextShaderSource(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		shader.Ref(),
 		source.Ref(),
 	)
@@ -18991,7 +18590,7 @@ func (this WebGL2RenderingContext) ShaderSource(shader WebGLShader, source js.St
 // the catch clause.
 func (this WebGL2RenderingContext) TryShaderSource(shader WebGLShader, source js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextShaderSource(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		shader.Ref(),
 		source.Ref(),
 	)
@@ -18999,26 +18598,25 @@ func (this WebGL2RenderingContext) TryShaderSource(shader WebGLShader, source js
 	return
 }
 
-// HasStencilFunc returns true if the method "WebGL2RenderingContext.stencilFunc" exists.
-func (this WebGL2RenderingContext) HasStencilFunc() bool {
-	return js.True == bindings.HasWebGL2RenderingContextStencilFunc(
-		this.Ref(),
+// HasFuncStencilFunc returns true if the method "WebGL2RenderingContext.stencilFunc" exists.
+func (this WebGL2RenderingContext) HasFuncStencilFunc() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextStencilFunc(
+		this.ref,
 	)
 }
 
-// StencilFuncFunc returns the method "WebGL2RenderingContext.stencilFunc".
-func (this WebGL2RenderingContext) StencilFuncFunc() (fn js.Func[func(fn GLenum, ref GLint, mask GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextStencilFuncFunc(
-			this.Ref(),
-		),
+// FuncStencilFunc returns the method "WebGL2RenderingContext.stencilFunc".
+func (this WebGL2RenderingContext) FuncStencilFunc() (fn js.Func[func(fn GLenum, ref GLint, mask GLuint)]) {
+	bindings.FuncWebGL2RenderingContextStencilFunc(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // StencilFunc calls the method "WebGL2RenderingContext.stencilFunc".
 func (this WebGL2RenderingContext) StencilFunc(fn GLenum, ref GLint, mask GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextStencilFunc(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(fn),
 		int32(ref),
 		uint32(mask),
@@ -19032,7 +18630,7 @@ func (this WebGL2RenderingContext) StencilFunc(fn GLenum, ref GLint, mask GLuint
 // the catch clause.
 func (this WebGL2RenderingContext) TryStencilFunc(fn GLenum, ref GLint, mask GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextStencilFunc(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(fn),
 		int32(ref),
 		uint32(mask),
@@ -19041,26 +18639,25 @@ func (this WebGL2RenderingContext) TryStencilFunc(fn GLenum, ref GLint, mask GLu
 	return
 }
 
-// HasStencilFuncSeparate returns true if the method "WebGL2RenderingContext.stencilFuncSeparate" exists.
-func (this WebGL2RenderingContext) HasStencilFuncSeparate() bool {
-	return js.True == bindings.HasWebGL2RenderingContextStencilFuncSeparate(
-		this.Ref(),
+// HasFuncStencilFuncSeparate returns true if the method "WebGL2RenderingContext.stencilFuncSeparate" exists.
+func (this WebGL2RenderingContext) HasFuncStencilFuncSeparate() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextStencilFuncSeparate(
+		this.ref,
 	)
 }
 
-// StencilFuncSeparateFunc returns the method "WebGL2RenderingContext.stencilFuncSeparate".
-func (this WebGL2RenderingContext) StencilFuncSeparateFunc() (fn js.Func[func(face GLenum, fn GLenum, ref GLint, mask GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextStencilFuncSeparateFunc(
-			this.Ref(),
-		),
+// FuncStencilFuncSeparate returns the method "WebGL2RenderingContext.stencilFuncSeparate".
+func (this WebGL2RenderingContext) FuncStencilFuncSeparate() (fn js.Func[func(face GLenum, fn GLenum, ref GLint, mask GLuint)]) {
+	bindings.FuncWebGL2RenderingContextStencilFuncSeparate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // StencilFuncSeparate calls the method "WebGL2RenderingContext.stencilFuncSeparate".
 func (this WebGL2RenderingContext) StencilFuncSeparate(face GLenum, fn GLenum, ref GLint, mask GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextStencilFuncSeparate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(face),
 		uint32(fn),
 		int32(ref),
@@ -19075,7 +18672,7 @@ func (this WebGL2RenderingContext) StencilFuncSeparate(face GLenum, fn GLenum, r
 // the catch clause.
 func (this WebGL2RenderingContext) TryStencilFuncSeparate(face GLenum, fn GLenum, ref GLint, mask GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextStencilFuncSeparate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(face),
 		uint32(fn),
 		int32(ref),
@@ -19085,26 +18682,25 @@ func (this WebGL2RenderingContext) TryStencilFuncSeparate(face GLenum, fn GLenum
 	return
 }
 
-// HasStencilMask returns true if the method "WebGL2RenderingContext.stencilMask" exists.
-func (this WebGL2RenderingContext) HasStencilMask() bool {
-	return js.True == bindings.HasWebGL2RenderingContextStencilMask(
-		this.Ref(),
+// HasFuncStencilMask returns true if the method "WebGL2RenderingContext.stencilMask" exists.
+func (this WebGL2RenderingContext) HasFuncStencilMask() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextStencilMask(
+		this.ref,
 	)
 }
 
-// StencilMaskFunc returns the method "WebGL2RenderingContext.stencilMask".
-func (this WebGL2RenderingContext) StencilMaskFunc() (fn js.Func[func(mask GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextStencilMaskFunc(
-			this.Ref(),
-		),
+// FuncStencilMask returns the method "WebGL2RenderingContext.stencilMask".
+func (this WebGL2RenderingContext) FuncStencilMask() (fn js.Func[func(mask GLuint)]) {
+	bindings.FuncWebGL2RenderingContextStencilMask(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // StencilMask calls the method "WebGL2RenderingContext.stencilMask".
 func (this WebGL2RenderingContext) StencilMask(mask GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextStencilMask(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mask),
 	)
 
@@ -19116,33 +18712,32 @@ func (this WebGL2RenderingContext) StencilMask(mask GLuint) (ret js.Void) {
 // the catch clause.
 func (this WebGL2RenderingContext) TryStencilMask(mask GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextStencilMask(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mask),
 	)
 
 	return
 }
 
-// HasStencilMaskSeparate returns true if the method "WebGL2RenderingContext.stencilMaskSeparate" exists.
-func (this WebGL2RenderingContext) HasStencilMaskSeparate() bool {
-	return js.True == bindings.HasWebGL2RenderingContextStencilMaskSeparate(
-		this.Ref(),
+// HasFuncStencilMaskSeparate returns true if the method "WebGL2RenderingContext.stencilMaskSeparate" exists.
+func (this WebGL2RenderingContext) HasFuncStencilMaskSeparate() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextStencilMaskSeparate(
+		this.ref,
 	)
 }
 
-// StencilMaskSeparateFunc returns the method "WebGL2RenderingContext.stencilMaskSeparate".
-func (this WebGL2RenderingContext) StencilMaskSeparateFunc() (fn js.Func[func(face GLenum, mask GLuint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextStencilMaskSeparateFunc(
-			this.Ref(),
-		),
+// FuncStencilMaskSeparate returns the method "WebGL2RenderingContext.stencilMaskSeparate".
+func (this WebGL2RenderingContext) FuncStencilMaskSeparate() (fn js.Func[func(face GLenum, mask GLuint)]) {
+	bindings.FuncWebGL2RenderingContextStencilMaskSeparate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // StencilMaskSeparate calls the method "WebGL2RenderingContext.stencilMaskSeparate".
 func (this WebGL2RenderingContext) StencilMaskSeparate(face GLenum, mask GLuint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextStencilMaskSeparate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(face),
 		uint32(mask),
 	)
@@ -19155,7 +18750,7 @@ func (this WebGL2RenderingContext) StencilMaskSeparate(face GLenum, mask GLuint)
 // the catch clause.
 func (this WebGL2RenderingContext) TryStencilMaskSeparate(face GLenum, mask GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextStencilMaskSeparate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(face),
 		uint32(mask),
 	)
@@ -19163,26 +18758,25 @@ func (this WebGL2RenderingContext) TryStencilMaskSeparate(face GLenum, mask GLui
 	return
 }
 
-// HasStencilOp returns true if the method "WebGL2RenderingContext.stencilOp" exists.
-func (this WebGL2RenderingContext) HasStencilOp() bool {
-	return js.True == bindings.HasWebGL2RenderingContextStencilOp(
-		this.Ref(),
+// HasFuncStencilOp returns true if the method "WebGL2RenderingContext.stencilOp" exists.
+func (this WebGL2RenderingContext) HasFuncStencilOp() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextStencilOp(
+		this.ref,
 	)
 }
 
-// StencilOpFunc returns the method "WebGL2RenderingContext.stencilOp".
-func (this WebGL2RenderingContext) StencilOpFunc() (fn js.Func[func(fail GLenum, zfail GLenum, zpass GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextStencilOpFunc(
-			this.Ref(),
-		),
+// FuncStencilOp returns the method "WebGL2RenderingContext.stencilOp".
+func (this WebGL2RenderingContext) FuncStencilOp() (fn js.Func[func(fail GLenum, zfail GLenum, zpass GLenum)]) {
+	bindings.FuncWebGL2RenderingContextStencilOp(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // StencilOp calls the method "WebGL2RenderingContext.stencilOp".
 func (this WebGL2RenderingContext) StencilOp(fail GLenum, zfail GLenum, zpass GLenum) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextStencilOp(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(fail),
 		uint32(zfail),
 		uint32(zpass),
@@ -19196,7 +18790,7 @@ func (this WebGL2RenderingContext) StencilOp(fail GLenum, zfail GLenum, zpass GL
 // the catch clause.
 func (this WebGL2RenderingContext) TryStencilOp(fail GLenum, zfail GLenum, zpass GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextStencilOp(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(fail),
 		uint32(zfail),
 		uint32(zpass),
@@ -19205,26 +18799,25 @@ func (this WebGL2RenderingContext) TryStencilOp(fail GLenum, zfail GLenum, zpass
 	return
 }
 
-// HasStencilOpSeparate returns true if the method "WebGL2RenderingContext.stencilOpSeparate" exists.
-func (this WebGL2RenderingContext) HasStencilOpSeparate() bool {
-	return js.True == bindings.HasWebGL2RenderingContextStencilOpSeparate(
-		this.Ref(),
+// HasFuncStencilOpSeparate returns true if the method "WebGL2RenderingContext.stencilOpSeparate" exists.
+func (this WebGL2RenderingContext) HasFuncStencilOpSeparate() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextStencilOpSeparate(
+		this.ref,
 	)
 }
 
-// StencilOpSeparateFunc returns the method "WebGL2RenderingContext.stencilOpSeparate".
-func (this WebGL2RenderingContext) StencilOpSeparateFunc() (fn js.Func[func(face GLenum, fail GLenum, zfail GLenum, zpass GLenum)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextStencilOpSeparateFunc(
-			this.Ref(),
-		),
+// FuncStencilOpSeparate returns the method "WebGL2RenderingContext.stencilOpSeparate".
+func (this WebGL2RenderingContext) FuncStencilOpSeparate() (fn js.Func[func(face GLenum, fail GLenum, zfail GLenum, zpass GLenum)]) {
+	bindings.FuncWebGL2RenderingContextStencilOpSeparate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // StencilOpSeparate calls the method "WebGL2RenderingContext.stencilOpSeparate".
 func (this WebGL2RenderingContext) StencilOpSeparate(face GLenum, fail GLenum, zfail GLenum, zpass GLenum) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextStencilOpSeparate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(face),
 		uint32(fail),
 		uint32(zfail),
@@ -19239,7 +18832,7 @@ func (this WebGL2RenderingContext) StencilOpSeparate(face GLenum, fail GLenum, z
 // the catch clause.
 func (this WebGL2RenderingContext) TryStencilOpSeparate(face GLenum, fail GLenum, zfail GLenum, zpass GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextStencilOpSeparate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(face),
 		uint32(fail),
 		uint32(zfail),
@@ -19249,26 +18842,25 @@ func (this WebGL2RenderingContext) TryStencilOpSeparate(face GLenum, fail GLenum
 	return
 }
 
-// HasTexParameterf returns true if the method "WebGL2RenderingContext.texParameterf" exists.
-func (this WebGL2RenderingContext) HasTexParameterf() bool {
-	return js.True == bindings.HasWebGL2RenderingContextTexParameterf(
-		this.Ref(),
+// HasFuncTexParameterf returns true if the method "WebGL2RenderingContext.texParameterf" exists.
+func (this WebGL2RenderingContext) HasFuncTexParameterf() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextTexParameterf(
+		this.ref,
 	)
 }
 
-// TexParameterfFunc returns the method "WebGL2RenderingContext.texParameterf".
-func (this WebGL2RenderingContext) TexParameterfFunc() (fn js.Func[func(target GLenum, pname GLenum, param GLfloat)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextTexParameterfFunc(
-			this.Ref(),
-		),
+// FuncTexParameterf returns the method "WebGL2RenderingContext.texParameterf".
+func (this WebGL2RenderingContext) FuncTexParameterf() (fn js.Func[func(target GLenum, pname GLenum, param GLfloat)]) {
+	bindings.FuncWebGL2RenderingContextTexParameterf(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexParameterf calls the method "WebGL2RenderingContext.texParameterf".
 func (this WebGL2RenderingContext) TexParameterf(target GLenum, pname GLenum, param GLfloat) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextTexParameterf(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(pname),
 		float32(param),
@@ -19282,7 +18874,7 @@ func (this WebGL2RenderingContext) TexParameterf(target GLenum, pname GLenum, pa
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexParameterf(target GLenum, pname GLenum, param GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexParameterf(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(pname),
 		float32(param),
@@ -19291,26 +18883,25 @@ func (this WebGL2RenderingContext) TryTexParameterf(target GLenum, pname GLenum,
 	return
 }
 
-// HasTexParameteri returns true if the method "WebGL2RenderingContext.texParameteri" exists.
-func (this WebGL2RenderingContext) HasTexParameteri() bool {
-	return js.True == bindings.HasWebGL2RenderingContextTexParameteri(
-		this.Ref(),
+// HasFuncTexParameteri returns true if the method "WebGL2RenderingContext.texParameteri" exists.
+func (this WebGL2RenderingContext) HasFuncTexParameteri() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextTexParameteri(
+		this.ref,
 	)
 }
 
-// TexParameteriFunc returns the method "WebGL2RenderingContext.texParameteri".
-func (this WebGL2RenderingContext) TexParameteriFunc() (fn js.Func[func(target GLenum, pname GLenum, param GLint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextTexParameteriFunc(
-			this.Ref(),
-		),
+// FuncTexParameteri returns the method "WebGL2RenderingContext.texParameteri".
+func (this WebGL2RenderingContext) FuncTexParameteri() (fn js.Func[func(target GLenum, pname GLenum, param GLint)]) {
+	bindings.FuncWebGL2RenderingContextTexParameteri(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TexParameteri calls the method "WebGL2RenderingContext.texParameteri".
 func (this WebGL2RenderingContext) TexParameteri(target GLenum, pname GLenum, param GLint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextTexParameteri(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(pname),
 		int32(param),
@@ -19324,7 +18915,7 @@ func (this WebGL2RenderingContext) TexParameteri(target GLenum, pname GLenum, pa
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexParameteri(target GLenum, pname GLenum, param GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexParameteri(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(pname),
 		int32(param),
@@ -19333,26 +18924,25 @@ func (this WebGL2RenderingContext) TryTexParameteri(target GLenum, pname GLenum,
 	return
 }
 
-// HasUniform1f returns true if the method "WebGL2RenderingContext.uniform1f" exists.
-func (this WebGL2RenderingContext) HasUniform1f() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform1f(
-		this.Ref(),
+// HasFuncUniform1f returns true if the method "WebGL2RenderingContext.uniform1f" exists.
+func (this WebGL2RenderingContext) HasFuncUniform1f() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform1f(
+		this.ref,
 	)
 }
 
-// Uniform1fFunc returns the method "WebGL2RenderingContext.uniform1f".
-func (this WebGL2RenderingContext) Uniform1fFunc() (fn js.Func[func(location WebGLUniformLocation, x GLfloat)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform1fFunc(
-			this.Ref(),
-		),
+// FuncUniform1f returns the method "WebGL2RenderingContext.uniform1f".
+func (this WebGL2RenderingContext) FuncUniform1f() (fn js.Func[func(location WebGLUniformLocation, x GLfloat)]) {
+	bindings.FuncWebGL2RenderingContextUniform1f(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform1f calls the method "WebGL2RenderingContext.uniform1f".
 func (this WebGL2RenderingContext) Uniform1f(location WebGLUniformLocation, x GLfloat) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform1f(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		float32(x),
 	)
@@ -19365,7 +18955,7 @@ func (this WebGL2RenderingContext) Uniform1f(location WebGLUniformLocation, x GL
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform1f(location WebGLUniformLocation, x GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform1f(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		float32(x),
 	)
@@ -19373,26 +18963,25 @@ func (this WebGL2RenderingContext) TryUniform1f(location WebGLUniformLocation, x
 	return
 }
 
-// HasUniform2f returns true if the method "WebGL2RenderingContext.uniform2f" exists.
-func (this WebGL2RenderingContext) HasUniform2f() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform2f(
-		this.Ref(),
+// HasFuncUniform2f returns true if the method "WebGL2RenderingContext.uniform2f" exists.
+func (this WebGL2RenderingContext) HasFuncUniform2f() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform2f(
+		this.ref,
 	)
 }
 
-// Uniform2fFunc returns the method "WebGL2RenderingContext.uniform2f".
-func (this WebGL2RenderingContext) Uniform2fFunc() (fn js.Func[func(location WebGLUniformLocation, x GLfloat, y GLfloat)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform2fFunc(
-			this.Ref(),
-		),
+// FuncUniform2f returns the method "WebGL2RenderingContext.uniform2f".
+func (this WebGL2RenderingContext) FuncUniform2f() (fn js.Func[func(location WebGLUniformLocation, x GLfloat, y GLfloat)]) {
+	bindings.FuncWebGL2RenderingContextUniform2f(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform2f calls the method "WebGL2RenderingContext.uniform2f".
 func (this WebGL2RenderingContext) Uniform2f(location WebGLUniformLocation, x GLfloat, y GLfloat) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform2f(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		float32(x),
 		float32(y),
@@ -19406,7 +18995,7 @@ func (this WebGL2RenderingContext) Uniform2f(location WebGLUniformLocation, x GL
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform2f(location WebGLUniformLocation, x GLfloat, y GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform2f(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		float32(x),
 		float32(y),
@@ -19415,26 +19004,25 @@ func (this WebGL2RenderingContext) TryUniform2f(location WebGLUniformLocation, x
 	return
 }
 
-// HasUniform3f returns true if the method "WebGL2RenderingContext.uniform3f" exists.
-func (this WebGL2RenderingContext) HasUniform3f() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform3f(
-		this.Ref(),
+// HasFuncUniform3f returns true if the method "WebGL2RenderingContext.uniform3f" exists.
+func (this WebGL2RenderingContext) HasFuncUniform3f() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform3f(
+		this.ref,
 	)
 }
 
-// Uniform3fFunc returns the method "WebGL2RenderingContext.uniform3f".
-func (this WebGL2RenderingContext) Uniform3fFunc() (fn js.Func[func(location WebGLUniformLocation, x GLfloat, y GLfloat, z GLfloat)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform3fFunc(
-			this.Ref(),
-		),
+// FuncUniform3f returns the method "WebGL2RenderingContext.uniform3f".
+func (this WebGL2RenderingContext) FuncUniform3f() (fn js.Func[func(location WebGLUniformLocation, x GLfloat, y GLfloat, z GLfloat)]) {
+	bindings.FuncWebGL2RenderingContextUniform3f(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform3f calls the method "WebGL2RenderingContext.uniform3f".
 func (this WebGL2RenderingContext) Uniform3f(location WebGLUniformLocation, x GLfloat, y GLfloat, z GLfloat) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform3f(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		float32(x),
 		float32(y),
@@ -19449,7 +19037,7 @@ func (this WebGL2RenderingContext) Uniform3f(location WebGLUniformLocation, x GL
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform3f(location WebGLUniformLocation, x GLfloat, y GLfloat, z GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform3f(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		float32(x),
 		float32(y),
@@ -19459,26 +19047,25 @@ func (this WebGL2RenderingContext) TryUniform3f(location WebGLUniformLocation, x
 	return
 }
 
-// HasUniform4f returns true if the method "WebGL2RenderingContext.uniform4f" exists.
-func (this WebGL2RenderingContext) HasUniform4f() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform4f(
-		this.Ref(),
+// HasFuncUniform4f returns true if the method "WebGL2RenderingContext.uniform4f" exists.
+func (this WebGL2RenderingContext) HasFuncUniform4f() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform4f(
+		this.ref,
 	)
 }
 
-// Uniform4fFunc returns the method "WebGL2RenderingContext.uniform4f".
-func (this WebGL2RenderingContext) Uniform4fFunc() (fn js.Func[func(location WebGLUniformLocation, x GLfloat, y GLfloat, z GLfloat, w GLfloat)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform4fFunc(
-			this.Ref(),
-		),
+// FuncUniform4f returns the method "WebGL2RenderingContext.uniform4f".
+func (this WebGL2RenderingContext) FuncUniform4f() (fn js.Func[func(location WebGLUniformLocation, x GLfloat, y GLfloat, z GLfloat, w GLfloat)]) {
+	bindings.FuncWebGL2RenderingContextUniform4f(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform4f calls the method "WebGL2RenderingContext.uniform4f".
 func (this WebGL2RenderingContext) Uniform4f(location WebGLUniformLocation, x GLfloat, y GLfloat, z GLfloat, w GLfloat) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform4f(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		float32(x),
 		float32(y),
@@ -19494,7 +19081,7 @@ func (this WebGL2RenderingContext) Uniform4f(location WebGLUniformLocation, x GL
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform4f(location WebGLUniformLocation, x GLfloat, y GLfloat, z GLfloat, w GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform4f(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		float32(x),
 		float32(y),
@@ -19505,26 +19092,25 @@ func (this WebGL2RenderingContext) TryUniform4f(location WebGLUniformLocation, x
 	return
 }
 
-// HasUniform1i returns true if the method "WebGL2RenderingContext.uniform1i" exists.
-func (this WebGL2RenderingContext) HasUniform1i() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform1i(
-		this.Ref(),
+// HasFuncUniform1i returns true if the method "WebGL2RenderingContext.uniform1i" exists.
+func (this WebGL2RenderingContext) HasFuncUniform1i() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform1i(
+		this.ref,
 	)
 }
 
-// Uniform1iFunc returns the method "WebGL2RenderingContext.uniform1i".
-func (this WebGL2RenderingContext) Uniform1iFunc() (fn js.Func[func(location WebGLUniformLocation, x GLint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform1iFunc(
-			this.Ref(),
-		),
+// FuncUniform1i returns the method "WebGL2RenderingContext.uniform1i".
+func (this WebGL2RenderingContext) FuncUniform1i() (fn js.Func[func(location WebGLUniformLocation, x GLint)]) {
+	bindings.FuncWebGL2RenderingContextUniform1i(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform1i calls the method "WebGL2RenderingContext.uniform1i".
 func (this WebGL2RenderingContext) Uniform1i(location WebGLUniformLocation, x GLint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform1i(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		int32(x),
 	)
@@ -19537,7 +19123,7 @@ func (this WebGL2RenderingContext) Uniform1i(location WebGLUniformLocation, x GL
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform1i(location WebGLUniformLocation, x GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform1i(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		int32(x),
 	)
@@ -19545,26 +19131,25 @@ func (this WebGL2RenderingContext) TryUniform1i(location WebGLUniformLocation, x
 	return
 }
 
-// HasUniform2i returns true if the method "WebGL2RenderingContext.uniform2i" exists.
-func (this WebGL2RenderingContext) HasUniform2i() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform2i(
-		this.Ref(),
+// HasFuncUniform2i returns true if the method "WebGL2RenderingContext.uniform2i" exists.
+func (this WebGL2RenderingContext) HasFuncUniform2i() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform2i(
+		this.ref,
 	)
 }
 
-// Uniform2iFunc returns the method "WebGL2RenderingContext.uniform2i".
-func (this WebGL2RenderingContext) Uniform2iFunc() (fn js.Func[func(location WebGLUniformLocation, x GLint, y GLint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform2iFunc(
-			this.Ref(),
-		),
+// FuncUniform2i returns the method "WebGL2RenderingContext.uniform2i".
+func (this WebGL2RenderingContext) FuncUniform2i() (fn js.Func[func(location WebGLUniformLocation, x GLint, y GLint)]) {
+	bindings.FuncWebGL2RenderingContextUniform2i(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform2i calls the method "WebGL2RenderingContext.uniform2i".
 func (this WebGL2RenderingContext) Uniform2i(location WebGLUniformLocation, x GLint, y GLint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform2i(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		int32(x),
 		int32(y),
@@ -19578,7 +19163,7 @@ func (this WebGL2RenderingContext) Uniform2i(location WebGLUniformLocation, x GL
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform2i(location WebGLUniformLocation, x GLint, y GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform2i(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		int32(x),
 		int32(y),
@@ -19587,26 +19172,25 @@ func (this WebGL2RenderingContext) TryUniform2i(location WebGLUniformLocation, x
 	return
 }
 
-// HasUniform3i returns true if the method "WebGL2RenderingContext.uniform3i" exists.
-func (this WebGL2RenderingContext) HasUniform3i() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform3i(
-		this.Ref(),
+// HasFuncUniform3i returns true if the method "WebGL2RenderingContext.uniform3i" exists.
+func (this WebGL2RenderingContext) HasFuncUniform3i() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform3i(
+		this.ref,
 	)
 }
 
-// Uniform3iFunc returns the method "WebGL2RenderingContext.uniform3i".
-func (this WebGL2RenderingContext) Uniform3iFunc() (fn js.Func[func(location WebGLUniformLocation, x GLint, y GLint, z GLint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform3iFunc(
-			this.Ref(),
-		),
+// FuncUniform3i returns the method "WebGL2RenderingContext.uniform3i".
+func (this WebGL2RenderingContext) FuncUniform3i() (fn js.Func[func(location WebGLUniformLocation, x GLint, y GLint, z GLint)]) {
+	bindings.FuncWebGL2RenderingContextUniform3i(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform3i calls the method "WebGL2RenderingContext.uniform3i".
 func (this WebGL2RenderingContext) Uniform3i(location WebGLUniformLocation, x GLint, y GLint, z GLint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform3i(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		int32(x),
 		int32(y),
@@ -19621,7 +19205,7 @@ func (this WebGL2RenderingContext) Uniform3i(location WebGLUniformLocation, x GL
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform3i(location WebGLUniformLocation, x GLint, y GLint, z GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform3i(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		int32(x),
 		int32(y),
@@ -19631,26 +19215,25 @@ func (this WebGL2RenderingContext) TryUniform3i(location WebGLUniformLocation, x
 	return
 }
 
-// HasUniform4i returns true if the method "WebGL2RenderingContext.uniform4i" exists.
-func (this WebGL2RenderingContext) HasUniform4i() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUniform4i(
-		this.Ref(),
+// HasFuncUniform4i returns true if the method "WebGL2RenderingContext.uniform4i" exists.
+func (this WebGL2RenderingContext) HasFuncUniform4i() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUniform4i(
+		this.ref,
 	)
 }
 
-// Uniform4iFunc returns the method "WebGL2RenderingContext.uniform4i".
-func (this WebGL2RenderingContext) Uniform4iFunc() (fn js.Func[func(location WebGLUniformLocation, x GLint, y GLint, z GLint, w GLint)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUniform4iFunc(
-			this.Ref(),
-		),
+// FuncUniform4i returns the method "WebGL2RenderingContext.uniform4i".
+func (this WebGL2RenderingContext) FuncUniform4i() (fn js.Func[func(location WebGLUniformLocation, x GLint, y GLint, z GLint, w GLint)]) {
+	bindings.FuncWebGL2RenderingContextUniform4i(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Uniform4i calls the method "WebGL2RenderingContext.uniform4i".
 func (this WebGL2RenderingContext) Uniform4i(location WebGLUniformLocation, x GLint, y GLint, z GLint, w GLint) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUniform4i(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		location.Ref(),
 		int32(x),
 		int32(y),
@@ -19666,7 +19249,7 @@ func (this WebGL2RenderingContext) Uniform4i(location WebGLUniformLocation, x GL
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform4i(location WebGLUniformLocation, x GLint, y GLint, z GLint, w GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform4i(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		location.Ref(),
 		int32(x),
 		int32(y),
@@ -19677,26 +19260,25 @@ func (this WebGL2RenderingContext) TryUniform4i(location WebGLUniformLocation, x
 	return
 }
 
-// HasUseProgram returns true if the method "WebGL2RenderingContext.useProgram" exists.
-func (this WebGL2RenderingContext) HasUseProgram() bool {
-	return js.True == bindings.HasWebGL2RenderingContextUseProgram(
-		this.Ref(),
+// HasFuncUseProgram returns true if the method "WebGL2RenderingContext.useProgram" exists.
+func (this WebGL2RenderingContext) HasFuncUseProgram() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextUseProgram(
+		this.ref,
 	)
 }
 
-// UseProgramFunc returns the method "WebGL2RenderingContext.useProgram".
-func (this WebGL2RenderingContext) UseProgramFunc() (fn js.Func[func(program WebGLProgram)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextUseProgramFunc(
-			this.Ref(),
-		),
+// FuncUseProgram returns the method "WebGL2RenderingContext.useProgram".
+func (this WebGL2RenderingContext) FuncUseProgram() (fn js.Func[func(program WebGLProgram)]) {
+	bindings.FuncWebGL2RenderingContextUseProgram(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // UseProgram calls the method "WebGL2RenderingContext.useProgram".
 func (this WebGL2RenderingContext) UseProgram(program WebGLProgram) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextUseProgram(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 	)
 
@@ -19708,33 +19290,32 @@ func (this WebGL2RenderingContext) UseProgram(program WebGLProgram) (ret js.Void
 // the catch clause.
 func (this WebGL2RenderingContext) TryUseProgram(program WebGLProgram) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUseProgram(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 	)
 
 	return
 }
 
-// HasValidateProgram returns true if the method "WebGL2RenderingContext.validateProgram" exists.
-func (this WebGL2RenderingContext) HasValidateProgram() bool {
-	return js.True == bindings.HasWebGL2RenderingContextValidateProgram(
-		this.Ref(),
+// HasFuncValidateProgram returns true if the method "WebGL2RenderingContext.validateProgram" exists.
+func (this WebGL2RenderingContext) HasFuncValidateProgram() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextValidateProgram(
+		this.ref,
 	)
 }
 
-// ValidateProgramFunc returns the method "WebGL2RenderingContext.validateProgram".
-func (this WebGL2RenderingContext) ValidateProgramFunc() (fn js.Func[func(program WebGLProgram)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextValidateProgramFunc(
-			this.Ref(),
-		),
+// FuncValidateProgram returns the method "WebGL2RenderingContext.validateProgram".
+func (this WebGL2RenderingContext) FuncValidateProgram() (fn js.Func[func(program WebGLProgram)]) {
+	bindings.FuncWebGL2RenderingContextValidateProgram(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ValidateProgram calls the method "WebGL2RenderingContext.validateProgram".
 func (this WebGL2RenderingContext) ValidateProgram(program WebGLProgram) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextValidateProgram(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		program.Ref(),
 	)
 
@@ -19746,33 +19327,32 @@ func (this WebGL2RenderingContext) ValidateProgram(program WebGLProgram) (ret js
 // the catch clause.
 func (this WebGL2RenderingContext) TryValidateProgram(program WebGLProgram) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextValidateProgram(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		program.Ref(),
 	)
 
 	return
 }
 
-// HasVertexAttrib1f returns true if the method "WebGL2RenderingContext.vertexAttrib1f" exists.
-func (this WebGL2RenderingContext) HasVertexAttrib1f() bool {
-	return js.True == bindings.HasWebGL2RenderingContextVertexAttrib1f(
-		this.Ref(),
+// HasFuncVertexAttrib1f returns true if the method "WebGL2RenderingContext.vertexAttrib1f" exists.
+func (this WebGL2RenderingContext) HasFuncVertexAttrib1f() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextVertexAttrib1f(
+		this.ref,
 	)
 }
 
-// VertexAttrib1fFunc returns the method "WebGL2RenderingContext.vertexAttrib1f".
-func (this WebGL2RenderingContext) VertexAttrib1fFunc() (fn js.Func[func(index GLuint, x GLfloat)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextVertexAttrib1fFunc(
-			this.Ref(),
-		),
+// FuncVertexAttrib1f returns the method "WebGL2RenderingContext.vertexAttrib1f".
+func (this WebGL2RenderingContext) FuncVertexAttrib1f() (fn js.Func[func(index GLuint, x GLfloat)]) {
+	bindings.FuncWebGL2RenderingContextVertexAttrib1f(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // VertexAttrib1f calls the method "WebGL2RenderingContext.vertexAttrib1f".
 func (this WebGL2RenderingContext) VertexAttrib1f(index GLuint, x GLfloat) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextVertexAttrib1f(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		float32(x),
 	)
@@ -19785,7 +19365,7 @@ func (this WebGL2RenderingContext) VertexAttrib1f(index GLuint, x GLfloat) (ret 
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttrib1f(index GLuint, x GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttrib1f(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		float32(x),
 	)
@@ -19793,26 +19373,25 @@ func (this WebGL2RenderingContext) TryVertexAttrib1f(index GLuint, x GLfloat) (r
 	return
 }
 
-// HasVertexAttrib2f returns true if the method "WebGL2RenderingContext.vertexAttrib2f" exists.
-func (this WebGL2RenderingContext) HasVertexAttrib2f() bool {
-	return js.True == bindings.HasWebGL2RenderingContextVertexAttrib2f(
-		this.Ref(),
+// HasFuncVertexAttrib2f returns true if the method "WebGL2RenderingContext.vertexAttrib2f" exists.
+func (this WebGL2RenderingContext) HasFuncVertexAttrib2f() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextVertexAttrib2f(
+		this.ref,
 	)
 }
 
-// VertexAttrib2fFunc returns the method "WebGL2RenderingContext.vertexAttrib2f".
-func (this WebGL2RenderingContext) VertexAttrib2fFunc() (fn js.Func[func(index GLuint, x GLfloat, y GLfloat)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextVertexAttrib2fFunc(
-			this.Ref(),
-		),
+// FuncVertexAttrib2f returns the method "WebGL2RenderingContext.vertexAttrib2f".
+func (this WebGL2RenderingContext) FuncVertexAttrib2f() (fn js.Func[func(index GLuint, x GLfloat, y GLfloat)]) {
+	bindings.FuncWebGL2RenderingContextVertexAttrib2f(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // VertexAttrib2f calls the method "WebGL2RenderingContext.vertexAttrib2f".
 func (this WebGL2RenderingContext) VertexAttrib2f(index GLuint, x GLfloat, y GLfloat) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextVertexAttrib2f(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		float32(x),
 		float32(y),
@@ -19826,7 +19405,7 @@ func (this WebGL2RenderingContext) VertexAttrib2f(index GLuint, x GLfloat, y GLf
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttrib2f(index GLuint, x GLfloat, y GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttrib2f(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		float32(x),
 		float32(y),
@@ -19835,26 +19414,25 @@ func (this WebGL2RenderingContext) TryVertexAttrib2f(index GLuint, x GLfloat, y 
 	return
 }
 
-// HasVertexAttrib3f returns true if the method "WebGL2RenderingContext.vertexAttrib3f" exists.
-func (this WebGL2RenderingContext) HasVertexAttrib3f() bool {
-	return js.True == bindings.HasWebGL2RenderingContextVertexAttrib3f(
-		this.Ref(),
+// HasFuncVertexAttrib3f returns true if the method "WebGL2RenderingContext.vertexAttrib3f" exists.
+func (this WebGL2RenderingContext) HasFuncVertexAttrib3f() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextVertexAttrib3f(
+		this.ref,
 	)
 }
 
-// VertexAttrib3fFunc returns the method "WebGL2RenderingContext.vertexAttrib3f".
-func (this WebGL2RenderingContext) VertexAttrib3fFunc() (fn js.Func[func(index GLuint, x GLfloat, y GLfloat, z GLfloat)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextVertexAttrib3fFunc(
-			this.Ref(),
-		),
+// FuncVertexAttrib3f returns the method "WebGL2RenderingContext.vertexAttrib3f".
+func (this WebGL2RenderingContext) FuncVertexAttrib3f() (fn js.Func[func(index GLuint, x GLfloat, y GLfloat, z GLfloat)]) {
+	bindings.FuncWebGL2RenderingContextVertexAttrib3f(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // VertexAttrib3f calls the method "WebGL2RenderingContext.vertexAttrib3f".
 func (this WebGL2RenderingContext) VertexAttrib3f(index GLuint, x GLfloat, y GLfloat, z GLfloat) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextVertexAttrib3f(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		float32(x),
 		float32(y),
@@ -19869,7 +19447,7 @@ func (this WebGL2RenderingContext) VertexAttrib3f(index GLuint, x GLfloat, y GLf
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttrib3f(index GLuint, x GLfloat, y GLfloat, z GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttrib3f(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		float32(x),
 		float32(y),
@@ -19879,26 +19457,25 @@ func (this WebGL2RenderingContext) TryVertexAttrib3f(index GLuint, x GLfloat, y 
 	return
 }
 
-// HasVertexAttrib4f returns true if the method "WebGL2RenderingContext.vertexAttrib4f" exists.
-func (this WebGL2RenderingContext) HasVertexAttrib4f() bool {
-	return js.True == bindings.HasWebGL2RenderingContextVertexAttrib4f(
-		this.Ref(),
+// HasFuncVertexAttrib4f returns true if the method "WebGL2RenderingContext.vertexAttrib4f" exists.
+func (this WebGL2RenderingContext) HasFuncVertexAttrib4f() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextVertexAttrib4f(
+		this.ref,
 	)
 }
 
-// VertexAttrib4fFunc returns the method "WebGL2RenderingContext.vertexAttrib4f".
-func (this WebGL2RenderingContext) VertexAttrib4fFunc() (fn js.Func[func(index GLuint, x GLfloat, y GLfloat, z GLfloat, w GLfloat)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextVertexAttrib4fFunc(
-			this.Ref(),
-		),
+// FuncVertexAttrib4f returns the method "WebGL2RenderingContext.vertexAttrib4f".
+func (this WebGL2RenderingContext) FuncVertexAttrib4f() (fn js.Func[func(index GLuint, x GLfloat, y GLfloat, z GLfloat, w GLfloat)]) {
+	bindings.FuncWebGL2RenderingContextVertexAttrib4f(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // VertexAttrib4f calls the method "WebGL2RenderingContext.vertexAttrib4f".
 func (this WebGL2RenderingContext) VertexAttrib4f(index GLuint, x GLfloat, y GLfloat, z GLfloat, w GLfloat) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextVertexAttrib4f(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		float32(x),
 		float32(y),
@@ -19914,7 +19491,7 @@ func (this WebGL2RenderingContext) VertexAttrib4f(index GLuint, x GLfloat, y GLf
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttrib4f(index GLuint, x GLfloat, y GLfloat, z GLfloat, w GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttrib4f(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		float32(x),
 		float32(y),
@@ -19925,26 +19502,25 @@ func (this WebGL2RenderingContext) TryVertexAttrib4f(index GLuint, x GLfloat, y 
 	return
 }
 
-// HasVertexAttrib1fv returns true if the method "WebGL2RenderingContext.vertexAttrib1fv" exists.
-func (this WebGL2RenderingContext) HasVertexAttrib1fv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextVertexAttrib1fv(
-		this.Ref(),
+// HasFuncVertexAttrib1fv returns true if the method "WebGL2RenderingContext.vertexAttrib1fv" exists.
+func (this WebGL2RenderingContext) HasFuncVertexAttrib1fv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextVertexAttrib1fv(
+		this.ref,
 	)
 }
 
-// VertexAttrib1fvFunc returns the method "WebGL2RenderingContext.vertexAttrib1fv".
-func (this WebGL2RenderingContext) VertexAttrib1fvFunc() (fn js.Func[func(index GLuint, values Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextVertexAttrib1fvFunc(
-			this.Ref(),
-		),
+// FuncVertexAttrib1fv returns the method "WebGL2RenderingContext.vertexAttrib1fv".
+func (this WebGL2RenderingContext) FuncVertexAttrib1fv() (fn js.Func[func(index GLuint, values Float32List)]) {
+	bindings.FuncWebGL2RenderingContextVertexAttrib1fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // VertexAttrib1fv calls the method "WebGL2RenderingContext.vertexAttrib1fv".
 func (this WebGL2RenderingContext) VertexAttrib1fv(index GLuint, values Float32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextVertexAttrib1fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		values.Ref(),
 	)
@@ -19957,7 +19533,7 @@ func (this WebGL2RenderingContext) VertexAttrib1fv(index GLuint, values Float32L
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttrib1fv(index GLuint, values Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttrib1fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		values.Ref(),
 	)
@@ -19965,26 +19541,25 @@ func (this WebGL2RenderingContext) TryVertexAttrib1fv(index GLuint, values Float
 	return
 }
 
-// HasVertexAttrib2fv returns true if the method "WebGL2RenderingContext.vertexAttrib2fv" exists.
-func (this WebGL2RenderingContext) HasVertexAttrib2fv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextVertexAttrib2fv(
-		this.Ref(),
+// HasFuncVertexAttrib2fv returns true if the method "WebGL2RenderingContext.vertexAttrib2fv" exists.
+func (this WebGL2RenderingContext) HasFuncVertexAttrib2fv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextVertexAttrib2fv(
+		this.ref,
 	)
 }
 
-// VertexAttrib2fvFunc returns the method "WebGL2RenderingContext.vertexAttrib2fv".
-func (this WebGL2RenderingContext) VertexAttrib2fvFunc() (fn js.Func[func(index GLuint, values Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextVertexAttrib2fvFunc(
-			this.Ref(),
-		),
+// FuncVertexAttrib2fv returns the method "WebGL2RenderingContext.vertexAttrib2fv".
+func (this WebGL2RenderingContext) FuncVertexAttrib2fv() (fn js.Func[func(index GLuint, values Float32List)]) {
+	bindings.FuncWebGL2RenderingContextVertexAttrib2fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // VertexAttrib2fv calls the method "WebGL2RenderingContext.vertexAttrib2fv".
 func (this WebGL2RenderingContext) VertexAttrib2fv(index GLuint, values Float32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextVertexAttrib2fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		values.Ref(),
 	)
@@ -19997,7 +19572,7 @@ func (this WebGL2RenderingContext) VertexAttrib2fv(index GLuint, values Float32L
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttrib2fv(index GLuint, values Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttrib2fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		values.Ref(),
 	)
@@ -20005,26 +19580,25 @@ func (this WebGL2RenderingContext) TryVertexAttrib2fv(index GLuint, values Float
 	return
 }
 
-// HasVertexAttrib3fv returns true if the method "WebGL2RenderingContext.vertexAttrib3fv" exists.
-func (this WebGL2RenderingContext) HasVertexAttrib3fv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextVertexAttrib3fv(
-		this.Ref(),
+// HasFuncVertexAttrib3fv returns true if the method "WebGL2RenderingContext.vertexAttrib3fv" exists.
+func (this WebGL2RenderingContext) HasFuncVertexAttrib3fv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextVertexAttrib3fv(
+		this.ref,
 	)
 }
 
-// VertexAttrib3fvFunc returns the method "WebGL2RenderingContext.vertexAttrib3fv".
-func (this WebGL2RenderingContext) VertexAttrib3fvFunc() (fn js.Func[func(index GLuint, values Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextVertexAttrib3fvFunc(
-			this.Ref(),
-		),
+// FuncVertexAttrib3fv returns the method "WebGL2RenderingContext.vertexAttrib3fv".
+func (this WebGL2RenderingContext) FuncVertexAttrib3fv() (fn js.Func[func(index GLuint, values Float32List)]) {
+	bindings.FuncWebGL2RenderingContextVertexAttrib3fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // VertexAttrib3fv calls the method "WebGL2RenderingContext.vertexAttrib3fv".
 func (this WebGL2RenderingContext) VertexAttrib3fv(index GLuint, values Float32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextVertexAttrib3fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		values.Ref(),
 	)
@@ -20037,7 +19611,7 @@ func (this WebGL2RenderingContext) VertexAttrib3fv(index GLuint, values Float32L
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttrib3fv(index GLuint, values Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttrib3fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		values.Ref(),
 	)
@@ -20045,26 +19619,25 @@ func (this WebGL2RenderingContext) TryVertexAttrib3fv(index GLuint, values Float
 	return
 }
 
-// HasVertexAttrib4fv returns true if the method "WebGL2RenderingContext.vertexAttrib4fv" exists.
-func (this WebGL2RenderingContext) HasVertexAttrib4fv() bool {
-	return js.True == bindings.HasWebGL2RenderingContextVertexAttrib4fv(
-		this.Ref(),
+// HasFuncVertexAttrib4fv returns true if the method "WebGL2RenderingContext.vertexAttrib4fv" exists.
+func (this WebGL2RenderingContext) HasFuncVertexAttrib4fv() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextVertexAttrib4fv(
+		this.ref,
 	)
 }
 
-// VertexAttrib4fvFunc returns the method "WebGL2RenderingContext.vertexAttrib4fv".
-func (this WebGL2RenderingContext) VertexAttrib4fvFunc() (fn js.Func[func(index GLuint, values Float32List)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextVertexAttrib4fvFunc(
-			this.Ref(),
-		),
+// FuncVertexAttrib4fv returns the method "WebGL2RenderingContext.vertexAttrib4fv".
+func (this WebGL2RenderingContext) FuncVertexAttrib4fv() (fn js.Func[func(index GLuint, values Float32List)]) {
+	bindings.FuncWebGL2RenderingContextVertexAttrib4fv(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // VertexAttrib4fv calls the method "WebGL2RenderingContext.vertexAttrib4fv".
 func (this WebGL2RenderingContext) VertexAttrib4fv(index GLuint, values Float32List) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextVertexAttrib4fv(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		values.Ref(),
 	)
@@ -20077,7 +19650,7 @@ func (this WebGL2RenderingContext) VertexAttrib4fv(index GLuint, values Float32L
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttrib4fv(index GLuint, values Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttrib4fv(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		values.Ref(),
 	)
@@ -20085,26 +19658,25 @@ func (this WebGL2RenderingContext) TryVertexAttrib4fv(index GLuint, values Float
 	return
 }
 
-// HasVertexAttribPointer returns true if the method "WebGL2RenderingContext.vertexAttribPointer" exists.
-func (this WebGL2RenderingContext) HasVertexAttribPointer() bool {
-	return js.True == bindings.HasWebGL2RenderingContextVertexAttribPointer(
-		this.Ref(),
+// HasFuncVertexAttribPointer returns true if the method "WebGL2RenderingContext.vertexAttribPointer" exists.
+func (this WebGL2RenderingContext) HasFuncVertexAttribPointer() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextVertexAttribPointer(
+		this.ref,
 	)
 }
 
-// VertexAttribPointerFunc returns the method "WebGL2RenderingContext.vertexAttribPointer".
-func (this WebGL2RenderingContext) VertexAttribPointerFunc() (fn js.Func[func(index GLuint, size GLint, typ GLenum, normalized GLboolean, stride GLsizei, offset GLintptr)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextVertexAttribPointerFunc(
-			this.Ref(),
-		),
+// FuncVertexAttribPointer returns the method "WebGL2RenderingContext.vertexAttribPointer".
+func (this WebGL2RenderingContext) FuncVertexAttribPointer() (fn js.Func[func(index GLuint, size GLint, typ GLenum, normalized GLboolean, stride GLsizei, offset GLintptr)]) {
+	bindings.FuncWebGL2RenderingContextVertexAttribPointer(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // VertexAttribPointer calls the method "WebGL2RenderingContext.vertexAttribPointer".
 func (this WebGL2RenderingContext) VertexAttribPointer(index GLuint, size GLint, typ GLenum, normalized GLboolean, stride GLsizei, offset GLintptr) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextVertexAttribPointer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 		int32(size),
 		uint32(typ),
@@ -20121,7 +19693,7 @@ func (this WebGL2RenderingContext) VertexAttribPointer(index GLuint, size GLint,
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttribPointer(index GLuint, size GLint, typ GLenum, normalized GLboolean, stride GLsizei, offset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttribPointer(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 		int32(size),
 		uint32(typ),
@@ -20133,26 +19705,25 @@ func (this WebGL2RenderingContext) TryVertexAttribPointer(index GLuint, size GLi
 	return
 }
 
-// HasViewport returns true if the method "WebGL2RenderingContext.viewport" exists.
-func (this WebGL2RenderingContext) HasViewport() bool {
-	return js.True == bindings.HasWebGL2RenderingContextViewport(
-		this.Ref(),
+// HasFuncViewport returns true if the method "WebGL2RenderingContext.viewport" exists.
+func (this WebGL2RenderingContext) HasFuncViewport() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextViewport(
+		this.ref,
 	)
 }
 
-// ViewportFunc returns the method "WebGL2RenderingContext.viewport".
-func (this WebGL2RenderingContext) ViewportFunc() (fn js.Func[func(x GLint, y GLint, width GLsizei, height GLsizei)]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextViewportFunc(
-			this.Ref(),
-		),
+// FuncViewport returns the method "WebGL2RenderingContext.viewport".
+func (this WebGL2RenderingContext) FuncViewport() (fn js.Func[func(x GLint, y GLint, width GLsizei, height GLsizei)]) {
+	bindings.FuncWebGL2RenderingContextViewport(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Viewport calls the method "WebGL2RenderingContext.viewport".
 func (this WebGL2RenderingContext) Viewport(x GLint, y GLint, width GLsizei, height GLsizei) (ret js.Void) {
 	bindings.CallWebGL2RenderingContextViewport(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		int32(x),
 		int32(y),
 		int32(width),
@@ -20167,7 +19738,7 @@ func (this WebGL2RenderingContext) Viewport(x GLint, y GLint, width GLsizei, hei
 // the catch clause.
 func (this WebGL2RenderingContext) TryViewport(x GLint, y GLint, width GLsizei, height GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextViewport(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		int32(x),
 		int32(y),
 		int32(width),
@@ -20177,26 +19748,25 @@ func (this WebGL2RenderingContext) TryViewport(x GLint, y GLint, width GLsizei, 
 	return
 }
 
-// HasMakeXRCompatible returns true if the method "WebGL2RenderingContext.makeXRCompatible" exists.
-func (this WebGL2RenderingContext) HasMakeXRCompatible() bool {
-	return js.True == bindings.HasWebGL2RenderingContextMakeXRCompatible(
-		this.Ref(),
+// HasFuncMakeXRCompatible returns true if the method "WebGL2RenderingContext.makeXRCompatible" exists.
+func (this WebGL2RenderingContext) HasFuncMakeXRCompatible() bool {
+	return js.True == bindings.HasFuncWebGL2RenderingContextMakeXRCompatible(
+		this.ref,
 	)
 }
 
-// MakeXRCompatibleFunc returns the method "WebGL2RenderingContext.makeXRCompatible".
-func (this WebGL2RenderingContext) MakeXRCompatibleFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.WebGL2RenderingContextMakeXRCompatibleFunc(
-			this.Ref(),
-		),
+// FuncMakeXRCompatible returns the method "WebGL2RenderingContext.makeXRCompatible".
+func (this WebGL2RenderingContext) FuncMakeXRCompatible() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncWebGL2RenderingContextMakeXRCompatible(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // MakeXRCompatible calls the method "WebGL2RenderingContext.makeXRCompatible".
 func (this WebGL2RenderingContext) MakeXRCompatible() (ret js.Promise[js.Void]) {
 	bindings.CallWebGL2RenderingContextMakeXRCompatible(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -20207,7 +19777,7 @@ func (this WebGL2RenderingContext) MakeXRCompatible() (ret js.Promise[js.Void]) 
 // the catch clause.
 func (this WebGL2RenderingContext) TryMakeXRCompatible() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextMakeXRCompatible(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -20253,7 +19823,7 @@ type GPUBuffer struct {
 }
 
 func (this GPUBuffer) Once() GPUBuffer {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -20267,7 +19837,7 @@ func (this GPUBuffer) FromRef(ref js.Ref) GPUBuffer {
 }
 
 func (this GPUBuffer) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Size returns the value of property "GPUBuffer.size".
@@ -20275,7 +19845,7 @@ func (this GPUBuffer) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUBuffer) Size() (ret GPUSize64Out, ok bool) {
 	ok = js.True == bindings.GetGPUBufferSize(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -20285,7 +19855,7 @@ func (this GPUBuffer) Size() (ret GPUSize64Out, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUBuffer) Usage() (ret GPUFlagsConstant, ok bool) {
 	ok = js.True == bindings.GetGPUBufferUsage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -20295,7 +19865,7 @@ func (this GPUBuffer) Usage() (ret GPUFlagsConstant, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUBuffer) MapState() (ret GPUBufferMapState, ok bool) {
 	ok = js.True == bindings.GetGPUBufferMapState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -20305,7 +19875,7 @@ func (this GPUBuffer) MapState() (ret GPUBufferMapState, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUBuffer) Label() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGPUBufferLabel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -20315,31 +19885,30 @@ func (this GPUBuffer) Label() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this GPUBuffer) SetLabel(val js.String) bool {
 	return js.True == bindings.SetGPUBufferLabel(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
 
-// HasMapAsync returns true if the method "GPUBuffer.mapAsync" exists.
-func (this GPUBuffer) HasMapAsync() bool {
-	return js.True == bindings.HasGPUBufferMapAsync(
-		this.Ref(),
+// HasFuncMapAsync returns true if the method "GPUBuffer.mapAsync" exists.
+func (this GPUBuffer) HasFuncMapAsync() bool {
+	return js.True == bindings.HasFuncGPUBufferMapAsync(
+		this.ref,
 	)
 }
 
-// MapAsyncFunc returns the method "GPUBuffer.mapAsync".
-func (this GPUBuffer) MapAsyncFunc() (fn js.Func[func(mode GPUMapModeFlags, offset GPUSize64, size GPUSize64) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.GPUBufferMapAsyncFunc(
-			this.Ref(),
-		),
+// FuncMapAsync returns the method "GPUBuffer.mapAsync".
+func (this GPUBuffer) FuncMapAsync() (fn js.Func[func(mode GPUMapModeFlags, offset GPUSize64, size GPUSize64) js.Promise[js.Void]]) {
+	bindings.FuncGPUBufferMapAsync(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // MapAsync calls the method "GPUBuffer.mapAsync".
 func (this GPUBuffer) MapAsync(mode GPUMapModeFlags, offset GPUSize64, size GPUSize64) (ret js.Promise[js.Void]) {
 	bindings.CallGPUBufferMapAsync(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mode),
 		float64(offset),
 		float64(size),
@@ -20353,7 +19922,7 @@ func (this GPUBuffer) MapAsync(mode GPUMapModeFlags, offset GPUSize64, size GPUS
 // the catch clause.
 func (this GPUBuffer) TryMapAsync(mode GPUMapModeFlags, offset GPUSize64, size GPUSize64) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUBufferMapAsync(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mode),
 		float64(offset),
 		float64(size),
@@ -20362,26 +19931,25 @@ func (this GPUBuffer) TryMapAsync(mode GPUMapModeFlags, offset GPUSize64, size G
 	return
 }
 
-// HasMapAsync1 returns true if the method "GPUBuffer.mapAsync" exists.
-func (this GPUBuffer) HasMapAsync1() bool {
-	return js.True == bindings.HasGPUBufferMapAsync1(
-		this.Ref(),
+// HasFuncMapAsync1 returns true if the method "GPUBuffer.mapAsync" exists.
+func (this GPUBuffer) HasFuncMapAsync1() bool {
+	return js.True == bindings.HasFuncGPUBufferMapAsync1(
+		this.ref,
 	)
 }
 
-// MapAsync1Func returns the method "GPUBuffer.mapAsync".
-func (this GPUBuffer) MapAsync1Func() (fn js.Func[func(mode GPUMapModeFlags, offset GPUSize64) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.GPUBufferMapAsync1Func(
-			this.Ref(),
-		),
+// FuncMapAsync1 returns the method "GPUBuffer.mapAsync".
+func (this GPUBuffer) FuncMapAsync1() (fn js.Func[func(mode GPUMapModeFlags, offset GPUSize64) js.Promise[js.Void]]) {
+	bindings.FuncGPUBufferMapAsync1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // MapAsync1 calls the method "GPUBuffer.mapAsync".
 func (this GPUBuffer) MapAsync1(mode GPUMapModeFlags, offset GPUSize64) (ret js.Promise[js.Void]) {
 	bindings.CallGPUBufferMapAsync1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mode),
 		float64(offset),
 	)
@@ -20394,7 +19962,7 @@ func (this GPUBuffer) MapAsync1(mode GPUMapModeFlags, offset GPUSize64) (ret js.
 // the catch clause.
 func (this GPUBuffer) TryMapAsync1(mode GPUMapModeFlags, offset GPUSize64) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUBufferMapAsync1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mode),
 		float64(offset),
 	)
@@ -20402,26 +19970,25 @@ func (this GPUBuffer) TryMapAsync1(mode GPUMapModeFlags, offset GPUSize64) (ret 
 	return
 }
 
-// HasMapAsync2 returns true if the method "GPUBuffer.mapAsync" exists.
-func (this GPUBuffer) HasMapAsync2() bool {
-	return js.True == bindings.HasGPUBufferMapAsync2(
-		this.Ref(),
+// HasFuncMapAsync2 returns true if the method "GPUBuffer.mapAsync" exists.
+func (this GPUBuffer) HasFuncMapAsync2() bool {
+	return js.True == bindings.HasFuncGPUBufferMapAsync2(
+		this.ref,
 	)
 }
 
-// MapAsync2Func returns the method "GPUBuffer.mapAsync".
-func (this GPUBuffer) MapAsync2Func() (fn js.Func[func(mode GPUMapModeFlags) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.GPUBufferMapAsync2Func(
-			this.Ref(),
-		),
+// FuncMapAsync2 returns the method "GPUBuffer.mapAsync".
+func (this GPUBuffer) FuncMapAsync2() (fn js.Func[func(mode GPUMapModeFlags) js.Promise[js.Void]]) {
+	bindings.FuncGPUBufferMapAsync2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // MapAsync2 calls the method "GPUBuffer.mapAsync".
 func (this GPUBuffer) MapAsync2(mode GPUMapModeFlags) (ret js.Promise[js.Void]) {
 	bindings.CallGPUBufferMapAsync2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(mode),
 	)
 
@@ -20433,33 +20000,32 @@ func (this GPUBuffer) MapAsync2(mode GPUMapModeFlags) (ret js.Promise[js.Void]) 
 // the catch clause.
 func (this GPUBuffer) TryMapAsync2(mode GPUMapModeFlags) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUBufferMapAsync2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(mode),
 	)
 
 	return
 }
 
-// HasGetMappedRange returns true if the method "GPUBuffer.getMappedRange" exists.
-func (this GPUBuffer) HasGetMappedRange() bool {
-	return js.True == bindings.HasGPUBufferGetMappedRange(
-		this.Ref(),
+// HasFuncGetMappedRange returns true if the method "GPUBuffer.getMappedRange" exists.
+func (this GPUBuffer) HasFuncGetMappedRange() bool {
+	return js.True == bindings.HasFuncGPUBufferGetMappedRange(
+		this.ref,
 	)
 }
 
-// GetMappedRangeFunc returns the method "GPUBuffer.getMappedRange".
-func (this GPUBuffer) GetMappedRangeFunc() (fn js.Func[func(offset GPUSize64, size GPUSize64) js.ArrayBuffer]) {
-	return fn.FromRef(
-		bindings.GPUBufferGetMappedRangeFunc(
-			this.Ref(),
-		),
+// FuncGetMappedRange returns the method "GPUBuffer.getMappedRange".
+func (this GPUBuffer) FuncGetMappedRange() (fn js.Func[func(offset GPUSize64, size GPUSize64) js.ArrayBuffer]) {
+	bindings.FuncGPUBufferGetMappedRange(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetMappedRange calls the method "GPUBuffer.getMappedRange".
 func (this GPUBuffer) GetMappedRange(offset GPUSize64, size GPUSize64) (ret js.ArrayBuffer) {
 	bindings.CallGPUBufferGetMappedRange(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(offset),
 		float64(size),
 	)
@@ -20472,7 +20038,7 @@ func (this GPUBuffer) GetMappedRange(offset GPUSize64, size GPUSize64) (ret js.A
 // the catch clause.
 func (this GPUBuffer) TryGetMappedRange(offset GPUSize64, size GPUSize64) (ret js.ArrayBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUBufferGetMappedRange(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(offset),
 		float64(size),
 	)
@@ -20480,26 +20046,25 @@ func (this GPUBuffer) TryGetMappedRange(offset GPUSize64, size GPUSize64) (ret j
 	return
 }
 
-// HasGetMappedRange1 returns true if the method "GPUBuffer.getMappedRange" exists.
-func (this GPUBuffer) HasGetMappedRange1() bool {
-	return js.True == bindings.HasGPUBufferGetMappedRange1(
-		this.Ref(),
+// HasFuncGetMappedRange1 returns true if the method "GPUBuffer.getMappedRange" exists.
+func (this GPUBuffer) HasFuncGetMappedRange1() bool {
+	return js.True == bindings.HasFuncGPUBufferGetMappedRange1(
+		this.ref,
 	)
 }
 
-// GetMappedRange1Func returns the method "GPUBuffer.getMappedRange".
-func (this GPUBuffer) GetMappedRange1Func() (fn js.Func[func(offset GPUSize64) js.ArrayBuffer]) {
-	return fn.FromRef(
-		bindings.GPUBufferGetMappedRange1Func(
-			this.Ref(),
-		),
+// FuncGetMappedRange1 returns the method "GPUBuffer.getMappedRange".
+func (this GPUBuffer) FuncGetMappedRange1() (fn js.Func[func(offset GPUSize64) js.ArrayBuffer]) {
+	bindings.FuncGPUBufferGetMappedRange1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetMappedRange1 calls the method "GPUBuffer.getMappedRange".
 func (this GPUBuffer) GetMappedRange1(offset GPUSize64) (ret js.ArrayBuffer) {
 	bindings.CallGPUBufferGetMappedRange1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(offset),
 	)
 
@@ -20511,33 +20076,32 @@ func (this GPUBuffer) GetMappedRange1(offset GPUSize64) (ret js.ArrayBuffer) {
 // the catch clause.
 func (this GPUBuffer) TryGetMappedRange1(offset GPUSize64) (ret js.ArrayBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUBufferGetMappedRange1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(offset),
 	)
 
 	return
 }
 
-// HasGetMappedRange2 returns true if the method "GPUBuffer.getMappedRange" exists.
-func (this GPUBuffer) HasGetMappedRange2() bool {
-	return js.True == bindings.HasGPUBufferGetMappedRange2(
-		this.Ref(),
+// HasFuncGetMappedRange2 returns true if the method "GPUBuffer.getMappedRange" exists.
+func (this GPUBuffer) HasFuncGetMappedRange2() bool {
+	return js.True == bindings.HasFuncGPUBufferGetMappedRange2(
+		this.ref,
 	)
 }
 
-// GetMappedRange2Func returns the method "GPUBuffer.getMappedRange".
-func (this GPUBuffer) GetMappedRange2Func() (fn js.Func[func() js.ArrayBuffer]) {
-	return fn.FromRef(
-		bindings.GPUBufferGetMappedRange2Func(
-			this.Ref(),
-		),
+// FuncGetMappedRange2 returns the method "GPUBuffer.getMappedRange".
+func (this GPUBuffer) FuncGetMappedRange2() (fn js.Func[func() js.ArrayBuffer]) {
+	bindings.FuncGPUBufferGetMappedRange2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetMappedRange2 calls the method "GPUBuffer.getMappedRange".
 func (this GPUBuffer) GetMappedRange2() (ret js.ArrayBuffer) {
 	bindings.CallGPUBufferGetMappedRange2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -20548,32 +20112,31 @@ func (this GPUBuffer) GetMappedRange2() (ret js.ArrayBuffer) {
 // the catch clause.
 func (this GPUBuffer) TryGetMappedRange2() (ret js.ArrayBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUBufferGetMappedRange2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasUnmap returns true if the method "GPUBuffer.unmap" exists.
-func (this GPUBuffer) HasUnmap() bool {
-	return js.True == bindings.HasGPUBufferUnmap(
-		this.Ref(),
+// HasFuncUnmap returns true if the method "GPUBuffer.unmap" exists.
+func (this GPUBuffer) HasFuncUnmap() bool {
+	return js.True == bindings.HasFuncGPUBufferUnmap(
+		this.ref,
 	)
 }
 
-// UnmapFunc returns the method "GPUBuffer.unmap".
-func (this GPUBuffer) UnmapFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.GPUBufferUnmapFunc(
-			this.Ref(),
-		),
+// FuncUnmap returns the method "GPUBuffer.unmap".
+func (this GPUBuffer) FuncUnmap() (fn js.Func[func()]) {
+	bindings.FuncGPUBufferUnmap(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Unmap calls the method "GPUBuffer.unmap".
 func (this GPUBuffer) Unmap() (ret js.Void) {
 	bindings.CallGPUBufferUnmap(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -20584,32 +20147,31 @@ func (this GPUBuffer) Unmap() (ret js.Void) {
 // the catch clause.
 func (this GPUBuffer) TryUnmap() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUBufferUnmap(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasDestroy returns true if the method "GPUBuffer.destroy" exists.
-func (this GPUBuffer) HasDestroy() bool {
-	return js.True == bindings.HasGPUBufferDestroy(
-		this.Ref(),
+// HasFuncDestroy returns true if the method "GPUBuffer.destroy" exists.
+func (this GPUBuffer) HasFuncDestroy() bool {
+	return js.True == bindings.HasFuncGPUBufferDestroy(
+		this.ref,
 	)
 }
 
-// DestroyFunc returns the method "GPUBuffer.destroy".
-func (this GPUBuffer) DestroyFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.GPUBufferDestroyFunc(
-			this.Ref(),
-		),
+// FuncDestroy returns the method "GPUBuffer.destroy".
+func (this GPUBuffer) FuncDestroy() (fn js.Func[func()]) {
+	bindings.FuncGPUBufferDestroy(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Destroy calls the method "GPUBuffer.destroy".
 func (this GPUBuffer) Destroy() (ret js.Void) {
 	bindings.CallGPUBufferDestroy(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -20620,7 +20182,7 @@ func (this GPUBuffer) Destroy() (ret js.Void) {
 // the catch clause.
 func (this GPUBuffer) TryDestroy() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUBufferDestroy(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -20667,17 +20229,26 @@ func (p GPUBufferDescriptor) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUBufferDescriptor) UpdateFrom(ref js.Ref) {
+func (p *GPUBufferDescriptor) UpdateFrom(ref js.Ref) {
 	bindings.GPUBufferDescriptorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUBufferDescriptor) Update(ref js.Ref) {
+func (p *GPUBufferDescriptor) Update(ref js.Ref) {
 	bindings.GPUBufferDescriptorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUBufferDescriptor) FreeMembers(recursive bool) {
+	js.Free(
+		p.Label.Ref(),
+	)
+	p.Label = p.Label.FromRef(js.Undefined)
 }
 
 type GPUTextureView struct {
@@ -20685,7 +20256,7 @@ type GPUTextureView struct {
 }
 
 func (this GPUTextureView) Once() GPUTextureView {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -20699,7 +20270,7 @@ func (this GPUTextureView) FromRef(ref js.Ref) GPUTextureView {
 }
 
 func (this GPUTextureView) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Label returns the value of property "GPUTextureView.label".
@@ -20707,7 +20278,7 @@ func (this GPUTextureView) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUTextureView) Label() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGPUTextureViewLabel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -20717,7 +20288,7 @@ func (this GPUTextureView) Label() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this GPUTextureView) SetLabel(val js.String) bool {
 	return js.True == bindings.SetGPUTextureViewLabel(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -21154,17 +20725,26 @@ func (p GPUTextureViewDescriptor) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUTextureViewDescriptor) UpdateFrom(ref js.Ref) {
+func (p *GPUTextureViewDescriptor) UpdateFrom(ref js.Ref) {
 	bindings.GPUTextureViewDescriptorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUTextureViewDescriptor) Update(ref js.Ref) {
+func (p *GPUTextureViewDescriptor) Update(ref js.Ref) {
 	bindings.GPUTextureViewDescriptorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUTextureViewDescriptor) FreeMembers(recursive bool) {
+	js.Free(
+		p.Label.Ref(),
+	)
+	p.Label = p.Label.FromRef(js.Undefined)
 }
 
 type GPUIntegerCoordinateOut uint32
@@ -21203,7 +20783,7 @@ type GPUTexture struct {
 }
 
 func (this GPUTexture) Once() GPUTexture {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -21217,7 +20797,7 @@ func (this GPUTexture) FromRef(ref js.Ref) GPUTexture {
 }
 
 func (this GPUTexture) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Width returns the value of property "GPUTexture.width".
@@ -21225,7 +20805,7 @@ func (this GPUTexture) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUTexture) Width() (ret GPUIntegerCoordinateOut, ok bool) {
 	ok = js.True == bindings.GetGPUTextureWidth(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -21235,7 +20815,7 @@ func (this GPUTexture) Width() (ret GPUIntegerCoordinateOut, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUTexture) Height() (ret GPUIntegerCoordinateOut, ok bool) {
 	ok = js.True == bindings.GetGPUTextureHeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -21245,7 +20825,7 @@ func (this GPUTexture) Height() (ret GPUIntegerCoordinateOut, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUTexture) DepthOrArrayLayers() (ret GPUIntegerCoordinateOut, ok bool) {
 	ok = js.True == bindings.GetGPUTextureDepthOrArrayLayers(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -21255,7 +20835,7 @@ func (this GPUTexture) DepthOrArrayLayers() (ret GPUIntegerCoordinateOut, ok boo
 // It returns ok=false if there is no such property.
 func (this GPUTexture) MipLevelCount() (ret GPUIntegerCoordinateOut, ok bool) {
 	ok = js.True == bindings.GetGPUTextureMipLevelCount(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -21265,7 +20845,7 @@ func (this GPUTexture) MipLevelCount() (ret GPUIntegerCoordinateOut, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUTexture) SampleCount() (ret GPUSize32Out, ok bool) {
 	ok = js.True == bindings.GetGPUTextureSampleCount(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -21275,7 +20855,7 @@ func (this GPUTexture) SampleCount() (ret GPUSize32Out, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUTexture) Dimension() (ret GPUTextureDimension, ok bool) {
 	ok = js.True == bindings.GetGPUTextureDimension(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -21285,7 +20865,7 @@ func (this GPUTexture) Dimension() (ret GPUTextureDimension, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUTexture) Format() (ret GPUTextureFormat, ok bool) {
 	ok = js.True == bindings.GetGPUTextureFormat(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -21295,7 +20875,7 @@ func (this GPUTexture) Format() (ret GPUTextureFormat, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUTexture) Usage() (ret GPUFlagsConstant, ok bool) {
 	ok = js.True == bindings.GetGPUTextureUsage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -21305,7 +20885,7 @@ func (this GPUTexture) Usage() (ret GPUFlagsConstant, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUTexture) Label() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGPUTextureLabel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -21315,31 +20895,30 @@ func (this GPUTexture) Label() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this GPUTexture) SetLabel(val js.String) bool {
 	return js.True == bindings.SetGPUTextureLabel(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
 
-// HasCreateView returns true if the method "GPUTexture.createView" exists.
-func (this GPUTexture) HasCreateView() bool {
-	return js.True == bindings.HasGPUTextureCreateView(
-		this.Ref(),
+// HasFuncCreateView returns true if the method "GPUTexture.createView" exists.
+func (this GPUTexture) HasFuncCreateView() bool {
+	return js.True == bindings.HasFuncGPUTextureCreateView(
+		this.ref,
 	)
 }
 
-// CreateViewFunc returns the method "GPUTexture.createView".
-func (this GPUTexture) CreateViewFunc() (fn js.Func[func(descriptor GPUTextureViewDescriptor) GPUTextureView]) {
-	return fn.FromRef(
-		bindings.GPUTextureCreateViewFunc(
-			this.Ref(),
-		),
+// FuncCreateView returns the method "GPUTexture.createView".
+func (this GPUTexture) FuncCreateView() (fn js.Func[func(descriptor GPUTextureViewDescriptor) GPUTextureView]) {
+	bindings.FuncGPUTextureCreateView(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateView calls the method "GPUTexture.createView".
 func (this GPUTexture) CreateView(descriptor GPUTextureViewDescriptor) (ret GPUTextureView) {
 	bindings.CallGPUTextureCreateView(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&descriptor),
 	)
 
@@ -21351,33 +20930,32 @@ func (this GPUTexture) CreateView(descriptor GPUTextureViewDescriptor) (ret GPUT
 // the catch clause.
 func (this GPUTexture) TryCreateView(descriptor GPUTextureViewDescriptor) (ret GPUTextureView, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUTextureCreateView(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&descriptor),
 	)
 
 	return
 }
 
-// HasCreateView1 returns true if the method "GPUTexture.createView" exists.
-func (this GPUTexture) HasCreateView1() bool {
-	return js.True == bindings.HasGPUTextureCreateView1(
-		this.Ref(),
+// HasFuncCreateView1 returns true if the method "GPUTexture.createView" exists.
+func (this GPUTexture) HasFuncCreateView1() bool {
+	return js.True == bindings.HasFuncGPUTextureCreateView1(
+		this.ref,
 	)
 }
 
-// CreateView1Func returns the method "GPUTexture.createView".
-func (this GPUTexture) CreateView1Func() (fn js.Func[func() GPUTextureView]) {
-	return fn.FromRef(
-		bindings.GPUTextureCreateView1Func(
-			this.Ref(),
-		),
+// FuncCreateView1 returns the method "GPUTexture.createView".
+func (this GPUTexture) FuncCreateView1() (fn js.Func[func() GPUTextureView]) {
+	bindings.FuncGPUTextureCreateView1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateView1 calls the method "GPUTexture.createView".
 func (this GPUTexture) CreateView1() (ret GPUTextureView) {
 	bindings.CallGPUTextureCreateView1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -21388,32 +20966,31 @@ func (this GPUTexture) CreateView1() (ret GPUTextureView) {
 // the catch clause.
 func (this GPUTexture) TryCreateView1() (ret GPUTextureView, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUTextureCreateView1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasDestroy returns true if the method "GPUTexture.destroy" exists.
-func (this GPUTexture) HasDestroy() bool {
-	return js.True == bindings.HasGPUTextureDestroy(
-		this.Ref(),
+// HasFuncDestroy returns true if the method "GPUTexture.destroy" exists.
+func (this GPUTexture) HasFuncDestroy() bool {
+	return js.True == bindings.HasFuncGPUTextureDestroy(
+		this.ref,
 	)
 }
 
-// DestroyFunc returns the method "GPUTexture.destroy".
-func (this GPUTexture) DestroyFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.GPUTextureDestroyFunc(
-			this.Ref(),
-		),
+// FuncDestroy returns the method "GPUTexture.destroy".
+func (this GPUTexture) FuncDestroy() (fn js.Func[func()]) {
+	bindings.FuncGPUTextureDestroy(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Destroy calls the method "GPUTexture.destroy".
 func (this GPUTexture) Destroy() (ret js.Void) {
 	bindings.CallGPUTextureDestroy(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -21424,7 +21001,7 @@ func (this GPUTexture) Destroy() (ret js.Void) {
 // the catch clause.
 func (this GPUTexture) TryDestroy() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUTextureDestroy(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return

@@ -1,0 +1,969 @@
+- File: webext/feedback_private.idl
+  Dict:
+    Name: AttachedFile
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - feedbackPrivate
+    Fields:
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: data
+        Type:
+          Name: object
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - Blob
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+- File: webext/feedback_private.idl
+  Enum:
+    Name: FeedbackFlow
+    Values:
+      - regular
+      - login
+      - sadTabCrash
+      - googleInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - feedbackPrivate
+- File: webext/feedback_private.idl
+  Dict:
+    Name: FeedbackInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - feedbackPrivate
+    Fields:
+      - Name: attachedFile
+        Type:
+          Name: AttachedFile
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: categoryTag
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: description
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: descriptionPlaceholder
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: email
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: pageUrl
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: productId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: screenshot
+        Type:
+          Name: object
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - Blob
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: traceId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: systemInformation
+        Type:
+          Name: sequence
+          Params:
+            - Name: LogsMapEntry
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - feedbackPrivate
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: sendHistograms
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: flow
+        Type:
+          Name: FeedbackFlow
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: attachedFileBlobUuid
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: screenshotBlobUuid
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: useSystemWindowFrame
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: sendBluetoothLogs
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: sendTabTitles
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: assistantDebugInfoAllowed
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: fromAssistant
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: includeBluetoothLogs
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: showQuestionnaire
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: fromAutofill
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: autofillMetadata
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: sendAutofillMetadata
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+- File: webext/feedback_private.idl
+  Enum:
+    Name: FeedbackSource
+    Values:
+      - quickoffice
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - feedbackPrivate
+- File: webext/feedback_private.idl
+  Callback:
+    Name: GetSystemInformationCallback
+    Args:
+      - Name: systemInformation
+        Type:
+          Name: sequence
+          Params:
+            - Name: LogsMapEntry
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - feedbackPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - feedbackPrivate
+- File: webext/feedback_private.idl
+  Callback:
+    Name: GetUserEmailCallback
+    Args:
+      - Name: email
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - feedbackPrivate
+- File: webext/feedback_private.idl
+  Enum:
+    Name: LandingPageType
+    Values:
+      - normal
+      - techstop
+      - noLandingPage
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - feedbackPrivate
+- File: webext/feedback_private.idl
+  Enum:
+    Name: LogSource
+    Values:
+      - messages
+      - uiLatest
+      - drmModetest
+      - lsusb
+      - atrusLog
+      - netLog
+      - eventLog
+      - updateEngineLog
+      - powerdLatest
+      - powerdPrevious
+      - lspci
+      - ifconfig
+      - uptime
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - feedbackPrivate
+- File: webext/feedback_private.idl
+  Dict:
+    Name: LogsMapEntry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - feedbackPrivate
+    Fields:
+      - Name: key
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: value
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+- File: webext/feedback_private.idl
+  Callback:
+    Name: ReadLogSourceCallback
+    Args:
+      - Name: result
+        Type:
+          Name: ReadLogSourceResult
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - feedbackPrivate
+- File: webext/feedback_private.idl
+  Dict:
+    Name: ReadLogSourceParams
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - feedbackPrivate
+    Fields:
+      - Name: source
+        Type:
+          Name: LogSource
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: incremental
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: readerId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+- File: webext/feedback_private.idl
+  Dict:
+    Name: ReadLogSourceResult
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - feedbackPrivate
+    Fields:
+      - Name: readerId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: logLines
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - feedbackPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+- File: webext/feedback_private.idl
+  Callback:
+    Name: SendFeedbackCallback
+    Args:
+      - Name: result
+        Type:
+          Name: SendFeedbackResult
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - feedbackPrivate
+- File: webext/feedback_private.idl
+  Dict:
+    Name: SendFeedbackResult
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - feedbackPrivate
+    Fields:
+      - Name: status
+        Type:
+          Name: Status
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: landingPageType
+        Type:
+          Name: LandingPageType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+- File: webext/feedback_private.idl
+  Enum:
+    Name: Status
+    Values:
+      - success
+      - delayed
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - feedbackPrivate
+- File: webext/feedback_private.idl
+  WebextFunc:
+    Name: getSystemInformation
+    Modifier: static
+    Args:
+      - Name: callback
+        Type:
+          Name: GetSystemInformationCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - feedbackPrivate
+- File: webext/feedback_private.idl
+  WebextFunc:
+    Name: getUserEmail
+    Modifier: static
+    Args:
+      - Name: callback
+        Type:
+          Name: GetUserEmailCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - feedbackPrivate
+- File: webext/feedback_private.idl
+  WebextEvent:
+    Name: onFeedbackRequested
+    Modifier: static
+    Args:
+      - Name: feedback
+        Type:
+          Name: FeedbackInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - feedbackPrivate
+- File: webext/feedback_private.idl
+  WebextFunc:
+    Name: openFeedback
+    Modifier: static
+    Args:
+      - Name: source
+        Type:
+          Name: FeedbackSource
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - feedbackPrivate
+- File: webext/feedback_private.idl
+  WebextFunc:
+    Name: readLogSource
+    Modifier: static
+    Args:
+      - Name: params
+        Type:
+          Name: ReadLogSourceParams
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: callback
+        Type:
+          Name: ReadLogSourceCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - feedbackPrivate
+- File: webext/feedback_private.idl
+  WebextFunc:
+    Name: sendFeedback
+    Modifier: static
+    Args:
+      - Name: feedback
+        Type:
+          Name: FeedbackInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: loadSystemInfo
+        Optional: true
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+      - Name: formOpenTime
+        Optional: true
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - feedbackPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - feedbackPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: SendFeedbackResult
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - feedbackPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - feedbackPrivate

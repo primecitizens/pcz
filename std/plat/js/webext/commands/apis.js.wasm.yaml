@@ -1,0 +1,80 @@
+- File: webext/chrome/commands.json
+  Dict:
+    Name: Command
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - commands
+    Fields:
+      - Name: description
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - commands
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - commands
+      - Name: shortcut
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - commands
+- File: webext/chrome/commands.json
+  WebextFunc:
+    Name: getAll
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: Command
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - commands
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - commands
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - commands
+- File: webext/chrome/commands.json
+  WebextEvent:
+    Name: onCommand
+    Args:
+      - Name: command
+        Type:
+          Name: DOMString
+      - Name: tab
+        Optional: true
+        Type:
+          Name: Tab
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - commands

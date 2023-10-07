@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web constof_FlowControlType
 //go:noescape
@@ -64,11 +62,11 @@ func GetSerialPortWritable(
 
 //go:wasmimport plat/js/web has_SerialPort_GetInfo
 //go:noescape
-func HasSerialPortGetInfo(this js.Ref) js.Ref
+func HasFuncSerialPortGetInfo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SerialPort_GetInfo
 //go:noescape
-func SerialPortGetInfoFunc(this js.Ref) js.Ref
+func FuncSerialPortGetInfo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SerialPort_GetInfo
 //go:noescape
@@ -82,11 +80,11 @@ func TrySerialPortGetInfo(
 
 //go:wasmimport plat/js/web has_SerialPort_Open
 //go:noescape
-func HasSerialPortOpen(this js.Ref) js.Ref
+func HasFuncSerialPortOpen(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SerialPort_Open
 //go:noescape
-func SerialPortOpenFunc(this js.Ref) js.Ref
+func FuncSerialPortOpen(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SerialPort_Open
 //go:noescape
@@ -102,11 +100,11 @@ func TrySerialPortOpen(
 
 //go:wasmimport plat/js/web has_SerialPort_SetSignals
 //go:noescape
-func HasSerialPortSetSignals(this js.Ref) js.Ref
+func HasFuncSerialPortSetSignals(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SerialPort_SetSignals
 //go:noescape
-func SerialPortSetSignalsFunc(this js.Ref) js.Ref
+func FuncSerialPortSetSignals(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SerialPort_SetSignals
 //go:noescape
@@ -122,11 +120,11 @@ func TrySerialPortSetSignals(
 
 //go:wasmimport plat/js/web has_SerialPort_SetSignals1
 //go:noescape
-func HasSerialPortSetSignals1(this js.Ref) js.Ref
+func HasFuncSerialPortSetSignals1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SerialPort_SetSignals1
 //go:noescape
-func SerialPortSetSignals1Func(this js.Ref) js.Ref
+func FuncSerialPortSetSignals1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SerialPort_SetSignals1
 //go:noescape
@@ -140,11 +138,11 @@ func TrySerialPortSetSignals1(
 
 //go:wasmimport plat/js/web has_SerialPort_GetSignals
 //go:noescape
-func HasSerialPortGetSignals(this js.Ref) js.Ref
+func HasFuncSerialPortGetSignals(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SerialPort_GetSignals
 //go:noescape
-func SerialPortGetSignalsFunc(this js.Ref) js.Ref
+func FuncSerialPortGetSignals(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SerialPort_GetSignals
 //go:noescape
@@ -158,11 +156,11 @@ func TrySerialPortGetSignals(
 
 //go:wasmimport plat/js/web has_SerialPort_Close
 //go:noescape
-func HasSerialPortClose(this js.Ref) js.Ref
+func HasFuncSerialPortClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SerialPort_Close
 //go:noescape
-func SerialPortCloseFunc(this js.Ref) js.Ref
+func FuncSerialPortClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SerialPort_Close
 //go:noescape
@@ -176,11 +174,11 @@ func TrySerialPortClose(
 
 //go:wasmimport plat/js/web has_SerialPort_Forget
 //go:noescape
-func HasSerialPortForget(this js.Ref) js.Ref
+func HasFuncSerialPortForget(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SerialPort_Forget
 //go:noescape
-func SerialPortForgetFunc(this js.Ref) js.Ref
+func FuncSerialPortForget(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SerialPort_Forget
 //go:noescape
@@ -214,11 +212,11 @@ func SerialPortRequestOptionsJSLoad(
 
 //go:wasmimport plat/js/web has_Serial_GetPorts
 //go:noescape
-func HasSerialGetPorts(this js.Ref) js.Ref
+func HasFuncSerialGetPorts(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Serial_GetPorts
 //go:noescape
-func SerialGetPortsFunc(this js.Ref) js.Ref
+func FuncSerialGetPorts(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Serial_GetPorts
 //go:noescape
@@ -232,11 +230,11 @@ func TrySerialGetPorts(
 
 //go:wasmimport plat/js/web has_Serial_RequestPort
 //go:noescape
-func HasSerialRequestPort(this js.Ref) js.Ref
+func HasFuncSerialRequestPort(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Serial_RequestPort
 //go:noescape
-func SerialRequestPortFunc(this js.Ref) js.Ref
+func FuncSerialRequestPort(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Serial_RequestPort
 //go:noescape
@@ -252,11 +250,11 @@ func TrySerialRequestPort(
 
 //go:wasmimport plat/js/web has_Serial_RequestPort1
 //go:noescape
-func HasSerialRequestPort1(this js.Ref) js.Ref
+func HasFuncSerialRequestPort1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Serial_RequestPort1
 //go:noescape
-func SerialRequestPort1Func(this js.Ref) js.Ref
+func FuncSerialRequestPort1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Serial_RequestPort1
 //go:noescape
@@ -356,11 +354,11 @@ func MediaCapabilitiesEncodingInfoJSLoad(
 
 //go:wasmimport plat/js/web has_MediaCapabilities_DecodingInfo
 //go:noescape
-func HasMediaCapabilitiesDecodingInfo(this js.Ref) js.Ref
+func HasFuncMediaCapabilitiesDecodingInfo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaCapabilities_DecodingInfo
 //go:noescape
-func MediaCapabilitiesDecodingInfoFunc(this js.Ref) js.Ref
+func FuncMediaCapabilitiesDecodingInfo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaCapabilities_DecodingInfo
 //go:noescape
@@ -376,11 +374,11 @@ func TryMediaCapabilitiesDecodingInfo(
 
 //go:wasmimport plat/js/web has_MediaCapabilities_EncodingInfo
 //go:noescape
-func HasMediaCapabilitiesEncodingInfo(this js.Ref) js.Ref
+func HasFuncMediaCapabilitiesEncodingInfo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaCapabilities_EncodingInfo
 //go:noescape
-func MediaCapabilitiesEncodingInfoFunc(this js.Ref) js.Ref
+func FuncMediaCapabilitiesEncodingInfo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaCapabilities_EncodingInfo
 //go:noescape
@@ -416,11 +414,11 @@ func GetPermissionStatusName(
 
 //go:wasmimport plat/js/web has_Permissions_Query
 //go:noescape
-func HasPermissionsQuery(this js.Ref) js.Ref
+func HasFuncPermissionsQuery(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Permissions_Query
 //go:noescape
-func PermissionsQueryFunc(this js.Ref) js.Ref
+func FuncPermissionsQuery(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Permissions_Query
 //go:noescape
@@ -436,11 +434,11 @@ func TryPermissionsQuery(
 
 //go:wasmimport plat/js/web has_Permissions_Revoke
 //go:noescape
-func HasPermissionsRevoke(this js.Ref) js.Ref
+func HasFuncPermissionsRevoke(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Permissions_Revoke
 //go:noescape
-func PermissionsRevokeFunc(this js.Ref) js.Ref
+func FuncPermissionsRevoke(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Permissions_Revoke
 //go:noescape
@@ -456,11 +454,11 @@ func TryPermissionsRevoke(
 
 //go:wasmimport plat/js/web has_Permissions_Request
 //go:noescape
-func HasPermissionsRequest(this js.Ref) js.Ref
+func HasFuncPermissionsRequest(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Permissions_Request
 //go:noescape
-func PermissionsRequestFunc(this js.Ref) js.Ref
+func FuncPermissionsRequest(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Permissions_Request
 //go:noescape
@@ -530,11 +528,11 @@ func GetContactAddressAddressLine(
 
 //go:wasmimport plat/js/web has_ContactAddress_ToJSON
 //go:noescape
-func HasContactAddressToJSON(this js.Ref) js.Ref
+func HasFuncContactAddressToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ContactAddress_ToJSON
 //go:noescape
-func ContactAddressToJSONFunc(this js.Ref) js.Ref
+func FuncContactAddressToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ContactAddress_ToJSON
 //go:noescape
@@ -568,11 +566,11 @@ func ContactsSelectOptionsJSLoad(
 
 //go:wasmimport plat/js/web has_ContactsManager_GetProperties
 //go:noescape
-func HasContactsManagerGetProperties(this js.Ref) js.Ref
+func HasFuncContactsManagerGetProperties(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ContactsManager_GetProperties
 //go:noescape
-func ContactsManagerGetPropertiesFunc(this js.Ref) js.Ref
+func FuncContactsManagerGetProperties(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ContactsManager_GetProperties
 //go:noescape
@@ -586,11 +584,11 @@ func TryContactsManagerGetProperties(
 
 //go:wasmimport plat/js/web has_ContactsManager_Select
 //go:noescape
-func HasContactsManagerSelect(this js.Ref) js.Ref
+func HasFuncContactsManagerSelect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ContactsManager_Select
 //go:noescape
-func ContactsManagerSelectFunc(this js.Ref) js.Ref
+func FuncContactsManagerSelect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ContactsManager_Select
 //go:noescape
@@ -608,11 +606,11 @@ func TryContactsManagerSelect(
 
 //go:wasmimport plat/js/web has_ContactsManager_Select1
 //go:noescape
-func HasContactsManagerSelect1(this js.Ref) js.Ref
+func HasFuncContactsManagerSelect1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ContactsManager_Select1
 //go:noescape
-func ContactsManagerSelect1Func(this js.Ref) js.Ref
+func FuncContactsManagerSelect1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ContactsManager_Select1
 //go:noescape
@@ -628,11 +626,11 @@ func TryContactsManagerSelect1(
 
 //go:wasmimport plat/js/web has_Keyboard_Lock
 //go:noescape
-func HasKeyboardLock(this js.Ref) js.Ref
+func HasFuncKeyboardLock(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Keyboard_Lock
 //go:noescape
-func KeyboardLockFunc(this js.Ref) js.Ref
+func FuncKeyboardLock(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Keyboard_Lock
 //go:noescape
@@ -648,11 +646,11 @@ func TryKeyboardLock(
 
 //go:wasmimport plat/js/web has_Keyboard_Lock1
 //go:noescape
-func HasKeyboardLock1(this js.Ref) js.Ref
+func HasFuncKeyboardLock1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Keyboard_Lock1
 //go:noescape
-func KeyboardLock1Func(this js.Ref) js.Ref
+func FuncKeyboardLock1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Keyboard_Lock1
 //go:noescape
@@ -666,11 +664,11 @@ func TryKeyboardLock1(
 
 //go:wasmimport plat/js/web has_Keyboard_Unlock
 //go:noescape
-func HasKeyboardUnlock(this js.Ref) js.Ref
+func HasFuncKeyboardUnlock(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Keyboard_Unlock
 //go:noescape
-func KeyboardUnlockFunc(this js.Ref) js.Ref
+func FuncKeyboardUnlock(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Keyboard_Unlock
 //go:noescape
@@ -684,11 +682,11 @@ func TryKeyboardUnlock(
 
 //go:wasmimport plat/js/web has_Keyboard_GetLayoutMap
 //go:noescape
-func HasKeyboardGetLayoutMap(this js.Ref) js.Ref
+func HasFuncKeyboardGetLayoutMap(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Keyboard_GetLayoutMap
 //go:noescape
-func KeyboardGetLayoutMapFunc(this js.Ref) js.Ref
+func FuncKeyboardGetLayoutMap(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Keyboard_GetLayoutMap
 //go:noescape
@@ -831,11 +829,11 @@ func SetMediaSessionPlaybackState(
 
 //go:wasmimport plat/js/web has_MediaSession_SetActionHandler
 //go:noescape
-func HasMediaSessionSetActionHandler(this js.Ref) js.Ref
+func HasFuncMediaSessionSetActionHandler(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaSession_SetActionHandler
 //go:noescape
-func MediaSessionSetActionHandlerFunc(this js.Ref) js.Ref
+func FuncMediaSessionSetActionHandler(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaSession_SetActionHandler
 //go:noescape
@@ -853,11 +851,11 @@ func TryMediaSessionSetActionHandler(
 
 //go:wasmimport plat/js/web has_MediaSession_SetPositionState
 //go:noescape
-func HasMediaSessionSetPositionState(this js.Ref) js.Ref
+func HasFuncMediaSessionSetPositionState(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaSession_SetPositionState
 //go:noescape
-func MediaSessionSetPositionStateFunc(this js.Ref) js.Ref
+func FuncMediaSessionSetPositionState(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaSession_SetPositionState
 //go:noescape
@@ -873,11 +871,11 @@ func TryMediaSessionSetPositionState(
 
 //go:wasmimport plat/js/web has_MediaSession_SetPositionState1
 //go:noescape
-func HasMediaSessionSetPositionState1(this js.Ref) js.Ref
+func HasFuncMediaSessionSetPositionState1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaSession_SetPositionState1
 //go:noescape
-func MediaSessionSetPositionState1Func(this js.Ref) js.Ref
+func FuncMediaSessionSetPositionState1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaSession_SetPositionState1
 //go:noescape
@@ -891,11 +889,11 @@ func TryMediaSessionSetPositionState1(
 
 //go:wasmimport plat/js/web has_MediaSession_SetMicrophoneActive
 //go:noescape
-func HasMediaSessionSetMicrophoneActive(this js.Ref) js.Ref
+func HasFuncMediaSessionSetMicrophoneActive(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaSession_SetMicrophoneActive
 //go:noescape
-func MediaSessionSetMicrophoneActiveFunc(this js.Ref) js.Ref
+func FuncMediaSessionSetMicrophoneActive(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaSession_SetMicrophoneActive
 //go:noescape
@@ -911,11 +909,11 @@ func TryMediaSessionSetMicrophoneActive(
 
 //go:wasmimport plat/js/web has_MediaSession_SetCameraActive
 //go:noescape
-func HasMediaSessionSetCameraActive(this js.Ref) js.Ref
+func HasFuncMediaSessionSetCameraActive(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaSession_SetCameraActive
 //go:noescape
-func MediaSessionSetCameraActiveFunc(this js.Ref) js.Ref
+func FuncMediaSessionSetCameraActive(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaSession_SetCameraActive
 //go:noescape

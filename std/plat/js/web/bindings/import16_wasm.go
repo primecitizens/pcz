@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web constof_GPUAutoLayoutMode
 //go:noescape
@@ -56,11 +54,11 @@ func SetGPUComputePipelineLabel(
 
 //go:wasmimport plat/js/web has_GPUComputePipeline_GetBindGroupLayout
 //go:noescape
-func HasGPUComputePipelineGetBindGroupLayout(this js.Ref) js.Ref
+func HasFuncGPUComputePipelineGetBindGroupLayout(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUComputePipeline_GetBindGroupLayout
 //go:noescape
-func GPUComputePipelineGetBindGroupLayoutFunc(this js.Ref) js.Ref
+func FuncGPUComputePipelineGetBindGroupLayout(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUComputePipeline_GetBindGroupLayout
 //go:noescape
@@ -108,11 +106,11 @@ func SetGPURenderPipelineLabel(
 
 //go:wasmimport plat/js/web has_GPURenderPipeline_GetBindGroupLayout
 //go:noescape
-func HasGPURenderPipelineGetBindGroupLayout(this js.Ref) js.Ref
+func HasFuncGPURenderPipelineGetBindGroupLayout(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPURenderPipeline_GetBindGroupLayout
 //go:noescape
-func GPURenderPipelineGetBindGroupLayoutFunc(this js.Ref) js.Ref
+func FuncGPURenderPipelineGetBindGroupLayout(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPURenderPipeline_GetBindGroupLayout
 //go:noescape

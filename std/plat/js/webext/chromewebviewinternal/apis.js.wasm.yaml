@@ -1,0 +1,572 @@
+- File: webext/chrome/chrome_web_view_internal.json
+  Dict:
+    Name: ContextMenuItem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeWebViewInternal
+    Fields:
+      - Name: commandId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeWebViewInternal
+      - Name: label
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeWebViewInternal
+- File: webext/chrome/chrome_web_view_internal.json
+  Callback:
+    Name: ContextMenusCreateArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeWebViewInternal
+- File: webext/chrome/chrome_web_view_internal.json
+  Dict:
+    Name: ContextMenusCreateArgCreateProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeWebViewInternal
+    Fields:
+      - Name: checked
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeWebViewInternal
+      - Name: contexts
+        Type:
+          Name: sequence
+          Params:
+            - Name: ContextType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - contextMenus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeWebViewInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeWebViewInternal
+      - Name: documentUrlPatterns
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeWebViewInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeWebViewInternal
+      - Name: enabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeWebViewInternal
+      - Name: id
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeWebViewInternal
+      - Name: onclick
+        Type:
+          Name: ContextMenusCreateArgCreatePropertiesFieldOnclick
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeWebViewInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeWebViewInternal
+      - Name: parentId
+        Type:
+          Union:
+            - Name: long long
+            - Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeWebViewInternal
+      - Name: targetUrlPatterns
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeWebViewInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeWebViewInternal
+      - Name: title
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeWebViewInternal
+      - Name: type
+        Type:
+          Name: ItemType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeWebViewInternal
+      - Name: visible
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeWebViewInternal
+- File: webext/chrome/chrome_web_view_internal.json
+  Callback:
+    Name: ContextMenusCreateArgCreatePropertiesFieldOnclick
+    Args:
+      - Name: info
+        Type:
+          Name: OnClickData
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeWebViewInternal
+- File: webext/chrome/chrome_web_view_internal.json
+  Callback:
+    Name: ContextMenusRemoveAllArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeWebViewInternal
+- File: webext/chrome/chrome_web_view_internal.json
+  Callback:
+    Name: ContextMenusRemoveArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeWebViewInternal
+- File: webext/chrome/chrome_web_view_internal.json
+  Callback:
+    Name: ContextMenusUpdateArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeWebViewInternal
+- File: webext/chrome/chrome_web_view_internal.json
+  Dict:
+    Name: ContextMenusUpdateArgUpdateProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeWebViewInternal
+    Fields:
+      - Name: checked
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeWebViewInternal
+      - Name: contexts
+        Type:
+          Name: sequence
+          Params:
+            - Name: ContextType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - contextMenus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeWebViewInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeWebViewInternal
+      - Name: documentUrlPatterns
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeWebViewInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeWebViewInternal
+      - Name: enabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeWebViewInternal
+      - Name: onclick
+        Type:
+          Name: ContextMenusUpdateArgUpdatePropertiesFieldOnclick
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeWebViewInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeWebViewInternal
+      - Name: parentId
+        Type:
+          Union:
+            - Name: long long
+            - Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeWebViewInternal
+      - Name: targetUrlPatterns
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeWebViewInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeWebViewInternal
+      - Name: title
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeWebViewInternal
+      - Name: type
+        Type:
+          Name: ItemType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - contextMenus
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeWebViewInternal
+      - Name: visible
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeWebViewInternal
+- File: webext/chrome/chrome_web_view_internal.json
+  Callback:
+    Name: ContextMenusUpdateArgUpdatePropertiesFieldOnclick
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeWebViewInternal
+- File: webext/chrome/chrome_web_view_internal.json
+  Dict:
+    Name: OnShowArgEvent
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeWebViewInternal
+    Fields:
+      - Name: preventDefault
+        Required: true
+        Type:
+          Name: OnShowArgEventFieldPreventDefault
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeWebViewInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeWebViewInternal
+- File: webext/chrome/chrome_web_view_internal.json
+  Callback:
+    Name: OnShowArgEventFieldPreventDefault
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeWebViewInternal
+- File: webext/chrome/chrome_web_view_internal.json
+  WebextFunc:
+    Name: contextMenusCreate
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: createProperties
+        Type:
+          Name: ContextMenusCreateArgCreateProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeWebViewInternal
+      - Name: callback
+        Optional: true
+        Type:
+          Name: ContextMenusCreateArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeWebViewInternal
+    Returns:
+      - Union:
+          - Name: long long
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeWebViewInternal
+- File: webext/chrome/chrome_web_view_internal.json
+  WebextFunc:
+    Name: contextMenusRemove
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: menuItemId
+        Type:
+          Union:
+            - Name: long long
+            - Name: DOMString
+      - Name: callback
+        Optional: true
+        Type:
+          Name: ContextMenusRemoveArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeWebViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeWebViewInternal
+- File: webext/chrome/chrome_web_view_internal.json
+  WebextFunc:
+    Name: contextMenusRemoveAll
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: callback
+        Optional: true
+        Type:
+          Name: ContextMenusRemoveAllArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeWebViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeWebViewInternal
+- File: webext/chrome/chrome_web_view_internal.json
+  WebextFunc:
+    Name: contextMenusUpdate
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: id
+        Type:
+          Union:
+            - Name: long long
+            - Name: DOMString
+      - Name: updateProperties
+        Type:
+          Name: ContextMenusUpdateArgUpdateProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeWebViewInternal
+      - Name: callback
+        Optional: true
+        Type:
+          Name: ContextMenusUpdateArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeWebViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeWebViewInternal
+- File: webext/chrome/chrome_web_view_internal.json
+  WebextEvent:
+    Name: onClicked
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeWebViewInternal
+- File: webext/chrome/chrome_web_view_internal.json
+  WebextEvent:
+    Name: onShow
+    Args:
+      - Name: event
+        Type:
+          Name: OnShowArgEvent
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeWebViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeWebViewInternal
+- File: webext/chrome/chrome_web_view_internal.json
+  WebextFunc:
+    Name: showContextMenu
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: requestId
+        Type:
+          Name: long long
+      - Name: itemsToShow
+        Optional: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: ContextMenuItem
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - chromeWebViewInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeWebViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeWebViewInternal

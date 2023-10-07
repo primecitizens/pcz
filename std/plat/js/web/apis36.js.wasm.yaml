@@ -1,4 +1,4 @@
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGElement
     Inherits: Element
@@ -404,7 +404,7 @@
       - Name: blur
         Returns:
           - Name: undefined
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGEllipseElement
     Inherits: SVGGeometryElement
@@ -449,7 +449,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFEBlendElement
     Inherits: SVGElement
@@ -571,7 +571,7 @@
         Readonly: true
         Type:
           Name: SVGAnimatedString
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFEColorMatrixElement
     Inherits: SVGElement
@@ -645,7 +645,7 @@
         Readonly: true
         Type:
           Name: SVGAnimatedString
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFEComponentTransferElement
     Inherits: SVGElement
@@ -682,7 +682,7 @@
         Readonly: true
         Type:
           Name: SVGAnimatedString
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFECompositeElement
     Inherits: SVGElement
@@ -796,7 +796,7 @@
         Readonly: true
         Type:
           Name: SVGAnimatedString
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFEConvolveMatrixElement
     Inherits: SVGElement
@@ -938,7 +938,7 @@
         Readonly: true
         Type:
           Name: SVGAnimatedString
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFEDiffuseLightingElement
     Inherits: SVGElement
@@ -1007,7 +1007,7 @@
         Readonly: true
         Type:
           Name: SVGAnimatedString
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFEDisplacementMapElement
     Inherits: SVGElement
@@ -1097,7 +1097,7 @@
         Readonly: true
         Type:
           Name: SVGAnimatedString
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFEDistantLightElement
     Inherits: SVGElement
@@ -1122,7 +1122,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFEDropShadowElement
     Inherits: SVGElement
@@ -1206,7 +1206,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFEFloodElement
     Inherits: SVGElement
@@ -1235,7 +1235,7 @@
         Readonly: true
         Type:
           Name: SVGAnimatedString
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFEFuncAElement
     Inherits: SVGComponentTransferFunctionElement
@@ -1243,7 +1243,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFEFuncBElement
     Inherits: SVGComponentTransferFunctionElement
@@ -1251,7 +1251,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFEFuncGElement
     Inherits: SVGComponentTransferFunctionElement
@@ -1259,7 +1259,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFEFuncRElement
     Inherits: SVGComponentTransferFunctionElement
@@ -1267,7 +1267,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFEGaussianBlurElement
     Inherits: SVGElement
@@ -1360,7 +1360,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFEImageElement
     Inherits: SVGElement
@@ -1411,7 +1411,7 @@
           Name: SVGAnimatedString
         ExtAttrs:
           - Name: SameObject
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFEMergeElement
     Inherits: SVGElement
@@ -1440,7 +1440,7 @@
         Readonly: true
         Type:
           Name: SVGAnimatedString
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFEMergeNodeElement
     Inherits: SVGElement
@@ -1457,7 +1457,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFEMorphologyElement
     Inherits: SVGElement
@@ -1531,7 +1531,7 @@
         Readonly: true
         Type:
           Name: SVGAnimatedString
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFEOffsetElement
     Inherits: SVGElement
@@ -1584,7 +1584,7 @@
         Readonly: true
         Type:
           Name: SVGAnimatedString
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFEPointLightElement
     Inherits: SVGElement
@@ -1617,7 +1617,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFESpecularLightingElement
     Inherits: SVGElement
@@ -1694,7 +1694,7 @@
         Readonly: true
         Type:
           Name: SVGAnimatedString
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFESpotLightElement
     Inherits: SVGElement
@@ -1767,7 +1767,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFETileElement
     Inherits: SVGElement
@@ -1804,7 +1804,7 @@
         Readonly: true
         Type:
           Name: SVGAnimatedString
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFETurbulenceElement
     Inherits: SVGElement
@@ -1906,7 +1906,7 @@
         Readonly: true
         Type:
           Name: SVGAnimatedString
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGFilterElement
     Inherits: SVGElement
@@ -1969,7 +1969,7 @@
           Name: SVGAnimatedString
         ExtAttrs:
           - Name: SameObject
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGForeignObjectElement
     Inherits: SVGGraphicsElement
@@ -2014,7 +2014,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGGElement
     Inherits: SVGGraphicsElement
@@ -2022,7 +2022,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGGeometryElement
     Inherits: SVGGraphicsElement
@@ -2085,7 +2085,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGGradientElement
     Inherits: SVGElement
@@ -2144,7 +2144,7 @@
           Name: SVGAnimatedString
         ExtAttrs:
           - Name: SameObject
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGGraphicsElement
     Inherits: SVGElement
@@ -2204,7 +2204,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGImageElement
     Inherits: SVGGraphicsElement
@@ -2272,7 +2272,7 @@
           Name: SVGAnimatedString
         ExtAttrs:
           - Name: SameObject
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGLength
     ExtAttrs:
@@ -2380,7 +2380,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGLengthList
     ExtAttrs:
@@ -2499,7 +2499,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGLineElement
     Inherits: SVGGeometryElement
@@ -2544,7 +2544,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGLinearGradientElement
     Inherits: SVGGradientElement
@@ -2589,7 +2589,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: svg-animations.idl
+- File: webref/svg-animations.idl
   Interface:
     Name: SVGMPathElement
     Inherits: SVGElement
@@ -2604,7 +2604,7 @@
           Name: SVGAnimatedString
         ExtAttrs:
           - Name: SameObject
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGMarkerElement
     Inherits: SVGElement
@@ -2739,7 +2739,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-masking.idl
+- File: webref/css-masking.idl
   Interface:
     Name: SVGMaskElement
     Inherits: SVGElement
@@ -2796,7 +2796,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGMetadataElement
     Inherits: SVGElement
@@ -2804,7 +2804,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGNumber
     ExtAttrs:
@@ -2819,7 +2819,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGNumberList
     ExtAttrs:
@@ -2938,7 +2938,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGPathElement
     Inherits: SVGGeometryElement
@@ -2946,7 +2946,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGPatternElement
     Inherits: SVGElement
@@ -3036,7 +3036,7 @@
           Name: SVGAnimatedString
         ExtAttrs:
           - Name: SameObject
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGPointList
     ExtAttrs:
@@ -3155,7 +3155,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGPolygonElement
     Inherits: SVGGeometryElement
@@ -3176,7 +3176,7 @@
           Name: SVGPointList
         ExtAttrs:
           - Name: SameObject
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGPolylineElement
     Inherits: SVGGeometryElement
@@ -3197,7 +3197,7 @@
           Name: SVGPointList
         ExtAttrs:
           - Name: SameObject
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGPreserveAspectRatio
     ExtAttrs:

@@ -4,18 +4,9 @@
 package web
 
 import (
-	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 type RTCAudioPlayoutStats struct {
 	// Kind is "RTCAudioPlayoutStats.kind"
@@ -88,17 +79,28 @@ func (p RTCAudioPlayoutStats) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCAudioPlayoutStats) UpdateFrom(ref js.Ref) {
+func (p *RTCAudioPlayoutStats) UpdateFrom(ref js.Ref) {
 	bindings.RTCAudioPlayoutStatsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCAudioPlayoutStats) Update(ref js.Ref) {
+func (p *RTCAudioPlayoutStats) Update(ref js.Ref) {
 	bindings.RTCAudioPlayoutStatsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCAudioPlayoutStats) FreeMembers(recursive bool) {
+	js.Free(
+		p.Kind.Ref(),
+		p.Id.Ref(),
+	)
+	p.Kind = p.Kind.FromRef(js.Undefined)
+	p.Id = p.Id.FromRef(js.Undefined)
 }
 
 type RTCAudioSourceStats struct {
@@ -204,17 +206,30 @@ func (p RTCAudioSourceStats) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCAudioSourceStats) UpdateFrom(ref js.Ref) {
+func (p *RTCAudioSourceStats) UpdateFrom(ref js.Ref) {
 	bindings.RTCAudioSourceStatsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCAudioSourceStats) Update(ref js.Ref) {
+func (p *RTCAudioSourceStats) Update(ref js.Ref) {
 	bindings.RTCAudioSourceStatsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCAudioSourceStats) FreeMembers(recursive bool) {
+	js.Free(
+		p.TrackIdentifier.Ref(),
+		p.Kind.Ref(),
+		p.Id.Ref(),
+	)
+	p.TrackIdentifier = p.TrackIdentifier.FromRef(js.Undefined)
+	p.Kind = p.Kind.FromRef(js.Undefined)
+	p.Id = p.Id.FromRef(js.Undefined)
 }
 
 type RTCBundlePolicy uint32
@@ -271,17 +286,28 @@ func (p RTCDtlsFingerprint) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCDtlsFingerprint) UpdateFrom(ref js.Ref) {
+func (p *RTCDtlsFingerprint) UpdateFrom(ref js.Ref) {
 	bindings.RTCDtlsFingerprintJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCDtlsFingerprint) Update(ref js.Ref) {
+func (p *RTCDtlsFingerprint) Update(ref js.Ref) {
 	bindings.RTCDtlsFingerprintJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCDtlsFingerprint) FreeMembers(recursive bool) {
+	js.Free(
+		p.Algorithm.Ref(),
+		p.Value.Ref(),
+	)
+	p.Algorithm = p.Algorithm.FromRef(js.Undefined)
+	p.Value = p.Value.FromRef(js.Undefined)
 }
 
 type RTCCertificate struct {
@@ -289,7 +315,7 @@ type RTCCertificate struct {
 }
 
 func (this RTCCertificate) Once() RTCCertificate {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -303,7 +329,7 @@ func (this RTCCertificate) FromRef(ref js.Ref) RTCCertificate {
 }
 
 func (this RTCCertificate) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Expires returns the value of property "RTCCertificate.expires".
@@ -311,31 +337,30 @@ func (this RTCCertificate) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCCertificate) Expires() (ret EpochTimeStamp, ok bool) {
 	ok = js.True == bindings.GetRTCCertificateExpires(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGetFingerprints returns true if the method "RTCCertificate.getFingerprints" exists.
-func (this RTCCertificate) HasGetFingerprints() bool {
-	return js.True == bindings.HasRTCCertificateGetFingerprints(
-		this.Ref(),
+// HasFuncGetFingerprints returns true if the method "RTCCertificate.getFingerprints" exists.
+func (this RTCCertificate) HasFuncGetFingerprints() bool {
+	return js.True == bindings.HasFuncRTCCertificateGetFingerprints(
+		this.ref,
 	)
 }
 
-// GetFingerprintsFunc returns the method "RTCCertificate.getFingerprints".
-func (this RTCCertificate) GetFingerprintsFunc() (fn js.Func[func() js.Array[RTCDtlsFingerprint]]) {
-	return fn.FromRef(
-		bindings.RTCCertificateGetFingerprintsFunc(
-			this.Ref(),
-		),
+// FuncGetFingerprints returns the method "RTCCertificate.getFingerprints".
+func (this RTCCertificate) FuncGetFingerprints() (fn js.Func[func() js.Array[RTCDtlsFingerprint]]) {
+	bindings.FuncRTCCertificateGetFingerprints(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetFingerprints calls the method "RTCCertificate.getFingerprints".
 func (this RTCCertificate) GetFingerprints() (ret js.Array[RTCDtlsFingerprint]) {
 	bindings.CallRTCCertificateGetFingerprints(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -346,7 +371,7 @@ func (this RTCCertificate) GetFingerprints() (ret js.Array[RTCDtlsFingerprint]) 
 // the catch clause.
 func (this RTCCertificate) TryGetFingerprints() (ret js.Array[RTCDtlsFingerprint], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCCertificateGetFingerprints(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -379,17 +404,22 @@ func (p RTCCertificateExpiration) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCCertificateExpiration) UpdateFrom(ref js.Ref) {
+func (p *RTCCertificateExpiration) UpdateFrom(ref js.Ref) {
 	bindings.RTCCertificateExpirationJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCCertificateExpiration) Update(ref js.Ref) {
+func (p *RTCCertificateExpiration) Update(ref js.Ref) {
 	bindings.RTCCertificateExpirationJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCCertificateExpiration) FreeMembers(recursive bool) {
 }
 
 type RTCCertificateStats struct {
@@ -439,17 +469,34 @@ func (p RTCCertificateStats) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCCertificateStats) UpdateFrom(ref js.Ref) {
+func (p *RTCCertificateStats) UpdateFrom(ref js.Ref) {
 	bindings.RTCCertificateStatsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCCertificateStats) Update(ref js.Ref) {
+func (p *RTCCertificateStats) Update(ref js.Ref) {
 	bindings.RTCCertificateStatsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCCertificateStats) FreeMembers(recursive bool) {
+	js.Free(
+		p.Fingerprint.Ref(),
+		p.FingerprintAlgorithm.Ref(),
+		p.Base64Certificate.Ref(),
+		p.IssuerCertificateId.Ref(),
+		p.Id.Ref(),
+	)
+	p.Fingerprint = p.Fingerprint.FromRef(js.Undefined)
+	p.FingerprintAlgorithm = p.FingerprintAlgorithm.FromRef(js.Undefined)
+	p.Base64Certificate = p.Base64Certificate.FromRef(js.Undefined)
+	p.IssuerCertificateId = p.IssuerCertificateId.FromRef(js.Undefined)
+	p.Id = p.Id.FromRef(js.Undefined)
 }
 
 type RTCCodecStats struct {
@@ -514,17 +561,32 @@ func (p RTCCodecStats) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCCodecStats) UpdateFrom(ref js.Ref) {
+func (p *RTCCodecStats) UpdateFrom(ref js.Ref) {
 	bindings.RTCCodecStatsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCCodecStats) Update(ref js.Ref) {
+func (p *RTCCodecStats) Update(ref js.Ref) {
 	bindings.RTCCodecStatsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCCodecStats) FreeMembers(recursive bool) {
+	js.Free(
+		p.TransportId.Ref(),
+		p.MimeType.Ref(),
+		p.SdpFmtpLine.Ref(),
+		p.Id.Ref(),
+	)
+	p.TransportId = p.TransportId.FromRef(js.Undefined)
+	p.MimeType = p.MimeType.FromRef(js.Undefined)
+	p.SdpFmtpLine = p.SdpFmtpLine.FromRef(js.Undefined)
+	p.Id = p.Id.FromRef(js.Undefined)
 }
 
 type RTCIceServer struct {
@@ -558,17 +620,30 @@ func (p RTCIceServer) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCIceServer) UpdateFrom(ref js.Ref) {
+func (p *RTCIceServer) UpdateFrom(ref js.Ref) {
 	bindings.RTCIceServerJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCIceServer) Update(ref js.Ref) {
+func (p *RTCIceServer) Update(ref js.Ref) {
 	bindings.RTCIceServerJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCIceServer) FreeMembers(recursive bool) {
+	js.Free(
+		p.Urls.Ref(),
+		p.Username.Ref(),
+		p.Credential.Ref(),
+	)
+	p.Urls = p.Urls.FromRef(js.Undefined)
+	p.Username = p.Username.FromRef(js.Undefined)
+	p.Credential = p.Credential.FromRef(js.Undefined)
 }
 
 type RTCIceTransportPolicy uint32
@@ -667,17 +742,30 @@ func (p RTCConfiguration) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCConfiguration) UpdateFrom(ref js.Ref) {
+func (p *RTCConfiguration) UpdateFrom(ref js.Ref) {
 	bindings.RTCConfigurationJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCConfiguration) Update(ref js.Ref) {
+func (p *RTCConfiguration) Update(ref js.Ref) {
 	bindings.RTCConfigurationJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCConfiguration) FreeMembers(recursive bool) {
+	js.Free(
+		p.IceServers.Ref(),
+		p.Certificates.Ref(),
+		p.PeerIdentity.Ref(),
+	)
+	p.IceServers = p.IceServers.FromRef(js.Undefined)
+	p.Certificates = p.Certificates.FromRef(js.Undefined)
+	p.PeerIdentity = p.PeerIdentity.FromRef(js.Undefined)
 }
 
 type RTCDTMFSender struct {
@@ -685,7 +773,7 @@ type RTCDTMFSender struct {
 }
 
 func (this RTCDTMFSender) Once() RTCDTMFSender {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -699,7 +787,7 @@ func (this RTCDTMFSender) FromRef(ref js.Ref) RTCDTMFSender {
 }
 
 func (this RTCDTMFSender) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // CanInsertDTMF returns the value of property "RTCDTMFSender.canInsertDTMF".
@@ -707,7 +795,7 @@ func (this RTCDTMFSender) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCDTMFSender) CanInsertDTMF() (ret bool, ok bool) {
 	ok = js.True == bindings.GetRTCDTMFSenderCanInsertDTMF(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -717,31 +805,30 @@ func (this RTCDTMFSender) CanInsertDTMF() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCDTMFSender) ToneBuffer() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRTCDTMFSenderToneBuffer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasInsertDTMF returns true if the method "RTCDTMFSender.insertDTMF" exists.
-func (this RTCDTMFSender) HasInsertDTMF() bool {
-	return js.True == bindings.HasRTCDTMFSenderInsertDTMF(
-		this.Ref(),
+// HasFuncInsertDTMF returns true if the method "RTCDTMFSender.insertDTMF" exists.
+func (this RTCDTMFSender) HasFuncInsertDTMF() bool {
+	return js.True == bindings.HasFuncRTCDTMFSenderInsertDTMF(
+		this.ref,
 	)
 }
 
-// InsertDTMFFunc returns the method "RTCDTMFSender.insertDTMF".
-func (this RTCDTMFSender) InsertDTMFFunc() (fn js.Func[func(tones js.String, duration uint32, interToneGap uint32)]) {
-	return fn.FromRef(
-		bindings.RTCDTMFSenderInsertDTMFFunc(
-			this.Ref(),
-		),
+// FuncInsertDTMF returns the method "RTCDTMFSender.insertDTMF".
+func (this RTCDTMFSender) FuncInsertDTMF() (fn js.Func[func(tones js.String, duration uint32, interToneGap uint32)]) {
+	bindings.FuncRTCDTMFSenderInsertDTMF(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InsertDTMF calls the method "RTCDTMFSender.insertDTMF".
 func (this RTCDTMFSender) InsertDTMF(tones js.String, duration uint32, interToneGap uint32) (ret js.Void) {
 	bindings.CallRTCDTMFSenderInsertDTMF(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		tones.Ref(),
 		uint32(duration),
 		uint32(interToneGap),
@@ -755,7 +842,7 @@ func (this RTCDTMFSender) InsertDTMF(tones js.String, duration uint32, interTone
 // the catch clause.
 func (this RTCDTMFSender) TryInsertDTMF(tones js.String, duration uint32, interToneGap uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCDTMFSenderInsertDTMF(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		tones.Ref(),
 		uint32(duration),
 		uint32(interToneGap),
@@ -764,26 +851,25 @@ func (this RTCDTMFSender) TryInsertDTMF(tones js.String, duration uint32, interT
 	return
 }
 
-// HasInsertDTMF1 returns true if the method "RTCDTMFSender.insertDTMF" exists.
-func (this RTCDTMFSender) HasInsertDTMF1() bool {
-	return js.True == bindings.HasRTCDTMFSenderInsertDTMF1(
-		this.Ref(),
+// HasFuncInsertDTMF1 returns true if the method "RTCDTMFSender.insertDTMF" exists.
+func (this RTCDTMFSender) HasFuncInsertDTMF1() bool {
+	return js.True == bindings.HasFuncRTCDTMFSenderInsertDTMF1(
+		this.ref,
 	)
 }
 
-// InsertDTMF1Func returns the method "RTCDTMFSender.insertDTMF".
-func (this RTCDTMFSender) InsertDTMF1Func() (fn js.Func[func(tones js.String, duration uint32)]) {
-	return fn.FromRef(
-		bindings.RTCDTMFSenderInsertDTMF1Func(
-			this.Ref(),
-		),
+// FuncInsertDTMF1 returns the method "RTCDTMFSender.insertDTMF".
+func (this RTCDTMFSender) FuncInsertDTMF1() (fn js.Func[func(tones js.String, duration uint32)]) {
+	bindings.FuncRTCDTMFSenderInsertDTMF1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InsertDTMF1 calls the method "RTCDTMFSender.insertDTMF".
 func (this RTCDTMFSender) InsertDTMF1(tones js.String, duration uint32) (ret js.Void) {
 	bindings.CallRTCDTMFSenderInsertDTMF1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		tones.Ref(),
 		uint32(duration),
 	)
@@ -796,7 +882,7 @@ func (this RTCDTMFSender) InsertDTMF1(tones js.String, duration uint32) (ret js.
 // the catch clause.
 func (this RTCDTMFSender) TryInsertDTMF1(tones js.String, duration uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCDTMFSenderInsertDTMF1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		tones.Ref(),
 		uint32(duration),
 	)
@@ -804,26 +890,25 @@ func (this RTCDTMFSender) TryInsertDTMF1(tones js.String, duration uint32) (ret 
 	return
 }
 
-// HasInsertDTMF2 returns true if the method "RTCDTMFSender.insertDTMF" exists.
-func (this RTCDTMFSender) HasInsertDTMF2() bool {
-	return js.True == bindings.HasRTCDTMFSenderInsertDTMF2(
-		this.Ref(),
+// HasFuncInsertDTMF2 returns true if the method "RTCDTMFSender.insertDTMF" exists.
+func (this RTCDTMFSender) HasFuncInsertDTMF2() bool {
+	return js.True == bindings.HasFuncRTCDTMFSenderInsertDTMF2(
+		this.ref,
 	)
 }
 
-// InsertDTMF2Func returns the method "RTCDTMFSender.insertDTMF".
-func (this RTCDTMFSender) InsertDTMF2Func() (fn js.Func[func(tones js.String)]) {
-	return fn.FromRef(
-		bindings.RTCDTMFSenderInsertDTMF2Func(
-			this.Ref(),
-		),
+// FuncInsertDTMF2 returns the method "RTCDTMFSender.insertDTMF".
+func (this RTCDTMFSender) FuncInsertDTMF2() (fn js.Func[func(tones js.String)]) {
+	bindings.FuncRTCDTMFSenderInsertDTMF2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InsertDTMF2 calls the method "RTCDTMFSender.insertDTMF".
 func (this RTCDTMFSender) InsertDTMF2(tones js.String) (ret js.Void) {
 	bindings.CallRTCDTMFSenderInsertDTMF2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		tones.Ref(),
 	)
 
@@ -835,7 +920,7 @@ func (this RTCDTMFSender) InsertDTMF2(tones js.String) (ret js.Void) {
 // the catch clause.
 func (this RTCDTMFSender) TryInsertDTMF2(tones js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCDTMFSenderInsertDTMF2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		tones.Ref(),
 	)
 
@@ -887,17 +972,26 @@ func (p RTCDTMFToneChangeEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCDTMFToneChangeEventInit) UpdateFrom(ref js.Ref) {
+func (p *RTCDTMFToneChangeEventInit) UpdateFrom(ref js.Ref) {
 	bindings.RTCDTMFToneChangeEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCDTMFToneChangeEventInit) Update(ref js.Ref) {
+func (p *RTCDTMFToneChangeEventInit) Update(ref js.Ref) {
 	bindings.RTCDTMFToneChangeEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCDTMFToneChangeEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Tone.Ref(),
+	)
+	p.Tone = p.Tone.FromRef(js.Undefined)
 }
 
 func NewRTCDTMFToneChangeEvent(typ js.String, eventInitDict RTCDTMFToneChangeEventInit) (ret RTCDTMFToneChangeEvent) {
@@ -918,7 +1012,7 @@ type RTCDTMFToneChangeEvent struct {
 }
 
 func (this RTCDTMFToneChangeEvent) Once() RTCDTMFToneChangeEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -932,7 +1026,7 @@ func (this RTCDTMFToneChangeEvent) FromRef(ref js.Ref) RTCDTMFToneChangeEvent {
 }
 
 func (this RTCDTMFToneChangeEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Tone returns the value of property "RTCDTMFToneChangeEvent.tone".
@@ -940,7 +1034,7 @@ func (this RTCDTMFToneChangeEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCDTMFToneChangeEvent) Tone() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRTCDTMFToneChangeEventTone(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1010,7 +1104,7 @@ type RTCDataChannel struct {
 }
 
 func (this RTCDataChannel) Once() RTCDataChannel {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1024,7 +1118,7 @@ func (this RTCDataChannel) FromRef(ref js.Ref) RTCDataChannel {
 }
 
 func (this RTCDataChannel) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Label returns the value of property "RTCDataChannel.label".
@@ -1032,7 +1126,7 @@ func (this RTCDataChannel) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCDataChannel) Label() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRTCDataChannelLabel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1042,7 +1136,7 @@ func (this RTCDataChannel) Label() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCDataChannel) Ordered() (ret bool, ok bool) {
 	ok = js.True == bindings.GetRTCDataChannelOrdered(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1052,7 +1146,7 @@ func (this RTCDataChannel) Ordered() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCDataChannel) MaxPacketLifeTime() (ret uint16, ok bool) {
 	ok = js.True == bindings.GetRTCDataChannelMaxPacketLifeTime(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1062,7 +1156,7 @@ func (this RTCDataChannel) MaxPacketLifeTime() (ret uint16, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCDataChannel) MaxRetransmits() (ret uint16, ok bool) {
 	ok = js.True == bindings.GetRTCDataChannelMaxRetransmits(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1072,7 +1166,7 @@ func (this RTCDataChannel) MaxRetransmits() (ret uint16, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCDataChannel) Protocol() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRTCDataChannelProtocol(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1082,7 +1176,7 @@ func (this RTCDataChannel) Protocol() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCDataChannel) Negotiated() (ret bool, ok bool) {
 	ok = js.True == bindings.GetRTCDataChannelNegotiated(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1092,7 +1186,7 @@ func (this RTCDataChannel) Negotiated() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCDataChannel) Id() (ret uint16, ok bool) {
 	ok = js.True == bindings.GetRTCDataChannelId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1102,7 +1196,7 @@ func (this RTCDataChannel) Id() (ret uint16, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCDataChannel) ReadyState() (ret RTCDataChannelState, ok bool) {
 	ok = js.True == bindings.GetRTCDataChannelReadyState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1112,7 +1206,7 @@ func (this RTCDataChannel) ReadyState() (ret RTCDataChannelState, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCDataChannel) BufferedAmount() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetRTCDataChannelBufferedAmount(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1122,7 +1216,7 @@ func (this RTCDataChannel) BufferedAmount() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCDataChannel) BufferedAmountLowThreshold() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetRTCDataChannelBufferedAmountLowThreshold(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1132,7 +1226,7 @@ func (this RTCDataChannel) BufferedAmountLowThreshold() (ret uint32, ok bool) {
 // It returns false if the property cannot be set.
 func (this RTCDataChannel) SetBufferedAmountLowThreshold(val uint32) bool {
 	return js.True == bindings.SetRTCDataChannelBufferedAmountLowThreshold(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
@@ -1142,7 +1236,7 @@ func (this RTCDataChannel) SetBufferedAmountLowThreshold(val uint32) bool {
 // It returns ok=false if there is no such property.
 func (this RTCDataChannel) BinaryType() (ret BinaryType, ok bool) {
 	ok = js.True == bindings.GetRTCDataChannelBinaryType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1152,7 +1246,7 @@ func (this RTCDataChannel) BinaryType() (ret BinaryType, ok bool) {
 // It returns false if the property cannot be set.
 func (this RTCDataChannel) SetBinaryType(val BinaryType) bool {
 	return js.True == bindings.SetRTCDataChannelBinaryType(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
@@ -1162,31 +1256,30 @@ func (this RTCDataChannel) SetBinaryType(val BinaryType) bool {
 // It returns ok=false if there is no such property.
 func (this RTCDataChannel) Priority() (ret RTCPriorityType, ok bool) {
 	ok = js.True == bindings.GetRTCDataChannelPriority(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasClose returns true if the method "RTCDataChannel.close" exists.
-func (this RTCDataChannel) HasClose() bool {
-	return js.True == bindings.HasRTCDataChannelClose(
-		this.Ref(),
+// HasFuncClose returns true if the method "RTCDataChannel.close" exists.
+func (this RTCDataChannel) HasFuncClose() bool {
+	return js.True == bindings.HasFuncRTCDataChannelClose(
+		this.ref,
 	)
 }
 
-// CloseFunc returns the method "RTCDataChannel.close".
-func (this RTCDataChannel) CloseFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.RTCDataChannelCloseFunc(
-			this.Ref(),
-		),
+// FuncClose returns the method "RTCDataChannel.close".
+func (this RTCDataChannel) FuncClose() (fn js.Func[func()]) {
+	bindings.FuncRTCDataChannelClose(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Close calls the method "RTCDataChannel.close".
 func (this RTCDataChannel) Close() (ret js.Void) {
 	bindings.CallRTCDataChannelClose(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1197,32 +1290,31 @@ func (this RTCDataChannel) Close() (ret js.Void) {
 // the catch clause.
 func (this RTCDataChannel) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCDataChannelClose(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSend returns true if the method "RTCDataChannel.send" exists.
-func (this RTCDataChannel) HasSend() bool {
-	return js.True == bindings.HasRTCDataChannelSend(
-		this.Ref(),
+// HasFuncSend returns true if the method "RTCDataChannel.send" exists.
+func (this RTCDataChannel) HasFuncSend() bool {
+	return js.True == bindings.HasFuncRTCDataChannelSend(
+		this.ref,
 	)
 }
 
-// SendFunc returns the method "RTCDataChannel.send".
-func (this RTCDataChannel) SendFunc() (fn js.Func[func(data js.String)]) {
-	return fn.FromRef(
-		bindings.RTCDataChannelSendFunc(
-			this.Ref(),
-		),
+// FuncSend returns the method "RTCDataChannel.send".
+func (this RTCDataChannel) FuncSend() (fn js.Func[func(data js.String)]) {
+	bindings.FuncRTCDataChannelSend(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Send calls the method "RTCDataChannel.send".
 func (this RTCDataChannel) Send(data js.String) (ret js.Void) {
 	bindings.CallRTCDataChannelSend(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		data.Ref(),
 	)
 
@@ -1234,33 +1326,32 @@ func (this RTCDataChannel) Send(data js.String) (ret js.Void) {
 // the catch clause.
 func (this RTCDataChannel) TrySend(data js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCDataChannelSend(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		data.Ref(),
 	)
 
 	return
 }
 
-// HasSend1 returns true if the method "RTCDataChannel.send" exists.
-func (this RTCDataChannel) HasSend1() bool {
-	return js.True == bindings.HasRTCDataChannelSend1(
-		this.Ref(),
+// HasFuncSend1 returns true if the method "RTCDataChannel.send" exists.
+func (this RTCDataChannel) HasFuncSend1() bool {
+	return js.True == bindings.HasFuncRTCDataChannelSend1(
+		this.ref,
 	)
 }
 
-// Send1Func returns the method "RTCDataChannel.send".
-func (this RTCDataChannel) Send1Func() (fn js.Func[func(data Blob)]) {
-	return fn.FromRef(
-		bindings.RTCDataChannelSend1Func(
-			this.Ref(),
-		),
+// FuncSend1 returns the method "RTCDataChannel.send".
+func (this RTCDataChannel) FuncSend1() (fn js.Func[func(data Blob)]) {
+	bindings.FuncRTCDataChannelSend1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Send1 calls the method "RTCDataChannel.send".
 func (this RTCDataChannel) Send1(data Blob) (ret js.Void) {
 	bindings.CallRTCDataChannelSend1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		data.Ref(),
 	)
 
@@ -1272,33 +1363,32 @@ func (this RTCDataChannel) Send1(data Blob) (ret js.Void) {
 // the catch clause.
 func (this RTCDataChannel) TrySend1(data Blob) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCDataChannelSend1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		data.Ref(),
 	)
 
 	return
 }
 
-// HasSend2 returns true if the method "RTCDataChannel.send" exists.
-func (this RTCDataChannel) HasSend2() bool {
-	return js.True == bindings.HasRTCDataChannelSend2(
-		this.Ref(),
+// HasFuncSend2 returns true if the method "RTCDataChannel.send" exists.
+func (this RTCDataChannel) HasFuncSend2() bool {
+	return js.True == bindings.HasFuncRTCDataChannelSend2(
+		this.ref,
 	)
 }
 
-// Send2Func returns the method "RTCDataChannel.send".
-func (this RTCDataChannel) Send2Func() (fn js.Func[func(data js.ArrayBuffer)]) {
-	return fn.FromRef(
-		bindings.RTCDataChannelSend2Func(
-			this.Ref(),
-		),
+// FuncSend2 returns the method "RTCDataChannel.send".
+func (this RTCDataChannel) FuncSend2() (fn js.Func[func(data js.ArrayBuffer)]) {
+	bindings.FuncRTCDataChannelSend2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Send2 calls the method "RTCDataChannel.send".
 func (this RTCDataChannel) Send2(data js.ArrayBuffer) (ret js.Void) {
 	bindings.CallRTCDataChannelSend2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		data.Ref(),
 	)
 
@@ -1310,33 +1400,32 @@ func (this RTCDataChannel) Send2(data js.ArrayBuffer) (ret js.Void) {
 // the catch clause.
 func (this RTCDataChannel) TrySend2(data js.ArrayBuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCDataChannelSend2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		data.Ref(),
 	)
 
 	return
 }
 
-// HasSend3 returns true if the method "RTCDataChannel.send" exists.
-func (this RTCDataChannel) HasSend3() bool {
-	return js.True == bindings.HasRTCDataChannelSend3(
-		this.Ref(),
+// HasFuncSend3 returns true if the method "RTCDataChannel.send" exists.
+func (this RTCDataChannel) HasFuncSend3() bool {
+	return js.True == bindings.HasFuncRTCDataChannelSend3(
+		this.ref,
 	)
 }
 
-// Send3Func returns the method "RTCDataChannel.send".
-func (this RTCDataChannel) Send3Func() (fn js.Func[func(data js.ArrayBufferView)]) {
-	return fn.FromRef(
-		bindings.RTCDataChannelSend3Func(
-			this.Ref(),
-		),
+// FuncSend3 returns the method "RTCDataChannel.send".
+func (this RTCDataChannel) FuncSend3() (fn js.Func[func(data js.ArrayBufferView)]) {
+	bindings.FuncRTCDataChannelSend3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Send3 calls the method "RTCDataChannel.send".
 func (this RTCDataChannel) Send3(data js.ArrayBufferView) (ret js.Void) {
 	bindings.CallRTCDataChannelSend3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		data.Ref(),
 	)
 
@@ -1348,7 +1437,7 @@ func (this RTCDataChannel) Send3(data js.ArrayBufferView) (ret js.Void) {
 // the catch clause.
 func (this RTCDataChannel) TrySend3(data js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCDataChannelSend3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		data.Ref(),
 	)
 
@@ -1400,17 +1489,26 @@ func (p RTCDataChannelEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCDataChannelEventInit) UpdateFrom(ref js.Ref) {
+func (p *RTCDataChannelEventInit) UpdateFrom(ref js.Ref) {
 	bindings.RTCDataChannelEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCDataChannelEventInit) Update(ref js.Ref) {
+func (p *RTCDataChannelEventInit) Update(ref js.Ref) {
 	bindings.RTCDataChannelEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCDataChannelEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Channel.Ref(),
+	)
+	p.Channel = p.Channel.FromRef(js.Undefined)
 }
 
 func NewRTCDataChannelEvent(typ js.String, eventInitDict RTCDataChannelEventInit) (ret RTCDataChannelEvent) {
@@ -1425,7 +1523,7 @@ type RTCDataChannelEvent struct {
 }
 
 func (this RTCDataChannelEvent) Once() RTCDataChannelEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1439,7 +1537,7 @@ func (this RTCDataChannelEvent) FromRef(ref js.Ref) RTCDataChannelEvent {
 }
 
 func (this RTCDataChannelEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Channel returns the value of property "RTCDataChannelEvent.channel".
@@ -1447,7 +1545,7 @@ func (this RTCDataChannelEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCDataChannelEvent) Channel() (ret RTCDataChannel, ok bool) {
 	ok = js.True == bindings.GetRTCDataChannelEventChannel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1515,17 +1613,26 @@ func (p RTCDataChannelInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCDataChannelInit) UpdateFrom(ref js.Ref) {
+func (p *RTCDataChannelInit) UpdateFrom(ref js.Ref) {
 	bindings.RTCDataChannelInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCDataChannelInit) Update(ref js.Ref) {
+func (p *RTCDataChannelInit) Update(ref js.Ref) {
 	bindings.RTCDataChannelInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCDataChannelInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Protocol.Ref(),
+	)
+	p.Protocol = p.Protocol.FromRef(js.Undefined)
 }
 
 type RTCDataChannelStats struct {
@@ -1607,17 +1714,30 @@ func (p RTCDataChannelStats) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCDataChannelStats) UpdateFrom(ref js.Ref) {
+func (p *RTCDataChannelStats) UpdateFrom(ref js.Ref) {
 	bindings.RTCDataChannelStatsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCDataChannelStats) Update(ref js.Ref) {
+func (p *RTCDataChannelStats) Update(ref js.Ref) {
 	bindings.RTCDataChannelStatsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCDataChannelStats) FreeMembers(recursive bool) {
+	js.Free(
+		p.Label.Ref(),
+		p.Protocol.Ref(),
+		p.Id.Ref(),
+	)
+	p.Label = p.Label.FromRef(js.Undefined)
+	p.Protocol = p.Protocol.FromRef(js.Undefined)
+	p.Id = p.Id.FromRef(js.Undefined)
 }
 
 type RTCDegradationPreference uint32
@@ -1713,17 +1833,30 @@ func (p RTCIceCandidateInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCIceCandidateInit) UpdateFrom(ref js.Ref) {
+func (p *RTCIceCandidateInit) UpdateFrom(ref js.Ref) {
 	bindings.RTCIceCandidateInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCIceCandidateInit) Update(ref js.Ref) {
+func (p *RTCIceCandidateInit) Update(ref js.Ref) {
 	bindings.RTCIceCandidateInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCIceCandidateInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Candidate.Ref(),
+		p.SdpMid.Ref(),
+		p.UsernameFragment.Ref(),
+	)
+	p.Candidate = p.Candidate.FromRef(js.Undefined)
+	p.SdpMid = p.SdpMid.FromRef(js.Undefined)
+	p.UsernameFragment = p.UsernameFragment.FromRef(js.Undefined)
 }
 
 type RTCIceComponent uint32
@@ -1874,7 +2007,7 @@ type RTCIceCandidate struct {
 }
 
 func (this RTCIceCandidate) Once() RTCIceCandidate {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1888,7 +2021,7 @@ func (this RTCIceCandidate) FromRef(ref js.Ref) RTCIceCandidate {
 }
 
 func (this RTCIceCandidate) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Candidate returns the value of property "RTCIceCandidate.candidate".
@@ -1896,7 +2029,7 @@ func (this RTCIceCandidate) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCIceCandidate) Candidate() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRTCIceCandidateCandidate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1906,7 +2039,7 @@ func (this RTCIceCandidate) Candidate() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCIceCandidate) SdpMid() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRTCIceCandidateSdpMid(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1916,7 +2049,7 @@ func (this RTCIceCandidate) SdpMid() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCIceCandidate) SdpMLineIndex() (ret uint16, ok bool) {
 	ok = js.True == bindings.GetRTCIceCandidateSdpMLineIndex(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1926,7 +2059,7 @@ func (this RTCIceCandidate) SdpMLineIndex() (ret uint16, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCIceCandidate) Foundation() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRTCIceCandidateFoundation(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1936,7 +2069,7 @@ func (this RTCIceCandidate) Foundation() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCIceCandidate) Component() (ret RTCIceComponent, ok bool) {
 	ok = js.True == bindings.GetRTCIceCandidateComponent(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1946,7 +2079,7 @@ func (this RTCIceCandidate) Component() (ret RTCIceComponent, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCIceCandidate) Priority() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetRTCIceCandidatePriority(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1956,7 +2089,7 @@ func (this RTCIceCandidate) Priority() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCIceCandidate) Address() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRTCIceCandidateAddress(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1966,7 +2099,7 @@ func (this RTCIceCandidate) Address() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCIceCandidate) Protocol() (ret RTCIceProtocol, ok bool) {
 	ok = js.True == bindings.GetRTCIceCandidateProtocol(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1976,7 +2109,7 @@ func (this RTCIceCandidate) Protocol() (ret RTCIceProtocol, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCIceCandidate) Port() (ret uint16, ok bool) {
 	ok = js.True == bindings.GetRTCIceCandidatePort(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1986,7 +2119,7 @@ func (this RTCIceCandidate) Port() (ret uint16, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCIceCandidate) Type() (ret RTCIceCandidateType, ok bool) {
 	ok = js.True == bindings.GetRTCIceCandidateType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1996,7 +2129,7 @@ func (this RTCIceCandidate) Type() (ret RTCIceCandidateType, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCIceCandidate) TcpType() (ret RTCIceTcpCandidateType, ok bool) {
 	ok = js.True == bindings.GetRTCIceCandidateTcpType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2006,7 +2139,7 @@ func (this RTCIceCandidate) TcpType() (ret RTCIceTcpCandidateType, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCIceCandidate) RelatedAddress() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRTCIceCandidateRelatedAddress(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2016,7 +2149,7 @@ func (this RTCIceCandidate) RelatedAddress() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCIceCandidate) RelatedPort() (ret uint16, ok bool) {
 	ok = js.True == bindings.GetRTCIceCandidateRelatedPort(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2026,7 +2159,7 @@ func (this RTCIceCandidate) RelatedPort() (ret uint16, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCIceCandidate) UsernameFragment() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRTCIceCandidateUsernameFragment(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2036,7 +2169,7 @@ func (this RTCIceCandidate) UsernameFragment() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCIceCandidate) RelayProtocol() (ret RTCIceServerTransportProtocol, ok bool) {
 	ok = js.True == bindings.GetRTCIceCandidateRelayProtocol(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2046,31 +2179,30 @@ func (this RTCIceCandidate) RelayProtocol() (ret RTCIceServerTransportProtocol, 
 // It returns ok=false if there is no such property.
 func (this RTCIceCandidate) Url() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRTCIceCandidateUrl(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasToJSON returns true if the method "RTCIceCandidate.toJSON" exists.
-func (this RTCIceCandidate) HasToJSON() bool {
-	return js.True == bindings.HasRTCIceCandidateToJSON(
-		this.Ref(),
+// HasFuncToJSON returns true if the method "RTCIceCandidate.toJSON" exists.
+func (this RTCIceCandidate) HasFuncToJSON() bool {
+	return js.True == bindings.HasFuncRTCIceCandidateToJSON(
+		this.ref,
 	)
 }
 
-// ToJSONFunc returns the method "RTCIceCandidate.toJSON".
-func (this RTCIceCandidate) ToJSONFunc() (fn js.Func[func() RTCIceCandidateInit]) {
-	return fn.FromRef(
-		bindings.RTCIceCandidateToJSONFunc(
-			this.Ref(),
-		),
+// FuncToJSON returns the method "RTCIceCandidate.toJSON".
+func (this RTCIceCandidate) FuncToJSON() (fn js.Func[func() RTCIceCandidateInit]) {
+	bindings.FuncRTCIceCandidateToJSON(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ToJSON calls the method "RTCIceCandidate.toJSON".
 func (this RTCIceCandidate) ToJSON() (ret RTCIceCandidateInit) {
 	bindings.CallRTCIceCandidateToJSON(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2081,7 +2213,7 @@ func (this RTCIceCandidate) ToJSON() (ret RTCIceCandidateInit) {
 // the catch clause.
 func (this RTCIceCandidate) TryToJSON() (ret RTCIceCandidateInit, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceCandidateToJSON(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -2114,17 +2246,28 @@ func (p RTCIceCandidatePair) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCIceCandidatePair) UpdateFrom(ref js.Ref) {
+func (p *RTCIceCandidatePair) UpdateFrom(ref js.Ref) {
 	bindings.RTCIceCandidatePairJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCIceCandidatePair) Update(ref js.Ref) {
+func (p *RTCIceCandidatePair) Update(ref js.Ref) {
 	bindings.RTCIceCandidatePairJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCIceCandidatePair) FreeMembers(recursive bool) {
+	js.Free(
+		p.Local.Ref(),
+		p.Remote.Ref(),
+	)
+	p.Local = p.Local.FromRef(js.Undefined)
+	p.Remote = p.Remote.FromRef(js.Undefined)
 }
 
 type RTCIceParameters struct {
@@ -2162,17 +2305,28 @@ func (p RTCIceParameters) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCIceParameters) UpdateFrom(ref js.Ref) {
+func (p *RTCIceParameters) UpdateFrom(ref js.Ref) {
 	bindings.RTCIceParametersJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCIceParameters) Update(ref js.Ref) {
+func (p *RTCIceParameters) Update(ref js.Ref) {
 	bindings.RTCIceParametersJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCIceParameters) FreeMembers(recursive bool) {
+	js.Free(
+		p.UsernameFragment.Ref(),
+		p.Password.Ref(),
+	)
+	p.UsernameFragment = p.UsernameFragment.FromRef(js.Undefined)
+	p.Password = p.Password.FromRef(js.Undefined)
 }
 
 type RTCIceGatherOptions struct {
@@ -2202,17 +2356,26 @@ func (p RTCIceGatherOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCIceGatherOptions) UpdateFrom(ref js.Ref) {
+func (p *RTCIceGatherOptions) UpdateFrom(ref js.Ref) {
 	bindings.RTCIceGatherOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCIceGatherOptions) Update(ref js.Ref) {
+func (p *RTCIceGatherOptions) Update(ref js.Ref) {
 	bindings.RTCIceGatherOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCIceGatherOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.IceServers.Ref(),
+	)
+	p.IceServers = p.IceServers.FromRef(js.Undefined)
 }
 
 type RTCIceRole uint32

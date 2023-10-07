@@ -1,0 +1,2190 @@
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: AudioHumanPresenceDetection
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: humanPresenceLikelihood
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: noiseSpectrogram
+        Type:
+          Name: AudioSpectrogram
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: frameSpectrogram
+        Type:
+          Name: AudioSpectrogram
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: AudioLocalization
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: azimuthRadians
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: azimuthScores
+        Type:
+          Name: sequence
+          Params:
+            - Name: double
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - mediaPerceptionPrivate
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: AudioPerception
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: timestampUs
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: audioLocalization
+        Type:
+          Name: AudioLocalization
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: audioHumanPresenceDetection
+        Type:
+          Name: AudioHumanPresenceDetection
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: hotwordDetection
+        Type:
+          Name: HotwordDetection
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: AudioSpectrogram
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: values
+        Type:
+          Name: sequence
+          Params:
+            - Name: double
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - mediaPerceptionPrivate
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: AudioVisualHumanPresenceDetection
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: humanPresenceLikelihood
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: AudioVisualPerception
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: timestampUs
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: audioVisualHumanPresenceDetection
+        Type:
+          Name: AudioVisualHumanPresenceDetection
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: BoundingBox
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: normalized
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: topLeft
+        Type:
+          Name: Point
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: bottomRight
+        Type:
+          Name: Point
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: Component
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: type
+        Type:
+          Name: ComponentType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Enum:
+    Name: ComponentInstallationError
+    Values:
+      - UNKNOWN_COMPONENT
+      - INSTALL_FAILURE
+      - MOUNT_FAILURE
+      - COMPATIBILITY_CHECK_FAILED
+      - NOT_FOUND
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: ComponentState
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: status
+        Type:
+          Name: ComponentStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: version
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: installationErrorCode
+        Type:
+          Name: ComponentInstallationError
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Callback:
+    Name: ComponentStateCallback
+    Args:
+      - Name: componentState
+        Type:
+          Name: ComponentState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/media_perception_private.idl
+  Enum:
+    Name: ComponentStatus
+    Values:
+      - UNKNOWN
+      - INSTALLED
+      - FAILED_TO_INSTALL
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/media_perception_private.idl
+  Enum:
+    Name: ComponentType
+    Values:
+      - LIGHT
+      - FULL
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: Diagnostics
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: serviceError
+        Type:
+          Name: ServiceError
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: perceptionSamples
+        Type:
+          Name: sequence
+          Params:
+            - Name: PerceptionSample
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - mediaPerceptionPrivate
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Callback:
+    Name: DiagnosticsCallback
+    Args:
+      - Name: diagnostics
+        Type:
+          Name: Diagnostics
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: Distance
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: units
+        Type:
+          Name: DistanceUnits
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: magnitude
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Enum:
+    Name: DistanceUnits
+    Values:
+      - UNSPECIFIED
+      - METERS
+      - PIXELS
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: Entity
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: id
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: type
+        Type:
+          Name: EntityType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: entityLabel
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: boundingBox
+        Type:
+          Name: BoundingBox
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: confidence
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: depth
+        Type:
+          Name: Distance
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Enum:
+    Name: EntityType
+    Values:
+      - UNSPECIFIED
+      - FACE
+      - PERSON
+      - MOTION_REGION
+      - LABELED_REGION
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/media_perception_private.idl
+  Enum:
+    Name: Feature
+    Values:
+      - AUTOZOOM
+      - HOTWORD_DETECTION
+      - OCCUPANCY_DETECTION
+      - EDGE_EMBEDDINGS
+      - SOFTWARE_CROPPING
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: FramePerception
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: frameId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: frameWidthInPx
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: frameHeightInPx
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: timestamp
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: entities
+        Type:
+          Name: sequence
+          Params:
+            - Name: Entity
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - mediaPerceptionPrivate
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: packetLatency
+        Type:
+          Name: sequence
+          Params:
+            - Name: PacketLatency
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - mediaPerceptionPrivate
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: videoHumanPresenceDetection
+        Type:
+          Name: VideoHumanPresenceDetection
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: framePerceptionTypes
+        Type:
+          Name: sequence
+          Params:
+            - Name: FramePerceptionType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - mediaPerceptionPrivate
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Enum:
+    Name: FramePerceptionType
+    Values:
+      - UNKNOWN_TYPE
+      - FACE_DETECTION
+      - PERSON_DETECTION
+      - MOTION_DETECTION
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: Hotword
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: id
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: type
+        Type:
+          Name: HotwordType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: frameId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: startTimestampMs
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: endTimestampMs
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: confidence
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: HotwordDetection
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: hotwords
+        Type:
+          Name: sequence
+          Params:
+            - Name: Hotword
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - mediaPerceptionPrivate
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Enum:
+    Name: HotwordType
+    Values:
+      - UNKNOWN_TYPE
+      - OK_GOOGLE
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/media_perception_private.idl
+  Enum:
+    Name: ImageFormat
+    Values:
+      - RAW
+      - PNG
+      - JPEG
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: ImageFrame
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: width
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: height
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: format
+        Type:
+          Name: ImageFormat
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: dataLength
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: frame
+        Type:
+          Name: ArrayBuffer
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Enum:
+    Name: LightCondition
+    Values:
+      - UNSPECIFIED
+      - NO_CHANGE
+      - TURNED_ON
+      - TURNED_OFF
+      - DIMMER
+      - BRIGHTER
+      - BLACK_FRAME
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: MediaPerception
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: timestamp
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: framePerceptions
+        Type:
+          Name: sequence
+          Params:
+            - Name: FramePerception
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - mediaPerceptionPrivate
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: audioPerceptions
+        Type:
+          Name: sequence
+          Params:
+            - Name: AudioPerception
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - mediaPerceptionPrivate
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: audioVisualPerceptions
+        Type:
+          Name: sequence
+          Params:
+            - Name: AudioVisualPerception
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - mediaPerceptionPrivate
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: metadata
+        Type:
+          Name: Metadata
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: Metadata
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: visualExperienceControllerVersion
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: NamedTemplateArgument
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: name
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: value
+        Type:
+          Union:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - mediaPerceptionPrivate
+            - Name: double
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - mediaPerceptionPrivate
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: PacketLatency
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: packetLabel
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: latencyUsec
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: PerceptionSample
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: framePerception
+        Type:
+          Name: FramePerception
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: imageFrame
+        Type:
+          Name: ImageFrame
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: audioPerception
+        Type:
+          Name: AudioPerception
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: audioVisualPerception
+        Type:
+          Name: AudioVisualPerception
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: metadata
+        Type:
+          Name: Metadata
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: Point
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: x
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: "y"
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: ProcessState
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: status
+        Type:
+          Name: ProcessStatus
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: serviceError
+        Type:
+          Name: ServiceError
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Callback:
+    Name: ProcessStateCallback
+    Args:
+      - Name: processState
+        Type:
+          Name: ProcessState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/media_perception_private.idl
+  Enum:
+    Name: ProcessStatus
+    Values:
+      - UNKNOWN
+      - STARTED
+      - STOPPED
+      - SERVICE_ERROR
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/media_perception_private.idl
+  Enum:
+    Name: ServiceError
+    Values:
+      - SERVICE_UNREACHABLE
+      - SERVICE_NOT_RUNNING
+      - SERVICE_BUSY_LAUNCHING
+      - SERVICE_NOT_INSTALLED
+      - MOJO_CONNECTION_FAILURE
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: State
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: status
+        Type:
+          Name: Status
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: deviceContext
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: serviceError
+        Type:
+          Name: ServiceError
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: videoStreamParam
+        Type:
+          Name: sequence
+          Params:
+            - Name: VideoStreamParam
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - mediaPerceptionPrivate
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: configuration
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: whiteboard
+        Type:
+          Name: Whiteboard
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: features
+        Type:
+          Name: sequence
+          Params:
+            - Name: Feature
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - mediaPerceptionPrivate
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: namedTemplateArguments
+        Type:
+          Name: sequence
+          Params:
+            - Name: NamedTemplateArgument
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - mediaPerceptionPrivate
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Callback:
+    Name: StateCallback
+    Args:
+      - Name: state
+        Type:
+          Name: State
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/media_perception_private.idl
+  Enum:
+    Name: Status
+    Values:
+      - UNINITIALIZED
+      - STARTED
+      - RUNNING
+      - SUSPENDED
+      - RESTARTING
+      - STOPPED
+      - SERVICE_ERROR
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: VideoHumanPresenceDetection
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: humanPresenceLikelihood
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: motionDetectedLikelihood
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: lightCondition
+        Type:
+          Name: LightCondition
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: lightConditionLikelihood
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: VideoStreamParam
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: width
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: height
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: frameRate
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  Dict:
+    Name: Whiteboard
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: topLeft
+        Type:
+          Name: Point
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: topRight
+        Type:
+          Name: Point
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: bottomLeft
+        Type:
+          Name: Point
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: bottomRight
+        Type:
+          Name: Point
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+      - Name: aspectRatio
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  WebextFunc:
+    Name: getDiagnostics
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Diagnostics
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - mediaPerceptionPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  WebextFunc:
+    Name: getState
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: State
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - mediaPerceptionPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  WebextEvent:
+    Name: onMediaPerception
+    Modifier: static
+    Args:
+      - Name: mediaPerception
+        Type:
+          Name: MediaPerception
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  WebextFunc:
+    Name: setAnalyticsComponent
+    Modifier: static
+    Args:
+      - Name: component
+        Type:
+          Name: Component
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ComponentState
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - mediaPerceptionPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  WebextFunc:
+    Name: setComponentProcessState
+    Modifier: static
+    Args:
+      - Name: processState
+        Type:
+          Name: ProcessState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ProcessState
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - mediaPerceptionPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate
+- File: webext/media_perception_private.idl
+  WebextFunc:
+    Name: setState
+    Modifier: static
+    Args:
+      - Name: state
+        Type:
+          Name: State
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mediaPerceptionPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mediaPerceptionPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: State
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - mediaPerceptionPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - mediaPerceptionPrivate

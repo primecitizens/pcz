@@ -1,0 +1,669 @@
+- File: webext/chrome/windows.json
+  Dict:
+    Name: CreateArgCreateData
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - windows
+    Fields:
+      - Name: focused
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: height
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: incognito
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: left
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: setSelfAsOpener
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: state
+        Type:
+          Name: WindowState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - windows
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: tabId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: top
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: type
+        Type:
+          Name: CreateType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - windows
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: url
+        Type:
+          Union:
+            - Name: DOMString
+            - Name: sequence
+              Params:
+                - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - windows
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: width
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+- File: webext/chrome/windows.json
+  Enum:
+    Name: CreateType
+    Values:
+      - normal
+      - popup
+      - panel
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - windows
+- File: webext/chrome/windows.json
+  Dict:
+    Name: QueryOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - windows
+    Fields:
+      - Name: populate
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: windowTypes
+        Type:
+          Name: sequence
+          Params:
+            - Name: WindowType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - windows
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - windows
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+- File: webext/chrome/windows.json
+  Dict:
+    Name: UpdateArgUpdateInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - windows
+    Fields:
+      - Name: drawAttention
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: focused
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: height
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: left
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: state
+        Type:
+          Name: WindowState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - windows
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: top
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: width
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+- File: webext/chrome/windows.json
+  WebextProp:
+    Name: WINDOW_ID_CURRENT
+    Type:
+      Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - windows
+- File: webext/chrome/windows.json
+  WebextProp:
+    Name: WINDOW_ID_NONE
+    Type:
+      Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - windows
+- File: webext/chrome/windows.json
+  Dict:
+    Name: Window
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - windows
+    Fields:
+      - Name: alwaysOnTop
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: focused
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: height
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: id
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: incognito
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: left
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: sessionId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: state
+        Type:
+          Name: WindowState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - windows
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: tabs
+        Type:
+          Name: sequence
+          Params:
+            - Name: Tab
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - tabs
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - windows
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: top
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: type
+        Type:
+          Name: WindowType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - windows
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+      - Name: width
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - windows
+- File: webext/chrome/windows.json
+  Enum:
+    Name: WindowState
+    Values:
+      - normal
+      - minimized
+      - maximized
+      - fullscreen
+      - locked-fullscreen
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - windows
+- File: webext/chrome/windows.json
+  Enum:
+    Name: WindowType
+    Values:
+      - normal
+      - popup
+      - panel
+      - app
+      - devtools
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - windows
+- File: webext/chrome/windows.json
+  WebextFunc:
+    Name: create
+    Args:
+      - Name: createData
+        Optional: true
+        Type:
+          Name: CreateArgCreateData
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - windows
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Window
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - windows
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - windows
+- File: webext/chrome/windows.json
+  WebextFunc:
+    Name: get
+    Args:
+      - Name: windowId
+        Type:
+          Name: long long
+      - Name: queryOptions
+        Optional: true
+        Type:
+          Name: QueryOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - windows
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Window
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - windows
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - windows
+- File: webext/chrome/windows.json
+  WebextFunc:
+    Name: getAll
+    Args:
+      - Name: queryOptions
+        Optional: true
+        Type:
+          Name: QueryOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - windows
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: Window
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - windows
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - windows
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - windows
+- File: webext/chrome/windows.json
+  WebextFunc:
+    Name: getCurrent
+    Args:
+      - Name: queryOptions
+        Optional: true
+        Type:
+          Name: QueryOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - windows
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Window
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - windows
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - windows
+- File: webext/chrome/windows.json
+  WebextFunc:
+    Name: getLastFocused
+    Args:
+      - Name: queryOptions
+        Optional: true
+        Type:
+          Name: QueryOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - windows
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Window
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - windows
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - windows
+- File: webext/chrome/windows.json
+  WebextEvent:
+    Name: onBoundsChanged
+    Args:
+      - Name: window
+        Type:
+          Name: Window
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - windows
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - windows
+- File: webext/chrome/windows.json
+  WebextEvent:
+    Name: onCreated
+    Args:
+      - Name: window
+        Type:
+          Name: Window
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - windows
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - windows
+- File: webext/chrome/windows.json
+  WebextEvent:
+    Name: onFocusChanged
+    Args:
+      - Name: windowId
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - windows
+- File: webext/chrome/windows.json
+  WebextEvent:
+    Name: onRemoved
+    Args:
+      - Name: windowId
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - windows
+- File: webext/chrome/windows.json
+  WebextFunc:
+    Name: remove
+    Args:
+      - Name: windowId
+        Type:
+          Name: long long
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - windows
+- File: webext/chrome/windows.json
+  WebextFunc:
+    Name: update
+    Args:
+      - Name: windowId
+        Type:
+          Name: long long
+      - Name: updateInfo
+        Type:
+          Name: UpdateArgUpdateInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - windows
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Window
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - windows
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - windows

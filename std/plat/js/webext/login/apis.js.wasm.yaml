@@ -1,0 +1,498 @@
+- File: webext/chrome/login.idl
+  Dict:
+    Name: SamlUserSessionProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - login
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: email
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - login
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - login
+      - Name: gaiaId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - login
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - login
+      - Name: password
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - login
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - login
+      - Name: oauthCode
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - login
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - login
+- File: webext/chrome/login.idl
+  Callback:
+    Name: StringCallback
+    Args:
+      - Name: result
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - login
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - login
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - login
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - login
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/login.idl
+  Callback:
+    Name: VoidCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - login
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - login
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/login.idl
+  WebextFunc:
+    Name: endSharedSession
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - login
+- File: webext/chrome/login.idl
+  WebextFunc:
+    Name: enterSharedSession
+    Modifier: static
+    Args:
+      - Name: password
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - login
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - login
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - login
+- File: webext/chrome/login.idl
+  WebextFunc:
+    Name: exitCurrentSession
+    Modifier: static
+    Args:
+      - Name: dataForNextLoginAttempt
+        Optional: true
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - login
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - login
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - login
+- File: webext/chrome/login.idl
+  WebextFunc:
+    Name: fetchDataForNextLoginAttempt
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - login
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - login
+- File: webext/chrome/login.idl
+  WebextFunc:
+    Name: launchManagedGuestSession
+    Modifier: static
+    Args:
+      - Name: password
+        Optional: true
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - login
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - login
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - login
+- File: webext/chrome/login.idl
+  WebextFunc:
+    Name: launchSamlUserSession
+    Modifier: static
+    Args:
+      - Name: properties
+        Type:
+          Name: SamlUserSessionProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - login
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - login
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - login
+- File: webext/chrome/login.idl
+  WebextFunc:
+    Name: launchSharedManagedGuestSession
+    Modifier: static
+    Args:
+      - Name: password
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - login
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - login
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - login
+- File: webext/chrome/login.idl
+  WebextFunc:
+    Name: lockCurrentSession
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - login
+- File: webext/chrome/login.idl
+  WebextFunc:
+    Name: lockManagedGuestSession
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: deprecated
+        Values:
+          - Use $(ref:lockCurrentSession) instead.
+      - Name: Namespace
+        Values:
+          - chrome
+          - login
+- File: webext/chrome/login.idl
+  WebextFunc:
+    Name: notifyExternalLogoutDone
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - login
+- File: webext/chrome/login.idl
+  WebextEvent:
+    Name: onExternalLogoutDone
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - login
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - login
+- File: webext/chrome/login.idl
+  WebextEvent:
+    Name: onRequestExternalLogout
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - login
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - login
+- File: webext/chrome/login.idl
+  WebextFunc:
+    Name: requestExternalLogout
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - login
+- File: webext/chrome/login.idl
+  WebextFunc:
+    Name: setDataForNextLoginAttempt
+    Modifier: static
+    Args:
+      - Name: dataForNextLoginAttempt
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - login
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - login
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - login
+- File: webext/chrome/login.idl
+  WebextFunc:
+    Name: unlockCurrentSession
+    Modifier: static
+    Args:
+      - Name: password
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - login
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - login
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - login
+- File: webext/chrome/login.idl
+  WebextFunc:
+    Name: unlockManagedGuestSession
+    Modifier: static
+    Args:
+      - Name: password
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - login
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - login
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: deprecated
+        Values:
+          - Use $(ref:unlockCurrentSession) instead.
+      - Name: Namespace
+        Values:
+          - chrome
+          - login
+- File: webext/chrome/login.idl
+  WebextFunc:
+    Name: unlockSharedSession
+    Modifier: static
+    Args:
+      - Name: password
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - login
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - login
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - login

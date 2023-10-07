@@ -1,0 +1,5887 @@
+- File: webext/automation.idl
+  Callback:
+    Name: AccessibilityFocusCallback
+    Args:
+      - Name: focusedNode
+        Type:
+          Name: AutomationNode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Enum:
+    Name: ActionType
+    Values:
+      - annotatePageImages
+      - blur
+      - clearAccessibilityFocus
+      - collapse
+      - customAction
+      - decrement
+      - doDefault
+      - expand
+      - focus
+      - getImageData
+      - getTextLocation
+      - hideTooltip
+      - hitTest
+      - increment
+      - internalInvalidateTree
+      - loadInlineTextBoxes
+      - longClick
+      - replaceSelectedText
+      - resumeMedia
+      - scrollBackward
+      - scrollDown
+      - scrollForward
+      - scrollLeft
+      - scrollRight
+      - scrollUp
+      - scrollToMakeVisible
+      - scrollToPoint
+      - scrollToPositionAtRowColumn
+      - setAccessibilityFocus
+      - setScrollOffset
+      - setSelection
+      - setSequentialFocusNavigationStartingPoint
+      - setValue
+      - showContextMenu
+      - signalEndOfTest
+      - showTooltip
+      - startDuckingMedia
+      - stopDuckingMedia
+      - suspendMedia
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Enum:
+    Name: AriaCurrentState
+    Values:
+      - "false"
+      - "true"
+      - page
+      - step
+      - location
+      - date
+      - time
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Interface:
+    Name: AutomationEvent
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+      - Name: nocompile
+      - Name: noinline_doc
+    Attrs:
+      - Name: target
+        Type:
+          Name: AutomationNode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: type
+        Type:
+          Name: EventType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: eventFrom
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: mouseX
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: mouseY
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: intents
+        Type:
+          Name: sequence
+          Params:
+            - Name: AutomationIntent
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    Operations:
+      - Name: stopPropagation
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+- File: webext/automation.idl
+  Dict:
+    Name: AutomationIntent
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+      - Name: nocompile
+      - Name: noinline_doc
+    Fields:
+      - Name: command
+        Type:
+          Name: IntentCommandType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: textBoundary
+        Type:
+          Name: IntentTextBoundaryType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveDirection
+        Type:
+          Name: IntentMoveDirectionType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+- File: webext/automation.idl
+  Callback:
+    Name: AutomationListener
+    Args:
+      - Name: event
+        Type:
+          Name: AutomationEvent
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Interface:
+    Name: AutomationNode
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+      - Name: nocompile
+      - Name: noinline_doc
+    Attrs:
+      - Name: root
+        Type:
+          Name: AutomationNode
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: isRootNode
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: role
+        Type:
+          Name: RoleType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: state
+        Type:
+          Name: object
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: location
+        Type:
+          Name: Rect
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: unclippedLocation
+        Type:
+          Name: Rect
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: description
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: checkedStateDescription
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: placeholder
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: roleDescription
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: name
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: doDefaultLabel
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: longClickLabel
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: tooltip
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: nameFrom
+        Type:
+          Name: NameFromType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: imageAnnotation
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: value
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: htmlTag
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: hierarchicalLevel
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: caretBounds
+        Type:
+          Name: Rect
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: wordStarts
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: wordEnds
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: sentenceStarts
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: sentenceEnds
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: nonInlineTextWordStarts
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: nonInlineTextWordEnds
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: controls
+        Type:
+          Name: sequence
+          Params:
+            - Name: AutomationNode
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: describedBy
+        Type:
+          Name: sequence
+          Params:
+            - Name: AutomationNode
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: flowTo
+        Type:
+          Name: sequence
+          Params:
+            - Name: AutomationNode
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: labelledBy
+        Type:
+          Name: sequence
+          Params:
+            - Name: AutomationNode
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: activeDescendant
+        Type:
+          Name: AutomationNode
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: activeDescendantFor
+        Type:
+          Name: sequence
+          Params:
+            - Name: AutomationNode
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: inPageLinkTarget
+        Type:
+          Name: AutomationNode
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: details
+        Type:
+          Name: sequence
+          Params:
+            - Name: AutomationNode
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: errorMessages
+        Type:
+          Name: sequence
+          Params:
+            - Name: AutomationNode
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: detailsFor
+        Type:
+          Name: sequence
+          Params:
+            - Name: AutomationNode
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: errorMessageFor
+        Type:
+          Name: sequence
+          Params:
+            - Name: AutomationNode
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: controlledBy
+        Type:
+          Name: sequence
+          Params:
+            - Name: AutomationNode
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: descriptionFor
+        Type:
+          Name: sequence
+          Params:
+            - Name: AutomationNode
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: flowFrom
+        Type:
+          Name: sequence
+          Params:
+            - Name: AutomationNode
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: labelFor
+        Type:
+          Name: sequence
+          Params:
+            - Name: AutomationNode
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: tableCellColumnHeaders
+        Type:
+          Name: sequence
+          Params:
+            - Name: AutomationNode
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: tableCellRowHeaders
+        Type:
+          Name: sequence
+          Params:
+            - Name: AutomationNode
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: standardActions
+        Type:
+          Name: sequence
+          Params:
+            - Name: ActionType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: customActions
+        Type:
+          Name: sequence
+          Params:
+            - Name: CustomAction
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: defaultActionVerb
+        Type:
+          Name: DefaultActionVerb
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: url
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: docUrl
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: docTitle
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: docLoaded
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: docLoadingProgress
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: scrollX
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: scrollXMin
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: scrollXMax
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: scrollY
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: scrollYMin
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: scrollYMax
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: scrollable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: textSelStart
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: textSelEnd
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: markers
+        Type:
+          Name: sequence
+          Params:
+            - Name: Marker
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: isSelectionBackward
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: anchorObject
+        Type:
+          Name: AutomationNode
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: anchorOffset
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: anchorAffinity
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: focusObject
+        Type:
+          Name: AutomationNode
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: focusOffset
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: focusAffinity
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: selectionStartObject
+        Type:
+          Name: AutomationNode
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: selectionStartOffset
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: selectionStartAffinity
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: selectionEndObject
+        Type:
+          Name: AutomationNode
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: selectionEndOffset
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: selectionEndAffinity
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: notUserSelectableStyle
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: valueForRange
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: minValueForRange
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: maxValueForRange
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: posInSet
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: setSize
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: tableRowCount
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: ariaRowCount
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: tableColumnCount
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: ariaColumnCount
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: tableCellColumnIndex
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: tableCellAriaColumnIndex
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: tableCellColumnSpan
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: tableCellRowIndex
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: tableCellAriaRowIndex
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: tableCellRowSpan
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: tableColumnHeader
+        Type:
+          Name: AutomationNode
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: tableRowHeader
+        Type:
+          Name: AutomationNode
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: tableColumnIndex
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: tableRowIndex
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: liveStatus
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: liveRelevant
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: liveAtomic
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: busy
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: containerLiveStatus
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: containerLiveRelevant
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: containerLiveAtomic
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: containerLiveBusy
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: isButton
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: isCheckBox
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: isComboBox
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: isImage
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: hasHiddenOffscreenNodes
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: autoComplete
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: className
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: modal
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: htmlAttributes
+        Type:
+          Name: object
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: inputType
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: accessKey
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: ariaInvalidValue
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: display
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: imageDataUrl
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: language
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: detectedLanguage
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: hasPopup
+        Type:
+          Name: HasPopup
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: restriction
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: checked
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: innerHtml
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: color
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: backgroundColor
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: colorValue
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: subscript
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: superscript
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: bold
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: italic
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: underline
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: lineThrough
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: selected
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: fontSize
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: fontFamily
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: nonAtomicTextFieldRoot
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: ariaCurrentState
+        Type:
+          Name: AriaCurrentState
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: invalidState
+        Type:
+          Name: InvalidState
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: appId
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: children
+        Type:
+          Name: sequence
+          Params:
+            - Name: AutomationNode
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: parent
+        Type:
+          Name: AutomationNode
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: firstChild
+        Type:
+          Name: AutomationNode
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: lastChild
+        Type:
+          Name: AutomationNode
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: previousSibling
+        Type:
+          Name: AutomationNode
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: nextSibling
+        Type:
+          Name: AutomationNode
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: previousOnLine
+        Type:
+          Name: AutomationNode
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: nextOnLine
+        Type:
+          Name: AutomationNode
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: previousFocus
+        Type:
+          Name: AutomationNode
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: nextFocus
+        Type:
+          Name: AutomationNode
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: previousWindowFocus
+        Type:
+          Name: AutomationNode
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: nextWindowFocus
+        Type:
+          Name: AutomationNode
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: indexInParent
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: sortDirection
+        Type:
+          Name: SortDirectionType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: clickable
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    Operations:
+      - Name: boundsForRange
+        Args:
+          - Name: startIndex
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+          - Name: endIndex
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+          - Name: callback
+            Type:
+              Name: BoundsForRangeCallback
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: unclippedBoundsForRange
+        Args:
+          - Name: startIndex
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+          - Name: endIndex
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+          - Name: callback
+            Type:
+              Name: BoundsForRangeCallback
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: doDefault
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: focus
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: getImageData
+        Args:
+          - Name: maxWidth
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+          - Name: maxHeight
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: hitTest
+        Args:
+          - Name: x
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+          - Name: "y"
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+          - Name: eventToFire
+            Type:
+              Name: EventType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: hitTestWithReply
+        Args:
+          - Name: x
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+          - Name: "y"
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+          - Name: callback
+            Type:
+              Name: PerformActionCallbackWithNode
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: makeVisible
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: performCustomAction
+        Args:
+          - Name: customActionId
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: performStandardAction
+        Args:
+          - Name: actionType
+            Type:
+              Name: ActionType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: replaceSelectedText
+        Args:
+          - Name: value
+            Type:
+              Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: setAccessibilityFocus
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: setSelection
+        Args:
+          - Name: startIndex
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+          - Name: endIndex
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: setSequentialFocusNavigationStartingPoint
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: setValue
+        Args:
+          - Name: value
+            Type:
+              Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: showContextMenu
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: resumeMedia
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: startDuckingMedia
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: stopDuckingMedia
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: suspendMedia
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: longClick
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: scrollBackward
+        Args:
+          - Name: callback
+            Optional: true
+            Type:
+              Name: PerformActionCallback
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: scrollForward
+        Args:
+          - Name: callback
+            Optional: true
+            Type:
+              Name: PerformActionCallback
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: scrollUp
+        Args:
+          - Name: callback
+            Optional: true
+            Type:
+              Name: PerformActionCallback
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: scrollDown
+        Args:
+          - Name: callback
+            Optional: true
+            Type:
+              Name: PerformActionCallback
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: scrollLeft
+        Args:
+          - Name: callback
+            Optional: true
+            Type:
+              Name: PerformActionCallback
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: scrollRight
+        Args:
+          - Name: callback
+            Optional: true
+            Type:
+              Name: PerformActionCallback
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: scrollToPoint
+        Args:
+          - Name: x
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+          - Name: "y"
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: setScrollOffset
+        Args:
+          - Name: x
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+          - Name: "y"
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: addEventListener
+        Args:
+          - Name: eventType
+            Type:
+              Name: EventType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+          - Name: listener
+            Type:
+              Name: AutomationListener
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+          - Name: capture
+            Type:
+              Name: boolean
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: removeEventListener
+        Args:
+          - Name: eventType
+            Type:
+              Name: EventType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+          - Name: listener
+            Type:
+              Name: AutomationListener
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+          - Name: capture
+            Type:
+              Name: boolean
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: find
+        Args:
+          - Name: params
+            Type:
+              Name: FindParams
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: AutomationNode
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: findAll
+        Args:
+          - Name: params
+            Type:
+              Name: FindParams
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: AutomationNode
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: matches
+        Args:
+          - Name: params
+            Type:
+              Name: FindParams
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: getNextTextMatch
+        Args:
+          - Name: searchStr
+            Type:
+              Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+          - Name: backward
+            Type:
+              Name: boolean
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: AutomationNode
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: createPosition
+        Args:
+          - Name: type
+            Type:
+              Name: PositionType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+          - Name: offset
+            Type:
+              Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+          - Name: isUpstream
+            Optional: true
+            Type:
+              Name: boolean
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - automation
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        Returns:
+          - Name: AutomationPosition
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+- File: webext/automation.idl
+  Interface:
+    Name: AutomationPosition
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+      - Name: nocompile
+      - Name: noinline_doc
+    Attrs:
+      - Name: node
+        Type:
+          Name: AutomationNode
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: childIndex
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: textOffset
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: affinity
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    Operations:
+      - Name: isNullPosition
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: isTreePosition
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: isTextPosition
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: isLeafTextPosition
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: atStartOfAnchor
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: atEndOfAnchor
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: atStartOfWord
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: atEndOfWord
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: atStartOfLine
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: atEndOfLine
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: atStartOfParagraph
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: atEndOfParagraph
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: atStartOfPage
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: atEndOfPage
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: atStartOfFormat
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: atEndOfFormat
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: atStartOfDocument
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: atEndOfDocument
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: asTreePosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: asTextPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: asLeafTextPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToPositionAtStartOfAnchor
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToPositionAtEndOfAnchor
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToPositionAtStartOfDocument
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToPositionAtEndOfDocument
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToParentPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToNextLeafTreePosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToPreviousLeafTreePosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToNextLeafTextPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToPreviousLeafTextPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToNextCharacterPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToPreviousCharacterPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToNextWordStartPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToPreviousWordStartPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToNextWordEndPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToPreviousWordEndPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToNextLineStartPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToPreviousLineStartPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToNextLineEndPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToPreviousLineEndPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToNextFormatStartPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToPreviousFormatStartPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToNextFormatEndPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToPreviousFormatEndPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToNextParagraphStartPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToPreviousParagraphStartPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToNextParagraphEndPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToPreviousParagraphEndPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToNextPageStartPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToPreviousPageStartPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToNextPageEndPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToPreviousPageEndPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToNextAnchorPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: moveToPreviousAnchorPosition
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: maxTextOffset
+        Returns:
+          - Name: long
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: isInLineBreak
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: isInTextObject
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: isInWhiteSpace
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: isValid
+        Returns:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: getText
+        Returns:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+- File: webext/automation.idl
+  Callback:
+    Name: BoundsForRangeCallback
+    Args:
+      - Name: bounds
+        Type:
+          Name: Rect
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Dict:
+    Name: CustomAction
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+      - Name: nocompile
+      - Name: noinline_doc
+    Fields:
+      - Name: id
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: description
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+- File: webext/automation.idl
+  Enum:
+    Name: DefaultActionVerb
+    Values:
+      - activate
+      - check
+      - click
+      - clickAncestor
+      - jump
+      - open
+      - press
+      - select
+      - uncheck
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Enum:
+    Name: DescriptionFromType
+    Values:
+      - ariaDescription
+      - attributeExplicitlyEmpty
+      - buttonLabel
+      - popoverAttribute
+      - relatedElement
+      - rubyAnnotation
+      - summary
+      - svgDescElement
+      - tableCaption
+      - title
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Enum:
+    Name: EventType
+    Values:
+      - accessKeyChanged
+      - activeDescendantChanged
+      - alert
+      - ariaAttributeChangedDeprecated
+      - ariaCurrentChanged
+      - atomicChanged
+      - autoCompleteChanged
+      - autocorrectionOccured
+      - autofillAvailabilityChanged
+      - blur
+      - busyChanged
+      - caretBoundsChanged
+      - checkedStateChanged
+      - checkedStateDescriptionChanged
+      - childrenChanged
+      - classNameChanged
+      - clicked
+      - collapsed
+      - controlsChanged
+      - detailsChanged
+      - describedByChanged
+      - descriptionChanged
+      - documentSelectionChanged
+      - documentTitleChanged
+      - dropeffectChanged
+      - editableTextChanged
+      - enabledChanged
+      - endOfTest
+      - expanded
+      - expandedChanged
+      - flowFromChanged
+      - flowToChanged
+      - focus
+      - focusAfterMenuClose
+      - focusChanged
+      - focusContext
+      - grabbedChanged
+      - haspopupChanged
+      - hide
+      - hierarchicalLevelChanged
+      - hitTestResult
+      - hover
+      - ignoredChanged
+      - imageAnnotationChanged
+      - imageFrameUpdated
+      - invalidStatusChanged
+      - keyShortcutsChanged
+      - labeledByChanged
+      - languageChanged
+      - layoutComplete
+      - layoutInvalidated
+      - liveRegionChanged
+      - liveRegionCreated
+      - liveRegionNodeChanged
+      - liveRelevantChanged
+      - liveStatusChanged
+      - loadComplete
+      - loadStart
+      - locationChanged
+      - mediaStartedPlaying
+      - mediaStoppedPlaying
+      - menuEnd
+      - menuItemSelected
+      - menuListValueChanged
+      - menuPopupEnd
+      - menuPopupStart
+      - menuStart
+      - mouseCanceled
+      - mouseDragged
+      - mouseMoved
+      - mousePressed
+      - mouseReleased
+      - multilineStateChanged
+      - multiselectableStateChanged
+      - nameChanged
+      - objectAttributeChanged
+      - orientationChanged
+      - otherAttributeChanged
+      - parentChanged
+      - placeholderChanged
+      - portalActivated
+      - positionInSetChanged
+      - rangeValueChanged
+      - rangeValueMaxChanged
+      - rangeValueMinChanged
+      - rangeValueStepChanged
+      - readonlyChanged
+      - relatedNodeChanged
+      - requiredStateChanged
+      - roleChanged
+      - rowCollapsed
+      - rowCountChanged
+      - rowExpanded
+      - scrollHorizontalPositionChanged
+      - scrollPositionChanged
+      - scrollVerticalPositionChanged
+      - scrolledToAnchor
+      - selectedChanged
+      - selectedChildrenChanged
+      - selectedValueChanged
+      - selection
+      - selectionAdd
+      - selectionRemove
+      - setSizeChanged
+      - show
+      - sortChanged
+      - stateChanged
+      - subtreeCreated
+      - textAttributeChanged
+      - textSelectionChanged
+      - textChanged
+      - tooltipClosed
+      - tooltipOpened
+      - treeChanged
+      - valueInTextFieldChanged
+      - valueChanged
+      - windowActivated
+      - windowDeactivated
+      - windowVisibilityChanged
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Dict:
+    Name: FindParams
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+      - Name: nocompile
+      - Name: noinline_doc
+    Fields:
+      - Name: role
+        Type:
+          Name: RoleType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: state
+        Type:
+          Name: object
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: attributes
+        Type:
+          Name: object
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+- File: webext/automation.idl
+  Callback:
+    Name: FocusCallback
+    Args:
+      - Name: focusedNode
+        Type:
+          Name: AutomationNode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Enum:
+    Name: HasPopup
+    Values:
+      - "false"
+      - "true"
+      - menu
+      - listbox
+      - tree
+      - grid
+      - dialog
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Enum:
+    Name: IntentCommandType
+    Values:
+      - clearSelection
+      - delete
+      - dictate
+      - extendSelection
+      - format
+      - history
+      - insert
+      - marker
+      - moveSelection
+      - setSelection
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Enum:
+    Name: IntentInputEventType
+    Values:
+      - insertText
+      - insertLineBreak
+      - insertParagraph
+      - insertOrderedList
+      - insertUnorderedList
+      - insertHorizontalRule
+      - insertFromPaste
+      - insertFromDrop
+      - insertFromYank
+      - insertTranspose
+      - insertReplacementText
+      - insertCompositionText
+      - deleteWordBackward
+      - deleteWordForward
+      - deleteSoftLineBackward
+      - deleteSoftLineForward
+      - deleteHardLineBackward
+      - deleteHardLineForward
+      - deleteContentBackward
+      - deleteContentForward
+      - deleteByCut
+      - deleteByDrag
+      - historyUndo
+      - historyRedo
+      - formatBold
+      - formatItalic
+      - formatUnderline
+      - formatStrikeThrough
+      - formatSuperscript
+      - formatSubscript
+      - formatJustifyCenter
+      - formatJustifyFull
+      - formatJustifyRight
+      - formatJustifyLeft
+      - formatIndent
+      - formatOutdent
+      - formatRemove
+      - formatSetBlockTextDirection
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Enum:
+    Name: IntentMoveDirectionType
+    Values:
+      - backward
+      - forward
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Enum:
+    Name: IntentTextBoundaryType
+    Values:
+      - character
+      - formatEnd
+      - formatStart
+      - formatStartOrEnd
+      - lineEnd
+      - lineStart
+      - lineStartOrEnd
+      - object
+      - pageEnd
+      - pageStart
+      - pageStartOrEnd
+      - paragraphEnd
+      - paragraphStart
+      - paragraphStartSkippingEmptyParagraphs
+      - paragraphStartOrEnd
+      - sentenceEnd
+      - sentenceStart
+      - sentenceStartOrEnd
+      - webPage
+      - wordEnd
+      - wordStart
+      - wordStartOrEnd
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Enum:
+    Name: InvalidState
+    Values:
+      - "false"
+      - "true"
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Dict:
+    Name: Marker
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+      - Name: nocompile
+      - Name: noinline_doc
+    Fields:
+      - Name: startOffset
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: endOffset
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: flags
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+- File: webext/automation.idl
+  Enum:
+    Name: MarkerType
+    Values:
+      - spelling
+      - grammar
+      - textMatch
+      - activeSuggestion
+      - suggestion
+      - highlight
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Enum:
+    Name: NameFromType
+    Values:
+      - attribute
+      - attributeExplicitlyEmpty
+      - caption
+      - contents
+      - placeholder
+      - popoverAttribute
+      - relatedElement
+      - title
+      - value
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Callback:
+    Name: PerformActionCallback
+    Args:
+      - Name: result
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Callback:
+    Name: PerformActionCallbackWithNode
+    Args:
+      - Name: node
+        Type:
+          Name: AutomationNode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Enum:
+    Name: PositionType
+    Values:
+      - "null"
+      - text
+      - tree
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Dict:
+    Name: Rect
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+    Fields:
+      - Name: left
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: top
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: width
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: height
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+- File: webext/automation.idl
+  Enum:
+    Name: Restriction
+    Values:
+      - disabled
+      - readOnly
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Enum:
+    Name: RoleType
+    Values:
+      - abbr
+      - alert
+      - alertDialog
+      - application
+      - article
+      - audio
+      - banner
+      - blockquote
+      - button
+      - canvas
+      - caption
+      - caret
+      - cell
+      - checkBox
+      - client
+      - code
+      - colorWell
+      - column
+      - columnHeader
+      - comboBoxGrouping
+      - comboBoxMenuButton
+      - comboBoxSelect
+      - comment
+      - complementary
+      - contentDeletion
+      - contentInsertion
+      - contentInfo
+      - date
+      - dateTime
+      - definition
+      - descriptionList
+      - descriptionListDetail
+      - descriptionListTerm
+      - desktop
+      - details
+      - dialog
+      - directory
+      - disclosureTriangle
+      - docAbstract
+      - docAcknowledgments
+      - docAfterword
+      - docAppendix
+      - docBackLink
+      - docBiblioEntry
+      - docBibliography
+      - docBiblioRef
+      - docChapter
+      - docColophon
+      - docConclusion
+      - docCover
+      - docCredit
+      - docCredits
+      - docDedication
+      - docEndnote
+      - docEndnotes
+      - docEpigraph
+      - docEpilogue
+      - docErrata
+      - docExample
+      - docFootnote
+      - docForeword
+      - docGlossary
+      - docGlossRef
+      - docIndex
+      - docIntroduction
+      - docNoteRef
+      - docNotice
+      - docPageBreak
+      - docPageFooter
+      - docPageHeader
+      - docPageList
+      - docPart
+      - docPreface
+      - docPrologue
+      - docPullquote
+      - docQna
+      - docSubtitle
+      - docTip
+      - docToc
+      - document
+      - embeddedObject
+      - emphasis
+      - feed
+      - figcaption
+      - figure
+      - footer
+      - footerAsNonLandmark
+      - form
+      - genericContainer
+      - graphicsDocument
+      - graphicsObject
+      - graphicsSymbol
+      - grid
+      - group
+      - header
+      - headerAsNonLandmark
+      - heading
+      - iframe
+      - iframePresentational
+      - image
+      - imeCandidate
+      - inlineTextBox
+      - inputTime
+      - keyboard
+      - labelText
+      - layoutTable
+      - layoutTableCell
+      - layoutTableRow
+      - legend
+      - lineBreak
+      - link
+      - list
+      - listBox
+      - listBoxOption
+      - listGrid
+      - listItem
+      - listMarker
+      - log
+      - main
+      - mark
+      - marquee
+      - math
+      - mathMLFraction
+      - mathMLIdentifier
+      - mathMLMath
+      - mathMLMultiscripts
+      - mathMLNoneScript
+      - mathMLNumber
+      - mathMLOperator
+      - mathMLOver
+      - mathMLPrescriptDelimiter
+      - mathMLRoot
+      - mathMLRow
+      - mathMLSquareRoot
+      - mathMLStringLiteral
+      - mathMLSub
+      - mathMLSubSup
+      - mathMLSup
+      - mathMLTable
+      - mathMLTableCell
+      - mathMLTableRow
+      - mathMLText
+      - mathMLUnder
+      - mathMLUnderOver
+      - menu
+      - menuBar
+      - menuItem
+      - menuItemCheckBox
+      - menuItemRadio
+      - menuListOption
+      - menuListPopup
+      - meter
+      - navigation
+      - note
+      - pane
+      - paragraph
+      - pdfActionableHighlight
+      - pdfRoot
+      - pluginObject
+      - popUpButton
+      - portal
+      - preDeprecated
+      - progressIndicator
+      - radioButton
+      - radioGroup
+      - region
+      - rootWebArea
+      - row
+      - rowGroup
+      - rowHeader
+      - ruby
+      - rubyAnnotation
+      - scrollBar
+      - scrollView
+      - search
+      - searchBox
+      - section
+      - slider
+      - spinButton
+      - splitter
+      - staticText
+      - status
+      - strong
+      - subscript
+      - suggestion
+      - superscript
+      - svgRoot
+      - switch
+      - tab
+      - tabList
+      - tabPanel
+      - table
+      - tableHeaderContainer
+      - term
+      - textField
+      - textFieldWithComboBox
+      - time
+      - timer
+      - titleBar
+      - toggleButton
+      - toolbar
+      - tooltip
+      - tree
+      - treeGrid
+      - treeItem
+      - unknown
+      - video
+      - webView
+      - window
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Callback:
+    Name: RootCallback
+    Args:
+      - Name: rootNode
+        Type:
+          Name: AutomationNode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Dict:
+    Name: SetDocumentSelectionParams
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+      - Name: nocompile
+      - Name: noinline_doc
+    Fields:
+      - Name: anchorObject
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - AutomationNode
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: anchorOffset
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: focusObject
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - AutomationNode
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: focusOffset
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+- File: webext/automation.idl
+  Enum:
+    Name: SortDirectionType
+    Values:
+      - unsorted
+      - ascending
+      - descending
+      - other
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Enum:
+    Name: StateType
+    Values:
+      - autofillAvailable
+      - collapsed
+      - default
+      - editable
+      - expanded
+      - focusable
+      - focused
+      - horizontal
+      - hovered
+      - ignored
+      - invisible
+      - linked
+      - multiline
+      - multiselectable
+      - offscreen
+      - protected
+      - required
+      - richlyEditable
+      - vertical
+      - visited
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Dict:
+    Name: TreeChange
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+      - Name: nocompile
+      - Name: noinline_doc
+    Fields:
+      - Name: target
+        Type:
+          Name: AutomationNode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: type
+        Type:
+          Name: TreeChangeType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+- File: webext/automation.idl
+  Callback:
+    Name: TreeChangeObserver
+    Args:
+      - Name: treeChange
+        Type:
+          Name: TreeChange
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Enum:
+    Name: TreeChangeObserverFilter
+    Values:
+      - noTreeChanges
+      - liveRegionTreeChanges
+      - textMarkerChanges
+      - allTreeChanges
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  Enum:
+    Name: TreeChangeType
+    Values:
+      - nodeCreated
+      - subtreeCreated
+      - nodeChanged
+      - textChanged
+      - nodeRemoved
+      - subtreeUpdateEnd
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  WebextFunc:
+    Name: addTreeChangeObserver
+    Modifier: static
+    Args:
+      - Name: filter
+        Type:
+          Name: TreeChangeObserverFilter
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: observer
+        Type:
+          Name: TreeChangeObserver
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  WebextFunc:
+    Name: getAccessibilityFocus
+    Modifier: static
+    Args:
+      - Name: callback
+        Type:
+          Name: AccessibilityFocusCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  WebextFunc:
+    Name: getDesktop
+    Modifier: static
+    Args:
+      - Name: callback
+        Type:
+          Name: RootCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  WebextFunc:
+    Name: getFocus
+    Modifier: static
+    Args:
+      - Name: callback
+        Type:
+          Name: FocusCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  WebextFunc:
+    Name: getTree
+    Modifier: static
+    Args:
+      - Name: tabId
+        Optional: true
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+      - Name: callback
+        Optional: true
+        Type:
+          Name: RootCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  WebextFunc:
+    Name: removeTreeChangeObserver
+    Modifier: static
+    Args:
+      - Name: observer
+        Type:
+          Name: TreeChangeObserver
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation
+- File: webext/automation.idl
+  WebextFunc:
+    Name: setDocumentSelection
+    Modifier: static
+    Args:
+      - Name: params
+        Type:
+          Name: SetDocumentSelectionParams
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - automation
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - automation
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - automation

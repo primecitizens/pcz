@@ -5,17 +5,10 @@ package web
 
 import (
 	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/mark"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 func NewInstance(module Module, importObject js.Object) (ret Instance) {
 	ret.ref = bindings.NewInstanceByInstance(
@@ -35,7 +28,7 @@ type Instance struct {
 }
 
 func (this Instance) Once() Instance {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -49,7 +42,7 @@ func (this Instance) FromRef(ref js.Ref) Instance {
 }
 
 func (this Instance) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Exports returns the value of property "Instance.exports".
@@ -57,7 +50,7 @@ func (this Instance) Free() {
 // It returns ok=false if there is no such property.
 func (this Instance) Exports() (ret js.Object, ok bool) {
 	ok = js.True == bindings.GetInstanceExports(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -67,7 +60,7 @@ type InterestGroupBiddingScriptRunnerGlobalScope struct {
 }
 
 func (this InterestGroupBiddingScriptRunnerGlobalScope) Once() InterestGroupBiddingScriptRunnerGlobalScope {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -81,29 +74,28 @@ func (this InterestGroupBiddingScriptRunnerGlobalScope) FromRef(ref js.Ref) Inte
 }
 
 func (this InterestGroupBiddingScriptRunnerGlobalScope) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasSetBid returns true if the method "InterestGroupBiddingScriptRunnerGlobalScope.setBid" exists.
-func (this InterestGroupBiddingScriptRunnerGlobalScope) HasSetBid() bool {
-	return js.True == bindings.HasInterestGroupBiddingScriptRunnerGlobalScopeSetBid(
-		this.Ref(),
+// HasFuncSetBid returns true if the method "InterestGroupBiddingScriptRunnerGlobalScope.setBid" exists.
+func (this InterestGroupBiddingScriptRunnerGlobalScope) HasFuncSetBid() bool {
+	return js.True == bindings.HasFuncInterestGroupBiddingScriptRunnerGlobalScopeSetBid(
+		this.ref,
 	)
 }
 
-// SetBidFunc returns the method "InterestGroupBiddingScriptRunnerGlobalScope.setBid".
-func (this InterestGroupBiddingScriptRunnerGlobalScope) SetBidFunc() (fn js.Func[func(generateBidOutput GenerateBidOutput) bool]) {
-	return fn.FromRef(
-		bindings.InterestGroupBiddingScriptRunnerGlobalScopeSetBidFunc(
-			this.Ref(),
-		),
+// FuncSetBid returns the method "InterestGroupBiddingScriptRunnerGlobalScope.setBid".
+func (this InterestGroupBiddingScriptRunnerGlobalScope) FuncSetBid() (fn js.Func[func(generateBidOutput GenerateBidOutput) bool]) {
+	bindings.FuncInterestGroupBiddingScriptRunnerGlobalScopeSetBid(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetBid calls the method "InterestGroupBiddingScriptRunnerGlobalScope.setBid".
 func (this InterestGroupBiddingScriptRunnerGlobalScope) SetBid(generateBidOutput GenerateBidOutput) (ret bool) {
 	bindings.CallInterestGroupBiddingScriptRunnerGlobalScopeSetBid(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&generateBidOutput),
 	)
 
@@ -115,33 +107,32 @@ func (this InterestGroupBiddingScriptRunnerGlobalScope) SetBid(generateBidOutput
 // the catch clause.
 func (this InterestGroupBiddingScriptRunnerGlobalScope) TrySetBid(generateBidOutput GenerateBidOutput) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryInterestGroupBiddingScriptRunnerGlobalScopeSetBid(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&generateBidOutput),
 	)
 
 	return
 }
 
-// HasSetBid1 returns true if the method "InterestGroupBiddingScriptRunnerGlobalScope.setBid" exists.
-func (this InterestGroupBiddingScriptRunnerGlobalScope) HasSetBid1() bool {
-	return js.True == bindings.HasInterestGroupBiddingScriptRunnerGlobalScopeSetBid1(
-		this.Ref(),
+// HasFuncSetBid1 returns true if the method "InterestGroupBiddingScriptRunnerGlobalScope.setBid" exists.
+func (this InterestGroupBiddingScriptRunnerGlobalScope) HasFuncSetBid1() bool {
+	return js.True == bindings.HasFuncInterestGroupBiddingScriptRunnerGlobalScopeSetBid1(
+		this.ref,
 	)
 }
 
-// SetBid1Func returns the method "InterestGroupBiddingScriptRunnerGlobalScope.setBid".
-func (this InterestGroupBiddingScriptRunnerGlobalScope) SetBid1Func() (fn js.Func[func() bool]) {
-	return fn.FromRef(
-		bindings.InterestGroupBiddingScriptRunnerGlobalScopeSetBid1Func(
-			this.Ref(),
-		),
+// FuncSetBid1 returns the method "InterestGroupBiddingScriptRunnerGlobalScope.setBid".
+func (this InterestGroupBiddingScriptRunnerGlobalScope) FuncSetBid1() (fn js.Func[func() bool]) {
+	bindings.FuncInterestGroupBiddingScriptRunnerGlobalScopeSetBid1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetBid1 calls the method "InterestGroupBiddingScriptRunnerGlobalScope.setBid".
 func (this InterestGroupBiddingScriptRunnerGlobalScope) SetBid1() (ret bool) {
 	bindings.CallInterestGroupBiddingScriptRunnerGlobalScopeSetBid1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -152,32 +143,31 @@ func (this InterestGroupBiddingScriptRunnerGlobalScope) SetBid1() (ret bool) {
 // the catch clause.
 func (this InterestGroupBiddingScriptRunnerGlobalScope) TrySetBid1() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryInterestGroupBiddingScriptRunnerGlobalScopeSetBid1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSetPriority returns true if the method "InterestGroupBiddingScriptRunnerGlobalScope.setPriority" exists.
-func (this InterestGroupBiddingScriptRunnerGlobalScope) HasSetPriority() bool {
-	return js.True == bindings.HasInterestGroupBiddingScriptRunnerGlobalScopeSetPriority(
-		this.Ref(),
+// HasFuncSetPriority returns true if the method "InterestGroupBiddingScriptRunnerGlobalScope.setPriority" exists.
+func (this InterestGroupBiddingScriptRunnerGlobalScope) HasFuncSetPriority() bool {
+	return js.True == bindings.HasFuncInterestGroupBiddingScriptRunnerGlobalScopeSetPriority(
+		this.ref,
 	)
 }
 
-// SetPriorityFunc returns the method "InterestGroupBiddingScriptRunnerGlobalScope.setPriority".
-func (this InterestGroupBiddingScriptRunnerGlobalScope) SetPriorityFunc() (fn js.Func[func(priority float64)]) {
-	return fn.FromRef(
-		bindings.InterestGroupBiddingScriptRunnerGlobalScopeSetPriorityFunc(
-			this.Ref(),
-		),
+// FuncSetPriority returns the method "InterestGroupBiddingScriptRunnerGlobalScope.setPriority".
+func (this InterestGroupBiddingScriptRunnerGlobalScope) FuncSetPriority() (fn js.Func[func(priority float64)]) {
+	bindings.FuncInterestGroupBiddingScriptRunnerGlobalScopeSetPriority(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetPriority calls the method "InterestGroupBiddingScriptRunnerGlobalScope.setPriority".
 func (this InterestGroupBiddingScriptRunnerGlobalScope) SetPriority(priority float64) (ret js.Void) {
 	bindings.CallInterestGroupBiddingScriptRunnerGlobalScopeSetPriority(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		float64(priority),
 	)
 
@@ -189,33 +179,32 @@ func (this InterestGroupBiddingScriptRunnerGlobalScope) SetPriority(priority flo
 // the catch clause.
 func (this InterestGroupBiddingScriptRunnerGlobalScope) TrySetPriority(priority float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryInterestGroupBiddingScriptRunnerGlobalScopeSetPriority(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		float64(priority),
 	)
 
 	return
 }
 
-// HasSetPrioritySignalsOverride returns true if the method "InterestGroupBiddingScriptRunnerGlobalScope.setPrioritySignalsOverride" exists.
-func (this InterestGroupBiddingScriptRunnerGlobalScope) HasSetPrioritySignalsOverride() bool {
-	return js.True == bindings.HasInterestGroupBiddingScriptRunnerGlobalScopeSetPrioritySignalsOverride(
-		this.Ref(),
+// HasFuncSetPrioritySignalsOverride returns true if the method "InterestGroupBiddingScriptRunnerGlobalScope.setPrioritySignalsOverride" exists.
+func (this InterestGroupBiddingScriptRunnerGlobalScope) HasFuncSetPrioritySignalsOverride() bool {
+	return js.True == bindings.HasFuncInterestGroupBiddingScriptRunnerGlobalScopeSetPrioritySignalsOverride(
+		this.ref,
 	)
 }
 
-// SetPrioritySignalsOverrideFunc returns the method "InterestGroupBiddingScriptRunnerGlobalScope.setPrioritySignalsOverride".
-func (this InterestGroupBiddingScriptRunnerGlobalScope) SetPrioritySignalsOverrideFunc() (fn js.Func[func(key js.String, priority float64)]) {
-	return fn.FromRef(
-		bindings.InterestGroupBiddingScriptRunnerGlobalScopeSetPrioritySignalsOverrideFunc(
-			this.Ref(),
-		),
+// FuncSetPrioritySignalsOverride returns the method "InterestGroupBiddingScriptRunnerGlobalScope.setPrioritySignalsOverride".
+func (this InterestGroupBiddingScriptRunnerGlobalScope) FuncSetPrioritySignalsOverride() (fn js.Func[func(key js.String, priority float64)]) {
+	bindings.FuncInterestGroupBiddingScriptRunnerGlobalScopeSetPrioritySignalsOverride(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetPrioritySignalsOverride calls the method "InterestGroupBiddingScriptRunnerGlobalScope.setPrioritySignalsOverride".
 func (this InterestGroupBiddingScriptRunnerGlobalScope) SetPrioritySignalsOverride(key js.String, priority float64) (ret js.Void) {
 	bindings.CallInterestGroupBiddingScriptRunnerGlobalScopeSetPrioritySignalsOverride(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		key.Ref(),
 		float64(priority),
 	)
@@ -228,7 +217,7 @@ func (this InterestGroupBiddingScriptRunnerGlobalScope) SetPrioritySignalsOverri
 // the catch clause.
 func (this InterestGroupBiddingScriptRunnerGlobalScope) TrySetPrioritySignalsOverride(key js.String, priority float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryInterestGroupBiddingScriptRunnerGlobalScopeSetPrioritySignalsOverride(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		key.Ref(),
 		float64(priority),
 	)
@@ -236,26 +225,25 @@ func (this InterestGroupBiddingScriptRunnerGlobalScope) TrySetPrioritySignalsOve
 	return
 }
 
-// HasSetPrioritySignalsOverride1 returns true if the method "InterestGroupBiddingScriptRunnerGlobalScope.setPrioritySignalsOverride" exists.
-func (this InterestGroupBiddingScriptRunnerGlobalScope) HasSetPrioritySignalsOverride1() bool {
-	return js.True == bindings.HasInterestGroupBiddingScriptRunnerGlobalScopeSetPrioritySignalsOverride1(
-		this.Ref(),
+// HasFuncSetPrioritySignalsOverride1 returns true if the method "InterestGroupBiddingScriptRunnerGlobalScope.setPrioritySignalsOverride" exists.
+func (this InterestGroupBiddingScriptRunnerGlobalScope) HasFuncSetPrioritySignalsOverride1() bool {
+	return js.True == bindings.HasFuncInterestGroupBiddingScriptRunnerGlobalScopeSetPrioritySignalsOverride1(
+		this.ref,
 	)
 }
 
-// SetPrioritySignalsOverride1Func returns the method "InterestGroupBiddingScriptRunnerGlobalScope.setPrioritySignalsOverride".
-func (this InterestGroupBiddingScriptRunnerGlobalScope) SetPrioritySignalsOverride1Func() (fn js.Func[func(key js.String)]) {
-	return fn.FromRef(
-		bindings.InterestGroupBiddingScriptRunnerGlobalScopeSetPrioritySignalsOverride1Func(
-			this.Ref(),
-		),
+// FuncSetPrioritySignalsOverride1 returns the method "InterestGroupBiddingScriptRunnerGlobalScope.setPrioritySignalsOverride".
+func (this InterestGroupBiddingScriptRunnerGlobalScope) FuncSetPrioritySignalsOverride1() (fn js.Func[func(key js.String)]) {
+	bindings.FuncInterestGroupBiddingScriptRunnerGlobalScopeSetPrioritySignalsOverride1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetPrioritySignalsOverride1 calls the method "InterestGroupBiddingScriptRunnerGlobalScope.setPrioritySignalsOverride".
 func (this InterestGroupBiddingScriptRunnerGlobalScope) SetPrioritySignalsOverride1(key js.String) (ret js.Void) {
 	bindings.CallInterestGroupBiddingScriptRunnerGlobalScopeSetPrioritySignalsOverride1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		key.Ref(),
 	)
 
@@ -267,7 +255,7 @@ func (this InterestGroupBiddingScriptRunnerGlobalScope) SetPrioritySignalsOverri
 // the catch clause.
 func (this InterestGroupBiddingScriptRunnerGlobalScope) TrySetPrioritySignalsOverride1(key js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryInterestGroupBiddingScriptRunnerGlobalScopeSetPrioritySignalsOverride1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		key.Ref(),
 	)
 
@@ -279,7 +267,7 @@ type InterestGroupReportingScriptRunnerGlobalScope struct {
 }
 
 func (this InterestGroupReportingScriptRunnerGlobalScope) Once() InterestGroupReportingScriptRunnerGlobalScope {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -293,29 +281,28 @@ func (this InterestGroupReportingScriptRunnerGlobalScope) FromRef(ref js.Ref) In
 }
 
 func (this InterestGroupReportingScriptRunnerGlobalScope) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasSendReportTo returns true if the method "InterestGroupReportingScriptRunnerGlobalScope.sendReportTo" exists.
-func (this InterestGroupReportingScriptRunnerGlobalScope) HasSendReportTo() bool {
-	return js.True == bindings.HasInterestGroupReportingScriptRunnerGlobalScopeSendReportTo(
-		this.Ref(),
+// HasFuncSendReportTo returns true if the method "InterestGroupReportingScriptRunnerGlobalScope.sendReportTo" exists.
+func (this InterestGroupReportingScriptRunnerGlobalScope) HasFuncSendReportTo() bool {
+	return js.True == bindings.HasFuncInterestGroupReportingScriptRunnerGlobalScopeSendReportTo(
+		this.ref,
 	)
 }
 
-// SendReportToFunc returns the method "InterestGroupReportingScriptRunnerGlobalScope.sendReportTo".
-func (this InterestGroupReportingScriptRunnerGlobalScope) SendReportToFunc() (fn js.Func[func(url js.String)]) {
-	return fn.FromRef(
-		bindings.InterestGroupReportingScriptRunnerGlobalScopeSendReportToFunc(
-			this.Ref(),
-		),
+// FuncSendReportTo returns the method "InterestGroupReportingScriptRunnerGlobalScope.sendReportTo".
+func (this InterestGroupReportingScriptRunnerGlobalScope) FuncSendReportTo() (fn js.Func[func(url js.String)]) {
+	bindings.FuncInterestGroupReportingScriptRunnerGlobalScopeSendReportTo(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SendReportTo calls the method "InterestGroupReportingScriptRunnerGlobalScope.sendReportTo".
 func (this InterestGroupReportingScriptRunnerGlobalScope) SendReportTo(url js.String) (ret js.Void) {
 	bindings.CallInterestGroupReportingScriptRunnerGlobalScopeSendReportTo(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		url.Ref(),
 	)
 
@@ -327,33 +314,32 @@ func (this InterestGroupReportingScriptRunnerGlobalScope) SendReportTo(url js.St
 // the catch clause.
 func (this InterestGroupReportingScriptRunnerGlobalScope) TrySendReportTo(url js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryInterestGroupReportingScriptRunnerGlobalScopeSendReportTo(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		url.Ref(),
 	)
 
 	return
 }
 
-// HasRegisterAdBeacon returns true if the method "InterestGroupReportingScriptRunnerGlobalScope.registerAdBeacon" exists.
-func (this InterestGroupReportingScriptRunnerGlobalScope) HasRegisterAdBeacon() bool {
-	return js.True == bindings.HasInterestGroupReportingScriptRunnerGlobalScopeRegisterAdBeacon(
-		this.Ref(),
+// HasFuncRegisterAdBeacon returns true if the method "InterestGroupReportingScriptRunnerGlobalScope.registerAdBeacon" exists.
+func (this InterestGroupReportingScriptRunnerGlobalScope) HasFuncRegisterAdBeacon() bool {
+	return js.True == bindings.HasFuncInterestGroupReportingScriptRunnerGlobalScopeRegisterAdBeacon(
+		this.ref,
 	)
 }
 
-// RegisterAdBeaconFunc returns the method "InterestGroupReportingScriptRunnerGlobalScope.registerAdBeacon".
-func (this InterestGroupReportingScriptRunnerGlobalScope) RegisterAdBeaconFunc() (fn js.Func[func(mapping js.Record[js.String])]) {
-	return fn.FromRef(
-		bindings.InterestGroupReportingScriptRunnerGlobalScopeRegisterAdBeaconFunc(
-			this.Ref(),
-		),
+// FuncRegisterAdBeacon returns the method "InterestGroupReportingScriptRunnerGlobalScope.registerAdBeacon".
+func (this InterestGroupReportingScriptRunnerGlobalScope) FuncRegisterAdBeacon() (fn js.Func[func(mapping js.Record[js.String])]) {
+	bindings.FuncInterestGroupReportingScriptRunnerGlobalScopeRegisterAdBeacon(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RegisterAdBeacon calls the method "InterestGroupReportingScriptRunnerGlobalScope.registerAdBeacon".
 func (this InterestGroupReportingScriptRunnerGlobalScope) RegisterAdBeacon(mapping js.Record[js.String]) (ret js.Void) {
 	bindings.CallInterestGroupReportingScriptRunnerGlobalScopeRegisterAdBeacon(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		mapping.Ref(),
 	)
 
@@ -365,7 +351,7 @@ func (this InterestGroupReportingScriptRunnerGlobalScope) RegisterAdBeacon(mappi
 // the catch clause.
 func (this InterestGroupReportingScriptRunnerGlobalScope) TryRegisterAdBeacon(mapping js.Record[js.String]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryInterestGroupReportingScriptRunnerGlobalScopeRegisterAdBeacon(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		mapping.Ref(),
 	)
 
@@ -377,7 +363,7 @@ type InterestGroupScoringScriptRunnerGlobalScope struct {
 }
 
 func (this InterestGroupScoringScriptRunnerGlobalScope) Once() InterestGroupScoringScriptRunnerGlobalScope {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -391,7 +377,7 @@ func (this InterestGroupScoringScriptRunnerGlobalScope) FromRef(ref js.Ref) Inte
 }
 
 func (this InterestGroupScoringScriptRunnerGlobalScope) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type InterestGroupScriptRunnerGlobalScope struct {
@@ -399,7 +385,7 @@ type InterestGroupScriptRunnerGlobalScope struct {
 }
 
 func (this InterestGroupScriptRunnerGlobalScope) Once() InterestGroupScriptRunnerGlobalScope {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -413,7 +399,7 @@ func (this InterestGroupScriptRunnerGlobalScope) FromRef(ref js.Ref) InterestGro
 }
 
 func (this InterestGroupScriptRunnerGlobalScope) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type IntersectionObserverCallbackFunc func(this js.Ref, entries js.Array[IntersectionObserverEntry], observer IntersectionObserver) js.Ref
@@ -462,7 +448,7 @@ func (cb *IntersectionObserverCallback[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 2+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
 
 	if ctx.Return(cb.Fn(
@@ -531,17 +517,31 @@ func (p IntersectionObserverEntryInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p IntersectionObserverEntryInit) UpdateFrom(ref js.Ref) {
+func (p *IntersectionObserverEntryInit) UpdateFrom(ref js.Ref) {
 	bindings.IntersectionObserverEntryInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p IntersectionObserverEntryInit) Update(ref js.Ref) {
+func (p *IntersectionObserverEntryInit) Update(ref js.Ref) {
 	bindings.IntersectionObserverEntryInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *IntersectionObserverEntryInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Target.Ref(),
+	)
+	p.Target = p.Target.FromRef(js.Undefined)
+	if recursive {
+		p.RootBounds.FreeMembers(true)
+		p.BoundingClientRect.FreeMembers(true)
+		p.IntersectionRect.FreeMembers(true)
+	}
 }
 
 func NewIntersectionObserverEntry(intersectionObserverEntryInit IntersectionObserverEntryInit) (ret IntersectionObserverEntry) {
@@ -555,7 +555,7 @@ type IntersectionObserverEntry struct {
 }
 
 func (this IntersectionObserverEntry) Once() IntersectionObserverEntry {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -569,7 +569,7 @@ func (this IntersectionObserverEntry) FromRef(ref js.Ref) IntersectionObserverEn
 }
 
 func (this IntersectionObserverEntry) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Time returns the value of property "IntersectionObserverEntry.time".
@@ -577,7 +577,7 @@ func (this IntersectionObserverEntry) Free() {
 // It returns ok=false if there is no such property.
 func (this IntersectionObserverEntry) Time() (ret DOMHighResTimeStamp, ok bool) {
 	ok = js.True == bindings.GetIntersectionObserverEntryTime(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -587,7 +587,7 @@ func (this IntersectionObserverEntry) Time() (ret DOMHighResTimeStamp, ok bool) 
 // It returns ok=false if there is no such property.
 func (this IntersectionObserverEntry) RootBounds() (ret DOMRectReadOnly, ok bool) {
 	ok = js.True == bindings.GetIntersectionObserverEntryRootBounds(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -597,7 +597,7 @@ func (this IntersectionObserverEntry) RootBounds() (ret DOMRectReadOnly, ok bool
 // It returns ok=false if there is no such property.
 func (this IntersectionObserverEntry) BoundingClientRect() (ret DOMRectReadOnly, ok bool) {
 	ok = js.True == bindings.GetIntersectionObserverEntryBoundingClientRect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -607,7 +607,7 @@ func (this IntersectionObserverEntry) BoundingClientRect() (ret DOMRectReadOnly,
 // It returns ok=false if there is no such property.
 func (this IntersectionObserverEntry) IntersectionRect() (ret DOMRectReadOnly, ok bool) {
 	ok = js.True == bindings.GetIntersectionObserverEntryIntersectionRect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -617,7 +617,7 @@ func (this IntersectionObserverEntry) IntersectionRect() (ret DOMRectReadOnly, o
 // It returns ok=false if there is no such property.
 func (this IntersectionObserverEntry) IsIntersecting() (ret bool, ok bool) {
 	ok = js.True == bindings.GetIntersectionObserverEntryIsIntersecting(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -627,7 +627,7 @@ func (this IntersectionObserverEntry) IsIntersecting() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this IntersectionObserverEntry) IntersectionRatio() (ret float64, ok bool) {
 	ok = js.True == bindings.GetIntersectionObserverEntryIntersectionRatio(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -637,7 +637,7 @@ func (this IntersectionObserverEntry) IntersectionRatio() (ret float64, ok bool)
 // It returns ok=false if there is no such property.
 func (this IntersectionObserverEntry) Target() (ret Element, ok bool) {
 	ok = js.True == bindings.GetIntersectionObserverEntryTarget(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -725,17 +725,30 @@ func (p IntersectionObserverInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p IntersectionObserverInit) UpdateFrom(ref js.Ref) {
+func (p *IntersectionObserverInit) UpdateFrom(ref js.Ref) {
 	bindings.IntersectionObserverInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p IntersectionObserverInit) Update(ref js.Ref) {
+func (p *IntersectionObserverInit) Update(ref js.Ref) {
 	bindings.IntersectionObserverInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *IntersectionObserverInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Root.Ref(),
+		p.RootMargin.Ref(),
+		p.Threshold.Ref(),
+	)
+	p.Root = p.Root.FromRef(js.Undefined)
+	p.RootMargin = p.RootMargin.FromRef(js.Undefined)
+	p.Threshold = p.Threshold.FromRef(js.Undefined)
 }
 
 func NewIntersectionObserver(callback js.Func[func(entries js.Array[IntersectionObserverEntry], observer IntersectionObserver)], options IntersectionObserverInit) (ret IntersectionObserver) {
@@ -756,7 +769,7 @@ type IntersectionObserver struct {
 }
 
 func (this IntersectionObserver) Once() IntersectionObserver {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -770,7 +783,7 @@ func (this IntersectionObserver) FromRef(ref js.Ref) IntersectionObserver {
 }
 
 func (this IntersectionObserver) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Root returns the value of property "IntersectionObserver.root".
@@ -778,7 +791,7 @@ func (this IntersectionObserver) Free() {
 // It returns ok=false if there is no such property.
 func (this IntersectionObserver) Root() (ret OneOf_Element_Document, ok bool) {
 	ok = js.True == bindings.GetIntersectionObserverRoot(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -788,7 +801,7 @@ func (this IntersectionObserver) Root() (ret OneOf_Element_Document, ok bool) {
 // It returns ok=false if there is no such property.
 func (this IntersectionObserver) RootMargin() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetIntersectionObserverRootMargin(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -798,31 +811,30 @@ func (this IntersectionObserver) RootMargin() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this IntersectionObserver) Thresholds() (ret js.FrozenArray[float64], ok bool) {
 	ok = js.True == bindings.GetIntersectionObserverThresholds(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasObserve returns true if the method "IntersectionObserver.observe" exists.
-func (this IntersectionObserver) HasObserve() bool {
-	return js.True == bindings.HasIntersectionObserverObserve(
-		this.Ref(),
+// HasFuncObserve returns true if the method "IntersectionObserver.observe" exists.
+func (this IntersectionObserver) HasFuncObserve() bool {
+	return js.True == bindings.HasFuncIntersectionObserverObserve(
+		this.ref,
 	)
 }
 
-// ObserveFunc returns the method "IntersectionObserver.observe".
-func (this IntersectionObserver) ObserveFunc() (fn js.Func[func(target Element)]) {
-	return fn.FromRef(
-		bindings.IntersectionObserverObserveFunc(
-			this.Ref(),
-		),
+// FuncObserve returns the method "IntersectionObserver.observe".
+func (this IntersectionObserver) FuncObserve() (fn js.Func[func(target Element)]) {
+	bindings.FuncIntersectionObserverObserve(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Observe calls the method "IntersectionObserver.observe".
 func (this IntersectionObserver) Observe(target Element) (ret js.Void) {
 	bindings.CallIntersectionObserverObserve(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		target.Ref(),
 	)
 
@@ -834,33 +846,32 @@ func (this IntersectionObserver) Observe(target Element) (ret js.Void) {
 // the catch clause.
 func (this IntersectionObserver) TryObserve(target Element) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIntersectionObserverObserve(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		target.Ref(),
 	)
 
 	return
 }
 
-// HasUnobserve returns true if the method "IntersectionObserver.unobserve" exists.
-func (this IntersectionObserver) HasUnobserve() bool {
-	return js.True == bindings.HasIntersectionObserverUnobserve(
-		this.Ref(),
+// HasFuncUnobserve returns true if the method "IntersectionObserver.unobserve" exists.
+func (this IntersectionObserver) HasFuncUnobserve() bool {
+	return js.True == bindings.HasFuncIntersectionObserverUnobserve(
+		this.ref,
 	)
 }
 
-// UnobserveFunc returns the method "IntersectionObserver.unobserve".
-func (this IntersectionObserver) UnobserveFunc() (fn js.Func[func(target Element)]) {
-	return fn.FromRef(
-		bindings.IntersectionObserverUnobserveFunc(
-			this.Ref(),
-		),
+// FuncUnobserve returns the method "IntersectionObserver.unobserve".
+func (this IntersectionObserver) FuncUnobserve() (fn js.Func[func(target Element)]) {
+	bindings.FuncIntersectionObserverUnobserve(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Unobserve calls the method "IntersectionObserver.unobserve".
 func (this IntersectionObserver) Unobserve(target Element) (ret js.Void) {
 	bindings.CallIntersectionObserverUnobserve(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		target.Ref(),
 	)
 
@@ -872,33 +883,32 @@ func (this IntersectionObserver) Unobserve(target Element) (ret js.Void) {
 // the catch clause.
 func (this IntersectionObserver) TryUnobserve(target Element) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIntersectionObserverUnobserve(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		target.Ref(),
 	)
 
 	return
 }
 
-// HasDisconnect returns true if the method "IntersectionObserver.disconnect" exists.
-func (this IntersectionObserver) HasDisconnect() bool {
-	return js.True == bindings.HasIntersectionObserverDisconnect(
-		this.Ref(),
+// HasFuncDisconnect returns true if the method "IntersectionObserver.disconnect" exists.
+func (this IntersectionObserver) HasFuncDisconnect() bool {
+	return js.True == bindings.HasFuncIntersectionObserverDisconnect(
+		this.ref,
 	)
 }
 
-// DisconnectFunc returns the method "IntersectionObserver.disconnect".
-func (this IntersectionObserver) DisconnectFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.IntersectionObserverDisconnectFunc(
-			this.Ref(),
-		),
+// FuncDisconnect returns the method "IntersectionObserver.disconnect".
+func (this IntersectionObserver) FuncDisconnect() (fn js.Func[func()]) {
+	bindings.FuncIntersectionObserverDisconnect(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Disconnect calls the method "IntersectionObserver.disconnect".
 func (this IntersectionObserver) Disconnect() (ret js.Void) {
 	bindings.CallIntersectionObserverDisconnect(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -909,32 +919,31 @@ func (this IntersectionObserver) Disconnect() (ret js.Void) {
 // the catch clause.
 func (this IntersectionObserver) TryDisconnect() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIntersectionObserverDisconnect(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasTakeRecords returns true if the method "IntersectionObserver.takeRecords" exists.
-func (this IntersectionObserver) HasTakeRecords() bool {
-	return js.True == bindings.HasIntersectionObserverTakeRecords(
-		this.Ref(),
+// HasFuncTakeRecords returns true if the method "IntersectionObserver.takeRecords" exists.
+func (this IntersectionObserver) HasFuncTakeRecords() bool {
+	return js.True == bindings.HasFuncIntersectionObserverTakeRecords(
+		this.ref,
 	)
 }
 
-// TakeRecordsFunc returns the method "IntersectionObserver.takeRecords".
-func (this IntersectionObserver) TakeRecordsFunc() (fn js.Func[func() js.Array[IntersectionObserverEntry]]) {
-	return fn.FromRef(
-		bindings.IntersectionObserverTakeRecordsFunc(
-			this.Ref(),
-		),
+// FuncTakeRecords returns the method "IntersectionObserver.takeRecords".
+func (this IntersectionObserver) FuncTakeRecords() (fn js.Func[func() js.Array[IntersectionObserverEntry]]) {
+	bindings.FuncIntersectionObserverTakeRecords(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // TakeRecords calls the method "IntersectionObserver.takeRecords".
 func (this IntersectionObserver) TakeRecords() (ret js.Array[IntersectionObserverEntry]) {
 	bindings.CallIntersectionObserverTakeRecords(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -945,7 +954,7 @@ func (this IntersectionObserver) TakeRecords() (ret js.Array[IntersectionObserve
 // the catch clause.
 func (this IntersectionObserver) TryTakeRecords() (ret js.Array[IntersectionObserverEntry], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIntersectionObserverTakeRecords(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -956,7 +965,7 @@ type InterventionReportBody struct {
 }
 
 func (this InterventionReportBody) Once() InterventionReportBody {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -970,7 +979,7 @@ func (this InterventionReportBody) FromRef(ref js.Ref) InterventionReportBody {
 }
 
 func (this InterventionReportBody) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Id returns the value of property "InterventionReportBody.id".
@@ -978,7 +987,7 @@ func (this InterventionReportBody) Free() {
 // It returns ok=false if there is no such property.
 func (this InterventionReportBody) Id() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetInterventionReportBodyId(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -988,7 +997,7 @@ func (this InterventionReportBody) Id() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this InterventionReportBody) Message() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetInterventionReportBodyMessage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -998,7 +1007,7 @@ func (this InterventionReportBody) Message() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this InterventionReportBody) SourceFile() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetInterventionReportBodySourceFile(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1008,7 +1017,7 @@ func (this InterventionReportBody) SourceFile() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this InterventionReportBody) LineNumber() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetInterventionReportBodyLineNumber(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1018,31 +1027,30 @@ func (this InterventionReportBody) LineNumber() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this InterventionReportBody) ColumnNumber() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetInterventionReportBodyColumnNumber(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasToJSON returns true if the method "InterventionReportBody.toJSON" exists.
-func (this InterventionReportBody) HasToJSON() bool {
-	return js.True == bindings.HasInterventionReportBodyToJSON(
-		this.Ref(),
+// HasFuncToJSON returns true if the method "InterventionReportBody.toJSON" exists.
+func (this InterventionReportBody) HasFuncToJSON() bool {
+	return js.True == bindings.HasFuncInterventionReportBodyToJSON(
+		this.ref,
 	)
 }
 
-// ToJSONFunc returns the method "InterventionReportBody.toJSON".
-func (this InterventionReportBody) ToJSONFunc() (fn js.Func[func() js.Object]) {
-	return fn.FromRef(
-		bindings.InterventionReportBodyToJSONFunc(
-			this.Ref(),
-		),
+// FuncToJSON returns the method "InterventionReportBody.toJSON".
+func (this InterventionReportBody) FuncToJSON() (fn js.Func[func() js.Object]) {
+	bindings.FuncInterventionReportBodyToJSON(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // ToJSON calls the method "InterventionReportBody.toJSON".
 func (this InterventionReportBody) ToJSON() (ret js.Object) {
 	bindings.CallInterventionReportBodyToJSON(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1053,7 +1061,7 @@ func (this InterventionReportBody) ToJSON() (ret js.Object) {
 // the catch clause.
 func (this InterventionReportBody) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryInterventionReportBodyToJSON(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1093,17 +1101,22 @@ func (p IntrinsicSizesResultOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p IntrinsicSizesResultOptions) UpdateFrom(ref js.Ref) {
+func (p *IntrinsicSizesResultOptions) UpdateFrom(ref js.Ref) {
 	bindings.IntrinsicSizesResultOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p IntrinsicSizesResultOptions) Update(ref js.Ref) {
+func (p *IntrinsicSizesResultOptions) Update(ref js.Ref) {
 	bindings.IntrinsicSizesResultOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *IntrinsicSizesResultOptions) FreeMembers(recursive bool) {
 }
 
 type JsonLd struct {
@@ -1111,7 +1124,7 @@ type JsonLd struct {
 }
 
 func (this JsonLd) Once() JsonLd {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1125,7 +1138,7 @@ func (this JsonLd) FromRef(ref js.Ref) JsonLd {
 }
 
 func (this JsonLd) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type OneOf_RecordAny_String struct {
@@ -1405,17 +1418,26 @@ func (p JsonLdError) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p JsonLdError) UpdateFrom(ref js.Ref) {
+func (p *JsonLdError) UpdateFrom(ref js.Ref) {
 	bindings.JsonLdErrorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p JsonLdError) Update(ref js.Ref) {
+func (p *JsonLdError) Update(ref js.Ref) {
 	bindings.JsonLdErrorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *JsonLdError) FreeMembers(recursive bool) {
+	js.Free(
+		p.Message.Ref(),
+	)
+	p.Message = p.Message.FromRef(js.Undefined)
 }
 
 type JsonLdFramingErrorCode uint32
@@ -1469,17 +1491,26 @@ func (p JsonLdFramingError) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p JsonLdFramingError) UpdateFrom(ref js.Ref) {
+func (p *JsonLdFramingError) UpdateFrom(ref js.Ref) {
 	bindings.JsonLdFramingErrorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p JsonLdFramingError) Update(ref js.Ref) {
+func (p *JsonLdFramingError) Update(ref js.Ref) {
 	bindings.JsonLdFramingErrorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *JsonLdFramingError) FreeMembers(recursive bool) {
+	js.Free(
+		p.Message.Ref(),
+	)
+	p.Message = p.Message.FromRef(js.Undefined)
 }
 
 type JsonLdRecord = js.Record[js.Any]
@@ -1489,7 +1520,7 @@ type RemoteDocument struct {
 }
 
 func (this RemoteDocument) Once() RemoteDocument {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1503,7 +1534,7 @@ func (this RemoteDocument) FromRef(ref js.Ref) RemoteDocument {
 }
 
 func (this RemoteDocument) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // ContentType returns the value of property "RemoteDocument.contentType".
@@ -1511,7 +1542,7 @@ func (this RemoteDocument) Free() {
 // It returns ok=false if there is no such property.
 func (this RemoteDocument) ContentType() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRemoteDocumentContentType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1521,7 +1552,7 @@ func (this RemoteDocument) ContentType() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RemoteDocument) ContextUrl() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRemoteDocumentContextUrl(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1531,7 +1562,7 @@ func (this RemoteDocument) ContextUrl() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RemoteDocument) Document() (ret js.Any, ok bool) {
 	ok = js.True == bindings.GetRemoteDocumentDocument(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1541,7 +1572,7 @@ func (this RemoteDocument) Document() (ret js.Any, ok bool) {
 // It returns false if the property cannot be set.
 func (this RemoteDocument) SetDocument(val js.Any) bool {
 	return js.True == bindings.SetRemoteDocumentDocument(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1551,7 +1582,7 @@ func (this RemoteDocument) SetDocument(val js.Any) bool {
 // It returns ok=false if there is no such property.
 func (this RemoteDocument) DocumentUrl() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRemoteDocumentDocumentUrl(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1561,7 +1592,7 @@ func (this RemoteDocument) DocumentUrl() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RemoteDocument) Profile() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRemoteDocumentProfile(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1602,10 +1633,10 @@ func (x OneOf_RecordAny_ArrayJsonLdRecord_String_RemoteDocument) RemoteDocument(
 
 type JsonLdInput = OneOf_RecordAny_ArrayJsonLdRecord_String_RemoteDocument
 
-type LoadDocumentCallbackFunc func(this js.Ref, url js.String, options LoadDocumentOptions) js.Ref
+type LoadDocumentCallbackFunc func(this js.Ref, url js.String, options *LoadDocumentOptions) js.Ref
 
-func (fn LoadDocumentCallbackFunc) Register() js.Func[func(url js.String, options LoadDocumentOptions) js.Promise[RemoteDocument]] {
-	return js.RegisterCallback[func(url js.String, options LoadDocumentOptions) js.Promise[RemoteDocument]](
+func (fn LoadDocumentCallbackFunc) Register() js.Func[func(url js.String, options *LoadDocumentOptions) js.Promise[RemoteDocument]] {
+	return js.RegisterCallback[func(url js.String, options *LoadDocumentOptions) js.Promise[RemoteDocument]](
 		fn, abi.FuncPCABIInternal(fn),
 	)
 }
@@ -1618,12 +1649,15 @@ func (fn LoadDocumentCallbackFunc) DispatchCallback(
 		targetPC != uintptr(abi.FuncPCABIInternal(fn)) {
 		js.ThrowInvalidCallbackInvocation()
 	}
+	var arg1 LoadDocumentOptions
+	arg1.UpdateFrom(args[1+1])
+	defer arg1.FreeMembers(true)
 
 	if ctx.Return(fn(
 		args[0],
 
 		js.String{}.FromRef(args[0+1]),
-		LoadDocumentOptions{}.FromRef(args[1+1]),
+		mark.NoEscape(&arg1),
 	)) {
 		return
 	}
@@ -1632,12 +1666,12 @@ func (fn LoadDocumentCallbackFunc) DispatchCallback(
 }
 
 type LoadDocumentCallback[T any] struct {
-	Fn  func(arg T, this js.Ref, url js.String, options LoadDocumentOptions) js.Ref
+	Fn  func(arg T, this js.Ref, url js.String, options *LoadDocumentOptions) js.Ref
 	Arg T
 }
 
-func (cb *LoadDocumentCallback[T]) Register() js.Func[func(url js.String, options LoadDocumentOptions) js.Promise[RemoteDocument]] {
-	return js.RegisterCallback[func(url js.String, options LoadDocumentOptions) js.Promise[RemoteDocument]](
+func (cb *LoadDocumentCallback[T]) Register() js.Func[func(url js.String, options *LoadDocumentOptions) js.Promise[RemoteDocument]] {
+	return js.RegisterCallback[func(url js.String, options *LoadDocumentOptions) js.Promise[RemoteDocument]](
 		cb, abi.FuncPCABIInternal(cb.Fn),
 	)
 }
@@ -1648,15 +1682,18 @@ func (cb *LoadDocumentCallback[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 2+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
+	var arg1 LoadDocumentOptions
+	arg1.UpdateFrom(args[1+1])
+	defer arg1.FreeMembers(true)
 
 	if ctx.Return(cb.Fn(
 		cb.Arg,
 		args[0],
 
 		js.String{}.FromRef(args[0+1]),
-		LoadDocumentOptions{}.FromRef(args[1+1]),
+		mark.NoEscape(&arg1),
 	)) {
 		return
 	}
@@ -1699,17 +1736,28 @@ func (p LoadDocumentOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p LoadDocumentOptions) UpdateFrom(ref js.Ref) {
+func (p *LoadDocumentOptions) UpdateFrom(ref js.Ref) {
 	bindings.LoadDocumentOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p LoadDocumentOptions) Update(ref js.Ref) {
+func (p *LoadDocumentOptions) Update(ref js.Ref) {
 	bindings.LoadDocumentOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *LoadDocumentOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Profile.Ref(),
+		p.RequestProfile.Ref(),
+	)
+	p.Profile = p.Profile.FromRef(js.Undefined)
+	p.RequestProfile = p.RequestProfile.FromRef(js.Undefined)
 }
 
 type OneOf_JsonLdEmbed_Bool struct {
@@ -1758,7 +1806,7 @@ type JsonLdOptions struct {
 	// DocumentLoader is "JsonLdOptions.documentLoader"
 	//
 	// Optional, defaults to null.
-	DocumentLoader js.Func[func(url js.String, options LoadDocumentOptions) js.Promise[RemoteDocument]]
+	DocumentLoader js.Func[func(url js.String, options *LoadDocumentOptions) js.Promise[RemoteDocument]]
 	// ExpandContext is "JsonLdOptions.expandContext"
 	//
 	// Optional, defaults to null.
@@ -1873,17 +1921,36 @@ func (p JsonLdOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p JsonLdOptions) UpdateFrom(ref js.Ref) {
+func (p *JsonLdOptions) UpdateFrom(ref js.Ref) {
 	bindings.JsonLdOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p JsonLdOptions) Update(ref js.Ref) {
+func (p *JsonLdOptions) Update(ref js.Ref) {
 	bindings.JsonLdOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *JsonLdOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Base.Ref(),
+		p.DocumentLoader.Ref(),
+		p.ExpandContext.Ref(),
+		p.ProcessingMode.Ref(),
+		p.RdfDirection.Ref(),
+		p.Embed.Ref(),
+	)
+	p.Base = p.Base.FromRef(js.Undefined)
+	p.DocumentLoader = p.DocumentLoader.FromRef(js.Undefined)
+	p.ExpandContext = p.ExpandContext.FromRef(js.Undefined)
+	p.ProcessingMode = p.ProcessingMode.FromRef(js.Undefined)
+	p.RdfDirection = p.RdfDirection.FromRef(js.Undefined)
+	p.Embed = p.Embed.FromRef(js.Undefined)
 }
 
 type RdfLiteral struct {
@@ -1891,7 +1958,7 @@ type RdfLiteral struct {
 }
 
 func (this RdfLiteral) Once() RdfLiteral {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1905,7 +1972,7 @@ func (this RdfLiteral) FromRef(ref js.Ref) RdfLiteral {
 }
 
 func (this RdfLiteral) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Value returns the value of property "RdfLiteral.value".
@@ -1913,7 +1980,7 @@ func (this RdfLiteral) Free() {
 // It returns ok=false if there is no such property.
 func (this RdfLiteral) Value() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRdfLiteralValue(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1923,7 +1990,7 @@ func (this RdfLiteral) Value() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RdfLiteral) Datatype() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRdfLiteralDatatype(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1933,7 +2000,7 @@ func (this RdfLiteral) Datatype() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RdfLiteral) Language() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRdfLiteralLanguage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1969,7 +2036,7 @@ type RdfTriple struct {
 }
 
 func (this RdfTriple) Once() RdfTriple {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1983,7 +2050,7 @@ func (this RdfTriple) FromRef(ref js.Ref) RdfTriple {
 }
 
 func (this RdfTriple) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Subject returns the value of property "RdfTriple.subject".
@@ -1991,7 +2058,7 @@ func (this RdfTriple) Free() {
 // It returns ok=false if there is no such property.
 func (this RdfTriple) Subject() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRdfTripleSubject(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2001,7 +2068,7 @@ func (this RdfTriple) Subject() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RdfTriple) Predicate() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRdfTriplePredicate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2011,7 +2078,7 @@ func (this RdfTriple) Predicate() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RdfTriple) Object() (ret OneOf_String_RdfLiteral, ok bool) {
 	ok = js.True == bindings.GetRdfTripleObject(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2021,7 +2088,7 @@ type RdfGraph struct {
 }
 
 func (this RdfGraph) Once() RdfGraph {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2035,29 +2102,28 @@ func (this RdfGraph) FromRef(ref js.Ref) RdfGraph {
 }
 
 func (this RdfGraph) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasAdd returns true if the method "RdfGraph.add" exists.
-func (this RdfGraph) HasAdd() bool {
-	return js.True == bindings.HasRdfGraphAdd(
-		this.Ref(),
+// HasFuncAdd returns true if the method "RdfGraph.add" exists.
+func (this RdfGraph) HasFuncAdd() bool {
+	return js.True == bindings.HasFuncRdfGraphAdd(
+		this.ref,
 	)
 }
 
-// AddFunc returns the method "RdfGraph.add".
-func (this RdfGraph) AddFunc() (fn js.Func[func(triple RdfTriple)]) {
-	return fn.FromRef(
-		bindings.RdfGraphAddFunc(
-			this.Ref(),
-		),
+// FuncAdd returns the method "RdfGraph.add".
+func (this RdfGraph) FuncAdd() (fn js.Func[func(triple RdfTriple)]) {
+	bindings.FuncRdfGraphAdd(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Add calls the method "RdfGraph.add".
 func (this RdfGraph) Add(triple RdfTriple) (ret js.Void) {
 	bindings.CallRdfGraphAdd(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		triple.Ref(),
 	)
 
@@ -2069,7 +2135,7 @@ func (this RdfGraph) Add(triple RdfTriple) (ret js.Void) {
 // the catch clause.
 func (this RdfGraph) TryAdd(triple RdfTriple) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRdfGraphAdd(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		triple.Ref(),
 	)
 
@@ -2081,7 +2147,7 @@ type RdfDataset struct {
 }
 
 func (this RdfDataset) Once() RdfDataset {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2095,7 +2161,7 @@ func (this RdfDataset) FromRef(ref js.Ref) RdfDataset {
 }
 
 func (this RdfDataset) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // DefaultGraph returns the value of property "RdfDataset.defaultGraph".
@@ -2103,31 +2169,30 @@ func (this RdfDataset) Free() {
 // It returns ok=false if there is no such property.
 func (this RdfDataset) DefaultGraph() (ret RdfGraph, ok bool) {
 	ok = js.True == bindings.GetRdfDatasetDefaultGraph(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasAdd returns true if the method "RdfDataset.add" exists.
-func (this RdfDataset) HasAdd() bool {
-	return js.True == bindings.HasRdfDatasetAdd(
-		this.Ref(),
+// HasFuncAdd returns true if the method "RdfDataset.add" exists.
+func (this RdfDataset) HasFuncAdd() bool {
+	return js.True == bindings.HasFuncRdfDatasetAdd(
+		this.ref,
 	)
 }
 
-// AddFunc returns the method "RdfDataset.add".
-func (this RdfDataset) AddFunc() (fn js.Func[func(graphName js.String, graph RdfGraph)]) {
-	return fn.FromRef(
-		bindings.RdfDatasetAddFunc(
-			this.Ref(),
-		),
+// FuncAdd returns the method "RdfDataset.add".
+func (this RdfDataset) FuncAdd() (fn js.Func[func(graphName js.String, graph RdfGraph)]) {
+	bindings.FuncRdfDatasetAdd(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Add calls the method "RdfDataset.add".
 func (this RdfDataset) Add(graphName js.String, graph RdfGraph) (ret js.Void) {
 	bindings.CallRdfDatasetAdd(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		graphName.Ref(),
 		graph.Ref(),
 	)
@@ -2140,7 +2205,7 @@ func (this RdfDataset) Add(graphName js.String, graph RdfGraph) (ret js.Void) {
 // the catch clause.
 func (this RdfDataset) TryAdd(graphName js.String, graph RdfGraph) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRdfDatasetAdd(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		graphName.Ref(),
 		graph.Ref(),
 	)
@@ -2153,7 +2218,7 @@ type JsonLdProcessor struct {
 }
 
 func (this JsonLdProcessor) Once() JsonLdProcessor {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2167,29 +2232,28 @@ func (this JsonLdProcessor) FromRef(ref js.Ref) JsonLdProcessor {
 }
 
 func (this JsonLdProcessor) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasCompact returns true if the staticmethod "JsonLdProcessor.compact" exists.
-func (this JsonLdProcessor) HasCompact() bool {
-	return js.True == bindings.HasJsonLdProcessorCompact(
-		this.Ref(),
+// HasFuncCompact returns true if the static method "JsonLdProcessor.compact" exists.
+func (this JsonLdProcessor) HasFuncCompact() bool {
+	return js.True == bindings.HasFuncJsonLdProcessorCompact(
+		this.ref,
 	)
 }
 
-// CompactFunc returns the staticmethod "JsonLdProcessor.compact".
-func (this JsonLdProcessor) CompactFunc() (fn js.Func[func(input JsonLdInput, context JsonLdContext, options JsonLdOptions) js.Promise[JsonLdRecord]]) {
-	return fn.FromRef(
-		bindings.JsonLdProcessorCompactFunc(
-			this.Ref(),
-		),
+// FuncCompact returns the static method "JsonLdProcessor.compact".
+func (this JsonLdProcessor) FuncCompact() (fn js.Func[func(input JsonLdInput, context JsonLdContext, options JsonLdOptions) js.Promise[JsonLdRecord]]) {
+	bindings.FuncJsonLdProcessorCompact(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// Compact calls the staticmethod "JsonLdProcessor.compact".
+// Compact calls the static method "JsonLdProcessor.compact".
 func (this JsonLdProcessor) Compact(input JsonLdInput, context JsonLdContext, options JsonLdOptions) (ret js.Promise[JsonLdRecord]) {
 	bindings.CallJsonLdProcessorCompact(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		context.Ref(),
 		js.Pointer(&options),
@@ -2198,12 +2262,12 @@ func (this JsonLdProcessor) Compact(input JsonLdInput, context JsonLdContext, op
 	return
 }
 
-// TryCompact calls the staticmethod "JsonLdProcessor.compact"
+// TryCompact calls the static method "JsonLdProcessor.compact"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryCompact(input JsonLdInput, context JsonLdContext, options JsonLdOptions) (ret js.Promise[JsonLdRecord], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorCompact(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		context.Ref(),
 		js.Pointer(&options),
@@ -2212,26 +2276,25 @@ func (this JsonLdProcessor) TryCompact(input JsonLdInput, context JsonLdContext,
 	return
 }
 
-// HasCompact1 returns true if the staticmethod "JsonLdProcessor.compact" exists.
-func (this JsonLdProcessor) HasCompact1() bool {
-	return js.True == bindings.HasJsonLdProcessorCompact1(
-		this.Ref(),
+// HasFuncCompact1 returns true if the static method "JsonLdProcessor.compact" exists.
+func (this JsonLdProcessor) HasFuncCompact1() bool {
+	return js.True == bindings.HasFuncJsonLdProcessorCompact1(
+		this.ref,
 	)
 }
 
-// Compact1Func returns the staticmethod "JsonLdProcessor.compact".
-func (this JsonLdProcessor) Compact1Func() (fn js.Func[func(input JsonLdInput, context JsonLdContext) js.Promise[JsonLdRecord]]) {
-	return fn.FromRef(
-		bindings.JsonLdProcessorCompact1Func(
-			this.Ref(),
-		),
+// FuncCompact1 returns the static method "JsonLdProcessor.compact".
+func (this JsonLdProcessor) FuncCompact1() (fn js.Func[func(input JsonLdInput, context JsonLdContext) js.Promise[JsonLdRecord]]) {
+	bindings.FuncJsonLdProcessorCompact1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// Compact1 calls the staticmethod "JsonLdProcessor.compact".
+// Compact1 calls the static method "JsonLdProcessor.compact".
 func (this JsonLdProcessor) Compact1(input JsonLdInput, context JsonLdContext) (ret js.Promise[JsonLdRecord]) {
 	bindings.CallJsonLdProcessorCompact1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		context.Ref(),
 	)
@@ -2239,12 +2302,12 @@ func (this JsonLdProcessor) Compact1(input JsonLdInput, context JsonLdContext) (
 	return
 }
 
-// TryCompact1 calls the staticmethod "JsonLdProcessor.compact"
+// TryCompact1 calls the static method "JsonLdProcessor.compact"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryCompact1(input JsonLdInput, context JsonLdContext) (ret js.Promise[JsonLdRecord], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorCompact1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		context.Ref(),
 	)
@@ -2252,64 +2315,62 @@ func (this JsonLdProcessor) TryCompact1(input JsonLdInput, context JsonLdContext
 	return
 }
 
-// HasCompact2 returns true if the staticmethod "JsonLdProcessor.compact" exists.
-func (this JsonLdProcessor) HasCompact2() bool {
-	return js.True == bindings.HasJsonLdProcessorCompact2(
-		this.Ref(),
+// HasFuncCompact2 returns true if the static method "JsonLdProcessor.compact" exists.
+func (this JsonLdProcessor) HasFuncCompact2() bool {
+	return js.True == bindings.HasFuncJsonLdProcessorCompact2(
+		this.ref,
 	)
 }
 
-// Compact2Func returns the staticmethod "JsonLdProcessor.compact".
-func (this JsonLdProcessor) Compact2Func() (fn js.Func[func(input JsonLdInput) js.Promise[JsonLdRecord]]) {
-	return fn.FromRef(
-		bindings.JsonLdProcessorCompact2Func(
-			this.Ref(),
-		),
+// FuncCompact2 returns the static method "JsonLdProcessor.compact".
+func (this JsonLdProcessor) FuncCompact2() (fn js.Func[func(input JsonLdInput) js.Promise[JsonLdRecord]]) {
+	bindings.FuncJsonLdProcessorCompact2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// Compact2 calls the staticmethod "JsonLdProcessor.compact".
+// Compact2 calls the static method "JsonLdProcessor.compact".
 func (this JsonLdProcessor) Compact2(input JsonLdInput) (ret js.Promise[JsonLdRecord]) {
 	bindings.CallJsonLdProcessorCompact2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
 	return
 }
 
-// TryCompact2 calls the staticmethod "JsonLdProcessor.compact"
+// TryCompact2 calls the static method "JsonLdProcessor.compact"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryCompact2(input JsonLdInput) (ret js.Promise[JsonLdRecord], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorCompact2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasExpand returns true if the staticmethod "JsonLdProcessor.expand" exists.
-func (this JsonLdProcessor) HasExpand() bool {
-	return js.True == bindings.HasJsonLdProcessorExpand(
-		this.Ref(),
+// HasFuncExpand returns true if the static method "JsonLdProcessor.expand" exists.
+func (this JsonLdProcessor) HasFuncExpand() bool {
+	return js.True == bindings.HasFuncJsonLdProcessorExpand(
+		this.ref,
 	)
 }
 
-// ExpandFunc returns the staticmethod "JsonLdProcessor.expand".
-func (this JsonLdProcessor) ExpandFunc() (fn js.Func[func(input JsonLdInput, options JsonLdOptions) js.Promise[js.Array[JsonLdRecord]]]) {
-	return fn.FromRef(
-		bindings.JsonLdProcessorExpandFunc(
-			this.Ref(),
-		),
+// FuncExpand returns the static method "JsonLdProcessor.expand".
+func (this JsonLdProcessor) FuncExpand() (fn js.Func[func(input JsonLdInput, options JsonLdOptions) js.Promise[js.Array[JsonLdRecord]]]) {
+	bindings.FuncJsonLdProcessorExpand(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// Expand calls the staticmethod "JsonLdProcessor.expand".
+// Expand calls the static method "JsonLdProcessor.expand".
 func (this JsonLdProcessor) Expand(input JsonLdInput, options JsonLdOptions) (ret js.Promise[js.Array[JsonLdRecord]]) {
 	bindings.CallJsonLdProcessorExpand(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -2317,12 +2378,12 @@ func (this JsonLdProcessor) Expand(input JsonLdInput, options JsonLdOptions) (re
 	return
 }
 
-// TryExpand calls the staticmethod "JsonLdProcessor.expand"
+// TryExpand calls the static method "JsonLdProcessor.expand"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryExpand(input JsonLdInput, options JsonLdOptions) (ret js.Promise[js.Array[JsonLdRecord]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorExpand(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -2330,64 +2391,62 @@ func (this JsonLdProcessor) TryExpand(input JsonLdInput, options JsonLdOptions) 
 	return
 }
 
-// HasExpand1 returns true if the staticmethod "JsonLdProcessor.expand" exists.
-func (this JsonLdProcessor) HasExpand1() bool {
-	return js.True == bindings.HasJsonLdProcessorExpand1(
-		this.Ref(),
+// HasFuncExpand1 returns true if the static method "JsonLdProcessor.expand" exists.
+func (this JsonLdProcessor) HasFuncExpand1() bool {
+	return js.True == bindings.HasFuncJsonLdProcessorExpand1(
+		this.ref,
 	)
 }
 
-// Expand1Func returns the staticmethod "JsonLdProcessor.expand".
-func (this JsonLdProcessor) Expand1Func() (fn js.Func[func(input JsonLdInput) js.Promise[js.Array[JsonLdRecord]]]) {
-	return fn.FromRef(
-		bindings.JsonLdProcessorExpand1Func(
-			this.Ref(),
-		),
+// FuncExpand1 returns the static method "JsonLdProcessor.expand".
+func (this JsonLdProcessor) FuncExpand1() (fn js.Func[func(input JsonLdInput) js.Promise[js.Array[JsonLdRecord]]]) {
+	bindings.FuncJsonLdProcessorExpand1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// Expand1 calls the staticmethod "JsonLdProcessor.expand".
+// Expand1 calls the static method "JsonLdProcessor.expand".
 func (this JsonLdProcessor) Expand1(input JsonLdInput) (ret js.Promise[js.Array[JsonLdRecord]]) {
 	bindings.CallJsonLdProcessorExpand1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
 	return
 }
 
-// TryExpand1 calls the staticmethod "JsonLdProcessor.expand"
+// TryExpand1 calls the static method "JsonLdProcessor.expand"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryExpand1(input JsonLdInput) (ret js.Promise[js.Array[JsonLdRecord]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorExpand1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasFlatten returns true if the staticmethod "JsonLdProcessor.flatten" exists.
-func (this JsonLdProcessor) HasFlatten() bool {
-	return js.True == bindings.HasJsonLdProcessorFlatten(
-		this.Ref(),
+// HasFuncFlatten returns true if the static method "JsonLdProcessor.flatten" exists.
+func (this JsonLdProcessor) HasFuncFlatten() bool {
+	return js.True == bindings.HasFuncJsonLdProcessorFlatten(
+		this.ref,
 	)
 }
 
-// FlattenFunc returns the staticmethod "JsonLdProcessor.flatten".
-func (this JsonLdProcessor) FlattenFunc() (fn js.Func[func(input JsonLdInput, context JsonLdContext, options JsonLdOptions) js.Promise[JsonLdRecord]]) {
-	return fn.FromRef(
-		bindings.JsonLdProcessorFlattenFunc(
-			this.Ref(),
-		),
+// FuncFlatten returns the static method "JsonLdProcessor.flatten".
+func (this JsonLdProcessor) FuncFlatten() (fn js.Func[func(input JsonLdInput, context JsonLdContext, options JsonLdOptions) js.Promise[JsonLdRecord]]) {
+	bindings.FuncJsonLdProcessorFlatten(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// Flatten calls the staticmethod "JsonLdProcessor.flatten".
+// Flatten calls the static method "JsonLdProcessor.flatten".
 func (this JsonLdProcessor) Flatten(input JsonLdInput, context JsonLdContext, options JsonLdOptions) (ret js.Promise[JsonLdRecord]) {
 	bindings.CallJsonLdProcessorFlatten(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		context.Ref(),
 		js.Pointer(&options),
@@ -2396,12 +2455,12 @@ func (this JsonLdProcessor) Flatten(input JsonLdInput, context JsonLdContext, op
 	return
 }
 
-// TryFlatten calls the staticmethod "JsonLdProcessor.flatten"
+// TryFlatten calls the static method "JsonLdProcessor.flatten"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryFlatten(input JsonLdInput, context JsonLdContext, options JsonLdOptions) (ret js.Promise[JsonLdRecord], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorFlatten(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		context.Ref(),
 		js.Pointer(&options),
@@ -2410,26 +2469,25 @@ func (this JsonLdProcessor) TryFlatten(input JsonLdInput, context JsonLdContext,
 	return
 }
 
-// HasFlatten1 returns true if the staticmethod "JsonLdProcessor.flatten" exists.
-func (this JsonLdProcessor) HasFlatten1() bool {
-	return js.True == bindings.HasJsonLdProcessorFlatten1(
-		this.Ref(),
+// HasFuncFlatten1 returns true if the static method "JsonLdProcessor.flatten" exists.
+func (this JsonLdProcessor) HasFuncFlatten1() bool {
+	return js.True == bindings.HasFuncJsonLdProcessorFlatten1(
+		this.ref,
 	)
 }
 
-// Flatten1Func returns the staticmethod "JsonLdProcessor.flatten".
-func (this JsonLdProcessor) Flatten1Func() (fn js.Func[func(input JsonLdInput, context JsonLdContext) js.Promise[JsonLdRecord]]) {
-	return fn.FromRef(
-		bindings.JsonLdProcessorFlatten1Func(
-			this.Ref(),
-		),
+// FuncFlatten1 returns the static method "JsonLdProcessor.flatten".
+func (this JsonLdProcessor) FuncFlatten1() (fn js.Func[func(input JsonLdInput, context JsonLdContext) js.Promise[JsonLdRecord]]) {
+	bindings.FuncJsonLdProcessorFlatten1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// Flatten1 calls the staticmethod "JsonLdProcessor.flatten".
+// Flatten1 calls the static method "JsonLdProcessor.flatten".
 func (this JsonLdProcessor) Flatten1(input JsonLdInput, context JsonLdContext) (ret js.Promise[JsonLdRecord]) {
 	bindings.CallJsonLdProcessorFlatten1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		context.Ref(),
 	)
@@ -2437,12 +2495,12 @@ func (this JsonLdProcessor) Flatten1(input JsonLdInput, context JsonLdContext) (
 	return
 }
 
-// TryFlatten1 calls the staticmethod "JsonLdProcessor.flatten"
+// TryFlatten1 calls the static method "JsonLdProcessor.flatten"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryFlatten1(input JsonLdInput, context JsonLdContext) (ret js.Promise[JsonLdRecord], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorFlatten1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		context.Ref(),
 	)
@@ -2450,64 +2508,62 @@ func (this JsonLdProcessor) TryFlatten1(input JsonLdInput, context JsonLdContext
 	return
 }
 
-// HasFlatten2 returns true if the staticmethod "JsonLdProcessor.flatten" exists.
-func (this JsonLdProcessor) HasFlatten2() bool {
-	return js.True == bindings.HasJsonLdProcessorFlatten2(
-		this.Ref(),
+// HasFuncFlatten2 returns true if the static method "JsonLdProcessor.flatten" exists.
+func (this JsonLdProcessor) HasFuncFlatten2() bool {
+	return js.True == bindings.HasFuncJsonLdProcessorFlatten2(
+		this.ref,
 	)
 }
 
-// Flatten2Func returns the staticmethod "JsonLdProcessor.flatten".
-func (this JsonLdProcessor) Flatten2Func() (fn js.Func[func(input JsonLdInput) js.Promise[JsonLdRecord]]) {
-	return fn.FromRef(
-		bindings.JsonLdProcessorFlatten2Func(
-			this.Ref(),
-		),
+// FuncFlatten2 returns the static method "JsonLdProcessor.flatten".
+func (this JsonLdProcessor) FuncFlatten2() (fn js.Func[func(input JsonLdInput) js.Promise[JsonLdRecord]]) {
+	bindings.FuncJsonLdProcessorFlatten2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// Flatten2 calls the staticmethod "JsonLdProcessor.flatten".
+// Flatten2 calls the static method "JsonLdProcessor.flatten".
 func (this JsonLdProcessor) Flatten2(input JsonLdInput) (ret js.Promise[JsonLdRecord]) {
 	bindings.CallJsonLdProcessorFlatten2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
 	return
 }
 
-// TryFlatten2 calls the staticmethod "JsonLdProcessor.flatten"
+// TryFlatten2 calls the static method "JsonLdProcessor.flatten"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryFlatten2(input JsonLdInput) (ret js.Promise[JsonLdRecord], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorFlatten2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasFromRdf returns true if the staticmethod "JsonLdProcessor.fromRdf" exists.
-func (this JsonLdProcessor) HasFromRdf() bool {
-	return js.True == bindings.HasJsonLdProcessorFromRdf(
-		this.Ref(),
+// HasFuncFromRdf returns true if the static method "JsonLdProcessor.fromRdf" exists.
+func (this JsonLdProcessor) HasFuncFromRdf() bool {
+	return js.True == bindings.HasFuncJsonLdProcessorFromRdf(
+		this.ref,
 	)
 }
 
-// FromRdfFunc returns the staticmethod "JsonLdProcessor.fromRdf".
-func (this JsonLdProcessor) FromRdfFunc() (fn js.Func[func(input RdfDataset, options JsonLdOptions) js.Promise[js.Array[JsonLdRecord]]]) {
-	return fn.FromRef(
-		bindings.JsonLdProcessorFromRdfFunc(
-			this.Ref(),
-		),
+// FuncFromRdf returns the static method "JsonLdProcessor.fromRdf".
+func (this JsonLdProcessor) FuncFromRdf() (fn js.Func[func(input RdfDataset, options JsonLdOptions) js.Promise[js.Array[JsonLdRecord]]]) {
+	bindings.FuncJsonLdProcessorFromRdf(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// FromRdf calls the staticmethod "JsonLdProcessor.fromRdf".
+// FromRdf calls the static method "JsonLdProcessor.fromRdf".
 func (this JsonLdProcessor) FromRdf(input RdfDataset, options JsonLdOptions) (ret js.Promise[js.Array[JsonLdRecord]]) {
 	bindings.CallJsonLdProcessorFromRdf(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -2515,12 +2571,12 @@ func (this JsonLdProcessor) FromRdf(input RdfDataset, options JsonLdOptions) (re
 	return
 }
 
-// TryFromRdf calls the staticmethod "JsonLdProcessor.fromRdf"
+// TryFromRdf calls the static method "JsonLdProcessor.fromRdf"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryFromRdf(input RdfDataset, options JsonLdOptions) (ret js.Promise[js.Array[JsonLdRecord]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorFromRdf(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -2528,64 +2584,62 @@ func (this JsonLdProcessor) TryFromRdf(input RdfDataset, options JsonLdOptions) 
 	return
 }
 
-// HasFromRdf1 returns true if the staticmethod "JsonLdProcessor.fromRdf" exists.
-func (this JsonLdProcessor) HasFromRdf1() bool {
-	return js.True == bindings.HasJsonLdProcessorFromRdf1(
-		this.Ref(),
+// HasFuncFromRdf1 returns true if the static method "JsonLdProcessor.fromRdf" exists.
+func (this JsonLdProcessor) HasFuncFromRdf1() bool {
+	return js.True == bindings.HasFuncJsonLdProcessorFromRdf1(
+		this.ref,
 	)
 }
 
-// FromRdf1Func returns the staticmethod "JsonLdProcessor.fromRdf".
-func (this JsonLdProcessor) FromRdf1Func() (fn js.Func[func(input RdfDataset) js.Promise[js.Array[JsonLdRecord]]]) {
-	return fn.FromRef(
-		bindings.JsonLdProcessorFromRdf1Func(
-			this.Ref(),
-		),
+// FuncFromRdf1 returns the static method "JsonLdProcessor.fromRdf".
+func (this JsonLdProcessor) FuncFromRdf1() (fn js.Func[func(input RdfDataset) js.Promise[js.Array[JsonLdRecord]]]) {
+	bindings.FuncJsonLdProcessorFromRdf1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// FromRdf1 calls the staticmethod "JsonLdProcessor.fromRdf".
+// FromRdf1 calls the static method "JsonLdProcessor.fromRdf".
 func (this JsonLdProcessor) FromRdf1(input RdfDataset) (ret js.Promise[js.Array[JsonLdRecord]]) {
 	bindings.CallJsonLdProcessorFromRdf1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
 	return
 }
 
-// TryFromRdf1 calls the staticmethod "JsonLdProcessor.fromRdf"
+// TryFromRdf1 calls the static method "JsonLdProcessor.fromRdf"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryFromRdf1(input RdfDataset) (ret js.Promise[js.Array[JsonLdRecord]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorFromRdf1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasToRdf returns true if the staticmethod "JsonLdProcessor.toRdf" exists.
-func (this JsonLdProcessor) HasToRdf() bool {
-	return js.True == bindings.HasJsonLdProcessorToRdf(
-		this.Ref(),
+// HasFuncToRdf returns true if the static method "JsonLdProcessor.toRdf" exists.
+func (this JsonLdProcessor) HasFuncToRdf() bool {
+	return js.True == bindings.HasFuncJsonLdProcessorToRdf(
+		this.ref,
 	)
 }
 
-// ToRdfFunc returns the staticmethod "JsonLdProcessor.toRdf".
-func (this JsonLdProcessor) ToRdfFunc() (fn js.Func[func(input JsonLdInput, options JsonLdOptions) js.Promise[RdfDataset]]) {
-	return fn.FromRef(
-		bindings.JsonLdProcessorToRdfFunc(
-			this.Ref(),
-		),
+// FuncToRdf returns the static method "JsonLdProcessor.toRdf".
+func (this JsonLdProcessor) FuncToRdf() (fn js.Func[func(input JsonLdInput, options JsonLdOptions) js.Promise[RdfDataset]]) {
+	bindings.FuncJsonLdProcessorToRdf(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// ToRdf calls the staticmethod "JsonLdProcessor.toRdf".
+// ToRdf calls the static method "JsonLdProcessor.toRdf".
 func (this JsonLdProcessor) ToRdf(input JsonLdInput, options JsonLdOptions) (ret js.Promise[RdfDataset]) {
 	bindings.CallJsonLdProcessorToRdf(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -2593,12 +2647,12 @@ func (this JsonLdProcessor) ToRdf(input JsonLdInput, options JsonLdOptions) (ret
 	return
 }
 
-// TryToRdf calls the staticmethod "JsonLdProcessor.toRdf"
+// TryToRdf calls the static method "JsonLdProcessor.toRdf"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryToRdf(input JsonLdInput, options JsonLdOptions) (ret js.Promise[RdfDataset], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorToRdf(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		js.Pointer(&options),
 	)
@@ -2606,64 +2660,62 @@ func (this JsonLdProcessor) TryToRdf(input JsonLdInput, options JsonLdOptions) (
 	return
 }
 
-// HasToRdf1 returns true if the staticmethod "JsonLdProcessor.toRdf" exists.
-func (this JsonLdProcessor) HasToRdf1() bool {
-	return js.True == bindings.HasJsonLdProcessorToRdf1(
-		this.Ref(),
+// HasFuncToRdf1 returns true if the static method "JsonLdProcessor.toRdf" exists.
+func (this JsonLdProcessor) HasFuncToRdf1() bool {
+	return js.True == bindings.HasFuncJsonLdProcessorToRdf1(
+		this.ref,
 	)
 }
 
-// ToRdf1Func returns the staticmethod "JsonLdProcessor.toRdf".
-func (this JsonLdProcessor) ToRdf1Func() (fn js.Func[func(input JsonLdInput) js.Promise[RdfDataset]]) {
-	return fn.FromRef(
-		bindings.JsonLdProcessorToRdf1Func(
-			this.Ref(),
-		),
+// FuncToRdf1 returns the static method "JsonLdProcessor.toRdf".
+func (this JsonLdProcessor) FuncToRdf1() (fn js.Func[func(input JsonLdInput) js.Promise[RdfDataset]]) {
+	bindings.FuncJsonLdProcessorToRdf1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// ToRdf1 calls the staticmethod "JsonLdProcessor.toRdf".
+// ToRdf1 calls the static method "JsonLdProcessor.toRdf".
 func (this JsonLdProcessor) ToRdf1(input JsonLdInput) (ret js.Promise[RdfDataset]) {
 	bindings.CallJsonLdProcessorToRdf1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 	)
 
 	return
 }
 
-// TryToRdf1 calls the staticmethod "JsonLdProcessor.toRdf"
+// TryToRdf1 calls the static method "JsonLdProcessor.toRdf"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryToRdf1(input JsonLdInput) (ret js.Promise[RdfDataset], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorToRdf1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 	)
 
 	return
 }
 
-// HasFrame returns true if the staticmethod "JsonLdProcessor.frame" exists.
-func (this JsonLdProcessor) HasFrame() bool {
-	return js.True == bindings.HasJsonLdProcessorFrame(
-		this.Ref(),
+// HasFuncFrame returns true if the static method "JsonLdProcessor.frame" exists.
+func (this JsonLdProcessor) HasFuncFrame() bool {
+	return js.True == bindings.HasFuncJsonLdProcessorFrame(
+		this.ref,
 	)
 }
 
-// FrameFunc returns the staticmethod "JsonLdProcessor.frame".
-func (this JsonLdProcessor) FrameFunc() (fn js.Func[func(input JsonLdInput, frame JsonLdInput, options JsonLdOptions) js.Promise[JsonLdRecord]]) {
-	return fn.FromRef(
-		bindings.JsonLdProcessorFrameFunc(
-			this.Ref(),
-		),
+// FuncFrame returns the static method "JsonLdProcessor.frame".
+func (this JsonLdProcessor) FuncFrame() (fn js.Func[func(input JsonLdInput, frame JsonLdInput, options JsonLdOptions) js.Promise[JsonLdRecord]]) {
+	bindings.FuncJsonLdProcessorFrame(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// Frame calls the staticmethod "JsonLdProcessor.frame".
+// Frame calls the static method "JsonLdProcessor.frame".
 func (this JsonLdProcessor) Frame(input JsonLdInput, frame JsonLdInput, options JsonLdOptions) (ret js.Promise[JsonLdRecord]) {
 	bindings.CallJsonLdProcessorFrame(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		frame.Ref(),
 		js.Pointer(&options),
@@ -2672,12 +2724,12 @@ func (this JsonLdProcessor) Frame(input JsonLdInput, frame JsonLdInput, options 
 	return
 }
 
-// TryFrame calls the staticmethod "JsonLdProcessor.frame"
+// TryFrame calls the static method "JsonLdProcessor.frame"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryFrame(input JsonLdInput, frame JsonLdInput, options JsonLdOptions) (ret js.Promise[JsonLdRecord], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorFrame(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		frame.Ref(),
 		js.Pointer(&options),
@@ -2686,26 +2738,25 @@ func (this JsonLdProcessor) TryFrame(input JsonLdInput, frame JsonLdInput, optio
 	return
 }
 
-// HasFrame1 returns true if the staticmethod "JsonLdProcessor.frame" exists.
-func (this JsonLdProcessor) HasFrame1() bool {
-	return js.True == bindings.HasJsonLdProcessorFrame1(
-		this.Ref(),
+// HasFuncFrame1 returns true if the static method "JsonLdProcessor.frame" exists.
+func (this JsonLdProcessor) HasFuncFrame1() bool {
+	return js.True == bindings.HasFuncJsonLdProcessorFrame1(
+		this.ref,
 	)
 }
 
-// Frame1Func returns the staticmethod "JsonLdProcessor.frame".
-func (this JsonLdProcessor) Frame1Func() (fn js.Func[func(input JsonLdInput, frame JsonLdInput) js.Promise[JsonLdRecord]]) {
-	return fn.FromRef(
-		bindings.JsonLdProcessorFrame1Func(
-			this.Ref(),
-		),
+// FuncFrame1 returns the static method "JsonLdProcessor.frame".
+func (this JsonLdProcessor) FuncFrame1() (fn js.Func[func(input JsonLdInput, frame JsonLdInput) js.Promise[JsonLdRecord]]) {
+	bindings.FuncJsonLdProcessorFrame1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// Frame1 calls the staticmethod "JsonLdProcessor.frame".
+// Frame1 calls the static method "JsonLdProcessor.frame".
 func (this JsonLdProcessor) Frame1(input JsonLdInput, frame JsonLdInput) (ret js.Promise[JsonLdRecord]) {
 	bindings.CallJsonLdProcessorFrame1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		input.Ref(),
 		frame.Ref(),
 	)
@@ -2713,12 +2764,12 @@ func (this JsonLdProcessor) Frame1(input JsonLdInput, frame JsonLdInput) (ret js
 	return
 }
 
-// TryFrame1 calls the staticmethod "JsonLdProcessor.frame"
+// TryFrame1 calls the static method "JsonLdProcessor.frame"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryFrame1(input JsonLdInput, frame JsonLdInput) (ret js.Promise[JsonLdRecord], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorFrame1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		input.Ref(),
 		frame.Ref(),
 	)
@@ -2735,7 +2786,7 @@ type KHR_parallel_shader_compile struct {
 }
 
 func (this KHR_parallel_shader_compile) Once() KHR_parallel_shader_compile {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2749,7 +2800,7 @@ func (this KHR_parallel_shader_compile) FromRef(ref js.Ref) KHR_parallel_shader_
 }
 
 func (this KHR_parallel_shader_compile) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 const (
@@ -2952,17 +3003,30 @@ func (p KeyboardEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p KeyboardEventInit) UpdateFrom(ref js.Ref) {
+func (p *KeyboardEventInit) UpdateFrom(ref js.Ref) {
 	bindings.KeyboardEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p KeyboardEventInit) Update(ref js.Ref) {
+func (p *KeyboardEventInit) Update(ref js.Ref) {
 	bindings.KeyboardEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *KeyboardEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Key.Ref(),
+		p.Code.Ref(),
+		p.View.Ref(),
+	)
+	p.Key = p.Key.FromRef(js.Undefined)
+	p.Code = p.Code.FromRef(js.Undefined)
+	p.View = p.View.FromRef(js.Undefined)
 }
 
 func NewKeyboardEvent(typ js.String, eventInitDict KeyboardEventInit) (ret KeyboardEvent) {
@@ -2983,7 +3047,7 @@ type KeyboardEvent struct {
 }
 
 func (this KeyboardEvent) Once() KeyboardEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2997,7 +3061,7 @@ func (this KeyboardEvent) FromRef(ref js.Ref) KeyboardEvent {
 }
 
 func (this KeyboardEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Key returns the value of property "KeyboardEvent.key".
@@ -3005,7 +3069,7 @@ func (this KeyboardEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this KeyboardEvent) Key() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetKeyboardEventKey(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3015,7 +3079,7 @@ func (this KeyboardEvent) Key() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this KeyboardEvent) Code() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetKeyboardEventCode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3025,7 +3089,7 @@ func (this KeyboardEvent) Code() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this KeyboardEvent) Location() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetKeyboardEventLocation(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3035,7 +3099,7 @@ func (this KeyboardEvent) Location() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this KeyboardEvent) CtrlKey() (ret bool, ok bool) {
 	ok = js.True == bindings.GetKeyboardEventCtrlKey(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3045,7 +3109,7 @@ func (this KeyboardEvent) CtrlKey() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this KeyboardEvent) ShiftKey() (ret bool, ok bool) {
 	ok = js.True == bindings.GetKeyboardEventShiftKey(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3055,7 +3119,7 @@ func (this KeyboardEvent) ShiftKey() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this KeyboardEvent) AltKey() (ret bool, ok bool) {
 	ok = js.True == bindings.GetKeyboardEventAltKey(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3065,7 +3129,7 @@ func (this KeyboardEvent) AltKey() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this KeyboardEvent) MetaKey() (ret bool, ok bool) {
 	ok = js.True == bindings.GetKeyboardEventMetaKey(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3075,7 +3139,7 @@ func (this KeyboardEvent) MetaKey() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this KeyboardEvent) Repeat() (ret bool, ok bool) {
 	ok = js.True == bindings.GetKeyboardEventRepeat(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3085,7 +3149,7 @@ func (this KeyboardEvent) Repeat() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this KeyboardEvent) IsComposing() (ret bool, ok bool) {
 	ok = js.True == bindings.GetKeyboardEventIsComposing(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3095,7 +3159,7 @@ func (this KeyboardEvent) IsComposing() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this KeyboardEvent) CharCode() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetKeyboardEventCharCode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3105,31 +3169,30 @@ func (this KeyboardEvent) CharCode() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this KeyboardEvent) KeyCode() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetKeyboardEventKeyCode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGetModifierState returns true if the method "KeyboardEvent.getModifierState" exists.
-func (this KeyboardEvent) HasGetModifierState() bool {
-	return js.True == bindings.HasKeyboardEventGetModifierState(
-		this.Ref(),
+// HasFuncGetModifierState returns true if the method "KeyboardEvent.getModifierState" exists.
+func (this KeyboardEvent) HasFuncGetModifierState() bool {
+	return js.True == bindings.HasFuncKeyboardEventGetModifierState(
+		this.ref,
 	)
 }
 
-// GetModifierStateFunc returns the method "KeyboardEvent.getModifierState".
-func (this KeyboardEvent) GetModifierStateFunc() (fn js.Func[func(keyArg js.String) bool]) {
-	return fn.FromRef(
-		bindings.KeyboardEventGetModifierStateFunc(
-			this.Ref(),
-		),
+// FuncGetModifierState returns the method "KeyboardEvent.getModifierState".
+func (this KeyboardEvent) FuncGetModifierState() (fn js.Func[func(keyArg js.String) bool]) {
+	bindings.FuncKeyboardEventGetModifierState(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetModifierState calls the method "KeyboardEvent.getModifierState".
 func (this KeyboardEvent) GetModifierState(keyArg js.String) (ret bool) {
 	bindings.CallKeyboardEventGetModifierState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		keyArg.Ref(),
 	)
 
@@ -3141,33 +3204,32 @@ func (this KeyboardEvent) GetModifierState(keyArg js.String) (ret bool) {
 // the catch clause.
 func (this KeyboardEvent) TryGetModifierState(keyArg js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardEventGetModifierState(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		keyArg.Ref(),
 	)
 
 	return
 }
 
-// HasInitKeyboardEvent returns true if the method "KeyboardEvent.initKeyboardEvent" exists.
-func (this KeyboardEvent) HasInitKeyboardEvent() bool {
-	return js.True == bindings.HasKeyboardEventInitKeyboardEvent(
-		this.Ref(),
+// HasFuncInitKeyboardEvent returns true if the method "KeyboardEvent.initKeyboardEvent" exists.
+func (this KeyboardEvent) HasFuncInitKeyboardEvent() bool {
+	return js.True == bindings.HasFuncKeyboardEventInitKeyboardEvent(
+		this.ref,
 	)
 }
 
-// InitKeyboardEventFunc returns the method "KeyboardEvent.initKeyboardEvent".
-func (this KeyboardEvent) InitKeyboardEventFunc() (fn js.Func[func(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32, ctrlKey bool, altKey bool, shiftKey bool, metaKey bool)]) {
-	return fn.FromRef(
-		bindings.KeyboardEventInitKeyboardEventFunc(
-			this.Ref(),
-		),
+// FuncInitKeyboardEvent returns the method "KeyboardEvent.initKeyboardEvent".
+func (this KeyboardEvent) FuncInitKeyboardEvent() (fn js.Func[func(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32, ctrlKey bool, altKey bool, shiftKey bool, metaKey bool)]) {
+	bindings.FuncKeyboardEventInitKeyboardEvent(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InitKeyboardEvent calls the method "KeyboardEvent.initKeyboardEvent".
 func (this KeyboardEvent) InitKeyboardEvent(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32, ctrlKey bool, altKey bool, shiftKey bool, metaKey bool) (ret js.Void) {
 	bindings.CallKeyboardEventInitKeyboardEvent(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		typeArg.Ref(),
 		js.Bool(bool(bubblesArg)),
 		js.Bool(bool(cancelableArg)),
@@ -3188,7 +3250,7 @@ func (this KeyboardEvent) InitKeyboardEvent(typeArg js.String, bubblesArg bool, 
 // the catch clause.
 func (this KeyboardEvent) TryInitKeyboardEvent(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32, ctrlKey bool, altKey bool, shiftKey bool, metaKey bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardEventInitKeyboardEvent(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		typeArg.Ref(),
 		js.Bool(bool(bubblesArg)),
 		js.Bool(bool(cancelableArg)),
@@ -3204,26 +3266,25 @@ func (this KeyboardEvent) TryInitKeyboardEvent(typeArg js.String, bubblesArg boo
 	return
 }
 
-// HasInitKeyboardEvent1 returns true if the method "KeyboardEvent.initKeyboardEvent" exists.
-func (this KeyboardEvent) HasInitKeyboardEvent1() bool {
-	return js.True == bindings.HasKeyboardEventInitKeyboardEvent1(
-		this.Ref(),
+// HasFuncInitKeyboardEvent1 returns true if the method "KeyboardEvent.initKeyboardEvent" exists.
+func (this KeyboardEvent) HasFuncInitKeyboardEvent1() bool {
+	return js.True == bindings.HasFuncKeyboardEventInitKeyboardEvent1(
+		this.ref,
 	)
 }
 
-// InitKeyboardEvent1Func returns the method "KeyboardEvent.initKeyboardEvent".
-func (this KeyboardEvent) InitKeyboardEvent1Func() (fn js.Func[func(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32, ctrlKey bool, altKey bool, shiftKey bool)]) {
-	return fn.FromRef(
-		bindings.KeyboardEventInitKeyboardEvent1Func(
-			this.Ref(),
-		),
+// FuncInitKeyboardEvent1 returns the method "KeyboardEvent.initKeyboardEvent".
+func (this KeyboardEvent) FuncInitKeyboardEvent1() (fn js.Func[func(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32, ctrlKey bool, altKey bool, shiftKey bool)]) {
+	bindings.FuncKeyboardEventInitKeyboardEvent1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InitKeyboardEvent1 calls the method "KeyboardEvent.initKeyboardEvent".
 func (this KeyboardEvent) InitKeyboardEvent1(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32, ctrlKey bool, altKey bool, shiftKey bool) (ret js.Void) {
 	bindings.CallKeyboardEventInitKeyboardEvent1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		typeArg.Ref(),
 		js.Bool(bool(bubblesArg)),
 		js.Bool(bool(cancelableArg)),
@@ -3243,7 +3304,7 @@ func (this KeyboardEvent) InitKeyboardEvent1(typeArg js.String, bubblesArg bool,
 // the catch clause.
 func (this KeyboardEvent) TryInitKeyboardEvent1(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32, ctrlKey bool, altKey bool, shiftKey bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardEventInitKeyboardEvent1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		typeArg.Ref(),
 		js.Bool(bool(bubblesArg)),
 		js.Bool(bool(cancelableArg)),
@@ -3258,26 +3319,25 @@ func (this KeyboardEvent) TryInitKeyboardEvent1(typeArg js.String, bubblesArg bo
 	return
 }
 
-// HasInitKeyboardEvent2 returns true if the method "KeyboardEvent.initKeyboardEvent" exists.
-func (this KeyboardEvent) HasInitKeyboardEvent2() bool {
-	return js.True == bindings.HasKeyboardEventInitKeyboardEvent2(
-		this.Ref(),
+// HasFuncInitKeyboardEvent2 returns true if the method "KeyboardEvent.initKeyboardEvent" exists.
+func (this KeyboardEvent) HasFuncInitKeyboardEvent2() bool {
+	return js.True == bindings.HasFuncKeyboardEventInitKeyboardEvent2(
+		this.ref,
 	)
 }
 
-// InitKeyboardEvent2Func returns the method "KeyboardEvent.initKeyboardEvent".
-func (this KeyboardEvent) InitKeyboardEvent2Func() (fn js.Func[func(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32, ctrlKey bool, altKey bool)]) {
-	return fn.FromRef(
-		bindings.KeyboardEventInitKeyboardEvent2Func(
-			this.Ref(),
-		),
+// FuncInitKeyboardEvent2 returns the method "KeyboardEvent.initKeyboardEvent".
+func (this KeyboardEvent) FuncInitKeyboardEvent2() (fn js.Func[func(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32, ctrlKey bool, altKey bool)]) {
+	bindings.FuncKeyboardEventInitKeyboardEvent2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InitKeyboardEvent2 calls the method "KeyboardEvent.initKeyboardEvent".
 func (this KeyboardEvent) InitKeyboardEvent2(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32, ctrlKey bool, altKey bool) (ret js.Void) {
 	bindings.CallKeyboardEventInitKeyboardEvent2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		typeArg.Ref(),
 		js.Bool(bool(bubblesArg)),
 		js.Bool(bool(cancelableArg)),
@@ -3296,7 +3356,7 @@ func (this KeyboardEvent) InitKeyboardEvent2(typeArg js.String, bubblesArg bool,
 // the catch clause.
 func (this KeyboardEvent) TryInitKeyboardEvent2(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32, ctrlKey bool, altKey bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardEventInitKeyboardEvent2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		typeArg.Ref(),
 		js.Bool(bool(bubblesArg)),
 		js.Bool(bool(cancelableArg)),
@@ -3310,26 +3370,25 @@ func (this KeyboardEvent) TryInitKeyboardEvent2(typeArg js.String, bubblesArg bo
 	return
 }
 
-// HasInitKeyboardEvent3 returns true if the method "KeyboardEvent.initKeyboardEvent" exists.
-func (this KeyboardEvent) HasInitKeyboardEvent3() bool {
-	return js.True == bindings.HasKeyboardEventInitKeyboardEvent3(
-		this.Ref(),
+// HasFuncInitKeyboardEvent3 returns true if the method "KeyboardEvent.initKeyboardEvent" exists.
+func (this KeyboardEvent) HasFuncInitKeyboardEvent3() bool {
+	return js.True == bindings.HasFuncKeyboardEventInitKeyboardEvent3(
+		this.ref,
 	)
 }
 
-// InitKeyboardEvent3Func returns the method "KeyboardEvent.initKeyboardEvent".
-func (this KeyboardEvent) InitKeyboardEvent3Func() (fn js.Func[func(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32, ctrlKey bool)]) {
-	return fn.FromRef(
-		bindings.KeyboardEventInitKeyboardEvent3Func(
-			this.Ref(),
-		),
+// FuncInitKeyboardEvent3 returns the method "KeyboardEvent.initKeyboardEvent".
+func (this KeyboardEvent) FuncInitKeyboardEvent3() (fn js.Func[func(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32, ctrlKey bool)]) {
+	bindings.FuncKeyboardEventInitKeyboardEvent3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InitKeyboardEvent3 calls the method "KeyboardEvent.initKeyboardEvent".
 func (this KeyboardEvent) InitKeyboardEvent3(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32, ctrlKey bool) (ret js.Void) {
 	bindings.CallKeyboardEventInitKeyboardEvent3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		typeArg.Ref(),
 		js.Bool(bool(bubblesArg)),
 		js.Bool(bool(cancelableArg)),
@@ -3347,7 +3406,7 @@ func (this KeyboardEvent) InitKeyboardEvent3(typeArg js.String, bubblesArg bool,
 // the catch clause.
 func (this KeyboardEvent) TryInitKeyboardEvent3(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32, ctrlKey bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardEventInitKeyboardEvent3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		typeArg.Ref(),
 		js.Bool(bool(bubblesArg)),
 		js.Bool(bool(cancelableArg)),
@@ -3360,26 +3419,25 @@ func (this KeyboardEvent) TryInitKeyboardEvent3(typeArg js.String, bubblesArg bo
 	return
 }
 
-// HasInitKeyboardEvent4 returns true if the method "KeyboardEvent.initKeyboardEvent" exists.
-func (this KeyboardEvent) HasInitKeyboardEvent4() bool {
-	return js.True == bindings.HasKeyboardEventInitKeyboardEvent4(
-		this.Ref(),
+// HasFuncInitKeyboardEvent4 returns true if the method "KeyboardEvent.initKeyboardEvent" exists.
+func (this KeyboardEvent) HasFuncInitKeyboardEvent4() bool {
+	return js.True == bindings.HasFuncKeyboardEventInitKeyboardEvent4(
+		this.ref,
 	)
 }
 
-// InitKeyboardEvent4Func returns the method "KeyboardEvent.initKeyboardEvent".
-func (this KeyboardEvent) InitKeyboardEvent4Func() (fn js.Func[func(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32)]) {
-	return fn.FromRef(
-		bindings.KeyboardEventInitKeyboardEvent4Func(
-			this.Ref(),
-		),
+// FuncInitKeyboardEvent4 returns the method "KeyboardEvent.initKeyboardEvent".
+func (this KeyboardEvent) FuncInitKeyboardEvent4() (fn js.Func[func(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32)]) {
+	bindings.FuncKeyboardEventInitKeyboardEvent4(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InitKeyboardEvent4 calls the method "KeyboardEvent.initKeyboardEvent".
 func (this KeyboardEvent) InitKeyboardEvent4(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32) (ret js.Void) {
 	bindings.CallKeyboardEventInitKeyboardEvent4(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		typeArg.Ref(),
 		js.Bool(bool(bubblesArg)),
 		js.Bool(bool(cancelableArg)),
@@ -3396,7 +3454,7 @@ func (this KeyboardEvent) InitKeyboardEvent4(typeArg js.String, bubblesArg bool,
 // the catch clause.
 func (this KeyboardEvent) TryInitKeyboardEvent4(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardEventInitKeyboardEvent4(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		typeArg.Ref(),
 		js.Bool(bool(bubblesArg)),
 		js.Bool(bool(cancelableArg)),
@@ -3408,26 +3466,25 @@ func (this KeyboardEvent) TryInitKeyboardEvent4(typeArg js.String, bubblesArg bo
 	return
 }
 
-// HasInitKeyboardEvent5 returns true if the method "KeyboardEvent.initKeyboardEvent" exists.
-func (this KeyboardEvent) HasInitKeyboardEvent5() bool {
-	return js.True == bindings.HasKeyboardEventInitKeyboardEvent5(
-		this.Ref(),
+// HasFuncInitKeyboardEvent5 returns true if the method "KeyboardEvent.initKeyboardEvent" exists.
+func (this KeyboardEvent) HasFuncInitKeyboardEvent5() bool {
+	return js.True == bindings.HasFuncKeyboardEventInitKeyboardEvent5(
+		this.ref,
 	)
 }
 
-// InitKeyboardEvent5Func returns the method "KeyboardEvent.initKeyboardEvent".
-func (this KeyboardEvent) InitKeyboardEvent5Func() (fn js.Func[func(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String)]) {
-	return fn.FromRef(
-		bindings.KeyboardEventInitKeyboardEvent5Func(
-			this.Ref(),
-		),
+// FuncInitKeyboardEvent5 returns the method "KeyboardEvent.initKeyboardEvent".
+func (this KeyboardEvent) FuncInitKeyboardEvent5() (fn js.Func[func(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String)]) {
+	bindings.FuncKeyboardEventInitKeyboardEvent5(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InitKeyboardEvent5 calls the method "KeyboardEvent.initKeyboardEvent".
 func (this KeyboardEvent) InitKeyboardEvent5(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String) (ret js.Void) {
 	bindings.CallKeyboardEventInitKeyboardEvent5(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		typeArg.Ref(),
 		js.Bool(bool(bubblesArg)),
 		js.Bool(bool(cancelableArg)),
@@ -3443,7 +3500,7 @@ func (this KeyboardEvent) InitKeyboardEvent5(typeArg js.String, bubblesArg bool,
 // the catch clause.
 func (this KeyboardEvent) TryInitKeyboardEvent5(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardEventInitKeyboardEvent5(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		typeArg.Ref(),
 		js.Bool(bool(bubblesArg)),
 		js.Bool(bool(cancelableArg)),
@@ -3454,26 +3511,25 @@ func (this KeyboardEvent) TryInitKeyboardEvent5(typeArg js.String, bubblesArg bo
 	return
 }
 
-// HasInitKeyboardEvent6 returns true if the method "KeyboardEvent.initKeyboardEvent" exists.
-func (this KeyboardEvent) HasInitKeyboardEvent6() bool {
-	return js.True == bindings.HasKeyboardEventInitKeyboardEvent6(
-		this.Ref(),
+// HasFuncInitKeyboardEvent6 returns true if the method "KeyboardEvent.initKeyboardEvent" exists.
+func (this KeyboardEvent) HasFuncInitKeyboardEvent6() bool {
+	return js.True == bindings.HasFuncKeyboardEventInitKeyboardEvent6(
+		this.ref,
 	)
 }
 
-// InitKeyboardEvent6Func returns the method "KeyboardEvent.initKeyboardEvent".
-func (this KeyboardEvent) InitKeyboardEvent6Func() (fn js.Func[func(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window)]) {
-	return fn.FromRef(
-		bindings.KeyboardEventInitKeyboardEvent6Func(
-			this.Ref(),
-		),
+// FuncInitKeyboardEvent6 returns the method "KeyboardEvent.initKeyboardEvent".
+func (this KeyboardEvent) FuncInitKeyboardEvent6() (fn js.Func[func(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window)]) {
+	bindings.FuncKeyboardEventInitKeyboardEvent6(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InitKeyboardEvent6 calls the method "KeyboardEvent.initKeyboardEvent".
 func (this KeyboardEvent) InitKeyboardEvent6(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window) (ret js.Void) {
 	bindings.CallKeyboardEventInitKeyboardEvent6(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		typeArg.Ref(),
 		js.Bool(bool(bubblesArg)),
 		js.Bool(bool(cancelableArg)),
@@ -3488,7 +3544,7 @@ func (this KeyboardEvent) InitKeyboardEvent6(typeArg js.String, bubblesArg bool,
 // the catch clause.
 func (this KeyboardEvent) TryInitKeyboardEvent6(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardEventInitKeyboardEvent6(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		typeArg.Ref(),
 		js.Bool(bool(bubblesArg)),
 		js.Bool(bool(cancelableArg)),
@@ -3498,26 +3554,25 @@ func (this KeyboardEvent) TryInitKeyboardEvent6(typeArg js.String, bubblesArg bo
 	return
 }
 
-// HasInitKeyboardEvent7 returns true if the method "KeyboardEvent.initKeyboardEvent" exists.
-func (this KeyboardEvent) HasInitKeyboardEvent7() bool {
-	return js.True == bindings.HasKeyboardEventInitKeyboardEvent7(
-		this.Ref(),
+// HasFuncInitKeyboardEvent7 returns true if the method "KeyboardEvent.initKeyboardEvent" exists.
+func (this KeyboardEvent) HasFuncInitKeyboardEvent7() bool {
+	return js.True == bindings.HasFuncKeyboardEventInitKeyboardEvent7(
+		this.ref,
 	)
 }
 
-// InitKeyboardEvent7Func returns the method "KeyboardEvent.initKeyboardEvent".
-func (this KeyboardEvent) InitKeyboardEvent7Func() (fn js.Func[func(typeArg js.String, bubblesArg bool, cancelableArg bool)]) {
-	return fn.FromRef(
-		bindings.KeyboardEventInitKeyboardEvent7Func(
-			this.Ref(),
-		),
+// FuncInitKeyboardEvent7 returns the method "KeyboardEvent.initKeyboardEvent".
+func (this KeyboardEvent) FuncInitKeyboardEvent7() (fn js.Func[func(typeArg js.String, bubblesArg bool, cancelableArg bool)]) {
+	bindings.FuncKeyboardEventInitKeyboardEvent7(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InitKeyboardEvent7 calls the method "KeyboardEvent.initKeyboardEvent".
 func (this KeyboardEvent) InitKeyboardEvent7(typeArg js.String, bubblesArg bool, cancelableArg bool) (ret js.Void) {
 	bindings.CallKeyboardEventInitKeyboardEvent7(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		typeArg.Ref(),
 		js.Bool(bool(bubblesArg)),
 		js.Bool(bool(cancelableArg)),
@@ -3531,7 +3586,7 @@ func (this KeyboardEvent) InitKeyboardEvent7(typeArg js.String, bubblesArg bool,
 // the catch clause.
 func (this KeyboardEvent) TryInitKeyboardEvent7(typeArg js.String, bubblesArg bool, cancelableArg bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardEventInitKeyboardEvent7(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		typeArg.Ref(),
 		js.Bool(bool(bubblesArg)),
 		js.Bool(bool(cancelableArg)),
@@ -3540,26 +3595,25 @@ func (this KeyboardEvent) TryInitKeyboardEvent7(typeArg js.String, bubblesArg bo
 	return
 }
 
-// HasInitKeyboardEvent8 returns true if the method "KeyboardEvent.initKeyboardEvent" exists.
-func (this KeyboardEvent) HasInitKeyboardEvent8() bool {
-	return js.True == bindings.HasKeyboardEventInitKeyboardEvent8(
-		this.Ref(),
+// HasFuncInitKeyboardEvent8 returns true if the method "KeyboardEvent.initKeyboardEvent" exists.
+func (this KeyboardEvent) HasFuncInitKeyboardEvent8() bool {
+	return js.True == bindings.HasFuncKeyboardEventInitKeyboardEvent8(
+		this.ref,
 	)
 }
 
-// InitKeyboardEvent8Func returns the method "KeyboardEvent.initKeyboardEvent".
-func (this KeyboardEvent) InitKeyboardEvent8Func() (fn js.Func[func(typeArg js.String, bubblesArg bool)]) {
-	return fn.FromRef(
-		bindings.KeyboardEventInitKeyboardEvent8Func(
-			this.Ref(),
-		),
+// FuncInitKeyboardEvent8 returns the method "KeyboardEvent.initKeyboardEvent".
+func (this KeyboardEvent) FuncInitKeyboardEvent8() (fn js.Func[func(typeArg js.String, bubblesArg bool)]) {
+	bindings.FuncKeyboardEventInitKeyboardEvent8(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InitKeyboardEvent8 calls the method "KeyboardEvent.initKeyboardEvent".
 func (this KeyboardEvent) InitKeyboardEvent8(typeArg js.String, bubblesArg bool) (ret js.Void) {
 	bindings.CallKeyboardEventInitKeyboardEvent8(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		typeArg.Ref(),
 		js.Bool(bool(bubblesArg)),
 	)
@@ -3572,7 +3626,7 @@ func (this KeyboardEvent) InitKeyboardEvent8(typeArg js.String, bubblesArg bool)
 // the catch clause.
 func (this KeyboardEvent) TryInitKeyboardEvent8(typeArg js.String, bubblesArg bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardEventInitKeyboardEvent8(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		typeArg.Ref(),
 		js.Bool(bool(bubblesArg)),
 	)
@@ -3580,26 +3634,25 @@ func (this KeyboardEvent) TryInitKeyboardEvent8(typeArg js.String, bubblesArg bo
 	return
 }
 
-// HasInitKeyboardEvent9 returns true if the method "KeyboardEvent.initKeyboardEvent" exists.
-func (this KeyboardEvent) HasInitKeyboardEvent9() bool {
-	return js.True == bindings.HasKeyboardEventInitKeyboardEvent9(
-		this.Ref(),
+// HasFuncInitKeyboardEvent9 returns true if the method "KeyboardEvent.initKeyboardEvent" exists.
+func (this KeyboardEvent) HasFuncInitKeyboardEvent9() bool {
+	return js.True == bindings.HasFuncKeyboardEventInitKeyboardEvent9(
+		this.ref,
 	)
 }
 
-// InitKeyboardEvent9Func returns the method "KeyboardEvent.initKeyboardEvent".
-func (this KeyboardEvent) InitKeyboardEvent9Func() (fn js.Func[func(typeArg js.String)]) {
-	return fn.FromRef(
-		bindings.KeyboardEventInitKeyboardEvent9Func(
-			this.Ref(),
-		),
+// FuncInitKeyboardEvent9 returns the method "KeyboardEvent.initKeyboardEvent".
+func (this KeyboardEvent) FuncInitKeyboardEvent9() (fn js.Func[func(typeArg js.String)]) {
+	bindings.FuncKeyboardEventInitKeyboardEvent9(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InitKeyboardEvent9 calls the method "KeyboardEvent.initKeyboardEvent".
 func (this KeyboardEvent) InitKeyboardEvent9(typeArg js.String) (ret js.Void) {
 	bindings.CallKeyboardEventInitKeyboardEvent9(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		typeArg.Ref(),
 	)
 
@@ -3611,7 +3664,7 @@ func (this KeyboardEvent) InitKeyboardEvent9(typeArg js.String) (ret js.Void) {
 // the catch clause.
 func (this KeyboardEvent) TryInitKeyboardEvent9(typeArg js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardEventInitKeyboardEvent9(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		typeArg.Ref(),
 	)
 
@@ -3676,17 +3729,28 @@ func (p KeyframeEffectOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p KeyframeEffectOptions) UpdateFrom(ref js.Ref) {
+func (p *KeyframeEffectOptions) UpdateFrom(ref js.Ref) {
 	bindings.KeyframeEffectOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p KeyframeEffectOptions) Update(ref js.Ref) {
+func (p *KeyframeEffectOptions) Update(ref js.Ref) {
 	bindings.KeyframeEffectOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *KeyframeEffectOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.PseudoElement.Ref(),
+		p.Easing.Ref(),
+	)
+	p.PseudoElement = p.PseudoElement.FromRef(js.Undefined)
+	p.Easing = p.Easing.FromRef(js.Undefined)
 }
 
 type OneOf_Float64_KeyframeEffectOptions struct {
@@ -3743,7 +3807,7 @@ type KeyframeEffect struct {
 }
 
 func (this KeyframeEffect) Once() KeyframeEffect {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3757,7 +3821,7 @@ func (this KeyframeEffect) FromRef(ref js.Ref) KeyframeEffect {
 }
 
 func (this KeyframeEffect) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Target returns the value of property "KeyframeEffect.target".
@@ -3765,7 +3829,7 @@ func (this KeyframeEffect) Free() {
 // It returns ok=false if there is no such property.
 func (this KeyframeEffect) Target() (ret Element, ok bool) {
 	ok = js.True == bindings.GetKeyframeEffectTarget(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3775,7 +3839,7 @@ func (this KeyframeEffect) Target() (ret Element, ok bool) {
 // It returns false if the property cannot be set.
 func (this KeyframeEffect) SetTarget(val Element) bool {
 	return js.True == bindings.SetKeyframeEffectTarget(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -3785,7 +3849,7 @@ func (this KeyframeEffect) SetTarget(val Element) bool {
 // It returns ok=false if there is no such property.
 func (this KeyframeEffect) PseudoElement() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetKeyframeEffectPseudoElement(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3795,7 +3859,7 @@ func (this KeyframeEffect) PseudoElement() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this KeyframeEffect) SetPseudoElement(val js.String) bool {
 	return js.True == bindings.SetKeyframeEffectPseudoElement(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -3805,7 +3869,7 @@ func (this KeyframeEffect) SetPseudoElement(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this KeyframeEffect) Composite() (ret CompositeOperation, ok bool) {
 	ok = js.True == bindings.GetKeyframeEffectComposite(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3815,7 +3879,7 @@ func (this KeyframeEffect) Composite() (ret CompositeOperation, ok bool) {
 // It returns false if the property cannot be set.
 func (this KeyframeEffect) SetComposite(val CompositeOperation) bool {
 	return js.True == bindings.SetKeyframeEffectComposite(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
@@ -3825,7 +3889,7 @@ func (this KeyframeEffect) SetComposite(val CompositeOperation) bool {
 // It returns ok=false if there is no such property.
 func (this KeyframeEffect) IterationComposite() (ret IterationCompositeOperation, ok bool) {
 	ok = js.True == bindings.GetKeyframeEffectIterationComposite(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3835,31 +3899,30 @@ func (this KeyframeEffect) IterationComposite() (ret IterationCompositeOperation
 // It returns false if the property cannot be set.
 func (this KeyframeEffect) SetIterationComposite(val IterationCompositeOperation) bool {
 	return js.True == bindings.SetKeyframeEffectIterationComposite(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
 
-// HasGetKeyframes returns true if the method "KeyframeEffect.getKeyframes" exists.
-func (this KeyframeEffect) HasGetKeyframes() bool {
-	return js.True == bindings.HasKeyframeEffectGetKeyframes(
-		this.Ref(),
+// HasFuncGetKeyframes returns true if the method "KeyframeEffect.getKeyframes" exists.
+func (this KeyframeEffect) HasFuncGetKeyframes() bool {
+	return js.True == bindings.HasFuncKeyframeEffectGetKeyframes(
+		this.ref,
 	)
 }
 
-// GetKeyframesFunc returns the method "KeyframeEffect.getKeyframes".
-func (this KeyframeEffect) GetKeyframesFunc() (fn js.Func[func() js.Array[js.Object]]) {
-	return fn.FromRef(
-		bindings.KeyframeEffectGetKeyframesFunc(
-			this.Ref(),
-		),
+// FuncGetKeyframes returns the method "KeyframeEffect.getKeyframes".
+func (this KeyframeEffect) FuncGetKeyframes() (fn js.Func[func() js.Array[js.Object]]) {
+	bindings.FuncKeyframeEffectGetKeyframes(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetKeyframes calls the method "KeyframeEffect.getKeyframes".
 func (this KeyframeEffect) GetKeyframes() (ret js.Array[js.Object]) {
 	bindings.CallKeyframeEffectGetKeyframes(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -3870,32 +3933,31 @@ func (this KeyframeEffect) GetKeyframes() (ret js.Array[js.Object]) {
 // the catch clause.
 func (this KeyframeEffect) TryGetKeyframes() (ret js.Array[js.Object], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyframeEffectGetKeyframes(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasSetKeyframes returns true if the method "KeyframeEffect.setKeyframes" exists.
-func (this KeyframeEffect) HasSetKeyframes() bool {
-	return js.True == bindings.HasKeyframeEffectSetKeyframes(
-		this.Ref(),
+// HasFuncSetKeyframes returns true if the method "KeyframeEffect.setKeyframes" exists.
+func (this KeyframeEffect) HasFuncSetKeyframes() bool {
+	return js.True == bindings.HasFuncKeyframeEffectSetKeyframes(
+		this.ref,
 	)
 }
 
-// SetKeyframesFunc returns the method "KeyframeEffect.setKeyframes".
-func (this KeyframeEffect) SetKeyframesFunc() (fn js.Func[func(keyframes js.Object)]) {
-	return fn.FromRef(
-		bindings.KeyframeEffectSetKeyframesFunc(
-			this.Ref(),
-		),
+// FuncSetKeyframes returns the method "KeyframeEffect.setKeyframes".
+func (this KeyframeEffect) FuncSetKeyframes() (fn js.Func[func(keyframes js.Object)]) {
+	bindings.FuncKeyframeEffectSetKeyframes(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SetKeyframes calls the method "KeyframeEffect.setKeyframes".
 func (this KeyframeEffect) SetKeyframes(keyframes js.Object) (ret js.Void) {
 	bindings.CallKeyframeEffectSetKeyframes(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		keyframes.Ref(),
 	)
 
@@ -3907,7 +3969,7 @@ func (this KeyframeEffect) SetKeyframes(keyframes js.Object) (ret js.Void) {
 // the catch clause.
 func (this KeyframeEffect) TrySetKeyframes(keyframes js.Object) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyframeEffectSetKeyframes(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		keyframes.Ref(),
 	)
 

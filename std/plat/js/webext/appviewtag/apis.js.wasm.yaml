@@ -1,0 +1,163 @@
+- File: webext/chrome/appview_tag.idl
+  Interface:
+    Name: EmbedRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - appviewTag
+    Attrs:
+      - Name: embedderId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - appviewTag
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - appviewTag
+      - Name: data
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - appviewTag
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - appviewTag
+    Operations:
+      - Name: allow
+        Args:
+          - Name: url
+            Type:
+              Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - appviewTag
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - appviewTag
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - appviewTag
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - appviewTag
+      - Name: deny
+        Returns:
+          - Name: void
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - appviewTag
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - appviewTag
+- File: webext/chrome/appview_tag.idl
+  Callback:
+    Name: EmbeddingCallback
+    Args:
+      - Name: success
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - appviewTag
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - appviewTag
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - appviewTag
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - appviewTag
+- File: webext/chrome/appview_tag.idl
+  WebextFunc:
+    Name: connect
+    Modifier: static
+    Args:
+      - Name: app
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - appviewTag
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - appviewTag
+      - Name: data
+        Optional: true
+        Type:
+          Name: any
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - appviewTag
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - appviewTag
+      - Name: callback
+        Optional: true
+        Type:
+          Name: EmbeddingCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - appviewTag
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - appviewTag
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - appviewTag
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - appviewTag

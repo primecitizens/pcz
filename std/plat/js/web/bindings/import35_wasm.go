@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web store_EncodedVideoChunkMetadata
 //go:noescape
@@ -122,11 +120,11 @@ func GetEventSourceReadyState(
 
 //go:wasmimport plat/js/web has_EventSource_Close
 //go:noescape
-func HasEventSourceClose(this js.Ref) js.Ref
+func HasFuncEventSourceClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_EventSource_Close
 //go:noescape
-func EventSourceCloseFunc(this js.Ref) js.Ref
+func FuncEventSourceClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_EventSource_Close
 //go:noescape
@@ -192,11 +190,11 @@ func NewExtendableEventByExtendableEvent1(
 
 //go:wasmimport plat/js/web has_ExtendableEvent_WaitUntil
 //go:noescape
-func HasExtendableEventWaitUntil(this js.Ref) js.Ref
+func HasFuncExtendableEventWaitUntil(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ExtendableEvent_WaitUntil
 //go:noescape
-func ExtendableEventWaitUntilFunc(this js.Ref) js.Ref
+func FuncExtendableEventWaitUntil(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ExtendableEvent_WaitUntil
 //go:noescape
@@ -258,11 +256,11 @@ func GetExtendableMessageEventPorts(
 
 //go:wasmimport plat/js/web has_EyeDropper_Open
 //go:noescape
-func HasEyeDropperOpen(this js.Ref) js.Ref
+func HasFuncEyeDropperOpen(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_EyeDropper_Open
 //go:noescape
-func EyeDropperOpenFunc(this js.Ref) js.Ref
+func FuncEyeDropperOpen(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_EyeDropper_Open
 //go:noescape
@@ -278,11 +276,11 @@ func TryEyeDropperOpen(
 
 //go:wasmimport plat/js/web has_EyeDropper_Open1
 //go:noescape
-func HasEyeDropperOpen1(this js.Ref) js.Ref
+func HasFuncEyeDropperOpen1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_EyeDropper_Open1
 //go:noescape
-func EyeDropperOpen1Func(this js.Ref) js.Ref
+func FuncEyeDropperOpen1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_EyeDropper_Open1
 //go:noescape
@@ -315,11 +313,11 @@ func NewFaceDetectorByFaceDetector1() js.Ref
 
 //go:wasmimport plat/js/web has_FaceDetector_Detect
 //go:noescape
-func HasFaceDetectorDetect(this js.Ref) js.Ref
+func HasFuncFaceDetectorDetect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FaceDetector_Detect
 //go:noescape
-func FaceDetectorDetectFunc(this js.Ref) js.Ref
+func FuncFaceDetectorDetect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FaceDetector_Detect
 //go:noescape
@@ -406,11 +404,11 @@ func GetFetchEventHandled(
 
 //go:wasmimport plat/js/web has_FetchEvent_RespondWith
 //go:noescape
-func HasFetchEventRespondWith(this js.Ref) js.Ref
+func HasFuncFetchEventRespondWith(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FetchEvent_RespondWith
 //go:noescape
-func FetchEventRespondWithFunc(this js.Ref) js.Ref
+func FuncFetchEventRespondWith(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FetchEvent_RespondWith
 //go:noescape
@@ -451,11 +449,11 @@ func GetFileReaderError(
 
 //go:wasmimport plat/js/web has_FileReader_ReadAsArrayBuffer
 //go:noescape
-func HasFileReaderReadAsArrayBuffer(this js.Ref) js.Ref
+func HasFuncFileReaderReadAsArrayBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileReader_ReadAsArrayBuffer
 //go:noescape
-func FileReaderReadAsArrayBufferFunc(this js.Ref) js.Ref
+func FuncFileReaderReadAsArrayBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileReader_ReadAsArrayBuffer
 //go:noescape
@@ -471,11 +469,11 @@ func TryFileReaderReadAsArrayBuffer(
 
 //go:wasmimport plat/js/web has_FileReader_ReadAsBinaryString
 //go:noescape
-func HasFileReaderReadAsBinaryString(this js.Ref) js.Ref
+func HasFuncFileReaderReadAsBinaryString(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileReader_ReadAsBinaryString
 //go:noescape
-func FileReaderReadAsBinaryStringFunc(this js.Ref) js.Ref
+func FuncFileReaderReadAsBinaryString(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileReader_ReadAsBinaryString
 //go:noescape
@@ -491,11 +489,11 @@ func TryFileReaderReadAsBinaryString(
 
 //go:wasmimport plat/js/web has_FileReader_ReadAsText
 //go:noescape
-func HasFileReaderReadAsText(this js.Ref) js.Ref
+func HasFuncFileReaderReadAsText(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileReader_ReadAsText
 //go:noescape
-func FileReaderReadAsTextFunc(this js.Ref) js.Ref
+func FuncFileReaderReadAsText(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileReader_ReadAsText
 //go:noescape
@@ -513,11 +511,11 @@ func TryFileReaderReadAsText(
 
 //go:wasmimport plat/js/web has_FileReader_ReadAsText1
 //go:noescape
-func HasFileReaderReadAsText1(this js.Ref) js.Ref
+func HasFuncFileReaderReadAsText1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileReader_ReadAsText1
 //go:noescape
-func FileReaderReadAsText1Func(this js.Ref) js.Ref
+func FuncFileReaderReadAsText1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileReader_ReadAsText1
 //go:noescape
@@ -533,11 +531,11 @@ func TryFileReaderReadAsText1(
 
 //go:wasmimport plat/js/web has_FileReader_ReadAsDataURL
 //go:noescape
-func HasFileReaderReadAsDataURL(this js.Ref) js.Ref
+func HasFuncFileReaderReadAsDataURL(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileReader_ReadAsDataURL
 //go:noescape
-func FileReaderReadAsDataURLFunc(this js.Ref) js.Ref
+func FuncFileReaderReadAsDataURL(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileReader_ReadAsDataURL
 //go:noescape
@@ -553,11 +551,11 @@ func TryFileReaderReadAsDataURL(
 
 //go:wasmimport plat/js/web has_FileReader_Abort
 //go:noescape
-func HasFileReaderAbort(this js.Ref) js.Ref
+func HasFuncFileReaderAbort(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileReader_Abort
 //go:noescape
-func FileReaderAbortFunc(this js.Ref) js.Ref
+func FuncFileReaderAbort(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileReader_Abort
 //go:noescape
@@ -571,11 +569,11 @@ func TryFileReaderAbort(
 
 //go:wasmimport plat/js/web has_FileReaderSync_ReadAsArrayBuffer
 //go:noescape
-func HasFileReaderSyncReadAsArrayBuffer(this js.Ref) js.Ref
+func HasFuncFileReaderSyncReadAsArrayBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileReaderSync_ReadAsArrayBuffer
 //go:noescape
-func FileReaderSyncReadAsArrayBufferFunc(this js.Ref) js.Ref
+func FuncFileReaderSyncReadAsArrayBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileReaderSync_ReadAsArrayBuffer
 //go:noescape
@@ -591,11 +589,11 @@ func TryFileReaderSyncReadAsArrayBuffer(
 
 //go:wasmimport plat/js/web has_FileReaderSync_ReadAsBinaryString
 //go:noescape
-func HasFileReaderSyncReadAsBinaryString(this js.Ref) js.Ref
+func HasFuncFileReaderSyncReadAsBinaryString(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileReaderSync_ReadAsBinaryString
 //go:noescape
-func FileReaderSyncReadAsBinaryStringFunc(this js.Ref) js.Ref
+func FuncFileReaderSyncReadAsBinaryString(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileReaderSync_ReadAsBinaryString
 //go:noescape
@@ -611,11 +609,11 @@ func TryFileReaderSyncReadAsBinaryString(
 
 //go:wasmimport plat/js/web has_FileReaderSync_ReadAsText
 //go:noescape
-func HasFileReaderSyncReadAsText(this js.Ref) js.Ref
+func HasFuncFileReaderSyncReadAsText(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileReaderSync_ReadAsText
 //go:noescape
-func FileReaderSyncReadAsTextFunc(this js.Ref) js.Ref
+func FuncFileReaderSyncReadAsText(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileReaderSync_ReadAsText
 //go:noescape
@@ -633,11 +631,11 @@ func TryFileReaderSyncReadAsText(
 
 //go:wasmimport plat/js/web has_FileReaderSync_ReadAsText1
 //go:noescape
-func HasFileReaderSyncReadAsText1(this js.Ref) js.Ref
+func HasFuncFileReaderSyncReadAsText1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileReaderSync_ReadAsText1
 //go:noescape
-func FileReaderSyncReadAsText1Func(this js.Ref) js.Ref
+func FuncFileReaderSyncReadAsText1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileReaderSync_ReadAsText1
 //go:noescape
@@ -653,11 +651,11 @@ func TryFileReaderSyncReadAsText1(
 
 //go:wasmimport plat/js/web has_FileReaderSync_ReadAsDataURL
 //go:noescape
-func HasFileReaderSyncReadAsDataURL(this js.Ref) js.Ref
+func HasFuncFileReaderSyncReadAsDataURL(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileReaderSync_ReadAsDataURL
 //go:noescape
-func FileReaderSyncReadAsDataURLFunc(this js.Ref) js.Ref
+func FuncFileReaderSyncReadAsDataURL(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileReaderSync_ReadAsDataURL
 //go:noescape
@@ -673,11 +671,11 @@ func TryFileReaderSyncReadAsDataURL(
 
 //go:wasmimport plat/js/web has_FileSystemFileEntry_File
 //go:noescape
-func HasFileSystemFileEntryFile(this js.Ref) js.Ref
+func HasFuncFileSystemFileEntryFile(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileSystemFileEntry_File
 //go:noescape
-func FileSystemFileEntryFileFunc(this js.Ref) js.Ref
+func FuncFileSystemFileEntryFile(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileSystemFileEntry_File
 //go:noescape
@@ -695,11 +693,11 @@ func TryFileSystemFileEntryFile(
 
 //go:wasmimport plat/js/web has_FileSystemFileEntry_File1
 //go:noescape
-func HasFileSystemFileEntryFile1(this js.Ref) js.Ref
+func HasFuncFileSystemFileEntryFile1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileSystemFileEntry_File1
 //go:noescape
-func FileSystemFileEntryFile1Func(this js.Ref) js.Ref
+func FuncFileSystemFileEntryFile1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileSystemFileEntry_File1
 //go:noescape

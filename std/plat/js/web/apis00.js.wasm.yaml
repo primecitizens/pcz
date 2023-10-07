@@ -1,4 +1,4 @@
-- File: ANGLE_instanced_arrays.idl
+- File: webref/ANGLE_instanced_arrays.idl
   Interface:
     Name: ANGLE_instanced_arrays
     ExtAttrs:
@@ -76,7 +76,7 @@
               - Window
               - Worker
           - Name: LegacyNoInterfaceObject
-- File: webcodecs-av1-codec-registration.idl
+- File: webref/webcodecs-av1-codec-registration.idl
   Dict:
     Name: AV1EncoderConfig
     Fields:
@@ -84,13 +84,13 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webcodecs-aac-codec-registration.idl
+- File: webref/webcodecs-aac-codec-registration.idl
   Enum:
     Name: AacBitstreamFormat
     Values:
       - aac
       - adts
-- File: webcodecs-aac-codec-registration.idl
+- File: webref/webcodecs-aac-codec-registration.idl
   Dict:
     Name: AacEncoderConfig
     Fields:
@@ -98,7 +98,7 @@
         Default: '"aac"'
         Type:
           Name: AacBitstreamFormat
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: AbortController
     ExtAttrs:
@@ -122,7 +122,7 @@
           - Name: undefined
         ExtAttrs:
           - Name: Exposed
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: AbortSignal
     Inherits: EventTarget
@@ -193,7 +193,7 @@
           - Name: undefined
         ExtAttrs:
           - Name: Exposed
-- File: orientation-sensor.idl
+- File: webref/orientation-sensor.idl
   Dict:
     Name: AbsoluteOrientationReadingValues
     Fields:
@@ -204,7 +204,7 @@
           Params:
             - Name: double
           Nullable: true
-- File: orientation-sensor.idl
+- File: webref/orientation-sensor.idl
   Interface:
     Name: AbsoluteOrientationSensor
     Inherits: OrientationSensor
@@ -225,7 +225,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: AbstractRange
     ExtAttrs:
@@ -273,7 +273,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: accelerometer.idl
+- File: webref/accelerometer.idl
   Interface:
     Name: Accelerometer
     Inherits: Sensor
@@ -325,13 +325,13 @@
           - Name: Exposed
             Values:
               - Window
-- File: accelerometer.idl
+- File: webref/accelerometer.idl
   Enum:
     Name: AccelerometerLocalCoordinateSystem
     Values:
       - device
       - screen
-- File: accelerometer.idl
+- File: webref/accelerometer.idl
   Dict:
     Name: AccelerometerReadingValues
     Fields:
@@ -350,7 +350,7 @@
         Type:
           Name: double
           Nullable: true
-- File: accelerometer.idl
+- File: webref/accelerometer.idl
   Dict:
     Name: AccelerometerSensorOptions
     Inherits: SensorOptions
@@ -362,7 +362,7 @@
       - Name: frequency
         Type:
           Name: double
-- File: turtledove.idl
+- File: webref/turtledove.idl
   Dict:
     Name: AdRender
     Fields:
@@ -376,7 +376,7 @@
       - Name: height
         Type:
           Name: DOMString
-- File: dom.idl
+- File: webref/dom.idl
   Dict:
     Name: AddEventListenerOptions
     Inherits: EventListenerOptions
@@ -395,7 +395,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: payment-handler.idl
+- File: webref/payment-handler.idl
   Dict:
     Name: AddressErrors
     Fields:
@@ -429,7 +429,7 @@
       - Name: sortingCode
         Type:
           Name: DOMString
-- File: payment-handler.idl
+- File: webref/payment-handler.idl
   Dict:
     Name: AddressInit
     Fields:
@@ -475,7 +475,7 @@
         Default: '""'
         Type:
           Name: DOMString
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: AesCbcParams
     Inherits: Algorithm
@@ -488,7 +488,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: AesCtrParams
     Inherits: Algorithm
@@ -505,7 +505,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: AesDerivedKeyParams
     Inherits: Algorithm
@@ -518,7 +518,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: AesGcmParams
     Inherits: Algorithm
@@ -539,7 +539,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: AesKeyAlgorithm
     Inherits: KeyAlgorithm
@@ -552,7 +552,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: AesKeyGenParams
     Inherits: Algorithm
@@ -565,7 +565,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: Algorithm
     Fields:
@@ -573,14 +573,14 @@
         Required: true
         Type:
           Name: DOMString
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Typedef:
     Name: AlgorithmIdentifier
     Type:
       Union:
         - Name: object
         - Name: DOMString
-- File: webvtt.idl
+- File: webref/webvtt.idl
   Enum:
     Name: AlignSetting
     Values:
@@ -589,7 +589,7 @@
       - end
       - left
       - right
-- File: webidl.idl
+- File: webref/webidl.idl
   Typedef:
     Name: AllowSharedBufferSource
     Type:
@@ -597,7 +597,7 @@
         - Name: ArrayBuffer
         - Name: SharedArrayBuffer
         - Name: ArrayBufferView
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Dict:
     Name: AllowedBluetoothDevice
     Fields:
@@ -623,7 +623,7 @@
           Name: sequence
           Params:
             - Name: unsigned short
-- File: webusb.idl
+- File: webref/webusb.idl
   Dict:
     Name: AllowedUSBDevice
     Fields:
@@ -638,13 +638,13 @@
       - Name: serialNumber
         Type:
           Name: DOMString
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Enum:
     Name: AlphaOption
     Values:
       - keep
       - discard
-- File: ambient-light.idl
+- File: webref/ambient-light.idl
   Dict:
     Name: AmbientLightReadingValues
     Fields:
@@ -653,7 +653,7 @@
         Type:
           Name: double
           Nullable: true
-- File: ambient-light.idl
+- File: webref/ambient-light.idl
   Interface:
     Name: AmbientLightSensor
     Inherits: Sensor
@@ -685,7 +685,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: AnalyserNode
     Inherits: AudioNode
@@ -789,7 +789,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: AnalyserOptions
     Inherits: AudioNodeOptions
@@ -819,7 +819,7 @@
       - Name: channelInterpretation
         Type:
           Name: ChannelInterpretation
-- File: web-animations.idl
+- File: webref/web-animations.idl
   Interface:
     Name: Animation
     Inherits: EventTarget
@@ -1018,7 +1018,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: web-animations.idl
+- File: webref/web-animations.idl
   Interface:
     Name: AnimationEffect
     ExtAttrs:
@@ -1124,7 +1124,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-animations.idl
+- File: webref/css-animations.idl
   Interface:
     Name: AnimationEvent
     Inherits: Event
@@ -1171,7 +1171,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-animations.idl
+- File: webref/css-animations.idl
   Dict:
     Name: AnimationEventInit
     Inherits: EventInit
@@ -1200,7 +1200,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: web-animations-2.idl
+- File: webref/web-animations-2.idl
   Interface:
     Name: AnimationNodeList
     ExtAttrs:
@@ -1230,7 +1230,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: web-animations.idl
+- File: webref/web-animations.idl
   Enum:
     Name: AnimationPlayState
     Values:
@@ -1238,7 +1238,7 @@
       - running
       - paused
       - finished
-- File: web-animations-2.idl
+- File: webref/web-animations-2.idl
   Interface:
     Name: AnimationPlaybackEvent
     Inherits: Event
@@ -1279,7 +1279,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: web-animations-2.idl
+- File: webref/web-animations-2.idl
   Dict:
     Name: AnimationPlaybackEventInit
     Inherits: EventInit
@@ -1306,14 +1306,14 @@
         Default: "false"
         Type:
           Name: boolean
-- File: web-animations.idl
+- File: webref/web-animations.idl
   Enum:
     Name: AnimationReplaceState
     Values:
       - active
       - removed
       - persisted
-- File: web-animations.idl
+- File: webref/web-animations.idl
   Interface:
     Name: AnimationTimeline
     ExtAttrs:
@@ -1354,7 +1354,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-animation-worklet.idl
+- File: webref/css-animation-worklet.idl
   Interface:
     Name: AnimationWorkletGlobalScope
     Inherits: WorkletGlobalScope
@@ -1366,7 +1366,6 @@
       - Name: Exposed
         Values:
           - AnimationWorklet
-      - Name: SecureContext
     Operations:
       - Name: registerAnimator
         Args:
@@ -1386,8 +1385,7 @@
           - Name: Exposed
             Values:
               - AnimationWorklet
-          - Name: SecureContext
-- File: css-animation-worklet.idl
+- File: webref/css-animation-worklet.idl
   Callback:
     Name: AnimatorInstanceConstructor
     Args:
@@ -1400,19 +1398,19 @@
           Name: any
     Returns:
       - Name: any
-- File: manifest-incubations.idl
+- File: webref/manifest-incubations.idl
   Enum:
     Name: AppBannerPromptOutcome
     Values:
       - accepted
       - dismissed
-- File: media-source.idl
+- File: webref/media-source.idl
   Enum:
     Name: AppendMode
     Values:
       - segments
       - sequence
-- File: webidl.idl
+- File: webref/webidl.idl
   Typedef:
     Name: ArrayBufferView
     Type:
@@ -1429,7 +1427,7 @@
         - Name: Float32Array
         - Name: Float64Array
         - Name: DataView
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: AssignedNodesOptions
     Fields:

@@ -1,4 +1,4 @@
-- File: geolocation-sensor.idl
+- File: webref/geolocation-sensor.idl
   Dict:
     Name: GeolocationSensorOptions
     Inherits: SensorOptions
@@ -6,7 +6,7 @@
       - Name: frequency
         Type:
           Name: double
-- File: geolocation-sensor.idl
+- File: webref/geolocation-sensor.idl
   Dict:
     Name: GeolocationSensorReading
     Fields:
@@ -42,7 +42,7 @@
         Type:
           Name: double
           Nullable: true
-- File: cssom-view.idl
+- File: webref/cssom-view.idl
   Typedef:
     Name: GeometryNode
     Type:
@@ -51,7 +51,7 @@
         - Name: Element
         - Name: CSSPseudoElement
         - Name: Document
-- File: web-animations.idl
+- File: webref/web-animations.idl
   Dict:
     Name: GetAnimationsOptions
     Fields:
@@ -59,7 +59,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: notifications.idl
+- File: webref/notifications.idl
   Dict:
     Name: GetNotificationOptions
     Fields:
@@ -67,7 +67,7 @@
         Default: '""'
         Type:
           Name: DOMString
-- File: dom.idl
+- File: webref/dom.idl
   Dict:
     Name: GetRootNodeOptions
     Fields:
@@ -75,7 +75,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: wasm-js-api.idl
+- File: webref/wasm-js-api.idl
   Interface:
     Name: Global
     ExtAttrs:
@@ -115,7 +115,7 @@
             Values:
               - WebAssembly
           - Name: Exposed
-- File: wasm-js-api.idl
+- File: webref/wasm-js-api.idl
   Dict:
     Name: GlobalDescriptor
     Fields:
@@ -127,7 +127,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: accelerometer.idl
+- File: webref/accelerometer.idl
   Dict:
     Name: GravityReadingValues
     Inherits: AccelerometerReadingValues
@@ -147,7 +147,7 @@
         Type:
           Name: double
           Nullable: true
-- File: accelerometer.idl
+- File: webref/accelerometer.idl
   Interface:
     Name: GravitySensor
     Inherits: Accelerometer
@@ -168,7 +168,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: web-animations-2.idl
+- File: webref/web-animations-2.idl
   Interface:
     Name: GroupEffect
     ExtAttrs:
@@ -253,7 +253,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: gyroscope.idl
+- File: webref/gyroscope.idl
   Interface:
     Name: Gyroscope
     Inherits: Sensor
@@ -305,13 +305,13 @@
           - Name: Exposed
             Values:
               - Window
-- File: gyroscope.idl
+- File: webref/gyroscope.idl
   Enum:
     Name: GyroscopeLocalCoordinateSystem
     Values:
       - device
       - screen
-- File: gyroscope.idl
+- File: webref/gyroscope.idl
   Dict:
     Name: GyroscopeReadingValues
     Fields:
@@ -330,7 +330,7 @@
         Type:
           Name: double
           Nullable: true
-- File: gyroscope.idl
+- File: webref/gyroscope.idl
   Dict:
     Name: GyroscopeSensorOptions
     Inherits: SensorOptions
@@ -342,7 +342,7 @@
       - Name: frequency
         Type:
           Name: double
-- File: webhid.idl
+- File: webref/webhid.idl
   Interface:
     Name: HID
     Inherits: EventTarget
@@ -400,8 +400,7 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
-- File: webhid.idl
+- File: webref/webhid.idl
   Dict:
     Name: HIDCollectionInfo
     Fields:
@@ -434,7 +433,7 @@
           Name: sequence
           Params:
             - Name: HIDReportInfo
-- File: webhid.idl
+- File: webref/webhid.idl
   Interface:
     Name: HIDConnectionEvent
     Inherits: Event
@@ -467,7 +466,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: webhid.idl
+- File: webref/webhid.idl
   Dict:
     Name: HIDConnectionEventInit
     Inherits: EventInit
@@ -488,7 +487,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webhid.idl
+- File: webref/webhid.idl
   Interface:
     Name: HIDDevice
     Inherits: EventTarget
@@ -638,7 +637,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: webhid.idl
+- File: webref/webhid.idl
   Dict:
     Name: HIDDeviceFilter
     Fields:
@@ -654,7 +653,7 @@
       - Name: usage
         Type:
           Name: unsigned short
-- File: webhid.idl
+- File: webref/webhid.idl
   Dict:
     Name: HIDDeviceRequestOptions
     Fields:
@@ -669,7 +668,7 @@
           Name: sequence
           Params:
             - Name: HIDDeviceFilter
-- File: webhid.idl
+- File: webref/webhid.idl
   Interface:
     Name: HIDInputReportEvent
     Inherits: Event
@@ -720,7 +719,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: webhid.idl
+- File: webref/webhid.idl
   Dict:
     Name: HIDInputReportEventInit
     Inherits: EventInit
@@ -749,7 +748,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webhid.idl
+- File: webref/webhid.idl
   Dict:
     Name: HIDReportInfo
     Fields:
@@ -761,7 +760,7 @@
           Name: sequence
           Params:
             - Name: HIDReportItem
-- File: webhid.idl
+- File: webref/webhid.idl
   Dict:
     Name: HIDReportItem
     Fields:
@@ -853,7 +852,7 @@
           Name: sequence
           Params:
             - Name: DOMString
-- File: webhid.idl
+- File: webref/webhid.idl
   Enum:
     Name: HIDUnitSystem
     Values:
@@ -864,7 +863,7 @@
       - english-rotation
       - vendor-defined
       - reserved
-- File: fido.idl
+- File: webref/fido.idl
   Dict:
     Name: HMACGetSecretInput
     Fields:
@@ -875,7 +874,7 @@
       - Name: salt2
         Type:
           Name: ArrayBuffer
-- File: fido.idl
+- File: webref/fido.idl
   Dict:
     Name: HMACGetSecretOutput
     Fields:
@@ -886,7 +885,7 @@
       - Name: output2
         Type:
           Name: ArrayBuffer
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLAllCollection
     ExtAttrs:
@@ -949,7 +948,7 @@
             Values:
               - Window
           - Name: LegacyUnenumerableNamedProperties
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLAnchorElement
     Inherits: HTMLElement
@@ -1131,7 +1130,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLAreaElement
     Inherits: HTMLElement
@@ -1282,7 +1281,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLAudioElement
     Inherits: HTMLMediaElement
@@ -1312,7 +1311,7 @@
                   Name: DOMString
             Values:
               - Audio
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLBRElement
     Inherits: HTMLElement
@@ -1332,7 +1331,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLBaseElement
     Inherits: HTMLElement
@@ -1363,7 +1362,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLBodyElement
     Inherits: HTMLElement
@@ -1468,7 +1467,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLButtonElement
     Inherits: HTMLElement
@@ -1633,7 +1632,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLCanvasElement
     Inherits: HTMLElement
@@ -1734,7 +1733,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: HTMLCollection
     ExtAttrs:
@@ -1781,7 +1780,7 @@
             Values:
               - Window
           - Name: LegacyUnenumerableNamedProperties
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLDListElement
     Inherits: HTMLElement
@@ -1801,7 +1800,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLDataElement
     Inherits: HTMLElement
@@ -1824,7 +1823,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLDataListElement
     Inherits: HTMLElement
@@ -1848,7 +1847,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLDetailsElement
     Inherits: HTMLElement
@@ -1871,7 +1870,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLDialogElement
     Inherits: HTMLElement
@@ -1931,7 +1930,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLDirectoryElement
     Inherits: HTMLElement
@@ -1954,7 +1953,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLDivElement
     Inherits: HTMLElement
@@ -1974,7 +1973,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLElement
     Inherits: Element
@@ -2551,7 +2550,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLEmbedElement
     Inherits: HTMLElement
@@ -2617,7 +2616,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: fenced-frame.idl
+- File: webref/fenced-frame.idl
   Interface:
     Name: HTMLFencedFrameElement
     Inherits: HTMLElement
@@ -2665,7 +2664,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLFieldSetElement
     Inherits: HTMLElement

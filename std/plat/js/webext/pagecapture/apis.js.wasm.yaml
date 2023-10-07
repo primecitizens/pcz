@@ -1,0 +1,39 @@
+- File: webext/chrome/page_capture.json
+  Dict:
+    Name: SaveAsMHTMLArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - pageCapture
+    Fields:
+      - Name: tabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - pageCapture
+- File: webext/chrome/page_capture.json
+  WebextFunc:
+    Name: saveAsMHTML
+    Args:
+      - Name: details
+        Type:
+          Name: SaveAsMHTMLArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - pageCapture
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Uint8Array
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - pageCapture

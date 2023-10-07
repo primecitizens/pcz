@@ -1,0 +1,2455 @@
+- File: webext/chrome/enterprise_reporting_private.idl
+  Enum:
+    Name: AntiVirusProductState
+    Values:
+      - "ON"
+      - "OFF"
+      - SNOOZED
+      - EXPIRED
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  Dict:
+    Name: AntiVirusSignal
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+    Fields:
+      - Name: displayName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+      - Name: productId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+      - Name: state
+        Type:
+          Name: AntiVirusProductState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+- File: webext/chrome/enterprise_reporting_private.idl
+  Callback:
+    Name: AvInfoCallback
+    Args:
+      - Name: avSignals
+        Type:
+          Name: sequence
+          Params:
+            - Name: AntiVirusSignal
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - enterprise
+                    - reportingPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  Dict:
+    Name: Certificate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+    Fields:
+      - Name: status
+        Type:
+          Name: CertificateStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+      - Name: encodedCertificate
+        Type:
+          Name: ArrayBuffer
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  Callback:
+    Name: CertificateCallback
+    Args:
+      - Name: certificate
+        Type:
+          Name: Certificate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  Enum:
+    Name: CertificateStatus
+    Values:
+      - OK
+      - POLICY_UNSET
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  Dict:
+    Name: ContextInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+    Fields:
+      - Name: browserAffiliationIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - enterprise
+                    - reportingPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+      - Name: profileAffiliationIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - enterprise
+                    - reportingPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+      - Name: onFileAttachedProviders
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - enterprise
+                    - reportingPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+      - Name: onFileDownloadedProviders
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - enterprise
+                    - reportingPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+      - Name: onBulkDataEntryProviders
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - enterprise
+                    - reportingPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+      - Name: onPrintProviders
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - enterprise
+                    - reportingPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+      - Name: realtimeUrlCheckMode
+        Type:
+          Name: RealtimeUrlCheckMode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+      - Name: onSecurityEventProviders
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - enterprise
+                    - reportingPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+      - Name: browserVersion
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+      - Name: safeBrowsingProtectionLevel
+        Type:
+          Name: SafeBrowsingLevel
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+      - Name: siteIsolationEnabled
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+      - Name: builtInDnsClientEnabled
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+      - Name: passwordProtectionWarningTrigger
+        Type:
+          Name: PasswordProtectionTrigger
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+      - Name: chromeRemoteDesktopAppBlocked
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+      - Name: thirdPartyBlockingEnabled
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+      - Name: osFirewall
+        Type:
+          Name: SettingValue
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+      - Name: systemDnsServers
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - enterprise
+                    - reportingPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+      - Name: enterpriseProfileId
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  Dict:
+    Name: DeviceInfo
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+          - mac
+          - linux
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+    Fields:
+      - Name: osName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+              - linux
+      - Name: osVersion
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+              - linux
+      - Name: deviceHostName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+              - linux
+      - Name: deviceModel
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+              - linux
+      - Name: serialNumber
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+              - linux
+      - Name: screenLockSecured
+        Type:
+          Name: SettingValue
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+              - linux
+      - Name: diskEncrypted
+        Type:
+          Name: SettingValue
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+              - linux
+      - Name: macAddresses
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - enterprise
+                    - reportingPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+              - linux
+      - Name: windowsMachineDomain
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+              - linux
+      - Name: windowsUserDomain
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+              - linux
+      - Name: securityPatchLevel
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+              - linux
+      - Name: secureBootEnabled
+        Type:
+          Name: SettingValue
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+              - linux
+- File: webext/chrome/enterprise_reporting_private.idl
+  Callback:
+    Name: DoneCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+          - mac
+          - linux
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  Dict:
+    Name: EnqueueRecordRequest
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+    Fields:
+      - Name: recordData
+        Type:
+          Name: ArrayBufferView
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - Uint8Array
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - chromeos
+              - lacros
+      - Name: priority
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - chromeos
+              - lacros
+      - Name: eventType
+        Type:
+          Name: EventType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - chromeos
+              - lacros
+- File: webext/chrome/enterprise_reporting_private.idl
+  Enum:
+    Name: EventType
+    Values:
+      - DEVICE
+      - USER
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  Callback:
+    Name: FileSystemInfoCallback
+    Args:
+      - Name: fileSystemSignals
+        Type:
+          Name: sequence
+          Params:
+            - Name: GetFileSystemInfoResponse
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - enterprise
+                    - reportingPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+          - mac
+          - linux
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  Callback:
+    Name: GetContextInfoCallback
+    Args:
+      - Name: contextInfo
+        Type:
+          Name: ContextInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  Callback:
+    Name: GetDeviceDataCallback
+    Args:
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+          - mac
+          - linux
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  Callback:
+    Name: GetDeviceIdCallback
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+          - mac
+          - linux
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  Callback:
+    Name: GetDeviceInfoCallback
+    Args:
+      - Name: deviceInfo
+        Type:
+          Name: DeviceInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+          - mac
+          - linux
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  Dict:
+    Name: GetFileSystemInfoOptions
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+          - mac
+          - linux
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+    Fields:
+      - Name: path
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+              - linux
+      - Name: computeSha256
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+              - linux
+      - Name: computeExecutableMetadata
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+              - linux
+- File: webext/chrome/enterprise_reporting_private.idl
+  Dict:
+    Name: GetFileSystemInfoRequest
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+          - mac
+          - linux
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+    Fields:
+      - Name: userContext
+        Type:
+          Name: UserContext
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+              - linux
+      - Name: options
+        Type:
+          Name: sequence
+          Params:
+            - Name: GetFileSystemInfoOptions
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - enterprise
+                    - reportingPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+              - linux
+- File: webext/chrome/enterprise_reporting_private.idl
+  Dict:
+    Name: GetFileSystemInfoResponse
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+          - mac
+          - linux
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+    Fields:
+      - Name: path
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+              - linux
+      - Name: presence
+        Type:
+          Name: PresenceValue
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+              - linux
+      - Name: sha256Hash
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+              - linux
+      - Name: isRunning
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+              - linux
+      - Name: publicKeysHashes
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - enterprise
+                    - reportingPrivate
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+              - linux
+      - Name: productName
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+              - linux
+      - Name: version
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+              - linux
+- File: webext/chrome/enterprise_reporting_private.idl
+  Callback:
+    Name: GetPersistentSecretCallback
+    Args:
+      - Name: secret
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+          - mac
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  Dict:
+    Name: GetSettingsOptions
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+          - mac
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+    Fields:
+      - Name: path
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+      - Name: key
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+      - Name: getValue
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+      - Name: hive
+        Type:
+          Name: RegistryHive
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+- File: webext/chrome/enterprise_reporting_private.idl
+  Dict:
+    Name: GetSettingsRequest
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+          - mac
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+    Fields:
+      - Name: userContext
+        Type:
+          Name: UserContext
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+      - Name: options
+        Type:
+          Name: sequence
+          Params:
+            - Name: GetSettingsOptions
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - enterprise
+                    - reportingPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+- File: webext/chrome/enterprise_reporting_private.idl
+  Dict:
+    Name: GetSettingsResponse
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+          - mac
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+    Fields:
+      - Name: path
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+      - Name: key
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+      - Name: hive
+        Type:
+          Name: RegistryHive
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+      - Name: presence
+        Type:
+          Name: PresenceValue
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+      - Name: value
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+              - mac
+- File: webext/chrome/enterprise_reporting_private.idl
+  Dict:
+    Name: HotfixSignal
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+    Fields:
+      - Name: hotfixId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+- File: webext/chrome/enterprise_reporting_private.idl
+  Callback:
+    Name: HotfixesCallback
+    Args:
+      - Name: hotfixSignals
+        Type:
+          Name: sequence
+          Params:
+            - Name: HotfixSignal
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - enterprise
+                    - reportingPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  Enum:
+    Name: PasswordProtectionTrigger
+    Values:
+      - PASSWORD_PROTECTION_OFF
+      - PASSWORD_REUSE
+      - PHISHING_REUSE
+      - POLICY_UNSET
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  Enum:
+    Name: PresenceValue
+    Values:
+      - UNSPECIFIED
+      - ACCESS_DENIED
+      - NOT_FOUND
+      - FOUND
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+          - mac
+          - linux
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  Enum:
+    Name: RealtimeUrlCheckMode
+    Values:
+      - DISABLED
+      - ENABLED_MAIN_FRAME
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  Enum:
+    Name: RegistryHive
+    Values:
+      - HKEY_CLASSES_ROOT
+      - HKEY_LOCAL_MACHINE
+      - HKEY_CURRENT_USER
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  Enum:
+    Name: SafeBrowsingLevel
+    Values:
+      - DISABLED
+      - STANDARD
+      - ENHANCED
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  Enum:
+    Name: SettingValue
+    Values:
+      - UNKNOWN
+      - DISABLED
+      - ENABLED
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+          - mac
+          - linux
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  Callback:
+    Name: SettingsCallback
+    Args:
+      - Name: settings
+        Type:
+          Name: sequence
+          Params:
+            - Name: GetSettingsResponse
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - enterprise
+                    - reportingPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+          - mac
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  Dict:
+    Name: UserContext
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+    Fields:
+      - Name: userId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+          - Name: platforms
+            Values:
+              - win
+- File: webext/chrome/enterprise_reporting_private.idl
+  WebextFunc:
+    Name: enqueueRecord
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: EnqueueRecordRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  WebextFunc:
+    Name: getAvInfo
+    Modifier: static
+    Args:
+      - Name: userContext
+        Type:
+          Name: UserContext
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: AntiVirusSignal
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - enterprise
+                      - reportingPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - enterprise
+                  - reportingPrivate
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  WebextFunc:
+    Name: getCertificate
+    Modifier: static
+    Args:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Certificate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - enterprise
+                  - reportingPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  WebextFunc:
+    Name: getContextInfo
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ContextInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - enterprise
+                  - reportingPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  WebextFunc:
+    Name: getDeviceData
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ArrayBuffer
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - enterprise
+                  - reportingPrivate
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+          - mac
+          - linux
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  WebextFunc:
+    Name: getDeviceId
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - enterprise
+                  - reportingPrivate
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+          - mac
+          - linux
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  WebextFunc:
+    Name: getDeviceInfo
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DeviceInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - enterprise
+                  - reportingPrivate
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+          - mac
+          - linux
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  WebextFunc:
+    Name: getFileSystemInfo
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: GetFileSystemInfoRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: GetFileSystemInfoResponse
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - enterprise
+                      - reportingPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - enterprise
+                  - reportingPrivate
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+          - mac
+          - linux
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  WebextFunc:
+    Name: getHotfixes
+    Modifier: static
+    Args:
+      - Name: userContext
+        Type:
+          Name: UserContext
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: HotfixSignal
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - enterprise
+                      - reportingPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - enterprise
+                  - reportingPrivate
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  WebextFunc:
+    Name: getPersistentSecret
+    Modifier: static
+    Args:
+      - Name: resetSecret
+        Optional: true
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ArrayBuffer
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - enterprise
+                  - reportingPrivate
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+          - mac
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  WebextFunc:
+    Name: getSettings
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: GetSettingsRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: GetSettingsResponse
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - enterprise
+                      - reportingPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - enterprise
+                  - reportingPrivate
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+          - mac
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate
+- File: webext/chrome/enterprise_reporting_private.idl
+  WebextFunc:
+    Name: setDeviceData
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+      - Name: data
+        Optional: true
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - enterprise
+                - reportingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - enterprise
+              - reportingPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: platforms
+        Values:
+          - win
+          - mac
+          - linux
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - reportingPrivate

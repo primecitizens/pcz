@@ -1,0 +1,559 @@
+- File: webext/chrome/image_writer_private.idl
+  Callback:
+    Name: DestroyPartitionsCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - imageWriterPrivate
+- File: webext/chrome/image_writer_private.idl
+  Callback:
+    Name: ListRemovableStorageDevicesCallback
+    Args:
+      - Name: devices
+        Type:
+          Name: sequence
+          Params:
+            - Name: RemovableStorageDevice
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - imageWriterPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageWriterPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - imageWriterPrivate
+- File: webext/chrome/image_writer_private.idl
+  Dict:
+    Name: ProgressInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - imageWriterPrivate
+    Fields:
+      - Name: stage
+        Type:
+          Name: Stage
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageWriterPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+      - Name: percentComplete
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageWriterPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+- File: webext/chrome/image_writer_private.idl
+  Dict:
+    Name: RemovableStorageDevice
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - imageWriterPrivate
+    Fields:
+      - Name: storageUnitId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageWriterPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+      - Name: capacity
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageWriterPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+      - Name: vendor
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageWriterPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+      - Name: model
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageWriterPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+      - Name: removable
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageWriterPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+- File: webext/chrome/image_writer_private.idl
+  Enum:
+    Name: Stage
+    Values:
+      - confirmation
+      - download
+      - verifyDownload
+      - unzip
+      - write
+      - verifyWrite
+      - unknown
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - imageWriterPrivate
+- File: webext/chrome/image_writer_private.idl
+  Dict:
+    Name: UrlWriteOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - imageWriterPrivate
+    Fields:
+      - Name: imageHash
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageWriterPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+      - Name: saveAsDownload
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageWriterPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+- File: webext/chrome/image_writer_private.idl
+  Callback:
+    Name: WriteCancelCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - imageWriterPrivate
+- File: webext/chrome/image_writer_private.idl
+  Callback:
+    Name: WriteImageCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - imageWriterPrivate
+- File: webext/chrome/image_writer_private.idl
+  WebextFunc:
+    Name: cancelWrite
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - imageWriterPrivate
+- File: webext/chrome/image_writer_private.idl
+  WebextFunc:
+    Name: destroyPartitions
+    Modifier: static
+    Args:
+      - Name: storageUnitId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageWriterPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - imageWriterPrivate
+- File: webext/chrome/image_writer_private.idl
+  WebextFunc:
+    Name: listRemovableStorageDevices
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: RemovableStorageDevice
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - imageWriterPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - imageWriterPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - imageWriterPrivate
+- File: webext/chrome/image_writer_private.idl
+  WebextEvent:
+    Name: onDeviceInserted
+    Modifier: static
+    Args:
+      - Name: device
+        Type:
+          Name: RemovableStorageDevice
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageWriterPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - imageWriterPrivate
+- File: webext/chrome/image_writer_private.idl
+  WebextEvent:
+    Name: onDeviceRemoved
+    Modifier: static
+    Args:
+      - Name: device
+        Type:
+          Name: RemovableStorageDevice
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageWriterPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - imageWriterPrivate
+- File: webext/chrome/image_writer_private.idl
+  WebextEvent:
+    Name: onWriteComplete
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - imageWriterPrivate
+- File: webext/chrome/image_writer_private.idl
+  WebextEvent:
+    Name: onWriteError
+    Modifier: static
+    Args:
+      - Name: info
+        Type:
+          Name: ProgressInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageWriterPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+      - Name: error
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageWriterPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - imageWriterPrivate
+- File: webext/chrome/image_writer_private.idl
+  WebextEvent:
+    Name: onWriteProgress
+    Modifier: static
+    Args:
+      - Name: info
+        Type:
+          Name: ProgressInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageWriterPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - imageWriterPrivate
+- File: webext/chrome/image_writer_private.idl
+  WebextFunc:
+    Name: writeFromFile
+    Modifier: static
+    Args:
+      - Name: storageUnitId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageWriterPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+      - Name: fileEntry
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageWriterPrivate
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - FileEntry
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - imageWriterPrivate
+- File: webext/chrome/image_writer_private.idl
+  WebextFunc:
+    Name: writeFromUrl
+    Modifier: static
+    Args:
+      - Name: storageUnitId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageWriterPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+      - Name: imageUrl
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageWriterPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+      - Name: options
+        Optional: true
+        Type:
+          Name: UrlWriteOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - imageWriterPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - imageWriterPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - imageWriterPrivate

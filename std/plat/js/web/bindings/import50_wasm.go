@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web store_RTCTrackEventInit
 //go:noescape
@@ -97,11 +95,11 @@ func GetReadableStreamBYOBRequestView(
 
 //go:wasmimport plat/js/web has_ReadableStreamBYOBRequest_Respond
 //go:noescape
-func HasReadableStreamBYOBRequestRespond(this js.Ref) js.Ref
+func HasFuncReadableStreamBYOBRequestRespond(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ReadableStreamBYOBRequest_Respond
 //go:noescape
-func ReadableStreamBYOBRequestRespondFunc(this js.Ref) js.Ref
+func FuncReadableStreamBYOBRequestRespond(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ReadableStreamBYOBRequest_Respond
 //go:noescape
@@ -117,11 +115,11 @@ func TryReadableStreamBYOBRequestRespond(
 
 //go:wasmimport plat/js/web has_ReadableStreamBYOBRequest_RespondWithNewView
 //go:noescape
-func HasReadableStreamBYOBRequestRespondWithNewView(this js.Ref) js.Ref
+func HasFuncReadableStreamBYOBRequestRespondWithNewView(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ReadableStreamBYOBRequest_RespondWithNewView
 //go:noescape
-func ReadableStreamBYOBRequestRespondWithNewViewFunc(this js.Ref) js.Ref
+func FuncReadableStreamBYOBRequestRespondWithNewView(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ReadableStreamBYOBRequest_RespondWithNewView
 //go:noescape
@@ -147,11 +145,11 @@ func GetReadableByteStreamControllerDesiredSize(
 
 //go:wasmimport plat/js/web has_ReadableByteStreamController_Close
 //go:noescape
-func HasReadableByteStreamControllerClose(this js.Ref) js.Ref
+func HasFuncReadableByteStreamControllerClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ReadableByteStreamController_Close
 //go:noescape
-func ReadableByteStreamControllerCloseFunc(this js.Ref) js.Ref
+func FuncReadableByteStreamControllerClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ReadableByteStreamController_Close
 //go:noescape
@@ -165,11 +163,11 @@ func TryReadableByteStreamControllerClose(
 
 //go:wasmimport plat/js/web has_ReadableByteStreamController_Enqueue
 //go:noescape
-func HasReadableByteStreamControllerEnqueue(this js.Ref) js.Ref
+func HasFuncReadableByteStreamControllerEnqueue(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ReadableByteStreamController_Enqueue
 //go:noescape
-func ReadableByteStreamControllerEnqueueFunc(this js.Ref) js.Ref
+func FuncReadableByteStreamControllerEnqueue(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ReadableByteStreamController_Enqueue
 //go:noescape
@@ -185,11 +183,11 @@ func TryReadableByteStreamControllerEnqueue(
 
 //go:wasmimport plat/js/web has_ReadableByteStreamController_Error
 //go:noescape
-func HasReadableByteStreamControllerError(this js.Ref) js.Ref
+func HasFuncReadableByteStreamControllerError(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ReadableByteStreamController_Error
 //go:noescape
-func ReadableByteStreamControllerErrorFunc(this js.Ref) js.Ref
+func FuncReadableByteStreamControllerError(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ReadableByteStreamController_Error
 //go:noescape
@@ -205,11 +203,11 @@ func TryReadableByteStreamControllerError(
 
 //go:wasmimport plat/js/web has_ReadableByteStreamController_Error1
 //go:noescape
-func HasReadableByteStreamControllerError1(this js.Ref) js.Ref
+func HasFuncReadableByteStreamControllerError1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ReadableByteStreamController_Error1
 //go:noescape
-func ReadableByteStreamControllerError1Func(this js.Ref) js.Ref
+func FuncReadableByteStreamControllerError1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ReadableByteStreamController_Error1
 //go:noescape
@@ -228,11 +226,11 @@ func GetReadableStreamDefaultControllerDesiredSize(
 
 //go:wasmimport plat/js/web has_ReadableStreamDefaultController_Close
 //go:noescape
-func HasReadableStreamDefaultControllerClose(this js.Ref) js.Ref
+func HasFuncReadableStreamDefaultControllerClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ReadableStreamDefaultController_Close
 //go:noescape
-func ReadableStreamDefaultControllerCloseFunc(this js.Ref) js.Ref
+func FuncReadableStreamDefaultControllerClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ReadableStreamDefaultController_Close
 //go:noescape
@@ -246,11 +244,11 @@ func TryReadableStreamDefaultControllerClose(
 
 //go:wasmimport plat/js/web has_ReadableStreamDefaultController_Enqueue
 //go:noescape
-func HasReadableStreamDefaultControllerEnqueue(this js.Ref) js.Ref
+func HasFuncReadableStreamDefaultControllerEnqueue(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ReadableStreamDefaultController_Enqueue
 //go:noescape
-func ReadableStreamDefaultControllerEnqueueFunc(this js.Ref) js.Ref
+func FuncReadableStreamDefaultControllerEnqueue(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ReadableStreamDefaultController_Enqueue
 //go:noescape
@@ -266,11 +264,11 @@ func TryReadableStreamDefaultControllerEnqueue(
 
 //go:wasmimport plat/js/web has_ReadableStreamDefaultController_Enqueue1
 //go:noescape
-func HasReadableStreamDefaultControllerEnqueue1(this js.Ref) js.Ref
+func HasFuncReadableStreamDefaultControllerEnqueue1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ReadableStreamDefaultController_Enqueue1
 //go:noescape
-func ReadableStreamDefaultControllerEnqueue1Func(this js.Ref) js.Ref
+func FuncReadableStreamDefaultControllerEnqueue1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ReadableStreamDefaultController_Enqueue1
 //go:noescape
@@ -284,11 +282,11 @@ func TryReadableStreamDefaultControllerEnqueue1(
 
 //go:wasmimport plat/js/web has_ReadableStreamDefaultController_Error
 //go:noescape
-func HasReadableStreamDefaultControllerError(this js.Ref) js.Ref
+func HasFuncReadableStreamDefaultControllerError(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ReadableStreamDefaultController_Error
 //go:noescape
-func ReadableStreamDefaultControllerErrorFunc(this js.Ref) js.Ref
+func FuncReadableStreamDefaultControllerError(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ReadableStreamDefaultController_Error
 //go:noescape
@@ -304,11 +302,11 @@ func TryReadableStreamDefaultControllerError(
 
 //go:wasmimport plat/js/web has_ReadableStreamDefaultController_Error1
 //go:noescape
-func HasReadableStreamDefaultControllerError1(this js.Ref) js.Ref
+func HasFuncReadableStreamDefaultControllerError1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ReadableStreamDefaultController_Error1
 //go:noescape
-func ReadableStreamDefaultControllerError1Func(this js.Ref) js.Ref
+func FuncReadableStreamDefaultControllerError1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ReadableStreamDefaultController_Error1
 //go:noescape
@@ -355,11 +353,11 @@ func NewRelativeOrientationSensorByRelativeOrientationSensor1() js.Ref
 
 //go:wasmimport plat/js/web has_ReportBody_ToJSON
 //go:noescape
-func HasReportBodyToJSON(this js.Ref) js.Ref
+func HasFuncReportBodyToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ReportBody_ToJSON
 //go:noescape
-func ReportBodyToJSONFunc(this js.Ref) js.Ref
+func FuncReportBodyToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ReportBody_ToJSON
 //go:noescape
@@ -388,11 +386,11 @@ func GetReportBody(
 
 //go:wasmimport plat/js/web has_Report_ToJSON
 //go:noescape
-func HasReportToJSON(this js.Ref) js.Ref
+func HasFuncReportToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Report_ToJSON
 //go:noescape
-func ReportToJSONFunc(this js.Ref) js.Ref
+func FuncReportToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Report_ToJSON
 //go:noescape
@@ -457,11 +455,11 @@ func NewReportingObserverByReportingObserver1(
 
 //go:wasmimport plat/js/web has_ReportingObserver_Observe
 //go:noescape
-func HasReportingObserverObserve(this js.Ref) js.Ref
+func HasFuncReportingObserverObserve(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ReportingObserver_Observe
 //go:noescape
-func ReportingObserverObserveFunc(this js.Ref) js.Ref
+func FuncReportingObserverObserve(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ReportingObserver_Observe
 //go:noescape
@@ -475,11 +473,11 @@ func TryReportingObserverObserve(
 
 //go:wasmimport plat/js/web has_ReportingObserver_Disconnect
 //go:noescape
-func HasReportingObserverDisconnect(this js.Ref) js.Ref
+func HasFuncReportingObserverDisconnect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ReportingObserver_Disconnect
 //go:noescape
-func ReportingObserverDisconnectFunc(this js.Ref) js.Ref
+func FuncReportingObserverDisconnect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ReportingObserver_Disconnect
 //go:noescape
@@ -493,11 +491,11 @@ func TryReportingObserverDisconnect(
 
 //go:wasmimport plat/js/web has_ReportingObserver_TakeRecords
 //go:noescape
-func HasReportingObserverTakeRecords(this js.Ref) js.Ref
+func HasFuncReportingObserverTakeRecords(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ReportingObserver_TakeRecords
 //go:noescape
-func ReportingObserverTakeRecordsFunc(this js.Ref) js.Ref
+func FuncReportingObserverTakeRecords(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ReportingObserver_TakeRecords
 //go:noescape
@@ -569,11 +567,11 @@ func NewResizeObserverByResizeObserver(
 
 //go:wasmimport plat/js/web has_ResizeObserver_Observe
 //go:noescape
-func HasResizeObserverObserve(this js.Ref) js.Ref
+func HasFuncResizeObserverObserve(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ResizeObserver_Observe
 //go:noescape
-func ResizeObserverObserveFunc(this js.Ref) js.Ref
+func FuncResizeObserverObserve(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ResizeObserver_Observe
 //go:noescape
@@ -591,11 +589,11 @@ func TryResizeObserverObserve(
 
 //go:wasmimport plat/js/web has_ResizeObserver_Observe1
 //go:noescape
-func HasResizeObserverObserve1(this js.Ref) js.Ref
+func HasFuncResizeObserverObserve1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ResizeObserver_Observe1
 //go:noescape
-func ResizeObserverObserve1Func(this js.Ref) js.Ref
+func FuncResizeObserverObserve1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ResizeObserver_Observe1
 //go:noescape
@@ -611,11 +609,11 @@ func TryResizeObserverObserve1(
 
 //go:wasmimport plat/js/web has_ResizeObserver_Unobserve
 //go:noescape
-func HasResizeObserverUnobserve(this js.Ref) js.Ref
+func HasFuncResizeObserverUnobserve(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ResizeObserver_Unobserve
 //go:noescape
-func ResizeObserverUnobserveFunc(this js.Ref) js.Ref
+func FuncResizeObserverUnobserve(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ResizeObserver_Unobserve
 //go:noescape
@@ -631,11 +629,11 @@ func TryResizeObserverUnobserve(
 
 //go:wasmimport plat/js/web has_ResizeObserver_Disconnect
 //go:noescape
-func HasResizeObserverDisconnect(this js.Ref) js.Ref
+func HasFuncResizeObserverDisconnect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ResizeObserver_Disconnect
 //go:noescape
-func ResizeObserverDisconnectFunc(this js.Ref) js.Ref
+func FuncResizeObserverDisconnect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ResizeObserver_Disconnect
 //go:noescape

@@ -1,0 +1,37 @@
+- File: webext/chrome/enterprise_platform_keys_private.json
+  WebextFunc:
+    Name: challengeMachineKey
+    Args:
+      - Name: challenge
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - platformKeysPrivate
+- File: webext/chrome/enterprise_platform_keys_private.json
+  WebextFunc:
+    Name: challengeUserKey
+    Args:
+      - Name: challenge
+        Type:
+          Name: DOMString
+      - Name: registerKey
+        Type:
+          Name: boolean
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - enterprise
+          - platformKeysPrivate

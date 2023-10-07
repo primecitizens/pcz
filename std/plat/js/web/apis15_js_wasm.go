@@ -4,18 +4,9 @@
 package web
 
 import (
-	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 type GPUExtent3DDict struct {
 	// Width is "GPUExtent3DDict.width"
@@ -55,17 +46,22 @@ func (p GPUExtent3DDict) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUExtent3DDict) UpdateFrom(ref js.Ref) {
+func (p *GPUExtent3DDict) UpdateFrom(ref js.Ref) {
 	bindings.GPUExtent3DDictJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUExtent3DDict) Update(ref js.Ref) {
+func (p *GPUExtent3DDict) Update(ref js.Ref) {
 	bindings.GPUExtent3DDictJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUExtent3DDict) FreeMembers(recursive bool) {
 }
 
 type OneOf_ArrayGPUIntegerCoordinate_GPUExtent3DDict struct {
@@ -160,17 +156,30 @@ func (p GPUTextureDescriptor) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUTextureDescriptor) UpdateFrom(ref js.Ref) {
+func (p *GPUTextureDescriptor) UpdateFrom(ref js.Ref) {
 	bindings.GPUTextureDescriptorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUTextureDescriptor) Update(ref js.Ref) {
+func (p *GPUTextureDescriptor) Update(ref js.Ref) {
 	bindings.GPUTextureDescriptorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUTextureDescriptor) FreeMembers(recursive bool) {
+	js.Free(
+		p.Size.Ref(),
+		p.ViewFormats.Ref(),
+		p.Label.Ref(),
+	)
+	p.Size = p.Size.FromRef(js.Undefined)
+	p.ViewFormats = p.ViewFormats.FromRef(js.Undefined)
+	p.Label = p.Label.FromRef(js.Undefined)
 }
 
 type GPUSampler struct {
@@ -178,7 +187,7 @@ type GPUSampler struct {
 }
 
 func (this GPUSampler) Once() GPUSampler {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -192,7 +201,7 @@ func (this GPUSampler) FromRef(ref js.Ref) GPUSampler {
 }
 
 func (this GPUSampler) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Label returns the value of property "GPUSampler.label".
@@ -200,7 +209,7 @@ func (this GPUSampler) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUSampler) Label() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGPUSamplerLabel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -210,7 +219,7 @@ func (this GPUSampler) Label() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this GPUSampler) SetLabel(val js.String) bool {
 	return js.True == bindings.SetGPUSamplerLabel(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -405,17 +414,26 @@ func (p GPUSamplerDescriptor) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUSamplerDescriptor) UpdateFrom(ref js.Ref) {
+func (p *GPUSamplerDescriptor) UpdateFrom(ref js.Ref) {
 	bindings.GPUSamplerDescriptorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUSamplerDescriptor) Update(ref js.Ref) {
+func (p *GPUSamplerDescriptor) Update(ref js.Ref) {
 	bindings.GPUSamplerDescriptorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUSamplerDescriptor) FreeMembers(recursive bool) {
+	js.Free(
+		p.Label.Ref(),
+	)
+	p.Label = p.Label.FromRef(js.Undefined)
 }
 
 type GPUExternalTexture struct {
@@ -423,7 +441,7 @@ type GPUExternalTexture struct {
 }
 
 func (this GPUExternalTexture) Once() GPUExternalTexture {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -437,7 +455,7 @@ func (this GPUExternalTexture) FromRef(ref js.Ref) GPUExternalTexture {
 }
 
 func (this GPUExternalTexture) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Label returns the value of property "GPUExternalTexture.label".
@@ -445,7 +463,7 @@ func (this GPUExternalTexture) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUExternalTexture) Label() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGPUExternalTextureLabel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -455,7 +473,7 @@ func (this GPUExternalTexture) Label() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this GPUExternalTexture) SetLabel(val js.String) bool {
 	return js.True == bindings.SetGPUExternalTextureLabel(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -517,17 +535,28 @@ func (p GPUExternalTextureDescriptor) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUExternalTextureDescriptor) UpdateFrom(ref js.Ref) {
+func (p *GPUExternalTextureDescriptor) UpdateFrom(ref js.Ref) {
 	bindings.GPUExternalTextureDescriptorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUExternalTextureDescriptor) Update(ref js.Ref) {
+func (p *GPUExternalTextureDescriptor) Update(ref js.Ref) {
 	bindings.GPUExternalTextureDescriptorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUExternalTextureDescriptor) FreeMembers(recursive bool) {
+	js.Free(
+		p.Source.Ref(),
+		p.Label.Ref(),
+	)
+	p.Source = p.Source.FromRef(js.Undefined)
+	p.Label = p.Label.FromRef(js.Undefined)
 }
 
 type GPUBindGroupLayout struct {
@@ -535,7 +564,7 @@ type GPUBindGroupLayout struct {
 }
 
 func (this GPUBindGroupLayout) Once() GPUBindGroupLayout {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -549,7 +578,7 @@ func (this GPUBindGroupLayout) FromRef(ref js.Ref) GPUBindGroupLayout {
 }
 
 func (this GPUBindGroupLayout) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Label returns the value of property "GPUBindGroupLayout.label".
@@ -557,7 +586,7 @@ func (this GPUBindGroupLayout) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUBindGroupLayout) Label() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGPUBindGroupLayoutLabel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -567,7 +596,7 @@ func (this GPUBindGroupLayout) Label() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this GPUBindGroupLayout) SetLabel(val js.String) bool {
 	return js.True == bindings.SetGPUBindGroupLayoutLabel(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -641,17 +670,22 @@ func (p GPUBufferBindingLayout) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUBufferBindingLayout) UpdateFrom(ref js.Ref) {
+func (p *GPUBufferBindingLayout) UpdateFrom(ref js.Ref) {
 	bindings.GPUBufferBindingLayoutJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUBufferBindingLayout) Update(ref js.Ref) {
+func (p *GPUBufferBindingLayout) Update(ref js.Ref) {
 	bindings.GPUBufferBindingLayoutJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUBufferBindingLayout) FreeMembers(recursive bool) {
 }
 
 type GPUSamplerBindingType uint32
@@ -704,17 +738,22 @@ func (p GPUSamplerBindingLayout) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUSamplerBindingLayout) UpdateFrom(ref js.Ref) {
+func (p *GPUSamplerBindingLayout) UpdateFrom(ref js.Ref) {
 	bindings.GPUSamplerBindingLayoutJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUSamplerBindingLayout) Update(ref js.Ref) {
+func (p *GPUSamplerBindingLayout) Update(ref js.Ref) {
 	bindings.GPUSamplerBindingLayoutJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUSamplerBindingLayout) FreeMembers(recursive bool) {
 }
 
 type GPUTextureSampleType uint32
@@ -785,17 +824,22 @@ func (p GPUTextureBindingLayout) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUTextureBindingLayout) UpdateFrom(ref js.Ref) {
+func (p *GPUTextureBindingLayout) UpdateFrom(ref js.Ref) {
 	bindings.GPUTextureBindingLayoutJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUTextureBindingLayout) Update(ref js.Ref) {
+func (p *GPUTextureBindingLayout) Update(ref js.Ref) {
 	bindings.GPUTextureBindingLayoutJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUTextureBindingLayout) FreeMembers(recursive bool) {
 }
 
 type GPUStorageTextureAccess uint32
@@ -850,17 +894,22 @@ func (p GPUStorageTextureBindingLayout) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUStorageTextureBindingLayout) UpdateFrom(ref js.Ref) {
+func (p *GPUStorageTextureBindingLayout) UpdateFrom(ref js.Ref) {
 	bindings.GPUStorageTextureBindingLayoutJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUStorageTextureBindingLayout) Update(ref js.Ref) {
+func (p *GPUStorageTextureBindingLayout) Update(ref js.Ref) {
 	bindings.GPUStorageTextureBindingLayoutJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUStorageTextureBindingLayout) FreeMembers(recursive bool) {
 }
 
 type GPUExternalTextureBindingLayout struct {
@@ -881,17 +930,22 @@ func (p GPUExternalTextureBindingLayout) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUExternalTextureBindingLayout) UpdateFrom(ref js.Ref) {
+func (p *GPUExternalTextureBindingLayout) UpdateFrom(ref js.Ref) {
 	bindings.GPUExternalTextureBindingLayoutJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUExternalTextureBindingLayout) Update(ref js.Ref) {
+func (p *GPUExternalTextureBindingLayout) Update(ref js.Ref) {
 	bindings.GPUExternalTextureBindingLayoutJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUExternalTextureBindingLayout) FreeMembers(recursive bool) {
 }
 
 type GPUBindGroupLayoutEntry struct {
@@ -951,17 +1005,29 @@ func (p GPUBindGroupLayoutEntry) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUBindGroupLayoutEntry) UpdateFrom(ref js.Ref) {
+func (p *GPUBindGroupLayoutEntry) UpdateFrom(ref js.Ref) {
 	bindings.GPUBindGroupLayoutEntryJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUBindGroupLayoutEntry) Update(ref js.Ref) {
+func (p *GPUBindGroupLayoutEntry) Update(ref js.Ref) {
 	bindings.GPUBindGroupLayoutEntryJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUBindGroupLayoutEntry) FreeMembers(recursive bool) {
+	if recursive {
+		p.Buffer.FreeMembers(true)
+		p.Sampler.FreeMembers(true)
+		p.Texture.FreeMembers(true)
+		p.StorageTexture.FreeMembers(true)
+		p.ExternalTexture.FreeMembers(true)
+	}
 }
 
 type GPUBindGroupLayoutDescriptor struct {
@@ -991,17 +1057,28 @@ func (p GPUBindGroupLayoutDescriptor) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUBindGroupLayoutDescriptor) UpdateFrom(ref js.Ref) {
+func (p *GPUBindGroupLayoutDescriptor) UpdateFrom(ref js.Ref) {
 	bindings.GPUBindGroupLayoutDescriptorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUBindGroupLayoutDescriptor) Update(ref js.Ref) {
+func (p *GPUBindGroupLayoutDescriptor) Update(ref js.Ref) {
 	bindings.GPUBindGroupLayoutDescriptorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUBindGroupLayoutDescriptor) FreeMembers(recursive bool) {
+	js.Free(
+		p.Entries.Ref(),
+		p.Label.Ref(),
+	)
+	p.Entries = p.Entries.FromRef(js.Undefined)
+	p.Label = p.Label.FromRef(js.Undefined)
 }
 
 type GPUPipelineLayout struct {
@@ -1009,7 +1086,7 @@ type GPUPipelineLayout struct {
 }
 
 func (this GPUPipelineLayout) Once() GPUPipelineLayout {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1023,7 +1100,7 @@ func (this GPUPipelineLayout) FromRef(ref js.Ref) GPUPipelineLayout {
 }
 
 func (this GPUPipelineLayout) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Label returns the value of property "GPUPipelineLayout.label".
@@ -1031,7 +1108,7 @@ func (this GPUPipelineLayout) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUPipelineLayout) Label() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGPUPipelineLayoutLabel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1041,7 +1118,7 @@ func (this GPUPipelineLayout) Label() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this GPUPipelineLayout) SetLabel(val js.String) bool {
 	return js.True == bindings.SetGPUPipelineLayoutLabel(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1073,17 +1150,28 @@ func (p GPUPipelineLayoutDescriptor) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUPipelineLayoutDescriptor) UpdateFrom(ref js.Ref) {
+func (p *GPUPipelineLayoutDescriptor) UpdateFrom(ref js.Ref) {
 	bindings.GPUPipelineLayoutDescriptorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUPipelineLayoutDescriptor) Update(ref js.Ref) {
+func (p *GPUPipelineLayoutDescriptor) Update(ref js.Ref) {
 	bindings.GPUPipelineLayoutDescriptorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUPipelineLayoutDescriptor) FreeMembers(recursive bool) {
+	js.Free(
+		p.BindGroupLayouts.Ref(),
+		p.Label.Ref(),
+	)
+	p.BindGroupLayouts = p.BindGroupLayouts.FromRef(js.Undefined)
+	p.Label = p.Label.FromRef(js.Undefined)
 }
 
 type GPUBindGroup struct {
@@ -1091,7 +1179,7 @@ type GPUBindGroup struct {
 }
 
 func (this GPUBindGroup) Once() GPUBindGroup {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1105,7 +1193,7 @@ func (this GPUBindGroup) FromRef(ref js.Ref) GPUBindGroup {
 }
 
 func (this GPUBindGroup) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Label returns the value of property "GPUBindGroup.label".
@@ -1113,7 +1201,7 @@ func (this GPUBindGroup) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUBindGroup) Label() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGPUBindGroupLabel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1123,7 +1211,7 @@ func (this GPUBindGroup) Label() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this GPUBindGroup) SetLabel(val js.String) bool {
 	return js.True == bindings.SetGPUBindGroupLabel(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1166,17 +1254,26 @@ func (p GPUBufferBinding) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUBufferBinding) UpdateFrom(ref js.Ref) {
+func (p *GPUBufferBinding) UpdateFrom(ref js.Ref) {
 	bindings.GPUBufferBindingJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUBufferBinding) Update(ref js.Ref) {
+func (p *GPUBufferBinding) Update(ref js.Ref) {
 	bindings.GPUBufferBindingJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUBufferBinding) FreeMembers(recursive bool) {
+	js.Free(
+		p.Buffer.Ref(),
+	)
+	p.Buffer = p.Buffer.FromRef(js.Undefined)
 }
 
 type OneOf_GPUSampler_GPUTextureView_GPUBufferBinding_GPUExternalTexture struct {
@@ -1244,17 +1341,26 @@ func (p GPUBindGroupEntry) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUBindGroupEntry) UpdateFrom(ref js.Ref) {
+func (p *GPUBindGroupEntry) UpdateFrom(ref js.Ref) {
 	bindings.GPUBindGroupEntryJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUBindGroupEntry) Update(ref js.Ref) {
+func (p *GPUBindGroupEntry) Update(ref js.Ref) {
 	bindings.GPUBindGroupEntryJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUBindGroupEntry) FreeMembers(recursive bool) {
+	js.Free(
+		p.Resource.Ref(),
+	)
+	p.Resource = p.Resource.FromRef(js.Undefined)
 }
 
 type GPUBindGroupDescriptor struct {
@@ -1288,17 +1394,30 @@ func (p GPUBindGroupDescriptor) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p GPUBindGroupDescriptor) UpdateFrom(ref js.Ref) {
+func (p *GPUBindGroupDescriptor) UpdateFrom(ref js.Ref) {
 	bindings.GPUBindGroupDescriptorJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p GPUBindGroupDescriptor) Update(ref js.Ref) {
+func (p *GPUBindGroupDescriptor) Update(ref js.Ref) {
 	bindings.GPUBindGroupDescriptorJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *GPUBindGroupDescriptor) FreeMembers(recursive bool) {
+	js.Free(
+		p.Layout.Ref(),
+		p.Entries.Ref(),
+		p.Label.Ref(),
+	)
+	p.Layout = p.Layout.FromRef(js.Undefined)
+	p.Entries = p.Entries.FromRef(js.Undefined)
+	p.Label = p.Label.FromRef(js.Undefined)
 }
 
 type GPUCompilationMessageType uint32
@@ -1333,7 +1452,7 @@ type GPUCompilationMessage struct {
 }
 
 func (this GPUCompilationMessage) Once() GPUCompilationMessage {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1347,7 +1466,7 @@ func (this GPUCompilationMessage) FromRef(ref js.Ref) GPUCompilationMessage {
 }
 
 func (this GPUCompilationMessage) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Message returns the value of property "GPUCompilationMessage.message".
@@ -1355,7 +1474,7 @@ func (this GPUCompilationMessage) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUCompilationMessage) Message() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGPUCompilationMessageMessage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1365,7 +1484,7 @@ func (this GPUCompilationMessage) Message() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUCompilationMessage) Type() (ret GPUCompilationMessageType, ok bool) {
 	ok = js.True == bindings.GetGPUCompilationMessageType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1375,7 +1494,7 @@ func (this GPUCompilationMessage) Type() (ret GPUCompilationMessageType, ok bool
 // It returns ok=false if there is no such property.
 func (this GPUCompilationMessage) LineNum() (ret uint64, ok bool) {
 	ok = js.True == bindings.GetGPUCompilationMessageLineNum(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1385,7 +1504,7 @@ func (this GPUCompilationMessage) LineNum() (ret uint64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUCompilationMessage) LinePos() (ret uint64, ok bool) {
 	ok = js.True == bindings.GetGPUCompilationMessageLinePos(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1395,7 +1514,7 @@ func (this GPUCompilationMessage) LinePos() (ret uint64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUCompilationMessage) Offset() (ret uint64, ok bool) {
 	ok = js.True == bindings.GetGPUCompilationMessageOffset(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1405,7 +1524,7 @@ func (this GPUCompilationMessage) Offset() (ret uint64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this GPUCompilationMessage) Length() (ret uint64, ok bool) {
 	ok = js.True == bindings.GetGPUCompilationMessageLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1415,7 +1534,7 @@ type GPUCompilationInfo struct {
 }
 
 func (this GPUCompilationInfo) Once() GPUCompilationInfo {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1429,7 +1548,7 @@ func (this GPUCompilationInfo) FromRef(ref js.Ref) GPUCompilationInfo {
 }
 
 func (this GPUCompilationInfo) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Messages returns the value of property "GPUCompilationInfo.messages".
@@ -1437,7 +1556,7 @@ func (this GPUCompilationInfo) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUCompilationInfo) Messages() (ret js.FrozenArray[GPUCompilationMessage], ok bool) {
 	ok = js.True == bindings.GetGPUCompilationInfoMessages(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1447,7 +1566,7 @@ type GPUShaderModule struct {
 }
 
 func (this GPUShaderModule) Once() GPUShaderModule {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1461,7 +1580,7 @@ func (this GPUShaderModule) FromRef(ref js.Ref) GPUShaderModule {
 }
 
 func (this GPUShaderModule) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Label returns the value of property "GPUShaderModule.label".
@@ -1469,7 +1588,7 @@ func (this GPUShaderModule) Free() {
 // It returns ok=false if there is no such property.
 func (this GPUShaderModule) Label() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetGPUShaderModuleLabel(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1479,31 +1598,30 @@ func (this GPUShaderModule) Label() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this GPUShaderModule) SetLabel(val js.String) bool {
 	return js.True == bindings.SetGPUShaderModuleLabel(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
 
-// HasGetCompilationInfo returns true if the method "GPUShaderModule.getCompilationInfo" exists.
-func (this GPUShaderModule) HasGetCompilationInfo() bool {
-	return js.True == bindings.HasGPUShaderModuleGetCompilationInfo(
-		this.Ref(),
+// HasFuncGetCompilationInfo returns true if the method "GPUShaderModule.getCompilationInfo" exists.
+func (this GPUShaderModule) HasFuncGetCompilationInfo() bool {
+	return js.True == bindings.HasFuncGPUShaderModuleGetCompilationInfo(
+		this.ref,
 	)
 }
 
-// GetCompilationInfoFunc returns the method "GPUShaderModule.getCompilationInfo".
-func (this GPUShaderModule) GetCompilationInfoFunc() (fn js.Func[func() js.Promise[GPUCompilationInfo]]) {
-	return fn.FromRef(
-		bindings.GPUShaderModuleGetCompilationInfoFunc(
-			this.Ref(),
-		),
+// FuncGetCompilationInfo returns the method "GPUShaderModule.getCompilationInfo".
+func (this GPUShaderModule) FuncGetCompilationInfo() (fn js.Func[func() js.Promise[GPUCompilationInfo]]) {
+	bindings.FuncGPUShaderModuleGetCompilationInfo(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetCompilationInfo calls the method "GPUShaderModule.getCompilationInfo".
 func (this GPUShaderModule) GetCompilationInfo() (ret js.Promise[GPUCompilationInfo]) {
 	bindings.CallGPUShaderModuleGetCompilationInfo(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1514,7 +1632,7 @@ func (this GPUShaderModule) GetCompilationInfo() (ret js.Promise[GPUCompilationI
 // the catch clause.
 func (this GPUShaderModule) TryGetCompilationInfo() (ret js.Promise[GPUCompilationInfo], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUShaderModuleGetCompilationInfo(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return

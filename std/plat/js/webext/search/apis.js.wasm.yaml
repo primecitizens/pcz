@@ -1,0 +1,105 @@
+- File: webext/chrome/search.idl
+  Enum:
+    Name: Disposition
+    Values:
+      - CURRENT_TAB
+      - NEW_TAB
+      - NEW_WINDOW
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - search
+- File: webext/chrome/search.idl
+  Callback:
+    Name: QueryCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - search
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - search
+- File: webext/chrome/search.idl
+  Dict:
+    Name: QueryInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - search
+    Fields:
+      - Name: text
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - search
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - search
+      - Name: disposition
+        Type:
+          Name: Disposition
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - search
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - search
+      - Name: tabId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - search
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - search
+- File: webext/chrome/search.idl
+  WebextFunc:
+    Name: query
+    Modifier: static
+    Args:
+      - Name: queryInfo
+        Type:
+          Name: QueryInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - search
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - search
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - search

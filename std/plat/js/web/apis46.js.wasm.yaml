@@ -1,17 +1,17 @@
-- File: webxr-dom-overlays.idl
+- File: webref/webxr-dom-overlays.idl
   Enum:
     Name: XRDOMOverlayType
     Values:
       - screen
       - floating
       - head-locked
-- File: webxr-depth-sensing.idl
+- File: webref/webxr-depth-sensing.idl
   Enum:
     Name: XRDepthDataFormat
     Values:
       - luminance-alpha
       - float32
-- File: webxr-depth-sensing.idl
+- File: webref/webxr-depth-sensing.idl
   Interface:
     Name: XRDepthInformation
     ExtAttrs:
@@ -57,7 +57,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxr-depth-sensing.idl
+- File: webref/webxr-depth-sensing.idl
   Dict:
     Name: XRDepthStateInit
     Fields:
@@ -73,20 +73,20 @@
           Name: sequence
           Params:
             - Name: XRDepthDataFormat
-- File: webxr-depth-sensing.idl
+- File: webref/webxr-depth-sensing.idl
   Enum:
     Name: XRDepthUsage
     Values:
       - cpu-optimized
       - gpu-optimized
-- File: webxr-ar-module.idl
+- File: webref/webxr-ar-module.idl
   Enum:
     Name: XREnvironmentBlendMode
     Values:
       - opaque
       - alpha-blend
       - additive
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Interface:
     Name: XREquirectLayer
     Inherits: XRCompositionLayer
@@ -94,7 +94,6 @@
       - Name: Exposed
         Values:
           - Window
-      - Name: SecureContext
     Attrs:
       - Name: space
         Type:
@@ -103,7 +102,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
       - Name: transform
         Type:
           Name: XRRigidTransform
@@ -111,7 +109,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
       - Name: radius
         Type:
           Name: float
@@ -119,7 +116,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
       - Name: centralHorizontalAngle
         Type:
           Name: float
@@ -127,7 +123,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
       - Name: upperVerticalAngle
         Type:
           Name: float
@@ -135,7 +130,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
       - Name: lowerVerticalAngle
         Type:
           Name: float
@@ -143,7 +137,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
       - Name: onredraw
         Type:
           Name: EventHandler
@@ -151,8 +144,7 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Dict:
     Name: XREquirectLayerInit
     Inherits: XRLayerInit
@@ -217,14 +209,14 @@
         Default: "true"
         Type:
           Name: boolean
-- File: webxr.idl
+- File: webref/webxr.idl
   Enum:
     Name: XREye
     Values:
       - none
       - left
       - right
-- File: webxr.idl
+- File: webref/webxr.idl
   Interface:
     Name: XRFrame
     ExtAttrs:
@@ -376,7 +368,7 @@
           - Name: FrozenArray
             Params:
               - Name: XRTransientInputHitTestResult
-- File: webxr.idl
+- File: webref/webxr.idl
   Callback:
     Name: XRFrameRequestCallback
     Args:
@@ -388,7 +380,7 @@
           Name: XRFrame
     Returns:
       - Name: undefined
-- File: webxr-hand-input.idl
+- File: webref/webxr-hand-input.idl
   Interface:
     Name: XRHand
     ExtAttrs:
@@ -420,7 +412,7 @@
       TypeParams:
         - Name: XRHandJoint
         - Name: XRJointSpace
-- File: webxr-hand-input.idl
+- File: webref/webxr-hand-input.idl
   Enum:
     Name: XRHandJoint
     Values:
@@ -449,14 +441,14 @@
       - pinky-finger-phalanx-intermediate
       - pinky-finger-phalanx-distal
       - pinky-finger-tip
-- File: webxr.idl
+- File: webref/webxr.idl
   Enum:
     Name: XRHandedness
     Values:
       - none
       - left
       - right
-- File: webxr-hit-test.idl
+- File: webref/webxr-hit-test.idl
   Dict:
     Name: XRHitTestOptionsInit
     Fields:
@@ -472,7 +464,7 @@
       - Name: offsetRay
         Type:
           Name: XRRay
-- File: webxr-hit-test.idl
+- File: webref/webxr-hit-test.idl
   Interface:
     Name: XRHitTestResult
     ExtAttrs:
@@ -499,7 +491,7 @@
           - Name: Promise
             Params:
               - Name: XRAnchor
-- File: webxr-hit-test.idl
+- File: webref/webxr-hit-test.idl
   Interface:
     Name: XRHitTestSource
     ExtAttrs:
@@ -516,14 +508,14 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxr-hit-test.idl
+- File: webref/webxr-hit-test.idl
   Enum:
     Name: XRHitTestTrackableType
     Values:
       - point
       - plane
       - mesh
-- File: webxr.idl
+- File: webref/webxr.idl
   Interface:
     Name: XRInputSource
     ExtAttrs:
@@ -597,7 +589,7 @@
           Nullable: true
         ExtAttrs:
           - Name: SameObject
-- File: webxr.idl
+- File: webref/webxr.idl
   Interface:
     Name: XRInputSourceArray
     ExtAttrs:
@@ -631,7 +623,7 @@
     Iterable:
       TypeParams:
         - Name: XRInputSource
-- File: webxr.idl
+- File: webref/webxr.idl
   Interface:
     Name: XRInputSourceEvent
     Inherits: Event
@@ -674,7 +666,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxr.idl
+- File: webref/webxr.idl
   Dict:
     Name: XRInputSourceEventInit
     Inherits: EventInit
@@ -699,7 +691,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webxr.idl
+- File: webref/webxr.idl
   Interface:
     Name: XRInputSourcesChangeEvent
     Inherits: Event
@@ -756,7 +748,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxr.idl
+- File: webref/webxr.idl
   Dict:
     Name: XRInputSourcesChangeEventInit
     Inherits: EventInit
@@ -789,13 +781,13 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webxr-ar-module.idl
+- File: webref/webxr-ar-module.idl
   Enum:
     Name: XRInteractionMode
     Values:
       - screen-space
       - world-space
-- File: webxr-hand-input.idl
+- File: webref/webxr-hand-input.idl
   Interface:
     Name: XRJointPose
     Inherits: XRPose
@@ -814,7 +806,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: webxr-hand-input.idl
+- File: webref/webxr-hand-input.idl
   Interface:
     Name: XRJointSpace
     Inherits: XRSpace
@@ -833,7 +825,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: webxr.idl
+- File: webref/webxr.idl
   Interface:
     Name: XRLayer
     Inherits: EventTarget
@@ -842,7 +834,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Interface:
     Name: XRLayerEvent
     Inherits: Event
@@ -875,7 +867,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Dict:
     Name: XRLayerEventInit
     Inherits: EventInit
@@ -896,7 +888,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Dict:
     Name: XRLayerInit
     Fields:
@@ -936,7 +928,7 @@
         Default: "true"
         Type:
           Name: boolean
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Enum:
     Name: XRLayerLayout
     Values:
@@ -945,14 +937,14 @@
       - stereo
       - stereo-left-right
       - stereo-top-bottom
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Enum:
     Name: XRLayerQuality
     Values:
       - default
       - text-optimized
       - graphics-optimized
-- File: webxr-lighting-estimation.idl
+- File: webref/webxr-lighting-estimation.idl
   Interface:
     Name: XRLightEstimate
     ExtAttrs:
@@ -988,7 +980,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxr-lighting-estimation.idl
+- File: webref/webxr-lighting-estimation.idl
   Interface:
     Name: XRLightProbe
     Inherits: EventTarget
@@ -1015,7 +1007,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxr-lighting-estimation.idl
+- File: webref/webxr-lighting-estimation.idl
   Dict:
     Name: XRLightProbeInit
     Fields:
@@ -1023,7 +1015,7 @@
         Default: '"srgba8"'
         Type:
           Name: XRReflectionFormat
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Interface:
     Name: XRMediaBinding
     ExtAttrs:
@@ -1088,7 +1080,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Dict:
     Name: XRMediaCylinderLayerInit
     Inherits: XRMediaLayerInit
@@ -1121,7 +1113,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Dict:
     Name: XRMediaEquirectLayerInit
     Inherits: XRMediaLayerInit
@@ -1158,7 +1150,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Dict:
     Name: XRMediaLayerInit
     Fields:
@@ -1174,7 +1166,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Dict:
     Name: XRMediaQuadLayerInit
     Inherits: XRMediaLayerInit
@@ -1203,7 +1195,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: real-world-meshing.idl
+- File: webref/real-world-meshing.idl
   Interface:
     Name: XRMesh
     ExtAttrs:
@@ -1255,7 +1247,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: real-world-meshing.idl
+- File: webref/real-world-meshing.idl
   Interface:
     Name: XRMeshSet
     ExtAttrs:
@@ -1266,7 +1258,7 @@
       TypeParams:
         - Name: XRMesh
       Readonly: true
-- File: webxr.idl
+- File: webref/webxr.idl
   Dict:
     Name: XRPermissionDescriptor
     Inherits: PermissionDescriptor
@@ -1288,7 +1280,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: webxr.idl
+- File: webref/webxr.idl
   Interface:
     Name: XRPermissionStatus
     Inherits: PermissionStatus
@@ -1306,7 +1298,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxr.idl
+- File: webref/webxr.idl
   Interface:
     Name: XRPose
     ExtAttrs:
@@ -1356,7 +1348,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Interface:
     Name: XRProjectionLayer
     Inherits: XRCompositionLayer
@@ -1364,7 +1356,6 @@
       - Name: Exposed
         Values:
           - Window
-      - Name: SecureContext
     Attrs:
       - Name: textureWidth
         Readonly: true
@@ -1374,7 +1365,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
       - Name: textureHeight
         Readonly: true
         Type:
@@ -1383,7 +1373,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
       - Name: textureArrayLength
         Readonly: true
         Type:
@@ -1392,7 +1381,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
       - Name: ignoreDepthValues
         Readonly: true
         Type:
@@ -1401,7 +1389,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
       - Name: fixedFoveation
         Type:
           Name: float
@@ -1410,7 +1397,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
       - Name: deltaPose
         Type:
           Name: XRRigidTransform
@@ -1419,8 +1405,7 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Dict:
     Name: XRProjectionLayerInit
     Fields:
@@ -1444,7 +1429,7 @@
         Default: "true"
         Type:
           Name: boolean
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Interface:
     Name: XRQuadLayer
     Inherits: XRCompositionLayer
@@ -1452,7 +1437,6 @@
       - Name: Exposed
         Values:
           - Window
-      - Name: SecureContext
     Attrs:
       - Name: space
         Type:
@@ -1461,7 +1445,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
       - Name: transform
         Type:
           Name: XRRigidTransform
@@ -1469,7 +1452,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
       - Name: width
         Type:
           Name: float
@@ -1477,7 +1459,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
       - Name: height
         Type:
           Name: float
@@ -1485,7 +1466,6 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
       - Name: onredraw
         Type:
           Name: EventHandler
@@ -1493,8 +1473,7 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
-- File: webxrlayers.idl
+- File: webref/webxrlayers.idl
   Dict:
     Name: XRQuadLayerInit
     Inherits: XRLayerInit

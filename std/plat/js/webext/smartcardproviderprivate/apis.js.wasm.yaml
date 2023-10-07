@@ -1,0 +1,1788 @@
+- File: webext/chrome/smart_card_provider_private.idl
+  Enum:
+    Name: ConnectionState
+    Values:
+      - ABSENT
+      - PRESENT
+      - SWALLOWED
+      - POWERED
+      - NEGOTIABLE
+      - SPECIFIC
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/smart_card_provider_private.idl
+  Enum:
+    Name: Disposition
+    Values:
+      - LEAVE_CARD
+      - RESET_CARD
+      - UNPOWER_CARD
+      - EJECT_CARD
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/smart_card_provider_private.idl
+  Enum:
+    Name: Protocol
+    Values:
+      - UNDEFINED
+      - T0
+      - T1
+      - RAW
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/smart_card_provider_private.idl
+  Dict:
+    Name: Protocols
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: t0
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: t1
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: raw
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  Dict:
+    Name: ReaderStateFlags
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: unaware
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: ignore
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: changed
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: unknown
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: unavailable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: empty
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: present
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: exclusive
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: inuse
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: mute
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: unpowered
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  Dict:
+    Name: ReaderStateIn
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: reader
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: currentState
+        Type:
+          Name: ReaderStateFlags
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: currentCount
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  Dict:
+    Name: ReaderStateOut
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: reader
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: eventState
+        Type:
+          Name: ReaderStateFlags
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: eventCount
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: atr
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  Enum:
+    Name: ResultCode
+    Values:
+      - SUCCESS
+      - REMOVED_CARD
+      - RESET_CARD
+      - UNPOWERED_CARD
+      - UNRESPONSIVE_CARD
+      - UNSUPPORTED_CARD
+      - READER_UNAVAILABLE
+      - SHARING_VIOLATION
+      - NOT_TRANSACTED
+      - NO_SMARTCARD
+      - PROTO_MISMATCH
+      - SYSTEM_CANCELLED
+      - NOT_READY
+      - CANCELLED
+      - INSUFFICIENT_BUFFER
+      - INVALID_HANDLE
+      - INVALID_PARAMETER
+      - INVALID_VALUE
+      - NO_MEMORY
+      - TIMEOUT
+      - UNKNOWN_READER
+      - UNSUPPORTED_FEATURE
+      - NO_READERS_AVAILABLE
+      - SERVICE_STOPPED
+      - NO_SERVICE
+      - COMM_ERROR
+      - INTERNAL_ERROR
+      - UNKNOWN_ERROR
+      - SERVER_TOO_BUSY
+      - UNEXPECTED
+      - SHUTDOWN
+      - UNKNOWN
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/smart_card_provider_private.idl
+  Enum:
+    Name: ShareMode
+    Values:
+      - SHARED
+      - EXCLUSIVE
+      - DIRECT
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/smart_card_provider_private.idl
+  Dict:
+    Name: Timeout
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: milliseconds
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  WebextEvent:
+    Name: onBeginTransactionRequested
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: scardHandle
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  WebextEvent:
+    Name: onCancelRequested
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: scardContext
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  WebextEvent:
+    Name: onConnectRequested
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: scardContext
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: reader
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: shareMode
+        Type:
+          Name: ShareMode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: preferredProtocols
+        Type:
+          Name: Protocols
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  WebextEvent:
+    Name: onControlRequested
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: scardHandle
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: controlCode
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  WebextEvent:
+    Name: onDisconnectRequested
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: scardHandle
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: disposition
+        Type:
+          Name: Disposition
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  WebextEvent:
+    Name: onEndTransactionRequested
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: scardHandle
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: disposition
+        Type:
+          Name: Disposition
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  WebextEvent:
+    Name: onEstablishContextRequested
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  WebextEvent:
+    Name: onGetAttribRequested
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: scardHandle
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: attribId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  WebextEvent:
+    Name: onGetStatusChangeRequested
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: scardContext
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: timeout
+        Type:
+          Name: Timeout
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: readerStates
+        Type:
+          Name: sequence
+          Params:
+            - Name: ReaderStateIn
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - smartCardProviderPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  WebextEvent:
+    Name: onListReadersRequested
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: scardContext
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  WebextEvent:
+    Name: onReleaseContextRequested
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: scardContext
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  WebextEvent:
+    Name: onSetAttribRequested
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: scardHandle
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: attribId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  WebextEvent:
+    Name: onStatusRequested
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: scardHandle
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  WebextEvent:
+    Name: onTransmitRequested
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: scardHandle
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: protocol
+        Type:
+          Name: Protocol
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    ExtAttrs:
+      - Name: maxListeners
+        Values:
+          - "1"
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  WebextFunc:
+    Name: reportConnectResult
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: scardHandle
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: activeProtocol
+        Type:
+          Name: Protocol
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: resultCode
+        Type:
+          Name: ResultCode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  WebextFunc:
+    Name: reportDataResult
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: resultCode
+        Type:
+          Name: ResultCode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  WebextFunc:
+    Name: reportEstablishContextResult
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: scardContext
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: resultCode
+        Type:
+          Name: ResultCode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  WebextFunc:
+    Name: reportGetStatusChangeResult
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: readerStates
+        Type:
+          Name: sequence
+          Params:
+            - Name: ReaderStateOut
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - smartCardProviderPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: resultCode
+        Type:
+          Name: ResultCode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  WebextFunc:
+    Name: reportListReadersResult
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: readers
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - smartCardProviderPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: resultCode
+        Type:
+          Name: ResultCode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  WebextFunc:
+    Name: reportPlainResult
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: resultCode
+        Type:
+          Name: ResultCode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  WebextFunc:
+    Name: reportReleaseContextResult
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: resultCode
+        Type:
+          Name: ResultCode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate
+- File: webext/chrome/smart_card_provider_private.idl
+  WebextFunc:
+    Name: reportStatusResult
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: readerName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: state
+        Type:
+          Name: ConnectionState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: protocol
+        Type:
+          Name: Protocol
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: atr
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+      - Name: resultCode
+        Type:
+          Name: ResultCode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - smartCardProviderPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - smartCardProviderPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - smartCardProviderPrivate

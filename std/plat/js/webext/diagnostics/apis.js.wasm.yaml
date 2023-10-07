@@ -1,0 +1,161 @@
+- File: webext/diagnostics.idl
+  Callback:
+    Name: SendPacketCallback
+    Args:
+      - Name: result
+        Type:
+          Name: SendPacketResult
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - diagnostics
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - diagnostics
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - diagnostics
+- File: webext/diagnostics.idl
+  Dict:
+    Name: SendPacketOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - diagnostics
+    Fields:
+      - Name: ip
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - diagnostics
+      - Name: ttl
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - diagnostics
+      - Name: timeout
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - diagnostics
+      - Name: size
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - diagnostics
+- File: webext/diagnostics.idl
+  Dict:
+    Name: SendPacketResult
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - diagnostics
+    Fields:
+      - Name: ip
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - diagnostics
+      - Name: latency
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - diagnostics
+- File: webext/diagnostics.idl
+  WebextFunc:
+    Name: sendPacket
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: SendPacketOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - diagnostics
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - diagnostics
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: SendPacketResult
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - diagnostics
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - diagnostics

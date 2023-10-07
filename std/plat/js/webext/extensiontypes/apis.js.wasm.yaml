@@ -1,0 +1,237 @@
+- File: webext/extension_types.json
+  Enum:
+    Name: CSSOrigin
+    Values:
+      - author
+      - user
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionTypes
+- File: webext/extension_types.json
+  Dict:
+    Name: DeleteInjectionDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionTypes
+    Fields:
+      - Name: allFrames
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionTypes
+      - Name: code
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionTypes
+      - Name: cssOrigin
+        Type:
+          Name: CSSOrigin
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionTypes
+      - Name: file
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionTypes
+      - Name: frameId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionTypes
+      - Name: matchAboutBlank
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionTypes
+- File: webext/extension_types.json
+  Enum:
+    Name: DocumentLifecycle
+    Values:
+      - prerender
+      - active
+      - cached
+      - pending_deletion
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionTypes
+- File: webext/extension_types.json
+  Enum:
+    Name: ExecutionWorld
+    Values:
+      - ISOLATED
+      - MAIN
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionTypes
+- File: webext/extension_types.json
+  Enum:
+    Name: FrameType
+    Values:
+      - outermost_frame
+      - fenced_frame
+      - sub_frame
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionTypes
+- File: webext/extension_types.json
+  Dict:
+    Name: ImageDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionTypes
+    Fields:
+      - Name: format
+        Type:
+          Name: ImageFormat
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionTypes
+      - Name: quality
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionTypes
+- File: webext/extension_types.json
+  Enum:
+    Name: ImageFormat
+    Values:
+      - jpeg
+      - png
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionTypes
+- File: webext/extension_types.json
+  Dict:
+    Name: InjectDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionTypes
+    Fields:
+      - Name: allFrames
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionTypes
+      - Name: code
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionTypes
+      - Name: cssOrigin
+        Type:
+          Name: CSSOrigin
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionTypes
+      - Name: file
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionTypes
+      - Name: frameId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionTypes
+      - Name: matchAboutBlank
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionTypes
+      - Name: runAt
+        Type:
+          Name: RunAt
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionTypes
+- File: webext/extension_types.json
+  Enum:
+    Name: RunAt
+    Values:
+      - document_start
+      - document_end
+      - document_idle
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionTypes

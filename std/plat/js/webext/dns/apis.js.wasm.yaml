@@ -1,0 +1,98 @@
+- File: webext/dns.idl
+  Callback:
+    Name: ResolveCallback
+    Args:
+      - Name: resolveInfo
+        Type:
+          Name: ResolveCallbackResolveInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - dns
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - dns
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - dns
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - dns
+- File: webext/dns.idl
+  Dict:
+    Name: ResolveCallbackResolveInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - dns
+    Fields:
+      - Name: resultCode
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - dns
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - dns
+      - Name: address
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - dns
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - dns
+- File: webext/dns.idl
+  WebextFunc:
+    Name: resolve
+    Modifier: static
+    Args:
+      - Name: hostname
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - dns
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - dns
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ResolveCallbackResolveInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - dns
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - dns

@@ -1,0 +1,169 @@
+- File: webext/chrome/webrtc_desktop_capture_private.idl
+  Enum:
+    Name: DesktopCaptureSourceType
+    Values:
+      - screen
+      - window
+      - tab
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcDesktopCapturePrivate
+- File: webext/chrome/webrtc_desktop_capture_private.idl
+  Dict:
+    Name: RequestInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcDesktopCapturePrivate
+    Fields:
+      - Name: guestProcessId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcDesktopCapturePrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcDesktopCapturePrivate
+      - Name: guestRenderFrameId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcDesktopCapturePrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcDesktopCapturePrivate
+- File: webext/chrome/webrtc_desktop_capture_private.idl
+  WebextFunc:
+    Name: cancelChooseDesktopMedia
+    Modifier: static
+    Args:
+      - Name: desktopMediaRequestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcDesktopCapturePrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcDesktopCapturePrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcDesktopCapturePrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcDesktopCapturePrivate
+- File: webext/chrome/webrtc_desktop_capture_private.idl
+  WebextFunc:
+    Name: chooseDesktopMedia
+    Modifier: static
+    Args:
+      - Name: sources
+        Type:
+          Name: sequence
+          Params:
+            - Name: DesktopCaptureSourceType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webrtcDesktopCapturePrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcDesktopCapturePrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcDesktopCapturePrivate
+      - Name: request
+        Type:
+          Name: RequestInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcDesktopCapturePrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcDesktopCapturePrivate
+      - Name: callback
+        Type:
+          Name: chooseDesktopMediaCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcDesktopCapturePrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcDesktopCapturePrivate
+    Returns:
+      - Name: long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcDesktopCapturePrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcDesktopCapturePrivate
+- File: webext/chrome/webrtc_desktop_capture_private.idl
+  Callback:
+    Name: chooseDesktopMediaCallback
+    Args:
+      - Name: streamId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcDesktopCapturePrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcDesktopCapturePrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcDesktopCapturePrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcDesktopCapturePrivate

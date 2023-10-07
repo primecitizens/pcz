@@ -5,17 +5,9 @@ package web
 
 import (
 	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 type DeviceOrientationEventInit struct {
 	// Alpha is "DeviceOrientationEventInit.alpha"
@@ -86,17 +78,22 @@ func (p DeviceOrientationEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p DeviceOrientationEventInit) UpdateFrom(ref js.Ref) {
+func (p *DeviceOrientationEventInit) UpdateFrom(ref js.Ref) {
 	bindings.DeviceOrientationEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p DeviceOrientationEventInit) Update(ref js.Ref) {
+func (p *DeviceOrientationEventInit) Update(ref js.Ref) {
 	bindings.DeviceOrientationEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *DeviceOrientationEventInit) FreeMembers(recursive bool) {
 }
 
 func NewDeviceOrientationEvent(typ js.String, eventInitDict DeviceOrientationEventInit) (ret DeviceOrientationEvent) {
@@ -117,7 +114,7 @@ type DeviceOrientationEvent struct {
 }
 
 func (this DeviceOrientationEvent) Once() DeviceOrientationEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -131,7 +128,7 @@ func (this DeviceOrientationEvent) FromRef(ref js.Ref) DeviceOrientationEvent {
 }
 
 func (this DeviceOrientationEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Alpha returns the value of property "DeviceOrientationEvent.alpha".
@@ -139,7 +136,7 @@ func (this DeviceOrientationEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this DeviceOrientationEvent) Alpha() (ret float64, ok bool) {
 	ok = js.True == bindings.GetDeviceOrientationEventAlpha(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -149,7 +146,7 @@ func (this DeviceOrientationEvent) Alpha() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this DeviceOrientationEvent) Beta() (ret float64, ok bool) {
 	ok = js.True == bindings.GetDeviceOrientationEventBeta(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -159,7 +156,7 @@ func (this DeviceOrientationEvent) Beta() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this DeviceOrientationEvent) Gamma() (ret float64, ok bool) {
 	ok = js.True == bindings.GetDeviceOrientationEventGamma(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -169,42 +166,41 @@ func (this DeviceOrientationEvent) Gamma() (ret float64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this DeviceOrientationEvent) Absolute() (ret bool, ok bool) {
 	ok = js.True == bindings.GetDeviceOrientationEventAbsolute(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasRequestPermission returns true if the staticmethod "DeviceOrientationEvent.requestPermission" exists.
-func (this DeviceOrientationEvent) HasRequestPermission() bool {
-	return js.True == bindings.HasDeviceOrientationEventRequestPermission(
-		this.Ref(),
+// HasFuncRequestPermission returns true if the static method "DeviceOrientationEvent.requestPermission" exists.
+func (this DeviceOrientationEvent) HasFuncRequestPermission() bool {
+	return js.True == bindings.HasFuncDeviceOrientationEventRequestPermission(
+		this.ref,
 	)
 }
 
-// RequestPermissionFunc returns the staticmethod "DeviceOrientationEvent.requestPermission".
-func (this DeviceOrientationEvent) RequestPermissionFunc() (fn js.Func[func() js.Promise[PermissionState]]) {
-	return fn.FromRef(
-		bindings.DeviceOrientationEventRequestPermissionFunc(
-			this.Ref(),
-		),
+// FuncRequestPermission returns the static method "DeviceOrientationEvent.requestPermission".
+func (this DeviceOrientationEvent) FuncRequestPermission() (fn js.Func[func() js.Promise[PermissionState]]) {
+	bindings.FuncDeviceOrientationEventRequestPermission(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
-// RequestPermission calls the staticmethod "DeviceOrientationEvent.requestPermission".
+// RequestPermission calls the static method "DeviceOrientationEvent.requestPermission".
 func (this DeviceOrientationEvent) RequestPermission() (ret js.Promise[PermissionState]) {
 	bindings.CallDeviceOrientationEventRequestPermission(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
 }
 
-// TryRequestPermission calls the staticmethod "DeviceOrientationEvent.requestPermission"
+// TryRequestPermission calls the static method "DeviceOrientationEvent.requestPermission"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DeviceOrientationEvent) TryRequestPermission() (ret js.Promise[PermissionState], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDeviceOrientationEventRequestPermission(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -309,17 +305,26 @@ func (p DocumentPictureInPictureEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p DocumentPictureInPictureEventInit) UpdateFrom(ref js.Ref) {
+func (p *DocumentPictureInPictureEventInit) UpdateFrom(ref js.Ref) {
 	bindings.DocumentPictureInPictureEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p DocumentPictureInPictureEventInit) Update(ref js.Ref) {
+func (p *DocumentPictureInPictureEventInit) Update(ref js.Ref) {
 	bindings.DocumentPictureInPictureEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *DocumentPictureInPictureEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Window.Ref(),
+	)
+	p.Window = p.Window.FromRef(js.Undefined)
 }
 
 func NewDocumentPictureInPictureEvent(typ js.String, eventInitDict DocumentPictureInPictureEventInit) (ret DocumentPictureInPictureEvent) {
@@ -334,7 +339,7 @@ type DocumentPictureInPictureEvent struct {
 }
 
 func (this DocumentPictureInPictureEvent) Once() DocumentPictureInPictureEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -348,7 +353,7 @@ func (this DocumentPictureInPictureEvent) FromRef(ref js.Ref) DocumentPictureInP
 }
 
 func (this DocumentPictureInPictureEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Window returns the value of property "DocumentPictureInPictureEvent.window".
@@ -356,7 +361,7 @@ func (this DocumentPictureInPictureEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this DocumentPictureInPictureEvent) Window() (ret Window, ok bool) {
 	ok = js.True == bindings.GetDocumentPictureInPictureEventWindow(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -399,17 +404,26 @@ func (p DragEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p DragEventInit) UpdateFrom(ref js.Ref) {
+func (p *DragEventInit) UpdateFrom(ref js.Ref) {
 	bindings.DragEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p DragEventInit) Update(ref js.Ref) {
+func (p *DragEventInit) Update(ref js.Ref) {
 	bindings.DragEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *DragEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.DataTransfer.Ref(),
+	)
+	p.DataTransfer = p.DataTransfer.FromRef(js.Undefined)
 }
 
 func NewDragEvent(typ js.String, eventInitDict DragEventInit) (ret DragEvent) {
@@ -430,7 +444,7 @@ type DragEvent struct {
 }
 
 func (this DragEvent) Once() DragEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -444,7 +458,7 @@ func (this DragEvent) FromRef(ref js.Ref) DragEvent {
 }
 
 func (this DragEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // DataTransfer returns the value of property "DragEvent.dataTransfer".
@@ -452,7 +466,7 @@ func (this DragEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this DragEvent) DataTransfer() (ret DataTransfer, ok bool) {
 	ok = js.True == bindings.GetDragEventDataTransfer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -467,7 +481,7 @@ type EXT_blend_minmax struct {
 }
 
 func (this EXT_blend_minmax) Once() EXT_blend_minmax {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -481,7 +495,7 @@ func (this EXT_blend_minmax) FromRef(ref js.Ref) EXT_blend_minmax {
 }
 
 func (this EXT_blend_minmax) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type EXT_color_buffer_float struct {
@@ -489,7 +503,7 @@ type EXT_color_buffer_float struct {
 }
 
 func (this EXT_color_buffer_float) Once() EXT_color_buffer_float {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -503,7 +517,7 @@ func (this EXT_color_buffer_float) FromRef(ref js.Ref) EXT_color_buffer_float {
 }
 
 func (this EXT_color_buffer_float) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 const (
@@ -518,7 +532,7 @@ type EXT_color_buffer_half_float struct {
 }
 
 func (this EXT_color_buffer_half_float) Once() EXT_color_buffer_half_float {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -532,7 +546,7 @@ func (this EXT_color_buffer_half_float) FromRef(ref js.Ref) EXT_color_buffer_hal
 }
 
 func (this EXT_color_buffer_half_float) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 const (
@@ -550,7 +564,7 @@ type WebGLTimerQueryEXT struct {
 }
 
 func (this WebGLTimerQueryEXT) Once() WebGLTimerQueryEXT {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -564,7 +578,7 @@ func (this WebGLTimerQueryEXT) FromRef(ref js.Ref) WebGLTimerQueryEXT {
 }
 
 func (this WebGLTimerQueryEXT) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type EXT_disjoint_timer_query struct {
@@ -572,7 +586,7 @@ type EXT_disjoint_timer_query struct {
 }
 
 func (this EXT_disjoint_timer_query) Once() EXT_disjoint_timer_query {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -586,29 +600,28 @@ func (this EXT_disjoint_timer_query) FromRef(ref js.Ref) EXT_disjoint_timer_quer
 }
 
 func (this EXT_disjoint_timer_query) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasCreateQueryEXT returns true if the method "EXT_disjoint_timer_query.createQueryEXT" exists.
-func (this EXT_disjoint_timer_query) HasCreateQueryEXT() bool {
-	return js.True == bindings.HasEXT_disjoint_timer_queryCreateQueryEXT(
-		this.Ref(),
+// HasFuncCreateQueryEXT returns true if the method "EXT_disjoint_timer_query.createQueryEXT" exists.
+func (this EXT_disjoint_timer_query) HasFuncCreateQueryEXT() bool {
+	return js.True == bindings.HasFuncEXT_disjoint_timer_queryCreateQueryEXT(
+		this.ref,
 	)
 }
 
-// CreateQueryEXTFunc returns the method "EXT_disjoint_timer_query.createQueryEXT".
-func (this EXT_disjoint_timer_query) CreateQueryEXTFunc() (fn js.Func[func() WebGLTimerQueryEXT]) {
-	return fn.FromRef(
-		bindings.EXT_disjoint_timer_queryCreateQueryEXTFunc(
-			this.Ref(),
-		),
+// FuncCreateQueryEXT returns the method "EXT_disjoint_timer_query.createQueryEXT".
+func (this EXT_disjoint_timer_query) FuncCreateQueryEXT() (fn js.Func[func() WebGLTimerQueryEXT]) {
+	bindings.FuncEXT_disjoint_timer_queryCreateQueryEXT(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CreateQueryEXT calls the method "EXT_disjoint_timer_query.createQueryEXT".
 func (this EXT_disjoint_timer_query) CreateQueryEXT() (ret WebGLTimerQueryEXT) {
 	bindings.CallEXT_disjoint_timer_queryCreateQueryEXT(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -619,32 +632,31 @@ func (this EXT_disjoint_timer_query) CreateQueryEXT() (ret WebGLTimerQueryEXT) {
 // the catch clause.
 func (this EXT_disjoint_timer_query) TryCreateQueryEXT() (ret WebGLTimerQueryEXT, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEXT_disjoint_timer_queryCreateQueryEXT(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasDeleteQueryEXT returns true if the method "EXT_disjoint_timer_query.deleteQueryEXT" exists.
-func (this EXT_disjoint_timer_query) HasDeleteQueryEXT() bool {
-	return js.True == bindings.HasEXT_disjoint_timer_queryDeleteQueryEXT(
-		this.Ref(),
+// HasFuncDeleteQueryEXT returns true if the method "EXT_disjoint_timer_query.deleteQueryEXT" exists.
+func (this EXT_disjoint_timer_query) HasFuncDeleteQueryEXT() bool {
+	return js.True == bindings.HasFuncEXT_disjoint_timer_queryDeleteQueryEXT(
+		this.ref,
 	)
 }
 
-// DeleteQueryEXTFunc returns the method "EXT_disjoint_timer_query.deleteQueryEXT".
-func (this EXT_disjoint_timer_query) DeleteQueryEXTFunc() (fn js.Func[func(query WebGLTimerQueryEXT)]) {
-	return fn.FromRef(
-		bindings.EXT_disjoint_timer_queryDeleteQueryEXTFunc(
-			this.Ref(),
-		),
+// FuncDeleteQueryEXT returns the method "EXT_disjoint_timer_query.deleteQueryEXT".
+func (this EXT_disjoint_timer_query) FuncDeleteQueryEXT() (fn js.Func[func(query WebGLTimerQueryEXT)]) {
+	bindings.FuncEXT_disjoint_timer_queryDeleteQueryEXT(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // DeleteQueryEXT calls the method "EXT_disjoint_timer_query.deleteQueryEXT".
 func (this EXT_disjoint_timer_query) DeleteQueryEXT(query WebGLTimerQueryEXT) (ret js.Void) {
 	bindings.CallEXT_disjoint_timer_queryDeleteQueryEXT(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 	)
 
@@ -656,33 +668,32 @@ func (this EXT_disjoint_timer_query) DeleteQueryEXT(query WebGLTimerQueryEXT) (r
 // the catch clause.
 func (this EXT_disjoint_timer_query) TryDeleteQueryEXT(query WebGLTimerQueryEXT) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEXT_disjoint_timer_queryDeleteQueryEXT(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 	)
 
 	return
 }
 
-// HasIsQueryEXT returns true if the method "EXT_disjoint_timer_query.isQueryEXT" exists.
-func (this EXT_disjoint_timer_query) HasIsQueryEXT() bool {
-	return js.True == bindings.HasEXT_disjoint_timer_queryIsQueryEXT(
-		this.Ref(),
+// HasFuncIsQueryEXT returns true if the method "EXT_disjoint_timer_query.isQueryEXT" exists.
+func (this EXT_disjoint_timer_query) HasFuncIsQueryEXT() bool {
+	return js.True == bindings.HasFuncEXT_disjoint_timer_queryIsQueryEXT(
+		this.ref,
 	)
 }
 
-// IsQueryEXTFunc returns the method "EXT_disjoint_timer_query.isQueryEXT".
-func (this EXT_disjoint_timer_query) IsQueryEXTFunc() (fn js.Func[func(query WebGLTimerQueryEXT) bool]) {
-	return fn.FromRef(
-		bindings.EXT_disjoint_timer_queryIsQueryEXTFunc(
-			this.Ref(),
-		),
+// FuncIsQueryEXT returns the method "EXT_disjoint_timer_query.isQueryEXT".
+func (this EXT_disjoint_timer_query) FuncIsQueryEXT() (fn js.Func[func(query WebGLTimerQueryEXT) bool]) {
+	bindings.FuncEXT_disjoint_timer_queryIsQueryEXT(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // IsQueryEXT calls the method "EXT_disjoint_timer_query.isQueryEXT".
 func (this EXT_disjoint_timer_query) IsQueryEXT(query WebGLTimerQueryEXT) (ret bool) {
 	bindings.CallEXT_disjoint_timer_queryIsQueryEXT(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 	)
 
@@ -694,33 +705,32 @@ func (this EXT_disjoint_timer_query) IsQueryEXT(query WebGLTimerQueryEXT) (ret b
 // the catch clause.
 func (this EXT_disjoint_timer_query) TryIsQueryEXT(query WebGLTimerQueryEXT) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEXT_disjoint_timer_queryIsQueryEXT(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 	)
 
 	return
 }
 
-// HasBeginQueryEXT returns true if the method "EXT_disjoint_timer_query.beginQueryEXT" exists.
-func (this EXT_disjoint_timer_query) HasBeginQueryEXT() bool {
-	return js.True == bindings.HasEXT_disjoint_timer_queryBeginQueryEXT(
-		this.Ref(),
+// HasFuncBeginQueryEXT returns true if the method "EXT_disjoint_timer_query.beginQueryEXT" exists.
+func (this EXT_disjoint_timer_query) HasFuncBeginQueryEXT() bool {
+	return js.True == bindings.HasFuncEXT_disjoint_timer_queryBeginQueryEXT(
+		this.ref,
 	)
 }
 
-// BeginQueryEXTFunc returns the method "EXT_disjoint_timer_query.beginQueryEXT".
-func (this EXT_disjoint_timer_query) BeginQueryEXTFunc() (fn js.Func[func(target GLenum, query WebGLTimerQueryEXT)]) {
-	return fn.FromRef(
-		bindings.EXT_disjoint_timer_queryBeginQueryEXTFunc(
-			this.Ref(),
-		),
+// FuncBeginQueryEXT returns the method "EXT_disjoint_timer_query.beginQueryEXT".
+func (this EXT_disjoint_timer_query) FuncBeginQueryEXT() (fn js.Func[func(target GLenum, query WebGLTimerQueryEXT)]) {
+	bindings.FuncEXT_disjoint_timer_queryBeginQueryEXT(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // BeginQueryEXT calls the method "EXT_disjoint_timer_query.beginQueryEXT".
 func (this EXT_disjoint_timer_query) BeginQueryEXT(target GLenum, query WebGLTimerQueryEXT) (ret js.Void) {
 	bindings.CallEXT_disjoint_timer_queryBeginQueryEXT(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		query.Ref(),
 	)
@@ -733,7 +743,7 @@ func (this EXT_disjoint_timer_query) BeginQueryEXT(target GLenum, query WebGLTim
 // the catch clause.
 func (this EXT_disjoint_timer_query) TryBeginQueryEXT(target GLenum, query WebGLTimerQueryEXT) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEXT_disjoint_timer_queryBeginQueryEXT(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		query.Ref(),
 	)
@@ -741,26 +751,25 @@ func (this EXT_disjoint_timer_query) TryBeginQueryEXT(target GLenum, query WebGL
 	return
 }
 
-// HasEndQueryEXT returns true if the method "EXT_disjoint_timer_query.endQueryEXT" exists.
-func (this EXT_disjoint_timer_query) HasEndQueryEXT() bool {
-	return js.True == bindings.HasEXT_disjoint_timer_queryEndQueryEXT(
-		this.Ref(),
+// HasFuncEndQueryEXT returns true if the method "EXT_disjoint_timer_query.endQueryEXT" exists.
+func (this EXT_disjoint_timer_query) HasFuncEndQueryEXT() bool {
+	return js.True == bindings.HasFuncEXT_disjoint_timer_queryEndQueryEXT(
+		this.ref,
 	)
 }
 
-// EndQueryEXTFunc returns the method "EXT_disjoint_timer_query.endQueryEXT".
-func (this EXT_disjoint_timer_query) EndQueryEXTFunc() (fn js.Func[func(target GLenum)]) {
-	return fn.FromRef(
-		bindings.EXT_disjoint_timer_queryEndQueryEXTFunc(
-			this.Ref(),
-		),
+// FuncEndQueryEXT returns the method "EXT_disjoint_timer_query.endQueryEXT".
+func (this EXT_disjoint_timer_query) FuncEndQueryEXT() (fn js.Func[func(target GLenum)]) {
+	bindings.FuncEXT_disjoint_timer_queryEndQueryEXT(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // EndQueryEXT calls the method "EXT_disjoint_timer_query.endQueryEXT".
 func (this EXT_disjoint_timer_query) EndQueryEXT(target GLenum) (ret js.Void) {
 	bindings.CallEXT_disjoint_timer_queryEndQueryEXT(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 	)
 
@@ -772,33 +781,32 @@ func (this EXT_disjoint_timer_query) EndQueryEXT(target GLenum) (ret js.Void) {
 // the catch clause.
 func (this EXT_disjoint_timer_query) TryEndQueryEXT(target GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEXT_disjoint_timer_queryEndQueryEXT(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 	)
 
 	return
 }
 
-// HasQueryCounterEXT returns true if the method "EXT_disjoint_timer_query.queryCounterEXT" exists.
-func (this EXT_disjoint_timer_query) HasQueryCounterEXT() bool {
-	return js.True == bindings.HasEXT_disjoint_timer_queryQueryCounterEXT(
-		this.Ref(),
+// HasFuncQueryCounterEXT returns true if the method "EXT_disjoint_timer_query.queryCounterEXT" exists.
+func (this EXT_disjoint_timer_query) HasFuncQueryCounterEXT() bool {
+	return js.True == bindings.HasFuncEXT_disjoint_timer_queryQueryCounterEXT(
+		this.ref,
 	)
 }
 
-// QueryCounterEXTFunc returns the method "EXT_disjoint_timer_query.queryCounterEXT".
-func (this EXT_disjoint_timer_query) QueryCounterEXTFunc() (fn js.Func[func(query WebGLTimerQueryEXT, target GLenum)]) {
-	return fn.FromRef(
-		bindings.EXT_disjoint_timer_queryQueryCounterEXTFunc(
-			this.Ref(),
-		),
+// FuncQueryCounterEXT returns the method "EXT_disjoint_timer_query.queryCounterEXT".
+func (this EXT_disjoint_timer_query) FuncQueryCounterEXT() (fn js.Func[func(query WebGLTimerQueryEXT, target GLenum)]) {
+	bindings.FuncEXT_disjoint_timer_queryQueryCounterEXT(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // QueryCounterEXT calls the method "EXT_disjoint_timer_query.queryCounterEXT".
 func (this EXT_disjoint_timer_query) QueryCounterEXT(query WebGLTimerQueryEXT, target GLenum) (ret js.Void) {
 	bindings.CallEXT_disjoint_timer_queryQueryCounterEXT(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 		uint32(target),
 	)
@@ -811,7 +819,7 @@ func (this EXT_disjoint_timer_query) QueryCounterEXT(query WebGLTimerQueryEXT, t
 // the catch clause.
 func (this EXT_disjoint_timer_query) TryQueryCounterEXT(query WebGLTimerQueryEXT, target GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEXT_disjoint_timer_queryQueryCounterEXT(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 		uint32(target),
 	)
@@ -819,26 +827,25 @@ func (this EXT_disjoint_timer_query) TryQueryCounterEXT(query WebGLTimerQueryEXT
 	return
 }
 
-// HasGetQueryEXT returns true if the method "EXT_disjoint_timer_query.getQueryEXT" exists.
-func (this EXT_disjoint_timer_query) HasGetQueryEXT() bool {
-	return js.True == bindings.HasEXT_disjoint_timer_queryGetQueryEXT(
-		this.Ref(),
+// HasFuncGetQueryEXT returns true if the method "EXT_disjoint_timer_query.getQueryEXT" exists.
+func (this EXT_disjoint_timer_query) HasFuncGetQueryEXT() bool {
+	return js.True == bindings.HasFuncEXT_disjoint_timer_queryGetQueryEXT(
+		this.ref,
 	)
 }
 
-// GetQueryEXTFunc returns the method "EXT_disjoint_timer_query.getQueryEXT".
-func (this EXT_disjoint_timer_query) GetQueryEXTFunc() (fn js.Func[func(target GLenum, pname GLenum) js.Any]) {
-	return fn.FromRef(
-		bindings.EXT_disjoint_timer_queryGetQueryEXTFunc(
-			this.Ref(),
-		),
+// FuncGetQueryEXT returns the method "EXT_disjoint_timer_query.getQueryEXT".
+func (this EXT_disjoint_timer_query) FuncGetQueryEXT() (fn js.Func[func(target GLenum, pname GLenum) js.Any]) {
+	bindings.FuncEXT_disjoint_timer_queryGetQueryEXT(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetQueryEXT calls the method "EXT_disjoint_timer_query.getQueryEXT".
 func (this EXT_disjoint_timer_query) GetQueryEXT(target GLenum, pname GLenum) (ret js.Any) {
 	bindings.CallEXT_disjoint_timer_queryGetQueryEXT(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(target),
 		uint32(pname),
 	)
@@ -851,7 +858,7 @@ func (this EXT_disjoint_timer_query) GetQueryEXT(target GLenum, pname GLenum) (r
 // the catch clause.
 func (this EXT_disjoint_timer_query) TryGetQueryEXT(target GLenum, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEXT_disjoint_timer_queryGetQueryEXT(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(target),
 		uint32(pname),
 	)
@@ -859,26 +866,25 @@ func (this EXT_disjoint_timer_query) TryGetQueryEXT(target GLenum, pname GLenum)
 	return
 }
 
-// HasGetQueryObjectEXT returns true if the method "EXT_disjoint_timer_query.getQueryObjectEXT" exists.
-func (this EXT_disjoint_timer_query) HasGetQueryObjectEXT() bool {
-	return js.True == bindings.HasEXT_disjoint_timer_queryGetQueryObjectEXT(
-		this.Ref(),
+// HasFuncGetQueryObjectEXT returns true if the method "EXT_disjoint_timer_query.getQueryObjectEXT" exists.
+func (this EXT_disjoint_timer_query) HasFuncGetQueryObjectEXT() bool {
+	return js.True == bindings.HasFuncEXT_disjoint_timer_queryGetQueryObjectEXT(
+		this.ref,
 	)
 }
 
-// GetQueryObjectEXTFunc returns the method "EXT_disjoint_timer_query.getQueryObjectEXT".
-func (this EXT_disjoint_timer_query) GetQueryObjectEXTFunc() (fn js.Func[func(query WebGLTimerQueryEXT, pname GLenum) js.Any]) {
-	return fn.FromRef(
-		bindings.EXT_disjoint_timer_queryGetQueryObjectEXTFunc(
-			this.Ref(),
-		),
+// FuncGetQueryObjectEXT returns the method "EXT_disjoint_timer_query.getQueryObjectEXT".
+func (this EXT_disjoint_timer_query) FuncGetQueryObjectEXT() (fn js.Func[func(query WebGLTimerQueryEXT, pname GLenum) js.Any]) {
+	bindings.FuncEXT_disjoint_timer_queryGetQueryObjectEXT(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetQueryObjectEXT calls the method "EXT_disjoint_timer_query.getQueryObjectEXT".
 func (this EXT_disjoint_timer_query) GetQueryObjectEXT(query WebGLTimerQueryEXT, pname GLenum) (ret js.Any) {
 	bindings.CallEXT_disjoint_timer_queryGetQueryObjectEXT(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 		uint32(pname),
 	)
@@ -891,7 +897,7 @@ func (this EXT_disjoint_timer_query) GetQueryObjectEXT(query WebGLTimerQueryEXT,
 // the catch clause.
 func (this EXT_disjoint_timer_query) TryGetQueryObjectEXT(query WebGLTimerQueryEXT, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEXT_disjoint_timer_queryGetQueryObjectEXT(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 		uint32(pname),
 	)
@@ -911,7 +917,7 @@ type EXT_disjoint_timer_query_webgl2 struct {
 }
 
 func (this EXT_disjoint_timer_query_webgl2) Once() EXT_disjoint_timer_query_webgl2 {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -925,29 +931,28 @@ func (this EXT_disjoint_timer_query_webgl2) FromRef(ref js.Ref) EXT_disjoint_tim
 }
 
 func (this EXT_disjoint_timer_query_webgl2) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasQueryCounterEXT returns true if the method "EXT_disjoint_timer_query_webgl2.queryCounterEXT" exists.
-func (this EXT_disjoint_timer_query_webgl2) HasQueryCounterEXT() bool {
-	return js.True == bindings.HasEXT_disjoint_timer_query_webgl2QueryCounterEXT(
-		this.Ref(),
+// HasFuncQueryCounterEXT returns true if the method "EXT_disjoint_timer_query_webgl2.queryCounterEXT" exists.
+func (this EXT_disjoint_timer_query_webgl2) HasFuncQueryCounterEXT() bool {
+	return js.True == bindings.HasFuncEXT_disjoint_timer_query_webgl2QueryCounterEXT(
+		this.ref,
 	)
 }
 
-// QueryCounterEXTFunc returns the method "EXT_disjoint_timer_query_webgl2.queryCounterEXT".
-func (this EXT_disjoint_timer_query_webgl2) QueryCounterEXTFunc() (fn js.Func[func(query WebGLQuery, target GLenum)]) {
-	return fn.FromRef(
-		bindings.EXT_disjoint_timer_query_webgl2QueryCounterEXTFunc(
-			this.Ref(),
-		),
+// FuncQueryCounterEXT returns the method "EXT_disjoint_timer_query_webgl2.queryCounterEXT".
+func (this EXT_disjoint_timer_query_webgl2) FuncQueryCounterEXT() (fn js.Func[func(query WebGLQuery, target GLenum)]) {
+	bindings.FuncEXT_disjoint_timer_query_webgl2QueryCounterEXT(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // QueryCounterEXT calls the method "EXT_disjoint_timer_query_webgl2.queryCounterEXT".
 func (this EXT_disjoint_timer_query_webgl2) QueryCounterEXT(query WebGLQuery, target GLenum) (ret js.Void) {
 	bindings.CallEXT_disjoint_timer_query_webgl2QueryCounterEXT(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		query.Ref(),
 		uint32(target),
 	)
@@ -960,7 +965,7 @@ func (this EXT_disjoint_timer_query_webgl2) QueryCounterEXT(query WebGLQuery, ta
 // the catch clause.
 func (this EXT_disjoint_timer_query_webgl2) TryQueryCounterEXT(query WebGLQuery, target GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEXT_disjoint_timer_query_webgl2QueryCounterEXT(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		query.Ref(),
 		uint32(target),
 	)
@@ -973,7 +978,7 @@ type EXT_float_blend struct {
 }
 
 func (this EXT_float_blend) Once() EXT_float_blend {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -987,7 +992,7 @@ func (this EXT_float_blend) FromRef(ref js.Ref) EXT_float_blend {
 }
 
 func (this EXT_float_blend) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type EXT_frag_depth struct {
@@ -995,7 +1000,7 @@ type EXT_frag_depth struct {
 }
 
 func (this EXT_frag_depth) Once() EXT_frag_depth {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1009,7 +1014,7 @@ func (this EXT_frag_depth) FromRef(ref js.Ref) EXT_frag_depth {
 }
 
 func (this EXT_frag_depth) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 const (
@@ -1024,7 +1029,7 @@ type EXT_sRGB struct {
 }
 
 func (this EXT_sRGB) Once() EXT_sRGB {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1038,7 +1043,7 @@ func (this EXT_sRGB) FromRef(ref js.Ref) EXT_sRGB {
 }
 
 func (this EXT_sRGB) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type EXT_shader_texture_lod struct {
@@ -1046,7 +1051,7 @@ type EXT_shader_texture_lod struct {
 }
 
 func (this EXT_shader_texture_lod) Once() EXT_shader_texture_lod {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1060,7 +1065,7 @@ func (this EXT_shader_texture_lod) FromRef(ref js.Ref) EXT_shader_texture_lod {
 }
 
 func (this EXT_shader_texture_lod) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 const (
@@ -1075,7 +1080,7 @@ type EXT_texture_compression_bptc struct {
 }
 
 func (this EXT_texture_compression_bptc) Once() EXT_texture_compression_bptc {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1089,7 +1094,7 @@ func (this EXT_texture_compression_bptc) FromRef(ref js.Ref) EXT_texture_compres
 }
 
 func (this EXT_texture_compression_bptc) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 const (
@@ -1104,7 +1109,7 @@ type EXT_texture_compression_rgtc struct {
 }
 
 func (this EXT_texture_compression_rgtc) Once() EXT_texture_compression_rgtc {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1118,7 +1123,7 @@ func (this EXT_texture_compression_rgtc) FromRef(ref js.Ref) EXT_texture_compres
 }
 
 func (this EXT_texture_compression_rgtc) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 const (
@@ -1131,7 +1136,7 @@ type EXT_texture_filter_anisotropic struct {
 }
 
 func (this EXT_texture_filter_anisotropic) Once() EXT_texture_filter_anisotropic {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1145,7 +1150,7 @@ func (this EXT_texture_filter_anisotropic) FromRef(ref js.Ref) EXT_texture_filte
 }
 
 func (this EXT_texture_filter_anisotropic) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 const (
@@ -1164,7 +1169,7 @@ type EXT_texture_norm16 struct {
 }
 
 func (this EXT_texture_norm16) Once() EXT_texture_norm16 {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1178,7 +1183,7 @@ func (this EXT_texture_norm16) FromRef(ref js.Ref) EXT_texture_norm16 {
 }
 
 func (this EXT_texture_norm16) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 type NamedCurve = js.String
@@ -1210,17 +1215,28 @@ func (p EcKeyAlgorithm) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p EcKeyAlgorithm) UpdateFrom(ref js.Ref) {
+func (p *EcKeyAlgorithm) UpdateFrom(ref js.Ref) {
 	bindings.EcKeyAlgorithmJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p EcKeyAlgorithm) Update(ref js.Ref) {
+func (p *EcKeyAlgorithm) Update(ref js.Ref) {
 	bindings.EcKeyAlgorithmJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *EcKeyAlgorithm) FreeMembers(recursive bool) {
+	js.Free(
+		p.NamedCurve.Ref(),
+		p.Name.Ref(),
+	)
+	p.NamedCurve = p.NamedCurve.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type EcKeyGenParams struct {
@@ -1250,17 +1266,28 @@ func (p EcKeyGenParams) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p EcKeyGenParams) UpdateFrom(ref js.Ref) {
+func (p *EcKeyGenParams) UpdateFrom(ref js.Ref) {
 	bindings.EcKeyGenParamsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p EcKeyGenParams) Update(ref js.Ref) {
+func (p *EcKeyGenParams) Update(ref js.Ref) {
 	bindings.EcKeyGenParamsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *EcKeyGenParams) FreeMembers(recursive bool) {
+	js.Free(
+		p.NamedCurve.Ref(),
+		p.Name.Ref(),
+	)
+	p.NamedCurve = p.NamedCurve.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type EcKeyImportParams struct {
@@ -1290,17 +1317,28 @@ func (p EcKeyImportParams) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p EcKeyImportParams) UpdateFrom(ref js.Ref) {
+func (p *EcKeyImportParams) UpdateFrom(ref js.Ref) {
 	bindings.EcKeyImportParamsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p EcKeyImportParams) Update(ref js.Ref) {
+func (p *EcKeyImportParams) Update(ref js.Ref) {
 	bindings.EcKeyImportParamsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *EcKeyImportParams) FreeMembers(recursive bool) {
+	js.Free(
+		p.NamedCurve.Ref(),
+		p.Name.Ref(),
+	)
+	p.NamedCurve = p.NamedCurve.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type EcdhKeyDeriveParams struct {
@@ -1330,17 +1368,28 @@ func (p EcdhKeyDeriveParams) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p EcdhKeyDeriveParams) UpdateFrom(ref js.Ref) {
+func (p *EcdhKeyDeriveParams) UpdateFrom(ref js.Ref) {
 	bindings.EcdhKeyDeriveParamsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p EcdhKeyDeriveParams) Update(ref js.Ref) {
+func (p *EcdhKeyDeriveParams) Update(ref js.Ref) {
 	bindings.EcdhKeyDeriveParamsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *EcdhKeyDeriveParams) FreeMembers(recursive bool) {
+	js.Free(
+		p.Public.Ref(),
+		p.Name.Ref(),
+	)
+	p.Public = p.Public.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type HashAlgorithmIdentifier = AlgorithmIdentifier
@@ -1372,17 +1421,28 @@ func (p EcdsaParams) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p EcdsaParams) UpdateFrom(ref js.Ref) {
+func (p *EcdsaParams) UpdateFrom(ref js.Ref) {
 	bindings.EcdsaParamsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p EcdsaParams) Update(ref js.Ref) {
+func (p *EcdsaParams) Update(ref js.Ref) {
 	bindings.EcdsaParamsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *EcdsaParams) FreeMembers(recursive bool) {
+	js.Free(
+		p.Hash.Ref(),
+		p.Name.Ref(),
+	)
+	p.Hash = p.Hash.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type Ed448Params struct {
@@ -1412,17 +1472,28 @@ func (p Ed448Params) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p Ed448Params) UpdateFrom(ref js.Ref) {
+func (p *Ed448Params) UpdateFrom(ref js.Ref) {
 	bindings.Ed448ParamsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p Ed448Params) Update(ref js.Ref) {
+func (p *Ed448Params) Update(ref js.Ref) {
 	bindings.Ed448ParamsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *Ed448Params) FreeMembers(recursive bool) {
+	js.Free(
+		p.Context.Ref(),
+		p.Name.Ref(),
+	)
+	p.Context = p.Context.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 type EffectCallbackFunc func(this js.Ref, progress float64, currentTarget OneOf_Element_CSSPseudoElement, animation Animation) js.Ref
@@ -1472,7 +1543,7 @@ func (cb *EffectCallback[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 3+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
 
 	if ctx.Return(cb.Fn(
@@ -1552,17 +1623,26 @@ func (p EncodedVideoChunkInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p EncodedVideoChunkInit) UpdateFrom(ref js.Ref) {
+func (p *EncodedVideoChunkInit) UpdateFrom(ref js.Ref) {
 	bindings.EncodedVideoChunkInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p EncodedVideoChunkInit) Update(ref js.Ref) {
+func (p *EncodedVideoChunkInit) Update(ref js.Ref) {
 	bindings.EncodedVideoChunkInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *EncodedVideoChunkInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Data.Ref(),
+	)
+	p.Data = p.Data.FromRef(js.Undefined)
 }
 
 func NewEncodedVideoChunk(init EncodedVideoChunkInit) (ret EncodedVideoChunk) {
@@ -1576,7 +1656,7 @@ type EncodedVideoChunk struct {
 }
 
 func (this EncodedVideoChunk) Once() EncodedVideoChunk {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1590,7 +1670,7 @@ func (this EncodedVideoChunk) FromRef(ref js.Ref) EncodedVideoChunk {
 }
 
 func (this EncodedVideoChunk) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Type returns the value of property "EncodedVideoChunk.type".
@@ -1598,7 +1678,7 @@ func (this EncodedVideoChunk) Free() {
 // It returns ok=false if there is no such property.
 func (this EncodedVideoChunk) Type() (ret EncodedVideoChunkType, ok bool) {
 	ok = js.True == bindings.GetEncodedVideoChunkType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1608,7 +1688,7 @@ func (this EncodedVideoChunk) Type() (ret EncodedVideoChunkType, ok bool) {
 // It returns ok=false if there is no such property.
 func (this EncodedVideoChunk) Timestamp() (ret int64, ok bool) {
 	ok = js.True == bindings.GetEncodedVideoChunkTimestamp(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1618,7 +1698,7 @@ func (this EncodedVideoChunk) Timestamp() (ret int64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this EncodedVideoChunk) Duration() (ret uint64, ok bool) {
 	ok = js.True == bindings.GetEncodedVideoChunkDuration(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1628,31 +1708,30 @@ func (this EncodedVideoChunk) Duration() (ret uint64, ok bool) {
 // It returns ok=false if there is no such property.
 func (this EncodedVideoChunk) ByteLength() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetEncodedVideoChunkByteLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasCopyTo returns true if the method "EncodedVideoChunk.copyTo" exists.
-func (this EncodedVideoChunk) HasCopyTo() bool {
-	return js.True == bindings.HasEncodedVideoChunkCopyTo(
-		this.Ref(),
+// HasFuncCopyTo returns true if the method "EncodedVideoChunk.copyTo" exists.
+func (this EncodedVideoChunk) HasFuncCopyTo() bool {
+	return js.True == bindings.HasFuncEncodedVideoChunkCopyTo(
+		this.ref,
 	)
 }
 
-// CopyToFunc returns the method "EncodedVideoChunk.copyTo".
-func (this EncodedVideoChunk) CopyToFunc() (fn js.Func[func(destination AllowSharedBufferSource)]) {
-	return fn.FromRef(
-		bindings.EncodedVideoChunkCopyToFunc(
-			this.Ref(),
-		),
+// FuncCopyTo returns the method "EncodedVideoChunk.copyTo".
+func (this EncodedVideoChunk) FuncCopyTo() (fn js.Func[func(destination AllowSharedBufferSource)]) {
+	bindings.FuncEncodedVideoChunkCopyTo(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // CopyTo calls the method "EncodedVideoChunk.copyTo".
 func (this EncodedVideoChunk) CopyTo(destination AllowSharedBufferSource) (ret js.Void) {
 	bindings.CallEncodedVideoChunkCopyTo(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		destination.Ref(),
 	)
 
@@ -1664,7 +1743,7 @@ func (this EncodedVideoChunk) CopyTo(destination AllowSharedBufferSource) (ret j
 // the catch clause.
 func (this EncodedVideoChunk) TryCopyTo(destination AllowSharedBufferSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEncodedVideoChunkCopyTo(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		destination.Ref(),
 	)
 
@@ -1771,17 +1850,31 @@ func (p VideoDecoderConfig) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p VideoDecoderConfig) UpdateFrom(ref js.Ref) {
+func (p *VideoDecoderConfig) UpdateFrom(ref js.Ref) {
 	bindings.VideoDecoderConfigJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p VideoDecoderConfig) Update(ref js.Ref) {
+func (p *VideoDecoderConfig) Update(ref js.Ref) {
 	bindings.VideoDecoderConfigJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *VideoDecoderConfig) FreeMembers(recursive bool) {
+	js.Free(
+		p.Codec.Ref(),
+		p.Description.Ref(),
+	)
+	p.Codec = p.Codec.FromRef(js.Undefined)
+	p.Description = p.Description.FromRef(js.Undefined)
+	if recursive {
+		p.ColorSpace.FreeMembers(true)
+	}
 }
 
 type SvcOutputMetadata struct {
@@ -1811,15 +1904,20 @@ func (p SvcOutputMetadata) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p SvcOutputMetadata) UpdateFrom(ref js.Ref) {
+func (p *SvcOutputMetadata) UpdateFrom(ref js.Ref) {
 	bindings.SvcOutputMetadataJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p SvcOutputMetadata) Update(ref js.Ref) {
+func (p *SvcOutputMetadata) Update(ref js.Ref) {
 	bindings.SvcOutputMetadataJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *SvcOutputMetadata) FreeMembers(recursive bool) {
 }

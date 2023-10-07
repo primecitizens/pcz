@@ -1,4 +1,4 @@
-- File: webcodecs-hevc-codec-registration.idl
+- File: webref/webcodecs-hevc-codec-registration.idl
   Dict:
     Name: VideoEncoderEncodeOptionsForHevc
     Fields:
@@ -6,7 +6,7 @@
         Type:
           Name: unsigned short
           Nullable: true
-- File: webcodecs-vp9-codec-registration.idl
+- File: webref/webcodecs-vp9-codec-registration.idl
   Dict:
     Name: VideoEncoderEncodeOptionsForVp9
     Fields:
@@ -14,7 +14,7 @@
         Type:
           Name: unsigned short
           Nullable: true
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: VideoEncoderInit
     Fields:
@@ -26,7 +26,7 @@
         Required: true
         Type:
           Name: WebCodecsErrorCallback
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: VideoEncoderSupport
     Fields:
@@ -36,7 +36,7 @@
       - Name: config
         Type:
           Name: VideoEncoderConfig
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Enum:
     Name: VideoFacingModeEnum
     Values:
@@ -44,7 +44,7 @@
       - environment
       - left
       - right
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Interface:
     Name: VideoFrame
     ExtAttrs:
@@ -270,7 +270,7 @@
               - DedicatedWorker
           - Name: Serializable
           - Name: Transferable
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: VideoFrameBufferInit
     Fields:
@@ -322,7 +322,7 @@
           Name: sequence
           Params:
             - Name: ArrayBuffer
-- File: video-rvfc.idl
+- File: webref/video-rvfc.idl
   Dict:
     Name: VideoFrameCallbackMetadata
     Fields:
@@ -362,7 +362,7 @@
       - Name: rtpTimestamp
         Type:
           Name: unsigned long
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: VideoFrameCopyToOptions
     Fields:
@@ -374,7 +374,7 @@
           Name: sequence
           Params:
             - Name: PlaneLayout
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: VideoFrameInit
     Fields:
@@ -404,10 +404,10 @@
       - Name: metadata
         Type:
           Name: VideoFrameMetadata
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: VideoFrameMetadata
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Callback:
     Name: VideoFrameOutputCallback
     Args:
@@ -416,7 +416,7 @@
           Name: VideoFrame
     Returns:
       - Name: undefined
-- File: video-rvfc.idl
+- File: webref/video-rvfc.idl
   Callback:
     Name: VideoFrameRequestCallback
     Args:
@@ -428,7 +428,7 @@
           Name: VideoFrameCallbackMetadata
     Returns:
       - Name: undefined
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Enum:
     Name: VideoMatrixCoefficients
     Values:
@@ -437,7 +437,7 @@
       - bt470bg
       - smpte170m
       - bt2020-ncl
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Enum:
     Name: VideoPixelFormat
     Values:
@@ -450,7 +450,7 @@
       - RGBX
       - BGRA
       - BGRX
-- File: media-playback-quality.idl
+- File: webref/media-playback-quality.idl
   Interface:
     Name: VideoPlaybackQuality
     ExtAttrs:
@@ -490,13 +490,13 @@
           - Name: Exposed
             Values:
               - Window
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Enum:
     Name: VideoResizeModeEnum
     Values:
       - none
       - crop-and-scale
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: VideoTrack
     ExtAttrs:
@@ -553,7 +553,7 @@
             Values:
               - Window
               - DedicatedWorker
-- File: mediacapture-transform.idl
+- File: webref/mediacapture-transform.idl
   Interface:
     Name: VideoTrackGenerator
     ExtAttrs:
@@ -584,7 +584,7 @@
           - Name: Exposed
             Values:
               - DedicatedWorker
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: VideoTrackList
     Inherits: EventTarget
@@ -654,7 +654,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Enum:
     Name: VideoTransferCharacteristics
     Values:
@@ -664,7 +664,7 @@
       - linear
       - pq
       - hlg
-- File: scroll-animations.idl
+- File: webref/scroll-animations.idl
   Interface:
     Name: ViewTimeline
     Inherits: ScrollTimeline
@@ -708,7 +708,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: scroll-animations.idl
+- File: webref/scroll-animations.idl
   Dict:
     Name: ViewTimelineOptions
     Fields:
@@ -729,7 +729,7 @@
                 - Union:
                     - Name: CSSNumericValue
                     - Name: CSSKeywordValue
-- File: css-view-transitions.idl
+- File: webref/css-view-transitions.idl
   Interface:
     Name: ViewTransition
     ExtAttrs:
@@ -775,7 +775,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: mediacapture-viewport.idl
+- File: webref/mediacapture-viewport.idl
   Dict:
     Name: ViewportMediaStreamConstraints
     Fields:
@@ -791,7 +791,7 @@
           Union:
             - Name: boolean
             - Name: MediaTrackConstraints
-- File: virtual-keyboard.idl
+- File: webref/virtual-keyboard.idl
   Interface:
     Name: VirtualKeyboard
     Inherits: EventTarget
@@ -843,7 +843,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: VisibilityStateEntry
     Inherits: PerformanceEntry
@@ -884,7 +884,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: cssom-view.idl
+- File: webref/cssom-view.idl
   Interface:
     Name: VisualViewport
     Inherits: EventTarget
@@ -970,12 +970,12 @@
           - Name: Exposed
             Values:
               - Window
-- File: webidl.idl
+- File: webref/webidl.idl
   Callback:
     Name: VoidFunction
     Returns:
       - Name: undefined
-- File: WEBGL_blend_equation_advanced_coherent.idl
+- File: webref/WEBGL_blend_equation_advanced_coherent.idl
   Interface:
     Name: WEBGL_blend_equation_advanced_coherent
     ExtAttrs:
@@ -1045,7 +1045,7 @@
         Value: "0x92B0"
         Type:
           Name: GLenum
-- File: WEBGL_clip_cull_distance.idl
+- File: webref/WEBGL_clip_cull_distance.idl
   Interface:
     Name: WEBGL_clip_cull_distance
     ExtAttrs:
@@ -1099,7 +1099,7 @@
         Value: "0x3007"
         Type:
           Name: GLenum
-- File: WEBGL_color_buffer_float.idl
+- File: webref/WEBGL_color_buffer_float.idl
   Interface:
     Name: WEBGL_color_buffer_float
     ExtAttrs:
@@ -1121,7 +1121,7 @@
         Value: "0x8C17"
         Type:
           Name: GLenum
-- File: WEBGL_compressed_texture_astc.idl
+- File: webref/WEBGL_compressed_texture_astc.idl
   Interface:
     Name: WEBGL_compressed_texture_astc
     ExtAttrs:
@@ -1255,7 +1255,7 @@
               - Window
               - Worker
           - Name: LegacyNoInterfaceObject
-- File: WEBGL_compressed_texture_etc.idl
+- File: webref/WEBGL_compressed_texture_etc.idl
   Interface:
     Name: WEBGL_compressed_texture_etc
     ExtAttrs:
@@ -1305,7 +1305,7 @@
         Value: "0x9279"
         Type:
           Name: GLenum
-- File: WEBGL_compressed_texture_etc1.idl
+- File: webref/WEBGL_compressed_texture_etc1.idl
   Interface:
     Name: WEBGL_compressed_texture_etc1
     ExtAttrs:
@@ -1319,7 +1319,7 @@
         Value: "0x8D64"
         Type:
           Name: GLenum
-- File: WEBGL_compressed_texture_pvrtc.idl
+- File: webref/WEBGL_compressed_texture_pvrtc.idl
   Interface:
     Name: WEBGL_compressed_texture_pvrtc
     ExtAttrs:
@@ -1345,7 +1345,7 @@
         Value: "0x8C03"
         Type:
           Name: GLenum
-- File: WEBGL_compressed_texture_s3tc.idl
+- File: webref/WEBGL_compressed_texture_s3tc.idl
   Interface:
     Name: WEBGL_compressed_texture_s3tc
     ExtAttrs:
@@ -1371,7 +1371,7 @@
         Value: "0x83F3"
         Type:
           Name: GLenum
-- File: WEBGL_compressed_texture_s3tc_srgb.idl
+- File: webref/WEBGL_compressed_texture_s3tc_srgb.idl
   Interface:
     Name: WEBGL_compressed_texture_s3tc_srgb
     ExtAttrs:
@@ -1397,7 +1397,7 @@
         Value: "0x8C4F"
         Type:
           Name: GLenum
-- File: WEBGL_debug_renderer_info.idl
+- File: webref/WEBGL_debug_renderer_info.idl
   Interface:
     Name: WEBGL_debug_renderer_info
     ExtAttrs:
@@ -1415,7 +1415,7 @@
         Value: "0x9246"
         Type:
           Name: GLenum
-- File: WEBGL_debug_shaders.idl
+- File: webref/WEBGL_debug_shaders.idl
   Interface:
     Name: WEBGL_debug_shaders
     ExtAttrs:
@@ -1438,7 +1438,7 @@
               - Window
               - Worker
           - Name: LegacyNoInterfaceObject
-- File: WEBGL_depth_texture.idl
+- File: webref/WEBGL_depth_texture.idl
   Interface:
     Name: WEBGL_depth_texture
     ExtAttrs:
@@ -1452,7 +1452,7 @@
         Value: "0x84FA"
         Type:
           Name: GLenum
-- File: WEBGL_draw_buffers.idl
+- File: webref/WEBGL_draw_buffers.idl
   Interface:
     Name: WEBGL_draw_buffers
     ExtAttrs:
@@ -1614,7 +1614,7 @@
               - Window
               - Worker
           - Name: LegacyNoInterfaceObject
-- File: WEBGL_draw_instanced_base_vertex_base_instance.idl
+- File: webref/WEBGL_draw_instanced_base_vertex_base_instance.idl
   Interface:
     Name: WEBGL_draw_instanced_base_vertex_base_instance
     ExtAttrs:
@@ -1680,7 +1680,7 @@
               - Window
               - Worker
           - Name: LegacyNoInterfaceObject
-- File: WEBGL_lose_context.idl
+- File: webref/WEBGL_lose_context.idl
   Interface:
     Name: WEBGL_lose_context
     ExtAttrs:
@@ -1708,7 +1708,7 @@
               - Window
               - Worker
           - Name: LegacyNoInterfaceObject
-- File: WEBGL_multi_draw.idl
+- File: webref/WEBGL_multi_draw.idl
   Interface:
     Name: WEBGL_multi_draw
     ExtAttrs:
@@ -1888,7 +1888,7 @@
               - Window
               - Worker
           - Name: LegacyNoInterfaceObject
-- File: WEBGL_multi_draw_instanced_base_vertex_base_instance.idl
+- File: webref/WEBGL_multi_draw_instanced_base_vertex_base_instance.idl
   Interface:
     Name: WEBGL_multi_draw_instanced_base_vertex_base_instance
     ExtAttrs:
@@ -2023,7 +2023,7 @@
               - Window
               - Worker
           - Name: LegacyNoInterfaceObject
-- File: WEBGL_provoking_vertex.idl
+- File: webref/WEBGL_provoking_vertex.idl
   Interface:
     Name: WEBGL_provoking_vertex
     ExtAttrs:
@@ -2059,7 +2059,7 @@
               - Window
               - Worker
           - Name: LegacyNoInterfaceObject
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: WGSLLanguageFeatures
     ExtAttrs:
@@ -2072,7 +2072,7 @@
       TypeParams:
         - Name: DOMString
       Readonly: true
-- File: screen-wake-lock.idl
+- File: webref/screen-wake-lock.idl
   Interface:
     Name: WakeLock
     ExtAttrs:
@@ -2097,7 +2097,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: screen-wake-lock.idl
+- File: webref/screen-wake-lock.idl
   Interface:
     Name: WakeLockSentinel
     Inherits: EventTarget

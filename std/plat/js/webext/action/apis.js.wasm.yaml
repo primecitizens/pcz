@@ -1,0 +1,587 @@
+- File: webext/chrome/action.json
+  Dict:
+    Name: OpenPopupOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+    Fields:
+      - Name: windowId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - action
+- File: webext/chrome/action.json
+  Dict:
+    Name: SetBadgeBackgroundColorArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+    Fields:
+      - Name: color
+        Required: true
+        Type:
+          Union:
+            - Name: DOMString
+            - Name: ColorArray
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - browserAction
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - action
+      - Name: tabId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - action
+- File: webext/chrome/action.json
+  Dict:
+    Name: SetBadgeTextArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+    Fields:
+      - Name: tabId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - action
+      - Name: text
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - action
+- File: webext/chrome/action.json
+  Dict:
+    Name: SetBadgeTextColorArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+    Fields:
+      - Name: color
+        Required: true
+        Type:
+          Union:
+            - Name: DOMString
+            - Name: ColorArray
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - browserAction
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - action
+      - Name: tabId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - action
+- File: webext/chrome/action.json
+  Dict:
+    Name: SetIconArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+    Fields:
+      - Name: imageData
+        Type:
+          Union:
+            - Name: ImageDataType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - browserAction
+            - Name: any
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - action
+      - Name: path
+        Type:
+          Union:
+            - Name: DOMString
+            - Name: any
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - action
+      - Name: tabId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - action
+- File: webext/chrome/action.json
+  Dict:
+    Name: SetPopupArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+    Fields:
+      - Name: popup
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - action
+      - Name: tabId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - action
+- File: webext/chrome/action.json
+  Dict:
+    Name: SetTitleArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+    Fields:
+      - Name: tabId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - action
+      - Name: title
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - action
+- File: webext/chrome/action.json
+  Dict:
+    Name: TabDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+    Fields:
+      - Name: tabId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - action
+- File: webext/chrome/action.json
+  Dict:
+    Name: UserSettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+    Fields:
+      - Name: isOnToolbar
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - action
+- File: webext/chrome/action.json
+  WebextFunc:
+    Name: disable
+    Args:
+      - Name: tabId
+        Optional: true
+        Type:
+          Name: long long
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+- File: webext/chrome/action.json
+  WebextFunc:
+    Name: enable
+    Args:
+      - Name: tabId
+        Optional: true
+        Type:
+          Name: long long
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+- File: webext/chrome/action.json
+  WebextFunc:
+    Name: getBadgeBackgroundColor
+    Args:
+      - Name: details
+        Type:
+          Name: TabDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - action
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ColorArray
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - browserAction
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+- File: webext/chrome/action.json
+  WebextFunc:
+    Name: getBadgeText
+    Args:
+      - Name: details
+        Type:
+          Name: TabDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - action
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+- File: webext/chrome/action.json
+  WebextFunc:
+    Name: getBadgeTextColor
+    Args:
+      - Name: details
+        Type:
+          Name: TabDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - action
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ColorArray
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - browserAction
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+- File: webext/chrome/action.json
+  WebextFunc:
+    Name: getPopup
+    Args:
+      - Name: details
+        Type:
+          Name: TabDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - action
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+- File: webext/chrome/action.json
+  WebextFunc:
+    Name: getTitle
+    Args:
+      - Name: details
+        Type:
+          Name: TabDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - action
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+- File: webext/chrome/action.json
+  WebextFunc:
+    Name: getUserSettings
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: UserSettings
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - action
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+- File: webext/chrome/action.json
+  WebextFunc:
+    Name: isEnabled
+    Args:
+      - Name: tabId
+        Optional: true
+        Type:
+          Name: long long
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+- File: webext/chrome/action.json
+  WebextEvent:
+    Name: onClicked
+    Args:
+      - Name: tab
+        Type:
+          Name: Tab
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+- File: webext/chrome/action.json
+  WebextFunc:
+    Name: openPopup
+    Args:
+      - Name: options
+        Optional: true
+        Type:
+          Name: OpenPopupOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - action
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+- File: webext/chrome/action.json
+  WebextFunc:
+    Name: setBadgeBackgroundColor
+    Args:
+      - Name: details
+        Type:
+          Name: SetBadgeBackgroundColorArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - action
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+- File: webext/chrome/action.json
+  WebextFunc:
+    Name: setBadgeText
+    Args:
+      - Name: details
+        Type:
+          Name: SetBadgeTextArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - action
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+- File: webext/chrome/action.json
+  WebextFunc:
+    Name: setBadgeTextColor
+    Args:
+      - Name: details
+        Type:
+          Name: SetBadgeTextColorArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - action
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+- File: webext/chrome/action.json
+  WebextFunc:
+    Name: setIcon
+    Args:
+      - Name: details
+        Type:
+          Name: SetIconArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - action
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+- File: webext/chrome/action.json
+  WebextFunc:
+    Name: setPopup
+    Args:
+      - Name: details
+        Type:
+          Name: SetPopupArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - action
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action
+- File: webext/chrome/action.json
+  WebextFunc:
+    Name: setTitle
+    Args:
+      - Name: details
+        Type:
+          Name: SetTitleArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - action
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - action

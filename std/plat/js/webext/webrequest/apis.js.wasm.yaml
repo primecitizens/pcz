@@ -1,0 +1,2335 @@
+- File: webext/web_request.json
+  Dict:
+    Name: BlockingResponse
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+    Fields:
+      - Name: authCredentials
+        Type:
+          Name: BlockingResponseFieldAuthCredentials
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: cancel
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: redirectUrl
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: requestHeaders
+        Type:
+          Name: HttpHeaders
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: responseHeaders
+        Type:
+          Name: HttpHeaders
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+- File: webext/web_request.json
+  Dict:
+    Name: BlockingResponseFieldAuthCredentials
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+    Fields:
+      - Name: password
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: username
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+- File: webext/web_request.json
+  Typedef:
+    Name: FormDataItem
+    Type:
+      Union:
+        - Name: Uint8Array
+        - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  Typedef:
+    Name: HttpHeaders
+    Type:
+      Name: sequence
+      Params:
+        - Name: HttpHeadersElem
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - webRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  Dict:
+    Name: HttpHeadersElem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+    Fields:
+      - Name: binaryValue
+        Type:
+          Name: sequence
+          Params:
+            - Name: long long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: value
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+- File: webext/web_request.json
+  Enum:
+    Name: IgnoredActionType
+    Values:
+      - redirect
+      - request_headers
+      - response_headers
+      - auth_credentials
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  WebextProp:
+    Name: MAX_HANDLER_BEHAVIOR_CHANGED_CALLS_PER_10_MINUTES
+    Type:
+      Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  Dict:
+    Name: OnActionIgnoredArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+    Fields:
+      - Name: action
+        Required: true
+        Type:
+          Name: IgnoredActionType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: requestId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+- File: webext/web_request.json
+  Callback:
+    Name: OnAuthRequiredArgAsyncCallback
+    Args:
+      - Name: response
+        Type:
+          Name: BlockingResponse
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  Dict:
+    Name: OnAuthRequiredArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+    Fields:
+      - Name: challenger
+        Required: true
+        Type:
+          Name: OnAuthRequiredArgDetailsFieldChallenger
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: documentId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: documentLifecycle
+        Required: true
+        Type:
+          Name: DocumentLifecycle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: frameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: frameType
+        Required: true
+        Type:
+          Name: FrameType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: initiator
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: isProxy
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: method
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: parentDocumentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: parentFrameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: realm
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: requestId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: responseHeaders
+        Type:
+          Name: HttpHeaders
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: scheme
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: statusCode
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: statusLine
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: tabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: timeStamp
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: type
+        Required: true
+        Type:
+          Name: ResourceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+- File: webext/web_request.json
+  Dict:
+    Name: OnAuthRequiredArgDetailsFieldChallenger
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+    Fields:
+      - Name: host
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: port
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+- File: webext/web_request.json
+  Enum:
+    Name: OnAuthRequiredOptions
+    Values:
+      - responseHeaders
+      - blocking
+      - asyncBlocking
+      - extraHeaders
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  Dict:
+    Name: OnBeforeRedirectArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+    Fields:
+      - Name: documentId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: documentLifecycle
+        Required: true
+        Type:
+          Name: DocumentLifecycle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: frameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: frameType
+        Required: true
+        Type:
+          Name: FrameType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: fromCache
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: initiator
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: ip
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: method
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: parentDocumentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: parentFrameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: redirectUrl
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: requestId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: responseHeaders
+        Type:
+          Name: HttpHeaders
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: statusCode
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: statusLine
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: tabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: timeStamp
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: type
+        Required: true
+        Type:
+          Name: ResourceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+- File: webext/web_request.json
+  Enum:
+    Name: OnBeforeRedirectOptions
+    Values:
+      - responseHeaders
+      - extraHeaders
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  Dict:
+    Name: OnBeforeRequestArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+    Fields:
+      - Name: documentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: documentLifecycle
+        Type:
+          Name: DocumentLifecycle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: frameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: frameType
+        Type:
+          Name: FrameType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: initiator
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: method
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: parentDocumentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: parentFrameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: requestBody
+        Type:
+          Name: OnBeforeRequestArgDetailsFieldRequestBody
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: requestId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: tabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: timeStamp
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: type
+        Required: true
+        Type:
+          Name: ResourceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+- File: webext/web_request.json
+  Dict:
+    Name: OnBeforeRequestArgDetailsFieldRequestBody
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+    Fields:
+      - Name: error
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: formData
+        Type:
+          Name: sequence
+          Params:
+            - Name: FormDataItem
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: raw
+        Type:
+          Name: sequence
+          Params:
+            - Name: UploadData
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+- File: webext/web_request.json
+  Enum:
+    Name: OnBeforeRequestOptions
+    Values:
+      - blocking
+      - requestBody
+      - extraHeaders
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  Dict:
+    Name: OnBeforeSendHeadersArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+    Fields:
+      - Name: documentId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: documentLifecycle
+        Required: true
+        Type:
+          Name: DocumentLifecycle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: frameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: frameType
+        Required: true
+        Type:
+          Name: FrameType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: initiator
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: method
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: parentDocumentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: parentFrameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: requestHeaders
+        Type:
+          Name: HttpHeaders
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: requestId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: tabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: timeStamp
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: type
+        Required: true
+        Type:
+          Name: ResourceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+- File: webext/web_request.json
+  Enum:
+    Name: OnBeforeSendHeadersOptions
+    Values:
+      - requestHeaders
+      - blocking
+      - extraHeaders
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  Dict:
+    Name: OnCompletedArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+    Fields:
+      - Name: documentId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: documentLifecycle
+        Required: true
+        Type:
+          Name: DocumentLifecycle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: frameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: frameType
+        Required: true
+        Type:
+          Name: FrameType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: fromCache
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: initiator
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: ip
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: method
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: parentDocumentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: parentFrameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: requestId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: responseHeaders
+        Type:
+          Name: HttpHeaders
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: statusCode
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: statusLine
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: tabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: timeStamp
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: type
+        Required: true
+        Type:
+          Name: ResourceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+- File: webext/web_request.json
+  Enum:
+    Name: OnCompletedOptions
+    Values:
+      - responseHeaders
+      - extraHeaders
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  Dict:
+    Name: OnErrorOccurredArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+    Fields:
+      - Name: documentId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: documentLifecycle
+        Required: true
+        Type:
+          Name: DocumentLifecycle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: error
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: frameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: frameType
+        Required: true
+        Type:
+          Name: FrameType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: fromCache
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: initiator
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: ip
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: method
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: parentDocumentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: parentFrameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: requestId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: tabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: timeStamp
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: type
+        Required: true
+        Type:
+          Name: ResourceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+- File: webext/web_request.json
+  Enum:
+    Name: OnErrorOccurredOptions
+    Values:
+      - extraHeaders
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  Dict:
+    Name: OnHeadersReceivedArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+    Fields:
+      - Name: documentId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: documentLifecycle
+        Required: true
+        Type:
+          Name: DocumentLifecycle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: frameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: frameType
+        Required: true
+        Type:
+          Name: FrameType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: initiator
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: method
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: parentDocumentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: parentFrameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: requestId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: responseHeaders
+        Type:
+          Name: HttpHeaders
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: statusCode
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: statusLine
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: tabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: timeStamp
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: type
+        Required: true
+        Type:
+          Name: ResourceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+- File: webext/web_request.json
+  Enum:
+    Name: OnHeadersReceivedOptions
+    Values:
+      - blocking
+      - responseHeaders
+      - extraHeaders
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  Dict:
+    Name: OnResponseStartedArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+    Fields:
+      - Name: documentId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: documentLifecycle
+        Required: true
+        Type:
+          Name: DocumentLifecycle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: frameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: frameType
+        Required: true
+        Type:
+          Name: FrameType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: fromCache
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: initiator
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: ip
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: method
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: parentDocumentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: parentFrameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: requestId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: responseHeaders
+        Type:
+          Name: HttpHeaders
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: statusCode
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: statusLine
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: tabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: timeStamp
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: type
+        Required: true
+        Type:
+          Name: ResourceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+- File: webext/web_request.json
+  Enum:
+    Name: OnResponseStartedOptions
+    Values:
+      - responseHeaders
+      - extraHeaders
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  Dict:
+    Name: OnSendHeadersArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+    Fields:
+      - Name: documentId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: documentLifecycle
+        Required: true
+        Type:
+          Name: DocumentLifecycle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: frameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: frameType
+        Required: true
+        Type:
+          Name: FrameType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: initiator
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: method
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: parentDocumentId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: parentFrameId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: requestHeaders
+        Type:
+          Name: HttpHeaders
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: requestId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: tabId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: timeStamp
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: type
+        Required: true
+        Type:
+          Name: ResourceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+- File: webext/web_request.json
+  Enum:
+    Name: OnSendHeadersOptions
+    Values:
+      - requestHeaders
+      - extraHeaders
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  Dict:
+    Name: RequestFilter
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+    Fields:
+      - Name: tabId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: types
+        Type:
+          Name: sequence
+          Params:
+            - Name: ResourceType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: urls
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: windowId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+- File: webext/web_request.json
+  Enum:
+    Name: ResourceType
+    Values:
+      - main_frame
+      - sub_frame
+      - stylesheet
+      - script
+      - image
+      - font
+      - object
+      - xmlhttprequest
+      - ping
+      - csp_report
+      - media
+      - websocket
+      - webbundle
+      - other
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  Dict:
+    Name: UploadData
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+    Fields:
+      - Name: bytes
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+      - Name: file
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+- File: webext/web_request.json
+  WebextFunc:
+    Name: handlerBehaviorChanged
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  WebextEvent:
+    Name: onActionIgnored
+    Args:
+      - Name: details
+        Type:
+          Name: OnActionIgnoredArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  WebextEvent:
+    Name: onAuthRequired
+    Args:
+      - Name: details
+        Type:
+          Name: OnAuthRequiredArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+      - Name: asyncCallback
+        Optional: true
+        Type:
+          Name: OnAuthRequiredArgAsyncCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+    Returns:
+      - Name: BlockingResponse
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  WebextEvent:
+    Name: onBeforeRedirect
+    Args:
+      - Name: details
+        Type:
+          Name: OnBeforeRedirectArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  WebextEvent:
+    Name: onBeforeRequest
+    Args:
+      - Name: details
+        Type:
+          Name: OnBeforeRequestArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+    Returns:
+      - Name: BlockingResponse
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  WebextEvent:
+    Name: onBeforeSendHeaders
+    Args:
+      - Name: details
+        Type:
+          Name: OnBeforeSendHeadersArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+    Returns:
+      - Name: BlockingResponse
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  WebextEvent:
+    Name: onCompleted
+    Args:
+      - Name: details
+        Type:
+          Name: OnCompletedArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  WebextEvent:
+    Name: onErrorOccurred
+    Args:
+      - Name: details
+        Type:
+          Name: OnErrorOccurredArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  WebextEvent:
+    Name: onHeadersReceived
+    Args:
+      - Name: details
+        Type:
+          Name: OnHeadersReceivedArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+    Returns:
+      - Name: BlockingResponse
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  WebextEvent:
+    Name: onResponseStarted
+    Args:
+      - Name: details
+        Type:
+          Name: OnResponseStartedArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest
+- File: webext/web_request.json
+  WebextEvent:
+    Name: onSendHeaders
+    Args:
+      - Name: details
+        Type:
+          Name: OnSendHeadersArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequest

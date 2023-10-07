@@ -1,0 +1,5266 @@
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: AccessModifier
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: isEnabled
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: isActive
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Callback:
+    Name: BooleanCallback
+    Args:
+      - Name: result
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: Command
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: description
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: keybinding
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: isActive
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: scope
+        Type:
+          Name: CommandScope
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: isExtensionAction
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Enum:
+    Name: CommandScope
+    Values:
+      - GLOBAL
+      - CHROME
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: ControlledInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: text
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: DeleteExtensionErrorsProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: extensionId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: errorIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: type
+        Type:
+          Name: ErrorType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: DependentExtension
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: DisableReasons
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: suspiciousInstall
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: corruptInstall
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: updateRequired
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: publishedInStoreRequired
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: blockedByPolicy
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: reloading
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: custodianApprovalRequired
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: parentDisabledPermissions
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Callback:
+    Name: DragInstallInProgressCallback
+    Args:
+      - Name: loadGuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: ErrorFileSource
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: beforeHighlight
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: highlight
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: afterHighlight
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Enum:
+    Name: ErrorLevel
+    Values:
+      - LOG
+      - WARN
+      - ERROR
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Enum:
+    Name: ErrorType
+    Values:
+      - MANIFEST
+      - RUNTIME
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: EventData
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: event_type
+        Type:
+          Name: EventType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: item_id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: extensionInfo
+        Type:
+          Name: ExtensionInfo
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Enum:
+    Name: EventType
+    Values:
+      - INSTALLED
+      - UNINSTALLED
+      - LOADED
+      - UNLOADED
+      - VIEW_REGISTERED
+      - VIEW_UNREGISTERED
+      - ERROR_ADDED
+      - ERRORS_REMOVED
+      - PREFS_CHANGED
+      - WARNINGS_CHANGED
+      - COMMAND_ADDED
+      - COMMAND_REMOVED
+      - PERMISSIONS_CHANGED
+      - SERVICE_WORKER_STARTED
+      - SERVICE_WORKER_STOPPED
+      - CONFIGURATION_CHANGED
+      - PINNED_ACTIONS_CHANGED
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: ExtensionCommandUpdate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: extensionId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: commandName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: scope
+        Type:
+          Name: CommandScope
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: keybinding
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: ExtensionConfigurationUpdate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: extensionId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: fileAccess
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: incognitoAccess
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: errorCollection
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: hostAccess
+        Type:
+          Name: HostAccess
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: showAccessRequestsInToolbar
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: acknowledgeSafetyCheckWarning
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: pinnedToToolbar
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: ExtensionInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: blacklistText
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: safetyCheckText
+        Type:
+          Name: SafetyCheckStrings
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: commands
+        Type:
+          Name: sequence
+          Params:
+            - Name: Command
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: controlledInfo
+        Type:
+          Name: ControlledInfo
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: dependentExtensions
+        Type:
+          Name: sequence
+          Params:
+            - Name: DependentExtension
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: description
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: disableReasons
+        Type:
+          Name: DisableReasons
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: errorCollection
+        Type:
+          Name: AccessModifier
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: fileAccess
+        Type:
+          Name: AccessModifier
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: homePage
+        Type:
+          Name: HomePage
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: iconUrl
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: incognitoAccess
+        Type:
+          Name: AccessModifier
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: installWarnings
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: launchUrl
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: location
+        Type:
+          Name: Location
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: locationText
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: manifestErrors
+        Type:
+          Name: sequence
+          Params:
+            - Name: ManifestError
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: manifestHomePageUrl
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: mustRemainInstalled
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: offlineEnabled
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: optionsPage
+        Type:
+          Name: OptionsPage
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: path
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: permissions
+        Type:
+          Name: Permissions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: prettifiedPath
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: runtimeErrors
+        Type:
+          Name: sequence
+          Params:
+            - Name: RuntimeError
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: runtimeWarnings
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: state
+        Type:
+          Name: ExtensionState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: type
+        Type:
+          Name: ExtensionType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: updateUrl
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: userMayModify
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: version
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: views
+        Type:
+          Name: sequence
+          Params:
+            - Name: ExtensionView
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: webStoreUrl
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: showSafeBrowsingAllowlistWarning
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: showAccessRequestsInToolbar
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: acknowledgeSafetyCheckWarning
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: pinnedToToolbar
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Callback:
+    Name: ExtensionInfoCallback
+    Args:
+      - Name: result
+        Type:
+          Name: ExtensionInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Callback:
+    Name: ExtensionInfosCallback
+    Args:
+      - Name: result
+        Type:
+          Name: sequence
+          Params:
+            - Name: ExtensionInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: ExtensionSiteAccessUpdate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: siteAccess
+        Type:
+          Name: HostAccess
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Enum:
+    Name: ExtensionState
+    Values:
+      - ENABLED
+      - DISABLED
+      - TERMINATED
+      - BLACKLISTED
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Enum:
+    Name: ExtensionType
+    Values:
+      - HOSTED_APP
+      - PLATFORM_APP
+      - LEGACY_PACKAGED_APP
+      - EXTENSION
+      - THEME
+      - SHARED_MODULE
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: ExtensionView
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: renderProcessId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: renderViewId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: incognito
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: isIframe
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: type
+        Type:
+          Name: ViewType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Enum:
+    Name: FileType
+    Values:
+      - LOAD
+      - PEM
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: GetExtensionsInfoOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: includeDisabled
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: includeTerminated
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Callback:
+    Name: GetMatchingExtensionsForSiteCallback
+    Args:
+      - Name: matchingExtensions
+        Type:
+          Name: sequence
+          Params:
+            - Name: MatchingExtensionInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Callback:
+    Name: GetProjectsInfoCallback
+    Args:
+      - Name: result
+        Type:
+          Name: sequence
+          Params:
+            - Name: ProjectInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: HomePage
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: specified
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Enum:
+    Name: HostAccess
+    Values:
+      - ON_CLICK
+      - ON_SPECIFIC_SITES
+      - ON_ALL_SITES
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: InspectOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: extension_id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: render_process_id
+        Type:
+          Union:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: render_view_id
+        Type:
+          Union:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: incognito
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: InstallWarning
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: message
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: ItemInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: version
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: description
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: may_disable
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: enabled
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: isApp
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: type
+        Type:
+          Name: ItemType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: allow_activity
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: allow_file_access
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: wants_file_access
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: incognito_enabled
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: is_unpacked
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: allow_reload
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: terminated
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: allow_incognito
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: icon_url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: path
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: options_url
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: app_launch_url
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: homepage_url
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: update_url
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: install_warnings
+        Type:
+          Name: sequence
+          Params:
+            - Name: InstallWarning
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: manifest_errors
+        Type:
+          Name: sequence
+          Params:
+            - Name: any
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: runtime_errors
+        Type:
+          Name: sequence
+          Params:
+            - Name: any
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: offline_enabled
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: views
+        Type:
+          Name: sequence
+          Params:
+            - Name: ItemInspectView
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: ItemInspectView
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: path
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: render_process_id
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: render_view_id
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: incognito
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: generatedBackgroundPage
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Enum:
+    Name: ItemType
+    Values:
+      - hosted_app
+      - packaged_app
+      - legacy_packaged_app
+      - extension
+      - theme
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Callback:
+    Name: ItemsInfoCallback
+    Args:
+      - Name: result
+        Type:
+          Name: sequence
+          Params:
+            - Name: ItemInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: LoadError
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: error
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: path
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: source
+        Type:
+          Name: ErrorFileSource
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: retryGuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Callback:
+    Name: LoadErrorCallback
+    Args:
+      - Name: error
+        Optional: true
+        Type:
+          Name: LoadError
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: LoadUnpackedOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: failQuietly
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: populateError
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: retryGuid
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: useDraggedPath
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Enum:
+    Name: Location
+    Values:
+      - FROM_STORE
+      - UNPACKED
+      - THIRD_PARTY
+      - INSTALLED_BY_DEFAULT
+      - UNKNOWN
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: ManifestError
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: type
+        Type:
+          Name: ErrorType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: extensionId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: fromIncognito
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: source
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: message
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: id
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: manifestKey
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: manifestSpecific
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: MatchingExtensionInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: siteAccess
+        Type:
+          Name: HostAccess
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: canRequestAllSites
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: OpenDevToolsProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: extensionId
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: renderViewId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: renderProcessId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: isServiceWorker
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: incognito
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: url
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: lineNumber
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: columnNumber
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: OptionsPage
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: openInTab
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Callback:
+    Name: PackCallback
+    Args:
+      - Name: response
+        Type:
+          Name: PackDirectoryResponse
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: PackDirectoryResponse
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: message
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: item_path
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: pem_path
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: override_flags
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: status
+        Type:
+          Name: PackStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Enum:
+    Name: PackStatus
+    Values:
+      - SUCCESS
+      - ERROR
+      - WARNING
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: Permission
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: message
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: submessages
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: Permissions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: simplePermissions
+        Type:
+          Name: sequence
+          Params:
+            - Name: Permission
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: runtimeHostPermissions
+        Type:
+          Name: RuntimeHostPermissions
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: canAccessSiteData
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: ProfileConfigurationUpdate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: inDeveloperMode
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: ProfileInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: canLoadUnpacked
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: inDeveloperMode
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: isDeveloperModeControlledByPolicy
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: isIncognitoAvailable
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: isChildAccount
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Callback:
+    Name: ProfileInfoCallback
+    Args:
+      - Name: info
+        Type:
+          Name: ProfileInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: ProjectInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: ReloadOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: failQuietly
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: populateErrorForUnpacked
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Callback:
+    Name: RequestFileSourceCallback
+    Args:
+      - Name: response
+        Type:
+          Name: RequestFileSourceResponse
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: RequestFileSourceProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: extensionId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: pathSuffix
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: message
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: manifestKey
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: manifestSpecific
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: lineNumber
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: RequestFileSourceResponse
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: highlight
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: beforeHighlight
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: afterHighlight
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: title
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: message
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: RuntimeError
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: type
+        Type:
+          Name: ErrorType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: extensionId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: fromIncognito
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: source
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: message
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: id
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: severity
+        Type:
+          Name: ErrorLevel
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: contextUrl
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: occurrences
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: renderViewId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: renderProcessId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: canInspect
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: stackTrace
+        Type:
+          Name: sequence
+          Params:
+            - Name: StackFrame
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: RuntimeHostPermissions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: hasAllHosts
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: hostAccess
+        Type:
+          Name: HostAccess
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: hosts
+        Type:
+          Name: sequence
+          Params:
+            - Name: SiteControl
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: SafetyCheckStrings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: panelString
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: detailString
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Enum:
+    Name: SelectType
+    Values:
+      - FILE
+      - FOLDER
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: SiteControl
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: host
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: granted
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: SiteGroup
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: etldPlusOne
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: numExtensions
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: sites
+        Type:
+          Name: sequence
+          Params:
+            - Name: SiteInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: SiteInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: siteSet
+        Type:
+          Name: SiteSet
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: numExtensions
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: site
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Enum:
+    Name: SiteSet
+    Values:
+      - USER_PERMITTED
+      - USER_RESTRICTED
+      - EXTENSION_SPECIFIED
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: StackFrame
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: lineNumber
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: columnNumber
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: functionName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Callback:
+    Name: StringCallback
+    Args:
+      - Name: string
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Callback:
+    Name: UserAndExtensionSitesByEtldCallback
+    Args:
+      - Name: siteGroups
+        Type:
+          Name: sequence
+          Params:
+            - Name: SiteGroup
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: UserSiteSettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: permittedSites
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: restrictedSites
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Callback:
+    Name: UserSiteSettingsCallback
+    Args:
+      - Name: settings
+        Type:
+          Name: UserSiteSettings
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Dict:
+    Name: UserSiteSettingsOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+    Fields:
+      - Name: siteSet
+        Type:
+          Name: SiteSet
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: hosts
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Enum:
+    Name: ViewType
+    Values:
+      - APP_WINDOW
+      - BACKGROUND_CONTENTS
+      - COMPONENT
+      - EXTENSION_BACKGROUND_PAGE
+      - EXTENSION_DIALOG
+      - EXTENSION_GUEST
+      - EXTENSION_POPUP
+      - EXTENSION_SERVICE_WORKER_BACKGROUND
+      - TAB_CONTENTS
+      - OFFSCREEN_DOCUMENT
+      - EXTENSION_SIDE_PANEL
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  Callback:
+    Name: VoidCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: addHostPermission
+    Modifier: static
+    Args:
+      - Name: extensionId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: host
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: addUserSpecifiedSites
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: UserSiteSettingsOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: autoUpdate
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: choosePath
+    Modifier: static
+    Args:
+      - Name: selectType
+        Type:
+          Name: SelectType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: fileType
+        Type:
+          Name: FileType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - developerPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: deleteExtensionErrors
+    Modifier: static
+    Args:
+      - Name: properties
+        Type:
+          Name: DeleteExtensionErrorsProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: getExtensionInfo
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ExtensionInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - developerPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: getExtensionSize
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - developerPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: getExtensionsInfo
+    Modifier: static
+    Args:
+      - Name: options
+        Optional: true
+        Type:
+          Name: GetExtensionsInfoOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: ExtensionInfo
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - developerPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - developerPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: getMatchingExtensionsForSite
+    Modifier: static
+    Args:
+      - Name: site
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: MatchingExtensionInfo
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - developerPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - developerPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: getProfileConfiguration
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ProfileInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - developerPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: getUserAndExtensionSitesByEtld
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: SiteGroup
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - developerPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - developerPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: getUserSiteSettings
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: UserSiteSettings
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - developerPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: inspect
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: InspectOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: callback
+        Optional: true
+        Type:
+          Name: VoidCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    ExtAttrs:
+      - Name: nocompile
+      - Name: deprecated
+        Values:
+          - Use openDevTools
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: installDroppedFile
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: isProfileManaged
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - developerPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: loadDirectory
+    Modifier: static
+    Args:
+      - Name: directory
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - DirectoryEntry
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - developerPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: loadUnpacked
+    Modifier: static
+    Args:
+      - Name: options
+        Optional: true
+        Type:
+          Name: LoadUnpackedOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: LoadError
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - developerPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: notifyDragInstallInProgress
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextEvent:
+    Name: onItemStateChanged
+    Modifier: static
+    Args:
+      - Name: response
+        Type:
+          Name: EventData
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextEvent:
+    Name: onProfileStateChanged
+    Modifier: static
+    Args:
+      - Name: info
+        Type:
+          Name: ProfileInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextEvent:
+    Name: onUserSiteSettingsChanged
+    Modifier: static
+    Args:
+      - Name: settings
+        Type:
+          Name: UserSiteSettings
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: openDevTools
+    Modifier: static
+    Args:
+      - Name: properties
+        Type:
+          Name: OpenDevToolsProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: packDirectory
+    Modifier: static
+    Args:
+      - Name: path
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: privateKeyPath
+        Optional: true
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: flags
+        Optional: true
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: PackDirectoryResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - developerPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: reload
+    Modifier: static
+    Args:
+      - Name: extensionId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: options
+        Optional: true
+        Type:
+          Name: ReloadOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: LoadError
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - developerPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: removeHostPermission
+    Modifier: static
+    Args:
+      - Name: extensionId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: host
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: removeMultipleExtensions
+    Modifier: static
+    Args:
+      - Name: extensionIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: removeUserSpecifiedSites
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: UserSiteSettingsOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: repairExtension
+    Modifier: static
+    Args:
+      - Name: extensionId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: requestFileSource
+    Modifier: static
+    Args:
+      - Name: properties
+        Type:
+          Name: RequestFileSourceProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RequestFileSourceResponse
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - developerPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: setShortcutHandlingSuspended
+    Modifier: static
+    Args:
+      - Name: isSuspended
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: showOptions
+    Modifier: static
+    Args:
+      - Name: extensionId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: showPath
+    Modifier: static
+    Args:
+      - Name: extensionId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: updateExtensionCommand
+    Modifier: static
+    Args:
+      - Name: update
+        Type:
+          Name: ExtensionCommandUpdate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: updateExtensionConfiguration
+    Modifier: static
+    Args:
+      - Name: update
+        Type:
+          Name: ExtensionConfigurationUpdate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: updateProfileConfiguration
+    Modifier: static
+    Args:
+      - Name: update
+        Type:
+          Name: ProfileConfigurationUpdate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate
+- File: webext/chrome/developer_private.idl
+  WebextFunc:
+    Name: updateSiteAccess
+    Modifier: static
+    Args:
+      - Name: site
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+      - Name: updates
+        Type:
+          Name: sequence
+          Params:
+            - Name: ExtensionSiteAccessUpdate
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - developerPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - developerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - developerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - developerPrivate

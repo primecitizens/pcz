@@ -1,0 +1,94 @@
+- File: webext/system_memory.idl
+  Dict:
+    Name: MemoryInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - memory
+    Fields:
+      - Name: capacity
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - memory
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - memory
+      - Name: availableCapacity
+        Type:
+          Name: double
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - memory
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - memory
+- File: webext/system_memory.idl
+  Callback:
+    Name: MemoryInfoCallback
+    Args:
+      - Name: info
+        Type:
+          Name: MemoryInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - memory
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - memory
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - memory
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - memory
+- File: webext/system_memory.idl
+  WebextFunc:
+    Name: getInfo
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: MemoryInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - system
+                  - memory
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - memory

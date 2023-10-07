@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web get_SVGAnimatedEnumeration_BaseVal
 //go:noescape
@@ -64,11 +62,11 @@ func GetSVGLengthListNumberOfItems(
 
 //go:wasmimport plat/js/web has_SVGLengthList_Clear
 //go:noescape
-func HasSVGLengthListClear(this js.Ref) js.Ref
+func HasFuncSVGLengthListClear(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGLengthList_Clear
 //go:noescape
-func SVGLengthListClearFunc(this js.Ref) js.Ref
+func FuncSVGLengthListClear(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGLengthList_Clear
 //go:noescape
@@ -82,11 +80,11 @@ func TrySVGLengthListClear(
 
 //go:wasmimport plat/js/web has_SVGLengthList_Initialize
 //go:noescape
-func HasSVGLengthListInitialize(this js.Ref) js.Ref
+func HasFuncSVGLengthListInitialize(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGLengthList_Initialize
 //go:noescape
-func SVGLengthListInitializeFunc(this js.Ref) js.Ref
+func FuncSVGLengthListInitialize(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGLengthList_Initialize
 //go:noescape
@@ -102,11 +100,11 @@ func TrySVGLengthListInitialize(
 
 //go:wasmimport plat/js/web has_SVGLengthList_GetItem
 //go:noescape
-func HasSVGLengthListGetItem(this js.Ref) js.Ref
+func HasFuncSVGLengthListGetItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGLengthList_GetItem
 //go:noescape
-func SVGLengthListGetItemFunc(this js.Ref) js.Ref
+func FuncSVGLengthListGetItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGLengthList_GetItem
 //go:noescape
@@ -122,11 +120,11 @@ func TrySVGLengthListGetItem(
 
 //go:wasmimport plat/js/web has_SVGLengthList_InsertItemBefore
 //go:noescape
-func HasSVGLengthListInsertItemBefore(this js.Ref) js.Ref
+func HasFuncSVGLengthListInsertItemBefore(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGLengthList_InsertItemBefore
 //go:noescape
-func SVGLengthListInsertItemBeforeFunc(this js.Ref) js.Ref
+func FuncSVGLengthListInsertItemBefore(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGLengthList_InsertItemBefore
 //go:noescape
@@ -144,11 +142,11 @@ func TrySVGLengthListInsertItemBefore(
 
 //go:wasmimport plat/js/web has_SVGLengthList_ReplaceItem
 //go:noescape
-func HasSVGLengthListReplaceItem(this js.Ref) js.Ref
+func HasFuncSVGLengthListReplaceItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGLengthList_ReplaceItem
 //go:noescape
-func SVGLengthListReplaceItemFunc(this js.Ref) js.Ref
+func FuncSVGLengthListReplaceItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGLengthList_ReplaceItem
 //go:noescape
@@ -166,11 +164,11 @@ func TrySVGLengthListReplaceItem(
 
 //go:wasmimport plat/js/web has_SVGLengthList_RemoveItem
 //go:noescape
-func HasSVGLengthListRemoveItem(this js.Ref) js.Ref
+func HasFuncSVGLengthListRemoveItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGLengthList_RemoveItem
 //go:noescape
-func SVGLengthListRemoveItemFunc(this js.Ref) js.Ref
+func FuncSVGLengthListRemoveItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGLengthList_RemoveItem
 //go:noescape
@@ -186,11 +184,11 @@ func TrySVGLengthListRemoveItem(
 
 //go:wasmimport plat/js/web has_SVGLengthList_AppendItem
 //go:noescape
-func HasSVGLengthListAppendItem(this js.Ref) js.Ref
+func HasFuncSVGLengthListAppendItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGLengthList_AppendItem
 //go:noescape
-func SVGLengthListAppendItemFunc(this js.Ref) js.Ref
+func FuncSVGLengthListAppendItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGLengthList_AppendItem
 //go:noescape
@@ -206,11 +204,11 @@ func TrySVGLengthListAppendItem(
 
 //go:wasmimport plat/js/web has_SVGLengthList_Set
 //go:noescape
-func HasSVGLengthListSet(this js.Ref) js.Ref
+func HasFuncSVGLengthListSet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGLengthList_Set
 //go:noescape
-func SVGLengthListSetFunc(this js.Ref) js.Ref
+func FuncSVGLengthListSet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGLengthList_Set
 //go:noescape
@@ -265,11 +263,11 @@ func GetSVGNumberListNumberOfItems(
 
 //go:wasmimport plat/js/web has_SVGNumberList_Clear
 //go:noescape
-func HasSVGNumberListClear(this js.Ref) js.Ref
+func HasFuncSVGNumberListClear(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGNumberList_Clear
 //go:noescape
-func SVGNumberListClearFunc(this js.Ref) js.Ref
+func FuncSVGNumberListClear(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGNumberList_Clear
 //go:noescape
@@ -283,11 +281,11 @@ func TrySVGNumberListClear(
 
 //go:wasmimport plat/js/web has_SVGNumberList_Initialize
 //go:noescape
-func HasSVGNumberListInitialize(this js.Ref) js.Ref
+func HasFuncSVGNumberListInitialize(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGNumberList_Initialize
 //go:noescape
-func SVGNumberListInitializeFunc(this js.Ref) js.Ref
+func FuncSVGNumberListInitialize(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGNumberList_Initialize
 //go:noescape
@@ -303,11 +301,11 @@ func TrySVGNumberListInitialize(
 
 //go:wasmimport plat/js/web has_SVGNumberList_GetItem
 //go:noescape
-func HasSVGNumberListGetItem(this js.Ref) js.Ref
+func HasFuncSVGNumberListGetItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGNumberList_GetItem
 //go:noescape
-func SVGNumberListGetItemFunc(this js.Ref) js.Ref
+func FuncSVGNumberListGetItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGNumberList_GetItem
 //go:noescape
@@ -323,11 +321,11 @@ func TrySVGNumberListGetItem(
 
 //go:wasmimport plat/js/web has_SVGNumberList_InsertItemBefore
 //go:noescape
-func HasSVGNumberListInsertItemBefore(this js.Ref) js.Ref
+func HasFuncSVGNumberListInsertItemBefore(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGNumberList_InsertItemBefore
 //go:noescape
-func SVGNumberListInsertItemBeforeFunc(this js.Ref) js.Ref
+func FuncSVGNumberListInsertItemBefore(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGNumberList_InsertItemBefore
 //go:noescape
@@ -345,11 +343,11 @@ func TrySVGNumberListInsertItemBefore(
 
 //go:wasmimport plat/js/web has_SVGNumberList_ReplaceItem
 //go:noescape
-func HasSVGNumberListReplaceItem(this js.Ref) js.Ref
+func HasFuncSVGNumberListReplaceItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGNumberList_ReplaceItem
 //go:noescape
-func SVGNumberListReplaceItemFunc(this js.Ref) js.Ref
+func FuncSVGNumberListReplaceItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGNumberList_ReplaceItem
 //go:noescape
@@ -367,11 +365,11 @@ func TrySVGNumberListReplaceItem(
 
 //go:wasmimport plat/js/web has_SVGNumberList_RemoveItem
 //go:noescape
-func HasSVGNumberListRemoveItem(this js.Ref) js.Ref
+func HasFuncSVGNumberListRemoveItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGNumberList_RemoveItem
 //go:noescape
-func SVGNumberListRemoveItemFunc(this js.Ref) js.Ref
+func FuncSVGNumberListRemoveItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGNumberList_RemoveItem
 //go:noescape
@@ -387,11 +385,11 @@ func TrySVGNumberListRemoveItem(
 
 //go:wasmimport plat/js/web has_SVGNumberList_AppendItem
 //go:noescape
-func HasSVGNumberListAppendItem(this js.Ref) js.Ref
+func HasFuncSVGNumberListAppendItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGNumberList_AppendItem
 //go:noescape
-func SVGNumberListAppendItemFunc(this js.Ref) js.Ref
+func FuncSVGNumberListAppendItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGNumberList_AppendItem
 //go:noescape
@@ -407,11 +405,11 @@ func TrySVGNumberListAppendItem(
 
 //go:wasmimport plat/js/web has_SVGNumberList_Set
 //go:noescape
-func HasSVGNumberListSet(this js.Ref) js.Ref
+func HasFuncSVGNumberListSet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGNumberList_Set
 //go:noescape
-func SVGNumberListSetFunc(this js.Ref) js.Ref
+func FuncSVGNumberListSet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGNumberList_Set
 //go:noescape
@@ -449,11 +447,11 @@ func GetSVGTransformListNumberOfItems(
 
 //go:wasmimport plat/js/web has_SVGTransformList_Clear
 //go:noescape
-func HasSVGTransformListClear(this js.Ref) js.Ref
+func HasFuncSVGTransformListClear(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTransformList_Clear
 //go:noescape
-func SVGTransformListClearFunc(this js.Ref) js.Ref
+func FuncSVGTransformListClear(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTransformList_Clear
 //go:noescape
@@ -467,11 +465,11 @@ func TrySVGTransformListClear(
 
 //go:wasmimport plat/js/web has_SVGTransformList_Initialize
 //go:noescape
-func HasSVGTransformListInitialize(this js.Ref) js.Ref
+func HasFuncSVGTransformListInitialize(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTransformList_Initialize
 //go:noescape
-func SVGTransformListInitializeFunc(this js.Ref) js.Ref
+func FuncSVGTransformListInitialize(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTransformList_Initialize
 //go:noescape
@@ -487,11 +485,11 @@ func TrySVGTransformListInitialize(
 
 //go:wasmimport plat/js/web has_SVGTransformList_GetItem
 //go:noescape
-func HasSVGTransformListGetItem(this js.Ref) js.Ref
+func HasFuncSVGTransformListGetItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTransformList_GetItem
 //go:noescape
-func SVGTransformListGetItemFunc(this js.Ref) js.Ref
+func FuncSVGTransformListGetItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTransformList_GetItem
 //go:noescape
@@ -507,11 +505,11 @@ func TrySVGTransformListGetItem(
 
 //go:wasmimport plat/js/web has_SVGTransformList_InsertItemBefore
 //go:noescape
-func HasSVGTransformListInsertItemBefore(this js.Ref) js.Ref
+func HasFuncSVGTransformListInsertItemBefore(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTransformList_InsertItemBefore
 //go:noescape
-func SVGTransformListInsertItemBeforeFunc(this js.Ref) js.Ref
+func FuncSVGTransformListInsertItemBefore(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTransformList_InsertItemBefore
 //go:noescape
@@ -529,11 +527,11 @@ func TrySVGTransformListInsertItemBefore(
 
 //go:wasmimport plat/js/web has_SVGTransformList_ReplaceItem
 //go:noescape
-func HasSVGTransformListReplaceItem(this js.Ref) js.Ref
+func HasFuncSVGTransformListReplaceItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTransformList_ReplaceItem
 //go:noescape
-func SVGTransformListReplaceItemFunc(this js.Ref) js.Ref
+func FuncSVGTransformListReplaceItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTransformList_ReplaceItem
 //go:noescape
@@ -551,11 +549,11 @@ func TrySVGTransformListReplaceItem(
 
 //go:wasmimport plat/js/web has_SVGTransformList_RemoveItem
 //go:noescape
-func HasSVGTransformListRemoveItem(this js.Ref) js.Ref
+func HasFuncSVGTransformListRemoveItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTransformList_RemoveItem
 //go:noescape
-func SVGTransformListRemoveItemFunc(this js.Ref) js.Ref
+func FuncSVGTransformListRemoveItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTransformList_RemoveItem
 //go:noescape
@@ -571,11 +569,11 @@ func TrySVGTransformListRemoveItem(
 
 //go:wasmimport plat/js/web has_SVGTransformList_AppendItem
 //go:noescape
-func HasSVGTransformListAppendItem(this js.Ref) js.Ref
+func HasFuncSVGTransformListAppendItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTransformList_AppendItem
 //go:noescape
-func SVGTransformListAppendItemFunc(this js.Ref) js.Ref
+func FuncSVGTransformListAppendItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTransformList_AppendItem
 //go:noescape
@@ -591,11 +589,11 @@ func TrySVGTransformListAppendItem(
 
 //go:wasmimport plat/js/web has_SVGTransformList_Set
 //go:noescape
-func HasSVGTransformListSet(this js.Ref) js.Ref
+func HasFuncSVGTransformListSet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTransformList_Set
 //go:noescape
-func SVGTransformListSetFunc(this js.Ref) js.Ref
+func FuncSVGTransformListSet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTransformList_Set
 //go:noescape
@@ -613,11 +611,11 @@ func TrySVGTransformListSet(
 
 //go:wasmimport plat/js/web has_SVGTransformList_CreateSVGTransformFromMatrix
 //go:noescape
-func HasSVGTransformListCreateSVGTransformFromMatrix(this js.Ref) js.Ref
+func HasFuncSVGTransformListCreateSVGTransformFromMatrix(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTransformList_CreateSVGTransformFromMatrix
 //go:noescape
-func SVGTransformListCreateSVGTransformFromMatrixFunc(this js.Ref) js.Ref
+func FuncSVGTransformListCreateSVGTransformFromMatrix(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTransformList_CreateSVGTransformFromMatrix
 //go:noescape
@@ -633,11 +631,11 @@ func TrySVGTransformListCreateSVGTransformFromMatrix(
 
 //go:wasmimport plat/js/web has_SVGTransformList_CreateSVGTransformFromMatrix1
 //go:noescape
-func HasSVGTransformListCreateSVGTransformFromMatrix1(this js.Ref) js.Ref
+func HasFuncSVGTransformListCreateSVGTransformFromMatrix1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTransformList_CreateSVGTransformFromMatrix1
 //go:noescape
-func SVGTransformListCreateSVGTransformFromMatrix1Func(this js.Ref) js.Ref
+func FuncSVGTransformListCreateSVGTransformFromMatrix1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTransformList_CreateSVGTransformFromMatrix1
 //go:noescape
@@ -651,11 +649,11 @@ func TrySVGTransformListCreateSVGTransformFromMatrix1(
 
 //go:wasmimport plat/js/web has_SVGTransformList_Consolidate
 //go:noescape
-func HasSVGTransformListConsolidate(this js.Ref) js.Ref
+func HasFuncSVGTransformListConsolidate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGTransformList_Consolidate
 //go:noescape
-func SVGTransformListConsolidateFunc(this js.Ref) js.Ref
+func FuncSVGTransformListConsolidate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGTransformList_Consolidate
 //go:noescape
@@ -689,11 +687,11 @@ func GetSVGStringListNumberOfItems(
 
 //go:wasmimport plat/js/web has_SVGStringList_Clear
 //go:noescape
-func HasSVGStringListClear(this js.Ref) js.Ref
+func HasFuncSVGStringListClear(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGStringList_Clear
 //go:noescape
-func SVGStringListClearFunc(this js.Ref) js.Ref
+func FuncSVGStringListClear(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGStringList_Clear
 //go:noescape
@@ -707,11 +705,11 @@ func TrySVGStringListClear(
 
 //go:wasmimport plat/js/web has_SVGStringList_Initialize
 //go:noescape
-func HasSVGStringListInitialize(this js.Ref) js.Ref
+func HasFuncSVGStringListInitialize(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGStringList_Initialize
 //go:noescape
-func SVGStringListInitializeFunc(this js.Ref) js.Ref
+func FuncSVGStringListInitialize(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGStringList_Initialize
 //go:noescape
@@ -727,11 +725,11 @@ func TrySVGStringListInitialize(
 
 //go:wasmimport plat/js/web has_SVGStringList_GetItem
 //go:noescape
-func HasSVGStringListGetItem(this js.Ref) js.Ref
+func HasFuncSVGStringListGetItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGStringList_GetItem
 //go:noescape
-func SVGStringListGetItemFunc(this js.Ref) js.Ref
+func FuncSVGStringListGetItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGStringList_GetItem
 //go:noescape
@@ -747,11 +745,11 @@ func TrySVGStringListGetItem(
 
 //go:wasmimport plat/js/web has_SVGStringList_InsertItemBefore
 //go:noescape
-func HasSVGStringListInsertItemBefore(this js.Ref) js.Ref
+func HasFuncSVGStringListInsertItemBefore(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGStringList_InsertItemBefore
 //go:noescape
-func SVGStringListInsertItemBeforeFunc(this js.Ref) js.Ref
+func FuncSVGStringListInsertItemBefore(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGStringList_InsertItemBefore
 //go:noescape
@@ -769,11 +767,11 @@ func TrySVGStringListInsertItemBefore(
 
 //go:wasmimport plat/js/web has_SVGStringList_ReplaceItem
 //go:noescape
-func HasSVGStringListReplaceItem(this js.Ref) js.Ref
+func HasFuncSVGStringListReplaceItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGStringList_ReplaceItem
 //go:noescape
-func SVGStringListReplaceItemFunc(this js.Ref) js.Ref
+func FuncSVGStringListReplaceItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGStringList_ReplaceItem
 //go:noescape
@@ -791,11 +789,11 @@ func TrySVGStringListReplaceItem(
 
 //go:wasmimport plat/js/web has_SVGStringList_RemoveItem
 //go:noescape
-func HasSVGStringListRemoveItem(this js.Ref) js.Ref
+func HasFuncSVGStringListRemoveItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGStringList_RemoveItem
 //go:noescape
-func SVGStringListRemoveItemFunc(this js.Ref) js.Ref
+func FuncSVGStringListRemoveItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGStringList_RemoveItem
 //go:noescape
@@ -811,11 +809,11 @@ func TrySVGStringListRemoveItem(
 
 //go:wasmimport plat/js/web has_SVGStringList_AppendItem
 //go:noescape
-func HasSVGStringListAppendItem(this js.Ref) js.Ref
+func HasFuncSVGStringListAppendItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGStringList_AppendItem
 //go:noescape
-func SVGStringListAppendItemFunc(this js.Ref) js.Ref
+func FuncSVGStringListAppendItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGStringList_AppendItem
 //go:noescape
@@ -831,11 +829,11 @@ func TrySVGStringListAppendItem(
 
 //go:wasmimport plat/js/web has_SVGStringList_Set
 //go:noescape
-func HasSVGStringListSet(this js.Ref) js.Ref
+func HasFuncSVGStringListSet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGStringList_Set
 //go:noescape
-func SVGStringListSetFunc(this js.Ref) js.Ref
+func FuncSVGStringListSet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGStringList_Set
 //go:noescape
@@ -868,11 +866,11 @@ func GetSVGAnimationElementSystemLanguage(
 
 //go:wasmimport plat/js/web has_SVGAnimationElement_GetStartTime
 //go:noescape
-func HasSVGAnimationElementGetStartTime(this js.Ref) js.Ref
+func HasFuncSVGAnimationElementGetStartTime(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGAnimationElement_GetStartTime
 //go:noescape
-func SVGAnimationElementGetStartTimeFunc(this js.Ref) js.Ref
+func FuncSVGAnimationElementGetStartTime(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGAnimationElement_GetStartTime
 //go:noescape
@@ -886,11 +884,11 @@ func TrySVGAnimationElementGetStartTime(
 
 //go:wasmimport plat/js/web has_SVGAnimationElement_GetCurrentTime
 //go:noescape
-func HasSVGAnimationElementGetCurrentTime(this js.Ref) js.Ref
+func HasFuncSVGAnimationElementGetCurrentTime(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGAnimationElement_GetCurrentTime
 //go:noescape
-func SVGAnimationElementGetCurrentTimeFunc(this js.Ref) js.Ref
+func FuncSVGAnimationElementGetCurrentTime(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGAnimationElement_GetCurrentTime
 //go:noescape
@@ -904,11 +902,11 @@ func TrySVGAnimationElementGetCurrentTime(
 
 //go:wasmimport plat/js/web has_SVGAnimationElement_GetSimpleDuration
 //go:noescape
-func HasSVGAnimationElementGetSimpleDuration(this js.Ref) js.Ref
+func HasFuncSVGAnimationElementGetSimpleDuration(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGAnimationElement_GetSimpleDuration
 //go:noescape
-func SVGAnimationElementGetSimpleDurationFunc(this js.Ref) js.Ref
+func FuncSVGAnimationElementGetSimpleDuration(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGAnimationElement_GetSimpleDuration
 //go:noescape
@@ -922,11 +920,11 @@ func TrySVGAnimationElementGetSimpleDuration(
 
 //go:wasmimport plat/js/web has_SVGAnimationElement_BeginElement
 //go:noescape
-func HasSVGAnimationElementBeginElement(this js.Ref) js.Ref
+func HasFuncSVGAnimationElementBeginElement(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGAnimationElement_BeginElement
 //go:noescape
-func SVGAnimationElementBeginElementFunc(this js.Ref) js.Ref
+func FuncSVGAnimationElementBeginElement(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGAnimationElement_BeginElement
 //go:noescape
@@ -940,11 +938,11 @@ func TrySVGAnimationElementBeginElement(
 
 //go:wasmimport plat/js/web has_SVGAnimationElement_BeginElementAt
 //go:noescape
-func HasSVGAnimationElementBeginElementAt(this js.Ref) js.Ref
+func HasFuncSVGAnimationElementBeginElementAt(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGAnimationElement_BeginElementAt
 //go:noescape
-func SVGAnimationElementBeginElementAtFunc(this js.Ref) js.Ref
+func FuncSVGAnimationElementBeginElementAt(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGAnimationElement_BeginElementAt
 //go:noescape
@@ -960,11 +958,11 @@ func TrySVGAnimationElementBeginElementAt(
 
 //go:wasmimport plat/js/web has_SVGAnimationElement_EndElement
 //go:noescape
-func HasSVGAnimationElementEndElement(this js.Ref) js.Ref
+func HasFuncSVGAnimationElementEndElement(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGAnimationElement_EndElement
 //go:noescape
-func SVGAnimationElementEndElementFunc(this js.Ref) js.Ref
+func FuncSVGAnimationElementEndElement(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGAnimationElement_EndElement
 //go:noescape
@@ -978,11 +976,11 @@ func TrySVGAnimationElementEndElement(
 
 //go:wasmimport plat/js/web has_SVGAnimationElement_EndElementAt
 //go:noescape
-func HasSVGAnimationElementEndElementAt(this js.Ref) js.Ref
+func HasFuncSVGAnimationElementEndElementAt(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGAnimationElement_EndElementAt
 //go:noescape
-func SVGAnimationElementEndElementAtFunc(this js.Ref) js.Ref
+func FuncSVGAnimationElementEndElementAt(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGAnimationElement_EndElementAt
 //go:noescape
@@ -1503,11 +1501,11 @@ func GetSVGFEDropShadowElementResult(
 
 //go:wasmimport plat/js/web has_SVGFEDropShadowElement_SetStdDeviation
 //go:noescape
-func HasSVGFEDropShadowElementSetStdDeviation(this js.Ref) js.Ref
+func HasFuncSVGFEDropShadowElementSetStdDeviation(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGFEDropShadowElement_SetStdDeviation
 //go:noescape
-func SVGFEDropShadowElementSetStdDeviationFunc(this js.Ref) js.Ref
+func FuncSVGFEDropShadowElementSetStdDeviation(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGFEDropShadowElement_SetStdDeviation
 //go:noescape
@@ -1595,11 +1593,11 @@ func GetSVGFEGaussianBlurElementResult(
 
 //go:wasmimport plat/js/web has_SVGFEGaussianBlurElement_SetStdDeviation
 //go:noescape
-func HasSVGFEGaussianBlurElementSetStdDeviation(this js.Ref) js.Ref
+func HasFuncSVGFEGaussianBlurElementSetStdDeviation(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SVGFEGaussianBlurElement_SetStdDeviation
 //go:noescape
-func SVGFEGaussianBlurElementSetStdDeviationFunc(this js.Ref) js.Ref
+func FuncSVGFEGaussianBlurElementSetStdDeviation(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SVGFEGaussianBlurElement_SetStdDeviation
 //go:noescape

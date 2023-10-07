@@ -1,0 +1,55 @@
+- File: webext/chrome/file_browser_handler.json
+  Dict:
+    Name: FileHandlerExecuteEventDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileBrowserHandler
+    Fields:
+      - Name: entries
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: any
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileBrowserHandler
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileBrowserHandler
+      - Name: tab_id
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileBrowserHandler
+- File: webext/chrome/file_browser_handler.json
+  WebextEvent:
+    Name: onExecute
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: details
+        Type:
+          Name: FileHandlerExecuteEventDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileBrowserHandler
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileBrowserHandler

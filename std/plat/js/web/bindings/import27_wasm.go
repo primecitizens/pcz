@@ -11,20 +11,18 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web has_XRHitTestSource_Cancel
 //go:noescape
-func HasXRHitTestSourceCancel(this js.Ref) js.Ref
+func HasFuncXRHitTestSourceCancel(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRHitTestSource_Cancel
 //go:noescape
-func XRHitTestSourceCancelFunc(this js.Ref) js.Ref
+func FuncXRHitTestSourceCancel(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRHitTestSource_Cancel
 //go:noescape
@@ -51,11 +49,11 @@ func GetXRHandSize(
 
 //go:wasmimport plat/js/web has_XRHand_Get
 //go:noescape
-func HasXRHandGet(this js.Ref) js.Ref
+func HasFuncXRHandGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRHand_Get
 //go:noescape
-func XRHandGetFunc(this js.Ref) js.Ref
+func FuncXRHandGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRHand_Get
 //go:noescape
@@ -116,11 +114,11 @@ func GetXRTransientInputHitTestResultResults(
 
 //go:wasmimport plat/js/web has_XRTransientInputHitTestSource_Cancel
 //go:noescape
-func HasXRTransientInputHitTestSourceCancel(this js.Ref) js.Ref
+func HasFuncXRTransientInputHitTestSourceCancel(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRTransientInputHitTestSource_Cancel
 //go:noescape
-func XRTransientInputHitTestSourceCancelFunc(this js.Ref) js.Ref
+func FuncXRTransientInputHitTestSourceCancel(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRTransientInputHitTestSource_Cancel
 //go:noescape
@@ -154,11 +152,11 @@ func GetXRFrameTrackedAnchors(
 
 //go:wasmimport plat/js/web has_XRFrame_GetViewerPose
 //go:noescape
-func HasXRFrameGetViewerPose(this js.Ref) js.Ref
+func HasFuncXRFrameGetViewerPose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRFrame_GetViewerPose
 //go:noescape
-func XRFrameGetViewerPoseFunc(this js.Ref) js.Ref
+func FuncXRFrameGetViewerPose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRFrame_GetViewerPose
 //go:noescape
@@ -174,11 +172,11 @@ func TryXRFrameGetViewerPose(
 
 //go:wasmimport plat/js/web has_XRFrame_GetPose
 //go:noescape
-func HasXRFrameGetPose(this js.Ref) js.Ref
+func HasFuncXRFrameGetPose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRFrame_GetPose
 //go:noescape
-func XRFrameGetPoseFunc(this js.Ref) js.Ref
+func FuncXRFrameGetPose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRFrame_GetPose
 //go:noescape
@@ -196,11 +194,11 @@ func TryXRFrameGetPose(
 
 //go:wasmimport plat/js/web has_XRFrame_CreateAnchor
 //go:noescape
-func HasXRFrameCreateAnchor(this js.Ref) js.Ref
+func HasFuncXRFrameCreateAnchor(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRFrame_CreateAnchor
 //go:noescape
-func XRFrameCreateAnchorFunc(this js.Ref) js.Ref
+func FuncXRFrameCreateAnchor(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRFrame_CreateAnchor
 //go:noescape
@@ -218,11 +216,11 @@ func TryXRFrameCreateAnchor(
 
 //go:wasmimport plat/js/web has_XRFrame_GetLightEstimate
 //go:noescape
-func HasXRFrameGetLightEstimate(this js.Ref) js.Ref
+func HasFuncXRFrameGetLightEstimate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRFrame_GetLightEstimate
 //go:noescape
-func XRFrameGetLightEstimateFunc(this js.Ref) js.Ref
+func FuncXRFrameGetLightEstimate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRFrame_GetLightEstimate
 //go:noescape
@@ -238,11 +236,11 @@ func TryXRFrameGetLightEstimate(
 
 //go:wasmimport plat/js/web has_XRFrame_GetDepthInformation
 //go:noescape
-func HasXRFrameGetDepthInformation(this js.Ref) js.Ref
+func HasFuncXRFrameGetDepthInformation(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRFrame_GetDepthInformation
 //go:noescape
-func XRFrameGetDepthInformationFunc(this js.Ref) js.Ref
+func FuncXRFrameGetDepthInformation(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRFrame_GetDepthInformation
 //go:noescape
@@ -258,11 +256,11 @@ func TryXRFrameGetDepthInformation(
 
 //go:wasmimport plat/js/web has_XRFrame_GetJointPose
 //go:noescape
-func HasXRFrameGetJointPose(this js.Ref) js.Ref
+func HasFuncXRFrameGetJointPose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRFrame_GetJointPose
 //go:noescape
-func XRFrameGetJointPoseFunc(this js.Ref) js.Ref
+func FuncXRFrameGetJointPose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRFrame_GetJointPose
 //go:noescape
@@ -280,11 +278,11 @@ func TryXRFrameGetJointPose(
 
 //go:wasmimport plat/js/web has_XRFrame_FillJointRadii
 //go:noescape
-func HasXRFrameFillJointRadii(this js.Ref) js.Ref
+func HasFuncXRFrameFillJointRadii(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRFrame_FillJointRadii
 //go:noescape
-func XRFrameFillJointRadiiFunc(this js.Ref) js.Ref
+func FuncXRFrameFillJointRadii(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRFrame_FillJointRadii
 //go:noescape
@@ -302,11 +300,11 @@ func TryXRFrameFillJointRadii(
 
 //go:wasmimport plat/js/web has_XRFrame_FillPoses
 //go:noescape
-func HasXRFrameFillPoses(this js.Ref) js.Ref
+func HasFuncXRFrameFillPoses(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRFrame_FillPoses
 //go:noescape
-func XRFrameFillPosesFunc(this js.Ref) js.Ref
+func FuncXRFrameFillPoses(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRFrame_FillPoses
 //go:noescape
@@ -326,11 +324,11 @@ func TryXRFrameFillPoses(
 
 //go:wasmimport plat/js/web has_XRFrame_GetHitTestResults
 //go:noescape
-func HasXRFrameGetHitTestResults(this js.Ref) js.Ref
+func HasFuncXRFrameGetHitTestResults(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRFrame_GetHitTestResults
 //go:noescape
-func XRFrameGetHitTestResultsFunc(this js.Ref) js.Ref
+func FuncXRFrameGetHitTestResults(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRFrame_GetHitTestResults
 //go:noescape
@@ -346,11 +344,11 @@ func TryXRFrameGetHitTestResults(
 
 //go:wasmimport plat/js/web has_XRFrame_GetHitTestResultsForTransientInput
 //go:noescape
-func HasXRFrameGetHitTestResultsForTransientInput(this js.Ref) js.Ref
+func HasFuncXRFrameGetHitTestResultsForTransientInput(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRFrame_GetHitTestResultsForTransientInput
 //go:noescape
-func XRFrameGetHitTestResultsForTransientInputFunc(this js.Ref) js.Ref
+func FuncXRFrameGetHitTestResultsForTransientInput(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRFrame_GetHitTestResultsForTransientInput
 //go:noescape
@@ -483,11 +481,11 @@ func GetXRInputSourceArrayLength(
 
 //go:wasmimport plat/js/web has_XRInputSourceArray_Get
 //go:noescape
-func HasXRInputSourceArrayGet(this js.Ref) js.Ref
+func HasFuncXRInputSourceArrayGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRInputSourceArray_Get
 //go:noescape
-func XRInputSourceArrayGetFunc(this js.Ref) js.Ref
+func FuncXRInputSourceArrayGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRInputSourceArray_Get
 //go:noescape
@@ -603,11 +601,11 @@ func GetXRSessionPreferredReflectionFormat(
 
 //go:wasmimport plat/js/web has_XRSession_UpdateRenderState
 //go:noescape
-func HasXRSessionUpdateRenderState(this js.Ref) js.Ref
+func HasFuncXRSessionUpdateRenderState(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRSession_UpdateRenderState
 //go:noescape
-func XRSessionUpdateRenderStateFunc(this js.Ref) js.Ref
+func FuncXRSessionUpdateRenderState(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRSession_UpdateRenderState
 //go:noescape
@@ -623,11 +621,11 @@ func TryXRSessionUpdateRenderState(
 
 //go:wasmimport plat/js/web has_XRSession_UpdateRenderState1
 //go:noescape
-func HasXRSessionUpdateRenderState1(this js.Ref) js.Ref
+func HasFuncXRSessionUpdateRenderState1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRSession_UpdateRenderState1
 //go:noescape
-func XRSessionUpdateRenderState1Func(this js.Ref) js.Ref
+func FuncXRSessionUpdateRenderState1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRSession_UpdateRenderState1
 //go:noescape
@@ -641,11 +639,11 @@ func TryXRSessionUpdateRenderState1(
 
 //go:wasmimport plat/js/web has_XRSession_UpdateTargetFrameRate
 //go:noescape
-func HasXRSessionUpdateTargetFrameRate(this js.Ref) js.Ref
+func HasFuncXRSessionUpdateTargetFrameRate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRSession_UpdateTargetFrameRate
 //go:noescape
-func XRSessionUpdateTargetFrameRateFunc(this js.Ref) js.Ref
+func FuncXRSessionUpdateTargetFrameRate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRSession_UpdateTargetFrameRate
 //go:noescape
@@ -661,11 +659,11 @@ func TryXRSessionUpdateTargetFrameRate(
 
 //go:wasmimport plat/js/web has_XRSession_RequestReferenceSpace
 //go:noescape
-func HasXRSessionRequestReferenceSpace(this js.Ref) js.Ref
+func HasFuncXRSessionRequestReferenceSpace(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRSession_RequestReferenceSpace
 //go:noescape
-func XRSessionRequestReferenceSpaceFunc(this js.Ref) js.Ref
+func FuncXRSessionRequestReferenceSpace(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRSession_RequestReferenceSpace
 //go:noescape
@@ -681,11 +679,11 @@ func TryXRSessionRequestReferenceSpace(
 
 //go:wasmimport plat/js/web has_XRSession_RequestAnimationFrame
 //go:noescape
-func HasXRSessionRequestAnimationFrame(this js.Ref) js.Ref
+func HasFuncXRSessionRequestAnimationFrame(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRSession_RequestAnimationFrame
 //go:noescape
-func XRSessionRequestAnimationFrameFunc(this js.Ref) js.Ref
+func FuncXRSessionRequestAnimationFrame(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRSession_RequestAnimationFrame
 //go:noescape
@@ -701,11 +699,11 @@ func TryXRSessionRequestAnimationFrame(
 
 //go:wasmimport plat/js/web has_XRSession_CancelAnimationFrame
 //go:noescape
-func HasXRSessionCancelAnimationFrame(this js.Ref) js.Ref
+func HasFuncXRSessionCancelAnimationFrame(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRSession_CancelAnimationFrame
 //go:noescape
-func XRSessionCancelAnimationFrameFunc(this js.Ref) js.Ref
+func FuncXRSessionCancelAnimationFrame(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRSession_CancelAnimationFrame
 //go:noescape
@@ -721,11 +719,11 @@ func TryXRSessionCancelAnimationFrame(
 
 //go:wasmimport plat/js/web has_XRSession_End
 //go:noescape
-func HasXRSessionEnd(this js.Ref) js.Ref
+func HasFuncXRSessionEnd(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRSession_End
 //go:noescape
-func XRSessionEndFunc(this js.Ref) js.Ref
+func FuncXRSessionEnd(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRSession_End
 //go:noescape
@@ -739,11 +737,11 @@ func TryXRSessionEnd(
 
 //go:wasmimport plat/js/web has_XRSession_RestorePersistentAnchor
 //go:noescape
-func HasXRSessionRestorePersistentAnchor(this js.Ref) js.Ref
+func HasFuncXRSessionRestorePersistentAnchor(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRSession_RestorePersistentAnchor
 //go:noescape
-func XRSessionRestorePersistentAnchorFunc(this js.Ref) js.Ref
+func FuncXRSessionRestorePersistentAnchor(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRSession_RestorePersistentAnchor
 //go:noescape
@@ -759,11 +757,11 @@ func TryXRSessionRestorePersistentAnchor(
 
 //go:wasmimport plat/js/web has_XRSession_DeletePersistentAnchor
 //go:noescape
-func HasXRSessionDeletePersistentAnchor(this js.Ref) js.Ref
+func HasFuncXRSessionDeletePersistentAnchor(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRSession_DeletePersistentAnchor
 //go:noescape
-func XRSessionDeletePersistentAnchorFunc(this js.Ref) js.Ref
+func FuncXRSessionDeletePersistentAnchor(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRSession_DeletePersistentAnchor
 //go:noescape
@@ -779,11 +777,11 @@ func TryXRSessionDeletePersistentAnchor(
 
 //go:wasmimport plat/js/web has_XRSession_RequestLightProbe
 //go:noescape
-func HasXRSessionRequestLightProbe(this js.Ref) js.Ref
+func HasFuncXRSessionRequestLightProbe(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRSession_RequestLightProbe
 //go:noescape
-func XRSessionRequestLightProbeFunc(this js.Ref) js.Ref
+func FuncXRSessionRequestLightProbe(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRSession_RequestLightProbe
 //go:noescape
@@ -799,11 +797,11 @@ func TryXRSessionRequestLightProbe(
 
 //go:wasmimport plat/js/web has_XRSession_RequestLightProbe1
 //go:noescape
-func HasXRSessionRequestLightProbe1(this js.Ref) js.Ref
+func HasFuncXRSessionRequestLightProbe1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRSession_RequestLightProbe1
 //go:noescape
-func XRSessionRequestLightProbe1Func(this js.Ref) js.Ref
+func FuncXRSessionRequestLightProbe1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRSession_RequestLightProbe1
 //go:noescape
@@ -817,11 +815,11 @@ func TryXRSessionRequestLightProbe1(
 
 //go:wasmimport plat/js/web has_XRSession_RequestHitTestSource
 //go:noescape
-func HasXRSessionRequestHitTestSource(this js.Ref) js.Ref
+func HasFuncXRSessionRequestHitTestSource(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRSession_RequestHitTestSource
 //go:noescape
-func XRSessionRequestHitTestSourceFunc(this js.Ref) js.Ref
+func FuncXRSessionRequestHitTestSource(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRSession_RequestHitTestSource
 //go:noescape
@@ -837,11 +835,11 @@ func TryXRSessionRequestHitTestSource(
 
 //go:wasmimport plat/js/web has_XRSession_RequestHitTestSourceForTransientInput
 //go:noescape
-func HasXRSessionRequestHitTestSourceForTransientInput(this js.Ref) js.Ref
+func HasFuncXRSessionRequestHitTestSourceForTransientInput(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRSession_RequestHitTestSourceForTransientInput
 //go:noescape
-func XRSessionRequestHitTestSourceForTransientInputFunc(this js.Ref) js.Ref
+func FuncXRSessionRequestHitTestSourceForTransientInput(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRSession_RequestHitTestSourceForTransientInput
 //go:noescape
@@ -887,11 +885,11 @@ func XRSessionInitJSLoad(
 
 //go:wasmimport plat/js/web has_XRSystem_IsSessionSupported
 //go:noescape
-func HasXRSystemIsSessionSupported(this js.Ref) js.Ref
+func HasFuncXRSystemIsSessionSupported(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRSystem_IsSessionSupported
 //go:noescape
-func XRSystemIsSessionSupportedFunc(this js.Ref) js.Ref
+func FuncXRSystemIsSessionSupported(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRSystem_IsSessionSupported
 //go:noescape
@@ -907,11 +905,11 @@ func TryXRSystemIsSessionSupported(
 
 //go:wasmimport plat/js/web has_XRSystem_RequestSession
 //go:noescape
-func HasXRSystemRequestSession(this js.Ref) js.Ref
+func HasFuncXRSystemRequestSession(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRSystem_RequestSession
 //go:noescape
-func XRSystemRequestSessionFunc(this js.Ref) js.Ref
+func FuncXRSystemRequestSession(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRSystem_RequestSession
 //go:noescape
@@ -929,11 +927,11 @@ func TryXRSystemRequestSession(
 
 //go:wasmimport plat/js/web has_XRSystem_RequestSession1
 //go:noescape
-func HasXRSystemRequestSession1(this js.Ref) js.Ref
+func HasFuncXRSystemRequestSession1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRSystem_RequestSession1
 //go:noescape
-func XRSystemRequestSession1Func(this js.Ref) js.Ref
+func FuncXRSystemRequestSession1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRSystem_RequestSession1
 //go:noescape
@@ -1073,11 +1071,11 @@ func GetNotificationActions(
 
 //go:wasmimport plat/js/web has_Notification_RequestPermission
 //go:noescape
-func HasNotificationRequestPermission(this js.Ref) js.Ref
+func HasFuncNotificationRequestPermission(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Notification_RequestPermission
 //go:noescape
-func NotificationRequestPermissionFunc(this js.Ref) js.Ref
+func FuncNotificationRequestPermission(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Notification_RequestPermission
 //go:noescape
@@ -1093,11 +1091,11 @@ func TryNotificationRequestPermission(
 
 //go:wasmimport plat/js/web has_Notification_RequestPermission1
 //go:noescape
-func HasNotificationRequestPermission1(this js.Ref) js.Ref
+func HasFuncNotificationRequestPermission1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Notification_RequestPermission1
 //go:noescape
-func NotificationRequestPermission1Func(this js.Ref) js.Ref
+func FuncNotificationRequestPermission1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Notification_RequestPermission1
 //go:noescape
@@ -1111,11 +1109,11 @@ func TryNotificationRequestPermission1(
 
 //go:wasmimport plat/js/web has_Notification_Close
 //go:noescape
-func HasNotificationClose(this js.Ref) js.Ref
+func HasFuncNotificationClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Notification_Close
 //go:noescape
-func NotificationCloseFunc(this js.Ref) js.Ref
+func FuncNotificationClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Notification_Close
 //go:noescape

@@ -1,0 +1,227 @@
+- File: webext/chrome/webrtc_audio_private.idl
+  Callback:
+    Name: GetSinksCallback
+    Args:
+      - Name: sinkInfo
+        Type:
+          Name: sequence
+          Params:
+            - Name: SinkInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webrtcAudioPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcAudioPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcAudioPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcAudioPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcAudioPrivate
+- File: webext/chrome/webrtc_audio_private.idl
+  Callback:
+    Name: SinkIdCallback
+    Args:
+      - Name: sinkId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcAudioPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcAudioPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcAudioPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcAudioPrivate
+- File: webext/chrome/webrtc_audio_private.idl
+  Dict:
+    Name: SinkInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcAudioPrivate
+    Fields:
+      - Name: sinkId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcAudioPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcAudioPrivate
+      - Name: sinkLabel
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcAudioPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcAudioPrivate
+      - Name: sampleRate
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcAudioPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcAudioPrivate
+      - Name: isReady
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcAudioPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcAudioPrivate
+      - Name: isDefault
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcAudioPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcAudioPrivate
+- File: webext/chrome/webrtc_audio_private.idl
+  WebextFunc:
+    Name: getAssociatedSink
+    Modifier: static
+    Args:
+      - Name: securityOrigin
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcAudioPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcAudioPrivate
+      - Name: sourceIdInOrigin
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcAudioPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcAudioPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - webrtcAudioPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcAudioPrivate
+- File: webext/chrome/webrtc_audio_private.idl
+  WebextFunc:
+    Name: getSinks
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: SinkInfo
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - webrtcAudioPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - webrtcAudioPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcAudioPrivate
+- File: webext/chrome/webrtc_audio_private.idl
+  WebextEvent:
+    Name: onSinksChanged
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcAudioPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcAudioPrivate

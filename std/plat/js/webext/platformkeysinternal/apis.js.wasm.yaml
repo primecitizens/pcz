@@ -1,0 +1,357 @@
+- File: webext/chrome/platform_keys_internal.idl
+  Callback:
+    Name: GetPublicKeyCallback
+    Args:
+      - Name: publicKey
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeysInternal
+      - Name: algorithm
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeysInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeysInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - platformKeysInternal
+- File: webext/chrome/platform_keys_internal.idl
+  Callback:
+    Name: SelectCallback
+    Args:
+      - Name: certs
+        Type:
+          Name: sequence
+          Params:
+            - Name: Match
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - platformKeys
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeysInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - platformKeysInternal
+- File: webext/chrome/platform_keys_internal.idl
+  Callback:
+    Name: SignCallback
+    Args:
+      - Name: signature
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeysInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeysInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - platformKeysInternal
+- File: webext/chrome/platform_keys_internal.idl
+  WebextFunc:
+    Name: getPublicKey
+    Modifier: static
+    Args:
+      - Name: certificate
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeysInternal
+      - Name: algorithmName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeysInternal
+      - Name: callback
+        Type:
+          Name: GetPublicKeyCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeysInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeysInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - platformKeysInternal
+- File: webext/chrome/platform_keys_internal.idl
+  WebextFunc:
+    Name: getPublicKeyBySpki
+    Modifier: static
+    Args:
+      - Name: publicKeySpkiDer
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeysInternal
+      - Name: algorithmName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeysInternal
+      - Name: callback
+        Type:
+          Name: GetPublicKeyCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeysInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeysInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - platformKeysInternal
+- File: webext/chrome/platform_keys_internal.idl
+  WebextFunc:
+    Name: selectClientCertificates
+    Modifier: static
+    Args:
+      - Name: details
+        Type:
+          Name: SelectDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+      - Name: callback
+        Type:
+          Name: SelectCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeysInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeysInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - platformKeysInternal
+- File: webext/chrome/platform_keys_internal.idl
+  WebextFunc:
+    Name: sign
+    Modifier: static
+    Args:
+      - Name: tokenId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeysInternal
+      - Name: publicKey
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeysInternal
+      - Name: algorithmName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeysInternal
+      - Name: hashAlgorithmName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeysInternal
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeysInternal
+      - Name: callback
+        Type:
+          Name: SignCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeysInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeysInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeysInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - platformKeysInternal

@@ -1,0 +1,908 @@
+- File: webext/chrome/wm_desks_private.idl
+  Dict:
+    Name: Desk
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: deskUuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+      - Name: deskName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+- File: webext/chrome/wm_desks_private.idl
+  Callback:
+    Name: DeskIdCallback
+    Args:
+      - Name: deskId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/wm_desks_private.idl
+  Callback:
+    Name: GetAllDesksCallback
+    Args:
+      - Name: desks
+        Type:
+          Name: sequence
+          Params:
+            - Name: Desk
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - wmDesksPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/wm_desks_private.idl
+  Callback:
+    Name: GetDeskByIDCallback
+    Args:
+      - Name: desk
+        Type:
+          Name: Desk
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/wm_desks_private.idl
+  Callback:
+    Name: GetDeskTemplateJsonCallback
+    Args:
+      - Name: templateJson
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/wm_desks_private.idl
+  Callback:
+    Name: GetSavedDesksCallback
+    Args:
+      - Name: saveDesks
+        Type:
+          Name: sequence
+          Params:
+            - Name: SavedDesk
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - wmDesksPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/wm_desks_private.idl
+  Dict:
+    Name: LaunchOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: deskName
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+- File: webext/chrome/wm_desks_private.idl
+  WebextEvent:
+    Name: OnDeskAdded
+    Modifier: static
+    Args:
+      - Name: deskId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+      - Name: fromUndo
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+- File: webext/chrome/wm_desks_private.idl
+  WebextEvent:
+    Name: OnDeskRemoved
+    Modifier: static
+    Args:
+      - Name: deskId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+- File: webext/chrome/wm_desks_private.idl
+  WebextEvent:
+    Name: OnDeskSwitched
+    Modifier: static
+    Args:
+      - Name: activated
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+      - Name: deactivated
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+- File: webext/chrome/wm_desks_private.idl
+  Dict:
+    Name: RemoveDeskOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: combineDesks
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+      - Name: allowUndo
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+- File: webext/chrome/wm_desks_private.idl
+  Callback:
+    Name: SaveActiveDeskCallback
+    Args:
+      - Name: desk
+        Type:
+          Name: SavedDesk
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/wm_desks_private.idl
+  Dict:
+    Name: SavedDesk
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: savedDeskUuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+      - Name: savedDeskName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+      - Name: savedDeskType
+        Type:
+          Name: SavedDeskType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+- File: webext/chrome/wm_desks_private.idl
+  Enum:
+    Name: SavedDeskType
+    Values:
+      - kTemplate
+      - kSaveAndRecall
+      - kUnknown
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/wm_desks_private.idl
+  Callback:
+    Name: VoidCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/wm_desks_private.idl
+  Dict:
+    Name: WindowProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: allDesks
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+- File: webext/chrome/wm_desks_private.idl
+  WebextFunc:
+    Name: deleteSavedDesk
+    Modifier: static
+    Args:
+      - Name: savedDeskUuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+- File: webext/chrome/wm_desks_private.idl
+  WebextFunc:
+    Name: getActiveDesk
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - wmDesksPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+- File: webext/chrome/wm_desks_private.idl
+  WebextFunc:
+    Name: getAllDesks
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: Desk
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - wmDesksPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - wmDesksPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+- File: webext/chrome/wm_desks_private.idl
+  WebextFunc:
+    Name: getDeskByID
+    Modifier: static
+    Args:
+      - Name: deskUuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Desk
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - wmDesksPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+- File: webext/chrome/wm_desks_private.idl
+  WebextFunc:
+    Name: getDeskTemplateJson
+    Modifier: static
+    Args:
+      - Name: templateUuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - wmDesksPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+- File: webext/chrome/wm_desks_private.idl
+  WebextFunc:
+    Name: getSavedDesks
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: SavedDesk
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - wmDesksPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - wmDesksPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+- File: webext/chrome/wm_desks_private.idl
+  WebextFunc:
+    Name: launchDesk
+    Modifier: static
+    Args:
+      - Name: launchOptions
+        Type:
+          Name: LaunchOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - wmDesksPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+- File: webext/chrome/wm_desks_private.idl
+  WebextFunc:
+    Name: recallSavedDesk
+    Modifier: static
+    Args:
+      - Name: savedDeskUuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - wmDesksPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+- File: webext/chrome/wm_desks_private.idl
+  WebextFunc:
+    Name: removeDesk
+    Modifier: static
+    Args:
+      - Name: deskId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+      - Name: removeDeskOptions
+        Optional: true
+        Type:
+          Name: RemoveDeskOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+- File: webext/chrome/wm_desks_private.idl
+  WebextFunc:
+    Name: saveActiveDesk
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: SavedDesk
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - wmDesksPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+- File: webext/chrome/wm_desks_private.idl
+  WebextFunc:
+    Name: setWindowProperties
+    Modifier: static
+    Args:
+      - Name: windowId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+      - Name: windowProperties
+        Type:
+          Name: WindowProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate
+- File: webext/chrome/wm_desks_private.idl
+  WebextFunc:
+    Name: switchDesk
+    Modifier: static
+    Args:
+      - Name: deskUuid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - wmDesksPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - wmDesksPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - wmDesksPrivate

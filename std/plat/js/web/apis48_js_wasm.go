@@ -5,17 +5,10 @@ package web
 
 import (
 	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/mark"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 type RTCIceGathererState uint32
 
@@ -49,7 +42,7 @@ type RTCIceTransport struct {
 }
 
 func (this RTCIceTransport) Once() RTCIceTransport {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -63,7 +56,7 @@ func (this RTCIceTransport) FromRef(ref js.Ref) RTCIceTransport {
 }
 
 func (this RTCIceTransport) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Role returns the value of property "RTCIceTransport.role".
@@ -71,7 +64,7 @@ func (this RTCIceTransport) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCIceTransport) Role() (ret RTCIceRole, ok bool) {
 	ok = js.True == bindings.GetRTCIceTransportRole(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -81,7 +74,7 @@ func (this RTCIceTransport) Role() (ret RTCIceRole, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCIceTransport) Component() (ret RTCIceComponent, ok bool) {
 	ok = js.True == bindings.GetRTCIceTransportComponent(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -91,7 +84,7 @@ func (this RTCIceTransport) Component() (ret RTCIceComponent, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCIceTransport) State() (ret RTCIceTransportState, ok bool) {
 	ok = js.True == bindings.GetRTCIceTransportState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -101,31 +94,30 @@ func (this RTCIceTransport) State() (ret RTCIceTransportState, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCIceTransport) GatheringState() (ret RTCIceGathererState, ok bool) {
 	ok = js.True == bindings.GetRTCIceTransportGatheringState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGetLocalCandidates returns true if the method "RTCIceTransport.getLocalCandidates" exists.
-func (this RTCIceTransport) HasGetLocalCandidates() bool {
-	return js.True == bindings.HasRTCIceTransportGetLocalCandidates(
-		this.Ref(),
+// HasFuncGetLocalCandidates returns true if the method "RTCIceTransport.getLocalCandidates" exists.
+func (this RTCIceTransport) HasFuncGetLocalCandidates() bool {
+	return js.True == bindings.HasFuncRTCIceTransportGetLocalCandidates(
+		this.ref,
 	)
 }
 
-// GetLocalCandidatesFunc returns the method "RTCIceTransport.getLocalCandidates".
-func (this RTCIceTransport) GetLocalCandidatesFunc() (fn js.Func[func() js.Array[RTCIceCandidate]]) {
-	return fn.FromRef(
-		bindings.RTCIceTransportGetLocalCandidatesFunc(
-			this.Ref(),
-		),
+// FuncGetLocalCandidates returns the method "RTCIceTransport.getLocalCandidates".
+func (this RTCIceTransport) FuncGetLocalCandidates() (fn js.Func[func() js.Array[RTCIceCandidate]]) {
+	bindings.FuncRTCIceTransportGetLocalCandidates(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetLocalCandidates calls the method "RTCIceTransport.getLocalCandidates".
 func (this RTCIceTransport) GetLocalCandidates() (ret js.Array[RTCIceCandidate]) {
 	bindings.CallRTCIceTransportGetLocalCandidates(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -136,32 +128,31 @@ func (this RTCIceTransport) GetLocalCandidates() (ret js.Array[RTCIceCandidate])
 // the catch clause.
 func (this RTCIceTransport) TryGetLocalCandidates() (ret js.Array[RTCIceCandidate], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportGetLocalCandidates(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetRemoteCandidates returns true if the method "RTCIceTransport.getRemoteCandidates" exists.
-func (this RTCIceTransport) HasGetRemoteCandidates() bool {
-	return js.True == bindings.HasRTCIceTransportGetRemoteCandidates(
-		this.Ref(),
+// HasFuncGetRemoteCandidates returns true if the method "RTCIceTransport.getRemoteCandidates" exists.
+func (this RTCIceTransport) HasFuncGetRemoteCandidates() bool {
+	return js.True == bindings.HasFuncRTCIceTransportGetRemoteCandidates(
+		this.ref,
 	)
 }
 
-// GetRemoteCandidatesFunc returns the method "RTCIceTransport.getRemoteCandidates".
-func (this RTCIceTransport) GetRemoteCandidatesFunc() (fn js.Func[func() js.Array[RTCIceCandidate]]) {
-	return fn.FromRef(
-		bindings.RTCIceTransportGetRemoteCandidatesFunc(
-			this.Ref(),
-		),
+// FuncGetRemoteCandidates returns the method "RTCIceTransport.getRemoteCandidates".
+func (this RTCIceTransport) FuncGetRemoteCandidates() (fn js.Func[func() js.Array[RTCIceCandidate]]) {
+	bindings.FuncRTCIceTransportGetRemoteCandidates(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetRemoteCandidates calls the method "RTCIceTransport.getRemoteCandidates".
 func (this RTCIceTransport) GetRemoteCandidates() (ret js.Array[RTCIceCandidate]) {
 	bindings.CallRTCIceTransportGetRemoteCandidates(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -172,32 +163,31 @@ func (this RTCIceTransport) GetRemoteCandidates() (ret js.Array[RTCIceCandidate]
 // the catch clause.
 func (this RTCIceTransport) TryGetRemoteCandidates() (ret js.Array[RTCIceCandidate], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportGetRemoteCandidates(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetSelectedCandidatePair returns true if the method "RTCIceTransport.getSelectedCandidatePair" exists.
-func (this RTCIceTransport) HasGetSelectedCandidatePair() bool {
-	return js.True == bindings.HasRTCIceTransportGetSelectedCandidatePair(
-		this.Ref(),
+// HasFuncGetSelectedCandidatePair returns true if the method "RTCIceTransport.getSelectedCandidatePair" exists.
+func (this RTCIceTransport) HasFuncGetSelectedCandidatePair() bool {
+	return js.True == bindings.HasFuncRTCIceTransportGetSelectedCandidatePair(
+		this.ref,
 	)
 }
 
-// GetSelectedCandidatePairFunc returns the method "RTCIceTransport.getSelectedCandidatePair".
-func (this RTCIceTransport) GetSelectedCandidatePairFunc() (fn js.Func[func() RTCIceCandidatePair]) {
-	return fn.FromRef(
-		bindings.RTCIceTransportGetSelectedCandidatePairFunc(
-			this.Ref(),
-		),
+// FuncGetSelectedCandidatePair returns the method "RTCIceTransport.getSelectedCandidatePair".
+func (this RTCIceTransport) FuncGetSelectedCandidatePair() (fn js.Func[func() RTCIceCandidatePair]) {
+	bindings.FuncRTCIceTransportGetSelectedCandidatePair(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetSelectedCandidatePair calls the method "RTCIceTransport.getSelectedCandidatePair".
 func (this RTCIceTransport) GetSelectedCandidatePair() (ret RTCIceCandidatePair) {
 	bindings.CallRTCIceTransportGetSelectedCandidatePair(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -208,32 +198,31 @@ func (this RTCIceTransport) GetSelectedCandidatePair() (ret RTCIceCandidatePair)
 // the catch clause.
 func (this RTCIceTransport) TryGetSelectedCandidatePair() (ret RTCIceCandidatePair, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportGetSelectedCandidatePair(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetLocalParameters returns true if the method "RTCIceTransport.getLocalParameters" exists.
-func (this RTCIceTransport) HasGetLocalParameters() bool {
-	return js.True == bindings.HasRTCIceTransportGetLocalParameters(
-		this.Ref(),
+// HasFuncGetLocalParameters returns true if the method "RTCIceTransport.getLocalParameters" exists.
+func (this RTCIceTransport) HasFuncGetLocalParameters() bool {
+	return js.True == bindings.HasFuncRTCIceTransportGetLocalParameters(
+		this.ref,
 	)
 }
 
-// GetLocalParametersFunc returns the method "RTCIceTransport.getLocalParameters".
-func (this RTCIceTransport) GetLocalParametersFunc() (fn js.Func[func() RTCIceParameters]) {
-	return fn.FromRef(
-		bindings.RTCIceTransportGetLocalParametersFunc(
-			this.Ref(),
-		),
+// FuncGetLocalParameters returns the method "RTCIceTransport.getLocalParameters".
+func (this RTCIceTransport) FuncGetLocalParameters() (fn js.Func[func() RTCIceParameters]) {
+	bindings.FuncRTCIceTransportGetLocalParameters(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetLocalParameters calls the method "RTCIceTransport.getLocalParameters".
 func (this RTCIceTransport) GetLocalParameters() (ret RTCIceParameters) {
 	bindings.CallRTCIceTransportGetLocalParameters(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -244,32 +233,31 @@ func (this RTCIceTransport) GetLocalParameters() (ret RTCIceParameters) {
 // the catch clause.
 func (this RTCIceTransport) TryGetLocalParameters() (ret RTCIceParameters, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportGetLocalParameters(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGetRemoteParameters returns true if the method "RTCIceTransport.getRemoteParameters" exists.
-func (this RTCIceTransport) HasGetRemoteParameters() bool {
-	return js.True == bindings.HasRTCIceTransportGetRemoteParameters(
-		this.Ref(),
+// HasFuncGetRemoteParameters returns true if the method "RTCIceTransport.getRemoteParameters" exists.
+func (this RTCIceTransport) HasFuncGetRemoteParameters() bool {
+	return js.True == bindings.HasFuncRTCIceTransportGetRemoteParameters(
+		this.ref,
 	)
 }
 
-// GetRemoteParametersFunc returns the method "RTCIceTransport.getRemoteParameters".
-func (this RTCIceTransport) GetRemoteParametersFunc() (fn js.Func[func() RTCIceParameters]) {
-	return fn.FromRef(
-		bindings.RTCIceTransportGetRemoteParametersFunc(
-			this.Ref(),
-		),
+// FuncGetRemoteParameters returns the method "RTCIceTransport.getRemoteParameters".
+func (this RTCIceTransport) FuncGetRemoteParameters() (fn js.Func[func() RTCIceParameters]) {
+	bindings.FuncRTCIceTransportGetRemoteParameters(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetRemoteParameters calls the method "RTCIceTransport.getRemoteParameters".
 func (this RTCIceTransport) GetRemoteParameters() (ret RTCIceParameters) {
 	bindings.CallRTCIceTransportGetRemoteParameters(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -280,32 +268,31 @@ func (this RTCIceTransport) GetRemoteParameters() (ret RTCIceParameters) {
 // the catch clause.
 func (this RTCIceTransport) TryGetRemoteParameters() (ret RTCIceParameters, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportGetRemoteParameters(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasGather returns true if the method "RTCIceTransport.gather" exists.
-func (this RTCIceTransport) HasGather() bool {
-	return js.True == bindings.HasRTCIceTransportGather(
-		this.Ref(),
+// HasFuncGather returns true if the method "RTCIceTransport.gather" exists.
+func (this RTCIceTransport) HasFuncGather() bool {
+	return js.True == bindings.HasFuncRTCIceTransportGather(
+		this.ref,
 	)
 }
 
-// GatherFunc returns the method "RTCIceTransport.gather".
-func (this RTCIceTransport) GatherFunc() (fn js.Func[func(options RTCIceGatherOptions)]) {
-	return fn.FromRef(
-		bindings.RTCIceTransportGatherFunc(
-			this.Ref(),
-		),
+// FuncGather returns the method "RTCIceTransport.gather".
+func (this RTCIceTransport) FuncGather() (fn js.Func[func(options RTCIceGatherOptions)]) {
+	bindings.FuncRTCIceTransportGather(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Gather calls the method "RTCIceTransport.gather".
 func (this RTCIceTransport) Gather(options RTCIceGatherOptions) (ret js.Void) {
 	bindings.CallRTCIceTransportGather(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&options),
 	)
 
@@ -317,33 +304,32 @@ func (this RTCIceTransport) Gather(options RTCIceGatherOptions) (ret js.Void) {
 // the catch clause.
 func (this RTCIceTransport) TryGather(options RTCIceGatherOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportGather(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&options),
 	)
 
 	return
 }
 
-// HasGather1 returns true if the method "RTCIceTransport.gather" exists.
-func (this RTCIceTransport) HasGather1() bool {
-	return js.True == bindings.HasRTCIceTransportGather1(
-		this.Ref(),
+// HasFuncGather1 returns true if the method "RTCIceTransport.gather" exists.
+func (this RTCIceTransport) HasFuncGather1() bool {
+	return js.True == bindings.HasFuncRTCIceTransportGather1(
+		this.ref,
 	)
 }
 
-// Gather1Func returns the method "RTCIceTransport.gather".
-func (this RTCIceTransport) Gather1Func() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.RTCIceTransportGather1Func(
-			this.Ref(),
-		),
+// FuncGather1 returns the method "RTCIceTransport.gather".
+func (this RTCIceTransport) FuncGather1() (fn js.Func[func()]) {
+	bindings.FuncRTCIceTransportGather1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Gather1 calls the method "RTCIceTransport.gather".
 func (this RTCIceTransport) Gather1() (ret js.Void) {
 	bindings.CallRTCIceTransportGather1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -354,32 +340,31 @@ func (this RTCIceTransport) Gather1() (ret js.Void) {
 // the catch clause.
 func (this RTCIceTransport) TryGather1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportGather1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasStart returns true if the method "RTCIceTransport.start" exists.
-func (this RTCIceTransport) HasStart() bool {
-	return js.True == bindings.HasRTCIceTransportStart(
-		this.Ref(),
+// HasFuncStart returns true if the method "RTCIceTransport.start" exists.
+func (this RTCIceTransport) HasFuncStart() bool {
+	return js.True == bindings.HasFuncRTCIceTransportStart(
+		this.ref,
 	)
 }
 
-// StartFunc returns the method "RTCIceTransport.start".
-func (this RTCIceTransport) StartFunc() (fn js.Func[func(remoteParameters RTCIceParameters, role RTCIceRole)]) {
-	return fn.FromRef(
-		bindings.RTCIceTransportStartFunc(
-			this.Ref(),
-		),
+// FuncStart returns the method "RTCIceTransport.start".
+func (this RTCIceTransport) FuncStart() (fn js.Func[func(remoteParameters RTCIceParameters, role RTCIceRole)]) {
+	bindings.FuncRTCIceTransportStart(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Start calls the method "RTCIceTransport.start".
 func (this RTCIceTransport) Start(remoteParameters RTCIceParameters, role RTCIceRole) (ret js.Void) {
 	bindings.CallRTCIceTransportStart(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&remoteParameters),
 		uint32(role),
 	)
@@ -392,7 +377,7 @@ func (this RTCIceTransport) Start(remoteParameters RTCIceParameters, role RTCIce
 // the catch clause.
 func (this RTCIceTransport) TryStart(remoteParameters RTCIceParameters, role RTCIceRole) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportStart(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&remoteParameters),
 		uint32(role),
 	)
@@ -400,26 +385,25 @@ func (this RTCIceTransport) TryStart(remoteParameters RTCIceParameters, role RTC
 	return
 }
 
-// HasStart1 returns true if the method "RTCIceTransport.start" exists.
-func (this RTCIceTransport) HasStart1() bool {
-	return js.True == bindings.HasRTCIceTransportStart1(
-		this.Ref(),
+// HasFuncStart1 returns true if the method "RTCIceTransport.start" exists.
+func (this RTCIceTransport) HasFuncStart1() bool {
+	return js.True == bindings.HasFuncRTCIceTransportStart1(
+		this.ref,
 	)
 }
 
-// Start1Func returns the method "RTCIceTransport.start".
-func (this RTCIceTransport) Start1Func() (fn js.Func[func(remoteParameters RTCIceParameters)]) {
-	return fn.FromRef(
-		bindings.RTCIceTransportStart1Func(
-			this.Ref(),
-		),
+// FuncStart1 returns the method "RTCIceTransport.start".
+func (this RTCIceTransport) FuncStart1() (fn js.Func[func(remoteParameters RTCIceParameters)]) {
+	bindings.FuncRTCIceTransportStart1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Start1 calls the method "RTCIceTransport.start".
 func (this RTCIceTransport) Start1(remoteParameters RTCIceParameters) (ret js.Void) {
 	bindings.CallRTCIceTransportStart1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&remoteParameters),
 	)
 
@@ -431,33 +415,32 @@ func (this RTCIceTransport) Start1(remoteParameters RTCIceParameters) (ret js.Vo
 // the catch clause.
 func (this RTCIceTransport) TryStart1(remoteParameters RTCIceParameters) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportStart1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&remoteParameters),
 	)
 
 	return
 }
 
-// HasStart2 returns true if the method "RTCIceTransport.start" exists.
-func (this RTCIceTransport) HasStart2() bool {
-	return js.True == bindings.HasRTCIceTransportStart2(
-		this.Ref(),
+// HasFuncStart2 returns true if the method "RTCIceTransport.start" exists.
+func (this RTCIceTransport) HasFuncStart2() bool {
+	return js.True == bindings.HasFuncRTCIceTransportStart2(
+		this.ref,
 	)
 }
 
-// Start2Func returns the method "RTCIceTransport.start".
-func (this RTCIceTransport) Start2Func() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.RTCIceTransportStart2Func(
-			this.Ref(),
-		),
+// FuncStart2 returns the method "RTCIceTransport.start".
+func (this RTCIceTransport) FuncStart2() (fn js.Func[func()]) {
+	bindings.FuncRTCIceTransportStart2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Start2 calls the method "RTCIceTransport.start".
 func (this RTCIceTransport) Start2() (ret js.Void) {
 	bindings.CallRTCIceTransportStart2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -468,32 +451,31 @@ func (this RTCIceTransport) Start2() (ret js.Void) {
 // the catch clause.
 func (this RTCIceTransport) TryStart2() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportStart2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasStop returns true if the method "RTCIceTransport.stop" exists.
-func (this RTCIceTransport) HasStop() bool {
-	return js.True == bindings.HasRTCIceTransportStop(
-		this.Ref(),
+// HasFuncStop returns true if the method "RTCIceTransport.stop" exists.
+func (this RTCIceTransport) HasFuncStop() bool {
+	return js.True == bindings.HasFuncRTCIceTransportStop(
+		this.ref,
 	)
 }
 
-// StopFunc returns the method "RTCIceTransport.stop".
-func (this RTCIceTransport) StopFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.RTCIceTransportStopFunc(
-			this.Ref(),
-		),
+// FuncStop returns the method "RTCIceTransport.stop".
+func (this RTCIceTransport) FuncStop() (fn js.Func[func()]) {
+	bindings.FuncRTCIceTransportStop(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Stop calls the method "RTCIceTransport.stop".
 func (this RTCIceTransport) Stop() (ret js.Void) {
 	bindings.CallRTCIceTransportStop(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -504,32 +486,31 @@ func (this RTCIceTransport) Stop() (ret js.Void) {
 // the catch clause.
 func (this RTCIceTransport) TryStop() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportStop(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasAddRemoteCandidate returns true if the method "RTCIceTransport.addRemoteCandidate" exists.
-func (this RTCIceTransport) HasAddRemoteCandidate() bool {
-	return js.True == bindings.HasRTCIceTransportAddRemoteCandidate(
-		this.Ref(),
+// HasFuncAddRemoteCandidate returns true if the method "RTCIceTransport.addRemoteCandidate" exists.
+func (this RTCIceTransport) HasFuncAddRemoteCandidate() bool {
+	return js.True == bindings.HasFuncRTCIceTransportAddRemoteCandidate(
+		this.ref,
 	)
 }
 
-// AddRemoteCandidateFunc returns the method "RTCIceTransport.addRemoteCandidate".
-func (this RTCIceTransport) AddRemoteCandidateFunc() (fn js.Func[func(remoteCandidate RTCIceCandidateInit)]) {
-	return fn.FromRef(
-		bindings.RTCIceTransportAddRemoteCandidateFunc(
-			this.Ref(),
-		),
+// FuncAddRemoteCandidate returns the method "RTCIceTransport.addRemoteCandidate".
+func (this RTCIceTransport) FuncAddRemoteCandidate() (fn js.Func[func(remoteCandidate RTCIceCandidateInit)]) {
+	bindings.FuncRTCIceTransportAddRemoteCandidate(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AddRemoteCandidate calls the method "RTCIceTransport.addRemoteCandidate".
 func (this RTCIceTransport) AddRemoteCandidate(remoteCandidate RTCIceCandidateInit) (ret js.Void) {
 	bindings.CallRTCIceTransportAddRemoteCandidate(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&remoteCandidate),
 	)
 
@@ -541,33 +522,32 @@ func (this RTCIceTransport) AddRemoteCandidate(remoteCandidate RTCIceCandidateIn
 // the catch clause.
 func (this RTCIceTransport) TryAddRemoteCandidate(remoteCandidate RTCIceCandidateInit) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportAddRemoteCandidate(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&remoteCandidate),
 	)
 
 	return
 }
 
-// HasAddRemoteCandidate1 returns true if the method "RTCIceTransport.addRemoteCandidate" exists.
-func (this RTCIceTransport) HasAddRemoteCandidate1() bool {
-	return js.True == bindings.HasRTCIceTransportAddRemoteCandidate1(
-		this.Ref(),
+// HasFuncAddRemoteCandidate1 returns true if the method "RTCIceTransport.addRemoteCandidate" exists.
+func (this RTCIceTransport) HasFuncAddRemoteCandidate1() bool {
+	return js.True == bindings.HasFuncRTCIceTransportAddRemoteCandidate1(
+		this.ref,
 	)
 }
 
-// AddRemoteCandidate1Func returns the method "RTCIceTransport.addRemoteCandidate".
-func (this RTCIceTransport) AddRemoteCandidate1Func() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.RTCIceTransportAddRemoteCandidate1Func(
-			this.Ref(),
-		),
+// FuncAddRemoteCandidate1 returns the method "RTCIceTransport.addRemoteCandidate".
+func (this RTCIceTransport) FuncAddRemoteCandidate1() (fn js.Func[func()]) {
+	bindings.FuncRTCIceTransportAddRemoteCandidate1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AddRemoteCandidate1 calls the method "RTCIceTransport.addRemoteCandidate".
 func (this RTCIceTransport) AddRemoteCandidate1() (ret js.Void) {
 	bindings.CallRTCIceTransportAddRemoteCandidate1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -578,7 +558,7 @@ func (this RTCIceTransport) AddRemoteCandidate1() (ret js.Void) {
 // the catch clause.
 func (this RTCIceTransport) TryAddRemoteCandidate1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportAddRemoteCandidate1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -622,7 +602,7 @@ type RTCDtlsTransport struct {
 }
 
 func (this RTCDtlsTransport) Once() RTCDtlsTransport {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -636,7 +616,7 @@ func (this RTCDtlsTransport) FromRef(ref js.Ref) RTCDtlsTransport {
 }
 
 func (this RTCDtlsTransport) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // IceTransport returns the value of property "RTCDtlsTransport.iceTransport".
@@ -644,7 +624,7 @@ func (this RTCDtlsTransport) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCDtlsTransport) IceTransport() (ret RTCIceTransport, ok bool) {
 	ok = js.True == bindings.GetRTCDtlsTransportIceTransport(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -654,31 +634,30 @@ func (this RTCDtlsTransport) IceTransport() (ret RTCIceTransport, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCDtlsTransport) State() (ret RTCDtlsTransportState, ok bool) {
 	ok = js.True == bindings.GetRTCDtlsTransportState(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasGetRemoteCertificates returns true if the method "RTCDtlsTransport.getRemoteCertificates" exists.
-func (this RTCDtlsTransport) HasGetRemoteCertificates() bool {
-	return js.True == bindings.HasRTCDtlsTransportGetRemoteCertificates(
-		this.Ref(),
+// HasFuncGetRemoteCertificates returns true if the method "RTCDtlsTransport.getRemoteCertificates" exists.
+func (this RTCDtlsTransport) HasFuncGetRemoteCertificates() bool {
+	return js.True == bindings.HasFuncRTCDtlsTransportGetRemoteCertificates(
+		this.ref,
 	)
 }
 
-// GetRemoteCertificatesFunc returns the method "RTCDtlsTransport.getRemoteCertificates".
-func (this RTCDtlsTransport) GetRemoteCertificatesFunc() (fn js.Func[func() js.Array[js.ArrayBuffer]]) {
-	return fn.FromRef(
-		bindings.RTCDtlsTransportGetRemoteCertificatesFunc(
-			this.Ref(),
-		),
+// FuncGetRemoteCertificates returns the method "RTCDtlsTransport.getRemoteCertificates".
+func (this RTCDtlsTransport) FuncGetRemoteCertificates() (fn js.Func[func() js.Array[js.ArrayBuffer]]) {
+	bindings.FuncRTCDtlsTransportGetRemoteCertificates(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetRemoteCertificates calls the method "RTCDtlsTransport.getRemoteCertificates".
 func (this RTCDtlsTransport) GetRemoteCertificates() (ret js.Array[js.ArrayBuffer]) {
 	bindings.CallRTCDtlsTransportGetRemoteCertificates(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -689,7 +668,7 @@ func (this RTCDtlsTransport) GetRemoteCertificates() (ret js.Array[js.ArrayBuffe
 // the catch clause.
 func (this RTCDtlsTransport) TryGetRemoteCertificates() (ret js.Array[js.ArrayBuffer], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCDtlsTransportGetRemoteCertificates(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -740,17 +719,26 @@ func (p RTCEncodedAudioFrameMetadata) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCEncodedAudioFrameMetadata) UpdateFrom(ref js.Ref) {
+func (p *RTCEncodedAudioFrameMetadata) UpdateFrom(ref js.Ref) {
 	bindings.RTCEncodedAudioFrameMetadataJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCEncodedAudioFrameMetadata) Update(ref js.Ref) {
+func (p *RTCEncodedAudioFrameMetadata) Update(ref js.Ref) {
 	bindings.RTCEncodedAudioFrameMetadataJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCEncodedAudioFrameMetadata) FreeMembers(recursive bool) {
+	js.Free(
+		p.ContributingSources.Ref(),
+	)
+	p.ContributingSources = p.ContributingSources.FromRef(js.Undefined)
 }
 
 type RTCEncodedAudioFrame struct {
@@ -758,7 +746,7 @@ type RTCEncodedAudioFrame struct {
 }
 
 func (this RTCEncodedAudioFrame) Once() RTCEncodedAudioFrame {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -772,7 +760,7 @@ func (this RTCEncodedAudioFrame) FromRef(ref js.Ref) RTCEncodedAudioFrame {
 }
 
 func (this RTCEncodedAudioFrame) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Timestamp returns the value of property "RTCEncodedAudioFrame.timestamp".
@@ -780,7 +768,7 @@ func (this RTCEncodedAudioFrame) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCEncodedAudioFrame) Timestamp() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetRTCEncodedAudioFrameTimestamp(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -790,7 +778,7 @@ func (this RTCEncodedAudioFrame) Timestamp() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCEncodedAudioFrame) Data() (ret js.ArrayBuffer, ok bool) {
 	ok = js.True == bindings.GetRTCEncodedAudioFrameData(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -800,31 +788,30 @@ func (this RTCEncodedAudioFrame) Data() (ret js.ArrayBuffer, ok bool) {
 // It returns false if the property cannot be set.
 func (this RTCEncodedAudioFrame) SetData(val js.ArrayBuffer) bool {
 	return js.True == bindings.SetRTCEncodedAudioFrameData(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
 
-// HasGetMetadata returns true if the method "RTCEncodedAudioFrame.getMetadata" exists.
-func (this RTCEncodedAudioFrame) HasGetMetadata() bool {
-	return js.True == bindings.HasRTCEncodedAudioFrameGetMetadata(
-		this.Ref(),
+// HasFuncGetMetadata returns true if the method "RTCEncodedAudioFrame.getMetadata" exists.
+func (this RTCEncodedAudioFrame) HasFuncGetMetadata() bool {
+	return js.True == bindings.HasFuncRTCEncodedAudioFrameGetMetadata(
+		this.ref,
 	)
 }
 
-// GetMetadataFunc returns the method "RTCEncodedAudioFrame.getMetadata".
-func (this RTCEncodedAudioFrame) GetMetadataFunc() (fn js.Func[func() RTCEncodedAudioFrameMetadata]) {
-	return fn.FromRef(
-		bindings.RTCEncodedAudioFrameGetMetadataFunc(
-			this.Ref(),
-		),
+// FuncGetMetadata returns the method "RTCEncodedAudioFrame.getMetadata".
+func (this RTCEncodedAudioFrame) FuncGetMetadata() (fn js.Func[func() RTCEncodedAudioFrameMetadata]) {
+	bindings.FuncRTCEncodedAudioFrameGetMetadata(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetMetadata calls the method "RTCEncodedAudioFrame.getMetadata".
 func (this RTCEncodedAudioFrame) GetMetadata() (ret RTCEncodedAudioFrameMetadata) {
 	bindings.CallRTCEncodedAudioFrameGetMetadata(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -835,7 +822,7 @@ func (this RTCEncodedAudioFrame) GetMetadata() (ret RTCEncodedAudioFrameMetadata
 // the catch clause.
 func (this RTCEncodedAudioFrame) TryGetMetadata() (ret RTCEncodedAudioFrameMetadata, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCEncodedAudioFrameGetMetadata(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -925,17 +912,28 @@ func (p RTCEncodedVideoFrameMetadata) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCEncodedVideoFrameMetadata) UpdateFrom(ref js.Ref) {
+func (p *RTCEncodedVideoFrameMetadata) UpdateFrom(ref js.Ref) {
 	bindings.RTCEncodedVideoFrameMetadataJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCEncodedVideoFrameMetadata) Update(ref js.Ref) {
+func (p *RTCEncodedVideoFrameMetadata) Update(ref js.Ref) {
 	bindings.RTCEncodedVideoFrameMetadataJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCEncodedVideoFrameMetadata) FreeMembers(recursive bool) {
+	js.Free(
+		p.Dependencies.Ref(),
+		p.ContributingSources.Ref(),
+	)
+	p.Dependencies = p.Dependencies.FromRef(js.Undefined)
+	p.ContributingSources = p.ContributingSources.FromRef(js.Undefined)
 }
 
 type RTCEncodedVideoFrameType uint32
@@ -970,7 +968,7 @@ type RTCEncodedVideoFrame struct {
 }
 
 func (this RTCEncodedVideoFrame) Once() RTCEncodedVideoFrame {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -984,7 +982,7 @@ func (this RTCEncodedVideoFrame) FromRef(ref js.Ref) RTCEncodedVideoFrame {
 }
 
 func (this RTCEncodedVideoFrame) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Type returns the value of property "RTCEncodedVideoFrame.type".
@@ -992,7 +990,7 @@ func (this RTCEncodedVideoFrame) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCEncodedVideoFrame) Type() (ret RTCEncodedVideoFrameType, ok bool) {
 	ok = js.True == bindings.GetRTCEncodedVideoFrameType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1002,7 +1000,7 @@ func (this RTCEncodedVideoFrame) Type() (ret RTCEncodedVideoFrameType, ok bool) 
 // It returns ok=false if there is no such property.
 func (this RTCEncodedVideoFrame) Timestamp() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetRTCEncodedVideoFrameTimestamp(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1012,7 +1010,7 @@ func (this RTCEncodedVideoFrame) Timestamp() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCEncodedVideoFrame) Data() (ret js.ArrayBuffer, ok bool) {
 	ok = js.True == bindings.GetRTCEncodedVideoFrameData(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1022,31 +1020,30 @@ func (this RTCEncodedVideoFrame) Data() (ret js.ArrayBuffer, ok bool) {
 // It returns false if the property cannot be set.
 func (this RTCEncodedVideoFrame) SetData(val js.ArrayBuffer) bool {
 	return js.True == bindings.SetRTCEncodedVideoFrameData(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
 
-// HasGetMetadata returns true if the method "RTCEncodedVideoFrame.getMetadata" exists.
-func (this RTCEncodedVideoFrame) HasGetMetadata() bool {
-	return js.True == bindings.HasRTCEncodedVideoFrameGetMetadata(
-		this.Ref(),
+// HasFuncGetMetadata returns true if the method "RTCEncodedVideoFrame.getMetadata" exists.
+func (this RTCEncodedVideoFrame) HasFuncGetMetadata() bool {
+	return js.True == bindings.HasFuncRTCEncodedVideoFrameGetMetadata(
+		this.ref,
 	)
 }
 
-// GetMetadataFunc returns the method "RTCEncodedVideoFrame.getMetadata".
-func (this RTCEncodedVideoFrame) GetMetadataFunc() (fn js.Func[func() RTCEncodedVideoFrameMetadata]) {
-	return fn.FromRef(
-		bindings.RTCEncodedVideoFrameGetMetadataFunc(
-			this.Ref(),
-		),
+// FuncGetMetadata returns the method "RTCEncodedVideoFrame.getMetadata".
+func (this RTCEncodedVideoFrame) FuncGetMetadata() (fn js.Func[func() RTCEncodedVideoFrameMetadata]) {
+	bindings.FuncRTCEncodedVideoFrameGetMetadata(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // GetMetadata calls the method "RTCEncodedVideoFrame.getMetadata".
 func (this RTCEncodedVideoFrame) GetMetadata() (ret RTCEncodedVideoFrameMetadata) {
 	bindings.CallRTCEncodedVideoFrameGetMetadata(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1057,7 +1054,7 @@ func (this RTCEncodedVideoFrame) GetMetadata() (ret RTCEncodedVideoFrameMetadata
 // the catch clause.
 func (this RTCEncodedVideoFrame) TryGetMetadata() (ret RTCEncodedVideoFrameMetadata, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCEncodedVideoFrameGetMetadata(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1161,17 +1158,22 @@ func (p RTCErrorInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCErrorInit) UpdateFrom(ref js.Ref) {
+func (p *RTCErrorInit) UpdateFrom(ref js.Ref) {
 	bindings.RTCErrorInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCErrorInit) Update(ref js.Ref) {
+func (p *RTCErrorInit) Update(ref js.Ref) {
 	bindings.RTCErrorInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCErrorInit) FreeMembers(recursive bool) {
 }
 
 func NewRTCError(init RTCErrorInit, message js.String) (ret RTCError) {
@@ -1192,7 +1194,7 @@ type RTCError struct {
 }
 
 func (this RTCError) Once() RTCError {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1206,7 +1208,7 @@ func (this RTCError) FromRef(ref js.Ref) RTCError {
 }
 
 func (this RTCError) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // ErrorDetail returns the value of property "RTCError.errorDetail".
@@ -1214,7 +1216,7 @@ func (this RTCError) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCError) ErrorDetail() (ret RTCErrorDetailType, ok bool) {
 	ok = js.True == bindings.GetRTCErrorErrorDetail(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1224,7 +1226,7 @@ func (this RTCError) ErrorDetail() (ret RTCErrorDetailType, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCError) SdpLineNumber() (ret int32, ok bool) {
 	ok = js.True == bindings.GetRTCErrorSdpLineNumber(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1234,7 +1236,7 @@ func (this RTCError) SdpLineNumber() (ret int32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCError) SctpCauseCode() (ret int32, ok bool) {
 	ok = js.True == bindings.GetRTCErrorSctpCauseCode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1244,7 +1246,7 @@ func (this RTCError) SctpCauseCode() (ret int32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCError) ReceivedAlert() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetRTCErrorReceivedAlert(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1254,7 +1256,7 @@ func (this RTCError) ReceivedAlert() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCError) SentAlert() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetRTCErrorSentAlert(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1264,7 +1266,7 @@ func (this RTCError) SentAlert() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this RTCError) HttpRequestStatusCode() (ret int32, ok bool) {
 	ok = js.True == bindings.GetRTCErrorHttpRequestStatusCode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1356,17 +1358,26 @@ func (p RTCErrorEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCErrorEventInit) UpdateFrom(ref js.Ref) {
+func (p *RTCErrorEventInit) UpdateFrom(ref js.Ref) {
 	bindings.RTCErrorEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCErrorEventInit) Update(ref js.Ref) {
+func (p *RTCErrorEventInit) Update(ref js.Ref) {
 	bindings.RTCErrorEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCErrorEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Error.Ref(),
+	)
+	p.Error = p.Error.FromRef(js.Undefined)
 }
 
 func NewRTCErrorEvent(typ js.String, eventInitDict RTCErrorEventInit) (ret RTCErrorEvent) {
@@ -1381,7 +1392,7 @@ type RTCErrorEvent struct {
 }
 
 func (this RTCErrorEvent) Once() RTCErrorEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1395,7 +1406,7 @@ func (this RTCErrorEvent) FromRef(ref js.Ref) RTCErrorEvent {
 }
 
 func (this RTCErrorEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Error returns the value of property "RTCErrorEvent.error".
@@ -1403,7 +1414,7 @@ func (this RTCErrorEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCErrorEvent) Error() (ret RTCError, ok bool) {
 	ok = js.True == bindings.GetRTCErrorEventError(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1615,17 +1626,32 @@ func (p RTCIceCandidatePairStats) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCIceCandidatePairStats) UpdateFrom(ref js.Ref) {
+func (p *RTCIceCandidatePairStats) UpdateFrom(ref js.Ref) {
 	bindings.RTCIceCandidatePairStatsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCIceCandidatePairStats) Update(ref js.Ref) {
+func (p *RTCIceCandidatePairStats) Update(ref js.Ref) {
 	bindings.RTCIceCandidatePairStatsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCIceCandidatePairStats) FreeMembers(recursive bool) {
+	js.Free(
+		p.TransportId.Ref(),
+		p.LocalCandidateId.Ref(),
+		p.RemoteCandidateId.Ref(),
+		p.Id.Ref(),
+	)
+	p.TransportId = p.TransportId.FromRef(js.Undefined)
+	p.LocalCandidateId = p.LocalCandidateId.FromRef(js.Undefined)
+	p.RemoteCandidateId = p.RemoteCandidateId.FromRef(js.Undefined)
+	p.Id = p.Id.FromRef(js.Undefined)
 }
 
 type RTCIceCandidateStats struct {
@@ -1721,17 +1747,40 @@ func (p RTCIceCandidateStats) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCIceCandidateStats) UpdateFrom(ref js.Ref) {
+func (p *RTCIceCandidateStats) UpdateFrom(ref js.Ref) {
 	bindings.RTCIceCandidateStatsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCIceCandidateStats) Update(ref js.Ref) {
+func (p *RTCIceCandidateStats) Update(ref js.Ref) {
 	bindings.RTCIceCandidateStatsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCIceCandidateStats) FreeMembers(recursive bool) {
+	js.Free(
+		p.TransportId.Ref(),
+		p.Address.Ref(),
+		p.Protocol.Ref(),
+		p.Url.Ref(),
+		p.Foundation.Ref(),
+		p.RelatedAddress.Ref(),
+		p.UsernameFragment.Ref(),
+		p.Id.Ref(),
+	)
+	p.TransportId = p.TransportId.FromRef(js.Undefined)
+	p.Address = p.Address.FromRef(js.Undefined)
+	p.Protocol = p.Protocol.FromRef(js.Undefined)
+	p.Url = p.Url.FromRef(js.Undefined)
+	p.Foundation = p.Foundation.FromRef(js.Undefined)
+	p.RelatedAddress = p.RelatedAddress.FromRef(js.Undefined)
+	p.UsernameFragment = p.UsernameFragment.FromRef(js.Undefined)
+	p.Id = p.Id.FromRef(js.Undefined)
 }
 
 type RTCIceConnectionState uint32
@@ -1812,7 +1861,7 @@ type RTCIdentityAssertion struct {
 }
 
 func (this RTCIdentityAssertion) Once() RTCIdentityAssertion {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1826,7 +1875,7 @@ func (this RTCIdentityAssertion) FromRef(ref js.Ref) RTCIdentityAssertion {
 }
 
 func (this RTCIdentityAssertion) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Idp returns the value of property "RTCIdentityAssertion.idp".
@@ -1834,7 +1883,7 @@ func (this RTCIdentityAssertion) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCIdentityAssertion) Idp() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRTCIdentityAssertionIdp(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1844,7 +1893,7 @@ func (this RTCIdentityAssertion) Idp() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this RTCIdentityAssertion) SetIdp(val js.String) bool {
 	return js.True == bindings.SetRTCIdentityAssertionIdp(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1854,7 +1903,7 @@ func (this RTCIdentityAssertion) SetIdp(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this RTCIdentityAssertion) Name() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetRTCIdentityAssertionName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1864,7 +1913,7 @@ func (this RTCIdentityAssertion) Name() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this RTCIdentityAssertion) SetName(val js.String) bool {
 	return js.True == bindings.SetRTCIdentityAssertionName(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1915,7 +1964,7 @@ func (cb *ValidateAssertionCallback[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 2+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
 
 	if ctx.Return(cb.Fn(
@@ -1958,24 +2007,35 @@ func (p RTCIdentityValidationResult) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCIdentityValidationResult) UpdateFrom(ref js.Ref) {
+func (p *RTCIdentityValidationResult) UpdateFrom(ref js.Ref) {
 	bindings.RTCIdentityValidationResultJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCIdentityValidationResult) Update(ref js.Ref) {
+func (p *RTCIdentityValidationResult) Update(ref js.Ref) {
 	bindings.RTCIdentityValidationResultJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCIdentityValidationResult) FreeMembers(recursive bool) {
+	js.Free(
+		p.Identity.Ref(),
+		p.Contents.Ref(),
+	)
+	p.Identity = p.Identity.FromRef(js.Undefined)
+	p.Contents = p.Contents.FromRef(js.Undefined)
 }
 
 type RTCIdentityProvider struct {
 	// GenerateAssertion is "RTCIdentityProvider.generateAssertion"
 	//
 	// Required
-	GenerateAssertion js.Func[func(contents js.String, origin js.String, options RTCIdentityProviderOptions) js.Promise[RTCIdentityAssertionResult]]
+	GenerateAssertion js.Func[func(contents js.String, origin js.String, options *RTCIdentityProviderOptions) js.Promise[RTCIdentityAssertionResult]]
 	// ValidateAssertion is "RTCIdentityProvider.validateAssertion"
 	//
 	// Required
@@ -1998,17 +2058,28 @@ func (p RTCIdentityProvider) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCIdentityProvider) UpdateFrom(ref js.Ref) {
+func (p *RTCIdentityProvider) UpdateFrom(ref js.Ref) {
 	bindings.RTCIdentityProviderJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCIdentityProvider) Update(ref js.Ref) {
+func (p *RTCIdentityProvider) Update(ref js.Ref) {
 	bindings.RTCIdentityProviderJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCIdentityProvider) FreeMembers(recursive bool) {
+	js.Free(
+		p.GenerateAssertion.Ref(),
+		p.ValidateAssertion.Ref(),
+	)
+	p.GenerateAssertion = p.GenerateAssertion.FromRef(js.Undefined)
+	p.ValidateAssertion = p.ValidateAssertion.FromRef(js.Undefined)
 }
 
 type RTCIdentityProviderRegistrar struct {
@@ -2016,7 +2087,7 @@ type RTCIdentityProviderRegistrar struct {
 }
 
 func (this RTCIdentityProviderRegistrar) Once() RTCIdentityProviderRegistrar {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2030,29 +2101,28 @@ func (this RTCIdentityProviderRegistrar) FromRef(ref js.Ref) RTCIdentityProvider
 }
 
 func (this RTCIdentityProviderRegistrar) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasRegister returns true if the method "RTCIdentityProviderRegistrar.register" exists.
-func (this RTCIdentityProviderRegistrar) HasRegister() bool {
-	return js.True == bindings.HasRTCIdentityProviderRegistrarRegister(
-		this.Ref(),
+// HasFuncRegister returns true if the method "RTCIdentityProviderRegistrar.register" exists.
+func (this RTCIdentityProviderRegistrar) HasFuncRegister() bool {
+	return js.True == bindings.HasFuncRTCIdentityProviderRegistrarRegister(
+		this.ref,
 	)
 }
 
-// RegisterFunc returns the method "RTCIdentityProviderRegistrar.register".
-func (this RTCIdentityProviderRegistrar) RegisterFunc() (fn js.Func[func(idp RTCIdentityProvider)]) {
-	return fn.FromRef(
-		bindings.RTCIdentityProviderRegistrarRegisterFunc(
-			this.Ref(),
-		),
+// FuncRegister returns the method "RTCIdentityProviderRegistrar.register".
+func (this RTCIdentityProviderRegistrar) FuncRegister() (fn js.Func[func(idp RTCIdentityProvider)]) {
+	bindings.FuncRTCIdentityProviderRegistrarRegister(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Register calls the method "RTCIdentityProviderRegistrar.register".
 func (this RTCIdentityProviderRegistrar) Register(idp RTCIdentityProvider) (ret js.Void) {
 	bindings.CallRTCIdentityProviderRegistrarRegister(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		js.Pointer(&idp),
 	)
 
@@ -2064,7 +2134,7 @@ func (this RTCIdentityProviderRegistrar) Register(idp RTCIdentityProvider) (ret 
 // the catch clause.
 func (this RTCIdentityProviderRegistrar) TryRegister(idp RTCIdentityProvider) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIdentityProviderRegistrarRegister(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		js.Pointer(&idp),
 	)
 
@@ -2076,7 +2146,7 @@ type RTCIdentityProviderGlobalScope struct {
 }
 
 func (this RTCIdentityProviderGlobalScope) Once() RTCIdentityProviderGlobalScope {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2090,7 +2160,7 @@ func (this RTCIdentityProviderGlobalScope) FromRef(ref js.Ref) RTCIdentityProvid
 }
 
 func (this RTCIdentityProviderGlobalScope) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // RtcIdentityProvider returns the value of property "RTCIdentityProviderGlobalScope.rtcIdentityProvider".
@@ -2098,7 +2168,7 @@ func (this RTCIdentityProviderGlobalScope) Free() {
 // It returns ok=false if there is no such property.
 func (this RTCIdentityProviderGlobalScope) RtcIdentityProvider() (ret RTCIdentityProviderRegistrar, ok bool) {
 	ok = js.True == bindings.GetRTCIdentityProviderGlobalScopeRtcIdentityProvider(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2528,17 +2598,42 @@ func (p RTCInboundRtpStreamStats) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCInboundRtpStreamStats) UpdateFrom(ref js.Ref) {
+func (p *RTCInboundRtpStreamStats) UpdateFrom(ref js.Ref) {
 	bindings.RTCInboundRtpStreamStatsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCInboundRtpStreamStats) Update(ref js.Ref) {
+func (p *RTCInboundRtpStreamStats) Update(ref js.Ref) {
 	bindings.RTCInboundRtpStreamStatsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCInboundRtpStreamStats) FreeMembers(recursive bool) {
+	js.Free(
+		p.TrackIdentifier.Ref(),
+		p.Mid.Ref(),
+		p.RemoteId.Ref(),
+		p.DecoderImplementation.Ref(),
+		p.PlayoutId.Ref(),
+		p.Kind.Ref(),
+		p.TransportId.Ref(),
+		p.CodecId.Ref(),
+		p.Id.Ref(),
+	)
+	p.TrackIdentifier = p.TrackIdentifier.FromRef(js.Undefined)
+	p.Mid = p.Mid.FromRef(js.Undefined)
+	p.RemoteId = p.RemoteId.FromRef(js.Undefined)
+	p.DecoderImplementation = p.DecoderImplementation.FromRef(js.Undefined)
+	p.PlayoutId = p.PlayoutId.FromRef(js.Undefined)
+	p.Kind = p.Kind.FromRef(js.Undefined)
+	p.TransportId = p.TransportId.FromRef(js.Undefined)
+	p.CodecId = p.CodecId.FromRef(js.Undefined)
+	p.Id = p.Id.FromRef(js.Undefined)
 }
 
 type RTCSdpType uint32
@@ -2598,17 +2693,26 @@ func (p RTCLocalSessionDescriptionInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCLocalSessionDescriptionInit) UpdateFrom(ref js.Ref) {
+func (p *RTCLocalSessionDescriptionInit) UpdateFrom(ref js.Ref) {
 	bindings.RTCLocalSessionDescriptionInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCLocalSessionDescriptionInit) Update(ref js.Ref) {
+func (p *RTCLocalSessionDescriptionInit) Update(ref js.Ref) {
 	bindings.RTCLocalSessionDescriptionInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCLocalSessionDescriptionInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Sdp.Ref(),
+	)
+	p.Sdp = p.Sdp.FromRef(js.Undefined)
 }
 
 type RTCMediaSourceStats struct {
@@ -2650,17 +2754,30 @@ func (p RTCMediaSourceStats) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCMediaSourceStats) UpdateFrom(ref js.Ref) {
+func (p *RTCMediaSourceStats) UpdateFrom(ref js.Ref) {
 	bindings.RTCMediaSourceStatsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCMediaSourceStats) Update(ref js.Ref) {
+func (p *RTCMediaSourceStats) Update(ref js.Ref) {
 	bindings.RTCMediaSourceStatsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCMediaSourceStats) FreeMembers(recursive bool) {
+	js.Free(
+		p.TrackIdentifier.Ref(),
+		p.Kind.Ref(),
+		p.Id.Ref(),
+	)
+	p.TrackIdentifier = p.TrackIdentifier.FromRef(js.Undefined)
+	p.Kind = p.Kind.FromRef(js.Undefined)
+	p.Id = p.Id.FromRef(js.Undefined)
 }
 
 type RTCOfferAnswerOptions struct {
@@ -2681,17 +2798,22 @@ func (p RTCOfferAnswerOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCOfferAnswerOptions) UpdateFrom(ref js.Ref) {
+func (p *RTCOfferAnswerOptions) UpdateFrom(ref js.Ref) {
 	bindings.RTCOfferAnswerOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCOfferAnswerOptions) Update(ref js.Ref) {
+func (p *RTCOfferAnswerOptions) Update(ref js.Ref) {
 	bindings.RTCOfferAnswerOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCOfferAnswerOptions) FreeMembers(recursive bool) {
 }
 
 type RTCOfferOptions struct {
@@ -2735,17 +2857,22 @@ func (p RTCOfferOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCOfferOptions) UpdateFrom(ref js.Ref) {
+func (p *RTCOfferOptions) UpdateFrom(ref js.Ref) {
 	bindings.RTCOfferOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCOfferOptions) Update(ref js.Ref) {
+func (p *RTCOfferOptions) Update(ref js.Ref) {
 	bindings.RTCOfferOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCOfferOptions) FreeMembers(recursive bool) {
 }
 
 type RTCQualityLimitationReason uint32
@@ -3026,17 +3153,46 @@ func (p RTCOutboundRtpStreamStats) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCOutboundRtpStreamStats) UpdateFrom(ref js.Ref) {
+func (p *RTCOutboundRtpStreamStats) UpdateFrom(ref js.Ref) {
 	bindings.RTCOutboundRtpStreamStatsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCOutboundRtpStreamStats) Update(ref js.Ref) {
+func (p *RTCOutboundRtpStreamStats) Update(ref js.Ref) {
 	bindings.RTCOutboundRtpStreamStatsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCOutboundRtpStreamStats) FreeMembers(recursive bool) {
+	js.Free(
+		p.Mid.Ref(),
+		p.MediaSourceId.Ref(),
+		p.RemoteId.Ref(),
+		p.Rid.Ref(),
+		p.QualityLimitationDurations.Ref(),
+		p.EncoderImplementation.Ref(),
+		p.ScalabilityMode.Ref(),
+		p.Kind.Ref(),
+		p.TransportId.Ref(),
+		p.CodecId.Ref(),
+		p.Id.Ref(),
+	)
+	p.Mid = p.Mid.FromRef(js.Undefined)
+	p.MediaSourceId = p.MediaSourceId.FromRef(js.Undefined)
+	p.RemoteId = p.RemoteId.FromRef(js.Undefined)
+	p.Rid = p.Rid.FromRef(js.Undefined)
+	p.QualityLimitationDurations = p.QualityLimitationDurations.FromRef(js.Undefined)
+	p.EncoderImplementation = p.EncoderImplementation.FromRef(js.Undefined)
+	p.ScalabilityMode = p.ScalabilityMode.FromRef(js.Undefined)
+	p.Kind = p.Kind.FromRef(js.Undefined)
+	p.TransportId = p.TransportId.FromRef(js.Undefined)
+	p.CodecId = p.CodecId.FromRef(js.Undefined)
+	p.Id = p.Id.FromRef(js.Undefined)
 }
 
 type RTCSessionDescriptionInit struct {
@@ -3066,23 +3222,32 @@ func (p RTCSessionDescriptionInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCSessionDescriptionInit) UpdateFrom(ref js.Ref) {
+func (p *RTCSessionDescriptionInit) UpdateFrom(ref js.Ref) {
 	bindings.RTCSessionDescriptionInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCSessionDescriptionInit) Update(ref js.Ref) {
+func (p *RTCSessionDescriptionInit) Update(ref js.Ref) {
 	bindings.RTCSessionDescriptionInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
 }
 
-type RTCSessionDescriptionCallbackFunc func(this js.Ref, description RTCSessionDescriptionInit) js.Ref
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCSessionDescriptionInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Sdp.Ref(),
+	)
+	p.Sdp = p.Sdp.FromRef(js.Undefined)
+}
 
-func (fn RTCSessionDescriptionCallbackFunc) Register() js.Func[func(description RTCSessionDescriptionInit)] {
-	return js.RegisterCallback[func(description RTCSessionDescriptionInit)](
+type RTCSessionDescriptionCallbackFunc func(this js.Ref, description *RTCSessionDescriptionInit) js.Ref
+
+func (fn RTCSessionDescriptionCallbackFunc) Register() js.Func[func(description *RTCSessionDescriptionInit)] {
+	return js.RegisterCallback[func(description *RTCSessionDescriptionInit)](
 		fn, abi.FuncPCABIInternal(fn),
 	)
 }
@@ -3095,11 +3260,14 @@ func (fn RTCSessionDescriptionCallbackFunc) DispatchCallback(
 		targetPC != uintptr(abi.FuncPCABIInternal(fn)) {
 		js.ThrowInvalidCallbackInvocation()
 	}
+	var arg0 RTCSessionDescriptionInit
+	arg0.UpdateFrom(args[0+1])
+	defer arg0.FreeMembers(true)
 
 	if ctx.Return(fn(
 		args[0],
 
-		RTCSessionDescriptionInit{}.FromRef(args[0+1]),
+		mark.NoEscape(&arg0),
 	)) {
 		return
 	}
@@ -3108,12 +3276,12 @@ func (fn RTCSessionDescriptionCallbackFunc) DispatchCallback(
 }
 
 type RTCSessionDescriptionCallback[T any] struct {
-	Fn  func(arg T, this js.Ref, description RTCSessionDescriptionInit) js.Ref
+	Fn  func(arg T, this js.Ref, description *RTCSessionDescriptionInit) js.Ref
 	Arg T
 }
 
-func (cb *RTCSessionDescriptionCallback[T]) Register() js.Func[func(description RTCSessionDescriptionInit)] {
-	return js.RegisterCallback[func(description RTCSessionDescriptionInit)](
+func (cb *RTCSessionDescriptionCallback[T]) Register() js.Func[func(description *RTCSessionDescriptionInit)] {
+	return js.RegisterCallback[func(description *RTCSessionDescriptionInit)](
 		cb, abi.FuncPCABIInternal(cb.Fn),
 	)
 }
@@ -3124,14 +3292,17 @@ func (cb *RTCSessionDescriptionCallback[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 1+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
+	var arg0 RTCSessionDescriptionInit
+	arg0.UpdateFrom(args[0+1])
+	defer arg0.FreeMembers(true)
 
 	if ctx.Return(cb.Fn(
 		cb.Arg,
 		args[0],
 
-		RTCSessionDescriptionInit{}.FromRef(args[0+1]),
+		mark.NoEscape(&arg0),
 	)) {
 		return
 	}
@@ -3184,7 +3355,7 @@ func (cb *RTCPeerConnectionErrorCallback[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 1+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
 
 	if ctx.Return(cb.Fn(
@@ -3238,17 +3409,28 @@ func (p RTCRtpCodecCapability) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCRtpCodecCapability) UpdateFrom(ref js.Ref) {
+func (p *RTCRtpCodecCapability) UpdateFrom(ref js.Ref) {
 	bindings.RTCRtpCodecCapabilityJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCRtpCodecCapability) Update(ref js.Ref) {
+func (p *RTCRtpCodecCapability) Update(ref js.Ref) {
 	bindings.RTCRtpCodecCapabilityJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCRtpCodecCapability) FreeMembers(recursive bool) {
+	js.Free(
+		p.MimeType.Ref(),
+		p.SdpFmtpLine.Ref(),
+	)
+	p.MimeType = p.MimeType.FromRef(js.Undefined)
+	p.SdpFmtpLine = p.SdpFmtpLine.FromRef(js.Undefined)
 }
 
 type RTCRtpHeaderExtensionCapability struct {
@@ -3274,17 +3456,26 @@ func (p RTCRtpHeaderExtensionCapability) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCRtpHeaderExtensionCapability) UpdateFrom(ref js.Ref) {
+func (p *RTCRtpHeaderExtensionCapability) UpdateFrom(ref js.Ref) {
 	bindings.RTCRtpHeaderExtensionCapabilityJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCRtpHeaderExtensionCapability) Update(ref js.Ref) {
+func (p *RTCRtpHeaderExtensionCapability) Update(ref js.Ref) {
 	bindings.RTCRtpHeaderExtensionCapabilityJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCRtpHeaderExtensionCapability) FreeMembers(recursive bool) {
+	js.Free(
+		p.Uri.Ref(),
+	)
+	p.Uri = p.Uri.FromRef(js.Undefined)
 }
 
 type RTCRtpCapabilities struct {
@@ -3314,15 +3505,26 @@ func (p RTCRtpCapabilities) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p RTCRtpCapabilities) UpdateFrom(ref js.Ref) {
+func (p *RTCRtpCapabilities) UpdateFrom(ref js.Ref) {
 	bindings.RTCRtpCapabilitiesJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p RTCRtpCapabilities) Update(ref js.Ref) {
+func (p *RTCRtpCapabilities) Update(ref js.Ref) {
 	bindings.RTCRtpCapabilitiesJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *RTCRtpCapabilities) FreeMembers(recursive bool) {
+	js.Free(
+		p.Codecs.Ref(),
+		p.HeaderExtensions.Ref(),
+	)
+	p.Codecs = p.Codecs.FromRef(js.Undefined)
+	p.HeaderExtensions = p.HeaderExtensions.FromRef(js.Undefined)
 }

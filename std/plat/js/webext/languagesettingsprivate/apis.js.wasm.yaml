@@ -1,0 +1,1275 @@
+- File: webext/chrome/language_settings_private.idl
+  Callback:
+    Name: GetAlwaysTranslateLanguagesCallback
+    Args:
+      - Name: languageCodes
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - languageSettingsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  Callback:
+    Name: GetInputMethodListsCallback
+    Args:
+      - Name: lists
+        Type:
+          Name: InputMethodLists
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  Callback:
+    Name: GetLanguageListCallback
+    Args:
+      - Name: languages
+        Type:
+          Name: sequence
+          Params:
+            - Name: Language
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - languageSettingsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  Callback:
+    Name: GetNeverTranslateLanguagesCallback
+    Args:
+      - Name: languageCodes
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - languageSettingsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  Callback:
+    Name: GetSpellcheckDictionaryStatusesCallback
+    Args:
+      - Name: status
+        Type:
+          Name: sequence
+          Params:
+            - Name: SpellcheckDictionaryStatus
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - languageSettingsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  Callback:
+    Name: GetSpellcheckWordsCallback
+    Args:
+      - Name: words
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - languageSettingsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  Callback:
+    Name: GetTranslateTargetLanguageCallback
+    Args:
+      - Name: languageCode
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  Dict:
+    Name: InputMethod
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+      - Name: displayName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+      - Name: languageCodes
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - languageSettingsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+      - Name: tags
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - languageSettingsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+      - Name: enabled
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+      - Name: hasOptionsPage
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+      - Name: isProhibitedByPolicy
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  Dict:
+    Name: InputMethodLists
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+    Fields:
+      - Name: componentExtensionImes
+        Type:
+          Name: sequence
+          Params:
+            - Name: InputMethod
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - languageSettingsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+      - Name: thirdPartyExtensionImes
+        Type:
+          Name: sequence
+          Params:
+            - Name: InputMethod
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - languageSettingsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  Dict:
+    Name: Language
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+    Fields:
+      - Name: code
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+      - Name: displayName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+      - Name: nativeDisplayName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+      - Name: supportsUI
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+      - Name: supportsSpellcheck
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+      - Name: supportsTranslate
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+      - Name: isProhibitedLanguage
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  Enum:
+    Name: MoveType
+    Values:
+      - TOP
+      - UP
+      - DOWN
+      - UNKNOWN
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  Dict:
+    Name: SpellcheckDictionaryStatus
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+    Fields:
+      - Name: languageCode
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+      - Name: isReady
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+      - Name: isDownloading
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+      - Name: downloadFailed
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  WebextFunc:
+    Name: addInputMethod
+    Modifier: static
+    Args:
+      - Name: inputMethodId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  WebextFunc:
+    Name: addSpellcheckWord
+    Modifier: static
+    Args:
+      - Name: word
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  WebextFunc:
+    Name: disableLanguage
+    Modifier: static
+    Args:
+      - Name: languageCode
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  WebextFunc:
+    Name: enableLanguage
+    Modifier: static
+    Args:
+      - Name: languageCode
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  WebextFunc:
+    Name: getAlwaysTranslateLanguages
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: DOMString
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - languageSettingsPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - languageSettingsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  WebextFunc:
+    Name: getInputMethodLists
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: InputMethodLists
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - languageSettingsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  WebextFunc:
+    Name: getLanguageList
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: Language
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - languageSettingsPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - languageSettingsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  WebextFunc:
+    Name: getNeverTranslateLanguages
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: DOMString
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - languageSettingsPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - languageSettingsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  WebextFunc:
+    Name: getSpellcheckDictionaryStatuses
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: SpellcheckDictionaryStatus
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - languageSettingsPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - languageSettingsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  WebextFunc:
+    Name: getSpellcheckWords
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: DOMString
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - languageSettingsPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - languageSettingsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  WebextFunc:
+    Name: getTranslateTargetLanguage
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - languageSettingsPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  WebextFunc:
+    Name: moveLanguage
+    Modifier: static
+    Args:
+      - Name: languageCode
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+      - Name: moveType
+        Type:
+          Name: MoveType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  WebextEvent:
+    Name: onCustomDictionaryChanged
+    Modifier: static
+    Args:
+      - Name: wordsAdded
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - languageSettingsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+      - Name: wordsRemoved
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - languageSettingsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  WebextEvent:
+    Name: onInputMethodAdded
+    Modifier: static
+    Args:
+      - Name: inputMethodId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  WebextEvent:
+    Name: onInputMethodRemoved
+    Modifier: static
+    Args:
+      - Name: inputMethodId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  WebextEvent:
+    Name: onSpellcheckDictionariesChanged
+    Modifier: static
+    Args:
+      - Name: statuses
+        Type:
+          Name: sequence
+          Params:
+            - Name: SpellcheckDictionaryStatus
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - languageSettingsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  WebextFunc:
+    Name: removeInputMethod
+    Modifier: static
+    Args:
+      - Name: inputMethodId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  WebextFunc:
+    Name: removeSpellcheckWord
+    Modifier: static
+    Args:
+      - Name: word
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  WebextFunc:
+    Name: retryDownloadDictionary
+    Modifier: static
+    Args:
+      - Name: languageCode
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  WebextFunc:
+    Name: setEnableTranslationForLanguage
+    Modifier: static
+    Args:
+      - Name: languageCode
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+      - Name: enable
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  WebextFunc:
+    Name: setLanguageAlwaysTranslateState
+    Modifier: static
+    Args:
+      - Name: languageCode
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+      - Name: alwaysTranslate
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate
+- File: webext/chrome/language_settings_private.idl
+  WebextFunc:
+    Name: setTranslateTargetLanguage
+    Modifier: static
+    Args:
+      - Name: languageCode
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - languageSettingsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - languageSettingsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - languageSettingsPrivate

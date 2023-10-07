@@ -1,0 +1,51 @@
+- File: webext/metrics_private_individual_apis.json
+  WebextFunc:
+    Name: recordEnumerationValue
+    Args:
+      - Name: metricName
+        Type:
+          Name: DOMString
+      - Name: value
+        Type:
+          Name: long long
+      - Name: enumSize
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivateIndividualApis
+- File: webext/metrics_private_individual_apis.json
+  WebextFunc:
+    Name: recordMediumTime
+    Args:
+      - Name: metricName
+        Type:
+          Name: DOMString
+      - Name: value
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivateIndividualApis
+- File: webext/metrics_private_individual_apis.json
+  WebextFunc:
+    Name: recordUserAction
+    Args:
+      - Name: name
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivateIndividualApis

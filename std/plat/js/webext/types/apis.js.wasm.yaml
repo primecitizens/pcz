@@ -1,0 +1,207 @@
+- File: webext/types.json
+  Interface:
+    Name: ChromeSetting
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - types
+    Operations:
+      - Name: get
+        Args:
+          - Name: details
+            Type:
+              Name: GetArgDetails
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - types
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: GetReturnType
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - types
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - types
+      - Name: set
+        Args:
+          - Name: details
+            Type:
+              Name: SetArgDetails
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - types
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - types
+      - Name: clear
+        Args:
+          - Name: details
+            Type:
+              Name: ClearArgDetails
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - types
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - types
+- File: webext/types.json
+  Enum:
+    Name: ChromeSettingScope
+    Values:
+      - regular
+      - regular_only
+      - incognito_persistent
+      - incognito_session_only
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - types
+- File: webext/types.json
+  Dict:
+    Name: ClearArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - types
+    Fields:
+      - Name: scope
+        Type:
+          Name: ChromeSettingScope
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - types
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - types
+- File: webext/types.json
+  Dict:
+    Name: GetArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - types
+    Fields:
+      - Name: incognito
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - types
+- File: webext/types.json
+  Dict:
+    Name: GetReturnType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - types
+    Fields:
+      - Name: incognitoSpecific
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - types
+      - Name: levelOfControl
+        Required: true
+        Type:
+          Name: LevelOfControl
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - types
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - types
+      - Name: value
+        Required: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - types
+- File: webext/types.json
+  Enum:
+    Name: LevelOfControl
+    Values:
+      - not_controllable
+      - controlled_by_other_extensions
+      - controllable_by_this_extension
+      - controlled_by_this_extension
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - types
+- File: webext/types.json
+  Dict:
+    Name: SetArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - types
+    Fields:
+      - Name: scope
+        Type:
+          Name: ChromeSettingScope
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - types
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - types
+      - Name: value
+        Required: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - types

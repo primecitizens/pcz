@@ -1,0 +1,109 @@
+- File: webext/web_request_internal.json
+  Callback:
+    Name: AddEventListenerArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequestInternal
+- File: webext/web_request_internal.json
+  Enum:
+    Name: AddEventListenerOptions
+    Values:
+      - requestHeaders
+      - responseHeaders
+      - blocking
+      - asyncBlocking
+      - requestBody
+      - extraHeaders
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequestInternal
+- File: webext/web_request_internal.json
+  WebextFunc:
+    Name: addEventListener
+    Args:
+      - Name: callback
+        Type:
+          Name: AddEventListenerArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequestInternal
+      - Name: filter
+        Type:
+          Name: RequestFilter
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+      - Name: extraInfoSpec
+        Optional: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: AddEventListenerOptions
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webRequestInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequestInternal
+      - Name: eventName
+        Type:
+          Name: DOMString
+      - Name: subEventName
+        Type:
+          Name: DOMString
+      - Name: webViewInstanceId
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequestInternal
+- File: webext/web_request_internal.json
+  WebextFunc:
+    Name: eventHandled
+    Args:
+      - Name: eventName
+        Type:
+          Name: DOMString
+      - Name: subEventName
+        Type:
+          Name: DOMString
+      - Name: requestId
+        Type:
+          Name: DOMString
+      - Name: webViewInstanceId
+        Type:
+          Name: long long
+      - Name: response
+        Optional: true
+        Type:
+          Name: BlockingResponse
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webRequest
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webRequestInternal

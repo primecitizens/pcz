@@ -1,0 +1,54 @@
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: connect
+    Args:
+      - Name: tabId
+        Type:
+          Name: long long
+      - Name: connectInfo
+        Optional: true
+        Type:
+          Name: ConnectArgConnectInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: Port
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - runtime
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs
+- File: webext/chrome/tabs.json
+  WebextFunc:
+    Name: highlight
+    Args:
+      - Name: highlightInfo
+        Type:
+          Name: HighlightArgHighlightInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabs
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Window
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - windows
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabs

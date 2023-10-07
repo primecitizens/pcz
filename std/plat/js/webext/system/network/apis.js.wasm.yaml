@@ -1,0 +1,125 @@
+- File: webext/system_network.idl
+  Callback:
+    Name: GetNetworkInterfacesCallback
+    Args:
+      - Name: networkInterfaces
+        Type:
+          Name: sequence
+          Params:
+            - Name: NetworkInterface
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - system
+                    - network
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - network
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - network
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - network
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - network
+- File: webext/system_network.idl
+  Dict:
+    Name: NetworkInterface
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - network
+    Fields:
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - network
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - network
+      - Name: address
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - network
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - network
+      - Name: prefixLength
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - system
+                - network
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - system
+              - network
+- File: webext/system_network.idl
+  WebextFunc:
+    Name: getNetworkInterfaces
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: NetworkInterface
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - system
+                      - network
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - system
+                  - network
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - system
+          - network

@@ -1,4 +1,4 @@
-- File: wasm-js-api.idl
+- File: webref/wasm-js-api.idl
   Interface:
     Name: Table
     ExtAttrs:
@@ -81,7 +81,7 @@
             Values:
               - WebAssembly
           - Name: Exposed
-- File: wasm-js-api.idl
+- File: webref/wasm-js-api.idl
   Dict:
     Name: TableDescriptor
     Fields:
@@ -98,13 +98,13 @@
           Name: unsigned long
         ExtAttrs:
           - Name: EnforceRange
-- File: wasm-js-api.idl
+- File: webref/wasm-js-api.idl
   Enum:
     Name: TableKind
     Values:
       - externref
       - anyfunc
-- File: longtasks.idl
+- File: webref/longtasks.idl
   Interface:
     Name: TaskAttributionTiming
     Inherits: PerformanceEntry
@@ -154,7 +154,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: scheduling-apis.idl
+- File: webref/scheduling-apis.idl
   Interface:
     Name: TaskController
     Inherits: AbortController
@@ -188,7 +188,7 @@
             Values:
               - Window
               - Worker
-- File: scheduling-apis.idl
+- File: webref/scheduling-apis.idl
   Dict:
     Name: TaskControllerInit
     Fields:
@@ -196,14 +196,14 @@
         Default: '"user-visible"'
         Type:
           Name: TaskPriority
-- File: scheduling-apis.idl
+- File: webref/scheduling-apis.idl
   Enum:
     Name: TaskPriority
     Values:
       - user-blocking
       - user-visible
       - background
-- File: scheduling-apis.idl
+- File: webref/scheduling-apis.idl
   Interface:
     Name: TaskPriorityChangeEvent
     Inherits: Event
@@ -235,7 +235,7 @@
             Values:
               - Window
               - Worker
-- File: scheduling-apis.idl
+- File: webref/scheduling-apis.idl
   Dict:
     Name: TaskPriorityChangeEventInit
     Inherits: EventInit
@@ -256,7 +256,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: scheduling-apis.idl
+- File: webref/scheduling-apis.idl
   Interface:
     Name: TaskSignal
     Inherits: AbortSignal
@@ -305,7 +305,7 @@
             Values:
               - Window
               - Worker
-- File: scheduling-apis.idl
+- File: webref/scheduling-apis.idl
   Dict:
     Name: TaskSignalAnyInit
     Fields:
@@ -315,7 +315,7 @@
           Union:
             - Name: TaskPriority
             - Name: TaskSignal
-- File: testutils.idl
+- File: webref/testutils.idl
   Namespace:
     Name: TestUtils
     ExtAttrs:
@@ -335,7 +335,7 @@
             Values:
               - Window
               - Worker
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Typedef:
     Name: TexImageSource
     Type:
@@ -347,7 +347,7 @@
         - Name: HTMLVideoElement
         - Name: OffscreenCanvas
         - Name: VideoFrame
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: Text
     Inherits: CharacterData
@@ -449,7 +449,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: encoding.idl
+- File: webref/encoding.idl
   Dict:
     Name: TextDecodeOptions
     Fields:
@@ -457,7 +457,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: encoding.idl
+- File: webref/encoding.idl
   Interface:
     Name: TextDecoder
     ExtAttrs:
@@ -505,7 +505,7 @@
               Name: TextDecoderOptions
         ExtAttrs:
           - Name: Exposed
-- File: encoding.idl
+- File: webref/encoding.idl
   Dict:
     Name: TextDecoderOptions
     Fields:
@@ -517,7 +517,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: encoding.idl
+- File: webref/encoding.idl
   Interface:
     Name: TextDecoderStream
     ExtAttrs:
@@ -557,7 +557,7 @@
               Name: TextDecoderOptions
         ExtAttrs:
           - Name: Exposed
-- File: text-detection-api.idl
+- File: webref/text-detection-api.idl
   Interface:
     Name: TextDetector
     ExtAttrs:
@@ -584,7 +584,7 @@
               - Window
               - Worker
           - Name: SecureContext
-- File: encoding.idl
+- File: webref/encoding.idl
   Interface:
     Name: TextEncoder
     ExtAttrs:
@@ -621,7 +621,7 @@
           - Name: TextEncoderEncodeIntoResult
         ExtAttrs:
           - Name: Exposed
-- File: encoding.idl
+- File: webref/encoding.idl
   Dict:
     Name: TextEncoderEncodeIntoResult
     Fields:
@@ -631,7 +631,7 @@
       - Name: written
         Type:
           Name: unsigned long long
-- File: encoding.idl
+- File: webref/encoding.idl
   Interface:
     Name: TextEncoderStream
     ExtAttrs:
@@ -649,7 +649,7 @@
         Readonly: true
         Type:
           Name: WritableStream
-- File: edit-context.idl
+- File: webref/edit-context.idl
   Interface:
     Name: TextFormat
     ExtAttrs:
@@ -700,7 +700,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: edit-context.idl
+- File: webref/edit-context.idl
   Dict:
     Name: TextFormatInit
     Fields:
@@ -716,7 +716,7 @@
       - Name: underlineThickness
         Type:
           Name: DOMString
-- File: edit-context.idl
+- File: webref/edit-context.idl
   Interface:
     Name: TextFormatUpdateEvent
     Inherits: Event
@@ -748,7 +748,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: edit-context.idl
+- File: webref/edit-context.idl
   Dict:
     Name: TextFormatUpdateEventInit
     Inherits: EventInit
@@ -770,7 +770,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: TextMetrics
     ExtAttrs:
@@ -887,7 +887,7 @@
             Values:
               - Window
               - Worker
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: TextTrack
     Inherits: EventTarget
@@ -1001,7 +1001,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: TextTrackCue
     Inherits: EventTarget
@@ -1061,7 +1061,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: TextTrackCueList
     ExtAttrs:
@@ -1101,7 +1101,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: TextTrackKind
     Values:
@@ -1110,7 +1110,7 @@
       - descriptions
       - chapters
       - metadata
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: TextTrackList
     Inherits: EventTarget
@@ -1172,14 +1172,14 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: TextTrackMode
     Values:
       - disabled
       - hidden
       - showing
-- File: edit-context.idl
+- File: webref/edit-context.idl
   Interface:
     Name: TextUpdateEvent
     Inherits: Event
@@ -1258,7 +1258,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: edit-context.idl
+- File: webref/edit-context.idl
   Dict:
     Name: TextUpdateEventInit
     Inherits: EventInit
@@ -1296,7 +1296,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: svg-animations.idl
+- File: webref/svg-animations.idl
   Interface:
     Name: TimeEvent
     Inherits: Event
@@ -1354,7 +1354,7 @@
               Name: EventInit
         ExtAttrs:
           - Name: Exposed
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: TimeRanges
     ExtAttrs:
@@ -1393,7 +1393,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: web-animations-2.idl
+- File: webref/web-animations-2.idl
   Dict:
     Name: TimelineRangeOffset
     Fields:
@@ -1404,14 +1404,14 @@
       - Name: offset
         Type:
           Name: CSSNumericValue
-- File: html.idl
+- File: webref/html.idl
   Typedef:
     Name: TimerHandler
     Type:
       Union:
         - Name: DOMString
         - Name: Function
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: ToggleEvent
     Inherits: Event
@@ -1450,7 +1450,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: ToggleEventInit
     Inherits: EventInit
@@ -1475,7 +1475,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Dict:
     Name: TokenBinding
     Fields:
@@ -1486,18 +1486,18 @@
       - Name: id
         Type:
           Name: DOMString
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Enum:
     Name: TokenBindingStatus
     Values:
       - present
       - supported
-- File: trust-token-api.idl
+- File: webref/trust-token-api.idl
   Enum:
     Name: TokenVersion
     Values:
       - "1"
-- File: requestStorageAccessFor.idl
+- File: webref/requestStorageAccessFor.idl
   Dict:
     Name: TopLevelStorageAccessPermissionDescriptor
     Inherits: PermissionDescriptor
@@ -1510,7 +1510,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: touch-events.idl
+- File: webref/touch-events.idl
   Interface:
     Name: Touch
     ExtAttrs:
@@ -1647,7 +1647,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: touch-events.idl
+- File: webref/touch-events.idl
   Interface:
     Name: TouchEvent
     Inherits: UIEvent
@@ -1739,7 +1739,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: touch-events.idl
+- File: webref/touch-events.idl
   Dict:
     Name: TouchEventInit
     Inherits: EventModifierInit
@@ -1839,7 +1839,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: touch-events.idl
+- File: webref/touch-events.idl
   Dict:
     Name: TouchInit
     Fields:
@@ -1903,7 +1903,7 @@
         Default: '"direct"'
         Type:
           Name: TouchType
-- File: touch-events.idl
+- File: webref/touch-events.idl
   Interface:
     Name: TouchList
     ExtAttrs:

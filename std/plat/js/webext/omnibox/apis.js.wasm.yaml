@@ -1,0 +1,311 @@
+- File: webext/chrome/omnibox.json
+  Dict:
+    Name: DefaultSuggestResult
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - omnibox
+    Fields:
+      - Name: description
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - omnibox
+      - Name: descriptionStyles
+        Type:
+          Name: sequence
+          Params:
+            - Name: MatchClassification
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - omnibox
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - omnibox
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - omnibox
+- File: webext/chrome/omnibox.json
+  Enum:
+    Name: DescriptionStyleType
+    Values:
+      - url
+      - match
+      - dim
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - omnibox
+- File: webext/chrome/omnibox.json
+  Dict:
+    Name: MatchClassification
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - omnibox
+    Fields:
+      - Name: length
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - omnibox
+      - Name: offset
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - omnibox
+      - Name: type
+        Required: true
+        Type:
+          Name: DescriptionStyleType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - omnibox
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - omnibox
+- File: webext/chrome/omnibox.json
+  Callback:
+    Name: OnInputChangedArgSuggest
+    Args:
+      - Name: suggestResults
+        Type:
+          Name: sequence
+          Params:
+            - Name: SuggestResult
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - omnibox
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - omnibox
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - omnibox
+- File: webext/chrome/omnibox.json
+  Enum:
+    Name: OnInputEnteredDisposition
+    Values:
+      - currentTab
+      - newForegroundTab
+      - newBackgroundTab
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - omnibox
+- File: webext/chrome/omnibox.json
+  Dict:
+    Name: SuggestResult
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - omnibox
+    Fields:
+      - Name: content
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - omnibox
+      - Name: deletable
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - omnibox
+      - Name: description
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - omnibox
+      - Name: descriptionStyles
+        Type:
+          Name: sequence
+          Params:
+            - Name: MatchClassification
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - omnibox
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - omnibox
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - omnibox
+- File: webext/chrome/omnibox.json
+  WebextEvent:
+    Name: onDeleteSuggestion
+    Args:
+      - Name: text
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - omnibox
+- File: webext/chrome/omnibox.json
+  WebextEvent:
+    Name: onInputCancelled
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - omnibox
+- File: webext/chrome/omnibox.json
+  WebextEvent:
+    Name: onInputChanged
+    Args:
+      - Name: text
+        Type:
+          Name: DOMString
+      - Name: suggest
+        Type:
+          Name: OnInputChangedArgSuggest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - omnibox
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - omnibox
+- File: webext/chrome/omnibox.json
+  WebextEvent:
+    Name: onInputEntered
+    Args:
+      - Name: text
+        Type:
+          Name: DOMString
+      - Name: disposition
+        Type:
+          Name: OnInputEnteredDisposition
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - omnibox
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - omnibox
+- File: webext/chrome/omnibox.json
+  WebextEvent:
+    Name: onInputStarted
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - omnibox
+- File: webext/chrome/omnibox.json
+  WebextFunc:
+    Name: sendSuggestions
+    Args:
+      - Name: requestId
+        Type:
+          Name: long long
+      - Name: suggestResults
+        Type:
+          Name: sequence
+          Params:
+            - Name: SuggestResult
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - omnibox
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - omnibox
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - omnibox
+- File: webext/chrome/omnibox.json
+  WebextFunc:
+    Name: setDefaultSuggestion
+    Args:
+      - Name: suggestion
+        Type:
+          Name: DefaultSuggestResult
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - omnibox
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - omnibox

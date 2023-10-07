@@ -1,10 +1,10 @@
-- File: touch-events.idl
+- File: webref/touch-events.idl
   Enum:
     Name: TouchType
     Values:
       - direct
       - stylus
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: TrackEvent
     Inherits: Event
@@ -39,7 +39,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: TrackEventInit
     Inherits: EventInit
@@ -64,14 +64,14 @@
         Default: "false"
         Type:
           Name: boolean
-- File: media-capabilities.idl
+- File: webref/media-capabilities.idl
   Enum:
     Name: TransferFunction
     Values:
       - srgb
       - pq
       - hlg
-- File: streams.idl
+- File: webref/streams.idl
   Interface:
     Name: TransformStream
     ExtAttrs:
@@ -111,7 +111,7 @@
         ExtAttrs:
           - Name: Exposed
           - Name: Transferable
-- File: streams.idl
+- File: webref/streams.idl
   Interface:
     Name: TransformStreamDefaultController
     ExtAttrs:
@@ -150,7 +150,7 @@
           - Name: undefined
         ExtAttrs:
           - Name: Exposed
-- File: streams.idl
+- File: webref/streams.idl
   Dict:
     Name: Transformer
     Fields:
@@ -169,7 +169,7 @@
       - Name: writableType
         Type:
           Name: any
-- File: streams.idl
+- File: webref/streams.idl
   Callback:
     Name: TransformerFlushCallback
     Args:
@@ -180,7 +180,7 @@
       - Name: Promise
         Params:
           - Name: undefined
-- File: streams.idl
+- File: webref/streams.idl
   Callback:
     Name: TransformerStartCallback
     Args:
@@ -189,7 +189,7 @@
           Name: TransformStreamDefaultController
     Returns:
       - Name: any
-- File: streams.idl
+- File: webref/streams.idl
   Callback:
     Name: TransformerTransformCallback
     Args:
@@ -203,7 +203,7 @@
       - Name: Promise
         Params:
           - Name: undefined
-- File: css-transitions.idl
+- File: webref/css-transitions.idl
   Interface:
     Name: TransitionEvent
     Inherits: Event
@@ -250,7 +250,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-transitions.idl
+- File: webref/css-transitions.idl
   Dict:
     Name: TransitionEventInit
     Inherits: EventInit
@@ -279,7 +279,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: dom.idl
+- File: webref/dom.idl
   Interface:
     Name: TreeWalker
     ExtAttrs:
@@ -377,7 +377,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: trusted-types.idl
+- File: webref/trusted-types.idl
   Interface:
     Name: TrustedHTML
     ExtAttrs:
@@ -413,7 +413,7 @@
             Values:
               - Window
               - Worker
-- File: trusted-types.idl
+- File: webref/trusted-types.idl
   Interface:
     Name: TrustedScript
     ExtAttrs:
@@ -449,7 +449,7 @@
             Values:
               - Window
               - Worker
-- File: trusted-types.idl
+- File: webref/trusted-types.idl
   Interface:
     Name: TrustedScriptURL
     ExtAttrs:
@@ -485,7 +485,7 @@
             Values:
               - Window
               - Worker
-- File: trusted-types.idl
+- File: webref/trusted-types.idl
   Typedef:
     Name: TrustedType
     Type:
@@ -493,7 +493,7 @@
         - Name: TrustedHTML
         - Name: TrustedScript
         - Name: TrustedScriptURL
-- File: trusted-types.idl
+- File: webref/trusted-types.idl
   Interface:
     Name: TrustedTypePolicy
     ExtAttrs:
@@ -560,7 +560,7 @@
             Values:
               - Window
               - Worker
-- File: trusted-types.idl
+- File: webref/trusted-types.idl
   Interface:
     Name: TrustedTypePolicyFactory
     ExtAttrs:
@@ -698,7 +698,7 @@
             Values:
               - Window
               - Worker
-- File: trusted-types.idl
+- File: webref/trusted-types.idl
   Dict:
     Name: TrustedTypePolicyOptions
     Fields:
@@ -714,7 +714,7 @@
         Type:
           Name: CreateScriptURLCallback
           Nullable: true
-- File: ua-client-hints.idl
+- File: webref/ua-client-hints.idl
   Dict:
     Name: UADataValues
     Fields:
@@ -755,7 +755,7 @@
       - Name: wow64
         Type:
           Name: boolean
-- File: ua-client-hints.idl
+- File: webref/ua-client-hints.idl
   Dict:
     Name: UALowEntropyJSON
     Fields:
@@ -770,7 +770,7 @@
       - Name: platform
         Type:
           Name: DOMString
-- File: uievents.idl
+- File: webref/uievents.idl
   Interface:
     Name: UIEvent
     Inherits: Event
@@ -848,7 +848,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: uievents.idl
+- File: webref/uievents.idl
   Dict:
     Name: UIEventInit
     Inherits: EventInit
@@ -883,7 +883,7 @@
         Default: "0"
         Type:
           Name: unsigned long
-- File: mediacapture-streams.idl
+- File: webref/mediacapture-streams.idl
   Dict:
     Name: ULongRange
     Fields:
@@ -897,7 +897,7 @@
           Name: unsigned long
         ExtAttrs:
           - Name: Clamp
-- File: url.idl
+- File: webref/url.idl
   Interface:
     Name: URL
     ExtAttrs:
@@ -1076,7 +1076,7 @@
           - Name: LegacyWindowAlias
             Values:
               - webkitURL
-- File: urlpattern.idl
+- File: webref/urlpattern.idl
   Interface:
     Name: URLPattern
     ExtAttrs:
@@ -1229,7 +1229,7 @@
             Values:
               - Window
               - Worker
-- File: urlpattern.idl
+- File: webref/urlpattern.idl
   Dict:
     Name: URLPatternComponentResult
     Fields:
@@ -1244,7 +1244,7 @@
             - Union:
                 - Name: USVString
                 - Name: undefined
-- File: urlpattern.idl
+- File: webref/urlpattern.idl
   Dict:
     Name: URLPatternInit
     Fields:
@@ -1275,14 +1275,14 @@
       - Name: baseURL
         Type:
           Name: USVString
-- File: urlpattern.idl
+- File: webref/urlpattern.idl
   Typedef:
     Name: URLPatternInput
     Type:
       Union:
         - Name: USVString
         - Name: URLPatternInit
-- File: urlpattern.idl
+- File: webref/urlpattern.idl
   Dict:
     Name: URLPatternOptions
     Fields:
@@ -1290,7 +1290,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: urlpattern.idl
+- File: webref/urlpattern.idl
   Dict:
     Name: URLPatternResult
     Fields:
@@ -1323,7 +1323,7 @@
       - Name: hash
         Type:
           Name: URLPatternComponentResult
-- File: url.idl
+- File: webref/url.idl
   Interface:
     Name: URLSearchParams
     ExtAttrs:
@@ -1438,7 +1438,7 @@
       TypeParams:
         - Name: USVString
         - Name: USVString
-- File: webusb.idl
+- File: webref/webusb.idl
   Interface:
     Name: USB
     Inherits: EventTarget
@@ -1494,8 +1494,7 @@
           - Name: Exposed
             Values:
               - Window
-          - Name: SecureContext
-- File: webusb.idl
+- File: webref/webusb.idl
   Interface:
     Name: USBAlternateInterface
     ExtAttrs:
@@ -1590,7 +1589,7 @@
               - SharedWorker
               - Window
           - Name: SecureContext
-- File: webusb.idl
+- File: webref/webusb.idl
   Interface:
     Name: USBConfiguration
     ExtAttrs:
@@ -1652,7 +1651,7 @@
               - SharedWorker
               - Window
           - Name: SecureContext
-- File: webusb.idl
+- File: webref/webusb.idl
   Interface:
     Name: USBConnectionEvent
     Inherits: Event
@@ -1691,7 +1690,7 @@
               - SharedWorker
               - Window
           - Name: SecureContext
-- File: webusb.idl
+- File: webref/webusb.idl
   Dict:
     Name: USBConnectionEventInit
     Inherits: EventInit
@@ -1712,7 +1711,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webusb.idl
+- File: webref/webusb.idl
   Dict:
     Name: USBControlTransferParameters
     Fields:
@@ -1736,7 +1735,7 @@
         Required: true
         Type:
           Name: unsigned short
-- File: webusb.idl
+- File: webref/webusb.idl
   Interface:
     Name: USBDevice
     ExtAttrs:
@@ -2197,7 +2196,7 @@
               - SharedWorker
               - Window
           - Name: SecureContext
-- File: webusb.idl
+- File: webref/webusb.idl
   Dict:
     Name: USBDeviceFilter
     Fields:
@@ -2219,7 +2218,7 @@
       - Name: serialNumber
         Type:
           Name: DOMString
-- File: webusb.idl
+- File: webref/webusb.idl
   Dict:
     Name: USBDeviceRequestOptions
     Fields:
@@ -2235,13 +2234,13 @@
           Name: sequence
           Params:
             - Name: USBDeviceFilter
-- File: webusb.idl
+- File: webref/webusb.idl
   Enum:
     Name: USBDirection
     Values:
       - in
       - out
-- File: webusb.idl
+- File: webref/webusb.idl
   Interface:
     Name: USBEndpoint
     ExtAttrs:
@@ -2314,14 +2313,14 @@
               - SharedWorker
               - Window
           - Name: SecureContext
-- File: webusb.idl
+- File: webref/webusb.idl
   Enum:
     Name: USBEndpointType
     Values:
       - bulk
       - interrupt
       - isochronous
-- File: webusb.idl
+- File: webref/webusb.idl
   Interface:
     Name: USBInTransferResult
     ExtAttrs:
@@ -2372,7 +2371,7 @@
               - SharedWorker
               - Window
           - Name: SecureContext
-- File: webusb.idl
+- File: webref/webusb.idl
   Interface:
     Name: USBInterface
     ExtAttrs:
@@ -2444,7 +2443,7 @@
               - SharedWorker
               - Window
           - Name: SecureContext
-- File: webusb.idl
+- File: webref/webusb.idl
   Interface:
     Name: USBIsochronousInTransferPacket
     ExtAttrs:
@@ -2495,7 +2494,7 @@
               - SharedWorker
               - Window
           - Name: SecureContext
-- File: webusb.idl
+- File: webref/webusb.idl
   Interface:
     Name: USBIsochronousInTransferResult
     ExtAttrs:
@@ -2550,7 +2549,7 @@
               - SharedWorker
               - Window
           - Name: SecureContext
-- File: webusb.idl
+- File: webref/webusb.idl
   Interface:
     Name: USBIsochronousOutTransferPacket
     ExtAttrs:

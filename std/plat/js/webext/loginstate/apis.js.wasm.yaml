@@ -1,0 +1,168 @@
+- File: webext/chrome/login_state.idl
+  Enum:
+    Name: ProfileType
+    Values:
+      - SIGNIN_PROFILE
+      - USER_PROFILE
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - loginState
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/login_state.idl
+  Callback:
+    Name: ProfileTypeCallback
+    Args:
+      - Name: result
+        Type:
+          Name: ProfileType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - loginState
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - loginState
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - loginState
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - loginState
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/login_state.idl
+  Enum:
+    Name: SessionState
+    Values:
+      - UNKNOWN
+      - IN_OOBE_SCREEN
+      - IN_LOGIN_SCREEN
+      - IN_SESSION
+      - IN_LOCK_SCREEN
+      - IN_RMA_SCREEN
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - loginState
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/login_state.idl
+  Callback:
+    Name: SessionStateCallback
+    Args:
+      - Name: result
+        Type:
+          Name: SessionState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - loginState
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - loginState
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - loginState
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - loginState
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/login_state.idl
+  WebextFunc:
+    Name: getProfileType
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ProfileType
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - loginState
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - loginState
+- File: webext/chrome/login_state.idl
+  WebextFunc:
+    Name: getSessionState
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: SessionState
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - loginState
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - loginState
+- File: webext/chrome/login_state.idl
+  WebextEvent:
+    Name: onSessionStateChanged
+    Modifier: static
+    Args:
+      - Name: sessionState
+        Type:
+          Name: SessionState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - loginState
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - loginState
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - loginState
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - loginState

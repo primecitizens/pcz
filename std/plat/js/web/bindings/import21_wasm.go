@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web new_CSSPerspective_CSSPerspective
 //go:noescape
@@ -343,11 +341,11 @@ func SetCSSTransformComponentIs2D(
 
 //go:wasmimport plat/js/web has_CSSTransformComponent_ToString
 //go:noescape
-func HasCSSTransformComponentToString(this js.Ref) js.Ref
+func HasFuncCSSTransformComponentToString(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSTransformComponent_ToString
 //go:noescape
-func CSSTransformComponentToStringFunc(this js.Ref) js.Ref
+func FuncCSSTransformComponentToString(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSTransformComponent_ToString
 //go:noescape
@@ -361,11 +359,11 @@ func TryCSSTransformComponentToString(
 
 //go:wasmimport plat/js/web has_CSSTransformComponent_ToMatrix
 //go:noescape
-func HasCSSTransformComponentToMatrix(this js.Ref) js.Ref
+func HasFuncCSSTransformComponentToMatrix(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSTransformComponent_ToMatrix
 //go:noescape
-func CSSTransformComponentToMatrixFunc(this js.Ref) js.Ref
+func FuncCSSTransformComponentToMatrix(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSTransformComponent_ToMatrix
 //go:noescape
@@ -394,11 +392,11 @@ func GetCSSTransformValueIs2D(
 
 //go:wasmimport plat/js/web has_CSSTransformValue_Get
 //go:noescape
-func HasCSSTransformValueGet(this js.Ref) js.Ref
+func HasFuncCSSTransformValueGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSTransformValue_Get
 //go:noescape
-func CSSTransformValueGetFunc(this js.Ref) js.Ref
+func FuncCSSTransformValueGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSTransformValue_Get
 //go:noescape
@@ -414,11 +412,11 @@ func TryCSSTransformValueGet(
 
 //go:wasmimport plat/js/web has_CSSTransformValue_Set
 //go:noescape
-func HasCSSTransformValueSet(this js.Ref) js.Ref
+func HasFuncCSSTransformValueSet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSTransformValue_Set
 //go:noescape
-func CSSTransformValueSetFunc(this js.Ref) js.Ref
+func FuncCSSTransformValueSet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSTransformValue_Set
 //go:noescape
@@ -436,11 +434,11 @@ func TryCSSTransformValueSet(
 
 //go:wasmimport plat/js/web has_CSSTransformValue_ToMatrix
 //go:noescape
-func HasCSSTransformValueToMatrix(this js.Ref) js.Ref
+func HasFuncCSSTransformValueToMatrix(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSTransformValue_ToMatrix
 //go:noescape
-func CSSTransformValueToMatrixFunc(this js.Ref) js.Ref
+func FuncCSSTransformValueToMatrix(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSTransformValue_ToMatrix
 //go:noescape
@@ -538,11 +536,11 @@ func GetCSSUnparsedValueLength(
 
 //go:wasmimport plat/js/web has_CSSUnparsedValue_Get
 //go:noescape
-func HasCSSUnparsedValueGet(this js.Ref) js.Ref
+func HasFuncCSSUnparsedValueGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSUnparsedValue_Get
 //go:noescape
-func CSSUnparsedValueGetFunc(this js.Ref) js.Ref
+func FuncCSSUnparsedValueGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSUnparsedValue_Get
 //go:noescape
@@ -558,11 +556,11 @@ func TryCSSUnparsedValueGet(
 
 //go:wasmimport plat/js/web has_CSSUnparsedValue_Set
 //go:noescape
-func HasCSSUnparsedValueSet(this js.Ref) js.Ref
+func HasFuncCSSUnparsedValueSet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CSSUnparsedValue_Set
 //go:noescape
-func CSSUnparsedValueSetFunc(this js.Ref) js.Ref
+func FuncCSSUnparsedValueSet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CSSUnparsedValue_Set
 //go:noescape
@@ -608,11 +606,11 @@ func GetCSSVariableReferenceValueFallback(
 
 //go:wasmimport plat/js/web has_Cache_Match
 //go:noescape
-func HasCacheMatch(this js.Ref) js.Ref
+func HasFuncCacheMatch(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Cache_Match
 //go:noescape
-func CacheMatchFunc(this js.Ref) js.Ref
+func FuncCacheMatch(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Cache_Match
 //go:noescape
@@ -630,11 +628,11 @@ func TryCacheMatch(
 
 //go:wasmimport plat/js/web has_Cache_Match1
 //go:noescape
-func HasCacheMatch1(this js.Ref) js.Ref
+func HasFuncCacheMatch1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Cache_Match1
 //go:noescape
-func CacheMatch1Func(this js.Ref) js.Ref
+func FuncCacheMatch1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Cache_Match1
 //go:noescape
@@ -650,11 +648,11 @@ func TryCacheMatch1(
 
 //go:wasmimport plat/js/web has_Cache_MatchAll
 //go:noescape
-func HasCacheMatchAll(this js.Ref) js.Ref
+func HasFuncCacheMatchAll(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Cache_MatchAll
 //go:noescape
-func CacheMatchAllFunc(this js.Ref) js.Ref
+func FuncCacheMatchAll(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Cache_MatchAll
 //go:noescape
@@ -672,11 +670,11 @@ func TryCacheMatchAll(
 
 //go:wasmimport plat/js/web has_Cache_MatchAll1
 //go:noescape
-func HasCacheMatchAll1(this js.Ref) js.Ref
+func HasFuncCacheMatchAll1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Cache_MatchAll1
 //go:noescape
-func CacheMatchAll1Func(this js.Ref) js.Ref
+func FuncCacheMatchAll1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Cache_MatchAll1
 //go:noescape
@@ -692,11 +690,11 @@ func TryCacheMatchAll1(
 
 //go:wasmimport plat/js/web has_Cache_MatchAll2
 //go:noescape
-func HasCacheMatchAll2(this js.Ref) js.Ref
+func HasFuncCacheMatchAll2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Cache_MatchAll2
 //go:noescape
-func CacheMatchAll2Func(this js.Ref) js.Ref
+func FuncCacheMatchAll2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Cache_MatchAll2
 //go:noescape
@@ -710,11 +708,11 @@ func TryCacheMatchAll2(
 
 //go:wasmimport plat/js/web has_Cache_Add
 //go:noescape
-func HasCacheAdd(this js.Ref) js.Ref
+func HasFuncCacheAdd(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Cache_Add
 //go:noescape
-func CacheAddFunc(this js.Ref) js.Ref
+func FuncCacheAdd(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Cache_Add
 //go:noescape
@@ -730,11 +728,11 @@ func TryCacheAdd(
 
 //go:wasmimport plat/js/web has_Cache_AddAll
 //go:noescape
-func HasCacheAddAll(this js.Ref) js.Ref
+func HasFuncCacheAddAll(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Cache_AddAll
 //go:noescape
-func CacheAddAllFunc(this js.Ref) js.Ref
+func FuncCacheAddAll(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Cache_AddAll
 //go:noescape
@@ -750,11 +748,11 @@ func TryCacheAddAll(
 
 //go:wasmimport plat/js/web has_Cache_Put
 //go:noescape
-func HasCachePut(this js.Ref) js.Ref
+func HasFuncCachePut(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Cache_Put
 //go:noescape
-func CachePutFunc(this js.Ref) js.Ref
+func FuncCachePut(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Cache_Put
 //go:noescape
@@ -772,11 +770,11 @@ func TryCachePut(
 
 //go:wasmimport plat/js/web has_Cache_Delete
 //go:noescape
-func HasCacheDelete(this js.Ref) js.Ref
+func HasFuncCacheDelete(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Cache_Delete
 //go:noescape
-func CacheDeleteFunc(this js.Ref) js.Ref
+func FuncCacheDelete(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Cache_Delete
 //go:noescape
@@ -794,11 +792,11 @@ func TryCacheDelete(
 
 //go:wasmimport plat/js/web has_Cache_Delete1
 //go:noescape
-func HasCacheDelete1(this js.Ref) js.Ref
+func HasFuncCacheDelete1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Cache_Delete1
 //go:noescape
-func CacheDelete1Func(this js.Ref) js.Ref
+func FuncCacheDelete1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Cache_Delete1
 //go:noescape
@@ -814,11 +812,11 @@ func TryCacheDelete1(
 
 //go:wasmimport plat/js/web has_Cache_Keys
 //go:noescape
-func HasCacheKeys(this js.Ref) js.Ref
+func HasFuncCacheKeys(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Cache_Keys
 //go:noescape
-func CacheKeysFunc(this js.Ref) js.Ref
+func FuncCacheKeys(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Cache_Keys
 //go:noescape
@@ -836,11 +834,11 @@ func TryCacheKeys(
 
 //go:wasmimport plat/js/web has_Cache_Keys1
 //go:noescape
-func HasCacheKeys1(this js.Ref) js.Ref
+func HasFuncCacheKeys1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Cache_Keys1
 //go:noescape
-func CacheKeys1Func(this js.Ref) js.Ref
+func FuncCacheKeys1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Cache_Keys1
 //go:noescape
@@ -856,11 +854,11 @@ func TryCacheKeys1(
 
 //go:wasmimport plat/js/web has_Cache_Keys2
 //go:noescape
-func HasCacheKeys2(this js.Ref) js.Ref
+func HasFuncCacheKeys2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Cache_Keys2
 //go:noescape
-func CacheKeys2Func(this js.Ref) js.Ref
+func FuncCacheKeys2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Cache_Keys2
 //go:noescape
@@ -884,11 +882,11 @@ func MultiCacheQueryOptionsJSLoad(
 
 //go:wasmimport plat/js/web has_CacheStorage_Match
 //go:noescape
-func HasCacheStorageMatch(this js.Ref) js.Ref
+func HasFuncCacheStorageMatch(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CacheStorage_Match
 //go:noescape
-func CacheStorageMatchFunc(this js.Ref) js.Ref
+func FuncCacheStorageMatch(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CacheStorage_Match
 //go:noescape
@@ -906,11 +904,11 @@ func TryCacheStorageMatch(
 
 //go:wasmimport plat/js/web has_CacheStorage_Match1
 //go:noescape
-func HasCacheStorageMatch1(this js.Ref) js.Ref
+func HasFuncCacheStorageMatch1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CacheStorage_Match1
 //go:noescape
-func CacheStorageMatch1Func(this js.Ref) js.Ref
+func FuncCacheStorageMatch1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CacheStorage_Match1
 //go:noescape
@@ -926,11 +924,11 @@ func TryCacheStorageMatch1(
 
 //go:wasmimport plat/js/web has_CacheStorage_Has
 //go:noescape
-func HasCacheStorageHas(this js.Ref) js.Ref
+func HasFuncCacheStorageHas(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CacheStorage_Has
 //go:noescape
-func CacheStorageHasFunc(this js.Ref) js.Ref
+func FuncCacheStorageHas(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CacheStorage_Has
 //go:noescape
@@ -946,11 +944,11 @@ func TryCacheStorageHas(
 
 //go:wasmimport plat/js/web has_CacheStorage_Open
 //go:noescape
-func HasCacheStorageOpen(this js.Ref) js.Ref
+func HasFuncCacheStorageOpen(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CacheStorage_Open
 //go:noescape
-func CacheStorageOpenFunc(this js.Ref) js.Ref
+func FuncCacheStorageOpen(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CacheStorage_Open
 //go:noescape
@@ -966,11 +964,11 @@ func TryCacheStorageOpen(
 
 //go:wasmimport plat/js/web has_CacheStorage_Delete
 //go:noescape
-func HasCacheStorageDelete(this js.Ref) js.Ref
+func HasFuncCacheStorageDelete(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CacheStorage_Delete
 //go:noescape
-func CacheStorageDeleteFunc(this js.Ref) js.Ref
+func FuncCacheStorageDelete(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CacheStorage_Delete
 //go:noescape
@@ -986,11 +984,11 @@ func TryCacheStorageDelete(
 
 //go:wasmimport plat/js/web has_CacheStorage_Keys
 //go:noescape
-func HasCacheStorageKeys(this js.Ref) js.Ref
+func HasFuncCacheStorageKeys(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CacheStorage_Keys
 //go:noescape
-func CacheStorageKeysFunc(this js.Ref) js.Ref
+func FuncCacheStorageKeys(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CacheStorage_Keys
 //go:noescape
@@ -1019,11 +1017,11 @@ func NewCanMakePaymentEventByCanMakePaymentEvent(
 
 //go:wasmimport plat/js/web has_CanMakePaymentEvent_RespondWith
 //go:noescape
-func HasCanMakePaymentEventRespondWith(this js.Ref) js.Ref
+func HasFuncCanMakePaymentEventRespondWith(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanMakePaymentEvent_RespondWith
 //go:noescape
-func CanMakePaymentEventRespondWithFunc(this js.Ref) js.Ref
+func FuncCanMakePaymentEventRespondWith(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanMakePaymentEvent_RespondWith
 //go:noescape
@@ -1044,11 +1042,11 @@ func GetCanvasCaptureMediaStreamTrackCanvas(
 
 //go:wasmimport plat/js/web has_CanvasCaptureMediaStreamTrack_RequestFrame
 //go:noescape
-func HasCanvasCaptureMediaStreamTrackRequestFrame(this js.Ref) js.Ref
+func HasFuncCanvasCaptureMediaStreamTrackRequestFrame(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasCaptureMediaStreamTrack_RequestFrame
 //go:noescape
-func CanvasCaptureMediaStreamTrackRequestFrameFunc(this js.Ref) js.Ref
+func FuncCanvasCaptureMediaStreamTrackRequestFrame(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasCaptureMediaStreamTrack_RequestFrame
 //go:noescape
@@ -1090,11 +1088,11 @@ func ConstOfCaptureStartFocusBehavior(str js.Ref) uint32
 
 //go:wasmimport plat/js/web has_CaptureController_SetFocusBehavior
 //go:noescape
-func HasCaptureControllerSetFocusBehavior(this js.Ref) js.Ref
+func HasFuncCaptureControllerSetFocusBehavior(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CaptureController_SetFocusBehavior
 //go:noescape
-func CaptureControllerSetFocusBehaviorFunc(this js.Ref) js.Ref
+func FuncCaptureControllerSetFocusBehavior(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CaptureController_SetFocusBehavior
 //go:noescape
@@ -1209,11 +1207,11 @@ func GetCharacterDataNextElementSibling(
 
 //go:wasmimport plat/js/web has_CharacterData_SubstringData
 //go:noescape
-func HasCharacterDataSubstringData(this js.Ref) js.Ref
+func HasFuncCharacterDataSubstringData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CharacterData_SubstringData
 //go:noescape
-func CharacterDataSubstringDataFunc(this js.Ref) js.Ref
+func FuncCharacterDataSubstringData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CharacterData_SubstringData
 //go:noescape
@@ -1231,11 +1229,11 @@ func TryCharacterDataSubstringData(
 
 //go:wasmimport plat/js/web has_CharacterData_AppendData
 //go:noescape
-func HasCharacterDataAppendData(this js.Ref) js.Ref
+func HasFuncCharacterDataAppendData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CharacterData_AppendData
 //go:noescape
-func CharacterDataAppendDataFunc(this js.Ref) js.Ref
+func FuncCharacterDataAppendData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CharacterData_AppendData
 //go:noescape
@@ -1251,11 +1249,11 @@ func TryCharacterDataAppendData(
 
 //go:wasmimport plat/js/web has_CharacterData_InsertData
 //go:noescape
-func HasCharacterDataInsertData(this js.Ref) js.Ref
+func HasFuncCharacterDataInsertData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CharacterData_InsertData
 //go:noescape
-func CharacterDataInsertDataFunc(this js.Ref) js.Ref
+func FuncCharacterDataInsertData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CharacterData_InsertData
 //go:noescape
@@ -1273,11 +1271,11 @@ func TryCharacterDataInsertData(
 
 //go:wasmimport plat/js/web has_CharacterData_DeleteData
 //go:noescape
-func HasCharacterDataDeleteData(this js.Ref) js.Ref
+func HasFuncCharacterDataDeleteData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CharacterData_DeleteData
 //go:noescape
-func CharacterDataDeleteDataFunc(this js.Ref) js.Ref
+func FuncCharacterDataDeleteData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CharacterData_DeleteData
 //go:noescape
@@ -1295,11 +1293,11 @@ func TryCharacterDataDeleteData(
 
 //go:wasmimport plat/js/web has_CharacterData_ReplaceData
 //go:noescape
-func HasCharacterDataReplaceData(this js.Ref) js.Ref
+func HasFuncCharacterDataReplaceData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CharacterData_ReplaceData
 //go:noescape
-func CharacterDataReplaceDataFunc(this js.Ref) js.Ref
+func FuncCharacterDataReplaceData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CharacterData_ReplaceData
 //go:noescape
@@ -1319,11 +1317,11 @@ func TryCharacterDataReplaceData(
 
 //go:wasmimport plat/js/web has_CharacterData_Before
 //go:noescape
-func HasCharacterDataBefore(this js.Ref) js.Ref
+func HasFuncCharacterDataBefore(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CharacterData_Before
 //go:noescape
-func CharacterDataBeforeFunc(this js.Ref) js.Ref
+func FuncCharacterDataBefore(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CharacterData_Before
 //go:noescape
@@ -1341,11 +1339,11 @@ func TryCharacterDataBefore(
 
 //go:wasmimport plat/js/web has_CharacterData_After
 //go:noescape
-func HasCharacterDataAfter(this js.Ref) js.Ref
+func HasFuncCharacterDataAfter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CharacterData_After
 //go:noescape
-func CharacterDataAfterFunc(this js.Ref) js.Ref
+func FuncCharacterDataAfter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CharacterData_After
 //go:noescape
@@ -1363,11 +1361,11 @@ func TryCharacterDataAfter(
 
 //go:wasmimport plat/js/web has_CharacterData_ReplaceWith
 //go:noescape
-func HasCharacterDataReplaceWith(this js.Ref) js.Ref
+func HasFuncCharacterDataReplaceWith(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CharacterData_ReplaceWith
 //go:noescape
-func CharacterDataReplaceWithFunc(this js.Ref) js.Ref
+func FuncCharacterDataReplaceWith(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CharacterData_ReplaceWith
 //go:noescape
@@ -1385,11 +1383,11 @@ func TryCharacterDataReplaceWith(
 
 //go:wasmimport plat/js/web has_CharacterData_Remove
 //go:noescape
-func HasCharacterDataRemove(this js.Ref) js.Ref
+func HasFuncCharacterDataRemove(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CharacterData_Remove
 //go:noescape
-func CharacterDataRemoveFunc(this js.Ref) js.Ref
+func FuncCharacterDataRemove(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CharacterData_Remove
 //go:noescape
@@ -1444,11 +1442,11 @@ func GetClientLifecycleState(
 
 //go:wasmimport plat/js/web has_Client_PostMessage
 //go:noescape
-func HasClientPostMessage(this js.Ref) js.Ref
+func HasFuncClientPostMessage(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Client_PostMessage
 //go:noescape
-func ClientPostMessageFunc(this js.Ref) js.Ref
+func FuncClientPostMessage(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Client_PostMessage
 //go:noescape
@@ -1466,11 +1464,11 @@ func TryClientPostMessage(
 
 //go:wasmimport plat/js/web has_Client_PostMessage1
 //go:noescape
-func HasClientPostMessage1(this js.Ref) js.Ref
+func HasFuncClientPostMessage1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Client_PostMessage1
 //go:noescape
-func ClientPostMessage1Func(this js.Ref) js.Ref
+func FuncClientPostMessage1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Client_PostMessage1
 //go:noescape
@@ -1488,11 +1486,11 @@ func TryClientPostMessage1(
 
 //go:wasmimport plat/js/web has_Client_PostMessage2
 //go:noescape
-func HasClientPostMessage2(this js.Ref) js.Ref
+func HasFuncClientPostMessage2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Client_PostMessage2
 //go:noescape
-func ClientPostMessage2Func(this js.Ref) js.Ref
+func FuncClientPostMessage2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Client_PostMessage2
 //go:noescape

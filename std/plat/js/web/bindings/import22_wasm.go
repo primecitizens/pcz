@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web get_WindowClient_VisibilityState
 //go:noescape
@@ -35,11 +33,11 @@ func GetWindowClientAncestorOrigins(
 
 //go:wasmimport plat/js/web has_WindowClient_Focus
 //go:noescape
-func HasWindowClientFocus(this js.Ref) js.Ref
+func HasFuncWindowClientFocus(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WindowClient_Focus
 //go:noescape
-func WindowClientFocusFunc(this js.Ref) js.Ref
+func FuncWindowClientFocus(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WindowClient_Focus
 //go:noescape
@@ -53,11 +51,11 @@ func TryWindowClientFocus(
 
 //go:wasmimport plat/js/web has_WindowClient_Navigate
 //go:noescape
-func HasWindowClientNavigate(this js.Ref) js.Ref
+func HasFuncWindowClientNavigate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WindowClient_Navigate
 //go:noescape
-func WindowClientNavigateFunc(this js.Ref) js.Ref
+func FuncWindowClientNavigate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WindowClient_Navigate
 //go:noescape
@@ -73,11 +71,11 @@ func TryWindowClientNavigate(
 
 //go:wasmimport plat/js/web has_Clients_Get
 //go:noescape
-func HasClientsGet(this js.Ref) js.Ref
+func HasFuncClientsGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Clients_Get
 //go:noescape
-func ClientsGetFunc(this js.Ref) js.Ref
+func FuncClientsGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Clients_Get
 //go:noescape
@@ -93,11 +91,11 @@ func TryClientsGet(
 
 //go:wasmimport plat/js/web has_Clients_MatchAll
 //go:noescape
-func HasClientsMatchAll(this js.Ref) js.Ref
+func HasFuncClientsMatchAll(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Clients_MatchAll
 //go:noescape
-func ClientsMatchAllFunc(this js.Ref) js.Ref
+func FuncClientsMatchAll(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Clients_MatchAll
 //go:noescape
@@ -113,11 +111,11 @@ func TryClientsMatchAll(
 
 //go:wasmimport plat/js/web has_Clients_MatchAll1
 //go:noescape
-func HasClientsMatchAll1(this js.Ref) js.Ref
+func HasFuncClientsMatchAll1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Clients_MatchAll1
 //go:noescape
-func ClientsMatchAll1Func(this js.Ref) js.Ref
+func FuncClientsMatchAll1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Clients_MatchAll1
 //go:noescape
@@ -131,11 +129,11 @@ func TryClientsMatchAll1(
 
 //go:wasmimport plat/js/web has_Clients_OpenWindow
 //go:noescape
-func HasClientsOpenWindow(this js.Ref) js.Ref
+func HasFuncClientsOpenWindow(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Clients_OpenWindow
 //go:noescape
-func ClientsOpenWindowFunc(this js.Ref) js.Ref
+func FuncClientsOpenWindow(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Clients_OpenWindow
 //go:noescape
@@ -151,11 +149,11 @@ func TryClientsOpenWindow(
 
 //go:wasmimport plat/js/web has_Clients_Claim
 //go:noescape
-func HasClientsClaim(this js.Ref) js.Ref
+func HasFuncClientsClaim(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Clients_Claim
 //go:noescape
-func ClientsClaimFunc(this js.Ref) js.Ref
+func FuncClientsClaim(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Clients_Claim
 //go:noescape
@@ -204,11 +202,11 @@ func GetClipboardItemTypes(
 
 //go:wasmimport plat/js/web has_ClipboardItem_GetType
 //go:noescape
-func HasClipboardItemGetType(this js.Ref) js.Ref
+func HasFuncClipboardItemGetType(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ClipboardItem_GetType
 //go:noescape
-func ClipboardItemGetTypeFunc(this js.Ref) js.Ref
+func FuncClipboardItemGetType(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ClipboardItem_GetType
 //go:noescape
@@ -224,11 +222,11 @@ func TryClipboardItemGetType(
 
 //go:wasmimport plat/js/web has_Clipboard_Read
 //go:noescape
-func HasClipboardRead(this js.Ref) js.Ref
+func HasFuncClipboardRead(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Clipboard_Read
 //go:noescape
-func ClipboardReadFunc(this js.Ref) js.Ref
+func FuncClipboardRead(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Clipboard_Read
 //go:noescape
@@ -242,11 +240,11 @@ func TryClipboardRead(
 
 //go:wasmimport plat/js/web has_Clipboard_ReadText
 //go:noescape
-func HasClipboardReadText(this js.Ref) js.Ref
+func HasFuncClipboardReadText(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Clipboard_ReadText
 //go:noescape
-func ClipboardReadTextFunc(this js.Ref) js.Ref
+func FuncClipboardReadText(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Clipboard_ReadText
 //go:noescape
@@ -260,11 +258,11 @@ func TryClipboardReadText(
 
 //go:wasmimport plat/js/web has_Clipboard_Write
 //go:noescape
-func HasClipboardWrite(this js.Ref) js.Ref
+func HasFuncClipboardWrite(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Clipboard_Write
 //go:noescape
-func ClipboardWriteFunc(this js.Ref) js.Ref
+func FuncClipboardWrite(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Clipboard_Write
 //go:noescape
@@ -280,11 +278,11 @@ func TryClipboardWrite(
 
 //go:wasmimport plat/js/web has_Clipboard_WriteText
 //go:noescape
-func HasClipboardWriteText(this js.Ref) js.Ref
+func HasFuncClipboardWriteText(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Clipboard_WriteText
 //go:noescape
-func ClipboardWriteTextFunc(this js.Ref) js.Ref
+func FuncClipboardWriteText(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Clipboard_WriteText
 //go:noescape
@@ -332,11 +330,11 @@ func GetFileSystemHandleName(
 
 //go:wasmimport plat/js/web has_FileSystemHandle_IsSameEntry
 //go:noescape
-func HasFileSystemHandleIsSameEntry(this js.Ref) js.Ref
+func HasFuncFileSystemHandleIsSameEntry(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileSystemHandle_IsSameEntry
 //go:noescape
-func FileSystemHandleIsSameEntryFunc(this js.Ref) js.Ref
+func FuncFileSystemHandleIsSameEntry(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileSystemHandle_IsSameEntry
 //go:noescape
@@ -352,11 +350,11 @@ func TryFileSystemHandleIsSameEntry(
 
 //go:wasmimport plat/js/web has_FileSystemHandle_QueryPermission
 //go:noescape
-func HasFileSystemHandleQueryPermission(this js.Ref) js.Ref
+func HasFuncFileSystemHandleQueryPermission(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileSystemHandle_QueryPermission
 //go:noescape
-func FileSystemHandleQueryPermissionFunc(this js.Ref) js.Ref
+func FuncFileSystemHandleQueryPermission(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileSystemHandle_QueryPermission
 //go:noescape
@@ -372,11 +370,11 @@ func TryFileSystemHandleQueryPermission(
 
 //go:wasmimport plat/js/web has_FileSystemHandle_QueryPermission1
 //go:noescape
-func HasFileSystemHandleQueryPermission1(this js.Ref) js.Ref
+func HasFuncFileSystemHandleQueryPermission1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileSystemHandle_QueryPermission1
 //go:noescape
-func FileSystemHandleQueryPermission1Func(this js.Ref) js.Ref
+func FuncFileSystemHandleQueryPermission1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileSystemHandle_QueryPermission1
 //go:noescape
@@ -390,11 +388,11 @@ func TryFileSystemHandleQueryPermission1(
 
 //go:wasmimport plat/js/web has_FileSystemHandle_RequestPermission
 //go:noescape
-func HasFileSystemHandleRequestPermission(this js.Ref) js.Ref
+func HasFuncFileSystemHandleRequestPermission(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileSystemHandle_RequestPermission
 //go:noescape
-func FileSystemHandleRequestPermissionFunc(this js.Ref) js.Ref
+func FuncFileSystemHandleRequestPermission(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileSystemHandle_RequestPermission
 //go:noescape
@@ -410,11 +408,11 @@ func TryFileSystemHandleRequestPermission(
 
 //go:wasmimport plat/js/web has_FileSystemHandle_RequestPermission1
 //go:noescape
-func HasFileSystemHandleRequestPermission1(this js.Ref) js.Ref
+func HasFuncFileSystemHandleRequestPermission1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileSystemHandle_RequestPermission1
 //go:noescape
-func FileSystemHandleRequestPermission1Func(this js.Ref) js.Ref
+func FuncFileSystemHandleRequestPermission1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileSystemHandle_RequestPermission1
 //go:noescape
@@ -428,11 +426,11 @@ func TryFileSystemHandleRequestPermission1(
 
 //go:wasmimport plat/js/web has_FileSystemDirectoryReader_ReadEntries
 //go:noescape
-func HasFileSystemDirectoryReaderReadEntries(this js.Ref) js.Ref
+func HasFuncFileSystemDirectoryReaderReadEntries(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileSystemDirectoryReader_ReadEntries
 //go:noescape
-func FileSystemDirectoryReaderReadEntriesFunc(this js.Ref) js.Ref
+func FuncFileSystemDirectoryReaderReadEntries(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileSystemDirectoryReader_ReadEntries
 //go:noescape
@@ -450,11 +448,11 @@ func TryFileSystemDirectoryReaderReadEntries(
 
 //go:wasmimport plat/js/web has_FileSystemDirectoryReader_ReadEntries1
 //go:noescape
-func HasFileSystemDirectoryReaderReadEntries1(this js.Ref) js.Ref
+func HasFuncFileSystemDirectoryReaderReadEntries1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileSystemDirectoryReader_ReadEntries1
 //go:noescape
-func FileSystemDirectoryReaderReadEntries1Func(this js.Ref) js.Ref
+func FuncFileSystemDirectoryReaderReadEntries1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileSystemDirectoryReader_ReadEntries1
 //go:noescape
@@ -480,11 +478,11 @@ func FileSystemFlagsJSLoad(
 
 //go:wasmimport plat/js/web has_FileSystemDirectoryEntry_CreateReader
 //go:noescape
-func HasFileSystemDirectoryEntryCreateReader(this js.Ref) js.Ref
+func HasFuncFileSystemDirectoryEntryCreateReader(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileSystemDirectoryEntry_CreateReader
 //go:noescape
-func FileSystemDirectoryEntryCreateReaderFunc(this js.Ref) js.Ref
+func FuncFileSystemDirectoryEntryCreateReader(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileSystemDirectoryEntry_CreateReader
 //go:noescape
@@ -498,11 +496,11 @@ func TryFileSystemDirectoryEntryCreateReader(
 
 //go:wasmimport plat/js/web has_FileSystemDirectoryEntry_GetFile
 //go:noescape
-func HasFileSystemDirectoryEntryGetFile(this js.Ref) js.Ref
+func HasFuncFileSystemDirectoryEntryGetFile(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileSystemDirectoryEntry_GetFile
 //go:noescape
-func FileSystemDirectoryEntryGetFileFunc(this js.Ref) js.Ref
+func FuncFileSystemDirectoryEntryGetFile(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileSystemDirectoryEntry_GetFile
 //go:noescape
@@ -524,11 +522,11 @@ func TryFileSystemDirectoryEntryGetFile(
 
 //go:wasmimport plat/js/web has_FileSystemDirectoryEntry_GetFile1
 //go:noescape
-func HasFileSystemDirectoryEntryGetFile1(this js.Ref) js.Ref
+func HasFuncFileSystemDirectoryEntryGetFile1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileSystemDirectoryEntry_GetFile1
 //go:noescape
-func FileSystemDirectoryEntryGetFile1Func(this js.Ref) js.Ref
+func FuncFileSystemDirectoryEntryGetFile1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileSystemDirectoryEntry_GetFile1
 //go:noescape
@@ -548,11 +546,11 @@ func TryFileSystemDirectoryEntryGetFile1(
 
 //go:wasmimport plat/js/web has_FileSystemDirectoryEntry_GetFile2
 //go:noescape
-func HasFileSystemDirectoryEntryGetFile2(this js.Ref) js.Ref
+func HasFuncFileSystemDirectoryEntryGetFile2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileSystemDirectoryEntry_GetFile2
 //go:noescape
-func FileSystemDirectoryEntryGetFile2Func(this js.Ref) js.Ref
+func FuncFileSystemDirectoryEntryGetFile2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileSystemDirectoryEntry_GetFile2
 //go:noescape
@@ -570,11 +568,11 @@ func TryFileSystemDirectoryEntryGetFile2(
 
 //go:wasmimport plat/js/web has_FileSystemDirectoryEntry_GetFile3
 //go:noescape
-func HasFileSystemDirectoryEntryGetFile3(this js.Ref) js.Ref
+func HasFuncFileSystemDirectoryEntryGetFile3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileSystemDirectoryEntry_GetFile3
 //go:noescape
-func FileSystemDirectoryEntryGetFile3Func(this js.Ref) js.Ref
+func FuncFileSystemDirectoryEntryGetFile3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileSystemDirectoryEntry_GetFile3
 //go:noescape
@@ -590,11 +588,11 @@ func TryFileSystemDirectoryEntryGetFile3(
 
 //go:wasmimport plat/js/web has_FileSystemDirectoryEntry_GetFile4
 //go:noescape
-func HasFileSystemDirectoryEntryGetFile4(this js.Ref) js.Ref
+func HasFuncFileSystemDirectoryEntryGetFile4(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileSystemDirectoryEntry_GetFile4
 //go:noescape
-func FileSystemDirectoryEntryGetFile4Func(this js.Ref) js.Ref
+func FuncFileSystemDirectoryEntryGetFile4(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileSystemDirectoryEntry_GetFile4
 //go:noescape
@@ -608,11 +606,11 @@ func TryFileSystemDirectoryEntryGetFile4(
 
 //go:wasmimport plat/js/web has_FileSystemDirectoryEntry_GetDirectory
 //go:noescape
-func HasFileSystemDirectoryEntryGetDirectory(this js.Ref) js.Ref
+func HasFuncFileSystemDirectoryEntryGetDirectory(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileSystemDirectoryEntry_GetDirectory
 //go:noescape
-func FileSystemDirectoryEntryGetDirectoryFunc(this js.Ref) js.Ref
+func FuncFileSystemDirectoryEntryGetDirectory(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileSystemDirectoryEntry_GetDirectory
 //go:noescape
@@ -634,11 +632,11 @@ func TryFileSystemDirectoryEntryGetDirectory(
 
 //go:wasmimport plat/js/web has_FileSystemDirectoryEntry_GetDirectory1
 //go:noescape
-func HasFileSystemDirectoryEntryGetDirectory1(this js.Ref) js.Ref
+func HasFuncFileSystemDirectoryEntryGetDirectory1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileSystemDirectoryEntry_GetDirectory1
 //go:noescape
-func FileSystemDirectoryEntryGetDirectory1Func(this js.Ref) js.Ref
+func FuncFileSystemDirectoryEntryGetDirectory1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileSystemDirectoryEntry_GetDirectory1
 //go:noescape
@@ -658,11 +656,11 @@ func TryFileSystemDirectoryEntryGetDirectory1(
 
 //go:wasmimport plat/js/web has_FileSystemDirectoryEntry_GetDirectory2
 //go:noescape
-func HasFileSystemDirectoryEntryGetDirectory2(this js.Ref) js.Ref
+func HasFuncFileSystemDirectoryEntryGetDirectory2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileSystemDirectoryEntry_GetDirectory2
 //go:noescape
-func FileSystemDirectoryEntryGetDirectory2Func(this js.Ref) js.Ref
+func FuncFileSystemDirectoryEntryGetDirectory2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileSystemDirectoryEntry_GetDirectory2
 //go:noescape
@@ -680,11 +678,11 @@ func TryFileSystemDirectoryEntryGetDirectory2(
 
 //go:wasmimport plat/js/web has_FileSystemDirectoryEntry_GetDirectory3
 //go:noescape
-func HasFileSystemDirectoryEntryGetDirectory3(this js.Ref) js.Ref
+func HasFuncFileSystemDirectoryEntryGetDirectory3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileSystemDirectoryEntry_GetDirectory3
 //go:noescape
-func FileSystemDirectoryEntryGetDirectory3Func(this js.Ref) js.Ref
+func FuncFileSystemDirectoryEntryGetDirectory3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileSystemDirectoryEntry_GetDirectory3
 //go:noescape
@@ -700,11 +698,11 @@ func TryFileSystemDirectoryEntryGetDirectory3(
 
 //go:wasmimport plat/js/web has_FileSystemDirectoryEntry_GetDirectory4
 //go:noescape
-func HasFileSystemDirectoryEntryGetDirectory4(this js.Ref) js.Ref
+func HasFuncFileSystemDirectoryEntryGetDirectory4(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileSystemDirectoryEntry_GetDirectory4
 //go:noescape
-func FileSystemDirectoryEntryGetDirectory4Func(this js.Ref) js.Ref
+func FuncFileSystemDirectoryEntryGetDirectory4(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileSystemDirectoryEntry_GetDirectory4
 //go:noescape
@@ -753,11 +751,11 @@ func GetFileSystemEntryFilesystem(
 
 //go:wasmimport plat/js/web has_FileSystemEntry_GetParent
 //go:noescape
-func HasFileSystemEntryGetParent(this js.Ref) js.Ref
+func HasFuncFileSystemEntryGetParent(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileSystemEntry_GetParent
 //go:noescape
-func FileSystemEntryGetParentFunc(this js.Ref) js.Ref
+func FuncFileSystemEntryGetParent(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileSystemEntry_GetParent
 //go:noescape
@@ -775,11 +773,11 @@ func TryFileSystemEntryGetParent(
 
 //go:wasmimport plat/js/web has_FileSystemEntry_GetParent1
 //go:noescape
-func HasFileSystemEntryGetParent1(this js.Ref) js.Ref
+func HasFuncFileSystemEntryGetParent1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileSystemEntry_GetParent1
 //go:noescape
-func FileSystemEntryGetParent1Func(this js.Ref) js.Ref
+func FuncFileSystemEntryGetParent1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileSystemEntry_GetParent1
 //go:noescape
@@ -795,11 +793,11 @@ func TryFileSystemEntryGetParent1(
 
 //go:wasmimport plat/js/web has_FileSystemEntry_GetParent2
 //go:noescape
-func HasFileSystemEntryGetParent2(this js.Ref) js.Ref
+func HasFuncFileSystemEntryGetParent2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileSystemEntry_GetParent2
 //go:noescape
-func FileSystemEntryGetParent2Func(this js.Ref) js.Ref
+func FuncFileSystemEntryGetParent2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileSystemEntry_GetParent2
 //go:noescape
@@ -823,11 +821,11 @@ func GetDataTransferItemType(
 
 //go:wasmimport plat/js/web has_DataTransferItem_GetAsString
 //go:noescape
-func HasDataTransferItemGetAsString(this js.Ref) js.Ref
+func HasFuncDataTransferItemGetAsString(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DataTransferItem_GetAsString
 //go:noescape
-func DataTransferItemGetAsStringFunc(this js.Ref) js.Ref
+func FuncDataTransferItemGetAsString(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DataTransferItem_GetAsString
 //go:noescape
@@ -843,11 +841,11 @@ func TryDataTransferItemGetAsString(
 
 //go:wasmimport plat/js/web has_DataTransferItem_GetAsFile
 //go:noescape
-func HasDataTransferItemGetAsFile(this js.Ref) js.Ref
+func HasFuncDataTransferItemGetAsFile(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DataTransferItem_GetAsFile
 //go:noescape
-func DataTransferItemGetAsFileFunc(this js.Ref) js.Ref
+func FuncDataTransferItemGetAsFile(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DataTransferItem_GetAsFile
 //go:noescape
@@ -861,11 +859,11 @@ func TryDataTransferItemGetAsFile(
 
 //go:wasmimport plat/js/web has_DataTransferItem_GetAsFileSystemHandle
 //go:noescape
-func HasDataTransferItemGetAsFileSystemHandle(this js.Ref) js.Ref
+func HasFuncDataTransferItemGetAsFileSystemHandle(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DataTransferItem_GetAsFileSystemHandle
 //go:noescape
-func DataTransferItemGetAsFileSystemHandleFunc(this js.Ref) js.Ref
+func FuncDataTransferItemGetAsFileSystemHandle(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DataTransferItem_GetAsFileSystemHandle
 //go:noescape
@@ -879,11 +877,11 @@ func TryDataTransferItemGetAsFileSystemHandle(
 
 //go:wasmimport plat/js/web has_DataTransferItem_WebkitGetAsEntry
 //go:noescape
-func HasDataTransferItemWebkitGetAsEntry(this js.Ref) js.Ref
+func HasFuncDataTransferItemWebkitGetAsEntry(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DataTransferItem_WebkitGetAsEntry
 //go:noescape
-func DataTransferItemWebkitGetAsEntryFunc(this js.Ref) js.Ref
+func FuncDataTransferItemWebkitGetAsEntry(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DataTransferItem_WebkitGetAsEntry
 //go:noescape
@@ -902,11 +900,11 @@ func GetDataTransferItemListLength(
 
 //go:wasmimport plat/js/web has_DataTransferItemList_Get
 //go:noescape
-func HasDataTransferItemListGet(this js.Ref) js.Ref
+func HasFuncDataTransferItemListGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DataTransferItemList_Get
 //go:noescape
-func DataTransferItemListGetFunc(this js.Ref) js.Ref
+func FuncDataTransferItemListGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DataTransferItemList_Get
 //go:noescape
@@ -922,11 +920,11 @@ func TryDataTransferItemListGet(
 
 //go:wasmimport plat/js/web has_DataTransferItemList_Add
 //go:noescape
-func HasDataTransferItemListAdd(this js.Ref) js.Ref
+func HasFuncDataTransferItemListAdd(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DataTransferItemList_Add
 //go:noescape
-func DataTransferItemListAddFunc(this js.Ref) js.Ref
+func FuncDataTransferItemListAdd(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DataTransferItemList_Add
 //go:noescape
@@ -944,11 +942,11 @@ func TryDataTransferItemListAdd(
 
 //go:wasmimport plat/js/web has_DataTransferItemList_Add1
 //go:noescape
-func HasDataTransferItemListAdd1(this js.Ref) js.Ref
+func HasFuncDataTransferItemListAdd1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DataTransferItemList_Add1
 //go:noescape
-func DataTransferItemListAdd1Func(this js.Ref) js.Ref
+func FuncDataTransferItemListAdd1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DataTransferItemList_Add1
 //go:noescape
@@ -964,11 +962,11 @@ func TryDataTransferItemListAdd1(
 
 //go:wasmimport plat/js/web has_DataTransferItemList_Remove
 //go:noescape
-func HasDataTransferItemListRemove(this js.Ref) js.Ref
+func HasFuncDataTransferItemListRemove(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DataTransferItemList_Remove
 //go:noescape
-func DataTransferItemListRemoveFunc(this js.Ref) js.Ref
+func FuncDataTransferItemListRemove(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DataTransferItemList_Remove
 //go:noescape
@@ -984,11 +982,11 @@ func TryDataTransferItemListRemove(
 
 //go:wasmimport plat/js/web has_DataTransferItemList_Clear
 //go:noescape
-func HasDataTransferItemListClear(this js.Ref) js.Ref
+func HasFuncDataTransferItemListClear(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DataTransferItemList_Clear
 //go:noescape
-func DataTransferItemListClearFunc(this js.Ref) js.Ref
+func FuncDataTransferItemListClear(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DataTransferItemList_Clear
 //go:noescape
@@ -1007,11 +1005,11 @@ func GetFileListLength(
 
 //go:wasmimport plat/js/web has_FileList_Item
 //go:noescape
-func HasFileListItem(this js.Ref) js.Ref
+func HasFuncFileListItem(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FileList_Item
 //go:noescape
-func FileListItemFunc(this js.Ref) js.Ref
+func FuncFileListItem(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FileList_Item
 //go:noescape
@@ -1066,11 +1064,11 @@ func GetDataTransferFiles(
 
 //go:wasmimport plat/js/web has_DataTransfer_SetDragImage
 //go:noescape
-func HasDataTransferSetDragImage(this js.Ref) js.Ref
+func HasFuncDataTransferSetDragImage(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DataTransfer_SetDragImage
 //go:noescape
-func DataTransferSetDragImageFunc(this js.Ref) js.Ref
+func FuncDataTransferSetDragImage(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DataTransfer_SetDragImage
 //go:noescape
@@ -1090,11 +1088,11 @@ func TryDataTransferSetDragImage(
 
 //go:wasmimport plat/js/web has_DataTransfer_GetData
 //go:noescape
-func HasDataTransferGetData(this js.Ref) js.Ref
+func HasFuncDataTransferGetData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DataTransfer_GetData
 //go:noescape
-func DataTransferGetDataFunc(this js.Ref) js.Ref
+func FuncDataTransferGetData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DataTransfer_GetData
 //go:noescape
@@ -1110,11 +1108,11 @@ func TryDataTransferGetData(
 
 //go:wasmimport plat/js/web has_DataTransfer_SetData
 //go:noescape
-func HasDataTransferSetData(this js.Ref) js.Ref
+func HasFuncDataTransferSetData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DataTransfer_SetData
 //go:noescape
-func DataTransferSetDataFunc(this js.Ref) js.Ref
+func FuncDataTransferSetData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DataTransfer_SetData
 //go:noescape
@@ -1132,11 +1130,11 @@ func TryDataTransferSetData(
 
 //go:wasmimport plat/js/web has_DataTransfer_ClearData
 //go:noescape
-func HasDataTransferClearData(this js.Ref) js.Ref
+func HasFuncDataTransferClearData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DataTransfer_ClearData
 //go:noescape
-func DataTransferClearDataFunc(this js.Ref) js.Ref
+func FuncDataTransferClearData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DataTransfer_ClearData
 //go:noescape
@@ -1152,11 +1150,11 @@ func TryDataTransferClearData(
 
 //go:wasmimport plat/js/web has_DataTransfer_ClearData1
 //go:noescape
-func HasDataTransferClearData1(this js.Ref) js.Ref
+func HasFuncDataTransferClearData1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DataTransfer_ClearData1
 //go:noescape
-func DataTransferClearData1Func(this js.Ref) js.Ref
+func FuncDataTransferClearData1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DataTransfer_ClearData1
 //go:noescape
@@ -1324,11 +1322,11 @@ func GetMediaQueryListMatches(
 
 //go:wasmimport plat/js/web has_MediaQueryList_AddListener
 //go:noescape
-func HasMediaQueryListAddListener(this js.Ref) js.Ref
+func HasFuncMediaQueryListAddListener(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaQueryList_AddListener
 //go:noescape
-func MediaQueryListAddListenerFunc(this js.Ref) js.Ref
+func FuncMediaQueryListAddListener(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaQueryList_AddListener
 //go:noescape
@@ -1344,11 +1342,11 @@ func TryMediaQueryListAddListener(
 
 //go:wasmimport plat/js/web has_MediaQueryList_RemoveListener
 //go:noescape
-func HasMediaQueryListRemoveListener(this js.Ref) js.Ref
+func HasFuncMediaQueryListRemoveListener(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaQueryList_RemoveListener
 //go:noescape
-func MediaQueryListRemoveListenerFunc(this js.Ref) js.Ref
+func FuncMediaQueryListRemoveListener(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaQueryList_RemoveListener
 //go:noescape

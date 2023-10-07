@@ -1,0 +1,2237 @@
+- File: webext/chromeos/events.idl
+  Enum:
+    Name: AudioJackDeviceType
+    Values:
+      - headphone
+      - microphone
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  Enum:
+    Name: AudioJackEvent
+    Values:
+      - connected
+      - disconnected
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  Dict:
+    Name: AudioJackEventInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+    Fields:
+      - Name: event
+        Type:
+          Name: AudioJackEvent
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: deviceType
+        Type:
+          Name: AudioJackDeviceType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+- File: webext/chromeos/events.idl
+  Enum:
+    Name: DisplayInputType
+    Values:
+      - unknown
+      - digital
+      - analog
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  Callback:
+    Name: EOF
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  Enum:
+    Name: EventCategory
+    Values:
+      - audio_jack
+      - lid
+      - usb
+      - sd_card
+      - power
+      - keyboard_diagnostic
+      - stylus_garage
+      - touchpad_button
+      - touchpad_touch
+      - touchpad_connected
+      - touchscreen_touch
+      - touchscreen_connected
+      - external_display
+      - stylus_touch
+      - stylus_connected
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  Enum:
+    Name: EventSupportStatus
+    Values:
+      - supported
+      - unsupported
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  Dict:
+    Name: EventSupportStatusInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+    Fields:
+      - Name: status
+        Type:
+          Name: EventSupportStatus
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+- File: webext/chromeos/events.idl
+  Callback:
+    Name: EventSupportStatusInfoCallback
+    Args:
+      - Name: info
+        Type:
+          Name: EventSupportStatusInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  Enum:
+    Name: ExternalDisplayEvent
+    Values:
+      - connected
+      - disconnected
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  Dict:
+    Name: ExternalDisplayEventInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+    Fields:
+      - Name: event
+        Type:
+          Name: ExternalDisplayEvent
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: displayInfo
+        Type:
+          Name: ExternalDisplayInfo
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+- File: webext/chromeos/events.idl
+  Dict:
+    Name: ExternalDisplayInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+    Fields:
+      - Name: displayWidth
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: displayHeight
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: resolutionHorizontal
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: resolutionVertical
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: refreshRate
+        Type:
+          Name: double
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: manufacturer
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: modelId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: serialNumber
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: manufactureWeek
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: manufactureYear
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: edidVersion
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: inputType
+        Type:
+          Name: DisplayInputType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: displayName
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+- File: webext/chromeos/events.idl
+  Enum:
+    Name: InputTouchButton
+    Values:
+      - left
+      - middle
+      - right
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  Enum:
+    Name: InputTouchButtonState
+    Values:
+      - pressed
+      - released
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  Enum:
+    Name: KeyboardConnectionType
+    Values:
+      - internal
+      - usb
+      - bluetooth
+      - unknown
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  Dict:
+    Name: KeyboardDiagnosticEventInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+    Fields:
+      - Name: keyboardInfo
+        Type:
+          Name: KeyboardInfo
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: testedKeys
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - os
+                    - events
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: testedTopRowKeys
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - os
+                    - events
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+- File: webext/chromeos/events.idl
+  Dict:
+    Name: KeyboardInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+    Fields:
+      - Name: id
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: connectionType
+        Type:
+          Name: KeyboardConnectionType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: name
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: physicalLayout
+        Type:
+          Name: PhysicalKeyboardLayout
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: mechanicalLayout
+        Type:
+          Name: MechanicalKeyboardLayout
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: regionCode
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: numberPadPresent
+        Type:
+          Name: KeyboardNumberPadPresence
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: topRowKeys
+        Type:
+          Name: sequence
+          Params:
+            - Name: KeyboardTopRowKey
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - os
+                    - events
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: topRightKey
+        Type:
+          Name: KeyboardTopRightKey
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: hasAssistantKey
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+- File: webext/chromeos/events.idl
+  Enum:
+    Name: KeyboardNumberPadPresence
+    Values:
+      - unknown
+      - present
+      - not_present
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  Enum:
+    Name: KeyboardTopRightKey
+    Values:
+      - unknown
+      - power
+      - lock
+      - control_panel
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  Enum:
+    Name: KeyboardTopRowKey
+    Values:
+      - no_key
+      - unknown
+      - back
+      - forward
+      - refresh
+      - fullscreen
+      - overview
+      - screenshot
+      - screen_brightness_down
+      - screen_brightness_up
+      - privacy_screen_toggle
+      - microphone_mute
+      - volume_mute
+      - volume_down
+      - volume_up
+      - keyboard_backlight_toggle
+      - keyboard_backlight_down
+      - keyboard_backlight_up
+      - next_track
+      - previous_track
+      - play_pause
+      - screen_mirror
+      - delete
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  Enum:
+    Name: LidEvent
+    Values:
+      - closed
+      - opened
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  Dict:
+    Name: LidEventInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+    Fields:
+      - Name: event
+        Type:
+          Name: LidEvent
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+- File: webext/chromeos/events.idl
+  Enum:
+    Name: MechanicalKeyboardLayout
+    Values:
+      - unknown
+      - ansi
+      - iso
+      - jis
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  Enum:
+    Name: PhysicalKeyboardLayout
+    Values:
+      - unknown
+      - chrome_os
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  Enum:
+    Name: PowerEvent
+    Values:
+      - ac_inserted
+      - ac_removed
+      - os_suspend
+      - os_resume
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  Dict:
+    Name: PowerEventInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+    Fields:
+      - Name: event
+        Type:
+          Name: PowerEvent
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+- File: webext/chromeos/events.idl
+  Enum:
+    Name: SdCardEvent
+    Values:
+      - connected
+      - disconnected
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  Dict:
+    Name: SdCardEventInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+    Fields:
+      - Name: event
+        Type:
+          Name: SdCardEvent
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+- File: webext/chromeos/events.idl
+  Dict:
+    Name: StylusConnectedEventInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+    Fields:
+      - Name: max_x
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: max_y
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: max_pressure
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+- File: webext/chromeos/events.idl
+  Enum:
+    Name: StylusGarageEvent
+    Values:
+      - inserted
+      - removed
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  Dict:
+    Name: StylusGarageEventInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+    Fields:
+      - Name: event
+        Type:
+          Name: StylusGarageEvent
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+- File: webext/chromeos/events.idl
+  Dict:
+    Name: StylusTouchEventInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+    Fields:
+      - Name: touch_point
+        Type:
+          Name: StylusTouchPointInfo
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+- File: webext/chromeos/events.idl
+  Dict:
+    Name: StylusTouchPointInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+    Fields:
+      - Name: x
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: "y"
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: pressure
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+- File: webext/chromeos/events.idl
+  Dict:
+    Name: TouchPointInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+    Fields:
+      - Name: trackingId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: x
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: "y"
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: pressure
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: touchMajor
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: touchMinor
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+- File: webext/chromeos/events.idl
+  Dict:
+    Name: TouchpadButtonEventInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+    Fields:
+      - Name: button
+        Type:
+          Name: InputTouchButton
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: state
+        Type:
+          Name: InputTouchButtonState
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+- File: webext/chromeos/events.idl
+  Dict:
+    Name: TouchpadConnectedEventInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+    Fields:
+      - Name: maxX
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: maxY
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: maxPressure
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: buttons
+        Type:
+          Name: sequence
+          Params:
+            - Name: InputTouchButton
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - os
+                    - events
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+- File: webext/chromeos/events.idl
+  Dict:
+    Name: TouchpadTouchEventInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+    Fields:
+      - Name: touchPoints
+        Type:
+          Name: sequence
+          Params:
+            - Name: TouchPointInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - os
+                    - events
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+- File: webext/chromeos/events.idl
+  Dict:
+    Name: TouchscreenConnectedEventInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+    Fields:
+      - Name: maxX
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: maxY
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: maxPressure
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+- File: webext/chromeos/events.idl
+  Dict:
+    Name: TouchscreenTouchEventInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+    Fields:
+      - Name: touchPoints
+        Type:
+          Name: sequence
+          Params:
+            - Name: TouchPointInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - os
+                    - events
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+- File: webext/chromeos/events.idl
+  Enum:
+    Name: UsbEvent
+    Values:
+      - connected
+      - disconnected
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  Dict:
+    Name: UsbEventInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+    Fields:
+      - Name: vendor
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: name
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: vid
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: pid
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: categories
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - os
+                    - events
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+      - Name: event
+        Type:
+          Name: UsbEvent
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+- File: webext/chromeos/events.idl
+  Callback:
+    Name: VoidCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  WebextFunc:
+    Name: isEventSupported
+    Modifier: static
+    Args:
+      - Name: category
+        Type:
+          Name: EventCategory
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: EventSupportStatusInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - os
+                  - events
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  WebextEvent:
+    Name: onAudioJackEvent
+    Modifier: static
+    Args:
+      - Name: event_info
+        Type:
+          Name: AudioJackEventInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  WebextEvent:
+    Name: onExternalDisplayEvent
+    Modifier: static
+    Args:
+      - Name: event_info
+        Type:
+          Name: ExternalDisplayEventInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  WebextEvent:
+    Name: onKeyboardDiagnosticEvent
+    Modifier: static
+    Args:
+      - Name: event_info
+        Type:
+          Name: KeyboardDiagnosticEventInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  WebextEvent:
+    Name: onLidEvent
+    Modifier: static
+    Args:
+      - Name: event_info
+        Type:
+          Name: LidEventInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  WebextEvent:
+    Name: onPowerEvent
+    Modifier: static
+    Args:
+      - Name: event_info
+        Type:
+          Name: PowerEventInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  WebextEvent:
+    Name: onSdCardEvent
+    Modifier: static
+    Args:
+      - Name: event_info
+        Type:
+          Name: SdCardEventInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  WebextEvent:
+    Name: onStylusConnectedEvent
+    Modifier: static
+    Args:
+      - Name: event_info
+        Type:
+          Name: StylusConnectedEventInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  WebextEvent:
+    Name: onStylusGarageEvent
+    Modifier: static
+    Args:
+      - Name: event_info
+        Type:
+          Name: StylusGarageEventInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  WebextEvent:
+    Name: onStylusTouchEvent
+    Modifier: static
+    Args:
+      - Name: event_info
+        Type:
+          Name: StylusTouchEventInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  WebextEvent:
+    Name: onTouchpadButtonEvent
+    Modifier: static
+    Args:
+      - Name: event_info
+        Type:
+          Name: TouchpadButtonEventInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  WebextEvent:
+    Name: onTouchpadConnectedEvent
+    Modifier: static
+    Args:
+      - Name: event_info
+        Type:
+          Name: TouchpadConnectedEventInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  WebextEvent:
+    Name: onTouchpadTouchEvent
+    Modifier: static
+    Args:
+      - Name: event_info
+        Type:
+          Name: TouchpadTouchEventInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  WebextEvent:
+    Name: onTouchscreenConnectedEvent
+    Modifier: static
+    Args:
+      - Name: event_info
+        Type:
+          Name: TouchscreenConnectedEventInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  WebextEvent:
+    Name: onTouchscreenTouchEvent
+    Modifier: static
+    Args:
+      - Name: event_info
+        Type:
+          Name: TouchscreenTouchEventInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  WebextEvent:
+    Name: onUsbEvent
+    Modifier: static
+    Args:
+      - Name: event_info
+        Type:
+          Name: UsbEventInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  WebextFunc:
+    Name: startCapturingEvents
+    Modifier: static
+    Args:
+      - Name: category
+        Type:
+          Name: EventCategory
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events
+- File: webext/chromeos/events.idl
+  WebextFunc:
+    Name: stopCapturingEvents
+    Modifier: static
+    Args:
+      - Name: category
+        Type:
+          Name: EventCategory
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - os
+                - events
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - os
+              - events
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - os
+          - events

@@ -1,0 +1,553 @@
+- File: webext/chrome/file_system_provider_internal.idl
+  WebextFunc:
+    Name: getActionsRequestedSuccess
+    Modifier: static
+    Args:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+      - Name: actions
+        Type:
+          Name: sequence
+          Params:
+            - Name: Action
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileSystemProvider
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: executionTime
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProviderInternal
+- File: webext/chrome/file_system_provider_internal.idl
+  WebextFunc:
+    Name: getMetadataRequestedSuccess
+    Modifier: static
+    Args:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+      - Name: metadata
+        Type:
+          Name: EntryMetadata
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: executionTime
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProviderInternal
+- File: webext/chrome/file_system_provider_internal.idl
+  WebextFunc:
+    Name: operationRequestedError
+    Modifier: static
+    Args:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+      - Name: error
+        Type:
+          Name: ProviderError
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: executionTime
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProviderInternal
+- File: webext/chrome/file_system_provider_internal.idl
+  WebextFunc:
+    Name: operationRequestedSuccess
+    Modifier: static
+    Args:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+      - Name: executionTime
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProviderInternal
+- File: webext/chrome/file_system_provider_internal.idl
+  WebextFunc:
+    Name: readDirectoryRequestedSuccess
+    Modifier: static
+    Args:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+      - Name: entries
+        Type:
+          Name: sequence
+          Params:
+            - Name: EntryMetadata
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - fileSystemProvider
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: hasMore
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+      - Name: executionTime
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProviderInternal
+- File: webext/chrome/file_system_provider_internal.idl
+  WebextFunc:
+    Name: readFileRequestedSuccess
+    Modifier: static
+    Args:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+      - Name: hasMore
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+      - Name: executionTime
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProviderInternal
+- File: webext/chrome/file_system_provider_internal.idl
+  WebextFunc:
+    Name: respondToMountRequest
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+      - Name: error
+        Type:
+          Name: ProviderError
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProvider
+      - Name: executionTime
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProviderInternal
+- File: webext/chrome/file_system_provider_internal.idl
+  WebextFunc:
+    Name: unmountRequestedSuccess
+    Modifier: static
+    Args:
+      - Name: fileSystemId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+      - Name: executionTime
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fileSystemProviderInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fileSystemProviderInternal
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fileSystemProviderInternal

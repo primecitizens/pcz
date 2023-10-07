@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web new_DOMException_DOMException
 //go:noescape
@@ -100,11 +98,11 @@ func GetAudioListenerUpZ(
 
 //go:wasmimport plat/js/web has_AudioListener_SetPosition
 //go:noescape
-func HasAudioListenerSetPosition(this js.Ref) js.Ref
+func HasFuncAudioListenerSetPosition(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioListener_SetPosition
 //go:noescape
-func AudioListenerSetPositionFunc(this js.Ref) js.Ref
+func FuncAudioListenerSetPosition(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioListener_SetPosition
 //go:noescape
@@ -124,11 +122,11 @@ func TryAudioListenerSetPosition(
 
 //go:wasmimport plat/js/web has_AudioListener_SetOrientation
 //go:noescape
-func HasAudioListenerSetOrientation(this js.Ref) js.Ref
+func HasFuncAudioListenerSetOrientation(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AudioListener_SetOrientation
 //go:noescape
-func AudioListenerSetOrientationFunc(this js.Ref) js.Ref
+func FuncAudioListenerSetOrientation(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AudioListener_SetOrientation
 //go:noescape
@@ -168,11 +166,11 @@ func StructuredSerializeOptionsJSLoad(
 
 //go:wasmimport plat/js/web has_MessagePort_PostMessage
 //go:noescape
-func HasMessagePortPostMessage(this js.Ref) js.Ref
+func HasFuncMessagePortPostMessage(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MessagePort_PostMessage
 //go:noescape
-func MessagePortPostMessageFunc(this js.Ref) js.Ref
+func FuncMessagePortPostMessage(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MessagePort_PostMessage
 //go:noescape
@@ -190,11 +188,11 @@ func TryMessagePortPostMessage(
 
 //go:wasmimport plat/js/web has_MessagePort_PostMessage1
 //go:noescape
-func HasMessagePortPostMessage1(this js.Ref) js.Ref
+func HasFuncMessagePortPostMessage1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MessagePort_PostMessage1
 //go:noescape
-func MessagePortPostMessage1Func(this js.Ref) js.Ref
+func FuncMessagePortPostMessage1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MessagePort_PostMessage1
 //go:noescape
@@ -212,11 +210,11 @@ func TryMessagePortPostMessage1(
 
 //go:wasmimport plat/js/web has_MessagePort_PostMessage2
 //go:noescape
-func HasMessagePortPostMessage2(this js.Ref) js.Ref
+func HasFuncMessagePortPostMessage2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MessagePort_PostMessage2
 //go:noescape
-func MessagePortPostMessage2Func(this js.Ref) js.Ref
+func FuncMessagePortPostMessage2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MessagePort_PostMessage2
 //go:noescape
@@ -232,11 +230,11 @@ func TryMessagePortPostMessage2(
 
 //go:wasmimport plat/js/web has_MessagePort_Start
 //go:noescape
-func HasMessagePortStart(this js.Ref) js.Ref
+func HasFuncMessagePortStart(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MessagePort_Start
 //go:noescape
-func MessagePortStartFunc(this js.Ref) js.Ref
+func FuncMessagePortStart(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MessagePort_Start
 //go:noescape
@@ -250,11 +248,11 @@ func TryMessagePortStart(
 
 //go:wasmimport plat/js/web has_MessagePort_Close
 //go:noescape
-func HasMessagePortClose(this js.Ref) js.Ref
+func HasFuncMessagePortClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MessagePort_Close
 //go:noescape
-func MessagePortCloseFunc(this js.Ref) js.Ref
+func FuncMessagePortClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MessagePort_Close
 //go:noescape
@@ -303,11 +301,11 @@ func GetBaseAudioContextAudioWorklet(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreateAnalyser
 //go:noescape
-func HasBaseAudioContextCreateAnalyser(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreateAnalyser(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreateAnalyser
 //go:noescape
-func BaseAudioContextCreateAnalyserFunc(this js.Ref) js.Ref
+func FuncBaseAudioContextCreateAnalyser(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreateAnalyser
 //go:noescape
@@ -321,11 +319,11 @@ func TryBaseAudioContextCreateAnalyser(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreateBiquadFilter
 //go:noescape
-func HasBaseAudioContextCreateBiquadFilter(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreateBiquadFilter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreateBiquadFilter
 //go:noescape
-func BaseAudioContextCreateBiquadFilterFunc(this js.Ref) js.Ref
+func FuncBaseAudioContextCreateBiquadFilter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreateBiquadFilter
 //go:noescape
@@ -339,11 +337,11 @@ func TryBaseAudioContextCreateBiquadFilter(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreateBuffer
 //go:noescape
-func HasBaseAudioContextCreateBuffer(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreateBuffer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreateBuffer
 //go:noescape
-func BaseAudioContextCreateBufferFunc(this js.Ref) js.Ref
+func FuncBaseAudioContextCreateBuffer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreateBuffer
 //go:noescape
@@ -363,11 +361,11 @@ func TryBaseAudioContextCreateBuffer(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreateBufferSource
 //go:noescape
-func HasBaseAudioContextCreateBufferSource(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreateBufferSource(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreateBufferSource
 //go:noescape
-func BaseAudioContextCreateBufferSourceFunc(this js.Ref) js.Ref
+func FuncBaseAudioContextCreateBufferSource(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreateBufferSource
 //go:noescape
@@ -381,11 +379,11 @@ func TryBaseAudioContextCreateBufferSource(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreateChannelMerger
 //go:noescape
-func HasBaseAudioContextCreateChannelMerger(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreateChannelMerger(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreateChannelMerger
 //go:noescape
-func BaseAudioContextCreateChannelMergerFunc(this js.Ref) js.Ref
+func FuncBaseAudioContextCreateChannelMerger(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreateChannelMerger
 //go:noescape
@@ -401,11 +399,11 @@ func TryBaseAudioContextCreateChannelMerger(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreateChannelMerger1
 //go:noescape
-func HasBaseAudioContextCreateChannelMerger1(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreateChannelMerger1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreateChannelMerger1
 //go:noescape
-func BaseAudioContextCreateChannelMerger1Func(this js.Ref) js.Ref
+func FuncBaseAudioContextCreateChannelMerger1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreateChannelMerger1
 //go:noescape
@@ -419,11 +417,11 @@ func TryBaseAudioContextCreateChannelMerger1(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreateChannelSplitter
 //go:noescape
-func HasBaseAudioContextCreateChannelSplitter(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreateChannelSplitter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreateChannelSplitter
 //go:noescape
-func BaseAudioContextCreateChannelSplitterFunc(this js.Ref) js.Ref
+func FuncBaseAudioContextCreateChannelSplitter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreateChannelSplitter
 //go:noescape
@@ -439,11 +437,11 @@ func TryBaseAudioContextCreateChannelSplitter(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreateChannelSplitter1
 //go:noescape
-func HasBaseAudioContextCreateChannelSplitter1(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreateChannelSplitter1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreateChannelSplitter1
 //go:noescape
-func BaseAudioContextCreateChannelSplitter1Func(this js.Ref) js.Ref
+func FuncBaseAudioContextCreateChannelSplitter1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreateChannelSplitter1
 //go:noescape
@@ -457,11 +455,11 @@ func TryBaseAudioContextCreateChannelSplitter1(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreateConstantSource
 //go:noescape
-func HasBaseAudioContextCreateConstantSource(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreateConstantSource(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreateConstantSource
 //go:noescape
-func BaseAudioContextCreateConstantSourceFunc(this js.Ref) js.Ref
+func FuncBaseAudioContextCreateConstantSource(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreateConstantSource
 //go:noescape
@@ -475,11 +473,11 @@ func TryBaseAudioContextCreateConstantSource(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreateConvolver
 //go:noescape
-func HasBaseAudioContextCreateConvolver(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreateConvolver(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreateConvolver
 //go:noescape
-func BaseAudioContextCreateConvolverFunc(this js.Ref) js.Ref
+func FuncBaseAudioContextCreateConvolver(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreateConvolver
 //go:noescape
@@ -493,11 +491,11 @@ func TryBaseAudioContextCreateConvolver(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreateDelay
 //go:noescape
-func HasBaseAudioContextCreateDelay(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreateDelay(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreateDelay
 //go:noescape
-func BaseAudioContextCreateDelayFunc(this js.Ref) js.Ref
+func FuncBaseAudioContextCreateDelay(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreateDelay
 //go:noescape
@@ -513,11 +511,11 @@ func TryBaseAudioContextCreateDelay(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreateDelay1
 //go:noescape
-func HasBaseAudioContextCreateDelay1(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreateDelay1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreateDelay1
 //go:noescape
-func BaseAudioContextCreateDelay1Func(this js.Ref) js.Ref
+func FuncBaseAudioContextCreateDelay1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreateDelay1
 //go:noescape
@@ -531,11 +529,11 @@ func TryBaseAudioContextCreateDelay1(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreateDynamicsCompressor
 //go:noescape
-func HasBaseAudioContextCreateDynamicsCompressor(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreateDynamicsCompressor(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreateDynamicsCompressor
 //go:noescape
-func BaseAudioContextCreateDynamicsCompressorFunc(this js.Ref) js.Ref
+func FuncBaseAudioContextCreateDynamicsCompressor(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreateDynamicsCompressor
 //go:noescape
@@ -549,11 +547,11 @@ func TryBaseAudioContextCreateDynamicsCompressor(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreateGain
 //go:noescape
-func HasBaseAudioContextCreateGain(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreateGain(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreateGain
 //go:noescape
-func BaseAudioContextCreateGainFunc(this js.Ref) js.Ref
+func FuncBaseAudioContextCreateGain(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreateGain
 //go:noescape
@@ -567,11 +565,11 @@ func TryBaseAudioContextCreateGain(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreateIIRFilter
 //go:noescape
-func HasBaseAudioContextCreateIIRFilter(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreateIIRFilter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreateIIRFilter
 //go:noescape
-func BaseAudioContextCreateIIRFilterFunc(this js.Ref) js.Ref
+func FuncBaseAudioContextCreateIIRFilter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreateIIRFilter
 //go:noescape
@@ -589,11 +587,11 @@ func TryBaseAudioContextCreateIIRFilter(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreateOscillator
 //go:noescape
-func HasBaseAudioContextCreateOscillator(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreateOscillator(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreateOscillator
 //go:noescape
-func BaseAudioContextCreateOscillatorFunc(this js.Ref) js.Ref
+func FuncBaseAudioContextCreateOscillator(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreateOscillator
 //go:noescape
@@ -607,11 +605,11 @@ func TryBaseAudioContextCreateOscillator(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreatePanner
 //go:noescape
-func HasBaseAudioContextCreatePanner(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreatePanner(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreatePanner
 //go:noescape
-func BaseAudioContextCreatePannerFunc(this js.Ref) js.Ref
+func FuncBaseAudioContextCreatePanner(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreatePanner
 //go:noescape
@@ -625,11 +623,11 @@ func TryBaseAudioContextCreatePanner(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreatePeriodicWave
 //go:noescape
-func HasBaseAudioContextCreatePeriodicWave(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreatePeriodicWave(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreatePeriodicWave
 //go:noescape
-func BaseAudioContextCreatePeriodicWaveFunc(this js.Ref) js.Ref
+func FuncBaseAudioContextCreatePeriodicWave(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreatePeriodicWave
 //go:noescape
@@ -649,11 +647,11 @@ func TryBaseAudioContextCreatePeriodicWave(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreatePeriodicWave1
 //go:noescape
-func HasBaseAudioContextCreatePeriodicWave1(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreatePeriodicWave1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreatePeriodicWave1
 //go:noescape
-func BaseAudioContextCreatePeriodicWave1Func(this js.Ref) js.Ref
+func FuncBaseAudioContextCreatePeriodicWave1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreatePeriodicWave1
 //go:noescape
@@ -671,11 +669,11 @@ func TryBaseAudioContextCreatePeriodicWave1(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreateScriptProcessor
 //go:noescape
-func HasBaseAudioContextCreateScriptProcessor(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreateScriptProcessor(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreateScriptProcessor
 //go:noescape
-func BaseAudioContextCreateScriptProcessorFunc(this js.Ref) js.Ref
+func FuncBaseAudioContextCreateScriptProcessor(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreateScriptProcessor
 //go:noescape
@@ -695,11 +693,11 @@ func TryBaseAudioContextCreateScriptProcessor(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreateScriptProcessor1
 //go:noescape
-func HasBaseAudioContextCreateScriptProcessor1(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreateScriptProcessor1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreateScriptProcessor1
 //go:noescape
-func BaseAudioContextCreateScriptProcessor1Func(this js.Ref) js.Ref
+func FuncBaseAudioContextCreateScriptProcessor1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreateScriptProcessor1
 //go:noescape
@@ -717,11 +715,11 @@ func TryBaseAudioContextCreateScriptProcessor1(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreateScriptProcessor2
 //go:noescape
-func HasBaseAudioContextCreateScriptProcessor2(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreateScriptProcessor2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreateScriptProcessor2
 //go:noescape
-func BaseAudioContextCreateScriptProcessor2Func(this js.Ref) js.Ref
+func FuncBaseAudioContextCreateScriptProcessor2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreateScriptProcessor2
 //go:noescape
@@ -737,11 +735,11 @@ func TryBaseAudioContextCreateScriptProcessor2(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreateScriptProcessor3
 //go:noescape
-func HasBaseAudioContextCreateScriptProcessor3(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreateScriptProcessor3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreateScriptProcessor3
 //go:noescape
-func BaseAudioContextCreateScriptProcessor3Func(this js.Ref) js.Ref
+func FuncBaseAudioContextCreateScriptProcessor3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreateScriptProcessor3
 //go:noescape
@@ -755,11 +753,11 @@ func TryBaseAudioContextCreateScriptProcessor3(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreateStereoPanner
 //go:noescape
-func HasBaseAudioContextCreateStereoPanner(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreateStereoPanner(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreateStereoPanner
 //go:noescape
-func BaseAudioContextCreateStereoPannerFunc(this js.Ref) js.Ref
+func FuncBaseAudioContextCreateStereoPanner(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreateStereoPanner
 //go:noescape
@@ -773,11 +771,11 @@ func TryBaseAudioContextCreateStereoPanner(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_CreateWaveShaper
 //go:noescape
-func HasBaseAudioContextCreateWaveShaper(this js.Ref) js.Ref
+func HasFuncBaseAudioContextCreateWaveShaper(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_CreateWaveShaper
 //go:noescape
-func BaseAudioContextCreateWaveShaperFunc(this js.Ref) js.Ref
+func FuncBaseAudioContextCreateWaveShaper(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_CreateWaveShaper
 //go:noescape
@@ -791,11 +789,11 @@ func TryBaseAudioContextCreateWaveShaper(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_DecodeAudioData
 //go:noescape
-func HasBaseAudioContextDecodeAudioData(this js.Ref) js.Ref
+func HasFuncBaseAudioContextDecodeAudioData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_DecodeAudioData
 //go:noescape
-func BaseAudioContextDecodeAudioDataFunc(this js.Ref) js.Ref
+func FuncBaseAudioContextDecodeAudioData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_DecodeAudioData
 //go:noescape
@@ -815,11 +813,11 @@ func TryBaseAudioContextDecodeAudioData(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_DecodeAudioData1
 //go:noescape
-func HasBaseAudioContextDecodeAudioData1(this js.Ref) js.Ref
+func HasFuncBaseAudioContextDecodeAudioData1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_DecodeAudioData1
 //go:noescape
-func BaseAudioContextDecodeAudioData1Func(this js.Ref) js.Ref
+func FuncBaseAudioContextDecodeAudioData1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_DecodeAudioData1
 //go:noescape
@@ -837,11 +835,11 @@ func TryBaseAudioContextDecodeAudioData1(
 
 //go:wasmimport plat/js/web has_BaseAudioContext_DecodeAudioData2
 //go:noescape
-func HasBaseAudioContextDecodeAudioData2(this js.Ref) js.Ref
+func HasFuncBaseAudioContextDecodeAudioData2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BaseAudioContext_DecodeAudioData2
 //go:noescape
-func BaseAudioContextDecodeAudioData2Func(this js.Ref) js.Ref
+func FuncBaseAudioContextDecodeAudioData2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BaseAudioContext_DecodeAudioData2
 //go:noescape
@@ -931,11 +929,11 @@ func SetAnalyserNodeSmoothingTimeConstant(
 
 //go:wasmimport plat/js/web has_AnalyserNode_GetFloatFrequencyData
 //go:noescape
-func HasAnalyserNodeGetFloatFrequencyData(this js.Ref) js.Ref
+func HasFuncAnalyserNodeGetFloatFrequencyData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AnalyserNode_GetFloatFrequencyData
 //go:noescape
-func AnalyserNodeGetFloatFrequencyDataFunc(this js.Ref) js.Ref
+func FuncAnalyserNodeGetFloatFrequencyData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AnalyserNode_GetFloatFrequencyData
 //go:noescape
@@ -951,11 +949,11 @@ func TryAnalyserNodeGetFloatFrequencyData(
 
 //go:wasmimport plat/js/web has_AnalyserNode_GetByteFrequencyData
 //go:noescape
-func HasAnalyserNodeGetByteFrequencyData(this js.Ref) js.Ref
+func HasFuncAnalyserNodeGetByteFrequencyData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AnalyserNode_GetByteFrequencyData
 //go:noescape
-func AnalyserNodeGetByteFrequencyDataFunc(this js.Ref) js.Ref
+func FuncAnalyserNodeGetByteFrequencyData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AnalyserNode_GetByteFrequencyData
 //go:noescape
@@ -971,11 +969,11 @@ func TryAnalyserNodeGetByteFrequencyData(
 
 //go:wasmimport plat/js/web has_AnalyserNode_GetFloatTimeDomainData
 //go:noescape
-func HasAnalyserNodeGetFloatTimeDomainData(this js.Ref) js.Ref
+func HasFuncAnalyserNodeGetFloatTimeDomainData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AnalyserNode_GetFloatTimeDomainData
 //go:noescape
-func AnalyserNodeGetFloatTimeDomainDataFunc(this js.Ref) js.Ref
+func FuncAnalyserNodeGetFloatTimeDomainData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AnalyserNode_GetFloatTimeDomainData
 //go:noescape
@@ -991,11 +989,11 @@ func TryAnalyserNodeGetFloatTimeDomainData(
 
 //go:wasmimport plat/js/web has_AnalyserNode_GetByteTimeDomainData
 //go:noescape
-func HasAnalyserNodeGetByteTimeDomainData(this js.Ref) js.Ref
+func HasFuncAnalyserNodeGetByteTimeDomainData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AnalyserNode_GetByteTimeDomainData
 //go:noescape
-func AnalyserNodeGetByteTimeDomainDataFunc(this js.Ref) js.Ref
+func FuncAnalyserNodeGetByteTimeDomainData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AnalyserNode_GetByteTimeDomainData
 //go:noescape
@@ -1078,11 +1076,11 @@ func GetAnimationPlaybackEventTimelineTime(
 
 //go:wasmimport plat/js/web has_AnimationWorkletGlobalScope_RegisterAnimator
 //go:noescape
-func HasAnimationWorkletGlobalScopeRegisterAnimator(this js.Ref) js.Ref
+func HasFuncAnimationWorkletGlobalScopeRegisterAnimator(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_AnimationWorkletGlobalScope_RegisterAnimator
 //go:noescape
-func AnimationWorkletGlobalScopeRegisterAnimatorFunc(this js.Ref) js.Ref
+func FuncAnimationWorkletGlobalScopeRegisterAnimator(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_AnimationWorkletGlobalScope_RegisterAnimator
 //go:noescape

@@ -1,0 +1,444 @@
+- File: webext/chrome/tab_capture.idl
+  Dict:
+    Name: CaptureInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabCapture
+    Fields:
+      - Name: tabId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabCapture
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabCapture
+      - Name: status
+        Type:
+          Name: TabCaptureState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabCapture
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabCapture
+      - Name: fullscreen
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabCapture
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabCapture
+- File: webext/chrome/tab_capture.idl
+  Dict:
+    Name: CaptureOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabCapture
+    Fields:
+      - Name: audio
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabCapture
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabCapture
+      - Name: video
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabCapture
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabCapture
+      - Name: audioConstraints
+        Type:
+          Name: MediaStreamConstraint
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabCapture
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabCapture
+      - Name: videoConstraints
+        Type:
+          Name: MediaStreamConstraint
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabCapture
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabCapture
+      - Name: presentationId
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabCapture
+        ExtAttrs:
+          - Name: nodoc
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabCapture
+- File: webext/chrome/tab_capture.idl
+  Callback:
+    Name: GetCapturedTabsCallback
+    Args:
+      - Name: result
+        Type:
+          Name: sequence
+          Params:
+            - Name: CaptureInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - tabCapture
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabCapture
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabCapture
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabCapture
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabCapture
+- File: webext/chrome/tab_capture.idl
+  Callback:
+    Name: GetMediaStreamIdCallback
+    Args:
+      - Name: streamId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabCapture
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabCapture
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabCapture
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabCapture
+- File: webext/chrome/tab_capture.idl
+  Dict:
+    Name: GetMediaStreamOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabCapture
+    Fields:
+      - Name: consumerTabId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabCapture
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabCapture
+      - Name: targetTabId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabCapture
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabCapture
+- File: webext/chrome/tab_capture.idl
+  Callback:
+    Name: GetTabMediaCallback
+    Args:
+      - Name: stream
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabCapture
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - LocalMediaStream
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabCapture
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabCapture
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabCapture
+- File: webext/chrome/tab_capture.idl
+  Dict:
+    Name: MediaStreamConstraint
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabCapture
+    Fields:
+      - Name: mandatory
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabCapture
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabCapture
+      - Name: optional
+        Type:
+          Name: object
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabCapture
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabCapture
+- File: webext/chrome/tab_capture.idl
+  Enum:
+    Name: TabCaptureState
+    Values:
+      - pending
+      - active
+      - stopped
+      - error
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabCapture
+- File: webext/chrome/tab_capture.idl
+  WebextFunc:
+    Name: capture
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: CaptureOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabCapture
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabCapture
+      - Name: callback
+        Type:
+          Name: GetTabMediaCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabCapture
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabCapture
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabCapture
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabCapture
+- File: webext/chrome/tab_capture.idl
+  WebextFunc:
+    Name: getCapturedTabs
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: CaptureInfo
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - tabCapture
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - tabCapture
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabCapture
+- File: webext/chrome/tab_capture.idl
+  WebextFunc:
+    Name: getMediaStreamId
+    Modifier: static
+    Args:
+      - Name: options
+        Optional: true
+        Type:
+          Name: GetMediaStreamOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabCapture
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabCapture
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - tabCapture
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabCapture
+- File: webext/chrome/tab_capture.idl
+  WebextEvent:
+    Name: onStatusChanged
+    Modifier: static
+    Args:
+      - Name: info
+        Type:
+          Name: CaptureInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - tabCapture
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabCapture
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - tabCapture
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - tabCapture

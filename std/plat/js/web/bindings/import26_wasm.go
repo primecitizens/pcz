@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web constof_USBRecipient
 //go:noescape
@@ -331,11 +329,11 @@ func GetUSBDeviceOpened(
 
 //go:wasmimport plat/js/web has_USBDevice_Open
 //go:noescape
-func HasUSBDeviceOpen(this js.Ref) js.Ref
+func HasFuncUSBDeviceOpen(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_USBDevice_Open
 //go:noescape
-func USBDeviceOpenFunc(this js.Ref) js.Ref
+func FuncUSBDeviceOpen(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_USBDevice_Open
 //go:noescape
@@ -349,11 +347,11 @@ func TryUSBDeviceOpen(
 
 //go:wasmimport plat/js/web has_USBDevice_Close
 //go:noescape
-func HasUSBDeviceClose(this js.Ref) js.Ref
+func HasFuncUSBDeviceClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_USBDevice_Close
 //go:noescape
-func USBDeviceCloseFunc(this js.Ref) js.Ref
+func FuncUSBDeviceClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_USBDevice_Close
 //go:noescape
@@ -367,11 +365,11 @@ func TryUSBDeviceClose(
 
 //go:wasmimport plat/js/web has_USBDevice_Forget
 //go:noescape
-func HasUSBDeviceForget(this js.Ref) js.Ref
+func HasFuncUSBDeviceForget(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_USBDevice_Forget
 //go:noescape
-func USBDeviceForgetFunc(this js.Ref) js.Ref
+func FuncUSBDeviceForget(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_USBDevice_Forget
 //go:noescape
@@ -385,11 +383,11 @@ func TryUSBDeviceForget(
 
 //go:wasmimport plat/js/web has_USBDevice_SelectConfiguration
 //go:noescape
-func HasUSBDeviceSelectConfiguration(this js.Ref) js.Ref
+func HasFuncUSBDeviceSelectConfiguration(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_USBDevice_SelectConfiguration
 //go:noescape
-func USBDeviceSelectConfigurationFunc(this js.Ref) js.Ref
+func FuncUSBDeviceSelectConfiguration(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_USBDevice_SelectConfiguration
 //go:noescape
@@ -405,11 +403,11 @@ func TryUSBDeviceSelectConfiguration(
 
 //go:wasmimport plat/js/web has_USBDevice_ClaimInterface
 //go:noescape
-func HasUSBDeviceClaimInterface(this js.Ref) js.Ref
+func HasFuncUSBDeviceClaimInterface(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_USBDevice_ClaimInterface
 //go:noescape
-func USBDeviceClaimInterfaceFunc(this js.Ref) js.Ref
+func FuncUSBDeviceClaimInterface(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_USBDevice_ClaimInterface
 //go:noescape
@@ -425,11 +423,11 @@ func TryUSBDeviceClaimInterface(
 
 //go:wasmimport plat/js/web has_USBDevice_ReleaseInterface
 //go:noescape
-func HasUSBDeviceReleaseInterface(this js.Ref) js.Ref
+func HasFuncUSBDeviceReleaseInterface(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_USBDevice_ReleaseInterface
 //go:noescape
-func USBDeviceReleaseInterfaceFunc(this js.Ref) js.Ref
+func FuncUSBDeviceReleaseInterface(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_USBDevice_ReleaseInterface
 //go:noescape
@@ -445,11 +443,11 @@ func TryUSBDeviceReleaseInterface(
 
 //go:wasmimport plat/js/web has_USBDevice_SelectAlternateInterface
 //go:noescape
-func HasUSBDeviceSelectAlternateInterface(this js.Ref) js.Ref
+func HasFuncUSBDeviceSelectAlternateInterface(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_USBDevice_SelectAlternateInterface
 //go:noescape
-func USBDeviceSelectAlternateInterfaceFunc(this js.Ref) js.Ref
+func FuncUSBDeviceSelectAlternateInterface(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_USBDevice_SelectAlternateInterface
 //go:noescape
@@ -467,11 +465,11 @@ func TryUSBDeviceSelectAlternateInterface(
 
 //go:wasmimport plat/js/web has_USBDevice_ControlTransferIn
 //go:noescape
-func HasUSBDeviceControlTransferIn(this js.Ref) js.Ref
+func HasFuncUSBDeviceControlTransferIn(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_USBDevice_ControlTransferIn
 //go:noescape
-func USBDeviceControlTransferInFunc(this js.Ref) js.Ref
+func FuncUSBDeviceControlTransferIn(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_USBDevice_ControlTransferIn
 //go:noescape
@@ -489,11 +487,11 @@ func TryUSBDeviceControlTransferIn(
 
 //go:wasmimport plat/js/web has_USBDevice_ControlTransferOut
 //go:noescape
-func HasUSBDeviceControlTransferOut(this js.Ref) js.Ref
+func HasFuncUSBDeviceControlTransferOut(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_USBDevice_ControlTransferOut
 //go:noescape
-func USBDeviceControlTransferOutFunc(this js.Ref) js.Ref
+func FuncUSBDeviceControlTransferOut(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_USBDevice_ControlTransferOut
 //go:noescape
@@ -511,11 +509,11 @@ func TryUSBDeviceControlTransferOut(
 
 //go:wasmimport plat/js/web has_USBDevice_ControlTransferOut1
 //go:noescape
-func HasUSBDeviceControlTransferOut1(this js.Ref) js.Ref
+func HasFuncUSBDeviceControlTransferOut1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_USBDevice_ControlTransferOut1
 //go:noescape
-func USBDeviceControlTransferOut1Func(this js.Ref) js.Ref
+func FuncUSBDeviceControlTransferOut1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_USBDevice_ControlTransferOut1
 //go:noescape
@@ -531,11 +529,11 @@ func TryUSBDeviceControlTransferOut1(
 
 //go:wasmimport plat/js/web has_USBDevice_ClearHalt
 //go:noescape
-func HasUSBDeviceClearHalt(this js.Ref) js.Ref
+func HasFuncUSBDeviceClearHalt(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_USBDevice_ClearHalt
 //go:noescape
-func USBDeviceClearHaltFunc(this js.Ref) js.Ref
+func FuncUSBDeviceClearHalt(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_USBDevice_ClearHalt
 //go:noescape
@@ -553,11 +551,11 @@ func TryUSBDeviceClearHalt(
 
 //go:wasmimport plat/js/web has_USBDevice_TransferIn
 //go:noescape
-func HasUSBDeviceTransferIn(this js.Ref) js.Ref
+func HasFuncUSBDeviceTransferIn(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_USBDevice_TransferIn
 //go:noescape
-func USBDeviceTransferInFunc(this js.Ref) js.Ref
+func FuncUSBDeviceTransferIn(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_USBDevice_TransferIn
 //go:noescape
@@ -575,11 +573,11 @@ func TryUSBDeviceTransferIn(
 
 //go:wasmimport plat/js/web has_USBDevice_TransferOut
 //go:noescape
-func HasUSBDeviceTransferOut(this js.Ref) js.Ref
+func HasFuncUSBDeviceTransferOut(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_USBDevice_TransferOut
 //go:noescape
-func USBDeviceTransferOutFunc(this js.Ref) js.Ref
+func FuncUSBDeviceTransferOut(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_USBDevice_TransferOut
 //go:noescape
@@ -597,11 +595,11 @@ func TryUSBDeviceTransferOut(
 
 //go:wasmimport plat/js/web has_USBDevice_IsochronousTransferIn
 //go:noescape
-func HasUSBDeviceIsochronousTransferIn(this js.Ref) js.Ref
+func HasFuncUSBDeviceIsochronousTransferIn(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_USBDevice_IsochronousTransferIn
 //go:noescape
-func USBDeviceIsochronousTransferInFunc(this js.Ref) js.Ref
+func FuncUSBDeviceIsochronousTransferIn(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_USBDevice_IsochronousTransferIn
 //go:noescape
@@ -619,11 +617,11 @@ func TryUSBDeviceIsochronousTransferIn(
 
 //go:wasmimport plat/js/web has_USBDevice_IsochronousTransferOut
 //go:noescape
-func HasUSBDeviceIsochronousTransferOut(this js.Ref) js.Ref
+func HasFuncUSBDeviceIsochronousTransferOut(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_USBDevice_IsochronousTransferOut
 //go:noescape
-func USBDeviceIsochronousTransferOutFunc(this js.Ref) js.Ref
+func FuncUSBDeviceIsochronousTransferOut(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_USBDevice_IsochronousTransferOut
 //go:noescape
@@ -643,11 +641,11 @@ func TryUSBDeviceIsochronousTransferOut(
 
 //go:wasmimport plat/js/web has_USBDevice_Reset
 //go:noescape
-func HasUSBDeviceReset(this js.Ref) js.Ref
+func HasFuncUSBDeviceReset(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_USBDevice_Reset
 //go:noescape
-func USBDeviceResetFunc(this js.Ref) js.Ref
+func FuncUSBDeviceReset(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_USBDevice_Reset
 //go:noescape
@@ -681,11 +679,11 @@ func USBDeviceRequestOptionsJSLoad(
 
 //go:wasmimport plat/js/web has_USB_GetDevices
 //go:noescape
-func HasUSBGetDevices(this js.Ref) js.Ref
+func HasFuncUSBGetDevices(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_USB_GetDevices
 //go:noescape
-func USBGetDevicesFunc(this js.Ref) js.Ref
+func FuncUSBGetDevices(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_USB_GetDevices
 //go:noescape
@@ -699,11 +697,11 @@ func TryUSBGetDevices(
 
 //go:wasmimport plat/js/web has_USB_RequestDevice
 //go:noescape
-func HasUSBRequestDevice(this js.Ref) js.Ref
+func HasFuncUSBRequestDevice(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_USB_RequestDevice
 //go:noescape
-func USBRequestDeviceFunc(this js.Ref) js.Ref
+func FuncUSBRequestDevice(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_USB_RequestDevice
 //go:noescape
@@ -719,11 +717,11 @@ func TryUSBRequestDevice(
 
 //go:wasmimport plat/js/web has_EpubReadingSystem_HasFeature
 //go:noescape
-func HasEpubReadingSystemHasFeature(this js.Ref) js.Ref
+func HasFuncEpubReadingSystemHasFeature(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_EpubReadingSystem_HasFeature
 //go:noescape
-func EpubReadingSystemHasFeatureFunc(this js.Ref) js.Ref
+func FuncEpubReadingSystemHasFeature(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_EpubReadingSystem_HasFeature
 //go:noescape
@@ -741,11 +739,11 @@ func TryEpubReadingSystemHasFeature(
 
 //go:wasmimport plat/js/web has_EpubReadingSystem_HasFeature1
 //go:noescape
-func HasEpubReadingSystemHasFeature1(this js.Ref) js.Ref
+func HasFuncEpubReadingSystemHasFeature1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_EpubReadingSystem_HasFeature1
 //go:noescape
-func EpubReadingSystemHasFeature1Func(this js.Ref) js.Ref
+func FuncEpubReadingSystemHasFeature1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_EpubReadingSystem_HasFeature1
 //go:noescape
@@ -874,11 +872,11 @@ func GetXRViewCamera(
 
 //go:wasmimport plat/js/web has_XRView_RequestViewportScale
 //go:noescape
-func HasXRViewRequestViewportScale(this js.Ref) js.Ref
+func HasFuncXRViewRequestViewportScale(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRView_RequestViewportScale
 //go:noescape
-func XRViewRequestViewportScaleFunc(this js.Ref) js.Ref
+func FuncXRViewRequestViewportScale(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRView_RequestViewportScale
 //go:noescape
@@ -944,11 +942,11 @@ func GetXRWebGLLayerFramebufferHeight(
 
 //go:wasmimport plat/js/web has_XRWebGLLayer_GetViewport
 //go:noescape
-func HasXRWebGLLayerGetViewport(this js.Ref) js.Ref
+func HasFuncXRWebGLLayerGetViewport(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRWebGLLayer_GetViewport
 //go:noescape
-func XRWebGLLayerGetViewportFunc(this js.Ref) js.Ref
+func FuncXRWebGLLayerGetViewport(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRWebGLLayer_GetViewport
 //go:noescape
@@ -964,11 +962,11 @@ func TryXRWebGLLayerGetViewport(
 
 //go:wasmimport plat/js/web has_XRWebGLLayer_GetNativeFramebufferScaleFactor
 //go:noescape
-func HasXRWebGLLayerGetNativeFramebufferScaleFactor(this js.Ref) js.Ref
+func HasFuncXRWebGLLayerGetNativeFramebufferScaleFactor(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRWebGLLayer_GetNativeFramebufferScaleFactor
 //go:noescape
-func XRWebGLLayerGetNativeFramebufferScaleFactorFunc(this js.Ref) js.Ref
+func FuncXRWebGLLayerGetNativeFramebufferScaleFactor(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRWebGLLayer_GetNativeFramebufferScaleFactor
 //go:noescape
@@ -994,11 +992,11 @@ func XRRenderStateInitJSLoad(
 
 //go:wasmimport plat/js/web has_XRReferenceSpace_GetOffsetReferenceSpace
 //go:noescape
-func HasXRReferenceSpaceGetOffsetReferenceSpace(this js.Ref) js.Ref
+func HasFuncXRReferenceSpaceGetOffsetReferenceSpace(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRReferenceSpace_GetOffsetReferenceSpace
 //go:noescape
-func XRReferenceSpaceGetOffsetReferenceSpaceFunc(this js.Ref) js.Ref
+func FuncXRReferenceSpaceGetOffsetReferenceSpace(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRReferenceSpace_GetOffsetReferenceSpace
 //go:noescape
@@ -1048,11 +1046,11 @@ func GetXRAnchorAnchorSpace(
 
 //go:wasmimport plat/js/web has_XRAnchor_RequestPersistentHandle
 //go:noescape
-func HasXRAnchorRequestPersistentHandle(this js.Ref) js.Ref
+func HasFuncXRAnchorRequestPersistentHandle(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRAnchor_RequestPersistentHandle
 //go:noescape
-func XRAnchorRequestPersistentHandleFunc(this js.Ref) js.Ref
+func FuncXRAnchorRequestPersistentHandle(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRAnchor_RequestPersistentHandle
 //go:noescape
@@ -1066,11 +1064,11 @@ func TryXRAnchorRequestPersistentHandle(
 
 //go:wasmimport plat/js/web has_XRAnchor_Delete
 //go:noescape
-func HasXRAnchorDelete(this js.Ref) js.Ref
+func HasFuncXRAnchorDelete(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRAnchor_Delete
 //go:noescape
-func XRAnchorDeleteFunc(this js.Ref) js.Ref
+func FuncXRAnchorDelete(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRAnchor_Delete
 //go:noescape
@@ -1109,11 +1107,11 @@ func GetXRCPUDepthInformationData(
 
 //go:wasmimport plat/js/web has_XRCPUDepthInformation_GetDepthInMeters
 //go:noescape
-func HasXRCPUDepthInformationGetDepthInMeters(this js.Ref) js.Ref
+func HasFuncXRCPUDepthInformationGetDepthInMeters(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRCPUDepthInformation_GetDepthInMeters
 //go:noescape
-func XRCPUDepthInformationGetDepthInMetersFunc(this js.Ref) js.Ref
+func FuncXRCPUDepthInformationGetDepthInMeters(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRCPUDepthInformation_GetDepthInMeters
 //go:noescape
@@ -1145,11 +1143,11 @@ func GetXRJointSpaceJointName(
 
 //go:wasmimport plat/js/web has_XRHitTestResult_GetPose
 //go:noescape
-func HasXRHitTestResultGetPose(this js.Ref) js.Ref
+func HasFuncXRHitTestResultGetPose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRHitTestResult_GetPose
 //go:noescape
-func XRHitTestResultGetPoseFunc(this js.Ref) js.Ref
+func FuncXRHitTestResultGetPose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRHitTestResult_GetPose
 //go:noescape
@@ -1165,11 +1163,11 @@ func TryXRHitTestResultGetPose(
 
 //go:wasmimport plat/js/web has_XRHitTestResult_CreateAnchor
 //go:noescape
-func HasXRHitTestResultCreateAnchor(this js.Ref) js.Ref
+func HasFuncXRHitTestResultCreateAnchor(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_XRHitTestResult_CreateAnchor
 //go:noescape
-func XRHitTestResultCreateAnchorFunc(this js.Ref) js.Ref
+func FuncXRHitTestResultCreateAnchor(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_XRHitTestResult_CreateAnchor
 //go:noescape

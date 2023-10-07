@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web constof_NavigationHistoryBehavior
 //go:noescape
@@ -93,11 +91,11 @@ func GetNavigationCanGoForward(
 
 //go:wasmimport plat/js/web has_Navigation_Entries
 //go:noescape
-func HasNavigationEntries(this js.Ref) js.Ref
+func HasFuncNavigationEntries(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigation_Entries
 //go:noescape
-func NavigationEntriesFunc(this js.Ref) js.Ref
+func FuncNavigationEntries(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigation_Entries
 //go:noescape
@@ -111,11 +109,11 @@ func TryNavigationEntries(
 
 //go:wasmimport plat/js/web has_Navigation_UpdateCurrentEntry
 //go:noescape
-func HasNavigationUpdateCurrentEntry(this js.Ref) js.Ref
+func HasFuncNavigationUpdateCurrentEntry(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigation_UpdateCurrentEntry
 //go:noescape
-func NavigationUpdateCurrentEntryFunc(this js.Ref) js.Ref
+func FuncNavigationUpdateCurrentEntry(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigation_UpdateCurrentEntry
 //go:noescape
@@ -131,11 +129,11 @@ func TryNavigationUpdateCurrentEntry(
 
 //go:wasmimport plat/js/web has_Navigation_Navigate
 //go:noescape
-func HasNavigationNavigate(this js.Ref) js.Ref
+func HasFuncNavigationNavigate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigation_Navigate
 //go:noescape
-func NavigationNavigateFunc(this js.Ref) js.Ref
+func FuncNavigationNavigate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigation_Navigate
 //go:noescape
@@ -153,11 +151,11 @@ func TryNavigationNavigate(
 
 //go:wasmimport plat/js/web has_Navigation_Navigate1
 //go:noescape
-func HasNavigationNavigate1(this js.Ref) js.Ref
+func HasFuncNavigationNavigate1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigation_Navigate1
 //go:noescape
-func NavigationNavigate1Func(this js.Ref) js.Ref
+func FuncNavigationNavigate1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigation_Navigate1
 //go:noescape
@@ -173,11 +171,11 @@ func TryNavigationNavigate1(
 
 //go:wasmimport plat/js/web has_Navigation_Reload
 //go:noescape
-func HasNavigationReload(this js.Ref) js.Ref
+func HasFuncNavigationReload(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigation_Reload
 //go:noescape
-func NavigationReloadFunc(this js.Ref) js.Ref
+func FuncNavigationReload(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigation_Reload
 //go:noescape
@@ -193,11 +191,11 @@ func TryNavigationReload(
 
 //go:wasmimport plat/js/web has_Navigation_Reload1
 //go:noescape
-func HasNavigationReload1(this js.Ref) js.Ref
+func HasFuncNavigationReload1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigation_Reload1
 //go:noescape
-func NavigationReload1Func(this js.Ref) js.Ref
+func FuncNavigationReload1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigation_Reload1
 //go:noescape
@@ -211,11 +209,11 @@ func TryNavigationReload1(
 
 //go:wasmimport plat/js/web has_Navigation_TraverseTo
 //go:noescape
-func HasNavigationTraverseTo(this js.Ref) js.Ref
+func HasFuncNavigationTraverseTo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigation_TraverseTo
 //go:noescape
-func NavigationTraverseToFunc(this js.Ref) js.Ref
+func FuncNavigationTraverseTo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigation_TraverseTo
 //go:noescape
@@ -233,11 +231,11 @@ func TryNavigationTraverseTo(
 
 //go:wasmimport plat/js/web has_Navigation_TraverseTo1
 //go:noescape
-func HasNavigationTraverseTo1(this js.Ref) js.Ref
+func HasFuncNavigationTraverseTo1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigation_TraverseTo1
 //go:noescape
-func NavigationTraverseTo1Func(this js.Ref) js.Ref
+func FuncNavigationTraverseTo1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigation_TraverseTo1
 //go:noescape
@@ -253,11 +251,11 @@ func TryNavigationTraverseTo1(
 
 //go:wasmimport plat/js/web has_Navigation_Back
 //go:noescape
-func HasNavigationBack(this js.Ref) js.Ref
+func HasFuncNavigationBack(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigation_Back
 //go:noescape
-func NavigationBackFunc(this js.Ref) js.Ref
+func FuncNavigationBack(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigation_Back
 //go:noescape
@@ -273,11 +271,11 @@ func TryNavigationBack(
 
 //go:wasmimport plat/js/web has_Navigation_Back1
 //go:noescape
-func HasNavigationBack1(this js.Ref) js.Ref
+func HasFuncNavigationBack1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigation_Back1
 //go:noescape
-func NavigationBack1Func(this js.Ref) js.Ref
+func FuncNavigationBack1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigation_Back1
 //go:noescape
@@ -291,11 +289,11 @@ func TryNavigationBack1(
 
 //go:wasmimport plat/js/web has_Navigation_Forward
 //go:noescape
-func HasNavigationForward(this js.Ref) js.Ref
+func HasFuncNavigationForward(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigation_Forward
 //go:noescape
-func NavigationForwardFunc(this js.Ref) js.Ref
+func FuncNavigationForward(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigation_Forward
 //go:noescape
@@ -311,11 +309,11 @@ func TryNavigationForward(
 
 //go:wasmimport plat/js/web has_Navigation_Forward1
 //go:noescape
-func HasNavigationForward1(this js.Ref) js.Ref
+func HasFuncNavigationForward1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigation_Forward1
 //go:noescape
-func NavigationForward1Func(this js.Ref) js.Ref
+func FuncNavigationForward1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigation_Forward1
 //go:noescape
@@ -339,11 +337,11 @@ func ElementDefinitionOptionsJSLoad(
 
 //go:wasmimport plat/js/web has_CustomElementRegistry_Define
 //go:noescape
-func HasCustomElementRegistryDefine(this js.Ref) js.Ref
+func HasFuncCustomElementRegistryDefine(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CustomElementRegistry_Define
 //go:noescape
-func CustomElementRegistryDefineFunc(this js.Ref) js.Ref
+func FuncCustomElementRegistryDefine(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CustomElementRegistry_Define
 //go:noescape
@@ -363,11 +361,11 @@ func TryCustomElementRegistryDefine(
 
 //go:wasmimport plat/js/web has_CustomElementRegistry_Define1
 //go:noescape
-func HasCustomElementRegistryDefine1(this js.Ref) js.Ref
+func HasFuncCustomElementRegistryDefine1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CustomElementRegistry_Define1
 //go:noescape
-func CustomElementRegistryDefine1Func(this js.Ref) js.Ref
+func FuncCustomElementRegistryDefine1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CustomElementRegistry_Define1
 //go:noescape
@@ -385,11 +383,11 @@ func TryCustomElementRegistryDefine1(
 
 //go:wasmimport plat/js/web has_CustomElementRegistry_Get
 //go:noescape
-func HasCustomElementRegistryGet(this js.Ref) js.Ref
+func HasFuncCustomElementRegistryGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CustomElementRegistry_Get
 //go:noescape
-func CustomElementRegistryGetFunc(this js.Ref) js.Ref
+func FuncCustomElementRegistryGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CustomElementRegistry_Get
 //go:noescape
@@ -405,11 +403,11 @@ func TryCustomElementRegistryGet(
 
 //go:wasmimport plat/js/web has_CustomElementRegistry_GetName
 //go:noescape
-func HasCustomElementRegistryGetName(this js.Ref) js.Ref
+func HasFuncCustomElementRegistryGetName(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CustomElementRegistry_GetName
 //go:noescape
-func CustomElementRegistryGetNameFunc(this js.Ref) js.Ref
+func FuncCustomElementRegistryGetName(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CustomElementRegistry_GetName
 //go:noescape
@@ -425,11 +423,11 @@ func TryCustomElementRegistryGetName(
 
 //go:wasmimport plat/js/web has_CustomElementRegistry_WhenDefined
 //go:noescape
-func HasCustomElementRegistryWhenDefined(this js.Ref) js.Ref
+func HasFuncCustomElementRegistryWhenDefined(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CustomElementRegistry_WhenDefined
 //go:noescape
-func CustomElementRegistryWhenDefinedFunc(this js.Ref) js.Ref
+func FuncCustomElementRegistryWhenDefined(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CustomElementRegistry_WhenDefined
 //go:noescape
@@ -445,11 +443,11 @@ func TryCustomElementRegistryWhenDefined(
 
 //go:wasmimport plat/js/web has_CustomElementRegistry_Upgrade
 //go:noescape
-func HasCustomElementRegistryUpgrade(this js.Ref) js.Ref
+func HasFuncCustomElementRegistryUpgrade(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CustomElementRegistry_Upgrade
 //go:noescape
-func CustomElementRegistryUpgradeFunc(this js.Ref) js.Ref
+func FuncCustomElementRegistryUpgrade(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CustomElementRegistry_Upgrade
 //go:noescape
@@ -515,11 +513,11 @@ func GetGamepadHapticActuatorType(
 
 //go:wasmimport plat/js/web has_GamepadHapticActuator_CanPlayEffectType
 //go:noescape
-func HasGamepadHapticActuatorCanPlayEffectType(this js.Ref) js.Ref
+func HasFuncGamepadHapticActuatorCanPlayEffectType(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GamepadHapticActuator_CanPlayEffectType
 //go:noescape
-func GamepadHapticActuatorCanPlayEffectTypeFunc(this js.Ref) js.Ref
+func FuncGamepadHapticActuatorCanPlayEffectType(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GamepadHapticActuator_CanPlayEffectType
 //go:noescape
@@ -535,11 +533,11 @@ func TryGamepadHapticActuatorCanPlayEffectType(
 
 //go:wasmimport plat/js/web has_GamepadHapticActuator_PlayEffect
 //go:noescape
-func HasGamepadHapticActuatorPlayEffect(this js.Ref) js.Ref
+func HasFuncGamepadHapticActuatorPlayEffect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GamepadHapticActuator_PlayEffect
 //go:noescape
-func GamepadHapticActuatorPlayEffectFunc(this js.Ref) js.Ref
+func FuncGamepadHapticActuatorPlayEffect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GamepadHapticActuator_PlayEffect
 //go:noescape
@@ -557,11 +555,11 @@ func TryGamepadHapticActuatorPlayEffect(
 
 //go:wasmimport plat/js/web has_GamepadHapticActuator_PlayEffect1
 //go:noescape
-func HasGamepadHapticActuatorPlayEffect1(this js.Ref) js.Ref
+func HasFuncGamepadHapticActuatorPlayEffect1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GamepadHapticActuator_PlayEffect1
 //go:noescape
-func GamepadHapticActuatorPlayEffect1Func(this js.Ref) js.Ref
+func FuncGamepadHapticActuatorPlayEffect1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GamepadHapticActuator_PlayEffect1
 //go:noescape
@@ -577,11 +575,11 @@ func TryGamepadHapticActuatorPlayEffect1(
 
 //go:wasmimport plat/js/web has_GamepadHapticActuator_Pulse
 //go:noescape
-func HasGamepadHapticActuatorPulse(this js.Ref) js.Ref
+func HasFuncGamepadHapticActuatorPulse(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GamepadHapticActuator_Pulse
 //go:noescape
-func GamepadHapticActuatorPulseFunc(this js.Ref) js.Ref
+func FuncGamepadHapticActuatorPulse(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GamepadHapticActuator_Pulse
 //go:noescape
@@ -599,11 +597,11 @@ func TryGamepadHapticActuatorPulse(
 
 //go:wasmimport plat/js/web has_GamepadHapticActuator_Reset
 //go:noescape
-func HasGamepadHapticActuatorReset(this js.Ref) js.Ref
+func HasFuncGamepadHapticActuatorReset(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GamepadHapticActuator_Reset
 //go:noescape
-func GamepadHapticActuatorResetFunc(this js.Ref) js.Ref
+func FuncGamepadHapticActuatorReset(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GamepadHapticActuator_Reset
 //go:noescape
@@ -776,11 +774,11 @@ func GetMediaKeySystemAccessKeySystem(
 
 //go:wasmimport plat/js/web has_MediaKeySystemAccess_GetConfiguration
 //go:noescape
-func HasMediaKeySystemAccessGetConfiguration(this js.Ref) js.Ref
+func HasFuncMediaKeySystemAccessGetConfiguration(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaKeySystemAccess_GetConfiguration
 //go:noescape
-func MediaKeySystemAccessGetConfigurationFunc(this js.Ref) js.Ref
+func FuncMediaKeySystemAccessGetConfiguration(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaKeySystemAccess_GetConfiguration
 //go:noescape
@@ -794,11 +792,11 @@ func TryMediaKeySystemAccessGetConfiguration(
 
 //go:wasmimport plat/js/web has_MediaKeySystemAccess_CreateMediaKeys
 //go:noescape
-func HasMediaKeySystemAccessCreateMediaKeys(this js.Ref) js.Ref
+func HasFuncMediaKeySystemAccessCreateMediaKeys(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MediaKeySystemAccess_CreateMediaKeys
 //go:noescape
-func MediaKeySystemAccessCreateMediaKeysFunc(this js.Ref) js.Ref
+func FuncMediaKeySystemAccessCreateMediaKeys(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MediaKeySystemAccess_CreateMediaKeys
 //go:noescape
@@ -846,11 +844,11 @@ func GetFencedFrameConfigContentHeight(
 
 //go:wasmimport plat/js/web has_FencedFrameConfig_SetSharedStorageContext
 //go:noescape
-func HasFencedFrameConfigSetSharedStorageContext(this js.Ref) js.Ref
+func HasFuncFencedFrameConfigSetSharedStorageContext(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_FencedFrameConfig_SetSharedStorageContext
 //go:noescape
-func FencedFrameConfigSetSharedStorageContextFunc(this js.Ref) js.Ref
+func FuncFencedFrameConfigSetSharedStorageContext(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_FencedFrameConfig_SetSharedStorageContext
 //go:noescape

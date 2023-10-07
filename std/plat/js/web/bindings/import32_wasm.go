@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web get_WindowSharedStorage_Worklet
 //go:noescape
@@ -25,11 +23,11 @@ func GetWindowSharedStorageWorklet(
 
 //go:wasmimport plat/js/web has_WindowSharedStorage_Run
 //go:noescape
-func HasWindowSharedStorageRun(this js.Ref) js.Ref
+func HasFuncWindowSharedStorageRun(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WindowSharedStorage_Run
 //go:noescape
-func WindowSharedStorageRunFunc(this js.Ref) js.Ref
+func FuncWindowSharedStorageRun(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WindowSharedStorage_Run
 //go:noescape
@@ -47,11 +45,11 @@ func TryWindowSharedStorageRun(
 
 //go:wasmimport plat/js/web has_WindowSharedStorage_Run1
 //go:noescape
-func HasWindowSharedStorageRun1(this js.Ref) js.Ref
+func HasFuncWindowSharedStorageRun1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WindowSharedStorage_Run1
 //go:noescape
-func WindowSharedStorageRun1Func(this js.Ref) js.Ref
+func FuncWindowSharedStorageRun1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WindowSharedStorage_Run1
 //go:noescape
@@ -67,11 +65,11 @@ func TryWindowSharedStorageRun1(
 
 //go:wasmimport plat/js/web has_WindowSharedStorage_SelectURL
 //go:noescape
-func HasWindowSharedStorageSelectURL(this js.Ref) js.Ref
+func HasFuncWindowSharedStorageSelectURL(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WindowSharedStorage_SelectURL
 //go:noescape
-func WindowSharedStorageSelectURLFunc(this js.Ref) js.Ref
+func FuncWindowSharedStorageSelectURL(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WindowSharedStorage_SelectURL
 //go:noescape
@@ -91,11 +89,11 @@ func TryWindowSharedStorageSelectURL(
 
 //go:wasmimport plat/js/web has_WindowSharedStorage_SelectURL1
 //go:noescape
-func HasWindowSharedStorageSelectURL1(this js.Ref) js.Ref
+func HasFuncWindowSharedStorageSelectURL1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_WindowSharedStorage_SelectURL1
 //go:noescape
-func WindowSharedStorageSelectURL1Func(this js.Ref) js.Ref
+func FuncWindowSharedStorageSelectURL1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_WindowSharedStorage_SelectURL1
 //go:noescape
@@ -147,11 +145,11 @@ func CookieStoreDeleteOptionsJSLoad(
 
 //go:wasmimport plat/js/web has_CookieStore_Get
 //go:noescape
-func HasCookieStoreGet(this js.Ref) js.Ref
+func HasFuncCookieStoreGet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CookieStore_Get
 //go:noescape
-func CookieStoreGetFunc(this js.Ref) js.Ref
+func FuncCookieStoreGet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CookieStore_Get
 //go:noescape
@@ -167,11 +165,11 @@ func TryCookieStoreGet(
 
 //go:wasmimport plat/js/web has_CookieStore_Get1
 //go:noescape
-func HasCookieStoreGet1(this js.Ref) js.Ref
+func HasFuncCookieStoreGet1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CookieStore_Get1
 //go:noescape
-func CookieStoreGet1Func(this js.Ref) js.Ref
+func FuncCookieStoreGet1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CookieStore_Get1
 //go:noescape
@@ -187,11 +185,11 @@ func TryCookieStoreGet1(
 
 //go:wasmimport plat/js/web has_CookieStore_Get2
 //go:noescape
-func HasCookieStoreGet2(this js.Ref) js.Ref
+func HasFuncCookieStoreGet2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CookieStore_Get2
 //go:noescape
-func CookieStoreGet2Func(this js.Ref) js.Ref
+func FuncCookieStoreGet2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CookieStore_Get2
 //go:noescape
@@ -205,11 +203,11 @@ func TryCookieStoreGet2(
 
 //go:wasmimport plat/js/web has_CookieStore_GetAll
 //go:noescape
-func HasCookieStoreGetAll(this js.Ref) js.Ref
+func HasFuncCookieStoreGetAll(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CookieStore_GetAll
 //go:noescape
-func CookieStoreGetAllFunc(this js.Ref) js.Ref
+func FuncCookieStoreGetAll(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CookieStore_GetAll
 //go:noescape
@@ -225,11 +223,11 @@ func TryCookieStoreGetAll(
 
 //go:wasmimport plat/js/web has_CookieStore_GetAll1
 //go:noescape
-func HasCookieStoreGetAll1(this js.Ref) js.Ref
+func HasFuncCookieStoreGetAll1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CookieStore_GetAll1
 //go:noescape
-func CookieStoreGetAll1Func(this js.Ref) js.Ref
+func FuncCookieStoreGetAll1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CookieStore_GetAll1
 //go:noescape
@@ -245,11 +243,11 @@ func TryCookieStoreGetAll1(
 
 //go:wasmimport plat/js/web has_CookieStore_GetAll2
 //go:noescape
-func HasCookieStoreGetAll2(this js.Ref) js.Ref
+func HasFuncCookieStoreGetAll2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CookieStore_GetAll2
 //go:noescape
-func CookieStoreGetAll2Func(this js.Ref) js.Ref
+func FuncCookieStoreGetAll2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CookieStore_GetAll2
 //go:noescape
@@ -263,11 +261,11 @@ func TryCookieStoreGetAll2(
 
 //go:wasmimport plat/js/web has_CookieStore_Set
 //go:noescape
-func HasCookieStoreSet(this js.Ref) js.Ref
+func HasFuncCookieStoreSet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CookieStore_Set
 //go:noescape
-func CookieStoreSetFunc(this js.Ref) js.Ref
+func FuncCookieStoreSet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CookieStore_Set
 //go:noescape
@@ -285,11 +283,11 @@ func TryCookieStoreSet(
 
 //go:wasmimport plat/js/web has_CookieStore_Set1
 //go:noescape
-func HasCookieStoreSet1(this js.Ref) js.Ref
+func HasFuncCookieStoreSet1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CookieStore_Set1
 //go:noescape
-func CookieStoreSet1Func(this js.Ref) js.Ref
+func FuncCookieStoreSet1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CookieStore_Set1
 //go:noescape
@@ -305,11 +303,11 @@ func TryCookieStoreSet1(
 
 //go:wasmimport plat/js/web has_CookieStore_Delete
 //go:noescape
-func HasCookieStoreDelete(this js.Ref) js.Ref
+func HasFuncCookieStoreDelete(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CookieStore_Delete
 //go:noescape
-func CookieStoreDeleteFunc(this js.Ref) js.Ref
+func FuncCookieStoreDelete(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CookieStore_Delete
 //go:noescape
@@ -325,11 +323,11 @@ func TryCookieStoreDelete(
 
 //go:wasmimport plat/js/web has_CookieStore_Delete1
 //go:noescape
-func HasCookieStoreDelete1(this js.Ref) js.Ref
+func HasFuncCookieStoreDelete1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CookieStore_Delete1
 //go:noescape
-func CookieStoreDelete1Func(this js.Ref) js.Ref
+func FuncCookieStoreDelete1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CookieStore_Delete1
 //go:noescape
@@ -360,11 +358,11 @@ func GetDocumentPictureInPictureWindow(
 
 //go:wasmimport plat/js/web has_DocumentPictureInPicture_RequestWindow
 //go:noescape
-func HasDocumentPictureInPictureRequestWindow(this js.Ref) js.Ref
+func HasFuncDocumentPictureInPictureRequestWindow(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DocumentPictureInPicture_RequestWindow
 //go:noescape
-func DocumentPictureInPictureRequestWindowFunc(this js.Ref) js.Ref
+func FuncDocumentPictureInPictureRequestWindow(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DocumentPictureInPicture_RequestWindow
 //go:noescape
@@ -380,11 +378,11 @@ func TryDocumentPictureInPictureRequestWindow(
 
 //go:wasmimport plat/js/web has_DocumentPictureInPicture_RequestWindow1
 //go:noescape
-func HasDocumentPictureInPictureRequestWindow1(this js.Ref) js.Ref
+func HasFuncDocumentPictureInPictureRequestWindow1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_DocumentPictureInPicture_RequestWindow1
 //go:noescape
-func DocumentPictureInPictureRequestWindow1Func(this js.Ref) js.Ref
+func FuncDocumentPictureInPictureRequestWindow1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_DocumentPictureInPicture_RequestWindow1
 //go:noescape
@@ -398,11 +396,11 @@ func TryDocumentPictureInPictureRequestWindow1(
 
 //go:wasmimport plat/js/web has_External_AddSearchProvider
 //go:noescape
-func HasExternalAddSearchProvider(this js.Ref) js.Ref
+func HasFuncExternalAddSearchProvider(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_External_AddSearchProvider
 //go:noescape
-func ExternalAddSearchProviderFunc(this js.Ref) js.Ref
+func FuncExternalAddSearchProvider(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_External_AddSearchProvider
 //go:noescape
@@ -416,11 +414,11 @@ func TryExternalAddSearchProvider(
 
 //go:wasmimport plat/js/web has_External_IsSearchProviderInstalled
 //go:noescape
-func HasExternalIsSearchProviderInstalled(this js.Ref) js.Ref
+func HasFuncExternalIsSearchProviderInstalled(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_External_IsSearchProviderInstalled
 //go:noescape
-func ExternalIsSearchProviderInstalledFunc(this js.Ref) js.Ref
+func FuncExternalIsSearchProviderInstalled(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_External_IsSearchProviderInstalled
 //go:noescape
@@ -555,11 +553,11 @@ func GetSpeechSynthesisPaused(
 
 //go:wasmimport plat/js/web has_SpeechSynthesis_Speak
 //go:noescape
-func HasSpeechSynthesisSpeak(this js.Ref) js.Ref
+func HasFuncSpeechSynthesisSpeak(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SpeechSynthesis_Speak
 //go:noescape
-func SpeechSynthesisSpeakFunc(this js.Ref) js.Ref
+func FuncSpeechSynthesisSpeak(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SpeechSynthesis_Speak
 //go:noescape
@@ -575,11 +573,11 @@ func TrySpeechSynthesisSpeak(
 
 //go:wasmimport plat/js/web has_SpeechSynthesis_Cancel
 //go:noescape
-func HasSpeechSynthesisCancel(this js.Ref) js.Ref
+func HasFuncSpeechSynthesisCancel(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SpeechSynthesis_Cancel
 //go:noescape
-func SpeechSynthesisCancelFunc(this js.Ref) js.Ref
+func FuncSpeechSynthesisCancel(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SpeechSynthesis_Cancel
 //go:noescape
@@ -593,11 +591,11 @@ func TrySpeechSynthesisCancel(
 
 //go:wasmimport plat/js/web has_SpeechSynthesis_Pause
 //go:noescape
-func HasSpeechSynthesisPause(this js.Ref) js.Ref
+func HasFuncSpeechSynthesisPause(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SpeechSynthesis_Pause
 //go:noescape
-func SpeechSynthesisPauseFunc(this js.Ref) js.Ref
+func FuncSpeechSynthesisPause(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SpeechSynthesis_Pause
 //go:noescape
@@ -611,11 +609,11 @@ func TrySpeechSynthesisPause(
 
 //go:wasmimport plat/js/web has_SpeechSynthesis_Resume
 //go:noescape
-func HasSpeechSynthesisResume(this js.Ref) js.Ref
+func HasFuncSpeechSynthesisResume(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SpeechSynthesis_Resume
 //go:noescape
-func SpeechSynthesisResumeFunc(this js.Ref) js.Ref
+func FuncSpeechSynthesisResume(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SpeechSynthesis_Resume
 //go:noescape
@@ -629,11 +627,11 @@ func TrySpeechSynthesisResume(
 
 //go:wasmimport plat/js/web has_SpeechSynthesis_GetVoices
 //go:noescape
-func HasSpeechSynthesisGetVoices(this js.Ref) js.Ref
+func HasFuncSpeechSynthesisGetVoices(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SpeechSynthesis_GetVoices
 //go:noescape
-func SpeechSynthesisGetVoicesFunc(this js.Ref) js.Ref
+func FuncSpeechSynthesisGetVoices(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SpeechSynthesis_GetVoices
 //go:noescape
@@ -661,11 +659,11 @@ func SchedulerPostTaskOptionsJSLoad(
 
 //go:wasmimport plat/js/web has_Scheduler_PostTask
 //go:noescape
-func HasSchedulerPostTask(this js.Ref) js.Ref
+func HasFuncSchedulerPostTask(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Scheduler_PostTask
 //go:noescape
-func SchedulerPostTaskFunc(this js.Ref) js.Ref
+func FuncSchedulerPostTask(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Scheduler_PostTask
 //go:noescape
@@ -683,11 +681,11 @@ func TrySchedulerPostTask(
 
 //go:wasmimport plat/js/web has_Scheduler_PostTask1
 //go:noescape
-func HasSchedulerPostTask1(this js.Ref) js.Ref
+func HasFuncSchedulerPostTask1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Scheduler_PostTask1
 //go:noescape
-func SchedulerPostTask1Func(this js.Ref) js.Ref
+func FuncSchedulerPostTask1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Scheduler_PostTask1
 //go:noescape
@@ -703,11 +701,11 @@ func TrySchedulerPostTask1(
 
 //go:wasmimport plat/js/web has_TrustedHTML_ToString
 //go:noescape
-func HasTrustedHTMLToString(this js.Ref) js.Ref
+func HasFuncTrustedHTMLToString(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TrustedHTML_ToString
 //go:noescape
-func TrustedHTMLToStringFunc(this js.Ref) js.Ref
+func FuncTrustedHTMLToString(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TrustedHTML_ToString
 //go:noescape
@@ -721,11 +719,11 @@ func TryTrustedHTMLToString(
 
 //go:wasmimport plat/js/web has_TrustedHTML_ToJSON
 //go:noescape
-func HasTrustedHTMLToJSON(this js.Ref) js.Ref
+func HasFuncTrustedHTMLToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TrustedHTML_ToJSON
 //go:noescape
-func TrustedHTMLToJSONFunc(this js.Ref) js.Ref
+func FuncTrustedHTMLToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TrustedHTML_ToJSON
 //go:noescape
@@ -739,11 +737,11 @@ func TryTrustedHTMLToJSON(
 
 //go:wasmimport plat/js/web has_TrustedHTML_FromLiteral
 //go:noescape
-func HasTrustedHTMLFromLiteral(this js.Ref) js.Ref
+func HasFuncTrustedHTMLFromLiteral(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TrustedHTML_FromLiteral
 //go:noescape
-func TrustedHTMLFromLiteralFunc(this js.Ref) js.Ref
+func FuncTrustedHTMLFromLiteral(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TrustedHTML_FromLiteral
 //go:noescape
@@ -759,11 +757,11 @@ func TryTrustedHTMLFromLiteral(
 
 //go:wasmimport plat/js/web has_TrustedScript_ToString
 //go:noescape
-func HasTrustedScriptToString(this js.Ref) js.Ref
+func HasFuncTrustedScriptToString(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TrustedScript_ToString
 //go:noescape
-func TrustedScriptToStringFunc(this js.Ref) js.Ref
+func FuncTrustedScriptToString(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TrustedScript_ToString
 //go:noescape
@@ -777,11 +775,11 @@ func TryTrustedScriptToString(
 
 //go:wasmimport plat/js/web has_TrustedScript_ToJSON
 //go:noescape
-func HasTrustedScriptToJSON(this js.Ref) js.Ref
+func HasFuncTrustedScriptToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TrustedScript_ToJSON
 //go:noescape
-func TrustedScriptToJSONFunc(this js.Ref) js.Ref
+func FuncTrustedScriptToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TrustedScript_ToJSON
 //go:noescape
@@ -795,11 +793,11 @@ func TryTrustedScriptToJSON(
 
 //go:wasmimport plat/js/web has_TrustedScript_FromLiteral
 //go:noescape
-func HasTrustedScriptFromLiteral(this js.Ref) js.Ref
+func HasFuncTrustedScriptFromLiteral(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TrustedScript_FromLiteral
 //go:noescape
-func TrustedScriptFromLiteralFunc(this js.Ref) js.Ref
+func FuncTrustedScriptFromLiteral(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TrustedScript_FromLiteral
 //go:noescape
@@ -815,11 +813,11 @@ func TryTrustedScriptFromLiteral(
 
 //go:wasmimport plat/js/web has_TrustedScriptURL_ToString
 //go:noescape
-func HasTrustedScriptURLToString(this js.Ref) js.Ref
+func HasFuncTrustedScriptURLToString(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TrustedScriptURL_ToString
 //go:noescape
-func TrustedScriptURLToStringFunc(this js.Ref) js.Ref
+func FuncTrustedScriptURLToString(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TrustedScriptURL_ToString
 //go:noescape
@@ -833,11 +831,11 @@ func TryTrustedScriptURLToString(
 
 //go:wasmimport plat/js/web has_TrustedScriptURL_ToJSON
 //go:noescape
-func HasTrustedScriptURLToJSON(this js.Ref) js.Ref
+func HasFuncTrustedScriptURLToJSON(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TrustedScriptURL_ToJSON
 //go:noescape
-func TrustedScriptURLToJSONFunc(this js.Ref) js.Ref
+func FuncTrustedScriptURLToJSON(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TrustedScriptURL_ToJSON
 //go:noescape
@@ -851,11 +849,11 @@ func TryTrustedScriptURLToJSON(
 
 //go:wasmimport plat/js/web has_TrustedScriptURL_FromLiteral
 //go:noescape
-func HasTrustedScriptURLFromLiteral(this js.Ref) js.Ref
+func HasFuncTrustedScriptURLFromLiteral(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TrustedScriptURL_FromLiteral
 //go:noescape
-func TrustedScriptURLFromLiteralFunc(this js.Ref) js.Ref
+func FuncTrustedScriptURLFromLiteral(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TrustedScriptURL_FromLiteral
 //go:noescape
@@ -876,11 +874,11 @@ func GetTrustedTypePolicyName(
 
 //go:wasmimport plat/js/web has_TrustedTypePolicy_CreateHTML
 //go:noescape
-func HasTrustedTypePolicyCreateHTML(this js.Ref) js.Ref
+func HasFuncTrustedTypePolicyCreateHTML(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TrustedTypePolicy_CreateHTML
 //go:noescape
-func TrustedTypePolicyCreateHTMLFunc(this js.Ref) js.Ref
+func FuncTrustedTypePolicyCreateHTML(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TrustedTypePolicy_CreateHTML
 //go:noescape
@@ -900,11 +898,11 @@ func TryTrustedTypePolicyCreateHTML(
 
 //go:wasmimport plat/js/web has_TrustedTypePolicy_CreateScript
 //go:noescape
-func HasTrustedTypePolicyCreateScript(this js.Ref) js.Ref
+func HasFuncTrustedTypePolicyCreateScript(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TrustedTypePolicy_CreateScript
 //go:noescape
-func TrustedTypePolicyCreateScriptFunc(this js.Ref) js.Ref
+func FuncTrustedTypePolicyCreateScript(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TrustedTypePolicy_CreateScript
 //go:noescape
@@ -924,11 +922,11 @@ func TryTrustedTypePolicyCreateScript(
 
 //go:wasmimport plat/js/web has_TrustedTypePolicy_CreateScriptURL
 //go:noescape
-func HasTrustedTypePolicyCreateScriptURL(this js.Ref) js.Ref
+func HasFuncTrustedTypePolicyCreateScriptURL(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TrustedTypePolicy_CreateScriptURL
 //go:noescape
-func TrustedTypePolicyCreateScriptURLFunc(this js.Ref) js.Ref
+func FuncTrustedTypePolicyCreateScriptURL(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TrustedTypePolicy_CreateScriptURL
 //go:noescape
@@ -973,11 +971,11 @@ func GetTrustedTypePolicyFactoryDefaultPolicy(
 
 //go:wasmimport plat/js/web has_TrustedTypePolicyFactory_CreatePolicy
 //go:noescape
-func HasTrustedTypePolicyFactoryCreatePolicy(this js.Ref) js.Ref
+func HasFuncTrustedTypePolicyFactoryCreatePolicy(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TrustedTypePolicyFactory_CreatePolicy
 //go:noescape
-func TrustedTypePolicyFactoryCreatePolicyFunc(this js.Ref) js.Ref
+func FuncTrustedTypePolicyFactoryCreatePolicy(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TrustedTypePolicyFactory_CreatePolicy
 //go:noescape
@@ -995,11 +993,11 @@ func TryTrustedTypePolicyFactoryCreatePolicy(
 
 //go:wasmimport plat/js/web has_TrustedTypePolicyFactory_CreatePolicy1
 //go:noescape
-func HasTrustedTypePolicyFactoryCreatePolicy1(this js.Ref) js.Ref
+func HasFuncTrustedTypePolicyFactoryCreatePolicy1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TrustedTypePolicyFactory_CreatePolicy1
 //go:noescape
-func TrustedTypePolicyFactoryCreatePolicy1Func(this js.Ref) js.Ref
+func FuncTrustedTypePolicyFactoryCreatePolicy1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TrustedTypePolicyFactory_CreatePolicy1
 //go:noescape
@@ -1015,11 +1013,11 @@ func TryTrustedTypePolicyFactoryCreatePolicy1(
 
 //go:wasmimport plat/js/web has_TrustedTypePolicyFactory_IsHTML
 //go:noescape
-func HasTrustedTypePolicyFactoryIsHTML(this js.Ref) js.Ref
+func HasFuncTrustedTypePolicyFactoryIsHTML(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TrustedTypePolicyFactory_IsHTML
 //go:noescape
-func TrustedTypePolicyFactoryIsHTMLFunc(this js.Ref) js.Ref
+func FuncTrustedTypePolicyFactoryIsHTML(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TrustedTypePolicyFactory_IsHTML
 //go:noescape
@@ -1035,11 +1033,11 @@ func TryTrustedTypePolicyFactoryIsHTML(
 
 //go:wasmimport plat/js/web has_TrustedTypePolicyFactory_IsScript
 //go:noescape
-func HasTrustedTypePolicyFactoryIsScript(this js.Ref) js.Ref
+func HasFuncTrustedTypePolicyFactoryIsScript(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TrustedTypePolicyFactory_IsScript
 //go:noescape
-func TrustedTypePolicyFactoryIsScriptFunc(this js.Ref) js.Ref
+func FuncTrustedTypePolicyFactoryIsScript(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TrustedTypePolicyFactory_IsScript
 //go:noescape
@@ -1055,11 +1053,11 @@ func TryTrustedTypePolicyFactoryIsScript(
 
 //go:wasmimport plat/js/web has_TrustedTypePolicyFactory_IsScriptURL
 //go:noescape
-func HasTrustedTypePolicyFactoryIsScriptURL(this js.Ref) js.Ref
+func HasFuncTrustedTypePolicyFactoryIsScriptURL(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TrustedTypePolicyFactory_IsScriptURL
 //go:noescape
-func TrustedTypePolicyFactoryIsScriptURLFunc(this js.Ref) js.Ref
+func FuncTrustedTypePolicyFactoryIsScriptURL(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TrustedTypePolicyFactory_IsScriptURL
 //go:noescape
@@ -1075,11 +1073,11 @@ func TryTrustedTypePolicyFactoryIsScriptURL(
 
 //go:wasmimport plat/js/web has_TrustedTypePolicyFactory_GetAttributeType
 //go:noescape
-func HasTrustedTypePolicyFactoryGetAttributeType(this js.Ref) js.Ref
+func HasFuncTrustedTypePolicyFactoryGetAttributeType(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TrustedTypePolicyFactory_GetAttributeType
 //go:noescape
-func TrustedTypePolicyFactoryGetAttributeTypeFunc(this js.Ref) js.Ref
+func FuncTrustedTypePolicyFactoryGetAttributeType(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TrustedTypePolicyFactory_GetAttributeType
 //go:noescape
@@ -1101,11 +1099,11 @@ func TryTrustedTypePolicyFactoryGetAttributeType(
 
 //go:wasmimport plat/js/web has_TrustedTypePolicyFactory_GetAttributeType1
 //go:noescape
-func HasTrustedTypePolicyFactoryGetAttributeType1(this js.Ref) js.Ref
+func HasFuncTrustedTypePolicyFactoryGetAttributeType1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TrustedTypePolicyFactory_GetAttributeType1
 //go:noescape
-func TrustedTypePolicyFactoryGetAttributeType1Func(this js.Ref) js.Ref
+func FuncTrustedTypePolicyFactoryGetAttributeType1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TrustedTypePolicyFactory_GetAttributeType1
 //go:noescape
@@ -1125,11 +1123,11 @@ func TryTrustedTypePolicyFactoryGetAttributeType1(
 
 //go:wasmimport plat/js/web has_TrustedTypePolicyFactory_GetAttributeType2
 //go:noescape
-func HasTrustedTypePolicyFactoryGetAttributeType2(this js.Ref) js.Ref
+func HasFuncTrustedTypePolicyFactoryGetAttributeType2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TrustedTypePolicyFactory_GetAttributeType2
 //go:noescape
-func TrustedTypePolicyFactoryGetAttributeType2Func(this js.Ref) js.Ref
+func FuncTrustedTypePolicyFactoryGetAttributeType2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TrustedTypePolicyFactory_GetAttributeType2
 //go:noescape
@@ -1147,11 +1145,11 @@ func TryTrustedTypePolicyFactoryGetAttributeType2(
 
 //go:wasmimport plat/js/web has_TrustedTypePolicyFactory_GetPropertyType
 //go:noescape
-func HasTrustedTypePolicyFactoryGetPropertyType(this js.Ref) js.Ref
+func HasFuncTrustedTypePolicyFactoryGetPropertyType(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TrustedTypePolicyFactory_GetPropertyType
 //go:noescape
-func TrustedTypePolicyFactoryGetPropertyTypeFunc(this js.Ref) js.Ref
+func FuncTrustedTypePolicyFactoryGetPropertyType(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TrustedTypePolicyFactory_GetPropertyType
 //go:noescape
@@ -1171,11 +1169,11 @@ func TryTrustedTypePolicyFactoryGetPropertyType(
 
 //go:wasmimport plat/js/web has_TrustedTypePolicyFactory_GetPropertyType1
 //go:noescape
-func HasTrustedTypePolicyFactoryGetPropertyType1(this js.Ref) js.Ref
+func HasFuncTrustedTypePolicyFactoryGetPropertyType1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_TrustedTypePolicyFactory_GetPropertyType1
 //go:noescape
-func TrustedTypePolicyFactoryGetPropertyType1Func(this js.Ref) js.Ref
+func FuncTrustedTypePolicyFactoryGetPropertyType1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_TrustedTypePolicyFactory_GetPropertyType1
 //go:noescape
@@ -1245,11 +1243,11 @@ func JsonWebKeyJSLoad(
 
 //go:wasmimport plat/js/web has_SubtleCrypto_Encrypt
 //go:noescape
-func HasSubtleCryptoEncrypt(this js.Ref) js.Ref
+func HasFuncSubtleCryptoEncrypt(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SubtleCrypto_Encrypt
 //go:noescape
-func SubtleCryptoEncryptFunc(this js.Ref) js.Ref
+func FuncSubtleCryptoEncrypt(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SubtleCrypto_Encrypt
 //go:noescape
@@ -1269,11 +1267,11 @@ func TrySubtleCryptoEncrypt(
 
 //go:wasmimport plat/js/web has_SubtleCrypto_Decrypt
 //go:noescape
-func HasSubtleCryptoDecrypt(this js.Ref) js.Ref
+func HasFuncSubtleCryptoDecrypt(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SubtleCrypto_Decrypt
 //go:noescape
-func SubtleCryptoDecryptFunc(this js.Ref) js.Ref
+func FuncSubtleCryptoDecrypt(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SubtleCrypto_Decrypt
 //go:noescape
@@ -1293,11 +1291,11 @@ func TrySubtleCryptoDecrypt(
 
 //go:wasmimport plat/js/web has_SubtleCrypto_Sign
 //go:noescape
-func HasSubtleCryptoSign(this js.Ref) js.Ref
+func HasFuncSubtleCryptoSign(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SubtleCrypto_Sign
 //go:noescape
-func SubtleCryptoSignFunc(this js.Ref) js.Ref
+func FuncSubtleCryptoSign(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SubtleCrypto_Sign
 //go:noescape
@@ -1317,11 +1315,11 @@ func TrySubtleCryptoSign(
 
 //go:wasmimport plat/js/web has_SubtleCrypto_Verify
 //go:noescape
-func HasSubtleCryptoVerify(this js.Ref) js.Ref
+func HasFuncSubtleCryptoVerify(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SubtleCrypto_Verify
 //go:noescape
-func SubtleCryptoVerifyFunc(this js.Ref) js.Ref
+func FuncSubtleCryptoVerify(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SubtleCrypto_Verify
 //go:noescape
@@ -1343,11 +1341,11 @@ func TrySubtleCryptoVerify(
 
 //go:wasmimport plat/js/web has_SubtleCrypto_Digest
 //go:noescape
-func HasSubtleCryptoDigest(this js.Ref) js.Ref
+func HasFuncSubtleCryptoDigest(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SubtleCrypto_Digest
 //go:noescape
-func SubtleCryptoDigestFunc(this js.Ref) js.Ref
+func FuncSubtleCryptoDigest(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SubtleCrypto_Digest
 //go:noescape
@@ -1365,11 +1363,11 @@ func TrySubtleCryptoDigest(
 
 //go:wasmimport plat/js/web has_SubtleCrypto_GenerateKey
 //go:noescape
-func HasSubtleCryptoGenerateKey(this js.Ref) js.Ref
+func HasFuncSubtleCryptoGenerateKey(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SubtleCrypto_GenerateKey
 //go:noescape
-func SubtleCryptoGenerateKeyFunc(this js.Ref) js.Ref
+func FuncSubtleCryptoGenerateKey(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SubtleCrypto_GenerateKey
 //go:noescape
@@ -1389,11 +1387,11 @@ func TrySubtleCryptoGenerateKey(
 
 //go:wasmimport plat/js/web has_SubtleCrypto_DeriveKey
 //go:noescape
-func HasSubtleCryptoDeriveKey(this js.Ref) js.Ref
+func HasFuncSubtleCryptoDeriveKey(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SubtleCrypto_DeriveKey
 //go:noescape
-func SubtleCryptoDeriveKeyFunc(this js.Ref) js.Ref
+func FuncSubtleCryptoDeriveKey(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SubtleCrypto_DeriveKey
 //go:noescape
@@ -1417,11 +1415,11 @@ func TrySubtleCryptoDeriveKey(
 
 //go:wasmimport plat/js/web has_SubtleCrypto_DeriveBits
 //go:noescape
-func HasSubtleCryptoDeriveBits(this js.Ref) js.Ref
+func HasFuncSubtleCryptoDeriveBits(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SubtleCrypto_DeriveBits
 //go:noescape
-func SubtleCryptoDeriveBitsFunc(this js.Ref) js.Ref
+func FuncSubtleCryptoDeriveBits(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SubtleCrypto_DeriveBits
 //go:noescape
@@ -1441,11 +1439,11 @@ func TrySubtleCryptoDeriveBits(
 
 //go:wasmimport plat/js/web has_SubtleCrypto_ImportKey
 //go:noescape
-func HasSubtleCryptoImportKey(this js.Ref) js.Ref
+func HasFuncSubtleCryptoImportKey(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SubtleCrypto_ImportKey
 //go:noescape
-func SubtleCryptoImportKeyFunc(this js.Ref) js.Ref
+func FuncSubtleCryptoImportKey(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SubtleCrypto_ImportKey
 //go:noescape
@@ -1469,11 +1467,11 @@ func TrySubtleCryptoImportKey(
 
 //go:wasmimport plat/js/web has_SubtleCrypto_ExportKey
 //go:noescape
-func HasSubtleCryptoExportKey(this js.Ref) js.Ref
+func HasFuncSubtleCryptoExportKey(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SubtleCrypto_ExportKey
 //go:noescape
-func SubtleCryptoExportKeyFunc(this js.Ref) js.Ref
+func FuncSubtleCryptoExportKey(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SubtleCrypto_ExportKey
 //go:noescape
@@ -1491,11 +1489,11 @@ func TrySubtleCryptoExportKey(
 
 //go:wasmimport plat/js/web has_SubtleCrypto_WrapKey
 //go:noescape
-func HasSubtleCryptoWrapKey(this js.Ref) js.Ref
+func HasFuncSubtleCryptoWrapKey(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SubtleCrypto_WrapKey
 //go:noescape
-func SubtleCryptoWrapKeyFunc(this js.Ref) js.Ref
+func FuncSubtleCryptoWrapKey(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SubtleCrypto_WrapKey
 //go:noescape
@@ -1517,11 +1515,11 @@ func TrySubtleCryptoWrapKey(
 
 //go:wasmimport plat/js/web has_SubtleCrypto_UnwrapKey
 //go:noescape
-func HasSubtleCryptoUnwrapKey(this js.Ref) js.Ref
+func HasFuncSubtleCryptoUnwrapKey(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_SubtleCrypto_UnwrapKey
 //go:noescape
-func SubtleCryptoUnwrapKeyFunc(this js.Ref) js.Ref
+func FuncSubtleCryptoUnwrapKey(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_SubtleCrypto_UnwrapKey
 //go:noescape
@@ -1554,11 +1552,11 @@ func GetCryptoSubtle(
 
 //go:wasmimport plat/js/web has_Crypto_GetRandomValues
 //go:noescape
-func HasCryptoGetRandomValues(this js.Ref) js.Ref
+func HasFuncCryptoGetRandomValues(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Crypto_GetRandomValues
 //go:noescape
-func CryptoGetRandomValuesFunc(this js.Ref) js.Ref
+func FuncCryptoGetRandomValues(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Crypto_GetRandomValues
 //go:noescape
@@ -1574,11 +1572,11 @@ func TryCryptoGetRandomValues(
 
 //go:wasmimport plat/js/web has_Crypto_RandomUUID
 //go:noescape
-func HasCryptoRandomUUID(this js.Ref) js.Ref
+func HasFuncCryptoRandomUUID(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Crypto_RandomUUID
 //go:noescape
-func CryptoRandomUUIDFunc(this js.Ref) js.Ref
+func FuncCryptoRandomUUID(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Crypto_RandomUUID
 //go:noescape

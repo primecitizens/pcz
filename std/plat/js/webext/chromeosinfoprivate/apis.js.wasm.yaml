@@ -1,0 +1,460 @@
+- File: webext/chrome/chromeos_info_private.json
+  Enum:
+    Name: AssistantStatus
+    Values:
+      - unsupported
+      - supported
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeosInfoPrivate
+- File: webext/chrome/chromeos_info_private.json
+  Enum:
+    Name: DeviceType
+    Values:
+      - chromebase
+      - chromebit
+      - chromebook
+      - chromebox
+      - chromedevice
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeosInfoPrivate
+- File: webext/chrome/chromeos_info_private.json
+  Dict:
+    Name: GetReturnType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeosInfoPrivate
+    Fields:
+      - Name: a11yAutoClickEnabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: a11yCaretHighlightEnabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: a11yCursorColorEnabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: a11yCursorHighlightEnabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: a11yDockedMagnifierEnabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: a11yFocusHighlightEnabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: a11yHighContrastEnabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: a11yLargeCursorEnabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: a11yScreenMagnifierEnabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: a11ySelectToSpeakEnabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: a11ySpokenFeedbackEnabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: a11yStickyKeysEnabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: a11ySwitchAccessEnabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: a11yVirtualKeyboardEnabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: assistantStatus
+        Type:
+          Name: AssistantStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeosInfoPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: board
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: clientId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: customizationId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: deviceType
+        Type:
+          Name: DeviceType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeosInfoPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: homeProvider
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: hwid
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: initialLocale
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: isMeetDevice
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: isOwner
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: managedDeviceStatus
+        Type:
+          Name: ManagedDeviceStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeosInfoPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: playStoreStatus
+        Type:
+          Name: PlayStoreStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeosInfoPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: sendFunctionKeys
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: sessionType
+        Type:
+          Name: SessionType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeosInfoPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: stylusStatus
+        Type:
+          Name: StylusStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeosInfoPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: supportedTimezones
+        Type:
+          Name: sequence
+          Params:
+            - Name: sequence
+              Params:
+                - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - chromeosInfoPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeosInfoPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+      - Name: timezone
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - chromeosInfoPrivate
+- File: webext/chrome/chromeos_info_private.json
+  Enum:
+    Name: ManagedDeviceStatus
+    Values:
+      - managed
+      - not managed
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeosInfoPrivate
+- File: webext/chrome/chromeos_info_private.json
+  Enum:
+    Name: PlayStoreStatus
+    Values:
+      - not available
+      - available
+      - enabled
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeosInfoPrivate
+- File: webext/chrome/chromeos_info_private.json
+  Enum:
+    Name: PropertyName
+    Values:
+      - timezone
+      - a11yLargeCursorEnabled
+      - a11yStickyKeysEnabled
+      - a11ySpokenFeedbackEnabled
+      - a11yHighContrastEnabled
+      - a11yScreenMagnifierEnabled
+      - a11yAutoClickEnabled
+      - a11yVirtualKeyboardEnabled
+      - a11yCaretHighlightEnabled
+      - a11yCursorHighlightEnabled
+      - a11yFocusHighlightEnabled
+      - a11ySelectToSpeakEnabled
+      - a11ySwitchAccessEnabled
+      - a11yCursorColorEnabled
+      - a11yDockedMagnifierEnabled
+      - sendFunctionKeys
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeosInfoPrivate
+- File: webext/chrome/chromeos_info_private.json
+  Enum:
+    Name: SessionType
+    Values:
+      - normal
+      - kiosk
+      - public session
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeosInfoPrivate
+- File: webext/chrome/chromeos_info_private.json
+  Enum:
+    Name: StylusStatus
+    Values:
+      - unsupported
+      - supported
+      - seen
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeosInfoPrivate
+- File: webext/chrome/chromeos_info_private.json
+  WebextFunc:
+    Name: get
+    Args:
+      - Name: propertyNames
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeosInfoPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: GetReturnType
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - chromeosInfoPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeosInfoPrivate
+- File: webext/chrome/chromeos_info_private.json
+  WebextFunc:
+    Name: isTabletModeEnabled
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeosInfoPrivate
+- File: webext/chrome/chromeos_info_private.json
+  WebextFunc:
+    Name: set
+    Args:
+      - Name: propertyName
+        Type:
+          Name: PropertyName
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - chromeosInfoPrivate
+      - Name: propertyValue
+        Type:
+          Name: any
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - chromeosInfoPrivate

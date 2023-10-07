@@ -1,4 +1,4 @@
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLTableRowElement
     Inherits: HTMLElement
@@ -89,7 +89,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLTableSectionElement
     Inherits: HTMLElement
@@ -159,7 +159,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLTemplateElement
     Inherits: HTMLElement
@@ -182,7 +182,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLTextAreaElement
     Inherits: HTMLElement
@@ -470,7 +470,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLTimeElement
     Inherits: HTMLElement
@@ -493,7 +493,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLTitleElement
     Inherits: HTMLElement
@@ -516,7 +516,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLTrackElement
     Inherits: HTMLElement
@@ -604,7 +604,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLUListElement
     Inherits: HTMLElement
@@ -629,7 +629,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLUnknownElement
     Inherits: HTMLElement
@@ -637,7 +637,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HTMLVideoElement
     Inherits: HTMLMediaElement
@@ -736,19 +736,19 @@
           - Name: Exposed
             Values:
               - Window
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Enum:
     Name: HardwareAcceleration
     Values:
       - no-preference
       - prefer-hardware
       - prefer-software
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Typedef:
     Name: HashAlgorithmIdentifier
     Type:
       Name: AlgorithmIdentifier
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: HashChangeEvent
     Inherits: Event
@@ -787,7 +787,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: HashChangeEventInit
     Inherits: EventInit
@@ -812,14 +812,14 @@
         Default: "false"
         Type:
           Name: boolean
-- File: media-capabilities.idl
+- File: webref/media-capabilities.idl
   Enum:
     Name: HdrMetadataType
     Values:
       - smpteSt2086
       - smpteSt2094-10
       - smpteSt2094-40
-- File: fetch.idl
+- File: webref/fetch.idl
   Interface:
     Name: Headers
     ExtAttrs:
@@ -920,7 +920,7 @@
       TypeParams:
         - Name: ByteString
         - Name: ByteString
-- File: fetch.idl
+- File: webref/fetch.idl
   Typedef:
     Name: HeadersInit
     Type:
@@ -934,13 +934,13 @@
           Params:
             - Name: ByteString
             - Name: ByteString
-- File: webcodecs-hevc-codec-registration.idl
+- File: webref/webcodecs-hevc-codec-registration.idl
   Enum:
     Name: HevcBitstreamFormat
     Values:
       - annexb
       - hevc
-- File: webcodecs-hevc-codec-registration.idl
+- File: webref/webcodecs-hevc-codec-registration.idl
   Dict:
     Name: HevcEncoderConfig
     Fields:
@@ -948,7 +948,7 @@
         Default: '"hevc"'
         Type:
           Name: HevcBitstreamFormat
-- File: css-highlight-api.idl
+- File: webref/css-highlight-api.idl
   Interface:
     Name: Highlight
     ExtAttrs:
@@ -983,7 +983,7 @@
     Setlike:
       TypeParams:
         - Name: AbstractRange
-- File: css-highlight-api.idl
+- File: webref/css-highlight-api.idl
   Interface:
     Name: HighlightRegistry
     ExtAttrs:
@@ -994,14 +994,14 @@
       TypeParams:
         - Name: DOMString
         - Name: Highlight
-- File: css-highlight-api.idl
+- File: webref/css-highlight-api.idl
   Enum:
     Name: HighlightType
     Values:
       - highlight
       - spelling-error
       - grammar-error
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: History
     ExtAttrs:
@@ -1100,7 +1100,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: HkdfParams
     Inherits: Algorithm
@@ -1121,7 +1121,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: HmacImportParams
     Inherits: Algorithm
@@ -1139,7 +1139,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: HmacKeyAlgorithm
     Inherits: KeyAlgorithm
@@ -1156,7 +1156,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: HmacKeyGenParams
     Inherits: Algorithm
@@ -1174,7 +1174,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: IndexedDB.idl
+- File: webref/IndexedDB.idl
   Interface:
     Name: IDBCursor
     ExtAttrs:
@@ -1296,7 +1296,7 @@
             Values:
               - Window
               - Worker
-- File: IndexedDB.idl
+- File: webref/IndexedDB.idl
   Enum:
     Name: IDBCursorDirection
     Values:
@@ -1304,7 +1304,7 @@
       - nextunique
       - prev
       - prevunique
-- File: IndexedDB.idl
+- File: webref/IndexedDB.idl
   Interface:
     Name: IDBCursorWithValue
     Inherits: IDBCursor
@@ -1323,7 +1323,7 @@
             Values:
               - Window
               - Worker
-- File: IndexedDB.idl
+- File: webref/IndexedDB.idl
   Interface:
     Name: IDBDatabase
     Inherits: EventTarget
@@ -1458,7 +1458,7 @@
             Values:
               - Window
               - Worker
-- File: IndexedDB.idl
+- File: webref/IndexedDB.idl
   Dict:
     Name: IDBDatabaseInfo
     Fields:
@@ -1468,7 +1468,7 @@
       - Name: version
         Type:
           Name: unsigned long long
-- File: IndexedDB.idl
+- File: webref/IndexedDB.idl
   Interface:
     Name: IDBFactory
     ExtAttrs:
@@ -1534,7 +1534,7 @@
             Values:
               - Window
               - Worker
-- File: IndexedDB.idl
+- File: webref/IndexedDB.idl
   Interface:
     Name: IDBIndex
     ExtAttrs:
@@ -1703,7 +1703,7 @@
             Values:
               - Window
               - Worker
-- File: IndexedDB.idl
+- File: webref/IndexedDB.idl
   Dict:
     Name: IDBIndexParameters
     Fields:
@@ -1715,7 +1715,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: IndexedDB.idl
+- File: webref/IndexedDB.idl
   Interface:
     Name: IDBKeyRange
     ExtAttrs:
@@ -1852,7 +1852,7 @@
             Values:
               - Window
               - Worker
-- File: IndexedDB.idl
+- File: webref/IndexedDB.idl
   Interface:
     Name: IDBObjectStore
     ExtAttrs:
@@ -2126,7 +2126,7 @@
             Values:
               - Window
               - Worker
-- File: IndexedDB.idl
+- File: webref/IndexedDB.idl
   Dict:
     Name: IDBObjectStoreParameters
     Fields:
@@ -2143,7 +2143,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: IndexedDB.idl
+- File: webref/IndexedDB.idl
   Interface:
     Name: IDBOpenDBRequest
     Inherits: IDBRequest
@@ -2169,7 +2169,7 @@
             Values:
               - Window
               - Worker
-- File: IndexedDB.idl
+- File: webref/IndexedDB.idl
   Interface:
     Name: IDBRequest
     Inherits: EventTarget
@@ -2246,13 +2246,13 @@
             Values:
               - Window
               - Worker
-- File: IndexedDB.idl
+- File: webref/IndexedDB.idl
   Enum:
     Name: IDBRequestReadyState
     Values:
       - pending
       - done
-- File: IndexedDB.idl
+- File: webref/IndexedDB.idl
   Interface:
     Name: IDBTransaction
     Inherits: EventTarget
@@ -2362,21 +2362,21 @@
             Values:
               - Window
               - Worker
-- File: IndexedDB.idl
+- File: webref/IndexedDB.idl
   Enum:
     Name: IDBTransactionDurability
     Values:
       - default
       - strict
       - relaxed
-- File: IndexedDB.idl
+- File: webref/IndexedDB.idl
   Enum:
     Name: IDBTransactionMode
     Values:
       - readonly
       - readwrite
       - versionchange
-- File: IndexedDB.idl
+- File: webref/IndexedDB.idl
   Dict:
     Name: IDBTransactionOptions
     Fields:
@@ -2384,7 +2384,7 @@
         Default: '"default"'
         Type:
           Name: IDBTransactionDurability
-- File: IndexedDB.idl
+- File: webref/IndexedDB.idl
   Interface:
     Name: IDBVersionChangeEvent
     Inherits: Event
@@ -2428,7 +2428,7 @@
             Values:
               - Window
               - Worker
-- File: IndexedDB.idl
+- File: webref/IndexedDB.idl
   Dict:
     Name: IDBVersionChangeEventInit
     Inherits: EventInit
@@ -2454,7 +2454,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: IIRFilterNode
     Inherits: AudioNode
@@ -2492,7 +2492,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: IIRFilterOptions
     Inherits: AudioNodeOptions
@@ -2518,7 +2518,7 @@
       - Name: channelInterpretation
         Type:
           Name: ChannelInterpretation
-- File: FedCM.idl
+- File: webref/FedCM.idl
   Interface:
     Name: IdentityCredential
     Inherits: Credential

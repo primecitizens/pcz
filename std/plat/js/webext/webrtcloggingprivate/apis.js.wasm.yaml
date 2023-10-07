@@ -1,0 +1,1233 @@
+- File: webext/chrome/webrtc_logging_private.idl
+  Callback:
+    Name: GenericDoneCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcLoggingPrivate
+- File: webext/chrome/webrtc_logging_private.idl
+  Callback:
+    Name: GetLogsDirectoryCallback
+    Args:
+      - Name: entry
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: instanceOf
+            Values:
+              - DirectoryEntry
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcLoggingPrivate
+- File: webext/chrome/webrtc_logging_private.idl
+  Dict:
+    Name: MetaDataEntry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcLoggingPrivate
+    Fields:
+      - Name: key
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: value
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+- File: webext/chrome/webrtc_logging_private.idl
+  Callback:
+    Name: RecordingDoneCallback
+    Args:
+      - Name: info
+        Type:
+          Name: RecordingInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcLoggingPrivate
+- File: webext/chrome/webrtc_logging_private.idl
+  Dict:
+    Name: RecordingInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcLoggingPrivate
+    Fields:
+      - Name: prefixPath
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: didStop
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: didManualStop
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+- File: webext/chrome/webrtc_logging_private.idl
+  Dict:
+    Name: RequestInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcLoggingPrivate
+    Fields:
+      - Name: tabId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: guestProcessId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: targetWebview
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+- File: webext/chrome/webrtc_logging_private.idl
+  Callback:
+    Name: StartEventLoggingCallback
+    Args:
+      - Name: result
+        Type:
+          Name: StartEventLoggingResult
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcLoggingPrivate
+- File: webext/chrome/webrtc_logging_private.idl
+  Dict:
+    Name: StartEventLoggingResult
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcLoggingPrivate
+    Fields:
+      - Name: logId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+- File: webext/chrome/webrtc_logging_private.idl
+  Callback:
+    Name: UploadDoneCallback
+    Args:
+      - Name: result
+        Type:
+          Name: UploadResult
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcLoggingPrivate
+- File: webext/chrome/webrtc_logging_private.idl
+  Dict:
+    Name: UploadResult
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcLoggingPrivate
+    Fields:
+      - Name: reportId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+- File: webext/chrome/webrtc_logging_private.idl
+  WebextFunc:
+    Name: discard
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RequestInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: securityOrigin
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: callback
+        Type:
+          Name: GenericDoneCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcLoggingPrivate
+- File: webext/chrome/webrtc_logging_private.idl
+  WebextFunc:
+    Name: getLogsDirectory
+    Modifier: static
+    Args:
+      - Name: callback
+        Type:
+          Name: GetLogsDirectoryCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcLoggingPrivate
+- File: webext/chrome/webrtc_logging_private.idl
+  WebextFunc:
+    Name: setMetaData
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RequestInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: securityOrigin
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: metaData
+        Type:
+          Name: sequence
+          Params:
+            - Name: MetaDataEntry
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webrtcLoggingPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: callback
+        Type:
+          Name: GenericDoneCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcLoggingPrivate
+- File: webext/chrome/webrtc_logging_private.idl
+  WebextFunc:
+    Name: setUploadOnRenderClose
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RequestInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: securityOrigin
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: shouldUpload
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcLoggingPrivate
+- File: webext/chrome/webrtc_logging_private.idl
+  WebextFunc:
+    Name: start
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RequestInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: securityOrigin
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: callback
+        Type:
+          Name: GenericDoneCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcLoggingPrivate
+- File: webext/chrome/webrtc_logging_private.idl
+  WebextFunc:
+    Name: startAudioDebugRecordings
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RequestInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: securityOrigin
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: seconds
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: callback
+        Type:
+          Name: RecordingDoneCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcLoggingPrivate
+- File: webext/chrome/webrtc_logging_private.idl
+  WebextFunc:
+    Name: startEventLogging
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RequestInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: securityOrigin
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: sessionId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: maxLogSizeBytes
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: outputPeriodMs
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: webAppId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: callback
+        Type:
+          Name: StartEventLoggingCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcLoggingPrivate
+- File: webext/chrome/webrtc_logging_private.idl
+  WebextFunc:
+    Name: startRtpDump
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RequestInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: securityOrigin
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: incoming
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: outgoing
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: callback
+        Type:
+          Name: GenericDoneCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcLoggingPrivate
+- File: webext/chrome/webrtc_logging_private.idl
+  WebextFunc:
+    Name: stop
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RequestInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: securityOrigin
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: callback
+        Type:
+          Name: GenericDoneCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcLoggingPrivate
+- File: webext/chrome/webrtc_logging_private.idl
+  WebextFunc:
+    Name: stopAudioDebugRecordings
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RequestInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: securityOrigin
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: callback
+        Type:
+          Name: RecordingDoneCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcLoggingPrivate
+- File: webext/chrome/webrtc_logging_private.idl
+  WebextFunc:
+    Name: stopRtpDump
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RequestInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: securityOrigin
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: incoming
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: outgoing
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: callback
+        Type:
+          Name: GenericDoneCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcLoggingPrivate
+- File: webext/chrome/webrtc_logging_private.idl
+  WebextFunc:
+    Name: store
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RequestInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: securityOrigin
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: logId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: callback
+        Type:
+          Name: GenericDoneCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcLoggingPrivate
+- File: webext/chrome/webrtc_logging_private.idl
+  WebextFunc:
+    Name: upload
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RequestInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: securityOrigin
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: callback
+        Type:
+          Name: UploadDoneCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcLoggingPrivate
+- File: webext/chrome/webrtc_logging_private.idl
+  WebextFunc:
+    Name: uploadStored
+    Modifier: static
+    Args:
+      - Name: request
+        Type:
+          Name: RequestInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: securityOrigin
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: logId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+      - Name: callback
+        Type:
+          Name: UploadDoneCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webrtcLoggingPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webrtcLoggingPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webrtcLoggingPrivate

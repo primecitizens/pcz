@@ -1,11 +1,11 @@
-- File: resize-observer.idl
+- File: webref/resize-observer.idl
   Enum:
     Name: ResizeObserverBoxOptions
     Values:
       - border-box
       - content-box
       - device-pixel-content-box
-- File: resize-observer.idl
+- File: webref/resize-observer.idl
   Callback:
     Name: ResizeObserverCallback
     Args:
@@ -19,7 +19,7 @@
           Name: ResizeObserver
     Returns:
       - Name: undefined
-- File: resize-observer.idl
+- File: webref/resize-observer.idl
   Interface:
     Name: ResizeObserverEntry
     ExtAttrs:
@@ -73,7 +73,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: resize-observer.idl
+- File: webref/resize-observer.idl
   Dict:
     Name: ResizeObserverOptions
     Fields:
@@ -81,7 +81,7 @@
         Default: '"content-box"'
         Type:
           Name: ResizeObserverBoxOptions
-- File: resize-observer.idl
+- File: webref/resize-observer.idl
   Interface:
     Name: ResizeObserverSize
     ExtAttrs:
@@ -105,7 +105,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: ResizeQuality
     Values:
@@ -113,7 +113,7 @@
       - low
       - medium
       - high
-- File: fetch.idl
+- File: webref/fetch.idl
   Interface:
     Name: Response
     ExtAttrs:
@@ -306,7 +306,7 @@
             Values:
               - Window
               - Worker
-- File: fetch.idl
+- File: webref/fetch.idl
   Dict:
     Name: ResponseInit
     Fields:
@@ -321,7 +321,7 @@
       - Name: headers
         Type:
           Name: HeadersInit
-- File: fetch.idl
+- File: webref/fetch.idl
   Enum:
     Name: ResponseType
     Values:
@@ -331,7 +331,7 @@
       - error
       - opaque
       - opaqueredirect
-- File: element-capture.idl
+- File: webref/element-capture.idl
   Interface:
     Name: RestrictionTarget
     ExtAttrs:
@@ -356,8 +356,7 @@
             Values:
               - Window
           - Name: SecureContext
-          - Name: Serializable
-- File: orientation-sensor.idl
+- File: webref/orientation-sensor.idl
   Typedef:
     Name: RotationMatrixType
     Type:
@@ -365,7 +364,7 @@
         - Name: Float32Array
         - Name: Float64Array
         - Name: DOMMatrix
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: RsaHashedImportParams
     Inherits: Algorithm
@@ -378,7 +377,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: RsaHashedKeyAlgorithm
     Inherits: RsaKeyAlgorithm
@@ -399,7 +398,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: RsaHashedKeyGenParams
     Inherits: RsaKeyGenParams
@@ -420,7 +419,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: RsaKeyAlgorithm
     Inherits: KeyAlgorithm
@@ -437,7 +436,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: RsaKeyGenParams
     Inherits: Algorithm
@@ -454,7 +453,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: RsaOaepParams
     Inherits: Algorithm
@@ -466,7 +465,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: RsaOtherPrimesInfo
     Fields:
@@ -479,7 +478,7 @@
       - Name: t
         Type:
           Name: DOMString
-- File: WebCryptoAPI.idl
+- File: webref/WebCryptoAPI.idl
   Dict:
     Name: RsaPssParams
     Inherits: Algorithm
@@ -492,7 +491,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: webrtc-encoded-transform.idl
+- File: webref/webrtc-encoded-transform.idl
   Interface:
     Name: SFrameTransform
     Inherits: EventTarget
@@ -549,7 +548,7 @@
             Values:
               - Window
               - DedicatedWorker
-- File: webrtc-encoded-transform.idl
+- File: webref/webrtc-encoded-transform.idl
   Interface:
     Name: SFrameTransformErrorEvent
     Inherits: Event
@@ -600,7 +599,7 @@
             Values:
               - Window
               - DedicatedWorker
-- File: webrtc-encoded-transform.idl
+- File: webref/webrtc-encoded-transform.idl
   Dict:
     Name: SFrameTransformErrorEventInit
     Inherits: EventInit
@@ -629,14 +628,14 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webrtc-encoded-transform.idl
+- File: webref/webrtc-encoded-transform.idl
   Enum:
     Name: SFrameTransformErrorEventType
     Values:
       - authentication
       - keyID
       - syntax
-- File: webrtc-encoded-transform.idl
+- File: webref/webrtc-encoded-transform.idl
   Dict:
     Name: SFrameTransformOptions
     Fields:
@@ -644,13 +643,13 @@
         Default: '"encrypt"'
         Type:
           Name: SFrameTransformRole
-- File: webrtc-encoded-transform.idl
+- File: webref/webrtc-encoded-transform.idl
   Enum:
     Name: SFrameTransformRole
     Values:
       - encrypt
       - decrypt
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGAElement
     Inherits: SVGGraphicsElement
@@ -784,7 +783,7 @@
           Name: SVGAnimatedString
         ExtAttrs:
           - Name: SameObject
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGAngle
     ExtAttrs:
@@ -868,7 +867,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: svg-animations.idl
+- File: webref/svg-animations.idl
   Interface:
     Name: SVGAnimateElement
     Inherits: SVGAnimationElement
@@ -876,7 +875,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: svg-animations.idl
+- File: webref/svg-animations.idl
   Interface:
     Name: SVGAnimateMotionElement
     Inherits: SVGAnimationElement
@@ -884,7 +883,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: svg-animations.idl
+- File: webref/svg-animations.idl
   Interface:
     Name: SVGAnimateTransformElement
     Inherits: SVGAnimationElement
@@ -892,7 +891,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGAnimatedAngle
     ExtAttrs:
@@ -918,7 +917,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGAnimatedBoolean
     ExtAttrs:
@@ -941,7 +940,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGAnimatedEnumeration
     ExtAttrs:
@@ -964,7 +963,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGAnimatedInteger
     ExtAttrs:
@@ -987,7 +986,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGAnimatedLength
     ExtAttrs:
@@ -1013,7 +1012,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGAnimatedLengthList
     ExtAttrs:
@@ -1039,7 +1038,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGAnimatedNumber
     ExtAttrs:
@@ -1062,7 +1061,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGAnimatedNumberList
     ExtAttrs:
@@ -1088,7 +1087,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGAnimatedPreserveAspectRatio
     ExtAttrs:
@@ -1114,7 +1113,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGAnimatedRect
     ExtAttrs:
@@ -1140,7 +1139,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGAnimatedString
     ExtAttrs:
@@ -1163,7 +1162,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGAnimatedTransformList
     ExtAttrs:
@@ -1189,7 +1188,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: svg-animations.idl
+- File: webref/svg-animations.idl
   Interface:
     Name: SVGAnimationElement
     Inherits: SVGElement
@@ -1298,7 +1297,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Dict:
     Name: SVGBoundingBoxOptions
     Fields:
@@ -1318,7 +1317,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGCircleElement
     Inherits: SVGGeometryElement
@@ -1354,7 +1353,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-masking.idl
+- File: webref/css-masking.idl
   Interface:
     Name: SVGClipPathElement
     Inherits: SVGElement
@@ -1379,7 +1378,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: filter-effects.idl
+- File: webref/filter-effects.idl
   Interface:
     Name: SVGComponentTransferFunctionElement
     Inherits: SVGElement
@@ -1469,7 +1468,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGDefsElement
     Inherits: SVGGraphicsElement
@@ -1477,7 +1476,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: SVG.idl
+- File: webref/SVG.idl
   Interface:
     Name: SVGDescElement
     Inherits: SVGElement
@@ -1485,7 +1484,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: svg-animations.idl
+- File: webref/svg-animations.idl
   Interface:
     Name: SVGDiscardElement
     Inherits: SVGAnimationElement

@@ -1,4 +1,4 @@
-- File: webusb.idl
+- File: webref/webusb.idl
   Interface:
     Name: USBIsochronousOutTransferResult
     ExtAttrs:
@@ -36,7 +36,7 @@
               - SharedWorker
               - Window
           - Name: SecureContext
-- File: webusb.idl
+- File: webref/webusb.idl
   Interface:
     Name: USBOutTransferResult
     ExtAttrs:
@@ -86,7 +86,7 @@
               - SharedWorker
               - Window
           - Name: SecureContext
-- File: webusb.idl
+- File: webref/webusb.idl
   Dict:
     Name: USBPermissionDescriptor
     Inherits: PermissionDescriptor
@@ -105,7 +105,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: webusb.idl
+- File: webref/webusb.idl
   Interface:
     Name: USBPermissionResult
     Inherits: PermissionStatus
@@ -127,7 +127,7 @@
               - DedicatedWorker
               - SharedWorker
               - Window
-- File: webusb.idl
+- File: webref/webusb.idl
   Dict:
     Name: USBPermissionStorage
     Fields:
@@ -137,7 +137,7 @@
           Name: sequence
           Params:
             - Name: AllowedUSBDevice
-- File: webusb.idl
+- File: webref/webusb.idl
   Enum:
     Name: USBRecipient
     Values:
@@ -145,26 +145,26 @@
       - interface
       - endpoint
       - other
-- File: webusb.idl
+- File: webref/webusb.idl
   Enum:
     Name: USBRequestType
     Values:
       - standard
       - class
       - vendor
-- File: webusb.idl
+- File: webref/webusb.idl
   Enum:
     Name: USBTransferStatus
     Values:
       - ok
       - stall
       - babble
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Typedef:
     Name: UUID
     Type:
       Name: DOMString
-- File: webgl2.idl
+- File: webref/webgl2.idl
   Typedef:
     Name: Uint32List
     Type:
@@ -173,7 +173,7 @@
         - Name: sequence
           Params:
             - Name: GLuint
-- File: magnetometer.idl
+- File: webref/magnetometer.idl
   Interface:
     Name: UncalibratedMagnetometer
     Inherits: Sensor
@@ -255,7 +255,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: magnetometer.idl
+- File: webref/magnetometer.idl
   Dict:
     Name: UncalibratedMagnetometerReadingValues
     Fields:
@@ -289,7 +289,7 @@
         Type:
           Name: double
           Nullable: true
-- File: streams.idl
+- File: webref/streams.idl
   Dict:
     Name: UnderlyingSink
     Fields:
@@ -308,7 +308,7 @@
       - Name: type
         Type:
           Name: any
-- File: streams.idl
+- File: webref/streams.idl
   Callback:
     Name: UnderlyingSinkAbortCallback
     Args:
@@ -320,14 +320,14 @@
       - Name: Promise
         Params:
           - Name: undefined
-- File: streams.idl
+- File: webref/streams.idl
   Callback:
     Name: UnderlyingSinkCloseCallback
     Returns:
       - Name: Promise
         Params:
           - Name: undefined
-- File: streams.idl
+- File: webref/streams.idl
   Callback:
     Name: UnderlyingSinkStartCallback
     Args:
@@ -336,7 +336,7 @@
           Name: WritableStreamDefaultController
     Returns:
       - Name: any
-- File: streams.idl
+- File: webref/streams.idl
   Callback:
     Name: UnderlyingSinkWriteCallback
     Args:
@@ -350,7 +350,7 @@
       - Name: Promise
         Params:
           - Name: undefined
-- File: streams.idl
+- File: webref/streams.idl
   Dict:
     Name: UnderlyingSource
     Fields:
@@ -371,7 +371,7 @@
           Name: unsigned long long
         ExtAttrs:
           - Name: EnforceRange
-- File: streams.idl
+- File: webref/streams.idl
   Callback:
     Name: UnderlyingSourceCancelCallback
     Args:
@@ -383,7 +383,7 @@
       - Name: Promise
         Params:
           - Name: undefined
-- File: streams.idl
+- File: webref/streams.idl
   Callback:
     Name: UnderlyingSourcePullCallback
     Args:
@@ -394,7 +394,7 @@
       - Name: Promise
         Params:
           - Name: undefined
-- File: streams.idl
+- File: webref/streams.idl
   Callback:
     Name: UnderlyingSourceStartCallback
     Args:
@@ -403,14 +403,14 @@
           Name: ReadableStreamController
     Returns:
       - Name: any
-- File: css-view-transitions.idl
+- File: webref/css-view-transitions.idl
   Callback:
     Name: UpdateCallback
     Returns:
       - Name: Promise
         Params:
           - Name: any
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: UserActivation
     ExtAttrs:
@@ -434,34 +434,34 @@
           - Name: Exposed
             Values:
               - Window
-- File: idle-detection.idl
+- File: webref/idle-detection.idl
   Enum:
     Name: UserIdleState
     Values:
       - active
       - idle
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Enum:
     Name: UserVerificationRequirement
     Values:
       - required
       - preferred
       - discouraged
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Typedef:
     Name: UvmEntries
     Type:
       Name: sequence
       Params:
         - Name: UvmEntry
-- File: webauthn.idl
+- File: webref/webauthn.idl
   Typedef:
     Name: UvmEntry
     Type:
       Name: sequence
       Params:
         - Name: unsigned long
-- File: webvtt.idl
+- File: webref/webvtt.idl
   Interface:
     Name: VTTCue
     Inherits: TextTrackCue
@@ -564,7 +564,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webvtt.idl
+- File: webref/webvtt.idl
   Interface:
     Name: VTTRegion
     ExtAttrs:
@@ -628,7 +628,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webrtc-identity.idl
+- File: webref/webrtc-identity.idl
   Callback:
     Name: ValidateAssertionCallback
     Args:
@@ -642,7 +642,7 @@
       - Name: Promise
         Params:
           - Name: RTCIdentityValidationResult
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: ValidityState
     ExtAttrs:
@@ -738,7 +738,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: ValidityStateFlags
     Fields:
@@ -782,7 +782,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Interface:
     Name: ValueEvent
     Inherits: Event
@@ -816,7 +816,7 @@
             Values:
               - Window
           - Name: SecureContext
-- File: web-bluetooth.idl
+- File: webref/web-bluetooth.idl
   Dict:
     Name: ValueEventInit
     Inherits: EventInit
@@ -837,7 +837,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: wasm-js-api.idl
+- File: webref/wasm-js-api.idl
   Enum:
     Name: ValueType
     Values:
@@ -848,7 +848,7 @@
       - v128
       - externref
       - anyfunc
-- File: vibration.idl
+- File: webref/vibration.idl
   Typedef:
     Name: VibratePattern
     Type:
@@ -857,7 +857,7 @@
         - Name: sequence
           Params:
             - Name: unsigned long
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Enum:
     Name: VideoColorPrimaries
     Values:
@@ -866,7 +866,7 @@
       - smpte170m
       - bt2020
       - smpte432
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Interface:
     Name: VideoColorSpace
     ExtAttrs:
@@ -937,7 +937,7 @@
             Values:
               - Window
               - DedicatedWorker
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: VideoColorSpaceInit
     Fields:
@@ -961,7 +961,7 @@
         Type:
           Name: boolean
           Nullable: true
-- File: media-capabilities.idl
+- File: webref/media-capabilities.idl
   Dict:
     Name: VideoConfiguration
     Fields:
@@ -1003,7 +1003,7 @@
       - Name: spatialScalability
         Type:
           Name: boolean
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Interface:
     Name: VideoDecoder
     Inherits: EventTarget
@@ -1126,7 +1126,7 @@
               - Window
               - DedicatedWorker
           - Name: SecureContext
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: VideoDecoderConfig
     Fields:
@@ -1167,7 +1167,7 @@
       - Name: optimizeForLatency
         Type:
           Name: boolean
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: VideoDecoderInit
     Fields:
@@ -1179,7 +1179,7 @@
         Required: true
         Type:
           Name: WebCodecsErrorCallback
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: VideoDecoderSupport
     Fields:
@@ -1189,7 +1189,7 @@
       - Name: config
         Type:
           Name: VideoDecoderConfig
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Interface:
     Name: VideoEncoder
     Inherits: EventTarget
@@ -1317,14 +1317,14 @@
               - Window
               - DedicatedWorker
           - Name: SecureContext
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Enum:
     Name: VideoEncoderBitrateMode
     Values:
       - constant
       - variable
       - quantizer
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: VideoEncoderConfig
     Fields:
@@ -1390,7 +1390,7 @@
       - Name: av1
         Type:
           Name: AV1EncoderConfig
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: VideoEncoderEncodeOptions
     Fields:
@@ -1410,7 +1410,7 @@
       - Name: avc
         Type:
           Name: VideoEncoderEncodeOptionsForAvc
-- File: webcodecs-av1-codec-registration.idl
+- File: webref/webcodecs-av1-codec-registration.idl
   Dict:
     Name: VideoEncoderEncodeOptionsForAv1
     Fields:
@@ -1418,7 +1418,7 @@
         Type:
           Name: unsigned short
           Nullable: true
-- File: webcodecs-avc-codec-registration.idl
+- File: webref/webcodecs-avc-codec-registration.idl
   Dict:
     Name: VideoEncoderEncodeOptionsForAvc
     Fields:

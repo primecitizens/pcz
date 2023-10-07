@@ -1,0 +1,168 @@
+- File: webext/chrome/crash_report_private.idl
+  Dict:
+    Name: ErrorInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - crashReportPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+    Fields:
+      - Name: message
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - crashReportPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - crashReportPrivate
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - crashReportPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - crashReportPrivate
+      - Name: product
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - crashReportPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - crashReportPrivate
+      - Name: version
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - crashReportPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - crashReportPrivate
+      - Name: lineNumber
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - crashReportPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - crashReportPrivate
+      - Name: columnNumber
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - crashReportPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - crashReportPrivate
+      - Name: debugId
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - crashReportPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - crashReportPrivate
+      - Name: stackTrace
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - crashReportPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - crashReportPrivate
+- File: webext/chrome/crash_report_private.idl
+  Callback:
+    Name: ReportCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - crashReportPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - crashReportPrivate
+      - Name: platforms
+        Values:
+          - chromeos
+- File: webext/chrome/crash_report_private.idl
+  WebextFunc:
+    Name: reportError
+    Modifier: static
+    Args:
+      - Name: info
+        Type:
+          Name: ErrorInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - crashReportPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - crashReportPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - crashReportPrivate

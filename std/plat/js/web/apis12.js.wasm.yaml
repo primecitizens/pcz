@@ -1,4 +1,4 @@
-- File: fs.idl
+- File: webref/fs.idl
   Dict:
     Name: FileSystemGetFileOptions
     Fields:
@@ -6,7 +6,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: fs.idl
+- File: webref/fs.idl
   Interface:
     Name: FileSystemHandle
     ExtAttrs:
@@ -92,13 +92,13 @@
               - Worker
           - Name: SecureContext
           - Name: Serializable
-- File: fs.idl
+- File: webref/fs.idl
   Enum:
     Name: FileSystemHandleKind
     Values:
       - file
       - directory
-- File: file-system-access.idl
+- File: webref/file-system-access.idl
   Dict:
     Name: FileSystemHandlePermissionDescriptor
     Fields:
@@ -106,7 +106,7 @@
         Default: '"read"'
         Type:
           Name: FileSystemPermissionMode
-- File: file-system-access.idl
+- File: webref/file-system-access.idl
   Dict:
     Name: FileSystemPermissionDescriptor
     Inherits: PermissionDescriptor
@@ -123,13 +123,13 @@
         Required: true
         Type:
           Name: DOMString
-- File: file-system-access.idl
+- File: webref/file-system-access.idl
   Enum:
     Name: FileSystemPermissionMode
     Values:
       - read
       - readwrite
-- File: fs.idl
+- File: webref/fs.idl
   Dict:
     Name: FileSystemReadWriteOptions
     Fields:
@@ -138,7 +138,7 @@
           Name: unsigned long long
         ExtAttrs:
           - Name: EnforceRange
-- File: fs.idl
+- File: webref/fs.idl
   Dict:
     Name: FileSystemRemoveOptions
     Fields:
@@ -146,7 +146,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: fs.idl
+- File: webref/fs.idl
   Interface:
     Name: FileSystemSyncAccessHandle
     ExtAttrs:
@@ -227,7 +227,7 @@
             Values:
               - DedicatedWorker
           - Name: SecureContext
-- File: fs.idl
+- File: webref/fs.idl
   Interface:
     Name: FileSystemWritableFileStream
     Inherits: WritableStream
@@ -237,7 +237,6 @@
           - Window
           - Worker
       - Name: SecureContext
-      - Name: Transferable
     Operations:
       - Name: write
         Args:
@@ -254,7 +253,6 @@
               - Window
               - Worker
           - Name: SecureContext
-          - Name: Transferable
       - Name: seek
         Args:
           - Name: position
@@ -270,7 +268,6 @@
               - Window
               - Worker
           - Name: SecureContext
-          - Name: Transferable
       - Name: truncate
         Args:
           - Name: size
@@ -286,7 +283,6 @@
               - Window
               - Worker
           - Name: SecureContext
-          - Name: Transferable
     Constructors:
       - Name: FileSystemWritableFileStream
         Args:
@@ -302,8 +298,7 @@
         ExtAttrs:
           - Name: Exposed
           - Name: Transferable
-          - Name: SecureContext
-- File: fs.idl
+- File: webref/fs.idl
   Typedef:
     Name: FileSystemWriteChunkType
     Type:
@@ -312,14 +307,14 @@
         - Name: Blob
         - Name: USVString
         - Name: WriteParams
-- File: image-capture.idl
+- File: webref/image-capture.idl
   Enum:
     Name: FillLightMode
     Values:
       - auto
       - "off"
       - flash
-- File: web-animations.idl
+- File: webref/web-animations.idl
   Enum:
     Name: FillMode
     Values:
@@ -328,7 +323,7 @@
       - backwards
       - both
       - auto
-- File: webcodecs-flac-codec-registration.idl
+- File: webref/webcodecs-flac-codec-registration.idl
   Dict:
     Name: FlacEncoderConfig
     Fields:
@@ -344,7 +339,7 @@
           Name: unsigned long
         ExtAttrs:
           - Name: EnforceRange
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Typedef:
     Name: Float32List
     Type:
@@ -353,13 +348,13 @@
         - Name: sequence
           Params:
             - Name: GLfloat
-- File: serial.idl
+- File: webref/serial.idl
   Enum:
     Name: FlowControlType
     Values:
       - none
       - hardware
-- File: uievents.idl
+- File: webref/uievents.idl
   Interface:
     Name: FocusEvent
     Inherits: UIEvent
@@ -391,7 +386,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: uievents.idl
+- File: webref/uievents.idl
   Dict:
     Name: FocusEventInit
     Inherits: UIEventInit
@@ -422,7 +417,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: FocusOptions
     Fields:
@@ -433,20 +428,20 @@
       - Name: focusVisible
         Type:
           Name: boolean
-- File: css-nav.idl
+- File: webref/css-nav.idl
   Enum:
     Name: FocusableAreaSearchMode
     Values:
       - visible
       - all
-- File: css-nav.idl
+- File: webref/css-nav.idl
   Dict:
     Name: FocusableAreasOption
     Fields:
       - Name: mode
         Type:
           Name: FocusableAreaSearchMode
-- File: font-metrics-api.idl
+- File: webref/font-metrics-api.idl
   Interface:
     Name: Font
     ExtAttrs:
@@ -470,7 +465,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: local-font-access.idl
+- File: webref/local-font-access.idl
   Interface:
     Name: FontData
     ExtAttrs:
@@ -520,7 +515,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: css-font-loading.idl
+- File: webref/css-font-loading.idl
   Interface:
     Name: FontFace
     ExtAttrs:
@@ -688,7 +683,7 @@
             Values:
               - Window
               - Worker
-- File: css-font-loading.idl
+- File: webref/css-font-loading.idl
   Dict:
     Name: FontFaceDescriptors
     Fields:
@@ -736,7 +731,7 @@
         Default: '"normal"'
         Type:
           Name: CSSOMString
-- File: css-font-loading.idl
+- File: webref/css-font-loading.idl
   Interface:
     Name: FontFaceFeatures
     ExtAttrs:
@@ -744,7 +739,7 @@
         Values:
           - Window
           - Worker
-- File: css-font-loading.idl
+- File: webref/css-font-loading.idl
   Enum:
     Name: FontFaceLoadStatus
     Values:
@@ -752,7 +747,7 @@
       - loading
       - loaded
       - error
-- File: css-font-loading.idl
+- File: webref/css-font-loading.idl
   Interface:
     Name: FontFacePalette
     ExtAttrs:
@@ -804,7 +799,7 @@
     Iterable:
       TypeParams:
         - Name: DOMString
-- File: css-font-loading.idl
+- File: webref/css-font-loading.idl
   Interface:
     Name: FontFacePalettes
     ExtAttrs:
@@ -838,7 +833,7 @@
     Iterable:
       TypeParams:
         - Name: FontFacePalette
-- File: css-font-loading.idl
+- File: webref/css-font-loading.idl
   Interface:
     Name: FontFaceSet
     Inherits: EventTarget
@@ -978,7 +973,7 @@
     Setlike:
       TypeParams:
         - Name: FontFace
-- File: css-font-loading.idl
+- File: webref/css-font-loading.idl
   Interface:
     Name: FontFaceSetLoadEvent
     Inherits: Event
@@ -1015,7 +1010,7 @@
             Values:
               - Window
               - Worker
-- File: css-font-loading.idl
+- File: webref/css-font-loading.idl
   Dict:
     Name: FontFaceSetLoadEventInit
     Inherits: EventInit
@@ -1038,13 +1033,13 @@
         Default: "false"
         Type:
           Name: boolean
-- File: css-font-loading.idl
+- File: webref/css-font-loading.idl
   Enum:
     Name: FontFaceSetLoadStatus
     Values:
       - loading
       - loaded
-- File: css-font-loading.idl
+- File: webref/css-font-loading.idl
   Interface:
     Name: FontFaceVariationAxis
     ExtAttrs:
@@ -1098,7 +1093,7 @@
             Values:
               - Window
               - Worker
-- File: css-font-loading.idl
+- File: webref/css-font-loading.idl
   Interface:
     Name: FontFaceVariations
     ExtAttrs:
@@ -1110,7 +1105,7 @@
       TypeParams:
         - Name: FontFaceVariationAxis
       Readonly: true
-- File: font-metrics-api.idl
+- File: webref/font-metrics-api.idl
   Interface:
     Name: FontMetrics
     ExtAttrs:
@@ -1236,7 +1231,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: xhr.idl
+- File: webref/xhr.idl
   Interface:
     Name: FormData
     ExtAttrs:
@@ -1385,14 +1380,14 @@
       TypeParams:
         - Name: USVString
         - Name: FormDataEntryValue
-- File: xhr.idl
+- File: webref/xhr.idl
   Typedef:
     Name: FormDataEntryValue
     Type:
       Union:
         - Name: File
         - Name: USVString
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: FormDataEvent
     Inherits: Event
@@ -1421,7 +1416,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: FormDataEventInit
     Inherits: EventInit
@@ -1442,14 +1437,14 @@
         Default: "false"
         Type:
           Name: boolean
-- File: scroll-to-text-fragment.idl
+- File: webref/scroll-to-text-fragment.idl
   Interface:
     Name: FragmentDirective
     ExtAttrs:
       - Name: Exposed
         Values:
           - Window
-- File: css-layout-api.idl
+- File: webref/css-layout-api.idl
   Interface:
     Name: FragmentResult
     ExtAttrs:
@@ -1484,7 +1479,7 @@
           - Name: Exposed
             Values:
               - LayoutWorklet
-- File: css-layout-api.idl
+- File: webref/css-layout-api.idl
   Dict:
     Name: FragmentResultOptions
     Fields:
@@ -1514,7 +1509,7 @@
         Default: "null"
         Type:
           Name: BreakTokenOptions
-- File: html.idl
+- File: webref/html.idl
   Callback:
     Name: FrameRequestCallback
     Args:
@@ -1523,7 +1518,7 @@
           Name: DOMHighResTimeStamp
     Returns:
       - Name: undefined
-- File: service-workers.idl
+- File: webref/service-workers.idl
   Enum:
     Name: FrameType
     Values:
@@ -1531,14 +1526,14 @@
       - top-level
       - nested
       - none
-- File: fullscreen.idl
+- File: webref/fullscreen.idl
   Enum:
     Name: FullscreenNavigationUI
     Values:
       - auto
       - show
       - hide
-- File: fullscreen.idl
+- File: webref/fullscreen.idl
   Dict:
     Name: FullscreenOptions
     Fields:
@@ -1549,7 +1544,7 @@
       - Name: screen
         Type:
           Name: ScreenDetailed
-- File: webidl.idl
+- File: webref/webidl.idl
   Callback:
     Name: Function
     Args:
@@ -1559,7 +1554,7 @@
           Name: any
     Returns:
       - Name: any
-- File: html.idl
+- File: webref/html.idl
   Callback:
     Name: FunctionStringCallback
     Args:
@@ -1568,7 +1563,7 @@
           Name: DOMString
     Returns:
       - Name: undefined
-- File: webgl1.idl
+- File: webref/webgl1.idl
   Typedef:
     Name: GLbitfield
     Type:

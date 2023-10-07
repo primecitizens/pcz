@@ -1,0 +1,956 @@
+- File: webext/chrome/scripting.idl
+  Dict:
+    Name: CSSInjection
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - scripting
+    Fields:
+      - Name: target
+        Type:
+          Name: InjectionTarget
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+      - Name: css
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+      - Name: files
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - scripting
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+      - Name: origin
+        Type:
+          Name: StyleOrigin
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+- File: webext/chrome/scripting.idl
+  Callback:
+    Name: CSSInjectionCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - scripting
+- File: webext/chrome/scripting.idl
+  Dict:
+    Name: ContentScriptFilter
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - scripting
+    Fields:
+      - Name: ids
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - scripting
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+- File: webext/chrome/scripting.idl
+  Enum:
+    Name: ExecutionWorld
+    Values:
+      - ISOLATED
+      - MAIN
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - scripting
+- File: webext/chrome/scripting.idl
+  Callback:
+    Name: GetRegisteredContentScriptsCallback
+    Args:
+      - Name: scripts
+        Type:
+          Name: sequence
+          Params:
+            - Name: RegisteredContentScript
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - scripting
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - scripting
+- File: webext/chrome/scripting.idl
+  Callback:
+    Name: InjectedFunction
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - scripting
+- File: webext/chrome/scripting.idl
+  Dict:
+    Name: InjectionResult
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - scripting
+    Fields:
+      - Name: result
+        Type:
+          Name: any
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+      - Name: frameId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+      - Name: documentId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+- File: webext/chrome/scripting.idl
+  Dict:
+    Name: InjectionTarget
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - scripting
+    Fields:
+      - Name: tabId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+      - Name: frameIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: long
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - scripting
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+      - Name: documentIds
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - scripting
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+      - Name: allFrames
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+- File: webext/chrome/scripting.idl
+  Interface:
+    Name: Properties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - scripting
+    Operations:
+      - Name: globalParams
+        Modifier: static
+        Returns:
+          - Name: long
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - scripting
+        ExtAttrs:
+          - Name: nodoc
+          - Name: nocompile
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+- File: webext/chrome/scripting.idl
+  Callback:
+    Name: RegisterContentScriptsCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - scripting
+- File: webext/chrome/scripting.idl
+  Dict:
+    Name: RegisteredContentScript
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - scripting
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+      - Name: matches
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - scripting
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+      - Name: excludeMatches
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - scripting
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+      - Name: css
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - scripting
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+      - Name: js
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - scripting
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+      - Name: allFrames
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+      - Name: matchOriginAsFallback
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+      - Name: runAt
+        Type:
+          Name: RunAt
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionTypes
+      - Name: persistAcrossSessions
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+      - Name: world
+        Type:
+          Name: ExecutionWorld
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+- File: webext/chrome/scripting.idl
+  Dict:
+    Name: ScriptInjection
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - scripting
+    Fields:
+      - Name: func
+        Type:
+          Name: InjectedFunction
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: serializableFunction
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+      - Name: args
+        Type:
+          Name: sequence
+          Params:
+            - Name: any
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - scripting
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+      - Name: function
+        Type:
+          Name: InjectedFunction
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: nodoc
+          - Name: serializableFunction
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+      - Name: files
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - scripting
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+      - Name: target
+        Type:
+          Name: InjectionTarget
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+      - Name: world
+        Type:
+          Name: ExecutionWorld
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+      - Name: injectImmediately
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+- File: webext/chrome/scripting.idl
+  Callback:
+    Name: ScriptInjectionCallback
+    Args:
+      - Name: results
+        Type:
+          Name: sequence
+          Params:
+            - Name: InjectionResult
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - scripting
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - scripting
+- File: webext/chrome/scripting.idl
+  Enum:
+    Name: StyleOrigin
+    Values:
+      - AUTHOR
+      - USER
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - scripting
+- File: webext/chrome/scripting.idl
+  Callback:
+    Name: UnregisterContentScriptsCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - scripting
+- File: webext/chrome/scripting.idl
+  Callback:
+    Name: UpdateContentScriptsCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - scripting
+- File: webext/chrome/scripting.idl
+  WebextFunc:
+    Name: executeScript
+    Modifier: static
+    Args:
+      - Name: injection
+        Type:
+          Name: ScriptInjection
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: InjectionResult
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - scripting
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - scripting
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - scripting
+- File: webext/chrome/scripting.idl
+  WebextFunc:
+    Name: getRegisteredContentScripts
+    Modifier: static
+    Args:
+      - Name: filter
+        Optional: true
+        Type:
+          Name: ContentScriptFilter
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: RegisteredContentScript
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - scripting
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - scripting
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - scripting
+- File: webext/chrome/scripting.idl
+  WebextFunc:
+    Name: insertCSS
+    Modifier: static
+    Args:
+      - Name: injection
+        Type:
+          Name: CSSInjection
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - scripting
+- File: webext/chrome/scripting.idl
+  WebextFunc:
+    Name: registerContentScripts
+    Modifier: static
+    Args:
+      - Name: scripts
+        Type:
+          Name: sequence
+          Params:
+            - Name: RegisteredContentScript
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - scripting
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - scripting
+- File: webext/chrome/scripting.idl
+  WebextFunc:
+    Name: removeCSS
+    Modifier: static
+    Args:
+      - Name: injection
+        Type:
+          Name: CSSInjection
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - scripting
+- File: webext/chrome/scripting.idl
+  WebextFunc:
+    Name: unregisterContentScripts
+    Modifier: static
+    Args:
+      - Name: filter
+        Optional: true
+        Type:
+          Name: ContentScriptFilter
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - scripting
+- File: webext/chrome/scripting.idl
+  WebextFunc:
+    Name: updateContentScripts
+    Modifier: static
+    Args:
+      - Name: scripts
+        Type:
+          Name: sequence
+          Params:
+            - Name: RegisteredContentScript
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - scripting
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - scripting
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - scripting
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - scripting

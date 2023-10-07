@@ -1,0 +1,16 @@
+- File: webext/chrome/command_line_private.json
+  WebextFunc:
+    Name: hasSwitch
+    Args:
+      - Name: name
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - commandLinePrivate

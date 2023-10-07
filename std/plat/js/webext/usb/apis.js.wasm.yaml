@@ -1,0 +1,2225 @@
+- File: webext/usb.idl
+  Callback:
+    Name: CloseDeviceCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  Dict:
+    Name: ConfigDescriptor
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+    Fields:
+      - Name: active
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: configurationValue
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: description
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: selfPowered
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: remoteWakeup
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: maxPower
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: interfaces
+        Type:
+          Name: sequence
+          Params:
+            - Name: InterfaceDescriptor
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - usb
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: extra_data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+- File: webext/usb.idl
+  Dict:
+    Name: ConnectionHandle
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+    Fields:
+      - Name: handle
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: vendorId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: productId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+- File: webext/usb.idl
+  Dict:
+    Name: ControlTransferInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+    Fields:
+      - Name: direction
+        Type:
+          Name: Direction
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: recipient
+        Type:
+          Name: Recipient
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: requestType
+        Type:
+          Name: RequestType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: request
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: value
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: index
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: length
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: timeout
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+- File: webext/usb.idl
+  Dict:
+    Name: Device
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+    Fields:
+      - Name: device
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: vendorId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: productId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: version
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: productName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: manufacturerName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: serialNumber
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+- File: webext/usb.idl
+  Dict:
+    Name: DeviceFilter
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+    Fields:
+      - Name: vendorId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: productId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: interfaceClass
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: interfaceSubclass
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: interfaceProtocol
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+- File: webext/usb.idl
+  Dict:
+    Name: DevicePromptOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+    Fields:
+      - Name: multiple
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: filters
+        Type:
+          Name: sequence
+          Params:
+            - Name: DeviceFilter
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - usb
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+- File: webext/usb.idl
+  Enum:
+    Name: Direction
+    Values:
+      - in
+      - out
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  Dict:
+    Name: EndpointDescriptor
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+    Fields:
+      - Name: address
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: type
+        Type:
+          Name: TransferType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: direction
+        Type:
+          Name: Direction
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: maximumPacketSize
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: synchronization
+        Type:
+          Name: SynchronizationType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: usage
+        Type:
+          Name: UsageType
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: pollingInterval
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: extra_data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+- File: webext/usb.idl
+  Dict:
+    Name: EnumerateDevicesAndRequestAccessOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+    Fields:
+      - Name: vendorId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: productId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: interfaceId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+- File: webext/usb.idl
+  Dict:
+    Name: EnumerateDevicesOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+    Fields:
+      - Name: vendorId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: deprecated
+            Values:
+              - Equivalent to setting $(ref:DeviceFilter.vendorId).
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: productId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: deprecated
+            Values:
+              - Equivalent to setting $(ref:DeviceFilter.productId).
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: filters
+        Type:
+          Name: sequence
+          Params:
+            - Name: DeviceFilter
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - usb
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+- File: webext/usb.idl
+  Callback:
+    Name: FindDevicesCallback
+    Args:
+      - Name: handles
+        Type:
+          Name: sequence
+          Params:
+            - Name: ConnectionHandle
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - usb
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  Dict:
+    Name: GenericTransferInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+    Fields:
+      - Name: direction
+        Type:
+          Name: Direction
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: endpoint
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: length
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: timeout
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+- File: webext/usb.idl
+  Callback:
+    Name: GetConfigurationCallback
+    Args:
+      - Name: config
+        Type:
+          Name: ConfigDescriptor
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  Callback:
+    Name: GetConfigurationsCallback
+    Args:
+      - Name: configs
+        Type:
+          Name: sequence
+          Params:
+            - Name: ConfigDescriptor
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - usb
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  Callback:
+    Name: GetDevicesCallback
+    Args:
+      - Name: devices
+        Type:
+          Name: sequence
+          Params:
+            - Name: Device
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - usb
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  Dict:
+    Name: InterfaceDescriptor
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+    Fields:
+      - Name: interfaceNumber
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: alternateSetting
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: interfaceClass
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: interfaceSubclass
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: interfaceProtocol
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: description
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: endpoints
+        Type:
+          Name: sequence
+          Params:
+            - Name: EndpointDescriptor
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - usb
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: extra_data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+- File: webext/usb.idl
+  Dict:
+    Name: IsochronousTransferInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+    Fields:
+      - Name: transferInfo
+        Type:
+          Name: GenericTransferInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: packets
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: packetLength
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+- File: webext/usb.idl
+  Callback:
+    Name: ListInterfacesCallback
+    Args:
+      - Name: descriptors
+        Type:
+          Name: sequence
+          Params:
+            - Name: InterfaceDescriptor
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - usb
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  Callback:
+    Name: OpenDeviceCallback
+    Args:
+      - Name: handle
+        Type:
+          Name: ConnectionHandle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  Enum:
+    Name: Recipient
+    Values:
+      - device
+      - _interface
+      - endpoint
+      - other
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  Callback:
+    Name: RequestAccessCallback
+    Args:
+      - Name: success
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  Enum:
+    Name: RequestType
+    Values:
+      - standard
+      - class
+      - vendor
+      - reserved
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  Callback:
+    Name: ResetDeviceCallback
+    Args:
+      - Name: success
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  Enum:
+    Name: SynchronizationType
+    Values:
+      - asynchronous
+      - adaptive
+      - synchronous
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  Callback:
+    Name: TransferCallback
+    Args:
+      - Name: info
+        Type:
+          Name: TransferResultInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  Dict:
+    Name: TransferResultInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+    Fields:
+      - Name: resultCode
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+- File: webext/usb.idl
+  Enum:
+    Name: TransferType
+    Values:
+      - control
+      - interrupt
+      - isochronous
+      - bulk
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  Enum:
+    Name: UsageType
+    Values:
+      - data
+      - feedback
+      - explicitFeedback
+      - periodic
+      - notification
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  Callback:
+    Name: VoidCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  WebextFunc:
+    Name: bulkTransfer
+    Modifier: static
+    Args:
+      - Name: handle
+        Type:
+          Name: ConnectionHandle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: transferInfo
+        Type:
+          Name: GenericTransferInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: TransferResultInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - usb
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  WebextFunc:
+    Name: claimInterface
+    Modifier: static
+    Args:
+      - Name: handle
+        Type:
+          Name: ConnectionHandle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: interfaceNumber
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  WebextFunc:
+    Name: closeDevice
+    Modifier: static
+    Args:
+      - Name: handle
+        Type:
+          Name: ConnectionHandle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  WebextFunc:
+    Name: controlTransfer
+    Modifier: static
+    Args:
+      - Name: handle
+        Type:
+          Name: ConnectionHandle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: transferInfo
+        Type:
+          Name: ControlTransferInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: TransferResultInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - usb
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  WebextFunc:
+    Name: findDevices
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: EnumerateDevicesAndRequestAccessOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: ConnectionHandle
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - usb
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - usb
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  WebextFunc:
+    Name: getConfiguration
+    Modifier: static
+    Args:
+      - Name: handle
+        Type:
+          Name: ConnectionHandle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ConfigDescriptor
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - usb
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  WebextFunc:
+    Name: getConfigurations
+    Modifier: static
+    Args:
+      - Name: device
+        Type:
+          Name: Device
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: ConfigDescriptor
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - usb
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - usb
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  WebextFunc:
+    Name: getDevices
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: EnumerateDevicesOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: Device
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - usb
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - usb
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  WebextFunc:
+    Name: getUserSelectedDevices
+    Modifier: static
+    Args:
+      - Name: options
+        Type:
+          Name: DevicePromptOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: Device
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - usb
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - usb
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  WebextFunc:
+    Name: interruptTransfer
+    Modifier: static
+    Args:
+      - Name: handle
+        Type:
+          Name: ConnectionHandle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: transferInfo
+        Type:
+          Name: GenericTransferInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: TransferResultInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - usb
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  WebextFunc:
+    Name: isochronousTransfer
+    Modifier: static
+    Args:
+      - Name: handle
+        Type:
+          Name: ConnectionHandle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: transferInfo
+        Type:
+          Name: IsochronousTransferInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: TransferResultInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - usb
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  WebextFunc:
+    Name: listInterfaces
+    Modifier: static
+    Args:
+      - Name: handle
+        Type:
+          Name: ConnectionHandle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: InterfaceDescriptor
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - usb
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - usb
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  WebextEvent:
+    Name: onDeviceAdded
+    Modifier: static
+    Args:
+      - Name: device
+        Type:
+          Name: Device
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  WebextEvent:
+    Name: onDeviceRemoved
+    Modifier: static
+    Args:
+      - Name: device
+        Type:
+          Name: Device
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  WebextFunc:
+    Name: openDevice
+    Modifier: static
+    Args:
+      - Name: device
+        Type:
+          Name: Device
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ConnectionHandle
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - usb
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  WebextFunc:
+    Name: releaseInterface
+    Modifier: static
+    Args:
+      - Name: handle
+        Type:
+          Name: ConnectionHandle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: interfaceNumber
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  WebextFunc:
+    Name: requestAccess
+    Modifier: static
+    Args:
+      - Name: device
+        Type:
+          Name: Device
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: interfaceId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - usb
+    ExtAttrs:
+      - Name: deprecated
+        Values:
+          - This function was Chrome OS specific and calling it on other platforms would fail. This operation is now implicitly performed as part of $(ref:openDevice) and this function will return <code>true</code> on all platforms.
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  WebextFunc:
+    Name: resetDevice
+    Modifier: static
+    Args:
+      - Name: handle
+        Type:
+          Name: ConnectionHandle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - usb
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  WebextFunc:
+    Name: setConfiguration
+    Modifier: static
+    Args:
+      - Name: handle
+        Type:
+          Name: ConnectionHandle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: configurationValue
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb
+- File: webext/usb.idl
+  WebextFunc:
+    Name: setInterfaceAlternateSetting
+    Modifier: static
+    Args:
+      - Name: handle
+        Type:
+          Name: ConnectionHandle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: interfaceNumber
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+      - Name: alternateSetting
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - usb
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - usb
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - usb

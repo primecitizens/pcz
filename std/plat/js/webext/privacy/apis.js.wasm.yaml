@@ -1,0 +1,365 @@
+- File: webext/chrome/privacy.json
+  Enum:
+    Name: IPHandlingPolicy
+    Values:
+      - default
+      - default_public_and_private_interfaces
+      - default_public_interface_only
+      - disable_non_proxied_udp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - privacy
+- File: webext/chrome/privacy.json
+  Dict:
+    Name: NetworkProperty
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - privacy
+    Fields:
+      - Name: networkPredictionEnabled
+        Required: true
+        Type:
+          Name: ChromeSetting
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - types
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - privacy
+      - Name: webRTCIPHandlingPolicy
+        Required: true
+        Type:
+          Name: ChromeSetting
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - types
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - privacy
+- File: webext/chrome/privacy.json
+  Dict:
+    Name: ServicesProperty
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - privacy
+    Fields:
+      - Name: alternateErrorPagesEnabled
+        Required: true
+        Type:
+          Name: ChromeSetting
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - types
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - privacy
+      - Name: autofillAddressEnabled
+        Required: true
+        Type:
+          Name: ChromeSetting
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - types
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - privacy
+      - Name: autofillCreditCardEnabled
+        Required: true
+        Type:
+          Name: ChromeSetting
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - types
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - privacy
+      - Name: autofillEnabled
+        Required: true
+        Type:
+          Name: ChromeSetting
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - types
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - privacy
+      - Name: passwordSavingEnabled
+        Required: true
+        Type:
+          Name: ChromeSetting
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - types
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - privacy
+      - Name: safeBrowsingEnabled
+        Required: true
+        Type:
+          Name: ChromeSetting
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - types
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - privacy
+      - Name: safeBrowsingExtendedReportingEnabled
+        Required: true
+        Type:
+          Name: ChromeSetting
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - types
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - privacy
+      - Name: searchSuggestEnabled
+        Required: true
+        Type:
+          Name: ChromeSetting
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - types
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - privacy
+      - Name: spellingServiceEnabled
+        Required: true
+        Type:
+          Name: ChromeSetting
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - types
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - privacy
+      - Name: translationServiceEnabled
+        Required: true
+        Type:
+          Name: ChromeSetting
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - types
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - privacy
+- File: webext/chrome/privacy.json
+  Dict:
+    Name: WebsitesProperty
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - privacy
+    Fields:
+      - Name: adMeasurementEnabled
+        Required: true
+        Type:
+          Name: ChromeSetting
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - types
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - privacy
+      - Name: doNotTrackEnabled
+        Required: true
+        Type:
+          Name: ChromeSetting
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - types
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - privacy
+      - Name: fledgeEnabled
+        Required: true
+        Type:
+          Name: ChromeSetting
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - types
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - privacy
+      - Name: hyperlinkAuditingEnabled
+        Required: true
+        Type:
+          Name: ChromeSetting
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - types
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - privacy
+      - Name: protectedContentEnabled
+        Required: true
+        Type:
+          Name: ChromeSetting
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - types
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - privacy
+      - Name: referrersEnabled
+        Required: true
+        Type:
+          Name: ChromeSetting
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - types
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - privacy
+      - Name: thirdPartyCookiesAllowed
+        Required: true
+        Type:
+          Name: ChromeSetting
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - types
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - privacy
+      - Name: topicsEnabled
+        Required: true
+        Type:
+          Name: ChromeSetting
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - types
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - privacy
+- File: webext/chrome/privacy.json
+  WebextProp:
+    Name: network
+    Type:
+      Name: NetworkProperty
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - privacy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - privacy
+- File: webext/chrome/privacy.json
+  WebextProp:
+    Name: services
+    Type:
+      Name: ServicesProperty
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - privacy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - privacy
+- File: webext/chrome/privacy.json
+  WebextProp:
+    Name: websites
+    Type:
+      Name: WebsitesProperty
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - privacy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - privacy

@@ -1,0 +1,615 @@
+- File: webext/chrome/vpn_provider.idl
+  Callback:
+    Name: CallCompleteCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - vpnProvider
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+      - Name: inline_doc
+- File: webext/chrome/vpn_provider.idl
+  Callback:
+    Name: CreateConfigCompleteCallback
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - vpnProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - vpnProvider
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+      - Name: inline_doc
+- File: webext/chrome/vpn_provider.idl
+  Dict:
+    Name: Parameters
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - vpnProvider
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+    Fields:
+      - Name: address
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - vpnProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+      - Name: broadcastAddress
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - vpnProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+      - Name: mtu
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - vpnProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+      - Name: exclusionList
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - vpnProvider
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - vpnProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+      - Name: inclusionList
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - vpnProvider
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - vpnProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+      - Name: domainSearch
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - vpnProvider
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - vpnProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+      - Name: dnsServers
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - vpnProvider
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - vpnProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+      - Name: reconnect
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - vpnProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+- File: webext/chrome/vpn_provider.idl
+  Enum:
+    Name: PlatformMessage
+    Values:
+      - connected
+      - disconnected
+      - error
+      - linkDown
+      - linkUp
+      - linkChanged
+      - suspend
+      - resume
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - vpnProvider
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/vpn_provider.idl
+  Enum:
+    Name: UIEvent
+    Values:
+      - showAddDialog
+      - showConfigureDialog
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - vpnProvider
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/vpn_provider.idl
+  Enum:
+    Name: VpnConnectionState
+    Values:
+      - connected
+      - failure
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - vpnProvider
+      - Name: platforms
+        Values:
+          - chromeos
+          - lacros
+- File: webext/chrome/vpn_provider.idl
+  WebextFunc:
+    Name: createConfig
+    Modifier: static
+    Args:
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - vpnProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - vpnProvider
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - vpnProvider
+- File: webext/chrome/vpn_provider.idl
+  WebextFunc:
+    Name: destroyConfig
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - vpnProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - vpnProvider
+- File: webext/chrome/vpn_provider.idl
+  WebextFunc:
+    Name: notifyConnectionStateChanged
+    Modifier: static
+    Args:
+      - Name: state
+        Type:
+          Name: VpnConnectionState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - vpnProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - vpnProvider
+- File: webext/chrome/vpn_provider.idl
+  WebextEvent:
+    Name: onConfigCreated
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - vpnProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - vpnProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+      - Name: data
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - vpnProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - vpnProvider
+- File: webext/chrome/vpn_provider.idl
+  WebextEvent:
+    Name: onConfigRemoved
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - vpnProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - vpnProvider
+- File: webext/chrome/vpn_provider.idl
+  WebextEvent:
+    Name: onPacketReceived
+    Modifier: static
+    Args:
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - vpnProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - vpnProvider
+- File: webext/chrome/vpn_provider.idl
+  WebextEvent:
+    Name: onPlatformMessage
+    Modifier: static
+    Args:
+      - Name: id
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - vpnProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+      - Name: message
+        Type:
+          Name: PlatformMessage
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - vpnProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+      - Name: error
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - vpnProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - vpnProvider
+- File: webext/chrome/vpn_provider.idl
+  WebextEvent:
+    Name: onUIEvent
+    Modifier: static
+    Args:
+      - Name: event
+        Type:
+          Name: UIEvent
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - vpnProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+      - Name: id
+        Optional: true
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - vpnProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - vpnProvider
+- File: webext/chrome/vpn_provider.idl
+  WebextFunc:
+    Name: sendPacket
+    Modifier: static
+    Args:
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - vpnProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - vpnProvider
+- File: webext/chrome/vpn_provider.idl
+  WebextFunc:
+    Name: setParameters
+    Modifier: static
+    Args:
+      - Name: parameters
+        Type:
+          Name: Parameters
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - vpnProvider
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - vpnProvider
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - vpnProvider

@@ -1,0 +1,1565 @@
+- File: webext/serial.idl
+  Callback:
+    Name: ClearBreakCallback
+    Args:
+      - Name: result
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  Callback:
+    Name: ConnectCallback
+    Args:
+      - Name: connectionInfo
+        Type:
+          Name: ConnectionInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  Dict:
+    Name: ConnectionInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+    Fields:
+      - Name: connectionId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: paused
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: persistent
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: bufferSize
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: receiveTimeout
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: sendTimeout
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: bitrate
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: dataBits
+        Type:
+          Name: DataBits
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: parityBit
+        Type:
+          Name: ParityBit
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: stopBits
+        Type:
+          Name: StopBits
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: ctsFlowControl
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+- File: webext/serial.idl
+  Dict:
+    Name: ConnectionOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+    Fields:
+      - Name: persistent
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: name
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: bufferSize
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: bitrate
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: dataBits
+        Type:
+          Name: DataBits
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: parityBit
+        Type:
+          Name: ParityBit
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: stopBits
+        Type:
+          Name: StopBits
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: ctsFlowControl
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: receiveTimeout
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: sendTimeout
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+- File: webext/serial.idl
+  Enum:
+    Name: DataBits
+    Values:
+      - seven
+      - eight
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  Dict:
+    Name: DeviceControlSignals
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+    Fields:
+      - Name: dcd
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: cts
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: ri
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: dsr
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+- File: webext/serial.idl
+  Dict:
+    Name: DeviceInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+    Fields:
+      - Name: path
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: vendorId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: productId
+        Type:
+          Name: long
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: displayName
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+- File: webext/serial.idl
+  Callback:
+    Name: DisconnectCallback
+    Args:
+      - Name: result
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  Callback:
+    Name: FlushCallback
+    Args:
+      - Name: result
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  Callback:
+    Name: GetConnectionsCallback
+    Args:
+      - Name: connectionInfos
+        Type:
+          Name: sequence
+          Params:
+            - Name: ConnectionInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - serial
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  Callback:
+    Name: GetControlSignalsCallback
+    Args:
+      - Name: signals
+        Type:
+          Name: DeviceControlSignals
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  Callback:
+    Name: GetDevicesCallback
+    Args:
+      - Name: ports
+        Type:
+          Name: sequence
+          Params:
+            - Name: DeviceInfo
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - serial
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  Callback:
+    Name: GetInfoCallback
+    Args:
+      - Name: connectionInfo
+        Type:
+          Name: ConnectionInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  Dict:
+    Name: HostControlSignals
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+    Fields:
+      - Name: dtr
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: rts
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+- File: webext/serial.idl
+  Enum:
+    Name: ParityBit
+    Values:
+      - "no"
+      - odd
+      - even
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  Enum:
+    Name: ReceiveError
+    Values:
+      - disconnected
+      - timeout
+      - device_lost
+      - break
+      - frame_error
+      - overrun
+      - buffer_overflow
+      - parity_error
+      - system_error
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  Dict:
+    Name: ReceiveErrorInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+    Fields:
+      - Name: connectionId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: error
+        Type:
+          Name: ReceiveError
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+- File: webext/serial.idl
+  Dict:
+    Name: ReceiveInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+    Fields:
+      - Name: connectionId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+- File: webext/serial.idl
+  Callback:
+    Name: SendCallback
+    Args:
+      - Name: sendInfo
+        Type:
+          Name: SendInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  Enum:
+    Name: SendError
+    Values:
+      - disconnected
+      - pending
+      - timeout
+      - system_error
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  Dict:
+    Name: SendInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+    Fields:
+      - Name: bytesSent
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: error
+        Type:
+          Name: SendError
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+- File: webext/serial.idl
+  Callback:
+    Name: SetBreakCallback
+    Args:
+      - Name: result
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  Callback:
+    Name: SetControlSignalsCallback
+    Args:
+      - Name: result
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  Callback:
+    Name: SetPausedCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  Enum:
+    Name: StopBits
+    Values:
+      - one
+      - two
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  Callback:
+    Name: UpdateCallback
+    Args:
+      - Name: result
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  WebextFunc:
+    Name: clearBreak
+    Modifier: static
+    Args:
+      - Name: connectionId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - serial
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  WebextFunc:
+    Name: connect
+    Modifier: static
+    Args:
+      - Name: path
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: options
+        Optional: true
+        Type:
+          Name: ConnectionOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ConnectionInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - serial
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  WebextFunc:
+    Name: disconnect
+    Modifier: static
+    Args:
+      - Name: connectionId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - serial
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  WebextFunc:
+    Name: flush
+    Modifier: static
+    Args:
+      - Name: connectionId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - serial
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  WebextFunc:
+    Name: getConnections
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: ConnectionInfo
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - serial
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - serial
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  WebextFunc:
+    Name: getControlSignals
+    Modifier: static
+    Args:
+      - Name: connectionId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DeviceControlSignals
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - serial
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  WebextFunc:
+    Name: getDevices
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: DeviceInfo
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - serial
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - serial
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  WebextFunc:
+    Name: getInfo
+    Modifier: static
+    Args:
+      - Name: connectionId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: ConnectionInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - serial
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  WebextEvent:
+    Name: onReceive
+    Modifier: static
+    Args:
+      - Name: info
+        Type:
+          Name: ReceiveInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  WebextEvent:
+    Name: onReceiveError
+    Modifier: static
+    Args:
+      - Name: info
+        Type:
+          Name: ReceiveErrorInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  WebextFunc:
+    Name: send
+    Modifier: static
+    Args:
+      - Name: connectionId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: SendInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - serial
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  WebextFunc:
+    Name: setBreak
+    Modifier: static
+    Args:
+      - Name: connectionId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - serial
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  WebextFunc:
+    Name: setControlSignals
+    Modifier: static
+    Args:
+      - Name: connectionId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: signals
+        Type:
+          Name: HostControlSignals
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - serial
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  WebextFunc:
+    Name: setPaused
+    Modifier: static
+    Args:
+      - Name: connectionId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: paused
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial
+- File: webext/serial.idl
+  WebextFunc:
+    Name: update
+    Modifier: static
+    Args:
+      - Name: connectionId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+      - Name: options
+        Type:
+          Name: ConnectionOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - serial
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - serial
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - serial
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - serial

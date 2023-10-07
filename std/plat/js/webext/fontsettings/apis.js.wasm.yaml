@@ -1,0 +1,1097 @@
+- File: webext/chrome/font_settings.json
+  Dict:
+    Name: ClearDefaultFixedFontSizeArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  Dict:
+    Name: ClearDefaultFontSizeArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  Dict:
+    Name: ClearFontArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+    Fields:
+      - Name: genericFamily
+        Required: true
+        Type:
+          Name: GenericFamily
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+      - Name: script
+        Type:
+          Name: ScriptCode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+- File: webext/chrome/font_settings.json
+  Dict:
+    Name: ClearMinimumFontSizeArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  Dict:
+    Name: FontName
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+    Fields:
+      - Name: displayName
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+      - Name: fontId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+- File: webext/chrome/font_settings.json
+  Enum:
+    Name: GenericFamily
+    Values:
+      - standard
+      - sansserif
+      - serif
+      - fixed
+      - cursive
+      - fantasy
+      - math
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  Dict:
+    Name: GetDefaultFixedFontSizeArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  Dict:
+    Name: GetDefaultFixedFontSizeReturnType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+    Fields:
+      - Name: levelOfControl
+        Required: true
+        Type:
+          Name: LevelOfControl
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+      - Name: pixelSize
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+- File: webext/chrome/font_settings.json
+  Dict:
+    Name: GetDefaultFontSizeArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  Dict:
+    Name: GetDefaultFontSizeReturnType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+    Fields:
+      - Name: levelOfControl
+        Required: true
+        Type:
+          Name: LevelOfControl
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+      - Name: pixelSize
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+- File: webext/chrome/font_settings.json
+  Dict:
+    Name: GetFontArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+    Fields:
+      - Name: genericFamily
+        Required: true
+        Type:
+          Name: GenericFamily
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+      - Name: script
+        Type:
+          Name: ScriptCode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+- File: webext/chrome/font_settings.json
+  Dict:
+    Name: GetFontReturnType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+    Fields:
+      - Name: fontId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+      - Name: levelOfControl
+        Required: true
+        Type:
+          Name: LevelOfControl
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+- File: webext/chrome/font_settings.json
+  Dict:
+    Name: GetMinimumFontSizeArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  Dict:
+    Name: GetMinimumFontSizeReturnType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+    Fields:
+      - Name: levelOfControl
+        Required: true
+        Type:
+          Name: LevelOfControl
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+      - Name: pixelSize
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+- File: webext/chrome/font_settings.json
+  Enum:
+    Name: LevelOfControl
+    Values:
+      - not_controllable
+      - controlled_by_other_extensions
+      - controllable_by_this_extension
+      - controlled_by_this_extension
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  Dict:
+    Name: OnDefaultFixedFontSizeChangedArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+    Fields:
+      - Name: levelOfControl
+        Required: true
+        Type:
+          Name: LevelOfControl
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+      - Name: pixelSize
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+- File: webext/chrome/font_settings.json
+  Dict:
+    Name: OnDefaultFontSizeChangedArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+    Fields:
+      - Name: levelOfControl
+        Required: true
+        Type:
+          Name: LevelOfControl
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+      - Name: pixelSize
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+- File: webext/chrome/font_settings.json
+  Dict:
+    Name: OnFontChangedArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+    Fields:
+      - Name: fontId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+      - Name: genericFamily
+        Required: true
+        Type:
+          Name: GenericFamily
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+      - Name: levelOfControl
+        Required: true
+        Type:
+          Name: LevelOfControl
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+      - Name: script
+        Type:
+          Name: ScriptCode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+- File: webext/chrome/font_settings.json
+  Dict:
+    Name: OnMinimumFontSizeChangedArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+    Fields:
+      - Name: levelOfControl
+        Required: true
+        Type:
+          Name: LevelOfControl
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+      - Name: pixelSize
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+- File: webext/chrome/font_settings.json
+  Enum:
+    Name: ScriptCode
+    Values:
+      - Afak
+      - Arab
+      - Armi
+      - Armn
+      - Avst
+      - Bali
+      - Bamu
+      - Bass
+      - Batk
+      - Beng
+      - Blis
+      - Bopo
+      - Brah
+      - Brai
+      - Bugi
+      - Buhd
+      - Cakm
+      - Cans
+      - Cari
+      - Cham
+      - Cher
+      - Cirt
+      - Copt
+      - Cprt
+      - Cyrl
+      - Cyrs
+      - Deva
+      - Dsrt
+      - Dupl
+      - Egyd
+      - Egyh
+      - Egyp
+      - Elba
+      - Ethi
+      - Geor
+      - Geok
+      - Glag
+      - Goth
+      - Gran
+      - Grek
+      - Gujr
+      - Guru
+      - Hang
+      - Hani
+      - Hano
+      - Hans
+      - Hant
+      - Hebr
+      - Hluw
+      - Hmng
+      - Hung
+      - Inds
+      - Ital
+      - Java
+      - Jpan
+      - Jurc
+      - Kali
+      - Khar
+      - Khmr
+      - Khoj
+      - Knda
+      - Kpel
+      - Kthi
+      - Lana
+      - Laoo
+      - Latf
+      - Latg
+      - Latn
+      - Lepc
+      - Limb
+      - Lina
+      - Linb
+      - Lisu
+      - Loma
+      - Lyci
+      - Lydi
+      - Mand
+      - Mani
+      - Maya
+      - Mend
+      - Merc
+      - Mero
+      - Mlym
+      - Moon
+      - Mong
+      - Mroo
+      - Mtei
+      - Mymr
+      - Narb
+      - Nbat
+      - Nkgb
+      - Nkoo
+      - Nshu
+      - Ogam
+      - Olck
+      - Orkh
+      - Orya
+      - Osma
+      - Palm
+      - Perm
+      - Phag
+      - Phli
+      - Phlp
+      - Phlv
+      - Phnx
+      - Plrd
+      - Prti
+      - Rjng
+      - Roro
+      - Runr
+      - Samr
+      - Sara
+      - Sarb
+      - Saur
+      - Sgnw
+      - Shaw
+      - Shrd
+      - Sind
+      - Sinh
+      - Sora
+      - Sund
+      - Sylo
+      - Syrc
+      - Syre
+      - Syrj
+      - Syrn
+      - Tagb
+      - Takr
+      - Tale
+      - Talu
+      - Taml
+      - Tang
+      - Tavt
+      - Telu
+      - Teng
+      - Tfng
+      - Tglg
+      - Thaa
+      - Thai
+      - Tibt
+      - Tirh
+      - Ugar
+      - Vaii
+      - Visp
+      - Wara
+      - Wole
+      - Xpeo
+      - Xsux
+      - Yiii
+      - Zmth
+      - Zsym
+      - Zyyy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  Dict:
+    Name: SetDefaultFixedFontSizeArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+    Fields:
+      - Name: pixelSize
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+- File: webext/chrome/font_settings.json
+  Dict:
+    Name: SetDefaultFontSizeArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+    Fields:
+      - Name: pixelSize
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+- File: webext/chrome/font_settings.json
+  Dict:
+    Name: SetFontArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+    Fields:
+      - Name: fontId
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+      - Name: genericFamily
+        Required: true
+        Type:
+          Name: GenericFamily
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+      - Name: script
+        Type:
+          Name: ScriptCode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+- File: webext/chrome/font_settings.json
+  Dict:
+    Name: SetMinimumFontSizeArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+    Fields:
+      - Name: pixelSize
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - fontSettings
+- File: webext/chrome/font_settings.json
+  WebextFunc:
+    Name: clearDefaultFixedFontSize
+    Args:
+      - Name: details
+        Optional: true
+        Type:
+          Name: ClearDefaultFixedFontSizeArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  WebextFunc:
+    Name: clearDefaultFontSize
+    Args:
+      - Name: details
+        Optional: true
+        Type:
+          Name: ClearDefaultFontSizeArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  WebextFunc:
+    Name: clearFont
+    Args:
+      - Name: details
+        Type:
+          Name: ClearFontArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  WebextFunc:
+    Name: clearMinimumFontSize
+    Args:
+      - Name: details
+        Optional: true
+        Type:
+          Name: ClearMinimumFontSizeArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  WebextFunc:
+    Name: getDefaultFixedFontSize
+    Args:
+      - Name: details
+        Optional: true
+        Type:
+          Name: GetDefaultFixedFontSizeArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: GetDefaultFixedFontSizeReturnType
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fontSettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  WebextFunc:
+    Name: getDefaultFontSize
+    Args:
+      - Name: details
+        Optional: true
+        Type:
+          Name: GetDefaultFontSizeArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: GetDefaultFontSizeReturnType
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fontSettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  WebextFunc:
+    Name: getFont
+    Args:
+      - Name: details
+        Type:
+          Name: GetFontArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: GetFontReturnType
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fontSettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  WebextFunc:
+    Name: getFontList
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: FontName
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - fontSettings
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fontSettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  WebextFunc:
+    Name: getMinimumFontSize
+    Args:
+      - Name: details
+        Optional: true
+        Type:
+          Name: GetMinimumFontSizeArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: GetMinimumFontSizeReturnType
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - fontSettings
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  WebextEvent:
+    Name: onDefaultFixedFontSizeChanged
+    Args:
+      - Name: details
+        Type:
+          Name: OnDefaultFixedFontSizeChangedArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  WebextEvent:
+    Name: onDefaultFontSizeChanged
+    Args:
+      - Name: details
+        Type:
+          Name: OnDefaultFontSizeChangedArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  WebextEvent:
+    Name: onFontChanged
+    Args:
+      - Name: details
+        Type:
+          Name: OnFontChangedArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  WebextEvent:
+    Name: onMinimumFontSizeChanged
+    Args:
+      - Name: details
+        Type:
+          Name: OnMinimumFontSizeChangedArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  WebextFunc:
+    Name: setDefaultFixedFontSize
+    Args:
+      - Name: details
+        Type:
+          Name: SetDefaultFixedFontSizeArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  WebextFunc:
+    Name: setDefaultFontSize
+    Args:
+      - Name: details
+        Type:
+          Name: SetDefaultFontSizeArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  WebextFunc:
+    Name: setFont
+    Args:
+      - Name: details
+        Type:
+          Name: SetFontArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings
+- File: webext/chrome/font_settings.json
+  WebextFunc:
+    Name: setMinimumFontSize
+    Args:
+      - Name: details
+        Type:
+          Name: SetMinimumFontSizeArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - fontSettings
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - fontSettings

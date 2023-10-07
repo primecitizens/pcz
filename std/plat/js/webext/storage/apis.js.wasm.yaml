@@ -1,0 +1,265 @@
+- File: webext/storage.json
+  Enum:
+    Name: AccessLevel
+    Values:
+      - TRUSTED_CONTEXTS
+      - TRUSTED_AND_UNTRUSTED_CONTEXTS
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - storage
+- File: webext/storage.json
+  Dict:
+    Name: SetAccessLevelArgAccessOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - storage
+    Fields:
+      - Name: accessLevel
+        Required: true
+        Type:
+          Name: AccessLevel
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - storage
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - storage
+- File: webext/storage.json
+  Interface:
+    Name: StorageArea
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - storage
+    Operations:
+      - Name: get
+        Args:
+          - Name: keys
+            Optional: true
+            Type:
+              Union:
+                - Name: DOMString
+                - Name: sequence
+                  Params:
+                    - Name: DOMString
+                  ExtAttrs:
+                    - Name: Namespace
+                      Values:
+                        - chrome
+                        - storage
+                - Name: any
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: any
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - storage
+      - Name: getBytesInUse
+        Args:
+          - Name: keys
+            Optional: true
+            Type:
+              Union:
+                - Name: DOMString
+                - Name: sequence
+                  Params:
+                    - Name: DOMString
+                  ExtAttrs:
+                    - Name: Namespace
+                      Values:
+                        - chrome
+                        - storage
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - storage
+      - Name: set
+        Args:
+          - Name: items
+            Type:
+              Name: any
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - storage
+      - Name: remove
+        Args:
+          - Name: keys
+            Type:
+              Union:
+                - Name: DOMString
+                - Name: sequence
+                  Params:
+                    - Name: DOMString
+                  ExtAttrs:
+                    - Name: Namespace
+                      Values:
+                        - chrome
+                        - storage
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - storage
+      - Name: clear
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - storage
+      - Name: setAccessLevel
+        Args:
+          - Name: accessOptions
+            Type:
+              Name: SetAccessLevelArgAccessOptions
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - storage
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - storage
+- File: webext/storage.json
+  Dict:
+    Name: StorageChange
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - storage
+    Fields:
+      - Name: newValue
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - storage
+      - Name: oldValue
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - storage
+- File: webext/storage.json
+  WebextProp:
+    Name: local
+    Type:
+      Name: StorageArea
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - storage
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - storage
+- File: webext/storage.json
+  WebextProp:
+    Name: managed
+    Type:
+      Name: StorageArea
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - storage
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - storage
+- File: webext/storage.json
+  WebextEvent:
+    Name: onChanged
+    Args:
+      - Name: changes
+        Type:
+          Name: StorageChange
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - storage
+      - Name: areaName
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - storage
+- File: webext/storage.json
+  WebextProp:
+    Name: session
+    Type:
+      Name: StorageArea
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - storage
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - storage
+- File: webext/storage.json
+  WebextProp:
+    Name: sync
+    Type:
+      Name: StorageArea
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - storage
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - storage

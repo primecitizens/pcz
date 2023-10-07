@@ -1,0 +1,114 @@
+- File: webext/web_accessible_resources.idl
+  Dict:
+    Name: ManifestKeys
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webAccessibleResources
+    Fields:
+      - Name: web_accessible_resources
+        Type:
+          Name: sequence
+          Params:
+            - Name: WebAccessibleResource
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webAccessibleResources
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAccessibleResources
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAccessibleResources
+- File: webext/web_accessible_resources.idl
+  Dict:
+    Name: WebAccessibleResource
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webAccessibleResources
+    Fields:
+      - Name: resources
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webAccessibleResources
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAccessibleResources
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAccessibleResources
+      - Name: matches
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webAccessibleResources
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAccessibleResources
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAccessibleResources
+      - Name: extension_ids
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webAccessibleResources
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAccessibleResources
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAccessibleResources
+      - Name: use_dynamic_url
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAccessibleResources
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAccessibleResources

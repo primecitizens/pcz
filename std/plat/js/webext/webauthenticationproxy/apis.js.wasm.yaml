@@ -1,0 +1,565 @@
+- File: webext/chrome/web_authentication_proxy.idl
+  Dict:
+    Name: CreateRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webAuthenticationProxy
+    Fields:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAuthenticationProxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+      - Name: requestDetailsJson
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAuthenticationProxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+- File: webext/chrome/web_authentication_proxy.idl
+  Dict:
+    Name: CreateResponseDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webAuthenticationProxy
+    Fields:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAuthenticationProxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+      - Name: error
+        Type:
+          Name: DOMExceptionDetails
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAuthenticationProxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+      - Name: responseJson
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAuthenticationProxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+- File: webext/chrome/web_authentication_proxy.idl
+  Dict:
+    Name: DOMExceptionDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webAuthenticationProxy
+    Fields:
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAuthenticationProxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+      - Name: message
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAuthenticationProxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+- File: webext/chrome/web_authentication_proxy.idl
+  Callback:
+    Name: ErrorCallback
+    Args:
+      - Name: error
+        Optional: true
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAuthenticationProxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webAuthenticationProxy
+- File: webext/chrome/web_authentication_proxy.idl
+  Dict:
+    Name: GetRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webAuthenticationProxy
+    Fields:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAuthenticationProxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+      - Name: requestDetailsJson
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAuthenticationProxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+- File: webext/chrome/web_authentication_proxy.idl
+  Dict:
+    Name: GetResponseDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webAuthenticationProxy
+    Fields:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAuthenticationProxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+      - Name: error
+        Type:
+          Name: DOMExceptionDetails
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAuthenticationProxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+      - Name: responseJson
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAuthenticationProxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+- File: webext/chrome/web_authentication_proxy.idl
+  Dict:
+    Name: IsUvpaaRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webAuthenticationProxy
+    Fields:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAuthenticationProxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+- File: webext/chrome/web_authentication_proxy.idl
+  Dict:
+    Name: IsUvpaaResponseDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webAuthenticationProxy
+    Fields:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAuthenticationProxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+      - Name: isUvpaa
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAuthenticationProxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+- File: webext/chrome/web_authentication_proxy.idl
+  Callback:
+    Name: VoidCallback
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webAuthenticationProxy
+- File: webext/chrome/web_authentication_proxy.idl
+  WebextFunc:
+    Name: attach
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - webAuthenticationProxy
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - webAuthenticationProxy
+- File: webext/chrome/web_authentication_proxy.idl
+  WebextFunc:
+    Name: completeCreateRequest
+    Modifier: static
+    Args:
+      - Name: details
+        Type:
+          Name: CreateResponseDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAuthenticationProxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - webAuthenticationProxy
+- File: webext/chrome/web_authentication_proxy.idl
+  WebextFunc:
+    Name: completeGetRequest
+    Modifier: static
+    Args:
+      - Name: details
+        Type:
+          Name: GetResponseDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAuthenticationProxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - webAuthenticationProxy
+- File: webext/chrome/web_authentication_proxy.idl
+  WebextFunc:
+    Name: completeIsUvpaaRequest
+    Modifier: static
+    Args:
+      - Name: details
+        Type:
+          Name: IsUvpaaResponseDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAuthenticationProxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - webAuthenticationProxy
+- File: webext/chrome/web_authentication_proxy.idl
+  WebextFunc:
+    Name: detach
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - webAuthenticationProxy
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - webAuthenticationProxy
+- File: webext/chrome/web_authentication_proxy.idl
+  WebextEvent:
+    Name: onCreateRequest
+    Modifier: static
+    Args:
+      - Name: requestInfo
+        Type:
+          Name: CreateRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAuthenticationProxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webAuthenticationProxy
+- File: webext/chrome/web_authentication_proxy.idl
+  WebextEvent:
+    Name: onGetRequest
+    Modifier: static
+    Args:
+      - Name: requestInfo
+        Type:
+          Name: GetRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAuthenticationProxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webAuthenticationProxy
+- File: webext/chrome/web_authentication_proxy.idl
+  WebextEvent:
+    Name: onIsUvpaaRequest
+    Modifier: static
+    Args:
+      - Name: requestInfo
+        Type:
+          Name: IsUvpaaRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAuthenticationProxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webAuthenticationProxy
+- File: webext/chrome/web_authentication_proxy.idl
+  WebextEvent:
+    Name: onRemoteSessionStateChange
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webAuthenticationProxy
+- File: webext/chrome/web_authentication_proxy.idl
+  WebextEvent:
+    Name: onRequestCanceled
+    Modifier: static
+    Args:
+      - Name: requestId
+        Type:
+          Name: long
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webAuthenticationProxy
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webAuthenticationProxy
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webAuthenticationProxy

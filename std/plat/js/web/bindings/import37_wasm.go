@@ -11,20 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
-
-//go:wasmimport plat/js/web new_HTMLAudioElement_HTMLAudioElement
-//go:noescape
-func NewHTMLAudioElementByHTMLAudioElement() js.Ref
-
-//go:wasmimport plat/js/web new_HTMLBRElement_HTMLBRElement
-//go:noescape
-func NewHTMLBRElementByHTMLBRElement() js.Ref
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web get_HTMLBRElement_Clear
 //go:noescape
@@ -37,10 +27,6 @@ func SetHTMLBRElementClear(
 	this js.Ref,
 	val js.Ref,
 ) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLBaseElement_HTMLBaseElement
-//go:noescape
-func NewHTMLBaseElementByHTMLBaseElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLBaseElement_Href
 //go:noescape
@@ -65,10 +51,6 @@ func SetHTMLBaseElementTarget(
 	this js.Ref,
 	val js.Ref,
 ) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLBodyElement_HTMLBodyElement
-//go:noescape
-func NewHTMLBodyElementByHTMLBodyElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLBodyElement_Text
 //go:noescape
@@ -141,10 +123,6 @@ func SetHTMLBodyElementBackground(
 	this js.Ref,
 	val js.Ref,
 ) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLButtonElement_HTMLButtonElement
-//go:noescape
-func NewHTMLButtonElementByHTMLButtonElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLButtonElement_Disabled
 //go:noescape
@@ -305,11 +283,11 @@ func SetHTMLButtonElementPopoverTargetAction(
 
 //go:wasmimport plat/js/web has_HTMLButtonElement_CheckValidity
 //go:noescape
-func HasHTMLButtonElementCheckValidity(this js.Ref) js.Ref
+func HasFuncHTMLButtonElementCheckValidity(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLButtonElement_CheckValidity
 //go:noescape
-func HTMLButtonElementCheckValidityFunc(this js.Ref) js.Ref
+func FuncHTMLButtonElementCheckValidity(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLButtonElement_CheckValidity
 //go:noescape
@@ -323,11 +301,11 @@ func TryHTMLButtonElementCheckValidity(
 
 //go:wasmimport plat/js/web has_HTMLButtonElement_ReportValidity
 //go:noescape
-func HasHTMLButtonElementReportValidity(this js.Ref) js.Ref
+func HasFuncHTMLButtonElementReportValidity(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLButtonElement_ReportValidity
 //go:noescape
-func HTMLButtonElementReportValidityFunc(this js.Ref) js.Ref
+func FuncHTMLButtonElementReportValidity(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLButtonElement_ReportValidity
 //go:noescape
@@ -341,11 +319,11 @@ func TryHTMLButtonElementReportValidity(
 
 //go:wasmimport plat/js/web has_HTMLButtonElement_SetCustomValidity
 //go:noescape
-func HasHTMLButtonElementSetCustomValidity(this js.Ref) js.Ref
+func HasFuncHTMLButtonElementSetCustomValidity(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLButtonElement_SetCustomValidity
 //go:noescape
-func HTMLButtonElementSetCustomValidityFunc(this js.Ref) js.Ref
+func FuncHTMLButtonElementSetCustomValidity(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLButtonElement_SetCustomValidity
 //go:noescape
@@ -359,10 +337,6 @@ func TryHTMLButtonElementSetCustomValidity(
 	this js.Ref, retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	err js.Ref) (ok js.Ref)
 
-//go:wasmimport plat/js/web new_HTMLDListElement_HTMLDListElement
-//go:noescape
-func NewHTMLDListElementByHTMLDListElement() js.Ref
-
 //go:wasmimport plat/js/web get_HTMLDListElement_Compact
 //go:noescape
 func GetHTMLDListElementCompact(
@@ -374,10 +348,6 @@ func SetHTMLDListElementCompact(
 	this js.Ref,
 	val js.Ref,
 ) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLDataElement_HTMLDataElement
-//go:noescape
-func NewHTMLDataElementByHTMLDataElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLDataElement_Value
 //go:noescape
@@ -391,18 +361,10 @@ func SetHTMLDataElementValue(
 	val js.Ref,
 ) js.Ref
 
-//go:wasmimport plat/js/web new_HTMLDataListElement_HTMLDataListElement
-//go:noescape
-func NewHTMLDataListElementByHTMLDataListElement() js.Ref
-
 //go:wasmimport plat/js/web get_HTMLDataListElement_Options
 //go:noescape
 func GetHTMLDataListElementOptions(
 	this js.Ref, retPtr unsafe.Pointer) (ok js.Ref)
-
-//go:wasmimport plat/js/web new_HTMLDetailsElement_HTMLDetailsElement
-//go:noescape
-func NewHTMLDetailsElementByHTMLDetailsElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLDetailsElement_Open
 //go:noescape
@@ -415,10 +377,6 @@ func SetHTMLDetailsElementOpen(
 	this js.Ref,
 	val js.Ref,
 ) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLDialogElement_HTMLDialogElement
-//go:noescape
-func NewHTMLDialogElementByHTMLDialogElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLDialogElement_Open
 //go:noescape
@@ -446,11 +404,11 @@ func SetHTMLDialogElementReturnValue(
 
 //go:wasmimport plat/js/web has_HTMLDialogElement_Show
 //go:noescape
-func HasHTMLDialogElementShow(this js.Ref) js.Ref
+func HasFuncHTMLDialogElementShow(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLDialogElement_Show
 //go:noescape
-func HTMLDialogElementShowFunc(this js.Ref) js.Ref
+func FuncHTMLDialogElementShow(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLDialogElement_Show
 //go:noescape
@@ -464,11 +422,11 @@ func TryHTMLDialogElementShow(
 
 //go:wasmimport plat/js/web has_HTMLDialogElement_ShowModal
 //go:noescape
-func HasHTMLDialogElementShowModal(this js.Ref) js.Ref
+func HasFuncHTMLDialogElementShowModal(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLDialogElement_ShowModal
 //go:noescape
-func HTMLDialogElementShowModalFunc(this js.Ref) js.Ref
+func FuncHTMLDialogElementShowModal(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLDialogElement_ShowModal
 //go:noescape
@@ -482,11 +440,11 @@ func TryHTMLDialogElementShowModal(
 
 //go:wasmimport plat/js/web has_HTMLDialogElement_Close
 //go:noescape
-func HasHTMLDialogElementClose(this js.Ref) js.Ref
+func HasFuncHTMLDialogElementClose(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLDialogElement_Close
 //go:noescape
-func HTMLDialogElementCloseFunc(this js.Ref) js.Ref
+func FuncHTMLDialogElementClose(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLDialogElement_Close
 //go:noescape
@@ -502,11 +460,11 @@ func TryHTMLDialogElementClose(
 
 //go:wasmimport plat/js/web has_HTMLDialogElement_Close1
 //go:noescape
-func HasHTMLDialogElementClose1(this js.Ref) js.Ref
+func HasFuncHTMLDialogElementClose1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLDialogElement_Close1
 //go:noescape
-func HTMLDialogElementClose1Func(this js.Ref) js.Ref
+func FuncHTMLDialogElementClose1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLDialogElement_Close1
 //go:noescape
@@ -517,10 +475,6 @@ func CallHTMLDialogElementClose1(
 //go:noescape
 func TryHTMLDialogElementClose1(
 	this js.Ref, retPtr unsafe.Pointer, errPtr unsafe.Pointer) (ok js.Ref)
-
-//go:wasmimport plat/js/web new_HTMLDirectoryElement_HTMLDirectoryElement
-//go:noescape
-func NewHTMLDirectoryElementByHTMLDirectoryElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLDirectoryElement_Compact
 //go:noescape
@@ -534,10 +488,6 @@ func SetHTMLDirectoryElementCompact(
 	val js.Ref,
 ) js.Ref
 
-//go:wasmimport plat/js/web new_HTMLDivElement_HTMLDivElement
-//go:noescape
-func NewHTMLDivElementByHTMLDivElement() js.Ref
-
 //go:wasmimport plat/js/web get_HTMLDivElement_Align
 //go:noescape
 func GetHTMLDivElementAlign(
@@ -549,10 +499,6 @@ func SetHTMLDivElementAlign(
 	this js.Ref,
 	val js.Ref,
 ) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLEmbedElement_HTMLEmbedElement
-//go:noescape
-func NewHTMLEmbedElementByHTMLEmbedElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLEmbedElement_Src
 //go:noescape
@@ -628,11 +574,11 @@ func SetHTMLEmbedElementName(
 
 //go:wasmimport plat/js/web has_HTMLEmbedElement_GetSVGDocument
 //go:noescape
-func HasHTMLEmbedElementGetSVGDocument(this js.Ref) js.Ref
+func HasFuncHTMLEmbedElementGetSVGDocument(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLEmbedElement_GetSVGDocument
 //go:noescape
-func HTMLEmbedElementGetSVGDocumentFunc(this js.Ref) js.Ref
+func FuncHTMLEmbedElementGetSVGDocument(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLEmbedElement_GetSVGDocument
 //go:noescape
@@ -643,10 +589,6 @@ func CallHTMLEmbedElementGetSVGDocument(
 //go:noescape
 func TryHTMLEmbedElementGetSVGDocument(
 	this js.Ref, retPtr unsafe.Pointer, errPtr unsafe.Pointer) (ok js.Ref)
-
-//go:wasmimport plat/js/web new_HTMLFencedFrameElement_HTMLFencedFrameElement
-//go:noescape
-func NewHTMLFencedFrameElementByHTMLFencedFrameElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLFencedFrameElement_Config
 //go:noescape
@@ -695,10 +637,6 @@ func SetHTMLFencedFrameElementAllow(
 	this js.Ref,
 	val js.Ref,
 ) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLFieldSetElement_HTMLFieldSetElement
-//go:noescape
-func NewHTMLFieldSetElementByHTMLFieldSetElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLFieldSetElement_Disabled
 //go:noescape
@@ -756,11 +694,11 @@ func GetHTMLFieldSetElementValidationMessage(
 
 //go:wasmimport plat/js/web has_HTMLFieldSetElement_CheckValidity
 //go:noescape
-func HasHTMLFieldSetElementCheckValidity(this js.Ref) js.Ref
+func HasFuncHTMLFieldSetElementCheckValidity(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLFieldSetElement_CheckValidity
 //go:noescape
-func HTMLFieldSetElementCheckValidityFunc(this js.Ref) js.Ref
+func FuncHTMLFieldSetElementCheckValidity(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLFieldSetElement_CheckValidity
 //go:noescape
@@ -774,11 +712,11 @@ func TryHTMLFieldSetElementCheckValidity(
 
 //go:wasmimport plat/js/web has_HTMLFieldSetElement_ReportValidity
 //go:noescape
-func HasHTMLFieldSetElementReportValidity(this js.Ref) js.Ref
+func HasFuncHTMLFieldSetElementReportValidity(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLFieldSetElement_ReportValidity
 //go:noescape
-func HTMLFieldSetElementReportValidityFunc(this js.Ref) js.Ref
+func FuncHTMLFieldSetElementReportValidity(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLFieldSetElement_ReportValidity
 //go:noescape
@@ -792,11 +730,11 @@ func TryHTMLFieldSetElementReportValidity(
 
 //go:wasmimport plat/js/web has_HTMLFieldSetElement_SetCustomValidity
 //go:noescape
-func HasHTMLFieldSetElementSetCustomValidity(this js.Ref) js.Ref
+func HasFuncHTMLFieldSetElementSetCustomValidity(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLFieldSetElement_SetCustomValidity
 //go:noescape
-func HTMLFieldSetElementSetCustomValidityFunc(this js.Ref) js.Ref
+func FuncHTMLFieldSetElementSetCustomValidity(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLFieldSetElement_SetCustomValidity
 //go:noescape
@@ -809,10 +747,6 @@ func CallHTMLFieldSetElementSetCustomValidity(
 func TryHTMLFieldSetElementSetCustomValidity(
 	this js.Ref, retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	err js.Ref) (ok js.Ref)
-
-//go:wasmimport plat/js/web new_HTMLFontElement_HTMLFontElement
-//go:noescape
-func NewHTMLFontElementByHTMLFontElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLFontElement_Color
 //go:noescape
@@ -849,10 +783,6 @@ func SetHTMLFontElementSize(
 	this js.Ref,
 	val js.Ref,
 ) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLFrameElement_HTMLFrameElement
-//go:noescape
-func NewHTMLFrameElementByHTMLFrameElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLFrameElement_Name
 //go:noescape
@@ -960,10 +890,6 @@ func SetHTMLFrameElementMarginWidth(
 	val js.Ref,
 ) js.Ref
 
-//go:wasmimport plat/js/web new_HTMLFrameSetElement_HTMLFrameSetElement
-//go:noescape
-func NewHTMLFrameSetElementByHTMLFrameSetElement() js.Ref
-
 //go:wasmimport plat/js/web get_HTMLFrameSetElement_Cols
 //go:noescape
 func GetHTMLFrameSetElementCols(
@@ -987,10 +913,6 @@ func SetHTMLFrameSetElementRows(
 	this js.Ref,
 	val js.Ref,
 ) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLHRElement_HTMLHRElement
-//go:noescape
-func NewHTMLHRElementByHTMLHRElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLHRElement_Align
 //go:noescape
@@ -1052,10 +974,6 @@ func SetHTMLHRElementWidth(
 	val js.Ref,
 ) js.Ref
 
-//go:wasmimport plat/js/web new_HTMLHeadingElement_HTMLHeadingElement
-//go:noescape
-func NewHTMLHeadingElementByHTMLHeadingElement() js.Ref
-
 //go:wasmimport plat/js/web get_HTMLHeadingElement_Align
 //go:noescape
 func GetHTMLHeadingElementAlign(
@@ -1068,10 +986,6 @@ func SetHTMLHeadingElementAlign(
 	val js.Ref,
 ) js.Ref
 
-//go:wasmimport plat/js/web new_HTMLHtmlElement_HTMLHtmlElement
-//go:noescape
-func NewHTMLHtmlElementByHTMLHtmlElement() js.Ref
-
 //go:wasmimport plat/js/web get_HTMLHtmlElement_Version
 //go:noescape
 func GetHTMLHtmlElementVersion(
@@ -1083,10 +997,6 @@ func SetHTMLHtmlElementVersion(
 	this js.Ref,
 	val js.Ref,
 ) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLIFrameElement_HTMLIFrameElement
-//go:noescape
-func NewHTMLIFrameElementByHTMLIFrameElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLIFrameElement_Src
 //go:noescape
@@ -1314,11 +1224,11 @@ func SetHTMLIFrameElementMarginWidth(
 
 //go:wasmimport plat/js/web has_HTMLIFrameElement_GetSVGDocument
 //go:noescape
-func HasHTMLIFrameElementGetSVGDocument(this js.Ref) js.Ref
+func HasFuncHTMLIFrameElementGetSVGDocument(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLIFrameElement_GetSVGDocument
 //go:noescape
-func HTMLIFrameElementGetSVGDocumentFunc(this js.Ref) js.Ref
+func FuncHTMLIFrameElementGetSVGDocument(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLIFrameElement_GetSVGDocument
 //go:noescape
@@ -1333,10 +1243,6 @@ func TryHTMLIFrameElementGetSVGDocument(
 //go:wasmimport plat/js/web constof_SelectionMode
 //go:noescape
 func ConstOfSelectionMode(str js.Ref) uint32
-
-//go:wasmimport plat/js/web new_HTMLInputElement_HTMLInputElement
-//go:noescape
-func NewHTMLInputElementByHTMLInputElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLInputElement_Accept
 //go:noescape
@@ -1891,11 +1797,11 @@ func SetHTMLInputElementPopoverTargetAction(
 
 //go:wasmimport plat/js/web has_HTMLInputElement_StepUp
 //go:noescape
-func HasHTMLInputElementStepUp(this js.Ref) js.Ref
+func HasFuncHTMLInputElementStepUp(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLInputElement_StepUp
 //go:noescape
-func HTMLInputElementStepUpFunc(this js.Ref) js.Ref
+func FuncHTMLInputElementStepUp(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLInputElement_StepUp
 //go:noescape
@@ -1911,11 +1817,11 @@ func TryHTMLInputElementStepUp(
 
 //go:wasmimport plat/js/web has_HTMLInputElement_StepUp1
 //go:noescape
-func HasHTMLInputElementStepUp1(this js.Ref) js.Ref
+func HasFuncHTMLInputElementStepUp1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLInputElement_StepUp1
 //go:noescape
-func HTMLInputElementStepUp1Func(this js.Ref) js.Ref
+func FuncHTMLInputElementStepUp1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLInputElement_StepUp1
 //go:noescape
@@ -1929,11 +1835,11 @@ func TryHTMLInputElementStepUp1(
 
 //go:wasmimport plat/js/web has_HTMLInputElement_StepDown
 //go:noescape
-func HasHTMLInputElementStepDown(this js.Ref) js.Ref
+func HasFuncHTMLInputElementStepDown(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLInputElement_StepDown
 //go:noescape
-func HTMLInputElementStepDownFunc(this js.Ref) js.Ref
+func FuncHTMLInputElementStepDown(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLInputElement_StepDown
 //go:noescape
@@ -1949,11 +1855,11 @@ func TryHTMLInputElementStepDown(
 
 //go:wasmimport plat/js/web has_HTMLInputElement_StepDown1
 //go:noescape
-func HasHTMLInputElementStepDown1(this js.Ref) js.Ref
+func HasFuncHTMLInputElementStepDown1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLInputElement_StepDown1
 //go:noescape
-func HTMLInputElementStepDown1Func(this js.Ref) js.Ref
+func FuncHTMLInputElementStepDown1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLInputElement_StepDown1
 //go:noescape
@@ -1967,11 +1873,11 @@ func TryHTMLInputElementStepDown1(
 
 //go:wasmimport plat/js/web has_HTMLInputElement_CheckValidity
 //go:noescape
-func HasHTMLInputElementCheckValidity(this js.Ref) js.Ref
+func HasFuncHTMLInputElementCheckValidity(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLInputElement_CheckValidity
 //go:noescape
-func HTMLInputElementCheckValidityFunc(this js.Ref) js.Ref
+func FuncHTMLInputElementCheckValidity(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLInputElement_CheckValidity
 //go:noescape
@@ -1985,11 +1891,11 @@ func TryHTMLInputElementCheckValidity(
 
 //go:wasmimport plat/js/web has_HTMLInputElement_ReportValidity
 //go:noescape
-func HasHTMLInputElementReportValidity(this js.Ref) js.Ref
+func HasFuncHTMLInputElementReportValidity(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLInputElement_ReportValidity
 //go:noescape
-func HTMLInputElementReportValidityFunc(this js.Ref) js.Ref
+func FuncHTMLInputElementReportValidity(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLInputElement_ReportValidity
 //go:noescape
@@ -2003,11 +1909,11 @@ func TryHTMLInputElementReportValidity(
 
 //go:wasmimport plat/js/web has_HTMLInputElement_SetCustomValidity
 //go:noescape
-func HasHTMLInputElementSetCustomValidity(this js.Ref) js.Ref
+func HasFuncHTMLInputElementSetCustomValidity(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLInputElement_SetCustomValidity
 //go:noescape
-func HTMLInputElementSetCustomValidityFunc(this js.Ref) js.Ref
+func FuncHTMLInputElementSetCustomValidity(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLInputElement_SetCustomValidity
 //go:noescape
@@ -2023,11 +1929,11 @@ func TryHTMLInputElementSetCustomValidity(
 
 //go:wasmimport plat/js/web has_HTMLInputElement_Select
 //go:noescape
-func HasHTMLInputElementSelect(this js.Ref) js.Ref
+func HasFuncHTMLInputElementSelect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLInputElement_Select
 //go:noescape
-func HTMLInputElementSelectFunc(this js.Ref) js.Ref
+func FuncHTMLInputElementSelect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLInputElement_Select
 //go:noescape
@@ -2041,11 +1947,11 @@ func TryHTMLInputElementSelect(
 
 //go:wasmimport plat/js/web has_HTMLInputElement_SetRangeText
 //go:noescape
-func HasHTMLInputElementSetRangeText(this js.Ref) js.Ref
+func HasFuncHTMLInputElementSetRangeText(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLInputElement_SetRangeText
 //go:noescape
-func HTMLInputElementSetRangeTextFunc(this js.Ref) js.Ref
+func FuncHTMLInputElementSetRangeText(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLInputElement_SetRangeText
 //go:noescape
@@ -2061,11 +1967,11 @@ func TryHTMLInputElementSetRangeText(
 
 //go:wasmimport plat/js/web has_HTMLInputElement_SetRangeText1
 //go:noescape
-func HasHTMLInputElementSetRangeText1(this js.Ref) js.Ref
+func HasFuncHTMLInputElementSetRangeText1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLInputElement_SetRangeText1
 //go:noescape
-func HTMLInputElementSetRangeText1Func(this js.Ref) js.Ref
+func FuncHTMLInputElementSetRangeText1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLInputElement_SetRangeText1
 //go:noescape
@@ -2087,11 +1993,11 @@ func TryHTMLInputElementSetRangeText1(
 
 //go:wasmimport plat/js/web has_HTMLInputElement_SetRangeText2
 //go:noescape
-func HasHTMLInputElementSetRangeText2(this js.Ref) js.Ref
+func HasFuncHTMLInputElementSetRangeText2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLInputElement_SetRangeText2
 //go:noescape
-func HTMLInputElementSetRangeText2Func(this js.Ref) js.Ref
+func FuncHTMLInputElementSetRangeText2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLInputElement_SetRangeText2
 //go:noescape
@@ -2111,11 +2017,11 @@ func TryHTMLInputElementSetRangeText2(
 
 //go:wasmimport plat/js/web has_HTMLInputElement_SetSelectionRange
 //go:noescape
-func HasHTMLInputElementSetSelectionRange(this js.Ref) js.Ref
+func HasFuncHTMLInputElementSetSelectionRange(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLInputElement_SetSelectionRange
 //go:noescape
-func HTMLInputElementSetSelectionRangeFunc(this js.Ref) js.Ref
+func FuncHTMLInputElementSetSelectionRange(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLInputElement_SetSelectionRange
 //go:noescape
@@ -2135,11 +2041,11 @@ func TryHTMLInputElementSetSelectionRange(
 
 //go:wasmimport plat/js/web has_HTMLInputElement_SetSelectionRange1
 //go:noescape
-func HasHTMLInputElementSetSelectionRange1(this js.Ref) js.Ref
+func HasFuncHTMLInputElementSetSelectionRange1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLInputElement_SetSelectionRange1
 //go:noescape
-func HTMLInputElementSetSelectionRange1Func(this js.Ref) js.Ref
+func FuncHTMLInputElementSetSelectionRange1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLInputElement_SetSelectionRange1
 //go:noescape
@@ -2157,11 +2063,11 @@ func TryHTMLInputElementSetSelectionRange1(
 
 //go:wasmimport plat/js/web has_HTMLInputElement_ShowPicker
 //go:noescape
-func HasHTMLInputElementShowPicker(this js.Ref) js.Ref
+func HasFuncHTMLInputElementShowPicker(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLInputElement_ShowPicker
 //go:noescape
-func HTMLInputElementShowPickerFunc(this js.Ref) js.Ref
+func FuncHTMLInputElementShowPicker(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLInputElement_ShowPicker
 //go:noescape
@@ -2172,10 +2078,6 @@ func CallHTMLInputElementShowPicker(
 //go:noescape
 func TryHTMLInputElementShowPicker(
 	this js.Ref, retPtr unsafe.Pointer, errPtr unsafe.Pointer) (ok js.Ref)
-
-//go:wasmimport plat/js/web new_HTMLLIElement_HTMLLIElement
-//go:noescape
-func NewHTMLLIElementByHTMLLIElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLLIElement_Value
 //go:noescape
@@ -2201,10 +2103,6 @@ func SetHTMLLIElementType(
 	val js.Ref,
 ) js.Ref
 
-//go:wasmimport plat/js/web new_HTMLLabelElement_HTMLLabelElement
-//go:noescape
-func NewHTMLLabelElementByHTMLLabelElement() js.Ref
-
 //go:wasmimport plat/js/web get_HTMLLabelElement_Form
 //go:noescape
 func GetHTMLLabelElementForm(
@@ -2227,10 +2125,6 @@ func SetHTMLLabelElementHtmlFor(
 func GetHTMLLabelElementControl(
 	this js.Ref, retPtr unsafe.Pointer) (ok js.Ref)
 
-//go:wasmimport plat/js/web new_HTMLLegendElement_HTMLLegendElement
-//go:noescape
-func NewHTMLLegendElementByHTMLLegendElement() js.Ref
-
 //go:wasmimport plat/js/web get_HTMLLegendElement_Form
 //go:noescape
 func GetHTMLLegendElementForm(
@@ -2247,10 +2141,6 @@ func SetHTMLLegendElementAlign(
 	this js.Ref,
 	val js.Ref,
 ) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLLinkElement_HTMLLinkElement
-//go:noescape
-func NewHTMLLinkElementByHTMLLinkElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLLinkElement_Href
 //go:noescape
@@ -2464,10 +2354,6 @@ func SetHTMLLinkElementTarget(
 func GetHTMLLinkElementSheet(
 	this js.Ref, retPtr unsafe.Pointer) (ok js.Ref)
 
-//go:wasmimport plat/js/web new_HTMLMapElement_HTMLMapElement
-//go:noescape
-func NewHTMLMapElementByHTMLMapElement() js.Ref
-
 //go:wasmimport plat/js/web get_HTMLMapElement_Name
 //go:noescape
 func GetHTMLMapElementName(
@@ -2484,10 +2370,6 @@ func SetHTMLMapElementName(
 //go:noescape
 func GetHTMLMapElementAreas(
 	this js.Ref, retPtr unsafe.Pointer) (ok js.Ref)
-
-//go:wasmimport plat/js/web new_HTMLMarqueeElement_HTMLMarqueeElement
-//go:noescape
-func NewHTMLMarqueeElementByHTMLMarqueeElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLMarqueeElement_Behavior
 //go:noescape
@@ -2623,11 +2505,11 @@ func SetHTMLMarqueeElementWidth(
 
 //go:wasmimport plat/js/web has_HTMLMarqueeElement_Start
 //go:noescape
-func HasHTMLMarqueeElementStart(this js.Ref) js.Ref
+func HasFuncHTMLMarqueeElementStart(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLMarqueeElement_Start
 //go:noescape
-func HTMLMarqueeElementStartFunc(this js.Ref) js.Ref
+func FuncHTMLMarqueeElementStart(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLMarqueeElement_Start
 //go:noescape
@@ -2641,11 +2523,11 @@ func TryHTMLMarqueeElementStart(
 
 //go:wasmimport plat/js/web has_HTMLMarqueeElement_Stop
 //go:noescape
-func HasHTMLMarqueeElementStop(this js.Ref) js.Ref
+func HasFuncHTMLMarqueeElementStop(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLMarqueeElement_Stop
 //go:noescape
-func HTMLMarqueeElementStopFunc(this js.Ref) js.Ref
+func FuncHTMLMarqueeElementStop(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLMarqueeElement_Stop
 //go:noescape
@@ -2656,10 +2538,6 @@ func CallHTMLMarqueeElementStop(
 //go:noescape
 func TryHTMLMarqueeElementStop(
 	this js.Ref, retPtr unsafe.Pointer, errPtr unsafe.Pointer) (ok js.Ref)
-
-//go:wasmimport plat/js/web new_HTMLMenuElement_HTMLMenuElement
-//go:noescape
-func NewHTMLMenuElementByHTMLMenuElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLMenuElement_Compact
 //go:noescape
@@ -2672,10 +2550,6 @@ func SetHTMLMenuElementCompact(
 	this js.Ref,
 	val js.Ref,
 ) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLMetaElement_HTMLMetaElement
-//go:noescape
-func NewHTMLMetaElementByHTMLMetaElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLMetaElement_Name
 //go:noescape
@@ -2736,10 +2610,6 @@ func SetHTMLMetaElementScheme(
 	this js.Ref,
 	val js.Ref,
 ) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLMeterElement_HTMLMeterElement
-//go:noescape
-func NewHTMLMeterElementByHTMLMeterElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLMeterElement_Value
 //go:noescape
@@ -2818,10 +2688,6 @@ func SetHTMLMeterElementOptimum(
 func GetHTMLMeterElementLabels(
 	this js.Ref, retPtr unsafe.Pointer) (ok js.Ref)
 
-//go:wasmimport plat/js/web new_HTMLModElement_HTMLModElement
-//go:noescape
-func NewHTMLModElementByHTMLModElement() js.Ref
-
 //go:wasmimport plat/js/web get_HTMLModElement_Cite
 //go:noescape
 func GetHTMLModElementCite(
@@ -2845,10 +2711,6 @@ func SetHTMLModElementDateTime(
 	this js.Ref,
 	val js.Ref,
 ) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLOListElement_HTMLOListElement
-//go:noescape
-func NewHTMLOListElementByHTMLOListElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLOListElement_Reversed
 //go:noescape
@@ -2897,10 +2759,6 @@ func SetHTMLOListElementCompact(
 	this js.Ref,
 	val js.Ref,
 ) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLObjectElement_HTMLObjectElement
-//go:noescape
-func NewHTMLObjectElementByHTMLObjectElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLObjectElement_Data
 //go:noescape
@@ -3126,11 +2984,11 @@ func SetHTMLObjectElementBorder(
 
 //go:wasmimport plat/js/web has_HTMLObjectElement_GetSVGDocument
 //go:noescape
-func HasHTMLObjectElementGetSVGDocument(this js.Ref) js.Ref
+func HasFuncHTMLObjectElementGetSVGDocument(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLObjectElement_GetSVGDocument
 //go:noescape
-func HTMLObjectElementGetSVGDocumentFunc(this js.Ref) js.Ref
+func FuncHTMLObjectElementGetSVGDocument(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLObjectElement_GetSVGDocument
 //go:noescape
@@ -3144,11 +3002,11 @@ func TryHTMLObjectElementGetSVGDocument(
 
 //go:wasmimport plat/js/web has_HTMLObjectElement_CheckValidity
 //go:noescape
-func HasHTMLObjectElementCheckValidity(this js.Ref) js.Ref
+func HasFuncHTMLObjectElementCheckValidity(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLObjectElement_CheckValidity
 //go:noescape
-func HTMLObjectElementCheckValidityFunc(this js.Ref) js.Ref
+func FuncHTMLObjectElementCheckValidity(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLObjectElement_CheckValidity
 //go:noescape
@@ -3162,11 +3020,11 @@ func TryHTMLObjectElementCheckValidity(
 
 //go:wasmimport plat/js/web has_HTMLObjectElement_ReportValidity
 //go:noescape
-func HasHTMLObjectElementReportValidity(this js.Ref) js.Ref
+func HasFuncHTMLObjectElementReportValidity(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLObjectElement_ReportValidity
 //go:noescape
-func HTMLObjectElementReportValidityFunc(this js.Ref) js.Ref
+func FuncHTMLObjectElementReportValidity(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLObjectElement_ReportValidity
 //go:noescape
@@ -3180,11 +3038,11 @@ func TryHTMLObjectElementReportValidity(
 
 //go:wasmimport plat/js/web has_HTMLObjectElement_SetCustomValidity
 //go:noescape
-func HasHTMLObjectElementSetCustomValidity(this js.Ref) js.Ref
+func HasFuncHTMLObjectElementSetCustomValidity(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLObjectElement_SetCustomValidity
 //go:noescape
-func HTMLObjectElementSetCustomValidityFunc(this js.Ref) js.Ref
+func FuncHTMLObjectElementSetCustomValidity(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLObjectElement_SetCustomValidity
 //go:noescape
@@ -3197,10 +3055,6 @@ func CallHTMLObjectElementSetCustomValidity(
 func TryHTMLObjectElementSetCustomValidity(
 	this js.Ref, retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	err js.Ref) (ok js.Ref)
-
-//go:wasmimport plat/js/web new_HTMLOptGroupElement_HTMLOptGroupElement
-//go:noescape
-func NewHTMLOptGroupElementByHTMLOptGroupElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLOptGroupElement_Disabled
 //go:noescape
@@ -3225,10 +3079,6 @@ func SetHTMLOptGroupElementLabel(
 	this js.Ref,
 	val js.Ref,
 ) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLOptionElement_HTMLOptionElement
-//go:noescape
-func NewHTMLOptionElementByHTMLOptionElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLOptionElement_Disabled
 //go:noescape
@@ -3338,11 +3188,11 @@ func SetHTMLOptionsCollectionSelectedIndex(
 
 //go:wasmimport plat/js/web has_HTMLOptionsCollection_Set
 //go:noescape
-func HasHTMLOptionsCollectionSet(this js.Ref) js.Ref
+func HasFuncHTMLOptionsCollectionSet(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLOptionsCollection_Set
 //go:noescape
-func HTMLOptionsCollectionSetFunc(this js.Ref) js.Ref
+func FuncHTMLOptionsCollectionSet(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLOptionsCollection_Set
 //go:noescape
@@ -3360,11 +3210,11 @@ func TryHTMLOptionsCollectionSet(
 
 //go:wasmimport plat/js/web has_HTMLOptionsCollection_Add
 //go:noescape
-func HasHTMLOptionsCollectionAdd(this js.Ref) js.Ref
+func HasFuncHTMLOptionsCollectionAdd(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLOptionsCollection_Add
 //go:noescape
-func HTMLOptionsCollectionAddFunc(this js.Ref) js.Ref
+func FuncHTMLOptionsCollectionAdd(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLOptionsCollection_Add
 //go:noescape
@@ -3382,11 +3232,11 @@ func TryHTMLOptionsCollectionAdd(
 
 //go:wasmimport plat/js/web has_HTMLOptionsCollection_Add1
 //go:noescape
-func HasHTMLOptionsCollectionAdd1(this js.Ref) js.Ref
+func HasFuncHTMLOptionsCollectionAdd1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLOptionsCollection_Add1
 //go:noescape
-func HTMLOptionsCollectionAdd1Func(this js.Ref) js.Ref
+func FuncHTMLOptionsCollectionAdd1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLOptionsCollection_Add1
 //go:noescape
@@ -3402,11 +3252,11 @@ func TryHTMLOptionsCollectionAdd1(
 
 //go:wasmimport plat/js/web has_HTMLOptionsCollection_Remove
 //go:noescape
-func HasHTMLOptionsCollectionRemove(this js.Ref) js.Ref
+func HasFuncHTMLOptionsCollectionRemove(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLOptionsCollection_Remove
 //go:noescape
-func HTMLOptionsCollectionRemoveFunc(this js.Ref) js.Ref
+func FuncHTMLOptionsCollectionRemove(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLOptionsCollection_Remove
 //go:noescape
@@ -3419,10 +3269,6 @@ func CallHTMLOptionsCollectionRemove(
 func TryHTMLOptionsCollectionRemove(
 	this js.Ref, retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	index int32) (ok js.Ref)
-
-//go:wasmimport plat/js/web new_HTMLOutputElement_HTMLOutputElement
-//go:noescape
-func NewHTMLOutputElementByHTMLOutputElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLOutputElement_HtmlFor
 //go:noescape
@@ -3497,11 +3343,11 @@ func GetHTMLOutputElementLabels(
 
 //go:wasmimport plat/js/web has_HTMLOutputElement_CheckValidity
 //go:noescape
-func HasHTMLOutputElementCheckValidity(this js.Ref) js.Ref
+func HasFuncHTMLOutputElementCheckValidity(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLOutputElement_CheckValidity
 //go:noescape
-func HTMLOutputElementCheckValidityFunc(this js.Ref) js.Ref
+func FuncHTMLOutputElementCheckValidity(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLOutputElement_CheckValidity
 //go:noescape
@@ -3515,11 +3361,11 @@ func TryHTMLOutputElementCheckValidity(
 
 //go:wasmimport plat/js/web has_HTMLOutputElement_ReportValidity
 //go:noescape
-func HasHTMLOutputElementReportValidity(this js.Ref) js.Ref
+func HasFuncHTMLOutputElementReportValidity(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLOutputElement_ReportValidity
 //go:noescape
-func HTMLOutputElementReportValidityFunc(this js.Ref) js.Ref
+func FuncHTMLOutputElementReportValidity(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLOutputElement_ReportValidity
 //go:noescape
@@ -3533,11 +3379,11 @@ func TryHTMLOutputElementReportValidity(
 
 //go:wasmimport plat/js/web has_HTMLOutputElement_SetCustomValidity
 //go:noescape
-func HasHTMLOutputElementSetCustomValidity(this js.Ref) js.Ref
+func HasFuncHTMLOutputElementSetCustomValidity(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLOutputElement_SetCustomValidity
 //go:noescape
-func HTMLOutputElementSetCustomValidityFunc(this js.Ref) js.Ref
+func FuncHTMLOutputElementSetCustomValidity(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLOutputElement_SetCustomValidity
 //go:noescape
@@ -3551,10 +3397,6 @@ func TryHTMLOutputElementSetCustomValidity(
 	this js.Ref, retPtr unsafe.Pointer, errPtr unsafe.Pointer,
 	err js.Ref) (ok js.Ref)
 
-//go:wasmimport plat/js/web new_HTMLParagraphElement_HTMLParagraphElement
-//go:noescape
-func NewHTMLParagraphElementByHTMLParagraphElement() js.Ref
-
 //go:wasmimport plat/js/web get_HTMLParagraphElement_Align
 //go:noescape
 func GetHTMLParagraphElementAlign(
@@ -3566,10 +3408,6 @@ func SetHTMLParagraphElementAlign(
 	this js.Ref,
 	val js.Ref,
 ) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLParamElement_HTMLParamElement
-//go:noescape
-func NewHTMLParamElementByHTMLParamElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLParamElement_Name
 //go:noescape
@@ -3618,10 +3456,6 @@ func SetHTMLParamElementValueType(
 	this js.Ref,
 	val js.Ref,
 ) js.Ref
-
-//go:wasmimport plat/js/web new_HTMLPictureElement_HTMLPictureElement
-//go:noescape
-func NewHTMLPictureElementByHTMLPictureElement() js.Ref
 
 //go:wasmimport plat/js/web store_PortalActivateOptions
 //go:noescape

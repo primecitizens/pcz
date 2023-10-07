@@ -1,0 +1,202 @@
+- File: webext/chrome/pdf_viewer_private.idl
+  Callback:
+    Name: IsAllowedLocalFileAccessCallback
+    Args:
+      - Name: result
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - pdfViewerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - pdfViewerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - pdfViewerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - pdfViewerPrivate
+- File: webext/chrome/pdf_viewer_private.idl
+  Callback:
+    Name: IsPdfOcrAlwaysActiveCallback
+    Args:
+      - Name: result
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - pdfViewerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - pdfViewerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - pdfViewerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - pdfViewerPrivate
+- File: webext/chrome/pdf_viewer_private.idl
+  Callback:
+    Name: OnPdfOcrPrefSetCallback
+    Args:
+      - Name: result
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - pdfViewerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - pdfViewerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - pdfViewerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - pdfViewerPrivate
+- File: webext/chrome/pdf_viewer_private.idl
+  WebextFunc:
+    Name: isAllowedLocalFileAccess
+    Modifier: static
+    Args:
+      - Name: url
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - pdfViewerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - pdfViewerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - pdfViewerPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - pdfViewerPrivate
+- File: webext/chrome/pdf_viewer_private.idl
+  WebextFunc:
+    Name: isPdfOcrAlwaysActive
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - pdfViewerPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - pdfViewerPrivate
+- File: webext/chrome/pdf_viewer_private.idl
+  WebextEvent:
+    Name: onPdfOcrPrefChanged
+    Modifier: static
+    Args:
+      - Name: value
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - pdfViewerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - pdfViewerPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - pdfViewerPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - pdfViewerPrivate
+- File: webext/chrome/pdf_viewer_private.idl
+  WebextFunc:
+    Name: setPdfOcrPref
+    Modifier: static
+    Args:
+      - Name: value
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - pdfViewerPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - pdfViewerPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - pdfViewerPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - pdfViewerPrivate

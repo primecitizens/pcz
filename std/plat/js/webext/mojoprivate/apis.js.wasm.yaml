@@ -1,0 +1,31 @@
+- File: webext/mojo_private.idl
+  WebextFunc:
+    Name: requireAsync
+    Modifier: static
+    Args:
+      - Name: name
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - mojoPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mojoPrivate
+    Returns:
+      - Name: any
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - mojoPrivate
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - mojoPrivate

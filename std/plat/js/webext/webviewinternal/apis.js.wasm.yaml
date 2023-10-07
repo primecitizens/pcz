@@ -1,0 +1,1313 @@
+- File: webext/web_view_internal.json
+  Callback:
+    Name: CaptureVisibleRegionArgCallback
+    Args:
+      - Name: dataUrl
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  Callback:
+    Name: ClearDataArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  Dict:
+    Name: ContentScriptDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+    Fields:
+      - Name: all_frames
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: css
+        Type:
+          Name: InjectionItems
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: exclude_globs
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: exclude_matches
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: include_globs
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: js
+        Type:
+          Name: InjectionItems
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: match_about_blank
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: matches
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: run_at
+        Type:
+          Name: RunAt
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+- File: webext/web_view_internal.json
+  Dict:
+    Name: DataTypeSet
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+    Fields:
+      - Name: appcache
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: cache
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: cookies
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: fileSystems
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: indexedDB
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: localStorage
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: persistentCookies
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: sessionCookies
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: webSQL
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+- File: webext/web_view_internal.json
+  Callback:
+    Name: ExecuteScriptArgCallback
+    Args:
+      - Name: result
+        Optional: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: any
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  Callback:
+    Name: FindArgCallback
+    Args:
+      - Name: results
+        Optional: true
+        Type:
+          Name: FindArgCallbackArgResults
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  Dict:
+    Name: FindArgCallbackArgResults
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+    Fields:
+      - Name: activeMatchOrdinal
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: canceled
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: numberOfMatches
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: selectionRect
+        Required: true
+        Type:
+          Name: FindArgCallbackArgResultsFieldSelectionRect
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+- File: webext/web_view_internal.json
+  Dict:
+    Name: FindArgCallbackArgResultsFieldSelectionRect
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+    Fields:
+      - Name: height
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: left
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: top
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: width
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+- File: webext/web_view_internal.json
+  Dict:
+    Name: FindArgOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+    Fields:
+      - Name: backward
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: matchCase
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+- File: webext/web_view_internal.json
+  Callback:
+    Name: GetAudioStateArgCallback
+    Args:
+      - Name: audible
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  Callback:
+    Name: GetZoomArgCallback
+    Args:
+      - Name: zoomFactor
+        Type:
+          Name: double
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  Callback:
+    Name: GetZoomModeArgCallback
+    Args:
+      - Name: ZoomMode
+        Type:
+          Name: ZoomMode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  Callback:
+    Name: GoArgCallback
+    Args:
+      - Name: success
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  Dict:
+    Name: InjectionItems
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+    Fields:
+      - Name: code
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+      - Name: files
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+- File: webext/web_view_internal.json
+  Callback:
+    Name: InsertCSSArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  Callback:
+    Name: IsAudioMutedArgCallback
+    Args:
+      - Name: muted
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  Callback:
+    Name: IsSpatialNavigationEnabledArgCallback
+    Args:
+      - Name: spatialNavEnabled
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  Callback:
+    Name: LoadDataWithBaseUrlArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextProp:
+    Name: MAX_CAPTURE_VISIBLE_REGION_CALLS_PER_SECOND
+    Type:
+      Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  Dict:
+    Name: RemovalOptions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+    Fields:
+      - Name: since
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - webViewInternal
+- File: webext/web_view_internal.json
+  Enum:
+    Name: SetPermissionAction
+    Values:
+      - allow
+      - deny
+      - default
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  Callback:
+    Name: SetPermissionArgCallback
+    Args:
+      - Name: allowed
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  Callback:
+    Name: SetZoomArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  Callback:
+    Name: SetZoomModeArgCallback
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  Enum:
+    Name: StopFindingAction
+    Values:
+      - clear
+      - keep
+      - activate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  Enum:
+    Name: ZoomMode
+    Values:
+      - per-origin
+      - per-view
+      - disabled
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: addContentScripts
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: contentScriptList
+        Type:
+          Name: sequence
+          Params:
+            - Name: ContentScriptDetails
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - webViewInternal
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: captureVisibleRegion
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: options
+        Optional: true
+        Type:
+          Name: ImageDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+      - Name: callback
+        Type:
+          Name: CaptureVisibleRegionArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: clearData
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: options
+        Type:
+          Name: RemovalOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+      - Name: dataToRemove
+        Type:
+          Name: DataTypeSet
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+      - Name: callback
+        Optional: true
+        Type:
+          Name: ClearDataArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: executeScript
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: src
+        Type:
+          Name: DOMString
+      - Name: details
+        Type:
+          Name: InjectDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+      - Name: callback
+        Optional: true
+        Type:
+          Name: ExecuteScriptArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: find
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: searchText
+        Type:
+          Name: DOMString
+      - Name: options
+        Optional: true
+        Type:
+          Name: FindArgOptions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+      - Name: callback
+        Optional: true
+        Type:
+          Name: FindArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: getAudioState
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: callback
+        Type:
+          Name: GetAudioStateArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: getZoom
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: callback
+        Type:
+          Name: GetZoomArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: getZoomMode
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: callback
+        Type:
+          Name: GetZoomModeArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: go
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: relativeIndex
+        Type:
+          Name: long long
+      - Name: callback
+        Optional: true
+        Type:
+          Name: GoArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: insertCSS
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: src
+        Type:
+          Name: DOMString
+      - Name: details
+        Type:
+          Name: InjectDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionTypes
+      - Name: callback
+        Optional: true
+        Type:
+          Name: InsertCSSArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: isAudioMuted
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: callback
+        Type:
+          Name: IsAudioMutedArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: isSpatialNavigationEnabled
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: callback
+        Type:
+          Name: IsSpatialNavigationEnabledArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: loadDataWithBaseUrl
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: dataUrl
+        Type:
+          Name: DOMString
+      - Name: baseUrl
+        Type:
+          Name: DOMString
+      - Name: virtualUrl
+        Optional: true
+        Type:
+          Name: DOMString
+      - Name: callback
+        Type:
+          Name: LoadDataWithBaseUrlArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: navigate
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: src
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: overrideUserAgent
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: userAgentOverride
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: reload
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: removeContentScripts
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: scriptNameList
+        Optional: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: setAllowScaling
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: allow
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: setAllowTransparency
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: allow
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: setAudioMuted
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: mute
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: setName
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: frameName
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: setPermission
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: requestId
+        Type:
+          Name: long long
+      - Name: action
+        Type:
+          Name: SetPermissionAction
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+      - Name: userInput
+        Optional: true
+        Type:
+          Name: DOMString
+      - Name: callback
+        Optional: true
+        Type:
+          Name: SetPermissionArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: setSpatialNavigationEnabled
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: spatialNavEnabled
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: setZoom
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: zoomFactor
+        Type:
+          Name: double
+      - Name: callback
+        Optional: true
+        Type:
+          Name: SetZoomArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: setZoomMode
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: ZoomMode
+        Type:
+          Name: ZoomMode
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+      - Name: callback
+        Optional: true
+        Type:
+          Name: SetZoomModeArgCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: stop
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: stopFinding
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+      - Name: action
+        Optional: true
+        Type:
+          Name: StopFindingAction
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - webViewInternal
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal
+- File: webext/web_view_internal.json
+  WebextFunc:
+    Name: terminate
+    Args:
+      - Name: instanceId
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - webViewInternal

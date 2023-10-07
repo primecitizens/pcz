@@ -1,0 +1,78 @@
+- File: webext/idle.json
+  Enum:
+    Name: IdleState
+    Values:
+      - active
+      - idle
+      - locked
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - idle
+- File: webext/idle.json
+  WebextFunc:
+    Name: getAutoLockDelay
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: long long
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - idle
+- File: webext/idle.json
+  WebextEvent:
+    Name: onStateChanged
+    Args:
+      - Name: newState
+        Type:
+          Name: IdleState
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - idle
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - idle
+- File: webext/idle.json
+  WebextFunc:
+    Name: queryState
+    Args:
+      - Name: detectionIntervalInSeconds
+        Type:
+          Name: long long
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: IdleState
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - idle
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - idle
+- File: webext/idle.json
+  WebextFunc:
+    Name: setDetectionInterval
+    Args:
+      - Name: intervalInSeconds
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - idle

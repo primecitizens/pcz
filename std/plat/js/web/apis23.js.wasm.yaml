@@ -1,4 +1,4 @@
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLConvTranspose2dOptions
     Fields:
@@ -49,13 +49,13 @@
       - Name: activation
         Type:
           Name: MLActivation
-- File: webnn.idl
+- File: webref/webnn.idl
   Enum:
     Name: MLDeviceType
     Values:
       - cpu
       - gpu
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLEluOptions
     Fields:
@@ -63,14 +63,14 @@
         Default: "1"
         Type:
           Name: float
-- File: webnn.idl
+- File: webref/webnn.idl
   Typedef:
     Name: MLGPUResource
     Type:
       Union:
         - Name: GPUBuffer
         - Name: GPUTexture
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLGemmOptions
     Fields:
@@ -93,7 +93,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webnn.idl
+- File: webref/webnn.idl
   Interface:
     Name: MLGraph
     ExtAttrs:
@@ -102,7 +102,7 @@
         Values:
           - Window
           - DedicatedWorker
-- File: webnn.idl
+- File: webref/webnn.idl
   Interface:
     Name: MLGraphBuilder
     ExtAttrs:
@@ -996,7 +996,7 @@
             Values:
               - Window
               - DedicatedWorker
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLGruCellOptions
     Fields:
@@ -1019,7 +1019,7 @@
           Name: sequence
           Params:
             - Name: MLActivation
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLGruOptions
     Fields:
@@ -1053,13 +1053,13 @@
           Name: sequence
           Params:
             - Name: MLActivation
-- File: webnn.idl
+- File: webref/webnn.idl
   Enum:
     Name: MLGruWeightLayout
     Values:
       - zrn
       - rzn
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLHardSigmoidOptions
     Fields:
@@ -1071,13 +1071,13 @@
         Default: "0.5"
         Type:
           Name: float
-- File: webnn.idl
+- File: webref/webnn.idl
   Enum:
     Name: MLInputOperandLayout
     Values:
       - nchw
       - nhwc
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLInstanceNormalizationOptions
     Fields:
@@ -1095,13 +1095,13 @@
         Default: '"nchw"'
         Type:
           Name: MLInputOperandLayout
-- File: webnn.idl
+- File: webref/webnn.idl
   Enum:
     Name: MLInterpolationMode
     Values:
       - nearest-neighbor
       - linear
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLLeakyReluOptions
     Fields:
@@ -1109,7 +1109,7 @@
         Default: "0.01"
         Type:
           Name: float
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLLinearOptions
     Fields:
@@ -1121,7 +1121,7 @@
         Default: "0"
         Type:
           Name: float
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLLstmCellOptions
     Fields:
@@ -1143,7 +1143,7 @@
           Name: sequence
           Params:
             - Name: MLActivation
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLLstmOptions
     Fields:
@@ -1179,13 +1179,13 @@
           Name: sequence
           Params:
             - Name: MLActivation
-- File: webnn.idl
+- File: webref/webnn.idl
   Enum:
     Name: MLLstmWeightLayout
     Values:
       - iofg
       - ifgo
-- File: webnn.idl
+- File: webref/webnn.idl
   Typedef:
     Name: MLNamedArrayBufferViews
     Type:
@@ -1193,7 +1193,7 @@
       Params:
         - Name: DOMString
         - Name: ArrayBufferView
-- File: webnn.idl
+- File: webref/webnn.idl
   Typedef:
     Name: MLNamedGPUResources
     Type:
@@ -1201,7 +1201,7 @@
       Params:
         - Name: DOMString
         - Name: MLGPUResource
-- File: webnn.idl
+- File: webref/webnn.idl
   Typedef:
     Name: MLNamedOperands
     Type:
@@ -1209,7 +1209,7 @@
       Params:
         - Name: DOMString
         - Name: MLOperand
-- File: webnn.idl
+- File: webref/webnn.idl
   Interface:
     Name: MLOperand
     ExtAttrs:
@@ -1218,7 +1218,7 @@
         Values:
           - Window
           - DedicatedWorker
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLOperandDescriptor
     Fields:
@@ -1231,7 +1231,7 @@
           Name: sequence
           Params:
             - Name: unsigned long
-- File: webnn.idl
+- File: webref/webnn.idl
   Enum:
     Name: MLOperandType
     Values:
@@ -1241,7 +1241,7 @@
       - uint32
       - int8
       - uint8
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLPadOptions
     Fields:
@@ -1253,7 +1253,7 @@
         Default: "0"
         Type:
           Name: float
-- File: webnn.idl
+- File: webref/webnn.idl
   Enum:
     Name: MLPaddingMode
     Values:
@@ -1261,7 +1261,7 @@
       - edge
       - reflection
       - symmetric
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLPool2dOptions
     Fields:
@@ -1302,21 +1302,21 @@
           Name: sequence
           Params:
             - Name: unsigned long
-- File: webnn.idl
+- File: webref/webnn.idl
   Enum:
     Name: MLPowerPreference
     Values:
       - default
       - high-performance
       - low-power
-- File: webnn.idl
+- File: webref/webnn.idl
   Enum:
     Name: MLRecurrentNetworkDirection
     Values:
       - forward
       - backward
       - both
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLReduceOptions
     Fields:
@@ -1330,7 +1330,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLResample2dOptions
     Fields:
@@ -1353,13 +1353,13 @@
           Name: sequence
           Params:
             - Name: unsigned long
-- File: webnn.idl
+- File: webref/webnn.idl
   Enum:
     Name: MLRoundingType
     Values:
       - floor
       - ceil
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLSoftplusOptions
     Fields:
@@ -1367,7 +1367,7 @@
         Default: "1"
         Type:
           Name: float
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLSplitOptions
     Fields:
@@ -1375,7 +1375,7 @@
         Default: "0"
         Type:
           Name: unsigned long
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLSqueezeOptions
     Fields:
@@ -1384,7 +1384,7 @@
           Name: sequence
           Params:
             - Name: unsigned long
-- File: webnn.idl
+- File: webref/webnn.idl
   Dict:
     Name: MLTransposeOptions
     Fields:
@@ -1393,7 +1393,7 @@
           Name: sequence
           Params:
             - Name: unsigned long
-- File: magnetometer.idl
+- File: webref/magnetometer.idl
   Interface:
     Name: Magnetometer
     Inherits: Sensor
@@ -1445,13 +1445,13 @@
           - Name: Exposed
             Values:
               - Window
-- File: magnetometer.idl
+- File: webref/magnetometer.idl
   Enum:
     Name: MagnetometerLocalCoordinateSystem
     Values:
       - device
       - screen
-- File: magnetometer.idl
+- File: webref/magnetometer.idl
   Dict:
     Name: MagnetometerReadingValues
     Fields:
@@ -1470,7 +1470,7 @@
         Type:
           Name: double
           Nullable: true
-- File: magnetometer.idl
+- File: webref/magnetometer.idl
   Dict:
     Name: MagnetometerSensorOptions
     Inherits: SensorOptions
@@ -1482,7 +1482,7 @@
       - Name: frequency
         Type:
           Name: double
-- File: mathml-core.idl
+- File: webref/mathml-core.idl
   Interface:
     Name: MathMLElement
     Inherits: Element
@@ -1847,7 +1847,7 @@
       - Name: blur
         Returns:
           - Name: undefined
-- File: media-capabilities.idl
+- File: webref/media-capabilities.idl
   Interface:
     Name: MediaCapabilities
     ExtAttrs:
@@ -1886,7 +1886,7 @@
             Values:
               - Window
               - Worker
-- File: media-capabilities.idl
+- File: webref/media-capabilities.idl
   Dict:
     Name: MediaCapabilitiesDecodingInfo
     Inherits: MediaCapabilitiesInfo
@@ -1910,7 +1910,7 @@
         Required: true
         Type:
           Name: boolean
-- File: media-capabilities.idl
+- File: webref/media-capabilities.idl
   Dict:
     Name: MediaCapabilitiesEncodingInfo
     Inherits: MediaCapabilitiesInfo
@@ -1930,7 +1930,7 @@
         Required: true
         Type:
           Name: boolean
-- File: media-capabilities.idl
+- File: webref/media-capabilities.idl
   Dict:
     Name: MediaCapabilitiesInfo
     Fields:
@@ -1946,7 +1946,7 @@
         Required: true
         Type:
           Name: boolean
-- File: media-capabilities.idl
+- File: webref/media-capabilities.idl
   Dict:
     Name: MediaCapabilitiesKeySystemConfiguration
     Fields:
@@ -1977,7 +1977,7 @@
       - Name: video
         Type:
           Name: KeySystemTrackConfiguration
-- File: media-capabilities.idl
+- File: webref/media-capabilities.idl
   Dict:
     Name: MediaConfiguration
     Fields:
@@ -1987,7 +1987,7 @@
       - Name: audio
         Type:
           Name: AudioConfiguration
-- File: media-capabilities.idl
+- File: webref/media-capabilities.idl
   Dict:
     Name: MediaDecodingConfiguration
     Inherits: MediaConfiguration
@@ -2005,7 +2005,7 @@
       - Name: audio
         Type:
           Name: AudioConfiguration
-- File: media-capabilities.idl
+- File: webref/media-capabilities.idl
   Enum:
     Name: MediaDecodingType
     Values:

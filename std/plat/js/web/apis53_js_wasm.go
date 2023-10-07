@@ -5,17 +5,10 @@ package web
 
 import (
 	"github.com/primecitizens/pcz/std/core/abi"
-	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/mark"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
-
-func _() {
-	var (
-		_ abi.FuncID
-	)
-	assert.TODO()
-}
 
 type ScrollOptions struct {
 	// Behavior is "ScrollOptions.behavior"
@@ -40,17 +33,22 @@ func (p ScrollOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ScrollOptions) UpdateFrom(ref js.Ref) {
+func (p *ScrollOptions) UpdateFrom(ref js.Ref) {
 	bindings.ScrollOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ScrollOptions) Update(ref js.Ref) {
+func (p *ScrollOptions) Update(ref js.Ref) {
 	bindings.ScrollOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ScrollOptions) FreeMembers(recursive bool) {
 }
 
 type ScrollSetting uint32
@@ -104,17 +102,26 @@ func (p ScrollTimelineOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p ScrollTimelineOptions) UpdateFrom(ref js.Ref) {
+func (p *ScrollTimelineOptions) UpdateFrom(ref js.Ref) {
 	bindings.ScrollTimelineOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p ScrollTimelineOptions) Update(ref js.Ref) {
+func (p *ScrollTimelineOptions) Update(ref js.Ref) {
 	bindings.ScrollTimelineOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *ScrollTimelineOptions) FreeMembers(recursive bool) {
+	js.Free(
+		p.Source.Ref(),
+	)
+	p.Source = p.Source.FromRef(js.Undefined)
 }
 
 func NewScrollTimeline(options ScrollTimelineOptions) (ret ScrollTimeline) {
@@ -133,7 +140,7 @@ type ScrollTimeline struct {
 }
 
 func (this ScrollTimeline) Once() ScrollTimeline {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -147,7 +154,7 @@ func (this ScrollTimeline) FromRef(ref js.Ref) ScrollTimeline {
 }
 
 func (this ScrollTimeline) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Source returns the value of property "ScrollTimeline.source".
@@ -155,7 +162,7 @@ func (this ScrollTimeline) Free() {
 // It returns ok=false if there is no such property.
 func (this ScrollTimeline) Source() (ret Element, ok bool) {
 	ok = js.True == bindings.GetScrollTimelineSource(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -165,7 +172,7 @@ func (this ScrollTimeline) Source() (ret Element, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ScrollTimeline) Axis() (ret ScrollAxis, ok bool) {
 	ok = js.True == bindings.GetScrollTimelineAxis(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -240,17 +247,40 @@ func (p SecurePaymentConfirmationRequest) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p SecurePaymentConfirmationRequest) UpdateFrom(ref js.Ref) {
+func (p *SecurePaymentConfirmationRequest) UpdateFrom(ref js.Ref) {
 	bindings.SecurePaymentConfirmationRequestJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p SecurePaymentConfirmationRequest) Update(ref js.Ref) {
+func (p *SecurePaymentConfirmationRequest) Update(ref js.Ref) {
 	bindings.SecurePaymentConfirmationRequestJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *SecurePaymentConfirmationRequest) FreeMembers(recursive bool) {
+	js.Free(
+		p.Challenge.Ref(),
+		p.RpId.Ref(),
+		p.CredentialIds.Ref(),
+		p.PayeeName.Ref(),
+		p.PayeeOrigin.Ref(),
+		p.Locale.Ref(),
+	)
+	p.Challenge = p.Challenge.FromRef(js.Undefined)
+	p.RpId = p.RpId.FromRef(js.Undefined)
+	p.CredentialIds = p.CredentialIds.FromRef(js.Undefined)
+	p.PayeeName = p.PayeeName.FromRef(js.Undefined)
+	p.PayeeOrigin = p.PayeeOrigin.FromRef(js.Undefined)
+	p.Locale = p.Locale.FromRef(js.Undefined)
+	if recursive {
+		p.Instrument.FreeMembers(true)
+		p.Extensions.FreeMembers(true)
+	}
 }
 
 type SecurityPolicyViolationEventInit struct {
@@ -348,17 +378,40 @@ func (p SecurityPolicyViolationEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p SecurityPolicyViolationEventInit) UpdateFrom(ref js.Ref) {
+func (p *SecurityPolicyViolationEventInit) UpdateFrom(ref js.Ref) {
 	bindings.SecurityPolicyViolationEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p SecurityPolicyViolationEventInit) Update(ref js.Ref) {
+func (p *SecurityPolicyViolationEventInit) Update(ref js.Ref) {
 	bindings.SecurityPolicyViolationEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *SecurityPolicyViolationEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.DocumentURI.Ref(),
+		p.Referrer.Ref(),
+		p.BlockedURI.Ref(),
+		p.ViolatedDirective.Ref(),
+		p.EffectiveDirective.Ref(),
+		p.OriginalPolicy.Ref(),
+		p.SourceFile.Ref(),
+		p.Sample.Ref(),
+	)
+	p.DocumentURI = p.DocumentURI.FromRef(js.Undefined)
+	p.Referrer = p.Referrer.FromRef(js.Undefined)
+	p.BlockedURI = p.BlockedURI.FromRef(js.Undefined)
+	p.ViolatedDirective = p.ViolatedDirective.FromRef(js.Undefined)
+	p.EffectiveDirective = p.EffectiveDirective.FromRef(js.Undefined)
+	p.OriginalPolicy = p.OriginalPolicy.FromRef(js.Undefined)
+	p.SourceFile = p.SourceFile.FromRef(js.Undefined)
+	p.Sample = p.Sample.FromRef(js.Undefined)
 }
 
 func NewSecurityPolicyViolationEvent(typ js.String, eventInitDict SecurityPolicyViolationEventInit) (ret SecurityPolicyViolationEvent) {
@@ -379,7 +432,7 @@ type SecurityPolicyViolationEvent struct {
 }
 
 func (this SecurityPolicyViolationEvent) Once() SecurityPolicyViolationEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -393,7 +446,7 @@ func (this SecurityPolicyViolationEvent) FromRef(ref js.Ref) SecurityPolicyViola
 }
 
 func (this SecurityPolicyViolationEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // DocumentURI returns the value of property "SecurityPolicyViolationEvent.documentURI".
@@ -401,7 +454,7 @@ func (this SecurityPolicyViolationEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this SecurityPolicyViolationEvent) DocumentURI() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSecurityPolicyViolationEventDocumentURI(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -411,7 +464,7 @@ func (this SecurityPolicyViolationEvent) DocumentURI() (ret js.String, ok bool) 
 // It returns ok=false if there is no such property.
 func (this SecurityPolicyViolationEvent) Referrer() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSecurityPolicyViolationEventReferrer(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -421,7 +474,7 @@ func (this SecurityPolicyViolationEvent) Referrer() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SecurityPolicyViolationEvent) BlockedURI() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSecurityPolicyViolationEventBlockedURI(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -431,7 +484,7 @@ func (this SecurityPolicyViolationEvent) BlockedURI() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SecurityPolicyViolationEvent) EffectiveDirective() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSecurityPolicyViolationEventEffectiveDirective(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -441,7 +494,7 @@ func (this SecurityPolicyViolationEvent) EffectiveDirective() (ret js.String, ok
 // It returns ok=false if there is no such property.
 func (this SecurityPolicyViolationEvent) ViolatedDirective() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSecurityPolicyViolationEventViolatedDirective(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -451,7 +504,7 @@ func (this SecurityPolicyViolationEvent) ViolatedDirective() (ret js.String, ok 
 // It returns ok=false if there is no such property.
 func (this SecurityPolicyViolationEvent) OriginalPolicy() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSecurityPolicyViolationEventOriginalPolicy(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -461,7 +514,7 @@ func (this SecurityPolicyViolationEvent) OriginalPolicy() (ret js.String, ok boo
 // It returns ok=false if there is no such property.
 func (this SecurityPolicyViolationEvent) SourceFile() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSecurityPolicyViolationEventSourceFile(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -471,7 +524,7 @@ func (this SecurityPolicyViolationEvent) SourceFile() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SecurityPolicyViolationEvent) Sample() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSecurityPolicyViolationEventSample(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -481,7 +534,7 @@ func (this SecurityPolicyViolationEvent) Sample() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SecurityPolicyViolationEvent) Disposition() (ret SecurityPolicyViolationEventDisposition, ok bool) {
 	ok = js.True == bindings.GetSecurityPolicyViolationEventDisposition(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -491,7 +544,7 @@ func (this SecurityPolicyViolationEvent) Disposition() (ret SecurityPolicyViolat
 // It returns ok=false if there is no such property.
 func (this SecurityPolicyViolationEvent) StatusCode() (ret uint16, ok bool) {
 	ok = js.True == bindings.GetSecurityPolicyViolationEventStatusCode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -501,7 +554,7 @@ func (this SecurityPolicyViolationEvent) StatusCode() (ret uint16, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SecurityPolicyViolationEvent) LineNumber() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetSecurityPolicyViolationEventLineNumber(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -511,7 +564,7 @@ func (this SecurityPolicyViolationEvent) LineNumber() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SecurityPolicyViolationEvent) ColumnNumber() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetSecurityPolicyViolationEventColumnNumber(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -521,7 +574,7 @@ type Sensor struct {
 }
 
 func (this Sensor) Once() Sensor {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -535,7 +588,7 @@ func (this Sensor) FromRef(ref js.Ref) Sensor {
 }
 
 func (this Sensor) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Activated returns the value of property "Sensor.activated".
@@ -543,7 +596,7 @@ func (this Sensor) Free() {
 // It returns ok=false if there is no such property.
 func (this Sensor) Activated() (ret bool, ok bool) {
 	ok = js.True == bindings.GetSensorActivated(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -553,7 +606,7 @@ func (this Sensor) Activated() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Sensor) HasReading() (ret bool, ok bool) {
 	ok = js.True == bindings.GetSensorHasReading(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -563,31 +616,30 @@ func (this Sensor) HasReading() (ret bool, ok bool) {
 // It returns ok=false if there is no such property.
 func (this Sensor) Timestamp() (ret DOMHighResTimeStamp, ok bool) {
 	ok = js.True == bindings.GetSensorTimestamp(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasStart returns true if the method "Sensor.start" exists.
-func (this Sensor) HasStart() bool {
-	return js.True == bindings.HasSensorStart(
-		this.Ref(),
+// HasFuncStart returns true if the method "Sensor.start" exists.
+func (this Sensor) HasFuncStart() bool {
+	return js.True == bindings.HasFuncSensorStart(
+		this.ref,
 	)
 }
 
-// StartFunc returns the method "Sensor.start".
-func (this Sensor) StartFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.SensorStartFunc(
-			this.Ref(),
-		),
+// FuncStart returns the method "Sensor.start".
+func (this Sensor) FuncStart() (fn js.Func[func()]) {
+	bindings.FuncSensorStart(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Start calls the method "Sensor.start".
 func (this Sensor) Start() (ret js.Void) {
 	bindings.CallSensorStart(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -598,32 +650,31 @@ func (this Sensor) Start() (ret js.Void) {
 // the catch clause.
 func (this Sensor) TryStart() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySensorStart(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasStop returns true if the method "Sensor.stop" exists.
-func (this Sensor) HasStop() bool {
-	return js.True == bindings.HasSensorStop(
-		this.Ref(),
+// HasFuncStop returns true if the method "Sensor.stop" exists.
+func (this Sensor) HasFuncStop() bool {
+	return js.True == bindings.HasFuncSensorStop(
+		this.ref,
 	)
 }
 
-// StopFunc returns the method "Sensor.stop".
-func (this Sensor) StopFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.SensorStopFunc(
-			this.Ref(),
-		),
+// FuncStop returns the method "Sensor.stop".
+func (this Sensor) FuncStop() (fn js.Func[func()]) {
+	bindings.FuncSensorStop(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Stop calls the method "Sensor.stop".
 func (this Sensor) Stop() (ret js.Void) {
 	bindings.CallSensorStop(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -634,7 +685,7 @@ func (this Sensor) Stop() (ret js.Void) {
 // the catch clause.
 func (this Sensor) TryStop() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySensorStop(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -685,17 +736,26 @@ func (p SensorErrorEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p SensorErrorEventInit) UpdateFrom(ref js.Ref) {
+func (p *SensorErrorEventInit) UpdateFrom(ref js.Ref) {
 	bindings.SensorErrorEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p SensorErrorEventInit) Update(ref js.Ref) {
+func (p *SensorErrorEventInit) Update(ref js.Ref) {
 	bindings.SensorErrorEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *SensorErrorEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Error.Ref(),
+	)
+	p.Error = p.Error.FromRef(js.Undefined)
 }
 
 func NewSensorErrorEvent(typ js.String, errorEventInitDict SensorErrorEventInit) (ret SensorErrorEvent) {
@@ -710,7 +770,7 @@ type SensorErrorEvent struct {
 }
 
 func (this SensorErrorEvent) Once() SensorErrorEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -724,7 +784,7 @@ func (this SensorErrorEvent) FromRef(ref js.Ref) SensorErrorEvent {
 }
 
 func (this SensorErrorEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Error returns the value of property "SensorErrorEvent.error".
@@ -732,7 +792,7 @@ func (this SensorErrorEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this SensorErrorEvent) Error() (ret DOMException, ok bool) {
 	ok = js.True == bindings.GetSensorErrorEventError(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -755,7 +815,7 @@ type SequenceEffect struct {
 }
 
 func (this SequenceEffect) Once() SequenceEffect {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -769,29 +829,28 @@ func (this SequenceEffect) FromRef(ref js.Ref) SequenceEffect {
 }
 
 func (this SequenceEffect) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasClone returns true if the method "SequenceEffect.clone" exists.
-func (this SequenceEffect) HasClone() bool {
-	return js.True == bindings.HasSequenceEffectClone(
-		this.Ref(),
+// HasFuncClone returns true if the method "SequenceEffect.clone" exists.
+func (this SequenceEffect) HasFuncClone() bool {
+	return js.True == bindings.HasFuncSequenceEffectClone(
+		this.ref,
 	)
 }
 
-// CloneFunc returns the method "SequenceEffect.clone".
-func (this SequenceEffect) CloneFunc() (fn js.Func[func() SequenceEffect]) {
-	return fn.FromRef(
-		bindings.SequenceEffectCloneFunc(
-			this.Ref(),
-		),
+// FuncClone returns the method "SequenceEffect.clone".
+func (this SequenceEffect) FuncClone() (fn js.Func[func() SequenceEffect]) {
+	bindings.FuncSequenceEffectClone(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Clone calls the method "SequenceEffect.clone".
 func (this SequenceEffect) Clone() (ret SequenceEffect) {
 	bindings.CallSequenceEffectClone(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -802,7 +861,7 @@ func (this SequenceEffect) Clone() (ret SequenceEffect) {
 // the catch clause.
 func (this SequenceEffect) TryClone() (ret SequenceEffect, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySequenceEffectClone(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -813,7 +872,7 @@ type ServiceWorkerGlobalScope struct {
 }
 
 func (this ServiceWorkerGlobalScope) Once() ServiceWorkerGlobalScope {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -827,7 +886,7 @@ func (this ServiceWorkerGlobalScope) FromRef(ref js.Ref) ServiceWorkerGlobalScop
 }
 
 func (this ServiceWorkerGlobalScope) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Clients returns the value of property "ServiceWorkerGlobalScope.clients".
@@ -835,7 +894,7 @@ func (this ServiceWorkerGlobalScope) Free() {
 // It returns ok=false if there is no such property.
 func (this ServiceWorkerGlobalScope) Clients() (ret Clients, ok bool) {
 	ok = js.True == bindings.GetServiceWorkerGlobalScopeClients(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -845,7 +904,7 @@ func (this ServiceWorkerGlobalScope) Clients() (ret Clients, ok bool) {
 // It returns ok=false if there is no such property.
 func (this ServiceWorkerGlobalScope) Registration() (ret ServiceWorkerRegistration, ok bool) {
 	ok = js.True == bindings.GetServiceWorkerGlobalScopeRegistration(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -855,7 +914,7 @@ func (this ServiceWorkerGlobalScope) Registration() (ret ServiceWorkerRegistrati
 // It returns ok=false if there is no such property.
 func (this ServiceWorkerGlobalScope) ServiceWorker() (ret ServiceWorker, ok bool) {
 	ok = js.True == bindings.GetServiceWorkerGlobalScopeServiceWorker(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -865,31 +924,30 @@ func (this ServiceWorkerGlobalScope) ServiceWorker() (ret ServiceWorker, ok bool
 // It returns ok=false if there is no such property.
 func (this ServiceWorkerGlobalScope) CookieStore() (ret CookieStore, ok bool) {
 	ok = js.True == bindings.GetServiceWorkerGlobalScopeCookieStore(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasSkipWaiting returns true if the method "ServiceWorkerGlobalScope.skipWaiting" exists.
-func (this ServiceWorkerGlobalScope) HasSkipWaiting() bool {
-	return js.True == bindings.HasServiceWorkerGlobalScopeSkipWaiting(
-		this.Ref(),
+// HasFuncSkipWaiting returns true if the method "ServiceWorkerGlobalScope.skipWaiting" exists.
+func (this ServiceWorkerGlobalScope) HasFuncSkipWaiting() bool {
+	return js.True == bindings.HasFuncServiceWorkerGlobalScopeSkipWaiting(
+		this.ref,
 	)
 }
 
-// SkipWaitingFunc returns the method "ServiceWorkerGlobalScope.skipWaiting".
-func (this ServiceWorkerGlobalScope) SkipWaitingFunc() (fn js.Func[func() js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.ServiceWorkerGlobalScopeSkipWaitingFunc(
-			this.Ref(),
-		),
+// FuncSkipWaiting returns the method "ServiceWorkerGlobalScope.skipWaiting".
+func (this ServiceWorkerGlobalScope) FuncSkipWaiting() (fn js.Func[func() js.Promise[js.Void]]) {
+	bindings.FuncServiceWorkerGlobalScopeSkipWaiting(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // SkipWaiting calls the method "ServiceWorkerGlobalScope.skipWaiting".
 func (this ServiceWorkerGlobalScope) SkipWaiting() (ret js.Promise[js.Void]) {
 	bindings.CallServiceWorkerGlobalScopeSkipWaiting(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -900,7 +958,7 @@ func (this ServiceWorkerGlobalScope) SkipWaiting() (ret js.Promise[js.Void]) {
 // the catch clause.
 func (this ServiceWorkerGlobalScope) TrySkipWaiting() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryServiceWorkerGlobalScopeSkipWaiting(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -918,7 +976,7 @@ type ShadowAnimation struct {
 }
 
 func (this ShadowAnimation) Once() ShadowAnimation {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -932,7 +990,7 @@ func (this ShadowAnimation) FromRef(ref js.Ref) ShadowAnimation {
 }
 
 func (this ShadowAnimation) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // SourceAnimation returns the value of property "ShadowAnimation.sourceAnimation".
@@ -940,7 +998,7 @@ func (this ShadowAnimation) Free() {
 // It returns ok=false if there is no such property.
 func (this ShadowAnimation) SourceAnimation() (ret Animation, ok bool) {
 	ok = js.True == bindings.GetShadowAnimationSourceAnimation(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -972,17 +1030,22 @@ func (p SharedStorageSetMethodOptions) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p SharedStorageSetMethodOptions) UpdateFrom(ref js.Ref) {
+func (p *SharedStorageSetMethodOptions) UpdateFrom(ref js.Ref) {
 	bindings.SharedStorageSetMethodOptionsJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p SharedStorageSetMethodOptions) Update(ref js.Ref) {
+func (p *SharedStorageSetMethodOptions) Update(ref js.Ref) {
 	bindings.SharedStorageSetMethodOptionsJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *SharedStorageSetMethodOptions) FreeMembers(recursive bool) {
 }
 
 type SharedStorage struct {
@@ -990,7 +1053,7 @@ type SharedStorage struct {
 }
 
 func (this SharedStorage) Once() SharedStorage {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1004,29 +1067,28 @@ func (this SharedStorage) FromRef(ref js.Ref) SharedStorage {
 }
 
 func (this SharedStorage) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasSet returns true if the method "SharedStorage.set" exists.
-func (this SharedStorage) HasSet() bool {
-	return js.True == bindings.HasSharedStorageSet(
-		this.Ref(),
+// HasFuncSet returns true if the method "SharedStorage.set" exists.
+func (this SharedStorage) HasFuncSet() bool {
+	return js.True == bindings.HasFuncSharedStorageSet(
+		this.ref,
 	)
 }
 
-// SetFunc returns the method "SharedStorage.set".
-func (this SharedStorage) SetFunc() (fn js.Func[func(key js.String, value js.String, options SharedStorageSetMethodOptions) js.Promise[js.Any]]) {
-	return fn.FromRef(
-		bindings.SharedStorageSetFunc(
-			this.Ref(),
-		),
+// FuncSet returns the method "SharedStorage.set".
+func (this SharedStorage) FuncSet() (fn js.Func[func(key js.String, value js.String, options SharedStorageSetMethodOptions) js.Promise[js.Any]]) {
+	bindings.FuncSharedStorageSet(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Set calls the method "SharedStorage.set".
 func (this SharedStorage) Set(key js.String, value js.String, options SharedStorageSetMethodOptions) (ret js.Promise[js.Any]) {
 	bindings.CallSharedStorageSet(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		key.Ref(),
 		value.Ref(),
 		js.Pointer(&options),
@@ -1040,7 +1102,7 @@ func (this SharedStorage) Set(key js.String, value js.String, options SharedStor
 // the catch clause.
 func (this SharedStorage) TrySet(key js.String, value js.String, options SharedStorageSetMethodOptions) (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySharedStorageSet(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		key.Ref(),
 		value.Ref(),
 		js.Pointer(&options),
@@ -1049,26 +1111,25 @@ func (this SharedStorage) TrySet(key js.String, value js.String, options SharedS
 	return
 }
 
-// HasSet1 returns true if the method "SharedStorage.set" exists.
-func (this SharedStorage) HasSet1() bool {
-	return js.True == bindings.HasSharedStorageSet1(
-		this.Ref(),
+// HasFuncSet1 returns true if the method "SharedStorage.set" exists.
+func (this SharedStorage) HasFuncSet1() bool {
+	return js.True == bindings.HasFuncSharedStorageSet1(
+		this.ref,
 	)
 }
 
-// Set1Func returns the method "SharedStorage.set".
-func (this SharedStorage) Set1Func() (fn js.Func[func(key js.String, value js.String) js.Promise[js.Any]]) {
-	return fn.FromRef(
-		bindings.SharedStorageSet1Func(
-			this.Ref(),
-		),
+// FuncSet1 returns the method "SharedStorage.set".
+func (this SharedStorage) FuncSet1() (fn js.Func[func(key js.String, value js.String) js.Promise[js.Any]]) {
+	bindings.FuncSharedStorageSet1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Set1 calls the method "SharedStorage.set".
 func (this SharedStorage) Set1(key js.String, value js.String) (ret js.Promise[js.Any]) {
 	bindings.CallSharedStorageSet1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		key.Ref(),
 		value.Ref(),
 	)
@@ -1081,7 +1142,7 @@ func (this SharedStorage) Set1(key js.String, value js.String) (ret js.Promise[j
 // the catch clause.
 func (this SharedStorage) TrySet1(key js.String, value js.String) (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySharedStorageSet1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		key.Ref(),
 		value.Ref(),
 	)
@@ -1089,26 +1150,25 @@ func (this SharedStorage) TrySet1(key js.String, value js.String) (ret js.Promis
 	return
 }
 
-// HasAppend returns true if the method "SharedStorage.append" exists.
-func (this SharedStorage) HasAppend() bool {
-	return js.True == bindings.HasSharedStorageAppend(
-		this.Ref(),
+// HasFuncAppend returns true if the method "SharedStorage.append" exists.
+func (this SharedStorage) HasFuncAppend() bool {
+	return js.True == bindings.HasFuncSharedStorageAppend(
+		this.ref,
 	)
 }
 
-// AppendFunc returns the method "SharedStorage.append".
-func (this SharedStorage) AppendFunc() (fn js.Func[func(key js.String, value js.String) js.Promise[js.Any]]) {
-	return fn.FromRef(
-		bindings.SharedStorageAppendFunc(
-			this.Ref(),
-		),
+// FuncAppend returns the method "SharedStorage.append".
+func (this SharedStorage) FuncAppend() (fn js.Func[func(key js.String, value js.String) js.Promise[js.Any]]) {
+	bindings.FuncSharedStorageAppend(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Append calls the method "SharedStorage.append".
 func (this SharedStorage) Append(key js.String, value js.String) (ret js.Promise[js.Any]) {
 	bindings.CallSharedStorageAppend(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		key.Ref(),
 		value.Ref(),
 	)
@@ -1121,7 +1181,7 @@ func (this SharedStorage) Append(key js.String, value js.String) (ret js.Promise
 // the catch clause.
 func (this SharedStorage) TryAppend(key js.String, value js.String) (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySharedStorageAppend(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		key.Ref(),
 		value.Ref(),
 	)
@@ -1129,26 +1189,25 @@ func (this SharedStorage) TryAppend(key js.String, value js.String) (ret js.Prom
 	return
 }
 
-// HasDelete returns true if the method "SharedStorage.delete" exists.
-func (this SharedStorage) HasDelete() bool {
-	return js.True == bindings.HasSharedStorageDelete(
-		this.Ref(),
+// HasFuncDelete returns true if the method "SharedStorage.delete" exists.
+func (this SharedStorage) HasFuncDelete() bool {
+	return js.True == bindings.HasFuncSharedStorageDelete(
+		this.ref,
 	)
 }
 
-// DeleteFunc returns the method "SharedStorage.delete".
-func (this SharedStorage) DeleteFunc() (fn js.Func[func(key js.String) js.Promise[js.Any]]) {
-	return fn.FromRef(
-		bindings.SharedStorageDeleteFunc(
-			this.Ref(),
-		),
+// FuncDelete returns the method "SharedStorage.delete".
+func (this SharedStorage) FuncDelete() (fn js.Func[func(key js.String) js.Promise[js.Any]]) {
+	bindings.FuncSharedStorageDelete(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Delete calls the method "SharedStorage.delete".
 func (this SharedStorage) Delete(key js.String) (ret js.Promise[js.Any]) {
 	bindings.CallSharedStorageDelete(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		key.Ref(),
 	)
 
@@ -1160,33 +1219,32 @@ func (this SharedStorage) Delete(key js.String) (ret js.Promise[js.Any]) {
 // the catch clause.
 func (this SharedStorage) TryDelete(key js.String) (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySharedStorageDelete(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		key.Ref(),
 	)
 
 	return
 }
 
-// HasClear returns true if the method "SharedStorage.clear" exists.
-func (this SharedStorage) HasClear() bool {
-	return js.True == bindings.HasSharedStorageClear(
-		this.Ref(),
+// HasFuncClear returns true if the method "SharedStorage.clear" exists.
+func (this SharedStorage) HasFuncClear() bool {
+	return js.True == bindings.HasFuncSharedStorageClear(
+		this.ref,
 	)
 }
 
-// ClearFunc returns the method "SharedStorage.clear".
-func (this SharedStorage) ClearFunc() (fn js.Func[func() js.Promise[js.Any]]) {
-	return fn.FromRef(
-		bindings.SharedStorageClearFunc(
-			this.Ref(),
-		),
+// FuncClear returns the method "SharedStorage.clear".
+func (this SharedStorage) FuncClear() (fn js.Func[func() js.Promise[js.Any]]) {
+	bindings.FuncSharedStorageClear(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Clear calls the method "SharedStorage.clear".
 func (this SharedStorage) Clear() (ret js.Promise[js.Any]) {
 	bindings.CallSharedStorageClear(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1197,7 +1255,7 @@ func (this SharedStorage) Clear() (ret js.Promise[js.Any]) {
 // the catch clause.
 func (this SharedStorage) TryClear() (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySharedStorageClear(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1208,7 +1266,7 @@ type SharedStorageOperation struct {
 }
 
 func (this SharedStorageOperation) Once() SharedStorageOperation {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1222,13 +1280,13 @@ func (this SharedStorageOperation) FromRef(ref js.Ref) SharedStorageOperation {
 }
 
 func (this SharedStorageOperation) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-type SharedStorageOperationConstructorFunc func(this js.Ref, options SharedStorageRunOperationMethodOptions) js.Ref
+type SharedStorageOperationConstructorFunc func(this js.Ref, options *SharedStorageRunOperationMethodOptions) js.Ref
 
-func (fn SharedStorageOperationConstructorFunc) Register() js.Func[func(options SharedStorageRunOperationMethodOptions) SharedStorageOperation] {
-	return js.RegisterCallback[func(options SharedStorageRunOperationMethodOptions) SharedStorageOperation](
+func (fn SharedStorageOperationConstructorFunc) Register() js.Func[func(options *SharedStorageRunOperationMethodOptions) SharedStorageOperation] {
+	return js.RegisterCallback[func(options *SharedStorageRunOperationMethodOptions) SharedStorageOperation](
 		fn, abi.FuncPCABIInternal(fn),
 	)
 }
@@ -1241,11 +1299,14 @@ func (fn SharedStorageOperationConstructorFunc) DispatchCallback(
 		targetPC != uintptr(abi.FuncPCABIInternal(fn)) {
 		js.ThrowInvalidCallbackInvocation()
 	}
+	var arg0 SharedStorageRunOperationMethodOptions
+	arg0.UpdateFrom(args[0+1])
+	defer arg0.FreeMembers(true)
 
 	if ctx.Return(fn(
 		args[0],
 
-		SharedStorageRunOperationMethodOptions{}.FromRef(args[0+1]),
+		mark.NoEscape(&arg0),
 	)) {
 		return
 	}
@@ -1254,12 +1315,12 @@ func (fn SharedStorageOperationConstructorFunc) DispatchCallback(
 }
 
 type SharedStorageOperationConstructor[T any] struct {
-	Fn  func(arg T, this js.Ref, options SharedStorageRunOperationMethodOptions) js.Ref
+	Fn  func(arg T, this js.Ref, options *SharedStorageRunOperationMethodOptions) js.Ref
 	Arg T
 }
 
-func (cb *SharedStorageOperationConstructor[T]) Register() js.Func[func(options SharedStorageRunOperationMethodOptions) SharedStorageOperation] {
-	return js.RegisterCallback[func(options SharedStorageRunOperationMethodOptions) SharedStorageOperation](
+func (cb *SharedStorageOperationConstructor[T]) Register() js.Func[func(options *SharedStorageRunOperationMethodOptions) SharedStorageOperation] {
+	return js.RegisterCallback[func(options *SharedStorageRunOperationMethodOptions) SharedStorageOperation](
 		cb, abi.FuncPCABIInternal(cb.Fn),
 	)
 }
@@ -1270,14 +1331,17 @@ func (cb *SharedStorageOperationConstructor[T]) DispatchCallback(
 	args := ctx.Args()
 	if len(args) != 1+1 /* js this */ ||
 		targetPC != uintptr(abi.FuncPCABIInternal(cb.Fn)) {
-		assert.Throw("invalid", "callback", "invocation")
+		js.ThrowInvalidCallbackInvocation()
 	}
+	var arg0 SharedStorageRunOperationMethodOptions
+	arg0.UpdateFrom(args[0+1])
+	defer arg0.FreeMembers(true)
 
 	if ctx.Return(cb.Fn(
 		cb.Arg,
 		args[0],
 
-		SharedStorageRunOperationMethodOptions{}.FromRef(args[0+1]),
+		mark.NoEscape(&arg0),
 	)) {
 		return
 	}
@@ -1290,7 +1354,7 @@ type SharedStorageRunOperation struct {
 }
 
 func (this SharedStorageRunOperation) Once() SharedStorageRunOperation {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1304,29 +1368,28 @@ func (this SharedStorageRunOperation) FromRef(ref js.Ref) SharedStorageRunOperat
 }
 
 func (this SharedStorageRunOperation) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasRun returns true if the method "SharedStorageRunOperation.run" exists.
-func (this SharedStorageRunOperation) HasRun() bool {
-	return js.True == bindings.HasSharedStorageRunOperationRun(
-		this.Ref(),
+// HasFuncRun returns true if the method "SharedStorageRunOperation.run" exists.
+func (this SharedStorageRunOperation) HasFuncRun() bool {
+	return js.True == bindings.HasFuncSharedStorageRunOperationRun(
+		this.ref,
 	)
 }
 
-// RunFunc returns the method "SharedStorageRunOperation.run".
-func (this SharedStorageRunOperation) RunFunc() (fn js.Func[func(data js.Object) js.Promise[js.Void]]) {
-	return fn.FromRef(
-		bindings.SharedStorageRunOperationRunFunc(
-			this.Ref(),
-		),
+// FuncRun returns the method "SharedStorageRunOperation.run".
+func (this SharedStorageRunOperation) FuncRun() (fn js.Func[func(data js.Object) js.Promise[js.Void]]) {
+	bindings.FuncSharedStorageRunOperationRun(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Run calls the method "SharedStorageRunOperation.run".
 func (this SharedStorageRunOperation) Run(data js.Object) (ret js.Promise[js.Void]) {
 	bindings.CallSharedStorageRunOperationRun(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		data.Ref(),
 	)
 
@@ -1338,7 +1401,7 @@ func (this SharedStorageRunOperation) Run(data js.Object) (ret js.Promise[js.Voi
 // the catch clause.
 func (this SharedStorageRunOperation) TryRun(data js.Object) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySharedStorageRunOperationRun(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		data.Ref(),
 	)
 
@@ -1350,7 +1413,7 @@ type SharedStorageSelectURLOperation struct {
 }
 
 func (this SharedStorageSelectURLOperation) Once() SharedStorageSelectURLOperation {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1364,29 +1427,28 @@ func (this SharedStorageSelectURLOperation) FromRef(ref js.Ref) SharedStorageSel
 }
 
 func (this SharedStorageSelectURLOperation) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasRun returns true if the method "SharedStorageSelectURLOperation.run" exists.
-func (this SharedStorageSelectURLOperation) HasRun() bool {
-	return js.True == bindings.HasSharedStorageSelectURLOperationRun(
-		this.Ref(),
+// HasFuncRun returns true if the method "SharedStorageSelectURLOperation.run" exists.
+func (this SharedStorageSelectURLOperation) HasFuncRun() bool {
+	return js.True == bindings.HasFuncSharedStorageSelectURLOperationRun(
+		this.ref,
 	)
 }
 
-// RunFunc returns the method "SharedStorageSelectURLOperation.run".
-func (this SharedStorageSelectURLOperation) RunFunc() (fn js.Func[func(data js.Object, urls js.FrozenArray[SharedStorageUrlWithMetadata]) js.Promise[js.Number[int32]]]) {
-	return fn.FromRef(
-		bindings.SharedStorageSelectURLOperationRunFunc(
-			this.Ref(),
-		),
+// FuncRun returns the method "SharedStorageSelectURLOperation.run".
+func (this SharedStorageSelectURLOperation) FuncRun() (fn js.Func[func(data js.Object, urls js.FrozenArray[SharedStorageUrlWithMetadata]) js.Promise[js.Number[int32]]]) {
+	bindings.FuncSharedStorageSelectURLOperationRun(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Run calls the method "SharedStorageSelectURLOperation.run".
 func (this SharedStorageSelectURLOperation) Run(data js.Object, urls js.FrozenArray[SharedStorageUrlWithMetadata]) (ret js.Promise[js.Number[int32]]) {
 	bindings.CallSharedStorageSelectURLOperationRun(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		data.Ref(),
 		urls.Ref(),
 	)
@@ -1399,7 +1461,7 @@ func (this SharedStorageSelectURLOperation) Run(data js.Object, urls js.FrozenAr
 // the catch clause.
 func (this SharedStorageSelectURLOperation) TryRun(data js.Object, urls js.FrozenArray[SharedStorageUrlWithMetadata]) (ret js.Promise[js.Number[int32]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySharedStorageSelectURLOperationRun(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		data.Ref(),
 		urls.Ref(),
 	)
@@ -1412,7 +1474,7 @@ type WorkletSharedStorage struct {
 }
 
 func (this WorkletSharedStorage) Once() WorkletSharedStorage {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1426,29 +1488,28 @@ func (this WorkletSharedStorage) FromRef(ref js.Ref) WorkletSharedStorage {
 }
 
 func (this WorkletSharedStorage) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
-// HasGet returns true if the method "WorkletSharedStorage.get" exists.
-func (this WorkletSharedStorage) HasGet() bool {
-	return js.True == bindings.HasWorkletSharedStorageGet(
-		this.Ref(),
+// HasFuncGet returns true if the method "WorkletSharedStorage.get" exists.
+func (this WorkletSharedStorage) HasFuncGet() bool {
+	return js.True == bindings.HasFuncWorkletSharedStorageGet(
+		this.ref,
 	)
 }
 
-// GetFunc returns the method "WorkletSharedStorage.get".
-func (this WorkletSharedStorage) GetFunc() (fn js.Func[func(key js.String) js.Promise[js.String]]) {
-	return fn.FromRef(
-		bindings.WorkletSharedStorageGetFunc(
-			this.Ref(),
-		),
+// FuncGet returns the method "WorkletSharedStorage.get".
+func (this WorkletSharedStorage) FuncGet() (fn js.Func[func(key js.String) js.Promise[js.String]]) {
+	bindings.FuncWorkletSharedStorageGet(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Get calls the method "WorkletSharedStorage.get".
 func (this WorkletSharedStorage) Get(key js.String) (ret js.Promise[js.String]) {
 	bindings.CallWorkletSharedStorageGet(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		key.Ref(),
 	)
 
@@ -1460,33 +1521,32 @@ func (this WorkletSharedStorage) Get(key js.String) (ret js.Promise[js.String]) 
 // the catch clause.
 func (this WorkletSharedStorage) TryGet(key js.String) (ret js.Promise[js.String], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkletSharedStorageGet(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		key.Ref(),
 	)
 
 	return
 }
 
-// HasLength returns true if the method "WorkletSharedStorage.length" exists.
-func (this WorkletSharedStorage) HasLength() bool {
-	return js.True == bindings.HasWorkletSharedStorageLength(
-		this.Ref(),
+// HasFuncLength returns true if the method "WorkletSharedStorage.length" exists.
+func (this WorkletSharedStorage) HasFuncLength() bool {
+	return js.True == bindings.HasFuncWorkletSharedStorageLength(
+		this.ref,
 	)
 }
 
-// LengthFunc returns the method "WorkletSharedStorage.length".
-func (this WorkletSharedStorage) LengthFunc() (fn js.Func[func() js.Promise[js.Number[uint32]]]) {
-	return fn.FromRef(
-		bindings.WorkletSharedStorageLengthFunc(
-			this.Ref(),
-		),
+// FuncLength returns the method "WorkletSharedStorage.length".
+func (this WorkletSharedStorage) FuncLength() (fn js.Func[func() js.Promise[js.Number[uint32]]]) {
+	bindings.FuncWorkletSharedStorageLength(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Length calls the method "WorkletSharedStorage.length".
 func (this WorkletSharedStorage) Length() (ret js.Promise[js.Number[uint32]]) {
 	bindings.CallWorkletSharedStorageLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1497,32 +1557,31 @@ func (this WorkletSharedStorage) Length() (ret js.Promise[js.Number[uint32]]) {
 // the catch clause.
 func (this WorkletSharedStorage) TryLength() (ret js.Promise[js.Number[uint32]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkletSharedStorageLength(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasRemainingBudget returns true if the method "WorkletSharedStorage.remainingBudget" exists.
-func (this WorkletSharedStorage) HasRemainingBudget() bool {
-	return js.True == bindings.HasWorkletSharedStorageRemainingBudget(
-		this.Ref(),
+// HasFuncRemainingBudget returns true if the method "WorkletSharedStorage.remainingBudget" exists.
+func (this WorkletSharedStorage) HasFuncRemainingBudget() bool {
+	return js.True == bindings.HasFuncWorkletSharedStorageRemainingBudget(
+		this.ref,
 	)
 }
 
-// RemainingBudgetFunc returns the method "WorkletSharedStorage.remainingBudget".
-func (this WorkletSharedStorage) RemainingBudgetFunc() (fn js.Func[func() js.Promise[js.Number[float64]]]) {
-	return fn.FromRef(
-		bindings.WorkletSharedStorageRemainingBudgetFunc(
-			this.Ref(),
-		),
+// FuncRemainingBudget returns the method "WorkletSharedStorage.remainingBudget".
+func (this WorkletSharedStorage) FuncRemainingBudget() (fn js.Func[func() js.Promise[js.Number[float64]]]) {
+	bindings.FuncWorkletSharedStorageRemainingBudget(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // RemainingBudget calls the method "WorkletSharedStorage.remainingBudget".
 func (this WorkletSharedStorage) RemainingBudget() (ret js.Promise[js.Number[float64]]) {
 	bindings.CallWorkletSharedStorageRemainingBudget(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1533,7 +1592,7 @@ func (this WorkletSharedStorage) RemainingBudget() (ret js.Promise[js.Number[flo
 // the catch clause.
 func (this WorkletSharedStorage) TryRemainingBudget() (ret js.Promise[js.Number[float64]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkletSharedStorageRemainingBudget(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1544,7 +1603,7 @@ type SharedStorageWorkletGlobalScope struct {
 }
 
 func (this SharedStorageWorkletGlobalScope) Once() SharedStorageWorkletGlobalScope {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1558,7 +1617,7 @@ func (this SharedStorageWorkletGlobalScope) FromRef(ref js.Ref) SharedStorageWor
 }
 
 func (this SharedStorageWorkletGlobalScope) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // SharedStorage returns the value of property "SharedStorageWorkletGlobalScope.sharedStorage".
@@ -1566,31 +1625,30 @@ func (this SharedStorageWorkletGlobalScope) Free() {
 // It returns ok=false if there is no such property.
 func (this SharedStorageWorkletGlobalScope) SharedStorage() (ret WorkletSharedStorage, ok bool) {
 	ok = js.True == bindings.GetSharedStorageWorkletGlobalScopeSharedStorage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasRegister returns true if the method "SharedStorageWorkletGlobalScope.register" exists.
-func (this SharedStorageWorkletGlobalScope) HasRegister() bool {
-	return js.True == bindings.HasSharedStorageWorkletGlobalScopeRegister(
-		this.Ref(),
+// HasFuncRegister returns true if the method "SharedStorageWorkletGlobalScope.register" exists.
+func (this SharedStorageWorkletGlobalScope) HasFuncRegister() bool {
+	return js.True == bindings.HasFuncSharedStorageWorkletGlobalScopeRegister(
+		this.ref,
 	)
 }
 
-// RegisterFunc returns the method "SharedStorageWorkletGlobalScope.register".
-func (this SharedStorageWorkletGlobalScope) RegisterFunc() (fn js.Func[func(name js.String, operationCtor js.Func[func(options SharedStorageRunOperationMethodOptions) SharedStorageOperation])]) {
-	return fn.FromRef(
-		bindings.SharedStorageWorkletGlobalScopeRegisterFunc(
-			this.Ref(),
-		),
+// FuncRegister returns the method "SharedStorageWorkletGlobalScope.register".
+func (this SharedStorageWorkletGlobalScope) FuncRegister() (fn js.Func[func(name js.String, operationCtor js.Func[func(options *SharedStorageRunOperationMethodOptions) SharedStorageOperation])]) {
+	bindings.FuncSharedStorageWorkletGlobalScopeRegister(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Register calls the method "SharedStorageWorkletGlobalScope.register".
-func (this SharedStorageWorkletGlobalScope) Register(name js.String, operationCtor js.Func[func(options SharedStorageRunOperationMethodOptions) SharedStorageOperation]) (ret js.Void) {
+func (this SharedStorageWorkletGlobalScope) Register(name js.String, operationCtor js.Func[func(options *SharedStorageRunOperationMethodOptions) SharedStorageOperation]) (ret js.Void) {
 	bindings.CallSharedStorageWorkletGlobalScopeRegister(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		name.Ref(),
 		operationCtor.Ref(),
 	)
@@ -1601,9 +1659,9 @@ func (this SharedStorageWorkletGlobalScope) Register(name js.String, operationCt
 // TryRegister calls the method "SharedStorageWorkletGlobalScope.register"
 // in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
-func (this SharedStorageWorkletGlobalScope) TryRegister(name js.String, operationCtor js.Func[func(options SharedStorageRunOperationMethodOptions) SharedStorageOperation]) (ret js.Void, exception js.Any, ok bool) {
+func (this SharedStorageWorkletGlobalScope) TryRegister(name js.String, operationCtor js.Func[func(options *SharedStorageRunOperationMethodOptions) SharedStorageOperation]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySharedStorageWorkletGlobalScopeRegister(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		name.Ref(),
 		operationCtor.Ref(),
 	)
@@ -1657,7 +1715,7 @@ type SharedWorker struct {
 }
 
 func (this SharedWorker) Once() SharedWorker {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1671,7 +1729,7 @@ func (this SharedWorker) FromRef(ref js.Ref) SharedWorker {
 }
 
 func (this SharedWorker) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Port returns the value of property "SharedWorker.port".
@@ -1679,7 +1737,7 @@ func (this SharedWorker) Free() {
 // It returns ok=false if there is no such property.
 func (this SharedWorker) Port() (ret MessagePort, ok bool) {
 	ok = js.True == bindings.GetSharedWorkerPort(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1689,7 +1747,7 @@ type SharedWorkerGlobalScope struct {
 }
 
 func (this SharedWorkerGlobalScope) Once() SharedWorkerGlobalScope {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1703,7 +1761,7 @@ func (this SharedWorkerGlobalScope) FromRef(ref js.Ref) SharedWorkerGlobalScope 
 }
 
 func (this SharedWorkerGlobalScope) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Name returns the value of property "SharedWorkerGlobalScope.name".
@@ -1711,31 +1769,30 @@ func (this SharedWorkerGlobalScope) Free() {
 // It returns ok=false if there is no such property.
 func (this SharedWorkerGlobalScope) Name() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSharedWorkerGlobalScopeName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasClose returns true if the method "SharedWorkerGlobalScope.close" exists.
-func (this SharedWorkerGlobalScope) HasClose() bool {
-	return js.True == bindings.HasSharedWorkerGlobalScopeClose(
-		this.Ref(),
+// HasFuncClose returns true if the method "SharedWorkerGlobalScope.close" exists.
+func (this SharedWorkerGlobalScope) HasFuncClose() bool {
+	return js.True == bindings.HasFuncSharedWorkerGlobalScopeClose(
+		this.ref,
 	)
 }
 
-// CloseFunc returns the method "SharedWorkerGlobalScope.close".
-func (this SharedWorkerGlobalScope) CloseFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.SharedWorkerGlobalScopeCloseFunc(
-			this.Ref(),
-		),
+// FuncClose returns the method "SharedWorkerGlobalScope.close".
+func (this SharedWorkerGlobalScope) FuncClose() (fn js.Func[func()]) {
+	bindings.FuncSharedWorkerGlobalScopeClose(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Close calls the method "SharedWorkerGlobalScope.close".
 func (this SharedWorkerGlobalScope) Close() (ret js.Void) {
 	bindings.CallSharedWorkerGlobalScopeClose(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -1746,7 +1803,7 @@ func (this SharedWorkerGlobalScope) Close() (ret js.Void) {
 // the catch clause.
 func (this SharedWorkerGlobalScope) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySharedWorkerGlobalScopeClose(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -1759,7 +1816,7 @@ type SpeechGrammar struct {
 }
 
 func (this SpeechGrammar) Once() SpeechGrammar {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1773,7 +1830,7 @@ func (this SpeechGrammar) FromRef(ref js.Ref) SpeechGrammar {
 }
 
 func (this SpeechGrammar) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Src returns the value of property "SpeechGrammar.src".
@@ -1781,7 +1838,7 @@ func (this SpeechGrammar) Free() {
 // It returns ok=false if there is no such property.
 func (this SpeechGrammar) Src() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSpeechGrammarSrc(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1791,7 +1848,7 @@ func (this SpeechGrammar) Src() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this SpeechGrammar) SetSrc(val js.String) bool {
 	return js.True == bindings.SetSpeechGrammarSrc(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -1801,7 +1858,7 @@ func (this SpeechGrammar) SetSrc(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this SpeechGrammar) Weight() (ret float32, ok bool) {
 	ok = js.True == bindings.GetSpeechGrammarWeight(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -1811,7 +1868,7 @@ func (this SpeechGrammar) Weight() (ret float32, ok bool) {
 // It returns false if the property cannot be set.
 func (this SpeechGrammar) SetWeight(val float32) bool {
 	return js.True == bindings.SetSpeechGrammarWeight(
-		this.Ref(),
+		this.ref,
 		float32(val),
 	)
 }
@@ -1821,7 +1878,7 @@ type SpeechGrammarList struct {
 }
 
 func (this SpeechGrammarList) Once() SpeechGrammarList {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -1835,7 +1892,7 @@ func (this SpeechGrammarList) FromRef(ref js.Ref) SpeechGrammarList {
 }
 
 func (this SpeechGrammarList) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Length returns the value of property "SpeechGrammarList.length".
@@ -1843,31 +1900,30 @@ func (this SpeechGrammarList) Free() {
 // It returns ok=false if there is no such property.
 func (this SpeechGrammarList) Length() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetSpeechGrammarListLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasItem returns true if the method "SpeechGrammarList.item" exists.
-func (this SpeechGrammarList) HasItem() bool {
-	return js.True == bindings.HasSpeechGrammarListItem(
-		this.Ref(),
+// HasFuncItem returns true if the method "SpeechGrammarList.item" exists.
+func (this SpeechGrammarList) HasFuncItem() bool {
+	return js.True == bindings.HasFuncSpeechGrammarListItem(
+		this.ref,
 	)
 }
 
-// ItemFunc returns the method "SpeechGrammarList.item".
-func (this SpeechGrammarList) ItemFunc() (fn js.Func[func(index uint32) SpeechGrammar]) {
-	return fn.FromRef(
-		bindings.SpeechGrammarListItemFunc(
-			this.Ref(),
-		),
+// FuncItem returns the method "SpeechGrammarList.item".
+func (this SpeechGrammarList) FuncItem() (fn js.Func[func(index uint32) SpeechGrammar]) {
+	bindings.FuncSpeechGrammarListItem(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Item calls the method "SpeechGrammarList.item".
 func (this SpeechGrammarList) Item(index uint32) (ret SpeechGrammar) {
 	bindings.CallSpeechGrammarListItem(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 	)
 
@@ -1879,33 +1935,32 @@ func (this SpeechGrammarList) Item(index uint32) (ret SpeechGrammar) {
 // the catch clause.
 func (this SpeechGrammarList) TryItem(index uint32) (ret SpeechGrammar, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechGrammarListItem(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 	)
 
 	return
 }
 
-// HasAddFromURI returns true if the method "SpeechGrammarList.addFromURI" exists.
-func (this SpeechGrammarList) HasAddFromURI() bool {
-	return js.True == bindings.HasSpeechGrammarListAddFromURI(
-		this.Ref(),
+// HasFuncAddFromURI returns true if the method "SpeechGrammarList.addFromURI" exists.
+func (this SpeechGrammarList) HasFuncAddFromURI() bool {
+	return js.True == bindings.HasFuncSpeechGrammarListAddFromURI(
+		this.ref,
 	)
 }
 
-// AddFromURIFunc returns the method "SpeechGrammarList.addFromURI".
-func (this SpeechGrammarList) AddFromURIFunc() (fn js.Func[func(src js.String, weight float32)]) {
-	return fn.FromRef(
-		bindings.SpeechGrammarListAddFromURIFunc(
-			this.Ref(),
-		),
+// FuncAddFromURI returns the method "SpeechGrammarList.addFromURI".
+func (this SpeechGrammarList) FuncAddFromURI() (fn js.Func[func(src js.String, weight float32)]) {
+	bindings.FuncSpeechGrammarListAddFromURI(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AddFromURI calls the method "SpeechGrammarList.addFromURI".
 func (this SpeechGrammarList) AddFromURI(src js.String, weight float32) (ret js.Void) {
 	bindings.CallSpeechGrammarListAddFromURI(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		src.Ref(),
 		float32(weight),
 	)
@@ -1918,7 +1973,7 @@ func (this SpeechGrammarList) AddFromURI(src js.String, weight float32) (ret js.
 // the catch clause.
 func (this SpeechGrammarList) TryAddFromURI(src js.String, weight float32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechGrammarListAddFromURI(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		src.Ref(),
 		float32(weight),
 	)
@@ -1926,26 +1981,25 @@ func (this SpeechGrammarList) TryAddFromURI(src js.String, weight float32) (ret 
 	return
 }
 
-// HasAddFromURI1 returns true if the method "SpeechGrammarList.addFromURI" exists.
-func (this SpeechGrammarList) HasAddFromURI1() bool {
-	return js.True == bindings.HasSpeechGrammarListAddFromURI1(
-		this.Ref(),
+// HasFuncAddFromURI1 returns true if the method "SpeechGrammarList.addFromURI" exists.
+func (this SpeechGrammarList) HasFuncAddFromURI1() bool {
+	return js.True == bindings.HasFuncSpeechGrammarListAddFromURI1(
+		this.ref,
 	)
 }
 
-// AddFromURI1Func returns the method "SpeechGrammarList.addFromURI".
-func (this SpeechGrammarList) AddFromURI1Func() (fn js.Func[func(src js.String)]) {
-	return fn.FromRef(
-		bindings.SpeechGrammarListAddFromURI1Func(
-			this.Ref(),
-		),
+// FuncAddFromURI1 returns the method "SpeechGrammarList.addFromURI".
+func (this SpeechGrammarList) FuncAddFromURI1() (fn js.Func[func(src js.String)]) {
+	bindings.FuncSpeechGrammarListAddFromURI1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AddFromURI1 calls the method "SpeechGrammarList.addFromURI".
 func (this SpeechGrammarList) AddFromURI1(src js.String) (ret js.Void) {
 	bindings.CallSpeechGrammarListAddFromURI1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		src.Ref(),
 	)
 
@@ -1957,33 +2011,32 @@ func (this SpeechGrammarList) AddFromURI1(src js.String) (ret js.Void) {
 // the catch clause.
 func (this SpeechGrammarList) TryAddFromURI1(src js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechGrammarListAddFromURI1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		src.Ref(),
 	)
 
 	return
 }
 
-// HasAddFromString returns true if the method "SpeechGrammarList.addFromString" exists.
-func (this SpeechGrammarList) HasAddFromString() bool {
-	return js.True == bindings.HasSpeechGrammarListAddFromString(
-		this.Ref(),
+// HasFuncAddFromString returns true if the method "SpeechGrammarList.addFromString" exists.
+func (this SpeechGrammarList) HasFuncAddFromString() bool {
+	return js.True == bindings.HasFuncSpeechGrammarListAddFromString(
+		this.ref,
 	)
 }
 
-// AddFromStringFunc returns the method "SpeechGrammarList.addFromString".
-func (this SpeechGrammarList) AddFromStringFunc() (fn js.Func[func(string js.String, weight float32)]) {
-	return fn.FromRef(
-		bindings.SpeechGrammarListAddFromStringFunc(
-			this.Ref(),
-		),
+// FuncAddFromString returns the method "SpeechGrammarList.addFromString".
+func (this SpeechGrammarList) FuncAddFromString() (fn js.Func[func(string js.String, weight float32)]) {
+	bindings.FuncSpeechGrammarListAddFromString(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AddFromString calls the method "SpeechGrammarList.addFromString".
 func (this SpeechGrammarList) AddFromString(string js.String, weight float32) (ret js.Void) {
 	bindings.CallSpeechGrammarListAddFromString(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		string.Ref(),
 		float32(weight),
 	)
@@ -1996,7 +2049,7 @@ func (this SpeechGrammarList) AddFromString(string js.String, weight float32) (r
 // the catch clause.
 func (this SpeechGrammarList) TryAddFromString(string js.String, weight float32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechGrammarListAddFromString(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		string.Ref(),
 		float32(weight),
 	)
@@ -2004,26 +2057,25 @@ func (this SpeechGrammarList) TryAddFromString(string js.String, weight float32)
 	return
 }
 
-// HasAddFromString1 returns true if the method "SpeechGrammarList.addFromString" exists.
-func (this SpeechGrammarList) HasAddFromString1() bool {
-	return js.True == bindings.HasSpeechGrammarListAddFromString1(
-		this.Ref(),
+// HasFuncAddFromString1 returns true if the method "SpeechGrammarList.addFromString" exists.
+func (this SpeechGrammarList) HasFuncAddFromString1() bool {
+	return js.True == bindings.HasFuncSpeechGrammarListAddFromString1(
+		this.ref,
 	)
 }
 
-// AddFromString1Func returns the method "SpeechGrammarList.addFromString".
-func (this SpeechGrammarList) AddFromString1Func() (fn js.Func[func(string js.String)]) {
-	return fn.FromRef(
-		bindings.SpeechGrammarListAddFromString1Func(
-			this.Ref(),
-		),
+// FuncAddFromString1 returns the method "SpeechGrammarList.addFromString".
+func (this SpeechGrammarList) FuncAddFromString1() (fn js.Func[func(string js.String)]) {
+	bindings.FuncSpeechGrammarListAddFromString1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // AddFromString1 calls the method "SpeechGrammarList.addFromString".
 func (this SpeechGrammarList) AddFromString1(string js.String) (ret js.Void) {
 	bindings.CallSpeechGrammarListAddFromString1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		string.Ref(),
 	)
 
@@ -2035,7 +2087,7 @@ func (this SpeechGrammarList) AddFromString1(string js.String) (ret js.Void) {
 // the catch clause.
 func (this SpeechGrammarList) TryAddFromString1(string js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechGrammarListAddFromString1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		string.Ref(),
 	)
 
@@ -2047,7 +2099,7 @@ type SpeechRecognition struct {
 }
 
 func (this SpeechRecognition) Once() SpeechRecognition {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2061,7 +2113,7 @@ func (this SpeechRecognition) FromRef(ref js.Ref) SpeechRecognition {
 }
 
 func (this SpeechRecognition) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Grammars returns the value of property "SpeechRecognition.grammars".
@@ -2069,7 +2121,7 @@ func (this SpeechRecognition) Free() {
 // It returns ok=false if there is no such property.
 func (this SpeechRecognition) Grammars() (ret SpeechGrammarList, ok bool) {
 	ok = js.True == bindings.GetSpeechRecognitionGrammars(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2079,7 +2131,7 @@ func (this SpeechRecognition) Grammars() (ret SpeechGrammarList, ok bool) {
 // It returns false if the property cannot be set.
 func (this SpeechRecognition) SetGrammars(val SpeechGrammarList) bool {
 	return js.True == bindings.SetSpeechRecognitionGrammars(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2089,7 +2141,7 @@ func (this SpeechRecognition) SetGrammars(val SpeechGrammarList) bool {
 // It returns ok=false if there is no such property.
 func (this SpeechRecognition) Lang() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSpeechRecognitionLang(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2099,7 +2151,7 @@ func (this SpeechRecognition) Lang() (ret js.String, ok bool) {
 // It returns false if the property cannot be set.
 func (this SpeechRecognition) SetLang(val js.String) bool {
 	return js.True == bindings.SetSpeechRecognitionLang(
-		this.Ref(),
+		this.ref,
 		val.Ref(),
 	)
 }
@@ -2109,7 +2161,7 @@ func (this SpeechRecognition) SetLang(val js.String) bool {
 // It returns ok=false if there is no such property.
 func (this SpeechRecognition) Continuous() (ret bool, ok bool) {
 	ok = js.True == bindings.GetSpeechRecognitionContinuous(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2119,7 +2171,7 @@ func (this SpeechRecognition) Continuous() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this SpeechRecognition) SetContinuous(val bool) bool {
 	return js.True == bindings.SetSpeechRecognitionContinuous(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -2129,7 +2181,7 @@ func (this SpeechRecognition) SetContinuous(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this SpeechRecognition) InterimResults() (ret bool, ok bool) {
 	ok = js.True == bindings.GetSpeechRecognitionInterimResults(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2139,7 +2191,7 @@ func (this SpeechRecognition) InterimResults() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this SpeechRecognition) SetInterimResults(val bool) bool {
 	return js.True == bindings.SetSpeechRecognitionInterimResults(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -2149,7 +2201,7 @@ func (this SpeechRecognition) SetInterimResults(val bool) bool {
 // It returns ok=false if there is no such property.
 func (this SpeechRecognition) MaxAlternatives() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetSpeechRecognitionMaxAlternatives(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2159,31 +2211,30 @@ func (this SpeechRecognition) MaxAlternatives() (ret uint32, ok bool) {
 // It returns false if the property cannot be set.
 func (this SpeechRecognition) SetMaxAlternatives(val uint32) bool {
 	return js.True == bindings.SetSpeechRecognitionMaxAlternatives(
-		this.Ref(),
+		this.ref,
 		uint32(val),
 	)
 }
 
-// HasStart returns true if the method "SpeechRecognition.start" exists.
-func (this SpeechRecognition) HasStart() bool {
-	return js.True == bindings.HasSpeechRecognitionStart(
-		this.Ref(),
+// HasFuncStart returns true if the method "SpeechRecognition.start" exists.
+func (this SpeechRecognition) HasFuncStart() bool {
+	return js.True == bindings.HasFuncSpeechRecognitionStart(
+		this.ref,
 	)
 }
 
-// StartFunc returns the method "SpeechRecognition.start".
-func (this SpeechRecognition) StartFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.SpeechRecognitionStartFunc(
-			this.Ref(),
-		),
+// FuncStart returns the method "SpeechRecognition.start".
+func (this SpeechRecognition) FuncStart() (fn js.Func[func()]) {
+	bindings.FuncSpeechRecognitionStart(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Start calls the method "SpeechRecognition.start".
 func (this SpeechRecognition) Start() (ret js.Void) {
 	bindings.CallSpeechRecognitionStart(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2194,32 +2245,31 @@ func (this SpeechRecognition) Start() (ret js.Void) {
 // the catch clause.
 func (this SpeechRecognition) TryStart() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechRecognitionStart(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasStop returns true if the method "SpeechRecognition.stop" exists.
-func (this SpeechRecognition) HasStop() bool {
-	return js.True == bindings.HasSpeechRecognitionStop(
-		this.Ref(),
+// HasFuncStop returns true if the method "SpeechRecognition.stop" exists.
+func (this SpeechRecognition) HasFuncStop() bool {
+	return js.True == bindings.HasFuncSpeechRecognitionStop(
+		this.ref,
 	)
 }
 
-// StopFunc returns the method "SpeechRecognition.stop".
-func (this SpeechRecognition) StopFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.SpeechRecognitionStopFunc(
-			this.Ref(),
-		),
+// FuncStop returns the method "SpeechRecognition.stop".
+func (this SpeechRecognition) FuncStop() (fn js.Func[func()]) {
+	bindings.FuncSpeechRecognitionStop(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Stop calls the method "SpeechRecognition.stop".
 func (this SpeechRecognition) Stop() (ret js.Void) {
 	bindings.CallSpeechRecognitionStop(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2230,32 +2280,31 @@ func (this SpeechRecognition) Stop() (ret js.Void) {
 // the catch clause.
 func (this SpeechRecognition) TryStop() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechRecognitionStop(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
 }
 
-// HasAbort returns true if the method "SpeechRecognition.abort" exists.
-func (this SpeechRecognition) HasAbort() bool {
-	return js.True == bindings.HasSpeechRecognitionAbort(
-		this.Ref(),
+// HasFuncAbort returns true if the method "SpeechRecognition.abort" exists.
+func (this SpeechRecognition) HasFuncAbort() bool {
+	return js.True == bindings.HasFuncSpeechRecognitionAbort(
+		this.ref,
 	)
 }
 
-// AbortFunc returns the method "SpeechRecognition.abort".
-func (this SpeechRecognition) AbortFunc() (fn js.Func[func()]) {
-	return fn.FromRef(
-		bindings.SpeechRecognitionAbortFunc(
-			this.Ref(),
-		),
+// FuncAbort returns the method "SpeechRecognition.abort".
+func (this SpeechRecognition) FuncAbort() (fn js.Func[func()]) {
+	bindings.FuncSpeechRecognitionAbort(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Abort calls the method "SpeechRecognition.abort".
 func (this SpeechRecognition) Abort() (ret js.Void) {
 	bindings.CallSpeechRecognitionAbort(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 
 	return
@@ -2266,7 +2315,7 @@ func (this SpeechRecognition) Abort() (ret js.Void) {
 // the catch clause.
 func (this SpeechRecognition) TryAbort() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechRecognitionAbort(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 	)
 
 	return
@@ -2277,7 +2326,7 @@ type SpeechRecognitionAlternative struct {
 }
 
 func (this SpeechRecognitionAlternative) Once() SpeechRecognitionAlternative {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2291,7 +2340,7 @@ func (this SpeechRecognitionAlternative) FromRef(ref js.Ref) SpeechRecognitionAl
 }
 
 func (this SpeechRecognitionAlternative) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Transcript returns the value of property "SpeechRecognitionAlternative.transcript".
@@ -2299,7 +2348,7 @@ func (this SpeechRecognitionAlternative) Free() {
 // It returns ok=false if there is no such property.
 func (this SpeechRecognitionAlternative) Transcript() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSpeechRecognitionAlternativeTranscript(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2309,7 +2358,7 @@ func (this SpeechRecognitionAlternative) Transcript() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SpeechRecognitionAlternative) Confidence() (ret float32, ok bool) {
 	ok = js.True == bindings.GetSpeechRecognitionAlternativeConfidence(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2405,17 +2454,26 @@ func (p SpeechRecognitionErrorEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p SpeechRecognitionErrorEventInit) UpdateFrom(ref js.Ref) {
+func (p *SpeechRecognitionErrorEventInit) UpdateFrom(ref js.Ref) {
 	bindings.SpeechRecognitionErrorEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p SpeechRecognitionErrorEventInit) Update(ref js.Ref) {
+func (p *SpeechRecognitionErrorEventInit) Update(ref js.Ref) {
 	bindings.SpeechRecognitionErrorEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *SpeechRecognitionErrorEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Message.Ref(),
+	)
+	p.Message = p.Message.FromRef(js.Undefined)
 }
 
 func NewSpeechRecognitionErrorEvent(typ js.String, eventInitDict SpeechRecognitionErrorEventInit) (ret SpeechRecognitionErrorEvent) {
@@ -2430,7 +2488,7 @@ type SpeechRecognitionErrorEvent struct {
 }
 
 func (this SpeechRecognitionErrorEvent) Once() SpeechRecognitionErrorEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2444,7 +2502,7 @@ func (this SpeechRecognitionErrorEvent) FromRef(ref js.Ref) SpeechRecognitionErr
 }
 
 func (this SpeechRecognitionErrorEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Error returns the value of property "SpeechRecognitionErrorEvent.error".
@@ -2452,7 +2510,7 @@ func (this SpeechRecognitionErrorEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this SpeechRecognitionErrorEvent) Error() (ret SpeechRecognitionErrorCode, ok bool) {
 	ok = js.True == bindings.GetSpeechRecognitionErrorEventError(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2462,7 +2520,7 @@ func (this SpeechRecognitionErrorEvent) Error() (ret SpeechRecognitionErrorCode,
 // It returns ok=false if there is no such property.
 func (this SpeechRecognitionErrorEvent) Message() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSpeechRecognitionErrorEventMessage(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2472,7 +2530,7 @@ type SpeechRecognitionResult struct {
 }
 
 func (this SpeechRecognitionResult) Once() SpeechRecognitionResult {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2486,7 +2544,7 @@ func (this SpeechRecognitionResult) FromRef(ref js.Ref) SpeechRecognitionResult 
 }
 
 func (this SpeechRecognitionResult) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Length returns the value of property "SpeechRecognitionResult.length".
@@ -2494,7 +2552,7 @@ func (this SpeechRecognitionResult) Free() {
 // It returns ok=false if there is no such property.
 func (this SpeechRecognitionResult) Length() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetSpeechRecognitionResultLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2504,31 +2562,30 @@ func (this SpeechRecognitionResult) Length() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SpeechRecognitionResult) IsFinal() (ret bool, ok bool) {
 	ok = js.True == bindings.GetSpeechRecognitionResultIsFinal(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasItem returns true if the method "SpeechRecognitionResult.item" exists.
-func (this SpeechRecognitionResult) HasItem() bool {
-	return js.True == bindings.HasSpeechRecognitionResultItem(
-		this.Ref(),
+// HasFuncItem returns true if the method "SpeechRecognitionResult.item" exists.
+func (this SpeechRecognitionResult) HasFuncItem() bool {
+	return js.True == bindings.HasFuncSpeechRecognitionResultItem(
+		this.ref,
 	)
 }
 
-// ItemFunc returns the method "SpeechRecognitionResult.item".
-func (this SpeechRecognitionResult) ItemFunc() (fn js.Func[func(index uint32) SpeechRecognitionAlternative]) {
-	return fn.FromRef(
-		bindings.SpeechRecognitionResultItemFunc(
-			this.Ref(),
-		),
+// FuncItem returns the method "SpeechRecognitionResult.item".
+func (this SpeechRecognitionResult) FuncItem() (fn js.Func[func(index uint32) SpeechRecognitionAlternative]) {
+	bindings.FuncSpeechRecognitionResultItem(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Item calls the method "SpeechRecognitionResult.item".
 func (this SpeechRecognitionResult) Item(index uint32) (ret SpeechRecognitionAlternative) {
 	bindings.CallSpeechRecognitionResultItem(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 	)
 
@@ -2540,7 +2597,7 @@ func (this SpeechRecognitionResult) Item(index uint32) (ret SpeechRecognitionAlt
 // the catch clause.
 func (this SpeechRecognitionResult) TryItem(index uint32) (ret SpeechRecognitionAlternative, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechRecognitionResultItem(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 	)
 
@@ -2552,7 +2609,7 @@ type SpeechRecognitionResultList struct {
 }
 
 func (this SpeechRecognitionResultList) Once() SpeechRecognitionResultList {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2566,7 +2623,7 @@ func (this SpeechRecognitionResultList) FromRef(ref js.Ref) SpeechRecognitionRes
 }
 
 func (this SpeechRecognitionResultList) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Length returns the value of property "SpeechRecognitionResultList.length".
@@ -2574,31 +2631,30 @@ func (this SpeechRecognitionResultList) Free() {
 // It returns ok=false if there is no such property.
 func (this SpeechRecognitionResultList) Length() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetSpeechRecognitionResultListLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasItem returns true if the method "SpeechRecognitionResultList.item" exists.
-func (this SpeechRecognitionResultList) HasItem() bool {
-	return js.True == bindings.HasSpeechRecognitionResultListItem(
-		this.Ref(),
+// HasFuncItem returns true if the method "SpeechRecognitionResultList.item" exists.
+func (this SpeechRecognitionResultList) HasFuncItem() bool {
+	return js.True == bindings.HasFuncSpeechRecognitionResultListItem(
+		this.ref,
 	)
 }
 
-// ItemFunc returns the method "SpeechRecognitionResultList.item".
-func (this SpeechRecognitionResultList) ItemFunc() (fn js.Func[func(index uint32) SpeechRecognitionResult]) {
-	return fn.FromRef(
-		bindings.SpeechRecognitionResultListItemFunc(
-			this.Ref(),
-		),
+// FuncItem returns the method "SpeechRecognitionResultList.item".
+func (this SpeechRecognitionResultList) FuncItem() (fn js.Func[func(index uint32) SpeechRecognitionResult]) {
+	bindings.FuncSpeechRecognitionResultListItem(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // Item calls the method "SpeechRecognitionResultList.item".
 func (this SpeechRecognitionResultList) Item(index uint32) (ret SpeechRecognitionResult) {
 	bindings.CallSpeechRecognitionResultListItem(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		uint32(index),
 	)
 
@@ -2610,7 +2666,7 @@ func (this SpeechRecognitionResultList) Item(index uint32) (ret SpeechRecognitio
 // the catch clause.
 func (this SpeechRecognitionResultList) TryItem(index uint32) (ret SpeechRecognitionResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechRecognitionResultListItem(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		uint32(index),
 	)
 
@@ -2669,17 +2725,26 @@ func (p SpeechRecognitionEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p SpeechRecognitionEventInit) UpdateFrom(ref js.Ref) {
+func (p *SpeechRecognitionEventInit) UpdateFrom(ref js.Ref) {
 	bindings.SpeechRecognitionEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p SpeechRecognitionEventInit) Update(ref js.Ref) {
+func (p *SpeechRecognitionEventInit) Update(ref js.Ref) {
 	bindings.SpeechRecognitionEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *SpeechRecognitionEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Results.Ref(),
+	)
+	p.Results = p.Results.FromRef(js.Undefined)
 }
 
 func NewSpeechRecognitionEvent(typ js.String, eventInitDict SpeechRecognitionEventInit) (ret SpeechRecognitionEvent) {
@@ -2694,7 +2759,7 @@ type SpeechRecognitionEvent struct {
 }
 
 func (this SpeechRecognitionEvent) Once() SpeechRecognitionEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2708,7 +2773,7 @@ func (this SpeechRecognitionEvent) FromRef(ref js.Ref) SpeechRecognitionEvent {
 }
 
 func (this SpeechRecognitionEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // ResultIndex returns the value of property "SpeechRecognitionEvent.resultIndex".
@@ -2716,7 +2781,7 @@ func (this SpeechRecognitionEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this SpeechRecognitionEvent) ResultIndex() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetSpeechRecognitionEventResultIndex(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2726,7 +2791,7 @@ func (this SpeechRecognitionEvent) ResultIndex() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SpeechRecognitionEvent) Results() (ret SpeechRecognitionResultList, ok bool) {
 	ok = js.True == bindings.GetSpeechRecognitionEventResults(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2859,17 +2924,28 @@ func (p SpeechSynthesisErrorEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p SpeechSynthesisErrorEventInit) UpdateFrom(ref js.Ref) {
+func (p *SpeechSynthesisErrorEventInit) UpdateFrom(ref js.Ref) {
 	bindings.SpeechSynthesisErrorEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p SpeechSynthesisErrorEventInit) Update(ref js.Ref) {
+func (p *SpeechSynthesisErrorEventInit) Update(ref js.Ref) {
 	bindings.SpeechSynthesisErrorEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *SpeechSynthesisErrorEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Utterance.Ref(),
+		p.Name.Ref(),
+	)
+	p.Utterance = p.Utterance.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 func NewSpeechSynthesisErrorEvent(typ js.String, eventInitDict SpeechSynthesisErrorEventInit) (ret SpeechSynthesisErrorEvent) {
@@ -2884,7 +2960,7 @@ type SpeechSynthesisErrorEvent struct {
 }
 
 func (this SpeechSynthesisErrorEvent) Once() SpeechSynthesisErrorEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -2898,7 +2974,7 @@ func (this SpeechSynthesisErrorEvent) FromRef(ref js.Ref) SpeechSynthesisErrorEv
 }
 
 func (this SpeechSynthesisErrorEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Error returns the value of property "SpeechSynthesisErrorEvent.error".
@@ -2906,7 +2982,7 @@ func (this SpeechSynthesisErrorEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this SpeechSynthesisErrorEvent) Error() (ret SpeechSynthesisErrorCode, ok bool) {
 	ok = js.True == bindings.GetSpeechSynthesisErrorEventError(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -2981,17 +3057,28 @@ func (p SpeechSynthesisEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p SpeechSynthesisEventInit) UpdateFrom(ref js.Ref) {
+func (p *SpeechSynthesisEventInit) UpdateFrom(ref js.Ref) {
 	bindings.SpeechSynthesisEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p SpeechSynthesisEventInit) Update(ref js.Ref) {
+func (p *SpeechSynthesisEventInit) Update(ref js.Ref) {
 	bindings.SpeechSynthesisEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *SpeechSynthesisEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Utterance.Ref(),
+		p.Name.Ref(),
+	)
+	p.Utterance = p.Utterance.FromRef(js.Undefined)
+	p.Name = p.Name.FromRef(js.Undefined)
 }
 
 func NewSpeechSynthesisEvent(typ js.String, eventInitDict SpeechSynthesisEventInit) (ret SpeechSynthesisEvent) {
@@ -3006,7 +3093,7 @@ type SpeechSynthesisEvent struct {
 }
 
 func (this SpeechSynthesisEvent) Once() SpeechSynthesisEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3020,7 +3107,7 @@ func (this SpeechSynthesisEvent) FromRef(ref js.Ref) SpeechSynthesisEvent {
 }
 
 func (this SpeechSynthesisEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Utterance returns the value of property "SpeechSynthesisEvent.utterance".
@@ -3028,7 +3115,7 @@ func (this SpeechSynthesisEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this SpeechSynthesisEvent) Utterance() (ret SpeechSynthesisUtterance, ok bool) {
 	ok = js.True == bindings.GetSpeechSynthesisEventUtterance(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3038,7 +3125,7 @@ func (this SpeechSynthesisEvent) Utterance() (ret SpeechSynthesisUtterance, ok b
 // It returns ok=false if there is no such property.
 func (this SpeechSynthesisEvent) CharIndex() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetSpeechSynthesisEventCharIndex(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3048,7 +3135,7 @@ func (this SpeechSynthesisEvent) CharIndex() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SpeechSynthesisEvent) CharLength() (ret uint32, ok bool) {
 	ok = js.True == bindings.GetSpeechSynthesisEventCharLength(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3058,7 +3145,7 @@ func (this SpeechSynthesisEvent) CharLength() (ret uint32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SpeechSynthesisEvent) ElapsedTime() (ret float32, ok bool) {
 	ok = js.True == bindings.GetSpeechSynthesisEventElapsedTime(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3068,7 +3155,7 @@ func (this SpeechSynthesisEvent) ElapsedTime() (ret float32, ok bool) {
 // It returns ok=false if there is no such property.
 func (this SpeechSynthesisEvent) Name() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetSpeechSynthesisEventName(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3134,17 +3221,34 @@ func (p StorageEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p StorageEventInit) UpdateFrom(ref js.Ref) {
+func (p *StorageEventInit) UpdateFrom(ref js.Ref) {
 	bindings.StorageEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p StorageEventInit) Update(ref js.Ref) {
+func (p *StorageEventInit) Update(ref js.Ref) {
 	bindings.StorageEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *StorageEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Key.Ref(),
+		p.OldValue.Ref(),
+		p.NewValue.Ref(),
+		p.Url.Ref(),
+		p.StorageArea.Ref(),
+	)
+	p.Key = p.Key.FromRef(js.Undefined)
+	p.OldValue = p.OldValue.FromRef(js.Undefined)
+	p.NewValue = p.NewValue.FromRef(js.Undefined)
+	p.Url = p.Url.FromRef(js.Undefined)
+	p.StorageArea = p.StorageArea.FromRef(js.Undefined)
 }
 
 func NewStorageEvent(typ js.String, eventInitDict StorageEventInit) (ret StorageEvent) {
@@ -3165,7 +3269,7 @@ type StorageEvent struct {
 }
 
 func (this StorageEvent) Once() StorageEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3179,7 +3283,7 @@ func (this StorageEvent) FromRef(ref js.Ref) StorageEvent {
 }
 
 func (this StorageEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Key returns the value of property "StorageEvent.key".
@@ -3187,7 +3291,7 @@ func (this StorageEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this StorageEvent) Key() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetStorageEventKey(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3197,7 +3301,7 @@ func (this StorageEvent) Key() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this StorageEvent) OldValue() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetStorageEventOldValue(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3207,7 +3311,7 @@ func (this StorageEvent) OldValue() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this StorageEvent) NewValue() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetStorageEventNewValue(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3217,7 +3321,7 @@ func (this StorageEvent) NewValue() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this StorageEvent) Url() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetStorageEventUrl(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3227,31 +3331,30 @@ func (this StorageEvent) Url() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this StorageEvent) StorageArea() (ret Storage, ok bool) {
 	ok = js.True == bindings.GetStorageEventStorageArea(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
 
-// HasInitStorageEvent returns true if the method "StorageEvent.initStorageEvent" exists.
-func (this StorageEvent) HasInitStorageEvent() bool {
-	return js.True == bindings.HasStorageEventInitStorageEvent(
-		this.Ref(),
+// HasFuncInitStorageEvent returns true if the method "StorageEvent.initStorageEvent" exists.
+func (this StorageEvent) HasFuncInitStorageEvent() bool {
+	return js.True == bindings.HasFuncStorageEventInitStorageEvent(
+		this.ref,
 	)
 }
 
-// InitStorageEventFunc returns the method "StorageEvent.initStorageEvent".
-func (this StorageEvent) InitStorageEventFunc() (fn js.Func[func(typ js.String, bubbles bool, cancelable bool, key js.String, oldValue js.String, newValue js.String, url js.String, storageArea Storage)]) {
-	return fn.FromRef(
-		bindings.StorageEventInitStorageEventFunc(
-			this.Ref(),
-		),
+// FuncInitStorageEvent returns the method "StorageEvent.initStorageEvent".
+func (this StorageEvent) FuncInitStorageEvent() (fn js.Func[func(typ js.String, bubbles bool, cancelable bool, key js.String, oldValue js.String, newValue js.String, url js.String, storageArea Storage)]) {
+	bindings.FuncStorageEventInitStorageEvent(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InitStorageEvent calls the method "StorageEvent.initStorageEvent".
 func (this StorageEvent) InitStorageEvent(typ js.String, bubbles bool, cancelable bool, key js.String, oldValue js.String, newValue js.String, url js.String, storageArea Storage) (ret js.Void) {
 	bindings.CallStorageEventInitStorageEvent(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		typ.Ref(),
 		js.Bool(bool(bubbles)),
 		js.Bool(bool(cancelable)),
@@ -3270,7 +3373,7 @@ func (this StorageEvent) InitStorageEvent(typ js.String, bubbles bool, cancelabl
 // the catch clause.
 func (this StorageEvent) TryInitStorageEvent(typ js.String, bubbles bool, cancelable bool, key js.String, oldValue js.String, newValue js.String, url js.String, storageArea Storage) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageEventInitStorageEvent(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		typ.Ref(),
 		js.Bool(bool(bubbles)),
 		js.Bool(bool(cancelable)),
@@ -3284,26 +3387,25 @@ func (this StorageEvent) TryInitStorageEvent(typ js.String, bubbles bool, cancel
 	return
 }
 
-// HasInitStorageEvent1 returns true if the method "StorageEvent.initStorageEvent" exists.
-func (this StorageEvent) HasInitStorageEvent1() bool {
-	return js.True == bindings.HasStorageEventInitStorageEvent1(
-		this.Ref(),
+// HasFuncInitStorageEvent1 returns true if the method "StorageEvent.initStorageEvent" exists.
+func (this StorageEvent) HasFuncInitStorageEvent1() bool {
+	return js.True == bindings.HasFuncStorageEventInitStorageEvent1(
+		this.ref,
 	)
 }
 
-// InitStorageEvent1Func returns the method "StorageEvent.initStorageEvent".
-func (this StorageEvent) InitStorageEvent1Func() (fn js.Func[func(typ js.String, bubbles bool, cancelable bool, key js.String, oldValue js.String, newValue js.String, url js.String)]) {
-	return fn.FromRef(
-		bindings.StorageEventInitStorageEvent1Func(
-			this.Ref(),
-		),
+// FuncInitStorageEvent1 returns the method "StorageEvent.initStorageEvent".
+func (this StorageEvent) FuncInitStorageEvent1() (fn js.Func[func(typ js.String, bubbles bool, cancelable bool, key js.String, oldValue js.String, newValue js.String, url js.String)]) {
+	bindings.FuncStorageEventInitStorageEvent1(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InitStorageEvent1 calls the method "StorageEvent.initStorageEvent".
 func (this StorageEvent) InitStorageEvent1(typ js.String, bubbles bool, cancelable bool, key js.String, oldValue js.String, newValue js.String, url js.String) (ret js.Void) {
 	bindings.CallStorageEventInitStorageEvent1(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		typ.Ref(),
 		js.Bool(bool(bubbles)),
 		js.Bool(bool(cancelable)),
@@ -3321,7 +3423,7 @@ func (this StorageEvent) InitStorageEvent1(typ js.String, bubbles bool, cancelab
 // the catch clause.
 func (this StorageEvent) TryInitStorageEvent1(typ js.String, bubbles bool, cancelable bool, key js.String, oldValue js.String, newValue js.String, url js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageEventInitStorageEvent1(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		typ.Ref(),
 		js.Bool(bool(bubbles)),
 		js.Bool(bool(cancelable)),
@@ -3334,26 +3436,25 @@ func (this StorageEvent) TryInitStorageEvent1(typ js.String, bubbles bool, cance
 	return
 }
 
-// HasInitStorageEvent2 returns true if the method "StorageEvent.initStorageEvent" exists.
-func (this StorageEvent) HasInitStorageEvent2() bool {
-	return js.True == bindings.HasStorageEventInitStorageEvent2(
-		this.Ref(),
+// HasFuncInitStorageEvent2 returns true if the method "StorageEvent.initStorageEvent" exists.
+func (this StorageEvent) HasFuncInitStorageEvent2() bool {
+	return js.True == bindings.HasFuncStorageEventInitStorageEvent2(
+		this.ref,
 	)
 }
 
-// InitStorageEvent2Func returns the method "StorageEvent.initStorageEvent".
-func (this StorageEvent) InitStorageEvent2Func() (fn js.Func[func(typ js.String, bubbles bool, cancelable bool, key js.String, oldValue js.String, newValue js.String)]) {
-	return fn.FromRef(
-		bindings.StorageEventInitStorageEvent2Func(
-			this.Ref(),
-		),
+// FuncInitStorageEvent2 returns the method "StorageEvent.initStorageEvent".
+func (this StorageEvent) FuncInitStorageEvent2() (fn js.Func[func(typ js.String, bubbles bool, cancelable bool, key js.String, oldValue js.String, newValue js.String)]) {
+	bindings.FuncStorageEventInitStorageEvent2(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InitStorageEvent2 calls the method "StorageEvent.initStorageEvent".
 func (this StorageEvent) InitStorageEvent2(typ js.String, bubbles bool, cancelable bool, key js.String, oldValue js.String, newValue js.String) (ret js.Void) {
 	bindings.CallStorageEventInitStorageEvent2(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		typ.Ref(),
 		js.Bool(bool(bubbles)),
 		js.Bool(bool(cancelable)),
@@ -3370,7 +3471,7 @@ func (this StorageEvent) InitStorageEvent2(typ js.String, bubbles bool, cancelab
 // the catch clause.
 func (this StorageEvent) TryInitStorageEvent2(typ js.String, bubbles bool, cancelable bool, key js.String, oldValue js.String, newValue js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageEventInitStorageEvent2(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		typ.Ref(),
 		js.Bool(bool(bubbles)),
 		js.Bool(bool(cancelable)),
@@ -3382,26 +3483,25 @@ func (this StorageEvent) TryInitStorageEvent2(typ js.String, bubbles bool, cance
 	return
 }
 
-// HasInitStorageEvent3 returns true if the method "StorageEvent.initStorageEvent" exists.
-func (this StorageEvent) HasInitStorageEvent3() bool {
-	return js.True == bindings.HasStorageEventInitStorageEvent3(
-		this.Ref(),
+// HasFuncInitStorageEvent3 returns true if the method "StorageEvent.initStorageEvent" exists.
+func (this StorageEvent) HasFuncInitStorageEvent3() bool {
+	return js.True == bindings.HasFuncStorageEventInitStorageEvent3(
+		this.ref,
 	)
 }
 
-// InitStorageEvent3Func returns the method "StorageEvent.initStorageEvent".
-func (this StorageEvent) InitStorageEvent3Func() (fn js.Func[func(typ js.String, bubbles bool, cancelable bool, key js.String, oldValue js.String)]) {
-	return fn.FromRef(
-		bindings.StorageEventInitStorageEvent3Func(
-			this.Ref(),
-		),
+// FuncInitStorageEvent3 returns the method "StorageEvent.initStorageEvent".
+func (this StorageEvent) FuncInitStorageEvent3() (fn js.Func[func(typ js.String, bubbles bool, cancelable bool, key js.String, oldValue js.String)]) {
+	bindings.FuncStorageEventInitStorageEvent3(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InitStorageEvent3 calls the method "StorageEvent.initStorageEvent".
 func (this StorageEvent) InitStorageEvent3(typ js.String, bubbles bool, cancelable bool, key js.String, oldValue js.String) (ret js.Void) {
 	bindings.CallStorageEventInitStorageEvent3(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		typ.Ref(),
 		js.Bool(bool(bubbles)),
 		js.Bool(bool(cancelable)),
@@ -3417,7 +3517,7 @@ func (this StorageEvent) InitStorageEvent3(typ js.String, bubbles bool, cancelab
 // the catch clause.
 func (this StorageEvent) TryInitStorageEvent3(typ js.String, bubbles bool, cancelable bool, key js.String, oldValue js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageEventInitStorageEvent3(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		typ.Ref(),
 		js.Bool(bool(bubbles)),
 		js.Bool(bool(cancelable)),
@@ -3428,26 +3528,25 @@ func (this StorageEvent) TryInitStorageEvent3(typ js.String, bubbles bool, cance
 	return
 }
 
-// HasInitStorageEvent4 returns true if the method "StorageEvent.initStorageEvent" exists.
-func (this StorageEvent) HasInitStorageEvent4() bool {
-	return js.True == bindings.HasStorageEventInitStorageEvent4(
-		this.Ref(),
+// HasFuncInitStorageEvent4 returns true if the method "StorageEvent.initStorageEvent" exists.
+func (this StorageEvent) HasFuncInitStorageEvent4() bool {
+	return js.True == bindings.HasFuncStorageEventInitStorageEvent4(
+		this.ref,
 	)
 }
 
-// InitStorageEvent4Func returns the method "StorageEvent.initStorageEvent".
-func (this StorageEvent) InitStorageEvent4Func() (fn js.Func[func(typ js.String, bubbles bool, cancelable bool, key js.String)]) {
-	return fn.FromRef(
-		bindings.StorageEventInitStorageEvent4Func(
-			this.Ref(),
-		),
+// FuncInitStorageEvent4 returns the method "StorageEvent.initStorageEvent".
+func (this StorageEvent) FuncInitStorageEvent4() (fn js.Func[func(typ js.String, bubbles bool, cancelable bool, key js.String)]) {
+	bindings.FuncStorageEventInitStorageEvent4(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InitStorageEvent4 calls the method "StorageEvent.initStorageEvent".
 func (this StorageEvent) InitStorageEvent4(typ js.String, bubbles bool, cancelable bool, key js.String) (ret js.Void) {
 	bindings.CallStorageEventInitStorageEvent4(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		typ.Ref(),
 		js.Bool(bool(bubbles)),
 		js.Bool(bool(cancelable)),
@@ -3462,7 +3561,7 @@ func (this StorageEvent) InitStorageEvent4(typ js.String, bubbles bool, cancelab
 // the catch clause.
 func (this StorageEvent) TryInitStorageEvent4(typ js.String, bubbles bool, cancelable bool, key js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageEventInitStorageEvent4(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		typ.Ref(),
 		js.Bool(bool(bubbles)),
 		js.Bool(bool(cancelable)),
@@ -3472,26 +3571,25 @@ func (this StorageEvent) TryInitStorageEvent4(typ js.String, bubbles bool, cance
 	return
 }
 
-// HasInitStorageEvent5 returns true if the method "StorageEvent.initStorageEvent" exists.
-func (this StorageEvent) HasInitStorageEvent5() bool {
-	return js.True == bindings.HasStorageEventInitStorageEvent5(
-		this.Ref(),
+// HasFuncInitStorageEvent5 returns true if the method "StorageEvent.initStorageEvent" exists.
+func (this StorageEvent) HasFuncInitStorageEvent5() bool {
+	return js.True == bindings.HasFuncStorageEventInitStorageEvent5(
+		this.ref,
 	)
 }
 
-// InitStorageEvent5Func returns the method "StorageEvent.initStorageEvent".
-func (this StorageEvent) InitStorageEvent5Func() (fn js.Func[func(typ js.String, bubbles bool, cancelable bool)]) {
-	return fn.FromRef(
-		bindings.StorageEventInitStorageEvent5Func(
-			this.Ref(),
-		),
+// FuncInitStorageEvent5 returns the method "StorageEvent.initStorageEvent".
+func (this StorageEvent) FuncInitStorageEvent5() (fn js.Func[func(typ js.String, bubbles bool, cancelable bool)]) {
+	bindings.FuncStorageEventInitStorageEvent5(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InitStorageEvent5 calls the method "StorageEvent.initStorageEvent".
 func (this StorageEvent) InitStorageEvent5(typ js.String, bubbles bool, cancelable bool) (ret js.Void) {
 	bindings.CallStorageEventInitStorageEvent5(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		typ.Ref(),
 		js.Bool(bool(bubbles)),
 		js.Bool(bool(cancelable)),
@@ -3505,7 +3603,7 @@ func (this StorageEvent) InitStorageEvent5(typ js.String, bubbles bool, cancelab
 // the catch clause.
 func (this StorageEvent) TryInitStorageEvent5(typ js.String, bubbles bool, cancelable bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageEventInitStorageEvent5(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		typ.Ref(),
 		js.Bool(bool(bubbles)),
 		js.Bool(bool(cancelable)),
@@ -3514,26 +3612,25 @@ func (this StorageEvent) TryInitStorageEvent5(typ js.String, bubbles bool, cance
 	return
 }
 
-// HasInitStorageEvent6 returns true if the method "StorageEvent.initStorageEvent" exists.
-func (this StorageEvent) HasInitStorageEvent6() bool {
-	return js.True == bindings.HasStorageEventInitStorageEvent6(
-		this.Ref(),
+// HasFuncInitStorageEvent6 returns true if the method "StorageEvent.initStorageEvent" exists.
+func (this StorageEvent) HasFuncInitStorageEvent6() bool {
+	return js.True == bindings.HasFuncStorageEventInitStorageEvent6(
+		this.ref,
 	)
 }
 
-// InitStorageEvent6Func returns the method "StorageEvent.initStorageEvent".
-func (this StorageEvent) InitStorageEvent6Func() (fn js.Func[func(typ js.String, bubbles bool)]) {
-	return fn.FromRef(
-		bindings.StorageEventInitStorageEvent6Func(
-			this.Ref(),
-		),
+// FuncInitStorageEvent6 returns the method "StorageEvent.initStorageEvent".
+func (this StorageEvent) FuncInitStorageEvent6() (fn js.Func[func(typ js.String, bubbles bool)]) {
+	bindings.FuncStorageEventInitStorageEvent6(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InitStorageEvent6 calls the method "StorageEvent.initStorageEvent".
 func (this StorageEvent) InitStorageEvent6(typ js.String, bubbles bool) (ret js.Void) {
 	bindings.CallStorageEventInitStorageEvent6(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		typ.Ref(),
 		js.Bool(bool(bubbles)),
 	)
@@ -3546,7 +3643,7 @@ func (this StorageEvent) InitStorageEvent6(typ js.String, bubbles bool) (ret js.
 // the catch clause.
 func (this StorageEvent) TryInitStorageEvent6(typ js.String, bubbles bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageEventInitStorageEvent6(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		typ.Ref(),
 		js.Bool(bool(bubbles)),
 	)
@@ -3554,26 +3651,25 @@ func (this StorageEvent) TryInitStorageEvent6(typ js.String, bubbles bool) (ret 
 	return
 }
 
-// HasInitStorageEvent7 returns true if the method "StorageEvent.initStorageEvent" exists.
-func (this StorageEvent) HasInitStorageEvent7() bool {
-	return js.True == bindings.HasStorageEventInitStorageEvent7(
-		this.Ref(),
+// HasFuncInitStorageEvent7 returns true if the method "StorageEvent.initStorageEvent" exists.
+func (this StorageEvent) HasFuncInitStorageEvent7() bool {
+	return js.True == bindings.HasFuncStorageEventInitStorageEvent7(
+		this.ref,
 	)
 }
 
-// InitStorageEvent7Func returns the method "StorageEvent.initStorageEvent".
-func (this StorageEvent) InitStorageEvent7Func() (fn js.Func[func(typ js.String)]) {
-	return fn.FromRef(
-		bindings.StorageEventInitStorageEvent7Func(
-			this.Ref(),
-		),
+// FuncInitStorageEvent7 returns the method "StorageEvent.initStorageEvent".
+func (this StorageEvent) FuncInitStorageEvent7() (fn js.Func[func(typ js.String)]) {
+	bindings.FuncStorageEventInitStorageEvent7(
+		this.ref, js.Pointer(&fn),
 	)
+	return
 }
 
 // InitStorageEvent7 calls the method "StorageEvent.initStorageEvent".
 func (this StorageEvent) InitStorageEvent7(typ js.String) (ret js.Void) {
 	bindings.CallStorageEventInitStorageEvent7(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 		typ.Ref(),
 	)
 
@@ -3585,7 +3681,7 @@ func (this StorageEvent) InitStorageEvent7(typ js.String) (ret js.Void) {
 // the catch clause.
 func (this StorageEvent) TryInitStorageEvent7(typ js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageEventInitStorageEvent7(
-		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		this.ref, js.Pointer(&ret), js.Pointer(&exception),
 		typ.Ref(),
 	)
 
@@ -3623,7 +3719,7 @@ type StyleSheet struct {
 }
 
 func (this StyleSheet) Once() StyleSheet {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3637,7 +3733,7 @@ func (this StyleSheet) FromRef(ref js.Ref) StyleSheet {
 }
 
 func (this StyleSheet) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Type returns the value of property "StyleSheet.type".
@@ -3645,7 +3741,7 @@ func (this StyleSheet) Free() {
 // It returns ok=false if there is no such property.
 func (this StyleSheet) Type() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetStyleSheetType(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3655,7 +3751,7 @@ func (this StyleSheet) Type() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this StyleSheet) Href() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetStyleSheetHref(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3665,7 +3761,7 @@ func (this StyleSheet) Href() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this StyleSheet) OwnerNode() (ret OneOf_Element_ProcessingInstruction, ok bool) {
 	ok = js.True == bindings.GetStyleSheetOwnerNode(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3675,7 +3771,7 @@ func (this StyleSheet) OwnerNode() (ret OneOf_Element_ProcessingInstruction, ok 
 // It returns ok=false if there is no such property.
 func (this StyleSheet) ParentStyleSheet() (ret CSSStyleSheet, ok bool) {
 	ok = js.True == bindings.GetStyleSheetParentStyleSheet(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3685,7 +3781,7 @@ func (this StyleSheet) ParentStyleSheet() (ret CSSStyleSheet, ok bool) {
 // It returns ok=false if there is no such property.
 func (this StyleSheet) Title() (ret js.String, ok bool) {
 	ok = js.True == bindings.GetStyleSheetTitle(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3695,7 +3791,7 @@ func (this StyleSheet) Title() (ret js.String, ok bool) {
 // It returns ok=false if there is no such property.
 func (this StyleSheet) Media() (ret MediaList, ok bool) {
 	ok = js.True == bindings.GetStyleSheetMedia(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3705,7 +3801,7 @@ func (this StyleSheet) Media() (ret MediaList, ok bool) {
 // It returns ok=false if there is no such property.
 func (this StyleSheet) Disabled() (ret bool, ok bool) {
 	ok = js.True == bindings.GetStyleSheetDisabled(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }
@@ -3715,7 +3811,7 @@ func (this StyleSheet) Disabled() (ret bool, ok bool) {
 // It returns false if the property cannot be set.
 func (this StyleSheet) SetDisabled(val bool) bool {
 	return js.True == bindings.SetStyleSheetDisabled(
-		this.Ref(),
+		this.ref,
 		js.Bool(bool(val)),
 	)
 }
@@ -3765,17 +3861,26 @@ func (p SubmitEventInit) New() js.Ref {
 }
 
 // UpdateFrom copies value of all fields of the heap object to p.
-func (p SubmitEventInit) UpdateFrom(ref js.Ref) {
+func (p *SubmitEventInit) UpdateFrom(ref js.Ref) {
 	bindings.SubmitEventInitJSStore(
-		js.Pointer(&p), ref,
+		js.Pointer(p), ref,
 	)
 }
 
 // Update writes all fields of the p to the heap object referenced by ref.
-func (p SubmitEventInit) Update(ref js.Ref) {
+func (p *SubmitEventInit) Update(ref js.Ref) {
 	bindings.SubmitEventInitJSLoad(
-		js.Pointer(&p), js.False, ref,
+		js.Pointer(p), js.False, ref,
 	)
+}
+
+// FreeMembers frees fields with heap reference, if recursive is true
+// free all heap references reachable from p.
+func (p *SubmitEventInit) FreeMembers(recursive bool) {
+	js.Free(
+		p.Submitter.Ref(),
+	)
+	p.Submitter = p.Submitter.FromRef(js.Undefined)
 }
 
 func NewSubmitEvent(typ js.String, eventInitDict SubmitEventInit) (ret SubmitEvent) {
@@ -3796,7 +3901,7 @@ type SubmitEvent struct {
 }
 
 func (this SubmitEvent) Once() SubmitEvent {
-	this.Ref().Once()
+	this.ref.Once()
 	return this
 }
 
@@ -3810,7 +3915,7 @@ func (this SubmitEvent) FromRef(ref js.Ref) SubmitEvent {
 }
 
 func (this SubmitEvent) Free() {
-	this.Ref().Free()
+	this.ref.Free()
 }
 
 // Submitter returns the value of property "SubmitEvent.submitter".
@@ -3818,7 +3923,7 @@ func (this SubmitEvent) Free() {
 // It returns ok=false if there is no such property.
 func (this SubmitEvent) Submitter() (ret HTMLElement, ok bool) {
 	ok = js.True == bindings.GetSubmitEventSubmitter(
-		this.Ref(), js.Pointer(&ret),
+		this.ref, js.Pointer(&ret),
 	)
 	return
 }

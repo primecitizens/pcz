@@ -11,20 +11,18 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web has_MLCommandEncoder_Dispatch
 //go:noescape
-func HasMLCommandEncoderDispatch(this js.Ref) js.Ref
+func HasFuncMLCommandEncoderDispatch(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLCommandEncoder_Dispatch
 //go:noescape
-func MLCommandEncoderDispatchFunc(this js.Ref) js.Ref
+func FuncMLCommandEncoderDispatch(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLCommandEncoder_Dispatch
 //go:noescape
@@ -44,11 +42,11 @@ func TryMLCommandEncoderDispatch(
 
 //go:wasmimport plat/js/web has_MLCommandEncoder_Finish
 //go:noescape
-func HasMLCommandEncoderFinish(this js.Ref) js.Ref
+func HasFuncMLCommandEncoderFinish(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLCommandEncoder_Finish
 //go:noescape
-func MLCommandEncoderFinishFunc(this js.Ref) js.Ref
+func FuncMLCommandEncoderFinish(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLCommandEncoder_Finish
 //go:noescape
@@ -64,11 +62,11 @@ func TryMLCommandEncoderFinish(
 
 //go:wasmimport plat/js/web has_MLCommandEncoder_Finish1
 //go:noescape
-func HasMLCommandEncoderFinish1(this js.Ref) js.Ref
+func HasFuncMLCommandEncoderFinish1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLCommandEncoder_Finish1
 //go:noescape
-func MLCommandEncoderFinish1Func(this js.Ref) js.Ref
+func FuncMLCommandEncoderFinish1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLCommandEncoder_Finish1
 //go:noescape
@@ -82,11 +80,11 @@ func TryMLCommandEncoderFinish1(
 
 //go:wasmimport plat/js/web has_MLCommandEncoder_InitializeGraph
 //go:noescape
-func HasMLCommandEncoderInitializeGraph(this js.Ref) js.Ref
+func HasFuncMLCommandEncoderInitializeGraph(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLCommandEncoder_InitializeGraph
 //go:noescape
-func MLCommandEncoderInitializeGraphFunc(this js.Ref) js.Ref
+func FuncMLCommandEncoderInitializeGraph(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLCommandEncoder_InitializeGraph
 //go:noescape
@@ -102,11 +100,11 @@ func TryMLCommandEncoderInitializeGraph(
 
 //go:wasmimport plat/js/web has_MLContext_Compute
 //go:noescape
-func HasMLContextCompute(this js.Ref) js.Ref
+func HasFuncMLContextCompute(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLContext_Compute
 //go:noescape
-func MLContextComputeFunc(this js.Ref) js.Ref
+func FuncMLContextCompute(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLContext_Compute
 //go:noescape
@@ -126,11 +124,11 @@ func TryMLContextCompute(
 
 //go:wasmimport plat/js/web has_MLContext_ComputeSync
 //go:noescape
-func HasMLContextComputeSync(this js.Ref) js.Ref
+func HasFuncMLContextComputeSync(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLContext_ComputeSync
 //go:noescape
-func MLContextComputeSyncFunc(this js.Ref) js.Ref
+func FuncMLContextComputeSync(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLContext_ComputeSync
 //go:noescape
@@ -150,11 +148,11 @@ func TryMLContextComputeSync(
 
 //go:wasmimport plat/js/web has_MLContext_CreateCommandEncoder
 //go:noescape
-func HasMLContextCreateCommandEncoder(this js.Ref) js.Ref
+func HasFuncMLContextCreateCommandEncoder(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_MLContext_CreateCommandEncoder
 //go:noescape
-func MLContextCreateCommandEncoderFunc(this js.Ref) js.Ref
+func FuncMLContextCreateCommandEncoder(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_MLContext_CreateCommandEncoder
 //go:noescape
@@ -186,11 +184,11 @@ func MLContextOptionsJSLoad(
 
 //go:wasmimport plat/js/web has_ML_CreateContext
 //go:noescape
-func HasMLCreateContext(this js.Ref) js.Ref
+func HasFuncMLCreateContext(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ML_CreateContext
 //go:noescape
-func MLCreateContextFunc(this js.Ref) js.Ref
+func FuncMLCreateContext(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ML_CreateContext
 //go:noescape
@@ -206,11 +204,11 @@ func TryMLCreateContext(
 
 //go:wasmimport plat/js/web has_ML_CreateContext1
 //go:noescape
-func HasMLCreateContext1(this js.Ref) js.Ref
+func HasFuncMLCreateContext1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ML_CreateContext1
 //go:noescape
-func MLCreateContext1Func(this js.Ref) js.Ref
+func FuncMLCreateContext1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ML_CreateContext1
 //go:noescape
@@ -224,11 +222,11 @@ func TryMLCreateContext1(
 
 //go:wasmimport plat/js/web has_ML_CreateContext2
 //go:noescape
-func HasMLCreateContext2(this js.Ref) js.Ref
+func HasFuncMLCreateContext2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ML_CreateContext2
 //go:noescape
-func MLCreateContext2Func(this js.Ref) js.Ref
+func FuncMLCreateContext2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ML_CreateContext2
 //go:noescape
@@ -244,11 +242,11 @@ func TryMLCreateContext2(
 
 //go:wasmimport plat/js/web has_ML_CreateContextSync
 //go:noescape
-func HasMLCreateContextSync(this js.Ref) js.Ref
+func HasFuncMLCreateContextSync(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ML_CreateContextSync
 //go:noescape
-func MLCreateContextSyncFunc(this js.Ref) js.Ref
+func FuncMLCreateContextSync(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ML_CreateContextSync
 //go:noescape
@@ -264,11 +262,11 @@ func TryMLCreateContextSync(
 
 //go:wasmimport plat/js/web has_ML_CreateContextSync1
 //go:noescape
-func HasMLCreateContextSync1(this js.Ref) js.Ref
+func HasFuncMLCreateContextSync1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ML_CreateContextSync1
 //go:noescape
-func MLCreateContextSync1Func(this js.Ref) js.Ref
+func FuncMLCreateContextSync1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ML_CreateContextSync1
 //go:noescape
@@ -282,11 +280,11 @@ func TryMLCreateContextSync1(
 
 //go:wasmimport plat/js/web has_ML_CreateContextSync2
 //go:noescape
-func HasMLCreateContextSync2(this js.Ref) js.Ref
+func HasFuncMLCreateContextSync2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ML_CreateContextSync2
 //go:noescape
-func MLCreateContextSync2Func(this js.Ref) js.Ref
+func FuncMLCreateContextSync2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ML_CreateContextSync2
 //go:noescape
@@ -399,11 +397,11 @@ func GetGPUAdapterIsFallbackAdapter(
 
 //go:wasmimport plat/js/web has_GPUAdapter_RequestDevice
 //go:noescape
-func HasGPUAdapterRequestDevice(this js.Ref) js.Ref
+func HasFuncGPUAdapterRequestDevice(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUAdapter_RequestDevice
 //go:noescape
-func GPUAdapterRequestDeviceFunc(this js.Ref) js.Ref
+func FuncGPUAdapterRequestDevice(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUAdapter_RequestDevice
 //go:noescape
@@ -419,11 +417,11 @@ func TryGPUAdapterRequestDevice(
 
 //go:wasmimport plat/js/web has_GPUAdapter_RequestDevice1
 //go:noescape
-func HasGPUAdapterRequestDevice1(this js.Ref) js.Ref
+func HasFuncGPUAdapterRequestDevice1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUAdapter_RequestDevice1
 //go:noescape
-func GPUAdapterRequestDevice1Func(this js.Ref) js.Ref
+func FuncGPUAdapterRequestDevice1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUAdapter_RequestDevice1
 //go:noescape
@@ -437,11 +435,11 @@ func TryGPUAdapterRequestDevice1(
 
 //go:wasmimport plat/js/web has_GPUAdapter_RequestAdapterInfo
 //go:noescape
-func HasGPUAdapterRequestAdapterInfo(this js.Ref) js.Ref
+func HasFuncGPUAdapterRequestAdapterInfo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUAdapter_RequestAdapterInfo
 //go:noescape
-func GPUAdapterRequestAdapterInfoFunc(this js.Ref) js.Ref
+func FuncGPUAdapterRequestAdapterInfo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUAdapter_RequestAdapterInfo
 //go:noescape
@@ -457,11 +455,11 @@ func TryGPUAdapterRequestAdapterInfo(
 
 //go:wasmimport plat/js/web has_GPUAdapter_RequestAdapterInfo1
 //go:noescape
-func HasGPUAdapterRequestAdapterInfo1(this js.Ref) js.Ref
+func HasFuncGPUAdapterRequestAdapterInfo1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPUAdapter_RequestAdapterInfo1
 //go:noescape
-func GPUAdapterRequestAdapterInfo1Func(this js.Ref) js.Ref
+func FuncGPUAdapterRequestAdapterInfo1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPUAdapter_RequestAdapterInfo1
 //go:noescape
@@ -494,11 +492,11 @@ func GetGPUWgslLanguageFeatures(
 
 //go:wasmimport plat/js/web has_GPU_RequestAdapter
 //go:noescape
-func HasGPURequestAdapter(this js.Ref) js.Ref
+func HasFuncGPURequestAdapter(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPU_RequestAdapter
 //go:noescape
-func GPURequestAdapterFunc(this js.Ref) js.Ref
+func FuncGPURequestAdapter(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPU_RequestAdapter
 //go:noescape
@@ -514,11 +512,11 @@ func TryGPURequestAdapter(
 
 //go:wasmimport plat/js/web has_GPU_RequestAdapter1
 //go:noescape
-func HasGPURequestAdapter1(this js.Ref) js.Ref
+func HasFuncGPURequestAdapter1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPU_RequestAdapter1
 //go:noescape
-func GPURequestAdapter1Func(this js.Ref) js.Ref
+func FuncGPURequestAdapter1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPU_RequestAdapter1
 //go:noescape
@@ -532,11 +530,11 @@ func TryGPURequestAdapter1(
 
 //go:wasmimport plat/js/web has_GPU_GetPreferredCanvasFormat
 //go:noescape
-func HasGPUGetPreferredCanvasFormat(this js.Ref) js.Ref
+func HasFuncGPUGetPreferredCanvasFormat(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_GPU_GetPreferredCanvasFormat
 //go:noescape
-func GPUGetPreferredCanvasFormatFunc(this js.Ref) js.Ref
+func FuncGPUGetPreferredCanvasFormat(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_GPU_GetPreferredCanvasFormat
 //go:noescape
@@ -810,11 +808,11 @@ func GetNavigatorGpu(
 
 //go:wasmimport plat/js/web has_Navigator_UpdateAdInterestGroups
 //go:noescape
-func HasNavigatorUpdateAdInterestGroups(this js.Ref) js.Ref
+func HasFuncNavigatorUpdateAdInterestGroups(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_UpdateAdInterestGroups
 //go:noescape
-func NavigatorUpdateAdInterestGroupsFunc(this js.Ref) js.Ref
+func FuncNavigatorUpdateAdInterestGroups(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_UpdateAdInterestGroups
 //go:noescape
@@ -828,11 +826,11 @@ func TryNavigatorUpdateAdInterestGroups(
 
 //go:wasmimport plat/js/web has_Navigator_SendBeacon
 //go:noescape
-func HasNavigatorSendBeacon(this js.Ref) js.Ref
+func HasFuncNavigatorSendBeacon(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_SendBeacon
 //go:noescape
-func NavigatorSendBeaconFunc(this js.Ref) js.Ref
+func FuncNavigatorSendBeacon(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_SendBeacon
 //go:noescape
@@ -850,11 +848,11 @@ func TryNavigatorSendBeacon(
 
 //go:wasmimport plat/js/web has_Navigator_SendBeacon1
 //go:noescape
-func HasNavigatorSendBeacon1(this js.Ref) js.Ref
+func HasFuncNavigatorSendBeacon1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_SendBeacon1
 //go:noescape
-func NavigatorSendBeacon1Func(this js.Ref) js.Ref
+func FuncNavigatorSendBeacon1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_SendBeacon1
 //go:noescape
@@ -870,11 +868,11 @@ func TryNavigatorSendBeacon1(
 
 //go:wasmimport plat/js/web has_Navigator_GetBattery
 //go:noescape
-func HasNavigatorGetBattery(this js.Ref) js.Ref
+func HasFuncNavigatorGetBattery(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_GetBattery
 //go:noescape
-func NavigatorGetBatteryFunc(this js.Ref) js.Ref
+func FuncNavigatorGetBattery(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_GetBattery
 //go:noescape
@@ -888,11 +886,11 @@ func TryNavigatorGetBattery(
 
 //go:wasmimport plat/js/web has_Navigator_Vibrate
 //go:noescape
-func HasNavigatorVibrate(this js.Ref) js.Ref
+func HasFuncNavigatorVibrate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_Vibrate
 //go:noescape
-func NavigatorVibrateFunc(this js.Ref) js.Ref
+func FuncNavigatorVibrate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_Vibrate
 //go:noescape
@@ -908,11 +906,11 @@ func TryNavigatorVibrate(
 
 //go:wasmimport plat/js/web has_Navigator_GetGamepads
 //go:noescape
-func HasNavigatorGetGamepads(this js.Ref) js.Ref
+func HasFuncNavigatorGetGamepads(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_GetGamepads
 //go:noescape
-func NavigatorGetGamepadsFunc(this js.Ref) js.Ref
+func FuncNavigatorGetGamepads(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_GetGamepads
 //go:noescape
@@ -926,11 +924,11 @@ func TryNavigatorGetGamepads(
 
 //go:wasmimport plat/js/web has_Navigator_GetInstalledRelatedApps
 //go:noescape
-func HasNavigatorGetInstalledRelatedApps(this js.Ref) js.Ref
+func HasFuncNavigatorGetInstalledRelatedApps(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_GetInstalledRelatedApps
 //go:noescape
-func NavigatorGetInstalledRelatedAppsFunc(this js.Ref) js.Ref
+func FuncNavigatorGetInstalledRelatedApps(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_GetInstalledRelatedApps
 //go:noescape
@@ -944,11 +942,11 @@ func TryNavigatorGetInstalledRelatedApps(
 
 //go:wasmimport plat/js/web has_Navigator_RequestMediaKeySystemAccess
 //go:noescape
-func HasNavigatorRequestMediaKeySystemAccess(this js.Ref) js.Ref
+func HasFuncNavigatorRequestMediaKeySystemAccess(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_RequestMediaKeySystemAccess
 //go:noescape
-func NavigatorRequestMediaKeySystemAccessFunc(this js.Ref) js.Ref
+func FuncNavigatorRequestMediaKeySystemAccess(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_RequestMediaKeySystemAccess
 //go:noescape
@@ -966,11 +964,11 @@ func TryNavigatorRequestMediaKeySystemAccess(
 
 //go:wasmimport plat/js/web has_Navigator_JoinAdInterestGroup
 //go:noescape
-func HasNavigatorJoinAdInterestGroup(this js.Ref) js.Ref
+func HasFuncNavigatorJoinAdInterestGroup(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_JoinAdInterestGroup
 //go:noescape
-func NavigatorJoinAdInterestGroupFunc(this js.Ref) js.Ref
+func FuncNavigatorJoinAdInterestGroup(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_JoinAdInterestGroup
 //go:noescape
@@ -986,11 +984,11 @@ func TryNavigatorJoinAdInterestGroup(
 
 //go:wasmimport plat/js/web has_Navigator_GetUserMedia
 //go:noescape
-func HasNavigatorGetUserMedia(this js.Ref) js.Ref
+func HasFuncNavigatorGetUserMedia(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_GetUserMedia
 //go:noescape
-func NavigatorGetUserMediaFunc(this js.Ref) js.Ref
+func FuncNavigatorGetUserMedia(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_GetUserMedia
 //go:noescape
@@ -1010,11 +1008,11 @@ func TryNavigatorGetUserMedia(
 
 //go:wasmimport plat/js/web has_Navigator_LeaveAdInterestGroup
 //go:noescape
-func HasNavigatorLeaveAdInterestGroup(this js.Ref) js.Ref
+func HasFuncNavigatorLeaveAdInterestGroup(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_LeaveAdInterestGroup
 //go:noescape
-func NavigatorLeaveAdInterestGroupFunc(this js.Ref) js.Ref
+func FuncNavigatorLeaveAdInterestGroup(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_LeaveAdInterestGroup
 //go:noescape
@@ -1030,11 +1028,11 @@ func TryNavigatorLeaveAdInterestGroup(
 
 //go:wasmimport plat/js/web has_Navigator_LeaveAdInterestGroup1
 //go:noescape
-func HasNavigatorLeaveAdInterestGroup1(this js.Ref) js.Ref
+func HasFuncNavigatorLeaveAdInterestGroup1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_LeaveAdInterestGroup1
 //go:noescape
-func NavigatorLeaveAdInterestGroup1Func(this js.Ref) js.Ref
+func FuncNavigatorLeaveAdInterestGroup1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_LeaveAdInterestGroup1
 //go:noescape
@@ -1048,11 +1046,11 @@ func TryNavigatorLeaveAdInterestGroup1(
 
 //go:wasmimport plat/js/web has_Navigator_RunAdAuction
 //go:noescape
-func HasNavigatorRunAdAuction(this js.Ref) js.Ref
+func HasFuncNavigatorRunAdAuction(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_RunAdAuction
 //go:noescape
-func NavigatorRunAdAuctionFunc(this js.Ref) js.Ref
+func FuncNavigatorRunAdAuction(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_RunAdAuction
 //go:noescape
@@ -1068,11 +1066,11 @@ func TryNavigatorRunAdAuction(
 
 //go:wasmimport plat/js/web has_Navigator_Share
 //go:noescape
-func HasNavigatorShare(this js.Ref) js.Ref
+func HasFuncNavigatorShare(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_Share
 //go:noescape
-func NavigatorShareFunc(this js.Ref) js.Ref
+func FuncNavigatorShare(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_Share
 //go:noescape
@@ -1088,11 +1086,11 @@ func TryNavigatorShare(
 
 //go:wasmimport plat/js/web has_Navigator_Share1
 //go:noescape
-func HasNavigatorShare1(this js.Ref) js.Ref
+func HasFuncNavigatorShare1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_Share1
 //go:noescape
-func NavigatorShare1Func(this js.Ref) js.Ref
+func FuncNavigatorShare1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_Share1
 //go:noescape
@@ -1106,11 +1104,11 @@ func TryNavigatorShare1(
 
 //go:wasmimport plat/js/web has_Navigator_CanShare
 //go:noescape
-func HasNavigatorCanShare(this js.Ref) js.Ref
+func HasFuncNavigatorCanShare(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_CanShare
 //go:noescape
-func NavigatorCanShareFunc(this js.Ref) js.Ref
+func FuncNavigatorCanShare(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_CanShare
 //go:noescape
@@ -1126,11 +1124,11 @@ func TryNavigatorCanShare(
 
 //go:wasmimport plat/js/web has_Navigator_CanShare1
 //go:noescape
-func HasNavigatorCanShare1(this js.Ref) js.Ref
+func HasFuncNavigatorCanShare1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_CanShare1
 //go:noescape
-func NavigatorCanShare1Func(this js.Ref) js.Ref
+func FuncNavigatorCanShare1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_CanShare1
 //go:noescape
@@ -1144,11 +1142,11 @@ func TryNavigatorCanShare1(
 
 //go:wasmimport plat/js/web has_Navigator_RequestMIDIAccess
 //go:noescape
-func HasNavigatorRequestMIDIAccess(this js.Ref) js.Ref
+func HasFuncNavigatorRequestMIDIAccess(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_RequestMIDIAccess
 //go:noescape
-func NavigatorRequestMIDIAccessFunc(this js.Ref) js.Ref
+func FuncNavigatorRequestMIDIAccess(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_RequestMIDIAccess
 //go:noescape
@@ -1164,11 +1162,11 @@ func TryNavigatorRequestMIDIAccess(
 
 //go:wasmimport plat/js/web has_Navigator_RequestMIDIAccess1
 //go:noescape
-func HasNavigatorRequestMIDIAccess1(this js.Ref) js.Ref
+func HasFuncNavigatorRequestMIDIAccess1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_RequestMIDIAccess1
 //go:noescape
-func NavigatorRequestMIDIAccess1Func(this js.Ref) js.Ref
+func FuncNavigatorRequestMIDIAccess1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_RequestMIDIAccess1
 //go:noescape
@@ -1182,11 +1180,11 @@ func TryNavigatorRequestMIDIAccess1(
 
 //go:wasmimport plat/js/web has_Navigator_GetAutoplayPolicy
 //go:noescape
-func HasNavigatorGetAutoplayPolicy(this js.Ref) js.Ref
+func HasFuncNavigatorGetAutoplayPolicy(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_GetAutoplayPolicy
 //go:noescape
-func NavigatorGetAutoplayPolicyFunc(this js.Ref) js.Ref
+func FuncNavigatorGetAutoplayPolicy(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_GetAutoplayPolicy
 //go:noescape
@@ -1202,11 +1200,11 @@ func TryNavigatorGetAutoplayPolicy(
 
 //go:wasmimport plat/js/web has_Navigator_GetAutoplayPolicy1
 //go:noescape
-func HasNavigatorGetAutoplayPolicy1(this js.Ref) js.Ref
+func HasFuncNavigatorGetAutoplayPolicy1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_GetAutoplayPolicy1
 //go:noescape
-func NavigatorGetAutoplayPolicy1Func(this js.Ref) js.Ref
+func FuncNavigatorGetAutoplayPolicy1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_GetAutoplayPolicy1
 //go:noescape
@@ -1222,11 +1220,11 @@ func TryNavigatorGetAutoplayPolicy1(
 
 //go:wasmimport plat/js/web has_Navigator_GetAutoplayPolicy2
 //go:noescape
-func HasNavigatorGetAutoplayPolicy2(this js.Ref) js.Ref
+func HasFuncNavigatorGetAutoplayPolicy2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_GetAutoplayPolicy2
 //go:noescape
-func NavigatorGetAutoplayPolicy2Func(this js.Ref) js.Ref
+func FuncNavigatorGetAutoplayPolicy2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_GetAutoplayPolicy2
 //go:noescape
@@ -1242,11 +1240,11 @@ func TryNavigatorGetAutoplayPolicy2(
 
 //go:wasmimport plat/js/web has_Navigator_TaintEnabled
 //go:noescape
-func HasNavigatorTaintEnabled(this js.Ref) js.Ref
+func HasFuncNavigatorTaintEnabled(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_TaintEnabled
 //go:noescape
-func NavigatorTaintEnabledFunc(this js.Ref) js.Ref
+func FuncNavigatorTaintEnabled(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_TaintEnabled
 //go:noescape
@@ -1260,11 +1258,11 @@ func TryNavigatorTaintEnabled(
 
 //go:wasmimport plat/js/web has_Navigator_RegisterProtocolHandler
 //go:noescape
-func HasNavigatorRegisterProtocolHandler(this js.Ref) js.Ref
+func HasFuncNavigatorRegisterProtocolHandler(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_RegisterProtocolHandler
 //go:noescape
-func NavigatorRegisterProtocolHandlerFunc(this js.Ref) js.Ref
+func FuncNavigatorRegisterProtocolHandler(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_RegisterProtocolHandler
 //go:noescape
@@ -1282,11 +1280,11 @@ func TryNavigatorRegisterProtocolHandler(
 
 //go:wasmimport plat/js/web has_Navigator_UnregisterProtocolHandler
 //go:noescape
-func HasNavigatorUnregisterProtocolHandler(this js.Ref) js.Ref
+func HasFuncNavigatorUnregisterProtocolHandler(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_UnregisterProtocolHandler
 //go:noescape
-func NavigatorUnregisterProtocolHandlerFunc(this js.Ref) js.Ref
+func FuncNavigatorUnregisterProtocolHandler(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_UnregisterProtocolHandler
 //go:noescape
@@ -1304,11 +1302,11 @@ func TryNavigatorUnregisterProtocolHandler(
 
 //go:wasmimport plat/js/web has_Navigator_JavaEnabled
 //go:noescape
-func HasNavigatorJavaEnabled(this js.Ref) js.Ref
+func HasFuncNavigatorJavaEnabled(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_JavaEnabled
 //go:noescape
-func NavigatorJavaEnabledFunc(this js.Ref) js.Ref
+func FuncNavigatorJavaEnabled(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_JavaEnabled
 //go:noescape
@@ -1322,11 +1320,11 @@ func TryNavigatorJavaEnabled(
 
 //go:wasmimport plat/js/web has_Navigator_SetAppBadge
 //go:noescape
-func HasNavigatorSetAppBadge(this js.Ref) js.Ref
+func HasFuncNavigatorSetAppBadge(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_SetAppBadge
 //go:noescape
-func NavigatorSetAppBadgeFunc(this js.Ref) js.Ref
+func FuncNavigatorSetAppBadge(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_SetAppBadge
 //go:noescape
@@ -1342,11 +1340,11 @@ func TryNavigatorSetAppBadge(
 
 //go:wasmimport plat/js/web has_Navigator_SetAppBadge1
 //go:noescape
-func HasNavigatorSetAppBadge1(this js.Ref) js.Ref
+func HasFuncNavigatorSetAppBadge1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_SetAppBadge1
 //go:noescape
-func NavigatorSetAppBadge1Func(this js.Ref) js.Ref
+func FuncNavigatorSetAppBadge1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_SetAppBadge1
 //go:noescape
@@ -1360,11 +1358,11 @@ func TryNavigatorSetAppBadge1(
 
 //go:wasmimport plat/js/web has_Navigator_ClearAppBadge
 //go:noescape
-func HasNavigatorClearAppBadge(this js.Ref) js.Ref
+func HasFuncNavigatorClearAppBadge(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Navigator_ClearAppBadge
 //go:noescape
-func NavigatorClearAppBadgeFunc(this js.Ref) js.Ref
+func FuncNavigatorClearAppBadge(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Navigator_ClearAppBadge
 //go:noescape
@@ -1388,11 +1386,11 @@ func GetLaunchParamsFiles(
 
 //go:wasmimport plat/js/web has_LaunchQueue_SetConsumer
 //go:noescape
-func HasLaunchQueueSetConsumer(this js.Ref) js.Ref
+func HasFuncLaunchQueueSetConsumer(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_LaunchQueue_SetConsumer
 //go:noescape
-func LaunchQueueSetConsumerFunc(this js.Ref) js.Ref
+func FuncLaunchQueueSetConsumer(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_LaunchQueue_SetConsumer
 //go:noescape
@@ -1422,11 +1420,11 @@ func FenceEventJSLoad(
 
 //go:wasmimport plat/js/web has_Fence_ReportEvent
 //go:noescape
-func HasFenceReportEvent(this js.Ref) js.Ref
+func HasFuncFenceReportEvent(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Fence_ReportEvent
 //go:noescape
-func FenceReportEventFunc(this js.Ref) js.Ref
+func FuncFenceReportEvent(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Fence_ReportEvent
 //go:noescape
@@ -1442,11 +1440,11 @@ func TryFenceReportEvent(
 
 //go:wasmimport plat/js/web has_Fence_SetReportEventDataForAutomaticBeacons
 //go:noescape
-func HasFenceSetReportEventDataForAutomaticBeacons(this js.Ref) js.Ref
+func HasFuncFenceSetReportEventDataForAutomaticBeacons(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Fence_SetReportEventDataForAutomaticBeacons
 //go:noescape
-func FenceSetReportEventDataForAutomaticBeaconsFunc(this js.Ref) js.Ref
+func FuncFenceSetReportEventDataForAutomaticBeacons(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Fence_SetReportEventDataForAutomaticBeacons
 //go:noescape
@@ -1462,11 +1460,11 @@ func TryFenceSetReportEventDataForAutomaticBeacons(
 
 //go:wasmimport plat/js/web has_Fence_GetNestedConfigs
 //go:noescape
-func HasFenceGetNestedConfigs(this js.Ref) js.Ref
+func HasFuncFenceGetNestedConfigs(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_Fence_GetNestedConfigs
 //go:noescape
-func FenceGetNestedConfigsFunc(this js.Ref) js.Ref
+func FuncFenceGetNestedConfigs(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_Fence_GetNestedConfigs
 //go:noescape
@@ -1480,11 +1478,11 @@ func TryFenceGetNestedConfigs(
 
 //go:wasmimport plat/js/web has_PortalHost_PostMessage
 //go:noescape
-func HasPortalHostPostMessage(this js.Ref) js.Ref
+func HasFuncPortalHostPostMessage(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PortalHost_PostMessage
 //go:noescape
-func PortalHostPostMessageFunc(this js.Ref) js.Ref
+func FuncPortalHostPostMessage(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PortalHost_PostMessage
 //go:noescape
@@ -1502,11 +1500,11 @@ func TryPortalHostPostMessage(
 
 //go:wasmimport plat/js/web has_PortalHost_PostMessage1
 //go:noescape
-func HasPortalHostPostMessage1(this js.Ref) js.Ref
+func HasFuncPortalHostPostMessage1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_PortalHost_PostMessage1
 //go:noescape
-func PortalHostPostMessage1Func(this js.Ref) js.Ref
+func FuncPortalHostPostMessage1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_PortalHost_PostMessage1
 //go:noescape
@@ -1540,11 +1538,11 @@ func GetScreenOrientationAngle(
 
 //go:wasmimport plat/js/web has_ScreenOrientation_Lock
 //go:noescape
-func HasScreenOrientationLock(this js.Ref) js.Ref
+func HasFuncScreenOrientationLock(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ScreenOrientation_Lock
 //go:noescape
-func ScreenOrientationLockFunc(this js.Ref) js.Ref
+func FuncScreenOrientationLock(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ScreenOrientation_Lock
 //go:noescape
@@ -1560,11 +1558,11 @@ func TryScreenOrientationLock(
 
 //go:wasmimport plat/js/web has_ScreenOrientation_Unlock
 //go:noescape
-func HasScreenOrientationUnlock(this js.Ref) js.Ref
+func HasFuncScreenOrientationUnlock(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_ScreenOrientation_Unlock
 //go:noescape
-func ScreenOrientationUnlockFunc(this js.Ref) js.Ref
+func FuncScreenOrientationUnlock(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_ScreenOrientation_Unlock
 //go:noescape

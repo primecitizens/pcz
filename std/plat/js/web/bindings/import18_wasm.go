@@ -11,12 +11,10 @@ import (
 	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
-func _() {
-	var (
-		_ js.Void
-		_ unsafe.Pointer
-	)
-}
+type (
+	_ unsafe.Pointer
+	_ js.Ref
+)
 
 //go:wasmimport plat/js/web constof_OffscreenRenderingContextId
 //go:noescape
@@ -64,11 +62,11 @@ func SetOffscreenCanvasHeight(
 
 //go:wasmimport plat/js/web has_OffscreenCanvas_GetContext
 //go:noescape
-func HasOffscreenCanvasGetContext(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasGetContext(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvas_GetContext
 //go:noescape
-func OffscreenCanvasGetContextFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasGetContext(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvas_GetContext
 //go:noescape
@@ -86,11 +84,11 @@ func TryOffscreenCanvasGetContext(
 
 //go:wasmimport plat/js/web has_OffscreenCanvas_GetContext1
 //go:noescape
-func HasOffscreenCanvasGetContext1(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasGetContext1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvas_GetContext1
 //go:noescape
-func OffscreenCanvasGetContext1Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasGetContext1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvas_GetContext1
 //go:noescape
@@ -106,11 +104,11 @@ func TryOffscreenCanvasGetContext1(
 
 //go:wasmimport plat/js/web has_OffscreenCanvas_TransferToImageBitmap
 //go:noescape
-func HasOffscreenCanvasTransferToImageBitmap(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasTransferToImageBitmap(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvas_TransferToImageBitmap
 //go:noescape
-func OffscreenCanvasTransferToImageBitmapFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasTransferToImageBitmap(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvas_TransferToImageBitmap
 //go:noescape
@@ -124,11 +122,11 @@ func TryOffscreenCanvasTransferToImageBitmap(
 
 //go:wasmimport plat/js/web has_OffscreenCanvas_ConvertToBlob
 //go:noescape
-func HasOffscreenCanvasConvertToBlob(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasConvertToBlob(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvas_ConvertToBlob
 //go:noescape
-func OffscreenCanvasConvertToBlobFunc(this js.Ref) js.Ref
+func FuncOffscreenCanvasConvertToBlob(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvas_ConvertToBlob
 //go:noescape
@@ -144,11 +142,11 @@ func TryOffscreenCanvasConvertToBlob(
 
 //go:wasmimport plat/js/web has_OffscreenCanvas_ConvertToBlob1
 //go:noescape
-func HasOffscreenCanvasConvertToBlob1(this js.Ref) js.Ref
+func HasFuncOffscreenCanvasConvertToBlob1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_OffscreenCanvas_ConvertToBlob1
 //go:noescape
-func OffscreenCanvasConvertToBlob1Func(this js.Ref) js.Ref
+func FuncOffscreenCanvasConvertToBlob1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_OffscreenCanvas_ConvertToBlob1
 //go:noescape
@@ -479,11 +477,11 @@ func SetCanvasRenderingContext2DWordSpacing(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_GetContextAttributes
 //go:noescape
-func HasCanvasRenderingContext2DGetContextAttributes(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DGetContextAttributes(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_GetContextAttributes
 //go:noescape
-func CanvasRenderingContext2DGetContextAttributesFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DGetContextAttributes(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_GetContextAttributes
 //go:noescape
@@ -497,11 +495,11 @@ func TryCanvasRenderingContext2DGetContextAttributes(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_Save
 //go:noescape
-func HasCanvasRenderingContext2DSave(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DSave(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_Save
 //go:noescape
-func CanvasRenderingContext2DSaveFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DSave(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_Save
 //go:noescape
@@ -515,11 +513,11 @@ func TryCanvasRenderingContext2DSave(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_Restore
 //go:noescape
-func HasCanvasRenderingContext2DRestore(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DRestore(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_Restore
 //go:noescape
-func CanvasRenderingContext2DRestoreFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DRestore(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_Restore
 //go:noescape
@@ -533,11 +531,11 @@ func TryCanvasRenderingContext2DRestore(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_Reset
 //go:noescape
-func HasCanvasRenderingContext2DReset(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DReset(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_Reset
 //go:noescape
-func CanvasRenderingContext2DResetFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DReset(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_Reset
 //go:noescape
@@ -551,11 +549,11 @@ func TryCanvasRenderingContext2DReset(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_IsContextLost
 //go:noescape
-func HasCanvasRenderingContext2DIsContextLost(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DIsContextLost(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_IsContextLost
 //go:noescape
-func CanvasRenderingContext2DIsContextLostFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DIsContextLost(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_IsContextLost
 //go:noescape
@@ -569,11 +567,11 @@ func TryCanvasRenderingContext2DIsContextLost(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_Scale
 //go:noescape
-func HasCanvasRenderingContext2DScale(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DScale(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_Scale
 //go:noescape
-func CanvasRenderingContext2DScaleFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DScale(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_Scale
 //go:noescape
@@ -591,11 +589,11 @@ func TryCanvasRenderingContext2DScale(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_Rotate
 //go:noescape
-func HasCanvasRenderingContext2DRotate(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DRotate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_Rotate
 //go:noescape
-func CanvasRenderingContext2DRotateFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DRotate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_Rotate
 //go:noescape
@@ -611,11 +609,11 @@ func TryCanvasRenderingContext2DRotate(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_Translate
 //go:noescape
-func HasCanvasRenderingContext2DTranslate(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DTranslate(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_Translate
 //go:noescape
-func CanvasRenderingContext2DTranslateFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DTranslate(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_Translate
 //go:noescape
@@ -633,11 +631,11 @@ func TryCanvasRenderingContext2DTranslate(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_Transform
 //go:noescape
-func HasCanvasRenderingContext2DTransform(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DTransform(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_Transform
 //go:noescape
-func CanvasRenderingContext2DTransformFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DTransform(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_Transform
 //go:noescape
@@ -663,11 +661,11 @@ func TryCanvasRenderingContext2DTransform(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_GetTransform
 //go:noescape
-func HasCanvasRenderingContext2DGetTransform(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DGetTransform(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_GetTransform
 //go:noescape
-func CanvasRenderingContext2DGetTransformFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DGetTransform(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_GetTransform
 //go:noescape
@@ -681,11 +679,11 @@ func TryCanvasRenderingContext2DGetTransform(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_SetTransform
 //go:noescape
-func HasCanvasRenderingContext2DSetTransform(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DSetTransform(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_SetTransform
 //go:noescape
-func CanvasRenderingContext2DSetTransformFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DSetTransform(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_SetTransform
 //go:noescape
@@ -711,11 +709,11 @@ func TryCanvasRenderingContext2DSetTransform(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_SetTransform1
 //go:noescape
-func HasCanvasRenderingContext2DSetTransform1(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DSetTransform1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_SetTransform1
 //go:noescape
-func CanvasRenderingContext2DSetTransform1Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DSetTransform1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_SetTransform1
 //go:noescape
@@ -731,11 +729,11 @@ func TryCanvasRenderingContext2DSetTransform1(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_SetTransform2
 //go:noescape
-func HasCanvasRenderingContext2DSetTransform2(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DSetTransform2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_SetTransform2
 //go:noescape
-func CanvasRenderingContext2DSetTransform2Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DSetTransform2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_SetTransform2
 //go:noescape
@@ -749,11 +747,11 @@ func TryCanvasRenderingContext2DSetTransform2(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_ResetTransform
 //go:noescape
-func HasCanvasRenderingContext2DResetTransform(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DResetTransform(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_ResetTransform
 //go:noescape
-func CanvasRenderingContext2DResetTransformFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DResetTransform(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_ResetTransform
 //go:noescape
@@ -767,11 +765,11 @@ func TryCanvasRenderingContext2DResetTransform(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_CreateLinearGradient
 //go:noescape
-func HasCanvasRenderingContext2DCreateLinearGradient(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DCreateLinearGradient(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_CreateLinearGradient
 //go:noescape
-func CanvasRenderingContext2DCreateLinearGradientFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DCreateLinearGradient(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_CreateLinearGradient
 //go:noescape
@@ -793,11 +791,11 @@ func TryCanvasRenderingContext2DCreateLinearGradient(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_CreateRadialGradient
 //go:noescape
-func HasCanvasRenderingContext2DCreateRadialGradient(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DCreateRadialGradient(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_CreateRadialGradient
 //go:noescape
-func CanvasRenderingContext2DCreateRadialGradientFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DCreateRadialGradient(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_CreateRadialGradient
 //go:noescape
@@ -823,11 +821,11 @@ func TryCanvasRenderingContext2DCreateRadialGradient(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_CreateConicGradient
 //go:noescape
-func HasCanvasRenderingContext2DCreateConicGradient(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DCreateConicGradient(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_CreateConicGradient
 //go:noescape
-func CanvasRenderingContext2DCreateConicGradientFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DCreateConicGradient(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_CreateConicGradient
 //go:noescape
@@ -847,11 +845,11 @@ func TryCanvasRenderingContext2DCreateConicGradient(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_CreatePattern
 //go:noescape
-func HasCanvasRenderingContext2DCreatePattern(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DCreatePattern(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_CreatePattern
 //go:noescape
-func CanvasRenderingContext2DCreatePatternFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DCreatePattern(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_CreatePattern
 //go:noescape
@@ -869,11 +867,11 @@ func TryCanvasRenderingContext2DCreatePattern(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_ClearRect
 //go:noescape
-func HasCanvasRenderingContext2DClearRect(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DClearRect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_ClearRect
 //go:noescape
-func CanvasRenderingContext2DClearRectFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DClearRect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_ClearRect
 //go:noescape
@@ -895,11 +893,11 @@ func TryCanvasRenderingContext2DClearRect(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_FillRect
 //go:noescape
-func HasCanvasRenderingContext2DFillRect(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DFillRect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_FillRect
 //go:noescape
-func CanvasRenderingContext2DFillRectFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DFillRect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_FillRect
 //go:noescape
@@ -921,11 +919,11 @@ func TryCanvasRenderingContext2DFillRect(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_StrokeRect
 //go:noescape
-func HasCanvasRenderingContext2DStrokeRect(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DStrokeRect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_StrokeRect
 //go:noescape
-func CanvasRenderingContext2DStrokeRectFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DStrokeRect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_StrokeRect
 //go:noescape
@@ -947,11 +945,11 @@ func TryCanvasRenderingContext2DStrokeRect(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_BeginPath
 //go:noescape
-func HasCanvasRenderingContext2DBeginPath(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DBeginPath(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_BeginPath
 //go:noescape
-func CanvasRenderingContext2DBeginPathFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DBeginPath(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_BeginPath
 //go:noescape
@@ -965,11 +963,11 @@ func TryCanvasRenderingContext2DBeginPath(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_Fill
 //go:noescape
-func HasCanvasRenderingContext2DFill(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DFill(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_Fill
 //go:noescape
-func CanvasRenderingContext2DFillFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DFill(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_Fill
 //go:noescape
@@ -985,11 +983,11 @@ func TryCanvasRenderingContext2DFill(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_Fill1
 //go:noescape
-func HasCanvasRenderingContext2DFill1(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DFill1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_Fill1
 //go:noescape
-func CanvasRenderingContext2DFill1Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DFill1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_Fill1
 //go:noescape
@@ -1003,11 +1001,11 @@ func TryCanvasRenderingContext2DFill1(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_Fill2
 //go:noescape
-func HasCanvasRenderingContext2DFill2(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DFill2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_Fill2
 //go:noescape
-func CanvasRenderingContext2DFill2Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DFill2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_Fill2
 //go:noescape
@@ -1025,11 +1023,11 @@ func TryCanvasRenderingContext2DFill2(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_Fill3
 //go:noescape
-func HasCanvasRenderingContext2DFill3(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DFill3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_Fill3
 //go:noescape
-func CanvasRenderingContext2DFill3Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DFill3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_Fill3
 //go:noescape
@@ -1045,11 +1043,11 @@ func TryCanvasRenderingContext2DFill3(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_Stroke
 //go:noescape
-func HasCanvasRenderingContext2DStroke(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DStroke(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_Stroke
 //go:noescape
-func CanvasRenderingContext2DStrokeFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DStroke(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_Stroke
 //go:noescape
@@ -1063,11 +1061,11 @@ func TryCanvasRenderingContext2DStroke(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_Stroke1
 //go:noescape
-func HasCanvasRenderingContext2DStroke1(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DStroke1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_Stroke1
 //go:noescape
-func CanvasRenderingContext2DStroke1Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DStroke1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_Stroke1
 //go:noescape
@@ -1083,11 +1081,11 @@ func TryCanvasRenderingContext2DStroke1(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_Clip
 //go:noescape
-func HasCanvasRenderingContext2DClip(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DClip(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_Clip
 //go:noescape
-func CanvasRenderingContext2DClipFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DClip(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_Clip
 //go:noescape
@@ -1103,11 +1101,11 @@ func TryCanvasRenderingContext2DClip(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_Clip1
 //go:noescape
-func HasCanvasRenderingContext2DClip1(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DClip1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_Clip1
 //go:noescape
-func CanvasRenderingContext2DClip1Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DClip1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_Clip1
 //go:noescape
@@ -1121,11 +1119,11 @@ func TryCanvasRenderingContext2DClip1(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_Clip2
 //go:noescape
-func HasCanvasRenderingContext2DClip2(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DClip2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_Clip2
 //go:noescape
-func CanvasRenderingContext2DClip2Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DClip2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_Clip2
 //go:noescape
@@ -1143,11 +1141,11 @@ func TryCanvasRenderingContext2DClip2(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_Clip3
 //go:noescape
-func HasCanvasRenderingContext2DClip3(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DClip3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_Clip3
 //go:noescape
-func CanvasRenderingContext2DClip3Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DClip3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_Clip3
 //go:noescape
@@ -1163,11 +1161,11 @@ func TryCanvasRenderingContext2DClip3(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_IsPointInPath
 //go:noescape
-func HasCanvasRenderingContext2DIsPointInPath(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DIsPointInPath(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_IsPointInPath
 //go:noescape
-func CanvasRenderingContext2DIsPointInPathFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DIsPointInPath(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_IsPointInPath
 //go:noescape
@@ -1187,11 +1185,11 @@ func TryCanvasRenderingContext2DIsPointInPath(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_IsPointInPath1
 //go:noescape
-func HasCanvasRenderingContext2DIsPointInPath1(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DIsPointInPath1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_IsPointInPath1
 //go:noescape
-func CanvasRenderingContext2DIsPointInPath1Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DIsPointInPath1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_IsPointInPath1
 //go:noescape
@@ -1209,11 +1207,11 @@ func TryCanvasRenderingContext2DIsPointInPath1(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_IsPointInPath2
 //go:noescape
-func HasCanvasRenderingContext2DIsPointInPath2(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DIsPointInPath2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_IsPointInPath2
 //go:noescape
-func CanvasRenderingContext2DIsPointInPath2Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DIsPointInPath2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_IsPointInPath2
 //go:noescape
@@ -1235,11 +1233,11 @@ func TryCanvasRenderingContext2DIsPointInPath2(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_IsPointInPath3
 //go:noescape
-func HasCanvasRenderingContext2DIsPointInPath3(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DIsPointInPath3(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_IsPointInPath3
 //go:noescape
-func CanvasRenderingContext2DIsPointInPath3Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DIsPointInPath3(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_IsPointInPath3
 //go:noescape
@@ -1259,11 +1257,11 @@ func TryCanvasRenderingContext2DIsPointInPath3(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_IsPointInStroke
 //go:noescape
-func HasCanvasRenderingContext2DIsPointInStroke(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DIsPointInStroke(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_IsPointInStroke
 //go:noescape
-func CanvasRenderingContext2DIsPointInStrokeFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DIsPointInStroke(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_IsPointInStroke
 //go:noescape
@@ -1281,11 +1279,11 @@ func TryCanvasRenderingContext2DIsPointInStroke(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_IsPointInStroke1
 //go:noescape
-func HasCanvasRenderingContext2DIsPointInStroke1(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DIsPointInStroke1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_IsPointInStroke1
 //go:noescape
-func CanvasRenderingContext2DIsPointInStroke1Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DIsPointInStroke1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_IsPointInStroke1
 //go:noescape
@@ -1305,11 +1303,11 @@ func TryCanvasRenderingContext2DIsPointInStroke1(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_DrawFocusIfNeeded
 //go:noescape
-func HasCanvasRenderingContext2DDrawFocusIfNeeded(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DDrawFocusIfNeeded(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_DrawFocusIfNeeded
 //go:noescape
-func CanvasRenderingContext2DDrawFocusIfNeededFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DDrawFocusIfNeeded(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_DrawFocusIfNeeded
 //go:noescape
@@ -1325,11 +1323,11 @@ func TryCanvasRenderingContext2DDrawFocusIfNeeded(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_DrawFocusIfNeeded1
 //go:noescape
-func HasCanvasRenderingContext2DDrawFocusIfNeeded1(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DDrawFocusIfNeeded1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_DrawFocusIfNeeded1
 //go:noescape
-func CanvasRenderingContext2DDrawFocusIfNeeded1Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DDrawFocusIfNeeded1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_DrawFocusIfNeeded1
 //go:noescape
@@ -1347,11 +1345,11 @@ func TryCanvasRenderingContext2DDrawFocusIfNeeded1(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_ScrollPathIntoView
 //go:noescape
-func HasCanvasRenderingContext2DScrollPathIntoView(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DScrollPathIntoView(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_ScrollPathIntoView
 //go:noescape
-func CanvasRenderingContext2DScrollPathIntoViewFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DScrollPathIntoView(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_ScrollPathIntoView
 //go:noescape
@@ -1365,11 +1363,11 @@ func TryCanvasRenderingContext2DScrollPathIntoView(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_ScrollPathIntoView1
 //go:noescape
-func HasCanvasRenderingContext2DScrollPathIntoView1(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DScrollPathIntoView1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_ScrollPathIntoView1
 //go:noescape
-func CanvasRenderingContext2DScrollPathIntoView1Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DScrollPathIntoView1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_ScrollPathIntoView1
 //go:noescape
@@ -1385,11 +1383,11 @@ func TryCanvasRenderingContext2DScrollPathIntoView1(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_FillText
 //go:noescape
-func HasCanvasRenderingContext2DFillText(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DFillText(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_FillText
 //go:noescape
-func CanvasRenderingContext2DFillTextFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DFillText(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_FillText
 //go:noescape
@@ -1411,11 +1409,11 @@ func TryCanvasRenderingContext2DFillText(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_FillText1
 //go:noescape
-func HasCanvasRenderingContext2DFillText1(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DFillText1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_FillText1
 //go:noescape
-func CanvasRenderingContext2DFillText1Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DFillText1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_FillText1
 //go:noescape
@@ -1435,11 +1433,11 @@ func TryCanvasRenderingContext2DFillText1(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_StrokeText
 //go:noescape
-func HasCanvasRenderingContext2DStrokeText(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DStrokeText(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_StrokeText
 //go:noescape
-func CanvasRenderingContext2DStrokeTextFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DStrokeText(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_StrokeText
 //go:noescape
@@ -1461,11 +1459,11 @@ func TryCanvasRenderingContext2DStrokeText(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_StrokeText1
 //go:noescape
-func HasCanvasRenderingContext2DStrokeText1(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DStrokeText1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_StrokeText1
 //go:noescape
-func CanvasRenderingContext2DStrokeText1Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DStrokeText1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_StrokeText1
 //go:noescape
@@ -1485,11 +1483,11 @@ func TryCanvasRenderingContext2DStrokeText1(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_MeasureText
 //go:noescape
-func HasCanvasRenderingContext2DMeasureText(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DMeasureText(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_MeasureText
 //go:noescape
-func CanvasRenderingContext2DMeasureTextFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DMeasureText(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_MeasureText
 //go:noescape
@@ -1505,11 +1503,11 @@ func TryCanvasRenderingContext2DMeasureText(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_DrawImage
 //go:noescape
-func HasCanvasRenderingContext2DDrawImage(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DDrawImage(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_DrawImage
 //go:noescape
-func CanvasRenderingContext2DDrawImageFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DDrawImage(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_DrawImage
 //go:noescape
@@ -1529,11 +1527,11 @@ func TryCanvasRenderingContext2DDrawImage(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_DrawImage1
 //go:noescape
-func HasCanvasRenderingContext2DDrawImage1(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DDrawImage1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_DrawImage1
 //go:noescape
-func CanvasRenderingContext2DDrawImage1Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DDrawImage1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_DrawImage1
 //go:noescape
@@ -1557,11 +1555,11 @@ func TryCanvasRenderingContext2DDrawImage1(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_DrawImage2
 //go:noescape
-func HasCanvasRenderingContext2DDrawImage2(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DDrawImage2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_DrawImage2
 //go:noescape
-func CanvasRenderingContext2DDrawImage2Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DDrawImage2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_DrawImage2
 //go:noescape
@@ -1593,11 +1591,11 @@ func TryCanvasRenderingContext2DDrawImage2(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_CreateImageData
 //go:noescape
-func HasCanvasRenderingContext2DCreateImageData(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DCreateImageData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_CreateImageData
 //go:noescape
-func CanvasRenderingContext2DCreateImageDataFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DCreateImageData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_CreateImageData
 //go:noescape
@@ -1617,11 +1615,11 @@ func TryCanvasRenderingContext2DCreateImageData(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_CreateImageData1
 //go:noescape
-func HasCanvasRenderingContext2DCreateImageData1(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DCreateImageData1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_CreateImageData1
 //go:noescape
-func CanvasRenderingContext2DCreateImageData1Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DCreateImageData1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_CreateImageData1
 //go:noescape
@@ -1639,11 +1637,11 @@ func TryCanvasRenderingContext2DCreateImageData1(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_CreateImageData2
 //go:noescape
-func HasCanvasRenderingContext2DCreateImageData2(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DCreateImageData2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_CreateImageData2
 //go:noescape
-func CanvasRenderingContext2DCreateImageData2Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DCreateImageData2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_CreateImageData2
 //go:noescape
@@ -1659,11 +1657,11 @@ func TryCanvasRenderingContext2DCreateImageData2(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_GetImageData
 //go:noescape
-func HasCanvasRenderingContext2DGetImageData(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DGetImageData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_GetImageData
 //go:noescape
-func CanvasRenderingContext2DGetImageDataFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DGetImageData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_GetImageData
 //go:noescape
@@ -1687,11 +1685,11 @@ func TryCanvasRenderingContext2DGetImageData(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_GetImageData1
 //go:noescape
-func HasCanvasRenderingContext2DGetImageData1(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DGetImageData1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_GetImageData1
 //go:noescape
-func CanvasRenderingContext2DGetImageData1Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DGetImageData1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_GetImageData1
 //go:noescape
@@ -1713,11 +1711,11 @@ func TryCanvasRenderingContext2DGetImageData1(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_PutImageData
 //go:noescape
-func HasCanvasRenderingContext2DPutImageData(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DPutImageData(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_PutImageData
 //go:noescape
-func CanvasRenderingContext2DPutImageDataFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DPutImageData(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_PutImageData
 //go:noescape
@@ -1737,11 +1735,11 @@ func TryCanvasRenderingContext2DPutImageData(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_PutImageData1
 //go:noescape
-func HasCanvasRenderingContext2DPutImageData1(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DPutImageData1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_PutImageData1
 //go:noescape
-func CanvasRenderingContext2DPutImageData1Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DPutImageData1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_PutImageData1
 //go:noescape
@@ -1769,11 +1767,11 @@ func TryCanvasRenderingContext2DPutImageData1(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_SetLineDash
 //go:noescape
-func HasCanvasRenderingContext2DSetLineDash(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DSetLineDash(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_SetLineDash
 //go:noescape
-func CanvasRenderingContext2DSetLineDashFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DSetLineDash(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_SetLineDash
 //go:noescape
@@ -1789,11 +1787,11 @@ func TryCanvasRenderingContext2DSetLineDash(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_GetLineDash
 //go:noescape
-func HasCanvasRenderingContext2DGetLineDash(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DGetLineDash(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_GetLineDash
 //go:noescape
-func CanvasRenderingContext2DGetLineDashFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DGetLineDash(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_GetLineDash
 //go:noescape
@@ -1807,11 +1805,11 @@ func TryCanvasRenderingContext2DGetLineDash(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_ClosePath
 //go:noescape
-func HasCanvasRenderingContext2DClosePath(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DClosePath(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_ClosePath
 //go:noescape
-func CanvasRenderingContext2DClosePathFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DClosePath(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_ClosePath
 //go:noescape
@@ -1825,11 +1823,11 @@ func TryCanvasRenderingContext2DClosePath(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_MoveTo
 //go:noescape
-func HasCanvasRenderingContext2DMoveTo(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DMoveTo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_MoveTo
 //go:noescape
-func CanvasRenderingContext2DMoveToFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DMoveTo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_MoveTo
 //go:noescape
@@ -1847,11 +1845,11 @@ func TryCanvasRenderingContext2DMoveTo(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_LineTo
 //go:noescape
-func HasCanvasRenderingContext2DLineTo(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DLineTo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_LineTo
 //go:noescape
-func CanvasRenderingContext2DLineToFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DLineTo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_LineTo
 //go:noescape
@@ -1869,11 +1867,11 @@ func TryCanvasRenderingContext2DLineTo(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_QuadraticCurveTo
 //go:noescape
-func HasCanvasRenderingContext2DQuadraticCurveTo(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DQuadraticCurveTo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_QuadraticCurveTo
 //go:noescape
-func CanvasRenderingContext2DQuadraticCurveToFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DQuadraticCurveTo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_QuadraticCurveTo
 //go:noescape
@@ -1895,11 +1893,11 @@ func TryCanvasRenderingContext2DQuadraticCurveTo(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_BezierCurveTo
 //go:noescape
-func HasCanvasRenderingContext2DBezierCurveTo(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DBezierCurveTo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_BezierCurveTo
 //go:noescape
-func CanvasRenderingContext2DBezierCurveToFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DBezierCurveTo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_BezierCurveTo
 //go:noescape
@@ -1925,11 +1923,11 @@ func TryCanvasRenderingContext2DBezierCurveTo(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_ArcTo
 //go:noescape
-func HasCanvasRenderingContext2DArcTo(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DArcTo(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_ArcTo
 //go:noescape
-func CanvasRenderingContext2DArcToFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DArcTo(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_ArcTo
 //go:noescape
@@ -1953,11 +1951,11 @@ func TryCanvasRenderingContext2DArcTo(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_Rect
 //go:noescape
-func HasCanvasRenderingContext2DRect(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DRect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_Rect
 //go:noescape
-func CanvasRenderingContext2DRectFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DRect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_Rect
 //go:noescape
@@ -1979,11 +1977,11 @@ func TryCanvasRenderingContext2DRect(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_RoundRect
 //go:noescape
-func HasCanvasRenderingContext2DRoundRect(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DRoundRect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_RoundRect
 //go:noescape
-func CanvasRenderingContext2DRoundRectFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DRoundRect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_RoundRect
 //go:noescape
@@ -2007,11 +2005,11 @@ func TryCanvasRenderingContext2DRoundRect(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_RoundRect1
 //go:noescape
-func HasCanvasRenderingContext2DRoundRect1(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DRoundRect1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_RoundRect1
 //go:noescape
-func CanvasRenderingContext2DRoundRect1Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DRoundRect1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_RoundRect1
 //go:noescape
@@ -2033,11 +2031,11 @@ func TryCanvasRenderingContext2DRoundRect1(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_Arc
 //go:noescape
-func HasCanvasRenderingContext2DArc(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DArc(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_Arc
 //go:noescape
-func CanvasRenderingContext2DArcFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DArc(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_Arc
 //go:noescape
@@ -2063,11 +2061,11 @@ func TryCanvasRenderingContext2DArc(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_Arc1
 //go:noescape
-func HasCanvasRenderingContext2DArc1(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DArc1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_Arc1
 //go:noescape
-func CanvasRenderingContext2DArc1Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DArc1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_Arc1
 //go:noescape
@@ -2091,11 +2089,11 @@ func TryCanvasRenderingContext2DArc1(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_Ellipse
 //go:noescape
-func HasCanvasRenderingContext2DEllipse(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DEllipse(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_Ellipse
 //go:noescape
-func CanvasRenderingContext2DEllipseFunc(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DEllipse(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_Ellipse
 //go:noescape
@@ -2125,11 +2123,11 @@ func TryCanvasRenderingContext2DEllipse(
 
 //go:wasmimport plat/js/web has_CanvasRenderingContext2D_Ellipse1
 //go:noescape
-func HasCanvasRenderingContext2DEllipse1(this js.Ref) js.Ref
+func HasFuncCanvasRenderingContext2DEllipse1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_CanvasRenderingContext2D_Ellipse1
 //go:noescape
-func CanvasRenderingContext2DEllipse1Func(this js.Ref) js.Ref
+func FuncCanvasRenderingContext2DEllipse1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_CanvasRenderingContext2D_Ellipse1
 //go:noescape
@@ -2154,10 +2152,6 @@ func TryCanvasRenderingContext2DEllipse1(
 	rotation float64,
 	startAngle float64,
 	endAngle float64) (ok js.Ref)
-
-//go:wasmimport plat/js/web new_HTMLCanvasElement_HTMLCanvasElement
-//go:noescape
-func NewHTMLCanvasElementByHTMLCanvasElement() js.Ref
 
 //go:wasmimport plat/js/web get_HTMLCanvasElement_Width
 //go:noescape
@@ -2185,11 +2179,11 @@ func SetHTMLCanvasElementHeight(
 
 //go:wasmimport plat/js/web has_HTMLCanvasElement_GetContext
 //go:noescape
-func HasHTMLCanvasElementGetContext(this js.Ref) js.Ref
+func HasFuncHTMLCanvasElementGetContext(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLCanvasElement_GetContext
 //go:noescape
-func HTMLCanvasElementGetContextFunc(this js.Ref) js.Ref
+func FuncHTMLCanvasElementGetContext(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLCanvasElement_GetContext
 //go:noescape
@@ -2207,11 +2201,11 @@ func TryHTMLCanvasElementGetContext(
 
 //go:wasmimport plat/js/web has_HTMLCanvasElement_GetContext1
 //go:noescape
-func HasHTMLCanvasElementGetContext1(this js.Ref) js.Ref
+func HasFuncHTMLCanvasElementGetContext1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLCanvasElement_GetContext1
 //go:noescape
-func HTMLCanvasElementGetContext1Func(this js.Ref) js.Ref
+func FuncHTMLCanvasElementGetContext1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLCanvasElement_GetContext1
 //go:noescape
@@ -2227,11 +2221,11 @@ func TryHTMLCanvasElementGetContext1(
 
 //go:wasmimport plat/js/web has_HTMLCanvasElement_ToDataURL
 //go:noescape
-func HasHTMLCanvasElementToDataURL(this js.Ref) js.Ref
+func HasFuncHTMLCanvasElementToDataURL(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLCanvasElement_ToDataURL
 //go:noescape
-func HTMLCanvasElementToDataURLFunc(this js.Ref) js.Ref
+func FuncHTMLCanvasElementToDataURL(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLCanvasElement_ToDataURL
 //go:noescape
@@ -2249,11 +2243,11 @@ func TryHTMLCanvasElementToDataURL(
 
 //go:wasmimport plat/js/web has_HTMLCanvasElement_ToDataURL1
 //go:noescape
-func HasHTMLCanvasElementToDataURL1(this js.Ref) js.Ref
+func HasFuncHTMLCanvasElementToDataURL1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLCanvasElement_ToDataURL1
 //go:noescape
-func HTMLCanvasElementToDataURL1Func(this js.Ref) js.Ref
+func FuncHTMLCanvasElementToDataURL1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLCanvasElement_ToDataURL1
 //go:noescape
@@ -2269,11 +2263,11 @@ func TryHTMLCanvasElementToDataURL1(
 
 //go:wasmimport plat/js/web has_HTMLCanvasElement_ToDataURL2
 //go:noescape
-func HasHTMLCanvasElementToDataURL2(this js.Ref) js.Ref
+func HasFuncHTMLCanvasElementToDataURL2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLCanvasElement_ToDataURL2
 //go:noescape
-func HTMLCanvasElementToDataURL2Func(this js.Ref) js.Ref
+func FuncHTMLCanvasElementToDataURL2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLCanvasElement_ToDataURL2
 //go:noescape
@@ -2287,11 +2281,11 @@ func TryHTMLCanvasElementToDataURL2(
 
 //go:wasmimport plat/js/web has_HTMLCanvasElement_ToBlob
 //go:noescape
-func HasHTMLCanvasElementToBlob(this js.Ref) js.Ref
+func HasFuncHTMLCanvasElementToBlob(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLCanvasElement_ToBlob
 //go:noescape
-func HTMLCanvasElementToBlobFunc(this js.Ref) js.Ref
+func FuncHTMLCanvasElementToBlob(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLCanvasElement_ToBlob
 //go:noescape
@@ -2311,11 +2305,11 @@ func TryHTMLCanvasElementToBlob(
 
 //go:wasmimport plat/js/web has_HTMLCanvasElement_ToBlob1
 //go:noescape
-func HasHTMLCanvasElementToBlob1(this js.Ref) js.Ref
+func HasFuncHTMLCanvasElementToBlob1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLCanvasElement_ToBlob1
 //go:noescape
-func HTMLCanvasElementToBlob1Func(this js.Ref) js.Ref
+func FuncHTMLCanvasElementToBlob1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLCanvasElement_ToBlob1
 //go:noescape
@@ -2333,11 +2327,11 @@ func TryHTMLCanvasElementToBlob1(
 
 //go:wasmimport plat/js/web has_HTMLCanvasElement_ToBlob2
 //go:noescape
-func HasHTMLCanvasElementToBlob2(this js.Ref) js.Ref
+func HasFuncHTMLCanvasElementToBlob2(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLCanvasElement_ToBlob2
 //go:noescape
-func HTMLCanvasElementToBlob2Func(this js.Ref) js.Ref
+func FuncHTMLCanvasElementToBlob2(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLCanvasElement_ToBlob2
 //go:noescape
@@ -2353,11 +2347,11 @@ func TryHTMLCanvasElementToBlob2(
 
 //go:wasmimport plat/js/web has_HTMLCanvasElement_TransferControlToOffscreen
 //go:noescape
-func HasHTMLCanvasElementTransferControlToOffscreen(this js.Ref) js.Ref
+func HasFuncHTMLCanvasElementTransferControlToOffscreen(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLCanvasElement_TransferControlToOffscreen
 //go:noescape
-func HTMLCanvasElementTransferControlToOffscreenFunc(this js.Ref) js.Ref
+func FuncHTMLCanvasElementTransferControlToOffscreen(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLCanvasElement_TransferControlToOffscreen
 //go:noescape
@@ -2371,11 +2365,11 @@ func TryHTMLCanvasElementTransferControlToOffscreen(
 
 //go:wasmimport plat/js/web has_HTMLCanvasElement_CaptureStream
 //go:noescape
-func HasHTMLCanvasElementCaptureStream(this js.Ref) js.Ref
+func HasFuncHTMLCanvasElementCaptureStream(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLCanvasElement_CaptureStream
 //go:noescape
-func HTMLCanvasElementCaptureStreamFunc(this js.Ref) js.Ref
+func FuncHTMLCanvasElementCaptureStream(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLCanvasElement_CaptureStream
 //go:noescape
@@ -2391,11 +2385,11 @@ func TryHTMLCanvasElementCaptureStream(
 
 //go:wasmimport plat/js/web has_HTMLCanvasElement_CaptureStream1
 //go:noescape
-func HasHTMLCanvasElementCaptureStream1(this js.Ref) js.Ref
+func HasFuncHTMLCanvasElementCaptureStream1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_HTMLCanvasElement_CaptureStream1
 //go:noescape
-func HTMLCanvasElementCaptureStream1Func(this js.Ref) js.Ref
+func FuncHTMLCanvasElementCaptureStream1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_HTMLCanvasElement_CaptureStream1
 //go:noescape
@@ -2418,11 +2412,11 @@ func NewBarcodeDetectorByBarcodeDetector1() js.Ref
 
 //go:wasmimport plat/js/web has_BarcodeDetector_GetSupportedFormats
 //go:noescape
-func HasBarcodeDetectorGetSupportedFormats(this js.Ref) js.Ref
+func HasFuncBarcodeDetectorGetSupportedFormats(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BarcodeDetector_GetSupportedFormats
 //go:noescape
-func BarcodeDetectorGetSupportedFormatsFunc(this js.Ref) js.Ref
+func FuncBarcodeDetectorGetSupportedFormats(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BarcodeDetector_GetSupportedFormats
 //go:noescape
@@ -2436,11 +2430,11 @@ func TryBarcodeDetectorGetSupportedFormats(
 
 //go:wasmimport plat/js/web has_BarcodeDetector_Detect
 //go:noescape
-func HasBarcodeDetectorDetect(this js.Ref) js.Ref
+func HasFuncBarcodeDetectorDetect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BarcodeDetector_Detect
 //go:noescape
-func BarcodeDetectorDetectFunc(this js.Ref) js.Ref
+func FuncBarcodeDetectorDetect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BarcodeDetector_Detect
 //go:noescape
@@ -2531,11 +2525,11 @@ func NewBeforeInstallPromptEventByBeforeInstallPromptEvent1(
 
 //go:wasmimport plat/js/web has_BeforeInstallPromptEvent_Prompt
 //go:noescape
-func HasBeforeInstallPromptEventPrompt(this js.Ref) js.Ref
+func HasFuncBeforeInstallPromptEventPrompt(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BeforeInstallPromptEvent_Prompt
 //go:noescape
-func BeforeInstallPromptEventPromptFunc(this js.Ref) js.Ref
+func FuncBeforeInstallPromptEventPrompt(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BeforeInstallPromptEvent_Prompt
 //go:noescape
@@ -2651,11 +2645,11 @@ func GetBluetoothRemoteGATTDescriptorValue(
 
 //go:wasmimport plat/js/web has_BluetoothRemoteGATTDescriptor_ReadValue
 //go:noescape
-func HasBluetoothRemoteGATTDescriptorReadValue(this js.Ref) js.Ref
+func HasFuncBluetoothRemoteGATTDescriptorReadValue(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothRemoteGATTDescriptor_ReadValue
 //go:noescape
-func BluetoothRemoteGATTDescriptorReadValueFunc(this js.Ref) js.Ref
+func FuncBluetoothRemoteGATTDescriptorReadValue(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothRemoteGATTDescriptor_ReadValue
 //go:noescape
@@ -2669,11 +2663,11 @@ func TryBluetoothRemoteGATTDescriptorReadValue(
 
 //go:wasmimport plat/js/web has_BluetoothRemoteGATTDescriptor_WriteValue
 //go:noescape
-func HasBluetoothRemoteGATTDescriptorWriteValue(this js.Ref) js.Ref
+func HasFuncBluetoothRemoteGATTDescriptorWriteValue(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothRemoteGATTDescriptor_WriteValue
 //go:noescape
-func BluetoothRemoteGATTDescriptorWriteValueFunc(this js.Ref) js.Ref
+func FuncBluetoothRemoteGATTDescriptorWriteValue(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothRemoteGATTDescriptor_WriteValue
 //go:noescape
@@ -2754,11 +2748,11 @@ func GetBluetoothRemoteGATTCharacteristicValue(
 
 //go:wasmimport plat/js/web has_BluetoothRemoteGATTCharacteristic_GetDescriptor
 //go:noescape
-func HasBluetoothRemoteGATTCharacteristicGetDescriptor(this js.Ref) js.Ref
+func HasFuncBluetoothRemoteGATTCharacteristicGetDescriptor(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothRemoteGATTCharacteristic_GetDescriptor
 //go:noescape
-func BluetoothRemoteGATTCharacteristicGetDescriptorFunc(this js.Ref) js.Ref
+func FuncBluetoothRemoteGATTCharacteristicGetDescriptor(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothRemoteGATTCharacteristic_GetDescriptor
 //go:noescape
@@ -2774,11 +2768,11 @@ func TryBluetoothRemoteGATTCharacteristicGetDescriptor(
 
 //go:wasmimport plat/js/web has_BluetoothRemoteGATTCharacteristic_GetDescriptors
 //go:noescape
-func HasBluetoothRemoteGATTCharacteristicGetDescriptors(this js.Ref) js.Ref
+func HasFuncBluetoothRemoteGATTCharacteristicGetDescriptors(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothRemoteGATTCharacteristic_GetDescriptors
 //go:noescape
-func BluetoothRemoteGATTCharacteristicGetDescriptorsFunc(this js.Ref) js.Ref
+func FuncBluetoothRemoteGATTCharacteristicGetDescriptors(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothRemoteGATTCharacteristic_GetDescriptors
 //go:noescape
@@ -2794,11 +2788,11 @@ func TryBluetoothRemoteGATTCharacteristicGetDescriptors(
 
 //go:wasmimport plat/js/web has_BluetoothRemoteGATTCharacteristic_GetDescriptors1
 //go:noescape
-func HasBluetoothRemoteGATTCharacteristicGetDescriptors1(this js.Ref) js.Ref
+func HasFuncBluetoothRemoteGATTCharacteristicGetDescriptors1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothRemoteGATTCharacteristic_GetDescriptors1
 //go:noescape
-func BluetoothRemoteGATTCharacteristicGetDescriptors1Func(this js.Ref) js.Ref
+func FuncBluetoothRemoteGATTCharacteristicGetDescriptors1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothRemoteGATTCharacteristic_GetDescriptors1
 //go:noescape
@@ -2812,11 +2806,11 @@ func TryBluetoothRemoteGATTCharacteristicGetDescriptors1(
 
 //go:wasmimport plat/js/web has_BluetoothRemoteGATTCharacteristic_ReadValue
 //go:noescape
-func HasBluetoothRemoteGATTCharacteristicReadValue(this js.Ref) js.Ref
+func HasFuncBluetoothRemoteGATTCharacteristicReadValue(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothRemoteGATTCharacteristic_ReadValue
 //go:noescape
-func BluetoothRemoteGATTCharacteristicReadValueFunc(this js.Ref) js.Ref
+func FuncBluetoothRemoteGATTCharacteristicReadValue(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothRemoteGATTCharacteristic_ReadValue
 //go:noescape
@@ -2830,11 +2824,11 @@ func TryBluetoothRemoteGATTCharacteristicReadValue(
 
 //go:wasmimport plat/js/web has_BluetoothRemoteGATTCharacteristic_WriteValue
 //go:noescape
-func HasBluetoothRemoteGATTCharacteristicWriteValue(this js.Ref) js.Ref
+func HasFuncBluetoothRemoteGATTCharacteristicWriteValue(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothRemoteGATTCharacteristic_WriteValue
 //go:noescape
-func BluetoothRemoteGATTCharacteristicWriteValueFunc(this js.Ref) js.Ref
+func FuncBluetoothRemoteGATTCharacteristicWriteValue(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothRemoteGATTCharacteristic_WriteValue
 //go:noescape
@@ -2850,11 +2844,11 @@ func TryBluetoothRemoteGATTCharacteristicWriteValue(
 
 //go:wasmimport plat/js/web has_BluetoothRemoteGATTCharacteristic_WriteValueWithResponse
 //go:noescape
-func HasBluetoothRemoteGATTCharacteristicWriteValueWithResponse(this js.Ref) js.Ref
+func HasFuncBluetoothRemoteGATTCharacteristicWriteValueWithResponse(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothRemoteGATTCharacteristic_WriteValueWithResponse
 //go:noescape
-func BluetoothRemoteGATTCharacteristicWriteValueWithResponseFunc(this js.Ref) js.Ref
+func FuncBluetoothRemoteGATTCharacteristicWriteValueWithResponse(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothRemoteGATTCharacteristic_WriteValueWithResponse
 //go:noescape
@@ -2870,11 +2864,11 @@ func TryBluetoothRemoteGATTCharacteristicWriteValueWithResponse(
 
 //go:wasmimport plat/js/web has_BluetoothRemoteGATTCharacteristic_WriteValueWithoutResponse
 //go:noescape
-func HasBluetoothRemoteGATTCharacteristicWriteValueWithoutResponse(this js.Ref) js.Ref
+func HasFuncBluetoothRemoteGATTCharacteristicWriteValueWithoutResponse(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothRemoteGATTCharacteristic_WriteValueWithoutResponse
 //go:noescape
-func BluetoothRemoteGATTCharacteristicWriteValueWithoutResponseFunc(this js.Ref) js.Ref
+func FuncBluetoothRemoteGATTCharacteristicWriteValueWithoutResponse(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothRemoteGATTCharacteristic_WriteValueWithoutResponse
 //go:noescape
@@ -2890,11 +2884,11 @@ func TryBluetoothRemoteGATTCharacteristicWriteValueWithoutResponse(
 
 //go:wasmimport plat/js/web has_BluetoothRemoteGATTCharacteristic_StartNotifications
 //go:noescape
-func HasBluetoothRemoteGATTCharacteristicStartNotifications(this js.Ref) js.Ref
+func HasFuncBluetoothRemoteGATTCharacteristicStartNotifications(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothRemoteGATTCharacteristic_StartNotifications
 //go:noescape
-func BluetoothRemoteGATTCharacteristicStartNotificationsFunc(this js.Ref) js.Ref
+func FuncBluetoothRemoteGATTCharacteristicStartNotifications(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothRemoteGATTCharacteristic_StartNotifications
 //go:noescape
@@ -2908,11 +2902,11 @@ func TryBluetoothRemoteGATTCharacteristicStartNotifications(
 
 //go:wasmimport plat/js/web has_BluetoothRemoteGATTCharacteristic_StopNotifications
 //go:noescape
-func HasBluetoothRemoteGATTCharacteristicStopNotifications(this js.Ref) js.Ref
+func HasFuncBluetoothRemoteGATTCharacteristicStopNotifications(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothRemoteGATTCharacteristic_StopNotifications
 //go:noescape
-func BluetoothRemoteGATTCharacteristicStopNotificationsFunc(this js.Ref) js.Ref
+func FuncBluetoothRemoteGATTCharacteristicStopNotifications(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothRemoteGATTCharacteristic_StopNotifications
 //go:noescape
@@ -2941,11 +2935,11 @@ func GetBluetoothRemoteGATTServiceIsPrimary(
 
 //go:wasmimport plat/js/web has_BluetoothRemoteGATTService_GetCharacteristic
 //go:noescape
-func HasBluetoothRemoteGATTServiceGetCharacteristic(this js.Ref) js.Ref
+func HasFuncBluetoothRemoteGATTServiceGetCharacteristic(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothRemoteGATTService_GetCharacteristic
 //go:noescape
-func BluetoothRemoteGATTServiceGetCharacteristicFunc(this js.Ref) js.Ref
+func FuncBluetoothRemoteGATTServiceGetCharacteristic(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothRemoteGATTService_GetCharacteristic
 //go:noescape
@@ -2961,11 +2955,11 @@ func TryBluetoothRemoteGATTServiceGetCharacteristic(
 
 //go:wasmimport plat/js/web has_BluetoothRemoteGATTService_GetCharacteristics
 //go:noescape
-func HasBluetoothRemoteGATTServiceGetCharacteristics(this js.Ref) js.Ref
+func HasFuncBluetoothRemoteGATTServiceGetCharacteristics(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothRemoteGATTService_GetCharacteristics
 //go:noescape
-func BluetoothRemoteGATTServiceGetCharacteristicsFunc(this js.Ref) js.Ref
+func FuncBluetoothRemoteGATTServiceGetCharacteristics(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothRemoteGATTService_GetCharacteristics
 //go:noescape
@@ -2981,11 +2975,11 @@ func TryBluetoothRemoteGATTServiceGetCharacteristics(
 
 //go:wasmimport plat/js/web has_BluetoothRemoteGATTService_GetCharacteristics1
 //go:noescape
-func HasBluetoothRemoteGATTServiceGetCharacteristics1(this js.Ref) js.Ref
+func HasFuncBluetoothRemoteGATTServiceGetCharacteristics1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothRemoteGATTService_GetCharacteristics1
 //go:noescape
-func BluetoothRemoteGATTServiceGetCharacteristics1Func(this js.Ref) js.Ref
+func FuncBluetoothRemoteGATTServiceGetCharacteristics1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothRemoteGATTService_GetCharacteristics1
 //go:noescape
@@ -2999,11 +2993,11 @@ func TryBluetoothRemoteGATTServiceGetCharacteristics1(
 
 //go:wasmimport plat/js/web has_BluetoothRemoteGATTService_GetIncludedService
 //go:noescape
-func HasBluetoothRemoteGATTServiceGetIncludedService(this js.Ref) js.Ref
+func HasFuncBluetoothRemoteGATTServiceGetIncludedService(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothRemoteGATTService_GetIncludedService
 //go:noescape
-func BluetoothRemoteGATTServiceGetIncludedServiceFunc(this js.Ref) js.Ref
+func FuncBluetoothRemoteGATTServiceGetIncludedService(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothRemoteGATTService_GetIncludedService
 //go:noescape
@@ -3019,11 +3013,11 @@ func TryBluetoothRemoteGATTServiceGetIncludedService(
 
 //go:wasmimport plat/js/web has_BluetoothRemoteGATTService_GetIncludedServices
 //go:noescape
-func HasBluetoothRemoteGATTServiceGetIncludedServices(this js.Ref) js.Ref
+func HasFuncBluetoothRemoteGATTServiceGetIncludedServices(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothRemoteGATTService_GetIncludedServices
 //go:noescape
-func BluetoothRemoteGATTServiceGetIncludedServicesFunc(this js.Ref) js.Ref
+func FuncBluetoothRemoteGATTServiceGetIncludedServices(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothRemoteGATTService_GetIncludedServices
 //go:noescape
@@ -3039,11 +3033,11 @@ func TryBluetoothRemoteGATTServiceGetIncludedServices(
 
 //go:wasmimport plat/js/web has_BluetoothRemoteGATTService_GetIncludedServices1
 //go:noescape
-func HasBluetoothRemoteGATTServiceGetIncludedServices1(this js.Ref) js.Ref
+func HasFuncBluetoothRemoteGATTServiceGetIncludedServices1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothRemoteGATTService_GetIncludedServices1
 //go:noescape
-func BluetoothRemoteGATTServiceGetIncludedServices1Func(this js.Ref) js.Ref
+func FuncBluetoothRemoteGATTServiceGetIncludedServices1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothRemoteGATTService_GetIncludedServices1
 //go:noescape
@@ -3067,11 +3061,11 @@ func GetBluetoothRemoteGATTServerConnected(
 
 //go:wasmimport plat/js/web has_BluetoothRemoteGATTServer_Connect
 //go:noescape
-func HasBluetoothRemoteGATTServerConnect(this js.Ref) js.Ref
+func HasFuncBluetoothRemoteGATTServerConnect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothRemoteGATTServer_Connect
 //go:noescape
-func BluetoothRemoteGATTServerConnectFunc(this js.Ref) js.Ref
+func FuncBluetoothRemoteGATTServerConnect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothRemoteGATTServer_Connect
 //go:noescape
@@ -3085,11 +3079,11 @@ func TryBluetoothRemoteGATTServerConnect(
 
 //go:wasmimport plat/js/web has_BluetoothRemoteGATTServer_Disconnect
 //go:noescape
-func HasBluetoothRemoteGATTServerDisconnect(this js.Ref) js.Ref
+func HasFuncBluetoothRemoteGATTServerDisconnect(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothRemoteGATTServer_Disconnect
 //go:noescape
-func BluetoothRemoteGATTServerDisconnectFunc(this js.Ref) js.Ref
+func FuncBluetoothRemoteGATTServerDisconnect(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothRemoteGATTServer_Disconnect
 //go:noescape
@@ -3103,11 +3097,11 @@ func TryBluetoothRemoteGATTServerDisconnect(
 
 //go:wasmimport plat/js/web has_BluetoothRemoteGATTServer_GetPrimaryService
 //go:noescape
-func HasBluetoothRemoteGATTServerGetPrimaryService(this js.Ref) js.Ref
+func HasFuncBluetoothRemoteGATTServerGetPrimaryService(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothRemoteGATTServer_GetPrimaryService
 //go:noescape
-func BluetoothRemoteGATTServerGetPrimaryServiceFunc(this js.Ref) js.Ref
+func FuncBluetoothRemoteGATTServerGetPrimaryService(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothRemoteGATTServer_GetPrimaryService
 //go:noescape
@@ -3123,11 +3117,11 @@ func TryBluetoothRemoteGATTServerGetPrimaryService(
 
 //go:wasmimport plat/js/web has_BluetoothRemoteGATTServer_GetPrimaryServices
 //go:noescape
-func HasBluetoothRemoteGATTServerGetPrimaryServices(this js.Ref) js.Ref
+func HasFuncBluetoothRemoteGATTServerGetPrimaryServices(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothRemoteGATTServer_GetPrimaryServices
 //go:noescape
-func BluetoothRemoteGATTServerGetPrimaryServicesFunc(this js.Ref) js.Ref
+func FuncBluetoothRemoteGATTServerGetPrimaryServices(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothRemoteGATTServer_GetPrimaryServices
 //go:noescape
@@ -3143,11 +3137,11 @@ func TryBluetoothRemoteGATTServerGetPrimaryServices(
 
 //go:wasmimport plat/js/web has_BluetoothRemoteGATTServer_GetPrimaryServices1
 //go:noescape
-func HasBluetoothRemoteGATTServerGetPrimaryServices1(this js.Ref) js.Ref
+func HasFuncBluetoothRemoteGATTServerGetPrimaryServices1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothRemoteGATTServer_GetPrimaryServices1
 //go:noescape
-func BluetoothRemoteGATTServerGetPrimaryServices1Func(this js.Ref) js.Ref
+func FuncBluetoothRemoteGATTServerGetPrimaryServices1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothRemoteGATTServer_GetPrimaryServices1
 //go:noescape
@@ -3181,11 +3175,11 @@ func GetBluetoothDeviceWatchingAdvertisements(
 
 //go:wasmimport plat/js/web has_BluetoothDevice_Forget
 //go:noescape
-func HasBluetoothDeviceForget(this js.Ref) js.Ref
+func HasFuncBluetoothDeviceForget(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothDevice_Forget
 //go:noescape
-func BluetoothDeviceForgetFunc(this js.Ref) js.Ref
+func FuncBluetoothDeviceForget(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothDevice_Forget
 //go:noescape
@@ -3199,11 +3193,11 @@ func TryBluetoothDeviceForget(
 
 //go:wasmimport plat/js/web has_BluetoothDevice_WatchAdvertisements
 //go:noescape
-func HasBluetoothDeviceWatchAdvertisements(this js.Ref) js.Ref
+func HasFuncBluetoothDeviceWatchAdvertisements(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothDevice_WatchAdvertisements
 //go:noescape
-func BluetoothDeviceWatchAdvertisementsFunc(this js.Ref) js.Ref
+func FuncBluetoothDeviceWatchAdvertisements(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothDevice_WatchAdvertisements
 //go:noescape
@@ -3219,11 +3213,11 @@ func TryBluetoothDeviceWatchAdvertisements(
 
 //go:wasmimport plat/js/web has_BluetoothDevice_WatchAdvertisements1
 //go:noescape
-func HasBluetoothDeviceWatchAdvertisements1(this js.Ref) js.Ref
+func HasFuncBluetoothDeviceWatchAdvertisements1(this js.Ref) js.Ref
 
 //go:wasmimport plat/js/web func_BluetoothDevice_WatchAdvertisements1
 //go:noescape
-func BluetoothDeviceWatchAdvertisements1Func(this js.Ref) js.Ref
+func FuncBluetoothDeviceWatchAdvertisements1(this js.Ref, fn unsafe.Pointer)
 
 //go:wasmimport plat/js/web call_BluetoothDevice_WatchAdvertisements1
 //go:noescape

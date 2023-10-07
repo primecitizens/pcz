@@ -1,0 +1,453 @@
+- File: webext/metrics_private.json
+  Dict:
+    Name: Histogram
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivate
+    Fields:
+      - Name: buckets
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: HistogramBucket
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - metricsPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - metricsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - metricsPrivate
+      - Name: sum
+        Required: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - metricsPrivate
+- File: webext/metrics_private.json
+  Dict:
+    Name: HistogramBucket
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivate
+    Fields:
+      - Name: count
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - metricsPrivate
+      - Name: max
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - metricsPrivate
+      - Name: min
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - metricsPrivate
+- File: webext/metrics_private.json
+  Dict:
+    Name: MetricType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivate
+    Fields:
+      - Name: buckets
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - metricsPrivate
+      - Name: max
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - metricsPrivate
+      - Name: metricName
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - metricsPrivate
+      - Name: min
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - metricsPrivate
+      - Name: type
+        Required: true
+        Type:
+          Name: MetricTypeType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - metricsPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - metricsPrivate
+- File: webext/metrics_private.json
+  Enum:
+    Name: MetricTypeType
+    Values:
+      - histogram-log
+      - histogram-linear
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivate
+- File: webext/metrics_private.json
+  WebextFunc:
+    Name: getFieldTrial
+    Args:
+      - Name: name
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivate
+- File: webext/metrics_private.json
+  WebextFunc:
+    Name: getHistogram
+    Args:
+      - Name: name
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Histogram
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - metricsPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivate
+- File: webext/metrics_private.json
+  WebextFunc:
+    Name: getIsCrashReportingEnabled
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivate
+- File: webext/metrics_private.json
+  WebextFunc:
+    Name: getVariationParams
+    Args:
+      - Name: name
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivate
+- File: webext/metrics_private.json
+  WebextFunc:
+    Name: recordBoolean
+    Args:
+      - Name: metricName
+        Type:
+          Name: DOMString
+      - Name: value
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivate
+- File: webext/metrics_private.json
+  WebextFunc:
+    Name: recordCount
+    Args:
+      - Name: metricName
+        Type:
+          Name: DOMString
+      - Name: value
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivate
+- File: webext/metrics_private.json
+  WebextFunc:
+    Name: recordEnumerationValue
+    Args:
+      - Name: metricName
+        Type:
+          Name: DOMString
+      - Name: value
+        Type:
+          Name: long long
+      - Name: enumSize
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivate
+- File: webext/metrics_private.json
+  WebextFunc:
+    Name: recordLongTime
+    Args:
+      - Name: metricName
+        Type:
+          Name: DOMString
+      - Name: value
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivate
+- File: webext/metrics_private.json
+  WebextFunc:
+    Name: recordMediumCount
+    Args:
+      - Name: metricName
+        Type:
+          Name: DOMString
+      - Name: value
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivate
+- File: webext/metrics_private.json
+  WebextFunc:
+    Name: recordMediumTime
+    Args:
+      - Name: metricName
+        Type:
+          Name: DOMString
+      - Name: value
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivate
+- File: webext/metrics_private.json
+  WebextFunc:
+    Name: recordPercentage
+    Args:
+      - Name: metricName
+        Type:
+          Name: DOMString
+      - Name: value
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivate
+- File: webext/metrics_private.json
+  WebextFunc:
+    Name: recordSmallCount
+    Args:
+      - Name: metricName
+        Type:
+          Name: DOMString
+      - Name: value
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivate
+- File: webext/metrics_private.json
+  WebextFunc:
+    Name: recordSparseValue
+    Args:
+      - Name: metricName
+        Type:
+          Name: DOMString
+      - Name: value
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivate
+- File: webext/metrics_private.json
+  WebextFunc:
+    Name: recordSparseValueWithHashMetricName
+    Args:
+      - Name: metricName
+        Type:
+          Name: DOMString
+      - Name: value
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivate
+- File: webext/metrics_private.json
+  WebextFunc:
+    Name: recordSparseValueWithPersistentHash
+    Args:
+      - Name: metricName
+        Type:
+          Name: DOMString
+      - Name: value
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivate
+- File: webext/metrics_private.json
+  WebextFunc:
+    Name: recordTime
+    Args:
+      - Name: metricName
+        Type:
+          Name: DOMString
+      - Name: value
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivate
+- File: webext/metrics_private.json
+  WebextFunc:
+    Name: recordUserAction
+    Args:
+      - Name: name
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivate
+- File: webext/metrics_private.json
+  WebextFunc:
+    Name: recordValue
+    Args:
+      - Name: metric
+        Type:
+          Name: MetricType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - metricsPrivate
+      - Name: value
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - metricsPrivate

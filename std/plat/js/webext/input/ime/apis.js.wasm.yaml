@@ -1,0 +1,1813 @@
+- File: webext/chrome/input_ime.json
+  Enum:
+    Name: AssistiveWindowButton
+    Values:
+      - undo
+      - addToDictionary
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  Dict:
+    Name: AssistiveWindowProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+    Fields:
+      - Name: announceString
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: type
+        Required: true
+        Type:
+          Name: AssistiveWindowType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: visible
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+- File: webext/chrome/input_ime.json
+  Enum:
+    Name: AssistiveWindowType
+    Values:
+      - undo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  Enum:
+    Name: AutoCapitalizeType
+    Values:
+      - characters
+      - words
+      - sentences
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  Dict:
+    Name: ClearCompositionArgParameters
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+    Fields:
+      - Name: contextID
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+- File: webext/chrome/input_ime.json
+  Dict:
+    Name: CommitTextArgParameters
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+    Fields:
+      - Name: contextID
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: text
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+- File: webext/chrome/input_ime.json
+  Dict:
+    Name: DeleteSurroundingTextArgParameters
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+    Fields:
+      - Name: contextID
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: engineID
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: length
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: offset
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+- File: webext/chrome/input_ime.json
+  Dict:
+    Name: InputContext
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+    Fields:
+      - Name: autoCapitalize
+        Required: true
+        Type:
+          Name: AutoCapitalizeType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: autoComplete
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: autoCorrect
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: contextID
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: shouldDoLearning
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: spellCheck
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: type
+        Required: true
+        Type:
+          Name: InputContextType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+- File: webext/chrome/input_ime.json
+  Enum:
+    Name: InputContextType
+    Values:
+      - text
+      - search
+      - tel
+      - url
+      - email
+      - number
+      - password
+      - "null"
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  Dict:
+    Name: KeyboardEvent
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+    Fields:
+      - Name: altKey
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: altgrKey
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: capsLock
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: code
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: ctrlKey
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: extensionId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: key
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: keyCode
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: requestId
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: shiftKey
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: type
+        Required: true
+        Type:
+          Name: KeyboardEventType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+- File: webext/chrome/input_ime.json
+  Enum:
+    Name: KeyboardEventType
+    Values:
+      - keyup
+      - keydown
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  Dict:
+    Name: MenuItem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+    Fields:
+      - Name: checked
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: enabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: id
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: label
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: style
+        Type:
+          Name: MenuItemStyle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: visible
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+- File: webext/chrome/input_ime.json
+  Enum:
+    Name: MenuItemStyle
+    Values:
+      - check
+      - radio
+      - separator
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  Dict:
+    Name: MenuParameters
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+    Fields:
+      - Name: engineID
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: items
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: MenuItem
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - input
+                    - ime
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+- File: webext/chrome/input_ime.json
+  Enum:
+    Name: MouseButton
+    Values:
+      - left
+      - middle
+      - right
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  Dict:
+    Name: OnAssistiveWindowButtonClickedArgDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+    Fields:
+      - Name: buttonID
+        Required: true
+        Type:
+          Name: AssistiveWindowButton
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: windowType
+        Required: true
+        Type:
+          Name: AssistiveWindowType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+- File: webext/chrome/input_ime.json
+  Dict:
+    Name: OnSurroundingTextChangedArgSurroundingInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+    Fields:
+      - Name: anchor
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: focus
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: offset
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: text
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+- File: webext/chrome/input_ime.json
+  Enum:
+    Name: ScreenType
+    Values:
+      - normal
+      - login
+      - lock
+      - secondary-login
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  Dict:
+    Name: SendKeyEventsArgParameters
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+    Fields:
+      - Name: contextID
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: keyData
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: KeyboardEvent
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - input
+                    - ime
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+- File: webext/chrome/input_ime.json
+  Dict:
+    Name: SetAssistiveWindowButtonHighlightedArgParameters
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+    Fields:
+      - Name: announceString
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: buttonID
+        Required: true
+        Type:
+          Name: AssistiveWindowButton
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: contextID
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: highlighted
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: windowType
+        Required: true
+        Type:
+          Name: AssistiveWindowType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+- File: webext/chrome/input_ime.json
+  Dict:
+    Name: SetAssistiveWindowPropertiesArgParameters
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+    Fields:
+      - Name: contextID
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: properties
+        Required: true
+        Type:
+          Name: AssistiveWindowProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+- File: webext/chrome/input_ime.json
+  Dict:
+    Name: SetCandidateWindowPropertiesArgParameters
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+    Fields:
+      - Name: engineID
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: properties
+        Required: true
+        Type:
+          Name: SetCandidateWindowPropertiesArgParametersFieldProperties
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+- File: webext/chrome/input_ime.json
+  Dict:
+    Name: SetCandidateWindowPropertiesArgParametersFieldProperties
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+    Fields:
+      - Name: auxiliaryText
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: auxiliaryTextVisible
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: currentCandidateIndex
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: cursorVisible
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: pageSize
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: totalCandidates
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: vertical
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: visible
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: windowPosition
+        Type:
+          Name: WindowPosition
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+- File: webext/chrome/input_ime.json
+  Dict:
+    Name: SetCandidatesArgParameters
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+    Fields:
+      - Name: candidates
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: SetCandidatesArgParametersFieldCandidatesElem
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - input
+                    - ime
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: contextID
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+- File: webext/chrome/input_ime.json
+  Dict:
+    Name: SetCandidatesArgParametersFieldCandidatesElem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+    Fields:
+      - Name: annotation
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: candidate
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: id
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: label
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: parentId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: usage
+        Type:
+          Name: SetCandidatesArgParametersFieldCandidatesElemFieldUsage
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+- File: webext/chrome/input_ime.json
+  Dict:
+    Name: SetCandidatesArgParametersFieldCandidatesElemFieldUsage
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+    Fields:
+      - Name: body
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: title
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+- File: webext/chrome/input_ime.json
+  Dict:
+    Name: SetCompositionArgParameters
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+    Fields:
+      - Name: contextID
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: cursor
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: segments
+        Type:
+          Name: sequence
+          Params:
+            - Name: SetCompositionArgParametersFieldSegmentsElem
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - input
+                    - ime
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: selectionEnd
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: selectionStart
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: text
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+- File: webext/chrome/input_ime.json
+  Dict:
+    Name: SetCompositionArgParametersFieldSegmentsElem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+    Fields:
+      - Name: end
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: start
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: style
+        Required: true
+        Type:
+          Name: UnderlineStyle
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+- File: webext/chrome/input_ime.json
+  Dict:
+    Name: SetCursorPositionArgParameters
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+    Fields:
+      - Name: candidateID
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+      - Name: contextID
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - input
+              - ime
+- File: webext/chrome/input_ime.json
+  Enum:
+    Name: UnderlineStyle
+    Values:
+      - underline
+      - doubleUnderline
+      - noUnderline
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  Enum:
+    Name: WindowPosition
+    Values:
+      - cursor
+      - composition
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextFunc:
+    Name: clearComposition
+    Args:
+      - Name: parameters
+        Type:
+          Name: ClearCompositionArgParameters
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextFunc:
+    Name: commitText
+    Args:
+      - Name: parameters
+        Type:
+          Name: CommitTextArgParameters
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextFunc:
+    Name: deleteSurroundingText
+    Args:
+      - Name: parameters
+        Type:
+          Name: DeleteSurroundingTextArgParameters
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextFunc:
+    Name: hideInputView
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextFunc:
+    Name: keyEventHandled
+    Args:
+      - Name: requestId
+        Type:
+          Name: DOMString
+      - Name: response
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextEvent:
+    Name: onActivate
+    Args:
+      - Name: engineID
+        Type:
+          Name: DOMString
+      - Name: screen
+        Type:
+          Name: ScreenType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextEvent:
+    Name: onAssistiveWindowButtonClicked
+    Args:
+      - Name: details
+        Type:
+          Name: OnAssistiveWindowButtonClickedArgDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextEvent:
+    Name: onBlur
+    Args:
+      - Name: contextID
+        Type:
+          Name: long long
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextEvent:
+    Name: onCandidateClicked
+    Args:
+      - Name: engineID
+        Type:
+          Name: DOMString
+      - Name: candidateID
+        Type:
+          Name: long long
+      - Name: button
+        Type:
+          Name: MouseButton
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextEvent:
+    Name: onDeactivated
+    Args:
+      - Name: engineID
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextEvent:
+    Name: onFocus
+    Args:
+      - Name: context
+        Type:
+          Name: InputContext
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextEvent:
+    Name: onInputContextUpdate
+    Args:
+      - Name: context
+        Type:
+          Name: InputContext
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextEvent:
+    Name: onKeyEvent
+    Args:
+      - Name: engineID
+        Type:
+          Name: DOMString
+      - Name: keyData
+        Type:
+          Name: KeyboardEvent
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+      - Name: requestId
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextEvent:
+    Name: onMenuItemActivated
+    Args:
+      - Name: engineID
+        Type:
+          Name: DOMString
+      - Name: name
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextEvent:
+    Name: onReset
+    Args:
+      - Name: engineID
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextEvent:
+    Name: onSurroundingTextChanged
+    Args:
+      - Name: engineID
+        Type:
+          Name: DOMString
+      - Name: surroundingInfo
+        Type:
+          Name: OnSurroundingTextChangedArgSurroundingInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextFunc:
+    Name: sendKeyEvents
+    Args:
+      - Name: parameters
+        Type:
+          Name: SendKeyEventsArgParameters
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextFunc:
+    Name: setAssistiveWindowButtonHighlighted
+    Args:
+      - Name: parameters
+        Type:
+          Name: SetAssistiveWindowButtonHighlightedArgParameters
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextFunc:
+    Name: setAssistiveWindowProperties
+    Args:
+      - Name: parameters
+        Type:
+          Name: SetAssistiveWindowPropertiesArgParameters
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextFunc:
+    Name: setCandidateWindowProperties
+    Args:
+      - Name: parameters
+        Type:
+          Name: SetCandidateWindowPropertiesArgParameters
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextFunc:
+    Name: setCandidates
+    Args:
+      - Name: parameters
+        Type:
+          Name: SetCandidatesArgParameters
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextFunc:
+    Name: setComposition
+    Args:
+      - Name: parameters
+        Type:
+          Name: SetCompositionArgParameters
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextFunc:
+    Name: setCursorPosition
+    Args:
+      - Name: parameters
+        Type:
+          Name: SetCursorPositionArgParameters
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextFunc:
+    Name: setMenuItems
+    Args:
+      - Name: parameters
+        Type:
+          Name: MenuParameters
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime
+- File: webext/chrome/input_ime.json
+  WebextFunc:
+    Name: updateMenuItems
+    Args:
+      - Name: parameters
+        Type:
+          Name: MenuParameters
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - input
+                - ime
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - input
+          - ime

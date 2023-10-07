@@ -1,4 +1,4 @@
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUCommandBufferDescriptor
     Inherits: GPUObjectDescriptorBase
@@ -7,7 +7,7 @@
         Default: '""'
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUCommandEncoder
     ExtAttrs:
@@ -226,7 +226,7 @@
               Name: USVString
         Returns:
           - Name: undefined
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUCommandEncoderDescriptor
     Inherits: GPUObjectDescriptorBase
@@ -235,7 +235,7 @@
         Default: '""'
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUCompareFunction
     Values:
@@ -247,7 +247,7 @@
       - not-equal
       - greater-equal
       - always
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUCompilationInfo
     ExtAttrs:
@@ -271,7 +271,7 @@
               - DedicatedWorker
           - Name: Serializable
           - Name: SecureContext
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUCompilationMessage
     ExtAttrs:
@@ -348,14 +348,14 @@
               - DedicatedWorker
           - Name: Serializable
           - Name: SecureContext
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUCompilationMessageType
     Values:
       - error
       - warning
       - info
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUComputePassDescriptor
     Inherits: GPUObjectDescriptorBase
@@ -367,7 +367,7 @@
         Default: '""'
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUComputePassEncoder
     ExtAttrs:
@@ -497,7 +497,7 @@
               Name: GPUSize32
         Returns:
           - Name: undefined
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUComputePassTimestampWrites
     Fields:
@@ -511,7 +511,7 @@
       - Name: endOfPassWriteIndex
         Type:
           Name: GPUSize32
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUComputePipeline
     ExtAttrs:
@@ -534,7 +534,7 @@
           - Name: GPUBindGroupLayout
         ExtAttrs:
           - Name: NewObject
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUComputePipelineDescriptor
     Inherits: GPUPipelineDescriptorBase
@@ -553,19 +553,19 @@
         Default: '""'
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUCullMode
     Values:
       - none
       - front
       - back
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUDepthBias
     Type:
       Name: long
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUDepthStencilState
     Fields:
@@ -609,7 +609,7 @@
         Default: "0"
         Type:
           Name: float
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUDevice
     Inherits: EventTarget
@@ -896,7 +896,7 @@
             Params:
               - Name: GPUError
                 Nullable: true
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUDeviceDescriptor
     Inherits: GPUObjectDescriptorBase
@@ -922,7 +922,7 @@
         Default: '""'
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUDeviceLostInfo
     ExtAttrs:
@@ -952,13 +952,13 @@
               - Window
               - DedicatedWorker
           - Name: SecureContext
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUDeviceLostReason
     Values:
       - unknown
       - destroyed
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUError
     ExtAttrs:
@@ -978,14 +978,14 @@
               - Window
               - DedicatedWorker
           - Name: SecureContext
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUErrorFilter
     Values:
       - validation
       - out-of-memory
       - internal
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUExtent3D
     Type:
@@ -994,7 +994,7 @@
           Params:
             - Name: GPUIntegerCoordinate
         - Name: GPUExtent3DDict
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUExtent3DDict
     Fields:
@@ -1010,7 +1010,7 @@
         Default: "1"
         Type:
           Name: GPUIntegerCoordinate
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUExternalTexture
     ExtAttrs:
@@ -1023,10 +1023,10 @@
       - Name: label
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUExternalTextureBindingLayout
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUExternalTextureDescriptor
     Inherits: GPUObjectDescriptorBase
@@ -1045,7 +1045,7 @@
         Default: '""'
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUFeatureName
     Values:
@@ -1060,18 +1060,18 @@
       - rg11b10ufloat-renderable
       - bgra8unorm-storage
       - float32-filterable
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUFilterMode
     Values:
       - nearest
       - linear
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUFlagsConstant
     Type:
       Name: unsigned long
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUFragmentState
     Inherits: GPUProgrammableStage
@@ -1097,13 +1097,13 @@
           Params:
             - Name: USVString
             - Name: GPUPipelineConstantValue
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUFrontFace
     Values:
       - ccw
       - cw
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUImageCopyBuffer
     Inherits: GPUImageDataLayout
@@ -1122,7 +1122,7 @@
       - Name: rowsPerImage
         Type:
           Name: GPUSize32
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUImageCopyExternalImage
     Fields:
@@ -1138,7 +1138,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUImageCopyExternalImageSource
     Type:
@@ -1150,7 +1150,7 @@
         - Name: VideoFrame
         - Name: HTMLCanvasElement
         - Name: OffscreenCanvas
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUImageCopyTexture
     Fields:
@@ -1170,7 +1170,7 @@
         Default: '"all"'
         Type:
           Name: GPUTextureAspect
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUImageCopyTextureTagged
     Inherits: GPUImageCopyTexture
@@ -1199,7 +1199,7 @@
         Default: '"all"'
         Type:
           Name: GPUTextureAspect
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUImageDataLayout
     Fields:
@@ -1213,28 +1213,28 @@
       - Name: rowsPerImage
         Type:
           Name: GPUSize32
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUIndex32
     Type:
       Name: unsigned long
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUIndexFormat
     Values:
       - uint16
       - uint32
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUIntegerCoordinate
     Type:
       Name: unsigned long
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUIntegerCoordinateOut
     Type:
       Name: unsigned long
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Interface:
     Name: GPUInternalError
     Inherits: GPUError
@@ -1255,13 +1255,13 @@
               - Window
               - DedicatedWorker
           - Name: SecureContext
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPULoadOp
     Values:
       - load
       - clear
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Namespace:
     Name: GPUMapMode
     ExtAttrs:
@@ -1279,18 +1279,18 @@
         Value: "0x0002"
         Type:
           Name: GPUFlagsConstant
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUMapModeFlags
     Type:
       Name: unsigned long
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Enum:
     Name: GPUMipmapFilterMode
     Values:
       - nearest
       - linear
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUMultisampleState
     Fields:
@@ -1306,7 +1306,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUObjectDescriptorBase
     Fields:
@@ -1314,7 +1314,7 @@
         Default: '""'
         Type:
           Name: USVString
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Typedef:
     Name: GPUOrigin2D
     Type:
@@ -1323,7 +1323,7 @@
           Params:
             - Name: GPUIntegerCoordinate
         - Name: GPUOrigin2DDict
-- File: webgpu.idl
+- File: webref/webgpu.idl
   Dict:
     Name: GPUOrigin2DDict
     Fields:

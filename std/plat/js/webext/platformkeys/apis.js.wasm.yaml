@@ -1,0 +1,561 @@
+- File: webext/chrome/platform_keys.idl
+  Dict:
+    Name: ClientCertificateRequest
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - platformKeys
+    Fields:
+      - Name: certificateTypes
+        Type:
+          Name: sequence
+          Params:
+            - Name: ClientCertificateType
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - platformKeys
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+      - Name: certificateAuthorities
+        Type:
+          Name: sequence
+          Params:
+            - Name: ArrayBuffer
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - platformKeys
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+- File: webext/chrome/platform_keys.idl
+  Enum:
+    Name: ClientCertificateType
+    Values:
+      - rsaSign
+      - ecdsaSign
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - platformKeys
+- File: webext/chrome/platform_keys.idl
+  Callback:
+    Name: GetKeyPairCallback
+    Args:
+      - Name: publicKey
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+      - Name: privateKey
+        Optional: true
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - platformKeys
+- File: webext/chrome/platform_keys.idl
+  Dict:
+    Name: Match
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - platformKeys
+    Fields:
+      - Name: certificate
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+      - Name: keyAlgorithm
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+- File: webext/chrome/platform_keys.idl
+  Callback:
+    Name: SelectCallback
+    Args:
+      - Name: matches
+        Type:
+          Name: sequence
+          Params:
+            - Name: Match
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - platformKeys
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - platformKeys
+- File: webext/chrome/platform_keys.idl
+  Dict:
+    Name: SelectDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - platformKeys
+    Fields:
+      - Name: request
+        Type:
+          Name: ClientCertificateRequest
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+      - Name: clientCerts
+        Type:
+          Name: sequence
+          Params:
+            - Name: ArrayBuffer
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - platformKeys
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+      - Name: interactive
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+- File: webext/chrome/platform_keys.idl
+  Callback:
+    Name: VerificationCallback
+    Args:
+      - Name: result
+        Type:
+          Name: VerificationResult
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - platformKeys
+- File: webext/chrome/platform_keys.idl
+  Dict:
+    Name: VerificationDetails
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - platformKeys
+    Fields:
+      - Name: serverCertificateChain
+        Type:
+          Name: sequence
+          Params:
+            - Name: ArrayBuffer
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - platformKeys
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+      - Name: hostname
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+- File: webext/chrome/platform_keys.idl
+  Dict:
+    Name: VerificationResult
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - platformKeys
+    Fields:
+      - Name: trusted
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+      - Name: debug_errors
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - platformKeys
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+- File: webext/chrome/platform_keys.idl
+  WebextFunc:
+    Name: getKeyPair
+    Modifier: static
+    Args:
+      - Name: certificate
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+      - Name: parameters
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+      - Name: callback
+        Type:
+          Name: GetKeyPairCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - platformKeys
+- File: webext/chrome/platform_keys.idl
+  WebextFunc:
+    Name: getKeyPairBySpki
+    Modifier: static
+    Args:
+      - Name: publicKeySpkiDer
+        Type:
+          Name: ArrayBuffer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+      - Name: parameters
+        Type:
+          Name: object
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+      - Name: callback
+        Type:
+          Name: GetKeyPairCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - platformKeys
+- File: webext/chrome/platform_keys.idl
+  WebextFunc:
+    Name: selectClientCertificates
+    Modifier: static
+    Args:
+      - Name: details
+        Type:
+          Name: SelectDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+      - Name: callback
+        Type:
+          Name: SelectCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - platformKeys
+- File: webext/chrome/platform_keys.idl
+  WebextFunc:
+    Name: subtleCrypto
+    Modifier: static
+    Returns:
+      - Name: object
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+    ExtAttrs:
+      - Name: nocompile
+      - Name: Namespace
+        Values:
+          - chrome
+          - platformKeys
+- File: webext/chrome/platform_keys.idl
+  WebextFunc:
+    Name: verifyTLSServerCertificate
+    Modifier: static
+    Args:
+      - Name: details
+        Type:
+          Name: VerificationDetails
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+      - Name: callback
+        Type:
+          Name: VerificationCallback
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - platformKeys
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - platformKeys
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - platformKeys

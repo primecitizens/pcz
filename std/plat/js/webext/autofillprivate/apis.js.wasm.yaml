@@ -1,0 +1,1666 @@
+- File: webext/chrome/autofill_private.idl
+  Dict:
+    Name: AccountInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+    Fields:
+      - Name: email
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: isSyncEnabledForAutofillProfiles
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: isEligibleForAddressAccountStorage
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  Dict:
+    Name: AddressComponent
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+    Fields:
+      - Name: field
+        Type:
+          Name: ServerFieldType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: fieldName
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: isLongField
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: isRequired
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: placeholder
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  Dict:
+    Name: AddressComponentRow
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+    Fields:
+      - Name: row
+        Type:
+          Name: sequence
+          Params:
+            - Name: AddressComponent
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - autofillPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  Dict:
+    Name: AddressComponents
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+    Fields:
+      - Name: components
+        Type:
+          Name: sequence
+          Params:
+            - Name: AddressComponentRow
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - autofillPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: languageCode
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  Dict:
+    Name: AddressEntry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+    Fields:
+      - Name: guid
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: fields
+        Type:
+          Name: sequence
+          Params:
+            - Name: AddressField
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - autofillPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: languageCode
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: metadata
+        Type:
+          Name: AutofillMetadata
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  Dict:
+    Name: AddressField
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+    Fields:
+      - Name: type
+        Type:
+          Name: ServerFieldType
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: value
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  Enum:
+    Name: AddressSource
+    Values:
+      - LOCAL_OR_SYNCABLE
+      - ACCOUNT
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  Dict:
+    Name: AutofillMetadata
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+    Fields:
+      - Name: summaryLabel
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: summarySublabel
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: source
+        Type:
+          Name: AddressSource
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: isLocal
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: isCached
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: isMigratable
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: isVirtualCardEnrollmentEligible
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: isVirtualCardEnrolled
+        Type:
+          Name: boolean
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  Callback:
+    Name: CheckForDeviceAuthCallback
+    Args:
+      - Name: isDeviceAuthAvailable
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  Callback:
+    Name: CheckForUserAuthCallback
+    Args:
+      - Name: isUserAuthSuccessful
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  Dict:
+    Name: CountryEntry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+    Fields:
+      - Name: name
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: countryCode
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  Dict:
+    Name: CreditCardEntry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+    Fields:
+      - Name: guid
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: name
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: cardNumber
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: expirationMonth
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: expirationYear
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: nickname
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: network
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: imageSrc
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: metadata
+        Type:
+          Name: AutofillMetadata
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  Callback:
+    Name: GetAccountInfoCallback
+    Args:
+      - Name: accountInfo
+        Optional: true
+        Type:
+          Name: AccountInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  Callback:
+    Name: GetAddressComponentsCallback
+    Args:
+      - Name: components
+        Type:
+          Name: AddressComponents
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  Callback:
+    Name: GetAddressListCallback
+    Args:
+      - Name: entries
+        Type:
+          Name: sequence
+          Params:
+            - Name: AddressEntry
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - autofillPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  Callback:
+    Name: GetCountryListCallback
+    Args:
+      - Name: countries
+        Type:
+          Name: sequence
+          Params:
+            - Name: CountryEntry
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - autofillPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  Callback:
+    Name: GetCreditCardListCallback
+    Args:
+      - Name: entries
+        Type:
+          Name: sequence
+          Params:
+            - Name: CreditCardEntry
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - autofillPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  Callback:
+    Name: GetIbanListCallback
+    Args:
+      - Name: entries
+        Type:
+          Name: sequence
+          Params:
+            - Name: IbanEntry
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - autofillPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  Dict:
+    Name: IbanEntry
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+    Fields:
+      - Name: guid
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: value
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: nickname
+        Type:
+          Name: DOMString
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: metadata
+        Type:
+          Name: AutofillMetadata
+          Nullable: true
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  Callback:
+    Name: IsValidIbanCallback
+    Args:
+      - Name: isValid
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  Enum:
+    Name: ServerFieldType
+    Values:
+      - NO_SERVER_DATA
+      - UNKNOWN_TYPE
+      - EMPTY_TYPE
+      - NAME_FIRST
+      - NAME_MIDDLE
+      - NAME_LAST
+      - NAME_MIDDLE_INITIAL
+      - NAME_FULL
+      - NAME_SUFFIX
+      - EMAIL_ADDRESS
+      - PHONE_HOME_NUMBER
+      - PHONE_HOME_CITY_CODE
+      - PHONE_HOME_COUNTRY_CODE
+      - PHONE_HOME_CITY_AND_NUMBER
+      - PHONE_HOME_WHOLE_NUMBER
+      - ADDRESS_HOME_LINE1
+      - ADDRESS_HOME_LINE2
+      - ADDRESS_HOME_APT_NUM
+      - ADDRESS_HOME_CITY
+      - ADDRESS_HOME_STATE
+      - ADDRESS_HOME_ZIP
+      - ADDRESS_HOME_COUNTRY
+      - CREDIT_CARD_NAME_FULL
+      - CREDIT_CARD_NUMBER
+      - CREDIT_CARD_EXP_MONTH
+      - CREDIT_CARD_EXP_2_DIGIT_YEAR
+      - CREDIT_CARD_EXP_4_DIGIT_YEAR
+      - CREDIT_CARD_EXP_DATE_2_DIGIT_YEAR
+      - CREDIT_CARD_EXP_DATE_4_DIGIT_YEAR
+      - CREDIT_CARD_TYPE
+      - CREDIT_CARD_VERIFICATION_CODE
+      - COMPANY_NAME
+      - FIELD_WITH_DEFAULT_VALUE
+      - MERCHANT_EMAIL_SIGNUP
+      - MERCHANT_PROMO_CODE
+      - PASSWORD
+      - ACCOUNT_CREATION_PASSWORD
+      - ADDRESS_HOME_STREET_ADDRESS
+      - ADDRESS_HOME_SORTING_CODE
+      - ADDRESS_HOME_DEPENDENT_LOCALITY
+      - ADDRESS_HOME_LINE3
+      - NOT_ACCOUNT_CREATION_PASSWORD
+      - USERNAME
+      - USERNAME_AND_EMAIL_ADDRESS
+      - NEW_PASSWORD
+      - PROBABLY_NEW_PASSWORD
+      - NOT_NEW_PASSWORD
+      - CREDIT_CARD_NAME_FIRST
+      - CREDIT_CARD_NAME_LAST
+      - PHONE_HOME_EXTENSION
+      - CONFIRMATION_PASSWORD
+      - AMBIGUOUS_TYPE
+      - SEARCH_TERM
+      - PRICE
+      - NOT_PASSWORD
+      - SINGLE_USERNAME
+      - NOT_USERNAME
+      - UPI_VPA
+      - ADDRESS_HOME_STREET_NAME
+      - ADDRESS_HOME_HOUSE_NUMBER
+      - ADDRESS_HOME_SUBPREMISE
+      - ADDRESS_HOME_OTHER_SUBUNIT
+      - NAME_LAST_FIRST
+      - NAME_LAST_CONJUNCTION
+      - NAME_LAST_SECOND
+      - NAME_HONORIFIC_PREFIX
+      - ADDRESS_HOME_ADDRESS
+      - ADDRESS_HOME_ADDRESS_WITH_NAME
+      - ADDRESS_HOME_FLOOR
+      - NAME_FULL_WITH_HONORIFIC_PREFIX
+      - BIRTHDATE_DAY
+      - BIRTHDATE_MONTH
+      - BIRTHDATE_4_DIGIT_YEAR
+      - PHONE_HOME_CITY_CODE_WITH_TRUNK_PREFIX
+      - PHONE_HOME_CITY_AND_NUMBER_WITHOUT_TRUNK_PREFIX
+      - PHONE_HOME_NUMBER_PREFIX
+      - PHONE_HOME_NUMBER_SUFFIX
+      - IBAN_VALUE
+      - CREDIT_CARD_STANDALONE_VERIFICATION_CODE
+      - NUMERIC_QUANTITY
+      - ONE_TIME_CODE
+      - DELIVERY_INSTRUCTIONS
+      - ADDRESS_HOME_OVERFLOW
+      - ADDRESS_HOME_LANDMARK
+      - ADDRESS_HOME_OVERFLOW_AND_LANDMARK
+      - ADDRESS_HOME_ADMIN_LEVEL2
+      - ADDRESS_HOME_STREET_LOCATION
+      - ADDRESS_HOME_BETWEEN_STREETS
+      - ADDRESS_HOME_BETWEEN_STREETS_OR_LANDMARK
+      - ADDRESS_HOME_BETWEEN_STREETS_1
+      - ADDRESS_HOME_BETWEEN_STREETS_2
+      - SINGLE_USERNAME_FORGOT_PASSWORD
+      - MAX_VALID_FIELD_TYPE
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  WebextFunc:
+    Name: addVirtualCard
+    Modifier: static
+    Args:
+      - Name: cardId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  WebextFunc:
+    Name: authenticateUserAndFlipMandatoryAuthToggle
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  WebextFunc:
+    Name: authenticateUserToEditLocalCard
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - autofillPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  WebextFunc:
+    Name: checkIfDeviceAuthAvailable
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - autofillPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  WebextFunc:
+    Name: getAccountInfo
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: AccountInfo
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - autofillPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  WebextFunc:
+    Name: getAddressComponents
+    Modifier: static
+    Args:
+      - Name: countryCode
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: AddressComponents
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - autofillPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  WebextFunc:
+    Name: getAddressList
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: AddressEntry
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - autofillPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - autofillPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  WebextFunc:
+    Name: getCountryList
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: CountryEntry
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - autofillPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - autofillPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  WebextFunc:
+    Name: getCreditCardList
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: CreditCardEntry
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - autofillPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - autofillPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  WebextFunc:
+    Name: getIbanList
+    Modifier: static
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: sequence
+            Params:
+              - Name: IbanEntry
+                ExtAttrs:
+                  - Name: Namespace
+                    Values:
+                      - chrome
+                      - autofillPrivate
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - autofillPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  WebextFunc:
+    Name: isValidIban
+    Modifier: static
+    Args:
+      - Name: ibanValue
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - autofillPrivate
+    ExtAttrs:
+      - Name: supportsPromises
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  WebextFunc:
+    Name: logServerCardLinkClicked
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  WebextFunc:
+    Name: maskCreditCard
+    Modifier: static
+    Args:
+      - Name: guid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  WebextFunc:
+    Name: migrateCreditCards
+    Modifier: static
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  WebextEvent:
+    Name: onPersonalDataChanged
+    Modifier: static
+    Args:
+      - Name: addressEntries
+        Type:
+          Name: sequence
+          Params:
+            - Name: AddressEntry
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - autofillPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: creditCardEntries
+        Type:
+          Name: sequence
+          Params:
+            - Name: CreditCardEntry
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - autofillPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: ibans
+        Type:
+          Name: sequence
+          Params:
+            - Name: IbanEntry
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - autofillPrivate
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+      - Name: accountInfo
+        Optional: true
+        Type:
+          Name: AccountInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  WebextFunc:
+    Name: removeEntry
+    Modifier: static
+    Args:
+      - Name: guid
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  WebextFunc:
+    Name: removeVirtualCard
+    Modifier: static
+    Args:
+      - Name: cardId
+        Type:
+          Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  WebextFunc:
+    Name: saveAddress
+    Modifier: static
+    Args:
+      - Name: address
+        Type:
+          Name: AddressEntry
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  WebextFunc:
+    Name: saveCreditCard
+    Modifier: static
+    Args:
+      - Name: card
+        Type:
+          Name: CreditCardEntry
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  WebextFunc:
+    Name: saveIban
+    Modifier: static
+    Args:
+      - Name: iban
+        Type:
+          Name: IbanEntry
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate
+- File: webext/chrome/autofill_private.idl
+  WebextFunc:
+    Name: setCreditCardFIDOAuthEnabledState
+    Modifier: static
+    Args:
+      - Name: enabled
+        Type:
+          Name: boolean
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - autofillPrivate
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    Returns:
+      - Name: void
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - autofillPrivate
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - autofillPrivate

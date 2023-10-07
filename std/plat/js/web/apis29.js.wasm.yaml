@@ -1,4 +1,4 @@
-- File: performance-timeline.idl
+- File: webref/performance-timeline.idl
   Callback:
     Name: PerformanceObserverCallback
     Args:
@@ -15,14 +15,14 @@
           Name: PerformanceObserverCallbackOptions
     Returns:
       - Name: undefined
-- File: performance-timeline.idl
+- File: webref/performance-timeline.idl
   Dict:
     Name: PerformanceObserverCallbackOptions
     Fields:
       - Name: droppedEntriesCount
         Type:
           Name: unsigned long long
-- File: performance-timeline.idl
+- File: webref/performance-timeline.idl
   Interface:
     Name: PerformanceObserverEntryList
     ExtAttrs:
@@ -67,7 +67,7 @@
             Values:
               - Window
               - Worker
-- File: performance-timeline.idl
+- File: webref/performance-timeline.idl
   Dict:
     Name: PerformanceObserverInit
     Fields:
@@ -85,7 +85,7 @@
       - Name: durationThreshold
         Type:
           Name: DOMHighResTimeStamp
-- File: paint-timing.idl
+- File: webref/paint-timing.idl
   Interface:
     Name: PerformancePaintTiming
     Inherits: PerformanceEntry
@@ -93,7 +93,7 @@
       - Name: Exposed
         Values:
           - Window
-- File: resource-timing.idl
+- File: webref/resource-timing.idl
   Interface:
     Name: PerformanceResourceTiming
     Inherits: PerformanceEntry
@@ -322,7 +322,7 @@
             Values:
               - Window
               - Worker
-- File: server-timing.idl
+- File: webref/server-timing.idl
   Interface:
     Name: PerformanceServerTiming
     ExtAttrs:
@@ -368,7 +368,7 @@
             Values:
               - Window
               - Worker
-- File: navigation-timing.idl
+- File: webref/navigation-timing.idl
   Interface:
     Name: PerformanceTiming
     ExtAttrs:
@@ -553,7 +553,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: periodic-background-sync.idl
+- File: webref/periodic-background-sync.idl
   Interface:
     Name: PeriodicSyncEvent
     Inherits: ExtendableEvent
@@ -582,7 +582,7 @@
           - Name: Exposed
             Values:
               - ServiceWorker
-- File: periodic-background-sync.idl
+- File: webref/periodic-background-sync.idl
   Dict:
     Name: PeriodicSyncEventInit
     Inherits: ExtendableEventInit
@@ -603,7 +603,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: periodic-background-sync.idl
+- File: webref/periodic-background-sync.idl
   Interface:
     Name: PeriodicSyncManager
     ExtAttrs:
@@ -657,7 +657,7 @@
             Values:
               - Window
               - Worker
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Interface:
     Name: PeriodicWave
     ExtAttrs:
@@ -678,7 +678,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: PeriodicWaveConstraints
     Fields:
@@ -686,7 +686,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: webaudio.idl
+- File: webref/webaudio.idl
   Dict:
     Name: PeriodicWaveOptions
     Inherits: PeriodicWaveConstraints
@@ -705,7 +705,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: permissions.idl
+- File: webref/permissions.idl
   Dict:
     Name: PermissionDescriptor
     Fields:
@@ -713,7 +713,7 @@
         Required: true
         Type:
           Name: DOMString
-- File: permissions.idl
+- File: webref/permissions.idl
   Dict:
     Name: PermissionSetParameters
     Fields:
@@ -725,14 +725,14 @@
         Required: true
         Type:
           Name: PermissionState
-- File: permissions.idl
+- File: webref/permissions.idl
   Enum:
     Name: PermissionState
     Values:
       - granted
       - denied
       - prompt
-- File: permissions.idl
+- File: webref/permissions.idl
   Interface:
     Name: PermissionStatus
     Inherits: EventTarget
@@ -768,7 +768,7 @@
             Values:
               - Window
               - Worker
-- File: permissions.idl
+- File: webref/permissions.idl
   Interface:
     Name: Permissions
     ExtAttrs:
@@ -809,7 +809,7 @@
           - Name: Promise
             Params:
               - Name: PermissionStatus
-- File: permissions-policy.idl
+- File: webref/permissions-policy.idl
   Interface:
     Name: PermissionsPolicy
     ExtAttrs:
@@ -863,7 +863,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: permissions-policy.idl
+- File: webref/permissions-policy.idl
   Interface:
     Name: PermissionsPolicyViolationReportBody
     Inherits: ReportBody
@@ -915,7 +915,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: image-capture.idl
+- File: webref/image-capture.idl
   Dict:
     Name: PhotoCapabilities
     Fields:
@@ -933,7 +933,7 @@
           Name: sequence
           Params:
             - Name: FillLightMode
-- File: image-capture.idl
+- File: webref/image-capture.idl
   Dict:
     Name: PhotoSettings
     Fields:
@@ -949,7 +949,7 @@
       - Name: redEyeReduction
         Type:
           Name: boolean
-- File: picture-in-picture.idl
+- File: webref/picture-in-picture.idl
   Interface:
     Name: PictureInPictureEvent
     Inherits: Event
@@ -979,7 +979,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: picture-in-picture.idl
+- File: webref/picture-in-picture.idl
   Dict:
     Name: PictureInPictureEventInit
     Inherits: EventInit
@@ -1000,7 +1000,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: picture-in-picture.idl
+- File: webref/picture-in-picture.idl
   Interface:
     Name: PictureInPictureWindow
     Inherits: EventTarget
@@ -1032,7 +1032,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webcodecs.idl
+- File: webref/webcodecs.idl
   Dict:
     Name: PlaneLayout
     Fields:
@@ -1048,7 +1048,7 @@
           Name: unsigned long
         ExtAttrs:
           - Name: EnforceRange
-- File: web-animations.idl
+- File: webref/web-animations.idl
   Enum:
     Name: PlaybackDirection
     Values:
@@ -1056,7 +1056,7 @@
       - reverse
       - alternate
       - alternate-reverse
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: Plugin
     ExtAttrs:
@@ -1130,7 +1130,7 @@
             Values:
               - Window
           - Name: LegacyUnenumerableNamedProperties
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: PluginArray
     ExtAttrs:
@@ -1185,7 +1185,7 @@
             Values:
               - Window
           - Name: LegacyUnenumerableNamedProperties
-- File: image-capture.idl
+- File: webref/image-capture.idl
   Dict:
     Name: Point2D
     Fields:
@@ -1197,7 +1197,7 @@
         Default: "0.0"
         Type:
           Name: double
-- File: pointerevents.idl
+- File: webref/pointerevents.idl
   Interface:
     Name: PointerEvent
     Inherits: MouseEvent
@@ -1336,7 +1336,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: pointerevents.idl
+- File: webref/pointerevents.idl
   Dict:
     Name: PointerEventInit
     Inherits: MouseEventInit
@@ -1405,7 +1405,7 @@
         Default: "0"
         Type:
           Name: double
-- File: html.idl
+- File: webref/html.idl
   Interface:
     Name: PopStateEvent
     Inherits: Event
@@ -1444,7 +1444,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: html.idl
+- File: webref/html.idl
   Dict:
     Name: PopStateEventInit
     Inherits: EventInit
@@ -1469,7 +1469,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: portals.idl
+- File: webref/portals.idl
   Interface:
     Name: PortalActivateEvent
     Inherits: Event
@@ -1508,7 +1508,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: portals.idl
+- File: webref/portals.idl
   Dict:
     Name: PortalActivateEventInit
     Inherits: EventInit
@@ -1529,7 +1529,7 @@
         Default: "false"
         Type:
           Name: boolean
-- File: portals.idl
+- File: webref/portals.idl
   Dict:
     Name: PortalActivateOptions
     Inherits: StructuredSerializeOptions
@@ -1543,7 +1543,7 @@
           Name: sequence
           Params:
             - Name: object
-- File: portals.idl
+- File: webref/portals.idl
   Interface:
     Name: PortalHost
     Inherits: EventTarget
@@ -1583,7 +1583,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: webvtt.idl
+- File: webref/webvtt.idl
   Enum:
     Name: PositionAlignSetting
     Values:
@@ -1591,7 +1591,7 @@
       - center
       - line-right
       - auto
-- File: geolocation.idl
+- File: webref/geolocation.idl
   Callback:
     Name: PositionCallback
     Args:
@@ -1600,7 +1600,7 @@
           Name: GeolocationPosition
     Returns:
       - Name: undefined
-- File: geolocation.idl
+- File: webref/geolocation.idl
   Callback:
     Name: PositionErrorCallback
     Args:
@@ -1609,7 +1609,7 @@
           Name: GeolocationPositionError
     Returns:
       - Name: undefined
-- File: geolocation.idl
+- File: webref/geolocation.idl
   Dict:
     Name: PositionOptions
     Fields:
@@ -1629,20 +1629,20 @@
           Name: unsigned long
         ExtAttrs:
           - Name: Clamp
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: PredefinedColorSpace
     Values:
       - srgb
       - display-p3
-- File: html.idl
+- File: webref/html.idl
   Enum:
     Name: PremultiplyAlpha
     Values:
       - none
       - premultiply
       - default
-- File: presentation-api.idl
+- File: webref/presentation-api.idl
   Interface:
     Name: Presentation
     ExtAttrs:
@@ -1660,7 +1660,7 @@
         Type:
           Name: PresentationReceiver
           Nullable: true
-- File: presentation-api.idl
+- File: webref/presentation-api.idl
   Interface:
     Name: PresentationAvailability
     Inherits: EventTarget
@@ -1687,7 +1687,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: presentation-api.idl
+- File: webref/presentation-api.idl
   Interface:
     Name: PresentationConnection
     Inherits: EventTarget
@@ -1829,7 +1829,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: presentation-api.idl
+- File: webref/presentation-api.idl
   Interface:
     Name: PresentationConnectionAvailableEvent
     Inherits: Event
@@ -1862,7 +1862,7 @@
           - Name: Exposed
             Values:
               - Window
-- File: presentation-api.idl
+- File: webref/presentation-api.idl
   Dict:
     Name: PresentationConnectionAvailableEventInit
     Inherits: EventInit

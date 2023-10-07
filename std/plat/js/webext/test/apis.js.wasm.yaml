@@ -1,0 +1,968 @@
+- File: webext/test.json
+  Dict:
+    Name: AssertPromiseRejectsArgExpectedMessageChoice1
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  Dict:
+    Name: AssertPromiseRejectsArgPromise
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  Dict:
+    Name: AssertPromiseRejectsReturnType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  Callback:
+    Name: AssertThrowsArgFn
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  Dict:
+    Name: AssertThrowsArgMessageChoice1
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  Callback:
+    Name: CallbackArgFunc
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  Callback:
+    Name: CallbackFailArgFunc
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  Callback:
+    Name: CallbackPassArgFunc
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  Dict:
+    Name: GetConfigReturnType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+    Fields:
+      - Name: customArg
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - test
+      - Name: ftpServer
+        Type:
+          Name: GetConfigReturnTypeFieldFtpServer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - test
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - test
+      - Name: loginStatus
+        Type:
+          Name: GetConfigReturnTypeFieldLoginStatus
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - test
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - test
+      - Name: testDataDirectory
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - test
+      - Name: testServer
+        Type:
+          Name: GetConfigReturnTypeFieldTestServer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - test
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - test
+      - Name: testWebSocketPort
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - test
+      - Name: testWebTransportPort
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - test
+- File: webext/test.json
+  Dict:
+    Name: GetConfigReturnTypeFieldFtpServer
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+    Fields:
+      - Name: port
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - test
+- File: webext/test.json
+  Dict:
+    Name: GetConfigReturnTypeFieldLoginStatus
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+    Fields:
+      - Name: isLoggedIn
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - test
+      - Name: isScreenLocked
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - test
+- File: webext/test.json
+  Dict:
+    Name: GetConfigReturnTypeFieldTestServer
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+    Fields:
+      - Name: port
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - test
+- File: webext/test.json
+  Callback:
+    Name: GetWakeEventPageReturnType
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  Callback:
+    Name: ListenForeverArgFunc
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  Callback:
+    Name: ListenOnceArgFunc
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  Dict:
+    Name: LoadScriptReturnType
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  Dict:
+    Name: OnMessageArgInfo
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+    Fields:
+      - Name: data
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - test
+      - Name: lastMessage
+        Required: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - test
+- File: webext/test.json
+  Callback:
+    Name: RunTestsArgTestsElem
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  Callback:
+    Name: RunWithUserGestureArgFunctionToRun
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  Callback:
+    Name: SetExceptionHandlerArgHandler
+    Args:
+      - Name: message
+        Type:
+          Name: DOMString
+      - Name: exception
+        Type:
+          Name: any
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: assertEq
+    Args:
+      - Name: expected
+        Optional: true
+        Type:
+          Name: any
+      - Name: actual
+        Optional: true
+        Type:
+          Name: any
+      - Name: message
+        Optional: true
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: assertFalse
+    Args:
+      - Name: test
+        Type:
+          Union:
+            - Name: DOMString
+            - Name: boolean
+      - Name: message
+        Optional: true
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: assertLastError
+    Args:
+      - Name: expectedError
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: assertNe
+    Args:
+      - Name: expected
+        Optional: true
+        Type:
+          Name: any
+      - Name: actual
+        Optional: true
+        Type:
+          Name: any
+      - Name: message
+        Optional: true
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: assertNoLastError
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: assertPromiseRejects
+    Args:
+      - Name: promise
+        Type:
+          Name: AssertPromiseRejectsArgPromise
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - test
+      - Name: expectedMessage
+        Type:
+          Union:
+            - Name: DOMString
+            - Name: AssertPromiseRejectsArgExpectedMessageChoice1
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - test
+    Returns:
+      - Name: AssertPromiseRejectsReturnType
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - test
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: assertThrows
+    Args:
+      - Name: fn
+        Type:
+          Name: AssertThrowsArgFn
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - test
+      - Name: self
+        Optional: true
+        Type:
+          Name: any
+      - Name: args
+        Type:
+          Name: sequence
+          Params:
+            - Name: any
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - test
+      - Name: message
+        Optional: true
+        Type:
+          Union:
+            - Name: DOMString
+            - Name: AssertThrowsArgMessageChoice1
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - test
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: assertTrue
+    Args:
+      - Name: test
+        Type:
+          Union:
+            - Name: DOMString
+            - Name: boolean
+      - Name: message
+        Optional: true
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: callback
+    Args:
+      - Name: func
+        Optional: true
+        Type:
+          Name: CallbackArgFunc
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - test
+      - Name: expectedError
+        Optional: true
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: callbackAdded
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: callbackFail
+    Args:
+      - Name: expectedError
+        Type:
+          Name: DOMString
+      - Name: func
+        Optional: true
+        Type:
+          Name: CallbackFailArgFunc
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - test
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: callbackPass
+    Args:
+      - Name: func
+        Optional: true
+        Type:
+          Name: CallbackPassArgFunc
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - test
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: checkDeepEq
+    Args:
+      - Name: expected
+        Optional: true
+        Type:
+          Name: any
+      - Name: actual
+        Optional: true
+        Type:
+          Name: any
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: fail
+    Args:
+      - Name: message
+        Optional: true
+        Type:
+          Name: any
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: getApiDefinitions
+    Args:
+      - Name: apiNames
+        Optional: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - test
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: getApiFeatures
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: getConfig
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: GetConfigReturnType
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - test
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: getModuleSystem
+    Args:
+      - Name: context
+        Type:
+          Name: any
+    Returns:
+      - Name: any
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: getWakeEventPage
+    Returns:
+      - Name: GetWakeEventPageReturnType
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - test
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: isProcessingUserGesture
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: listenForever
+    Args:
+      - Name: event
+        Type:
+          Name: any
+      - Name: func
+        Type:
+          Name: ListenForeverArgFunc
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - test
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: listenOnce
+    Args:
+      - Name: event
+        Type:
+          Name: any
+      - Name: func
+        Type:
+          Name: ListenOnceArgFunc
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - test
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: loadScript
+    Args:
+      - Name: scriptUrl
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: LoadScriptReturnType
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - test
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: log
+    Args:
+      - Name: message
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: notifyFail
+    Args:
+      - Name: message
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: notifyPass
+    Args:
+      - Name: message
+        Optional: true
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextEvent:
+    Name: onMessage
+    Args:
+      - Name: info
+        Type:
+          Name: OnMessageArgInfo
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - test
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: openFileUrl
+    Args:
+      - Name: url
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: runTests
+    Args:
+      - Name: tests
+        Type:
+          Name: sequence
+          Params:
+            - Name: RunTestsArgTestsElem
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - test
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - test
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: runWithUserGesture
+    Args:
+      - Name: functionToRun
+        Type:
+          Name: RunWithUserGestureArgFunctionToRun
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - test
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: sendMessage
+    Args:
+      - Name: message
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: sendScriptResult
+    Args:
+      - Name: result
+        Type:
+          Name: any
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: void
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: setExceptionHandler
+    Args:
+      - Name: handler
+        Type:
+          Name: SetExceptionHandlerArgHandler
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - test
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: succeed
+    Args:
+      - Name: message
+        Optional: true
+        Type:
+          Name: any
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test
+- File: webext/test.json
+  WebextFunc:
+    Name: waitForRoundTrip
+    Args:
+      - Name: message
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: DOMString
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - test

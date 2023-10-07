@@ -1,0 +1,514 @@
+- File: webext/extensions_manifest_types.json
+  Typedef:
+    Name: Automation
+    Type:
+      Union:
+        - Name: boolean
+        - Name: AutomationChoice1
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionsManifestTypes
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionsManifestTypes
+- File: webext/extensions_manifest_types.json
+  Dict:
+    Name: AutomationChoice1
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionsManifestTypes
+    Fields:
+      - Name: desktop
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+      - Name: interact
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+      - Name: matches
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionsManifestTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+- File: webext/extensions_manifest_types.json
+  Dict:
+    Name: Bluetooth
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionsManifestTypes
+    Fields:
+      - Name: low_energy
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+      - Name: peripheral
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+      - Name: socket
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+      - Name: uuids
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionsManifestTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+- File: webext/extensions_manifest_types.json
+  Dict:
+    Name: ContentCapabilities
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionsManifestTypes
+    Fields:
+      - Name: matches
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionsManifestTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+      - Name: permissions
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionsManifestTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+- File: webext/extensions_manifest_types.json
+  Dict:
+    Name: ExternallyConnectable
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionsManifestTypes
+    Fields:
+      - Name: accepts_tls_channel_id
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+      - Name: ids
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionsManifestTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+      - Name: matches
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionsManifestTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+- File: webext/extensions_manifest_types.json
+  Typedef:
+    Name: KioskSecondaryApps
+    Type:
+      Name: sequence
+      Params:
+        - Name: KioskSecondaryAppsElem
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionsManifestTypes
+      ExtAttrs:
+        - Name: Namespace
+          Values:
+            - chrome
+            - extensionsManifestTypes
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionsManifestTypes
+- File: webext/extensions_manifest_types.json
+  Dict:
+    Name: KioskSecondaryAppsElem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionsManifestTypes
+    Fields:
+      - Name: enabled_on_launch
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+      - Name: id
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+- File: webext/extensions_manifest_types.json
+  Dict:
+    Name: OptionsUI
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionsManifestTypes
+    Fields:
+      - Name: chrome_style
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+      - Name: open_in_tab
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+      - Name: page
+        Required: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+- File: webext/extensions_manifest_types.json
+  Typedef:
+    Name: SocketHostPatterns
+    Type:
+      Union:
+        - Name: DOMString
+        - Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionsManifestTypes
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionsManifestTypes
+- File: webext/extensions_manifest_types.json
+  Dict:
+    Name: Sockets
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionsManifestTypes
+    Fields:
+      - Name: tcp
+        Type:
+          Name: SocketsFieldTcp
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionsManifestTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+      - Name: tcpServer
+        Type:
+          Name: SocketsFieldTcpServer
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionsManifestTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+      - Name: udp
+        Type:
+          Name: SocketsFieldUdp
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionsManifestTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+- File: webext/extensions_manifest_types.json
+  Dict:
+    Name: SocketsFieldTcp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionsManifestTypes
+    Fields:
+      - Name: connect
+        Type:
+          Name: SocketHostPatterns
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionsManifestTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+- File: webext/extensions_manifest_types.json
+  Dict:
+    Name: SocketsFieldTcpServer
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionsManifestTypes
+    Fields:
+      - Name: listen
+        Type:
+          Name: SocketHostPatterns
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionsManifestTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+- File: webext/extensions_manifest_types.json
+  Dict:
+    Name: SocketsFieldUdp
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionsManifestTypes
+    Fields:
+      - Name: bind
+        Type:
+          Name: SocketHostPatterns
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionsManifestTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+      - Name: multicastMembership
+        Type:
+          Name: SocketHostPatterns
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionsManifestTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+      - Name: send
+        Type:
+          Name: SocketHostPatterns
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionsManifestTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+- File: webext/extensions_manifest_types.json
+  Dict:
+    Name: UsbPrinters
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionsManifestTypes
+    Fields:
+      - Name: filters
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: UsbPrintersFieldFiltersElem
+              ExtAttrs:
+                - Name: Namespace
+                  Values:
+                    - chrome
+                    - extensionsManifestTypes
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - extensionsManifestTypes
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+- File: webext/extensions_manifest_types.json
+  Dict:
+    Name: UsbPrintersFieldFiltersElem
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - extensionsManifestTypes
+    Fields:
+      - Name: interfaceClass
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+      - Name: interfaceProtocol
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+      - Name: interfaceSubclass
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+      - Name: productId
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes
+      - Name: vendorId
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - extensionsManifestTypes

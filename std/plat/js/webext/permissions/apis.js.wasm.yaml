@@ -1,0 +1,157 @@
+- File: webext/chrome/permissions.json
+  Dict:
+    Name: Permissions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - permissions
+    Fields:
+      - Name: origins
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - permissions
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - permissions
+      - Name: permissions
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - permissions
+        ExtAttrs:
+          - Name: Namespace
+            Values:
+              - chrome
+              - permissions
+- File: webext/chrome/permissions.json
+  WebextFunc:
+    Name: contains
+    Args:
+      - Name: permissions
+        Type:
+          Name: Permissions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - permissions
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - permissions
+- File: webext/chrome/permissions.json
+  WebextFunc:
+    Name: getAll
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: Permissions
+            ExtAttrs:
+              - Name: Namespace
+                Values:
+                  - chrome
+                  - permissions
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - permissions
+- File: webext/chrome/permissions.json
+  WebextEvent:
+    Name: onAdded
+    Args:
+      - Name: permissions
+        Type:
+          Name: Permissions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - permissions
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - permissions
+- File: webext/chrome/permissions.json
+  WebextEvent:
+    Name: onRemoved
+    Args:
+      - Name: permissions
+        Type:
+          Name: Permissions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - permissions
+    Returns:
+      - Name: undefined
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - permissions
+- File: webext/chrome/permissions.json
+  WebextFunc:
+    Name: remove
+    Args:
+      - Name: permissions
+        Type:
+          Name: Permissions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - permissions
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - permissions
+- File: webext/chrome/permissions.json
+  WebextFunc:
+    Name: request
+    Args:
+      - Name: permissions
+        Type:
+          Name: Permissions
+          ExtAttrs:
+            - Name: Namespace
+              Values:
+                - chrome
+                - permissions
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: boolean
+    ExtAttrs:
+      - Name: Namespace
+        Values:
+          - chrome
+          - permissions
