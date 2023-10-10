@@ -15,7 +15,7 @@
 // "_rt0_wasm_wasip1" being exported as "_start".
 //
 // See ${GOROOT}/src/cmd/link/internal/wasm/asm.go#func:writeExportSec
-TEXT _rt0_wasm_wasip1(SB),NOSPLIT|NOFRAME,$0
+TEXT _rt0_wasm_wasip1(SB),NOSPLIT|NOFRAME|TOPFRAME,$0
 	// See wasm_export_resume
 	MOVD $(4096+8192-(8/* argc */+8 /* argv */ + 8 /* LR */)), SP
 
@@ -29,7 +29,7 @@ TEXT _rt0_wasm_wasip1(SB),NOSPLIT|NOFRAME,$0
 #ifdef GOOS_js
 
 // rt0 for js/wasm only exists to mark the exported functions as alive.
-TEXT rt0(SB),NOSPLIT|NOFRAME,$0
+TEXT rt0(SB),NOSPLIT|NOFRAME|TOPFRAME,$0
 	I32Const $wasm_export_run(SB)
 	Drop
 	I32Const $wasm_export_resume(SB)
@@ -46,7 +46,7 @@ TEXT rt0(SB),NOSPLIT|NOFRAME,$0
 //
 // NOTE: the symbol name is known to the go tool link, only change when the
 // linker changes its name or signature.
-TEXT wasm_export_resume(SB),NOSPLIT|NOFRAME,$0
+TEXT wasm_export_resume(SB),NOSPLIT|NOFRAME|TOPFRAME,$0
 	// go linker reserves 4096 bytes for zero page, then 8192 bytes for wasm_exec.js
 	// to set argv and envv, but we don't do that, use the reserved 8192 bytes as
 	// the initial stack.

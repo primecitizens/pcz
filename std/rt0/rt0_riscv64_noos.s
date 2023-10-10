@@ -11,7 +11,7 @@
 
 #ifdef GOOS_efi
 
-TEXT rt0(SB),NOSPLIT|NOFRAME,$0
+TEXT rt0(SB),NOSPLIT|NOFRAME|TOPFRAME,$0
 	// TODO: pass args (EFI_HANDLE imgHandle, EFI_SYSTEM_TABLE *sysTab)
 	JMP main·efi_main<ABIInternal>(SB)
 

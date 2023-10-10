@@ -11,7 +11,7 @@
 
 #include "textflag.h"
 
-TEXT rt0(SB),NOSPLIT|NOFRAME,$0
+TEXT rt0(SB),NOSPLIT|NOFRAME|TOPFRAME,$0
 	// See comments inside wasm_export_resume
 	MOVD $(4096+8192-(8/* argc */+8 /* argv */ + 8 /* LR */)), SP
 

@@ -7,7 +7,7 @@
 
 #ifdef GOOS_linux
 
-TEXT rt0(SB),NOSPLIT|NOFRAME,$0
+TEXT rt0(SB),NOSPLIT|NOFRAME|TOPFRAME,$0
 	MOV 0(X2), A0  // argc
 	ADD $8, X2, A1 // argv
 	JMP ·rt0<ABIInternal>(SB)

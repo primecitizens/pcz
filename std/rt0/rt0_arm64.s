@@ -7,7 +7,7 @@
 
 #ifdef GOOS_linux
 
-TEXT rt0(SB),NOSPLIT|NOFRAME,$0
+TEXT rt0(SB),NOSPLIT|NOFRAME|TOPFRAME,$0
 	MOVD 0(RSP), R0 // argc
 	ADD $8, RSP, R1 // argv
 	JMP ·rt0<ABIInternal>(SB)
@@ -16,7 +16,7 @@ TEXT rt0(SB),NOSPLIT|NOFRAME,$0
 
 #ifdef GOOS_android
 
-TEXT rt0(SB),NOSPLIT|NOFRAME,$0
+TEXT rt0(SB),NOSPLIT|NOFRAME|TOPFRAME,$0
 	MOVD 0(RSP), R0 // argc
 	ADD $8, RSP, R1 // argv
 	JMP ·rt0<ABIInternal>(SB)
@@ -25,7 +25,7 @@ TEXT rt0(SB),NOSPLIT|NOFRAME,$0
 
 #ifdef GOOS_openbsd
 
-TEXT rt0(SB),NOSPLIT|NOFRAME,$0
+TEXT rt0(SB),NOSPLIT|NOFRAME|TOPFRAME,$0
 	MOVD 0(RSP), R0 // argc
 	ADD $8, RSP, R1 // argv
 	JMP ·rt0<ABIInternal>(SB)
@@ -34,7 +34,7 @@ TEXT rt0(SB),NOSPLIT|NOFRAME,$0
 
 #ifdef GOOS_netbsd
 
-TEXT rt0(SB),NOSPLIT|NOFRAME,$0
+TEXT rt0(SB),NOSPLIT|NOFRAME|TOPFRAME,$0
 	MOVD 0(RSP), R0 // argc
 	ADD $8, RSP, R1 // argv
 	JMP ·rt0<ABIInternal>(SB)
@@ -44,7 +44,7 @@ TEXT rt0(SB),NOSPLIT|NOFRAME,$0
 #ifdef GOOS_freebsd
 
 // On FreeBSD argc/argv are passed in R0, not RSP
-TEXT rt0(SB),NOSPLIT|NOFRAME,$0
+TEXT rt0(SB),NOSPLIT|NOFRAME|TOPFRAME,$0
 	ADD $8, R0, R1 // argv
 	MOVD 0(R0), R0 // argc
 	JMP ·rt0<ABIInternal>(SB)
@@ -53,7 +53,7 @@ TEXT rt0(SB),NOSPLIT|NOFRAME,$0
 
 #ifdef GOOS_darwin
 
-TEXT rt0(SB),NOSPLIT|NOFRAME,$0
+TEXT rt0(SB),NOSPLIT|NOFRAME|TOPFRAME,$0
 	// R0: argc
 	// R1: argv
 	JMP ·rt0<ABIInternal>(SB)
@@ -62,7 +62,7 @@ TEXT rt0(SB),NOSPLIT|NOFRAME,$0
 
 #ifdef GOOS_ios
 
-TEXT rt0(SB),NOSPLIT|NOFRAME,$0
+TEXT rt0(SB),NOSPLIT|NOFRAME|TOPFRAME,$0
 	// R0: argc
 	// R1: argv
 	JMP ·rt0<ABIInternal>(SB)
@@ -71,7 +71,7 @@ TEXT rt0(SB),NOSPLIT|NOFRAME,$0
 
 #ifdef GOOS_windows
 
-TEXT rt0(SB),NOSPLIT|NOFRAME,$0
+TEXT rt0(SB),NOSPLIT|NOFRAME|TOPFRAME,$0
 	MOVD 0(RSP), R0 // argc
 	ADD $8, RSP, R1 // argv
 	JMP ·rt0<ABIInternal>(SB)

@@ -115,21 +115,7 @@ func rt0(argc int32, argv **byte) {
 	mainG.Itab = stdtype.IfaceOf(&_g0iface).Itab
 
 	thread.SetG(mainG)
-	thread.Topframe(mainG.Stack.Hi, mainG.Stack.Hi, abi.FuncPCABIInternal(start))
-}
 
-// `main.main` is the symbol of the main function from the main package
-// created by the linker.
-//
-//go:linkname main main.main
-func main()
-
-// TODO: link main.preinit before doInit
-func preinit() (skip bool) {
-	return false
-}
-
-func start(arg uintptr) {
 	if !preinit() {
 		cpu.Initialize("")
 
@@ -157,6 +143,17 @@ func start(arg uintptr) {
 	main()
 
 	exit0()
+}
+
+// `main.main` is the symbol of the main function from the main package
+// created by the linker.
+//
+//go:linkname main main.main
+func main()
+
+// TODO(toolchain): create symbol main.preinit for tasks before doInit
+func preinit() (skip bool) {
+	return false
 }
 
 // doInit runs all init() functions in the tsk.

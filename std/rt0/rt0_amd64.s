@@ -7,7 +7,7 @@
 
 #ifdef GOOS_linux
 
-TEXT rt0(SB),NOSPLIT|NOFRAME,$0
+TEXT rt0(SB),NOSPLIT|NOFRAME|TOPFRAME,$0
 	MOVQ 0(SP), AX // argc
 	LEAQ 8(SP), BX // argv
 	JMP ·rt0<ABIInternal>(SB)
@@ -16,7 +16,7 @@ TEXT rt0(SB),NOSPLIT|NOFRAME,$0
 
 #ifdef GOOS_android
 
-TEXT rt0(SB),NOSPLIT|NOFRAME,$0
+TEXT rt0(SB),NOSPLIT|NOFRAME|TOPFRAME,$0
 	MOVQ 0(SP), AX // argc
 	LEAQ 8(SP), BX // argv
 	JMP ·rt0<ABIInternal>(SB)
@@ -25,7 +25,7 @@ TEXT rt0(SB),NOSPLIT|NOFRAME,$0
 
 #ifdef GOOS_freebsd
 // On FreeBSD argc/argv are passed in DI, not SP
-TEXT rt0(SB),NOSPLIT|NOFRAME,$0
+TEXT rt0(SB),NOSPLIT|NOFRAME|TOPFRAME,$0
 	MOVQ 0(DI), AX // argc
 	LEAQ 8(DI), BX // argv
 	JMP ·rt0<ABIInternal>(SB)
@@ -34,7 +34,7 @@ TEXT rt0(SB),NOSPLIT|NOFRAME,$0
 
 #ifdef GOOS_netbsd
 
-TEXT rt0(SB),NOSPLIT|NOFRAME,$0
+TEXT rt0(SB),NOSPLIT|NOFRAME|TOPFRAME,$0
 	MOVQ 0(SP), AX // argc
 	LEAQ 8(SP), BX // argv
 	JMP ·rt0<ABIInternal>(SB)
@@ -43,7 +43,7 @@ TEXT rt0(SB),NOSPLIT|NOFRAME,$0
 
 #ifdef GOOS_openbsd
 
-TEXT rt0(SB),NOSPLIT|NOFRAME,$0
+TEXT rt0(SB),NOSPLIT|NOFRAME|TOPFRAME,$0
 	MOVQ 0(SP), AX // argc
 	LEAQ 8(SP), BX // argv
 	JMP ·rt0<ABIInternal>(SB)
@@ -52,7 +52,7 @@ TEXT rt0(SB),NOSPLIT|NOFRAME,$0
 
 #ifdef GOOS_dragonfly
 // On Dragonfly argc/argv are passed in DI, not SP
-TEXT rt0(SB),NOSPLIT|NOFRAME,$0
+TEXT rt0(SB),NOSPLIT|NOFRAME|TOPFRAME,$0
 	MOVQ 0(DI), AX // argc
 	LEAQ 8(DI), BX // argv
 	JMP ·rt0<ABIInternal>(SB)
@@ -61,7 +61,7 @@ TEXT rt0(SB),NOSPLIT|NOFRAME,$0
 
 #ifdef GOOS_solaris
 
-TEXT rt0(SB),NOSPLIT|NOFRAME,$0
+TEXT rt0(SB),NOSPLIT|NOFRAME|TOPFRAME,$0
 	MOVQ 0(SP), AX // argc
 	LEAQ 8(SP), BX // argv
 	JMP ·rt0<ABIInternal>(SB)
@@ -70,7 +70,7 @@ TEXT rt0(SB),NOSPLIT|NOFRAME,$0
 
 #ifdef GOOS_darwin
 
-TEXT rt0(SB),NOSPLIT|NOFRAME,$0
+TEXT rt0(SB),NOSPLIT|NOFRAME|TOPFRAME,$0
 	MOVQ 0(SP), AX // argc
 	LEAQ 8(SP), BX // argv
 	JMP ·rt0<ABIInternal>(SB)
@@ -79,7 +79,7 @@ TEXT rt0(SB),NOSPLIT|NOFRAME,$0
 
 #ifdef GOOS_ios
 
-TEXT rt0(SB),NOSPLIT|NOFRAME,$0
+TEXT rt0(SB),NOSPLIT|NOFRAME|TOPFRAME,$0
 	MOVQ 0(SP), AX // argc
 	MOVQ 8(SP), BX // argv
 	JMP ·rt0<ABIInternal>(SB)
@@ -88,7 +88,7 @@ TEXT rt0(SB),NOSPLIT|NOFRAME,$0
 
 #ifdef GOOS_windows
 
-TEXT rt0(SB),NOSPLIT|NOFRAME,$0
+TEXT rt0(SB),NOSPLIT|NOFRAME|TOPFRAME,$0
 	MOVQ 0(SP), AX // argc
 	LEAQ 8(SP), BX // argv
 	JMP ·rt0<ABIInternal>(SB)
