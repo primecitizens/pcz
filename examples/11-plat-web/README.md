@@ -1,6 +1,6 @@
 # Web Platform Example
 
-- [Platform Development Guide](../../docs/user/11-plat-web.md)
+- [Web Platform Development Guide](../../docs/user/11-plat-web.md)
 - Live Demo: [https://primecitizens.github.io/livedemos/11-plat-web/](https://primecitizens.github.io/livedemos/11-plat-web/)
 
 > **NOTE**

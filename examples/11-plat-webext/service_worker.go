@@ -50,8 +50,8 @@ func (w *ServiceWorker) onInstalled(this js.Ref, details *runtime.OnInstalledArg
 			Contexts: js.NewArrayOf[contextmenus.ContextType](true,
 				js.NewString(js.Must(contextmenus.ContextType_SELECTION.String())).Ref().Once(),
 			),
-			Id:    js.NewString("example-wasm-contextmenu").Once(),
-			Title: js.NewString("Example WASM ContextMenu").Once(),
+			Id:    js.NewString("example-go-contextmenu").Once(),
+			Title: js.NewString("Example Go ContextMenu").Once(),
 			Type:  contextmenus.ItemType_NORMAL,
 		},
 		js.Func[func()]{}, // undefined

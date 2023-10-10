@@ -1,6 +1,6 @@
 # WebExtension Platform Example
 
-- [Platform Development Guide](../../docs/user/11-plat-webext.md)
+- [WebExtension Platform Development Guide](../../docs/user/11-plat-webext.md)
 
 > **NOTE**
 > This example only applies to `js/wasm` target and only runs in web browsers with manifest version 3 support.
