@@ -29,7 +29,7 @@ license that can be found in the LICENSE file.
       const app = new globalThis.bindings.Application();
       let mod, inst;
       app
-        .loadStream(fetch("/app.wasm"))
+        .init(fetch("/app.wasm"))
         .then((res) => {
           mod = res.module;
           inst = res.instance;

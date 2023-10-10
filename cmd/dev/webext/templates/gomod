@@ -1,0 +1,9 @@
+// TODO: update modulepath and run `go mod tidy`
+
+module example.com/webextension
+
+go 1.21
+
+require (
+  github.com/primecitizens/pcz/std master
+)

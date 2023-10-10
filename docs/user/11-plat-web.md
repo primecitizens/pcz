@@ -1,12 +1,14 @@
 # Web Platform Development
 
+Exemple: [examples/11-plat-web](../../examples/11-plat-web)
+
 ## Supported Targets
 
 - `js/wasm`
 
 ## Development Tools
 
-- `pcz dev web`
+- `pcz dev web`: build wasm blob and generate bindings on source change.
   - package: `github.com/primecitizens/pcz/cmd/dev/web`
 - `pcz dev web bindgen`: generate js bindings for wasm.
   - package: `github.com/primecitizens/pcz/cmd/dev/internal/js`

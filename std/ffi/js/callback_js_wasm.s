@@ -33,7 +33,7 @@ TEXT wasm_export_run(SB),NOSPLIT|NOFRAME,$0
 
 	// prepare arg ctx and pLR for handleCallback
 	Get SP
-	I32Const $16 // 8 bytes for args, 8 bytes for LR (set to 0)
+	I32Const $16 // 8 bytes for args, 8 bytes for LR
 	I32Sub
 	Set SP
 

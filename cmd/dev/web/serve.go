@@ -136,7 +136,7 @@ func (ctx *serveContext) watchCustom(w *fsnotify.Watcher, file string, update fu
 
 			data, err := os.ReadFile(file)
 			if err != nil {
-				ctx.Stderr("failed to read custom file %s on update", file)
+				ctx.Stderr("[%s] failed to read update", file)
 			}
 
 			if !update(ctx, data) {
@@ -146,7 +146,7 @@ func (ctx *serveContext) watchCustom(w *fsnotify.Watcher, file string, update fu
 	}
 }
 
-func (ctx *serveContext) routineWASM(customWASM string, dw *internal.DepWatcher, cacheDir string, spec js.BindgenOptions) {
+func (ctx *serveContext) routineWASM(customWASM string, dw *internal.DepWatcher, cacheDir string, spec js.BindgenSpec) {
 	w, err := fsnotify.NewWatcher()
 	if err != nil {
 		panic("failed to create fs watcher for wasm blob")
@@ -177,21 +177,21 @@ func (ctx *serveContext) routineWASM(customWASM string, dw *internal.DepWatcher,
 	w.Add(bindingsFile)
 
 	bindingsTsk := internal.NewSingleTask(time.Second, func() {
-		ctx.Stderr("updating bindings...\n")
+		ctx.Stderr("[bindings] updating...\n")
 		data, err := os.ReadFile(blobFile)
 		if err != nil {
-			ctx.Stderr("failed to read the built wasm for bindings: %v\n", err)
+			ctx.Stderr("[bindings] failed to read the built wasm: %v\n", err)
 			return
 		}
 
 		filter, err := js.CreateSimpleFilterFromWasm(data)
 		if err != nil {
-			ctx.Stderr("failed to collect imported functions from the built wasm: %v\n", err)
+			ctx.Stderr("[bindings] failed to collect imported functions from the built wasm: %v\n", err)
 			return
 		}
 
-		code, err := js.CreateJSBindings(js.BindgenOptions{
-			Mode:          spec.Mode,
+		code, err := js.CreateJSBindings(js.BindgenSpec{
+			ModuleSystem:  spec.ModuleSystem,
 			ES:            spec.ES,
 			ModuleName:    spec.ModuleName,
 			CustomWrapper: spec.CustomWrapper,
@@ -199,7 +199,7 @@ func (ctx *serveContext) routineWASM(customWASM string, dw *internal.DepWatcher,
 			Filter:        filter,
 		})
 		if err != nil {
-			ctx.Stderr("failed to generate bindings: %v\n", err)
+			ctx.Stderr("[bindings] failed to generate: %v\n", err)
 			return
 		}
 
@@ -209,16 +209,16 @@ func (ctx *serveContext) routineWASM(customWASM string, dw *internal.DepWatcher,
 	})
 
 	wasmTsk := internal.NewSingleTask(time.Second, func() {
-		ctx.Stderr("building application...\n")
+		ctx.Stderr("[wasm] building...\n")
 		err = dw.Build(blobFile)
 		if err != nil {
-			ctx.Stderr("failed to build application: %v\n", err)
+			ctx.Stderr("[wasm] failed to build: %v\n", err)
 			return
 		}
 
 		data, err := os.ReadFile(blobFile)
 		if err != nil {
-			ctx.Stderr("failed to read the built wasm: %v\n", err)
+			ctx.Stderr("[wasm] failed to read the built wasm: %v\n", err)
 			return
 		}
 
@@ -283,7 +283,7 @@ func (ctx *serveContext) routineWASM(customWASM string, dw *internal.DepWatcher,
 func (ctx *serveContext) routineCustomBindings(file string) {
 	w, err := fsnotify.NewWatcher()
 	if err != nil {
-		panic("failed to create fs watcher for js bindings")
+		panic(fmt.Errorf("failed to create fs watcher for js bindings: %w", err))
 	}
 	defer w.Close()
 
@@ -329,7 +329,7 @@ func (ctx *serveContext) routineHTML(custom string, tdCh <-chan *TemplateData, c
 
 	w, err := fsnotify.NewWatcher()
 	if err != nil {
-		panic("failed to create fs watcher for html page")
+		panic(fmt.Errorf("failed to create fs watcher for html page: %w", err))
 	}
 	defer w.Close()
 

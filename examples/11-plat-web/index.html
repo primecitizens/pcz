@@ -15,7 +15,7 @@ Copyright 2023 The Prime Citizens
     <script>
       const app = new globalThis.bindings.Application();
       let mod, inst;
-      app.loadStream(fetch("/app.wasm")).then((res) => {
+      app.init(fetch("/app.wasm")).then((res) => {
         mod = res.module;
         inst = res.instance;
         run();

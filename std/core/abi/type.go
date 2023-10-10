@@ -338,7 +338,7 @@ func (t *Type) Uncommon() *UncommonType {
 		return &(*structTypeUncommon)(unsafe.Pointer(t)).u
 	case KindPointer:
 		type u struct {
-			PtrType
+			PointerType
 			u UncommonType
 		}
 		return &(*u)(unsafe.Pointer(t)).u
@@ -489,7 +489,7 @@ func (t *Type) InterfaceTypeUnsafe() *InterfaceType {
 }
 
 // PointerType returns t cast to a *InterfaceType, or nil if its tag does not match.
-func (t *Type) PointerType() *PtrType {
+func (t *Type) PointerType() *PointerType {
 	if t.Kind() != KindPointer {
 		return nil
 	}
@@ -497,8 +497,8 @@ func (t *Type) PointerType() *PtrType {
 	return t.PointerTypeUnsafe()
 }
 
-func (t *Type) PointerTypeUnsafe() *PtrType {
-	return (*PtrType)(unsafe.Pointer(t))
+func (t *Type) PointerTypeUnsafe() *PointerType {
+	return (*PointerType)(unsafe.Pointer(t))
 }
 
 // Size returns the size of data with type t.
@@ -645,6 +645,8 @@ func (t *FuncType) OutSlice() []*Type {
 func (t *FuncType) IsVariadic() bool {
 	return t.OutCount&(1<<15) != 0
 }
+
+type PointerType = PtrType
 
 // NOTE: The type name has to be `PtrType`, as expected by dwarf
 // See ${GOROOT}/src/cmd/link/internal/ld/dwarf.go#func:dwarfGenerateDebugInfo

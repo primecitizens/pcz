@@ -8,6 +8,7 @@ import (
 
 	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/core/math"
+	"github.com/primecitizens/pcz/std/core/num"
 	"github.com/primecitizens/pcz/std/ffi/js/bindings"
 )
 
@@ -22,7 +23,7 @@ func NewBigInt[T bigintTypes](value T) BigInt[T] {
 
 	return BigInt[T]{
 		ref: bindings.BigInt(
-			bindings.Ref(Bool(isSigned[T]())),
+			bindings.Ref(Bool(num.IsSignedType[T]())),
 			Pointer(&value),
 		),
 	}
@@ -59,7 +60,7 @@ func (b BigInt[T]) Get() T {
 
 	if bindings.Ref(True) != bindings.GetBigInt(
 		b.ref,
-		bindings.Ref(Bool(isSigned[T]())),
+		bindings.Ref(Bool(num.IsSignedType[T]())),
 		Pointer(&value),
 	) {
 		assert.Throw("not", "a", "bigint")
@@ -75,7 +76,7 @@ func (b BigInt[T]) Set(value T) bool {
 
 	return bindings.Ref(True) == bindings.ReplaceBigInt(
 		b.ref,
-		bindings.Ref(Bool(isSigned[T]())),
+		bindings.Ref(Bool(num.IsSignedType[T]())),
 		Pointer(&value),
 	)
 }
@@ -92,8 +93,7 @@ func NewNumber[T numTypes](x T) Number[T] {
 		}
 	}
 
-	_, _, float := checkType[T]()
-	if float {
+	if num.IsFloatType[T]() {
 		switch math.Float64bits(float64(x)) {
 		case math.Inf:
 			return Number[T]{
@@ -147,7 +147,7 @@ func (b Number[T]) Free() {
 }
 
 func (b Number[T]) Get() T {
-	elemSz, signed, float := checkType[T]()
+	elemSz, signed, float := num.CheckType[T]()
 
 	if b.ref < bindings.Ref(firstSmallIntCache) {
 		var value float64

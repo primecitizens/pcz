@@ -28,6 +28,10 @@ type SingleTask struct {
 }
 
 func (r *SingleTask) Run() {
+	if r == nil {
+		return
+	}
+
 	r.runTask(false)
 }
 

@@ -11,6 +11,8 @@ import (
 	"github.com/primecitizens/cli"
 )
 
+// MatchFiles matches local filesystem using globs, returns
+// a list of matched file in matched order.
 func MatchFiles(globs ...string) ([]string, error) {
 	files := make(map[string]int)
 	for _, g := range globs {

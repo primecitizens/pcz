@@ -1,5 +1,6 @@
 package bindings
 
 type (
-	Ref uint32
+	Ref  uint32
+	bool = Ref
 )

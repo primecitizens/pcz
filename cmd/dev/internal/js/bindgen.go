@@ -14,8 +14,8 @@ import (
 	"github.com/primecitizens/pcz/std"
 )
 
-type BindgenOptions struct {
-	Mode          string
+type BindgenSpec struct {
+	ModuleSystem  string
 	ES            string
 	ModuleName    string
 	CustomWrapper string
@@ -23,11 +23,11 @@ type BindgenOptions struct {
 	Filter        WasmImportFilter
 }
 
-func (s *BindgenOptions) discard(module, field string) bool {
+func (s *BindgenSpec) discard(module, field string) bool {
 	return s.Filter != nil && !s.Filter.Keep(module, field)
 }
 
-func CreateJSBindings(spec BindgenOptions) (code string, err error) {
+func CreateJSBindings(spec BindgenSpec) (code string, err error) {
 	var imports []string
 	for _, pkg := range spec.Deps {
 		file := filepath.Join(pkg.Dir, "ffi_bindings.ts")
@@ -99,7 +99,7 @@ func CreateJSBindings(spec BindgenOptions) (code string, err error) {
 		imports = append(imports, strings.Join(lines[:cur], ""))
 	}
 
-	switch spec.Mode {
+	switch spec.ModuleSystem {
 	case "raw", "":
 		var sb strings.Builder
 		err := assembleImports(&sb, spec.CustomWrapper, imports...)
@@ -109,7 +109,7 @@ func CreateJSBindings(spec BindgenOptions) (code string, err error) {
 
 		return sb.String(), nil
 	case "cjs", "commonjs":
-		spec.Mode = "commonjs"
+		spec.ModuleSystem = "commonjs"
 		fallthrough
 	case "amd", "umd", "system":
 		var sb strings.Builder
@@ -124,11 +124,11 @@ func CreateJSBindings(spec BindgenOptions) (code string, err error) {
 
 		return transpileTS(sb.String(), spec)
 	default:
-		panic(fmt.Errorf("unsupported bindgen mode: %q", spec.Mode))
+		panic(fmt.Errorf("unsupported bindgen mode: %q", spec.ModuleSystem))
 	}
 }
 
-func transpileTS(tsSource string, spec BindgenOptions) (string, error) {
+func transpileTS(tsSource string, spec BindgenSpec) (string, error) {
 	var sb strings.Builder
 
 	script, err := jsutils.Transpile(
@@ -136,7 +136,7 @@ func transpileTS(tsSource string, spec BindgenOptions) (string, error) {
 			Src:        tsSource,
 			ModuleName: spec.ModuleName,
 			CompileOptions: map[string]interface{}{
-				"module":  spec.Mode,
+				"module":  spec.ModuleSystem,
 				"target":  spec.ES,
 				"newLine": "lf",
 			},
@@ -148,7 +148,7 @@ func transpileTS(tsSource string, spec BindgenOptions) (string, error) {
 
 	// ts generates umd for both "amd" and "cjs" but not for browser
 	// we need to patch it to support browser globalThis
-	if spec.Mode == "umd" {
+	if spec.ModuleSystem == "umd" {
 		err = patchUMDForBrowser(&sb, spec.ModuleName, script)
 	} else {
 		_, err = io.WriteString(&sb, script)

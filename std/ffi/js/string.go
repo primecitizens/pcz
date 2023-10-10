@@ -50,21 +50,49 @@ func (s String) Equals(other string) bool {
 	)
 }
 
-func (s String) Prepend(x string) String {
-	bindings.PrependUTF8(
-		s.ref,
-		StringData(x),
-		SizeU(len(x)),
-	)
+func (s String) Prepend(ss ...string) String {
+	if len(ss) != 0 {
+		bindings.PrependUTF8(
+			s.ref,
+			SliceData(ss),
+			SizeU(len(ss)),
+		)
+	}
 	return s
 }
 
-func (s String) Append(x string) String {
-	bindings.AppendUTF8(
-		s.ref,
-		StringData(x),
-		SizeU(len(x)),
-	)
+func (s String) PrependString(take bool, ss ...String) String {
+	if len(ss) != 0 {
+		bindings.PrependString(
+			s.ref,
+			bindings.Ref(Bool(take)),
+			SliceData(ss),
+			SizeU(len(ss)),
+		)
+	}
+	return s
+}
+
+func (s String) Append(ss ...string) String {
+	if len(ss) != 0 {
+		bindings.AppendUTF8(
+			s.ref,
+			SliceData(ss),
+			SizeU(len(ss)),
+		)
+	}
+	return s
+}
+
+func (s String) AppendString(take bool, ss ...String) String {
+	if len(ss) != 0 {
+		bindings.AppendString(
+			s.ref,
+			bindings.Ref(Bool(take)),
+			SliceData(ss),
+			SizeU(len(ss)),
+		)
+	}
 	return s
 }
 

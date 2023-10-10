@@ -1,11 +1,9 @@
-// SPDX-License-Identifier: Apache-2.0
-// Copyright 2023 The Prime Citizens
-
 package main
 
 import (
 	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/core/sys"
+	"github.com/primecitizens/pcz/std/core/yield"
 	"github.com/primecitizens/pcz/std/ffi/js"
 	"github.com/primecitizens/pcz/std/plat/js/web"
 	"github.com/primecitizens/pcz/std/plat/js/webext/runtime"
@@ -18,13 +16,29 @@ import (
 )
 
 var (
-	console web.Console
+	popup         PopupPage
+	serviceWorker ServiceWorker
 
+	console   web.Console
 	startTime int64
 )
 
 func init() {
 	startTime = sysclock.Nanotime()
+
+	comp, ok := sys.Arg(0)
+	if !ok {
+		assert.Throw("unexpected no component name")
+	}
+
+	switch comp {
+	case "service-worker":
+		serviceWorker.Init()
+	case "popup":
+		popup.Init()
+	default:
+		assert.Throw("unknown component name")
+	}
 }
 
 func main() {
@@ -33,18 +47,6 @@ func main() {
 
 	println("Startup Time (ms)", (sysclock.Nanotime()-startTime)/time.Millisecond)
 
-	mode, ok := sys.Arg(0)
-	if !ok {
-		assert.Throw("unexpected no args set")
-	}
-
-	println("mode", mode)
-	switch mode {
-	case "--service-worker":
-		serviceWorker()
-	case "--popup":
-		popup()
-	default:
-		println("unknown mode")
-	}
+	// wait for events
+	yield.Thread()
 }

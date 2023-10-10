@@ -11,28 +11,6 @@ import (
 	"github.com/primecitizens/pcz/std/core/num"
 )
 
-func isSigned[T num.Integer]() bool {
-	x := T(1)
-	x = -x
-	return T(x) < 0
-}
-
-func checkType[T elem]() (elemSz uint32, signed, float bool) {
-	var x T = 1
-	elemSz = uint32(unsafe.Sizeof(x))
-	if x/3 > 0 {
-		return elemSz, true, true
-	}
-
-	x = 1
-	x = -x
-	if T(x) > 0 {
-		return elemSz, false, false
-	}
-
-	return elemSz, true, false
-}
-
 func Must[T any](x T, ok bool) T {
 	if ok {
 		return x

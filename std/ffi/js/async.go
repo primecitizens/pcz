@@ -175,3 +175,14 @@ func (p Promise[T]) Await(take bool) (value T, err Any, fulfilled bool) {
 
 	return value, err.FromRef(ref), false
 }
+
+func (p Promise[T]) MustAwait(take bool) T {
+	val, err, ok := p.Await(take)
+	if !ok {
+		// TODO: log error
+		err.Free()
+		assert.Throw("promise", "not", "fulfilled")
+	}
+
+	return val
+}

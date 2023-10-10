@@ -11,7 +11,7 @@
     Open up your local browser and navigate to `http://localhost:8080`, open console and you can find the output.
 
     > **NOTE**
-    > For build and deployment examples, please see [../10-plat-web/README.md](../10-plat-web/README.md).
+    > For build and deployment examples, please see [../11-plat-web/README.md](../11-plat-web/README.md).
 
 - `wasip1/wasm`
 

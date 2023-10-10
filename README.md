@@ -140,7 +140,7 @@ We would also like to thank everyone adopting Go to make programming in general 
 
 ## LICENSE
 
-WebIDL files copied from the Chromium project is licensed under its [BSD 3-Clause License (LICENSE.chromium)](./LICENSE.chromium).
+WebIDL files copied from the Chromium project are licensed under its [BSD 3-Clause License (LICENSE.chromium)](./LICENSE.chromium).
 
 Code written by Prime Citizens is licensed under the [Apache-2.0 License](./LICENSE):
 

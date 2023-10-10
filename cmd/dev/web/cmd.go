@@ -7,6 +7,7 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
+	"go/build"
 	"net"
 	"net/http"
 	"os"
@@ -21,22 +22,22 @@ import (
 )
 
 func init() {
-	dev.AddEnvironment(&_cmd)
+	dev.AddEnvironment(&webCmd)
 }
 
 var (
-	_serveOpts = ServeOptions{}
-	_cmd       = cli.Cmd{
+	serveFlags = ServeFlags{}
+	webCmd     = cli.Cmd{
 		Pattern:    "web [options] PACKAGE-DIR",
 		BriefUsage: "Development help for web applications (js/wasm)",
-		LocalFlags: cli.NewReflectIndexer(cli.DefaultReflectVPFactory{}, &_serveOpts),
+		LocalFlags: cli.NewReflectIndexer(cli.DefaultReflectVPFactory{}, &serveFlags),
 		Run:        runServe,
 		Extra: &cli.CmdHelp{
-			Example: "Serve the js/wasm app at :8080 and rebuild on file changes:\n\n" +
+			Example: "Serve the app at :8080 and rebuild on source code update:\n\n" +
 				"  $ pcz dev web --port 8080 ./main-pkg\n\n" +
 				"Serve custom wasm blob and bindings:\n\n" +
 				"  $ pcz dev web --port 8080 --wasm ./app.wasm --bindings ./app.js",
-			Extra: &_serveOpts,
+			Extra: &serveFlags,
 		},
 		Children: []*cli.Cmd{
 			js.BindgenCmd(),
@@ -44,29 +45,10 @@ var (
 	}
 )
 
-type ServeOptions struct {
+type ServeFlags struct {
 	WASM     string `cli:"wasm,#set path to a wasm blob (setting this disables automatic rebuild)"`
 	Bindings string `cli:"bindings,#set path to a custom js bindings file (required when --wasm is set)"`
 	HTML     string `cli:"html,#set path to a custom html page template to load bindings and wasm"`
-
-	// bindgen options
-
-	ES         string `cli:"es,def=5,comp=3,comp=5,comp=6,#set ES language target"`
-	ModuleName string `cli:"name,def=bindings,#set module name"`
-
-	// build options
-
-	Debug       bool               `cli:"debug,#debug build process"`
-	NoCache     bool               `cli:"no-cache,#build without cache"`
-	Trimpath    bool               `cli:"trimpath,#remove all file system paths from the resulting executable"`
-	Platform    toolchain.Platform `cli:"p|platform,def=js/wasm,#\"os/arch\" pair"`
-	BuildDir    string             `cli:"build-dir,def=.pcz/build,#set directory to store intermediate build outputs"`
-	EntrySymbol string             `cli:"entry,def=rt0,#set entry symbol name"`
-	Tags        []string           `cli:"t|tag,#go build tags"`
-	Defs        []string           `cli:"X|define,#link-time string value definition of the form importpath.name=value"`
-	ASMFlags    []string           `cli:"A|asmflag,#add flags to go tool asm"`
-	GCFlags     []string           `cli:"G|gcflag,#add flags to go tool compile (not including gccgo)"`
-	LDFlags     []string           `cli:"L|ldflag,#add flags to go tool link"`
 
 	// serve options
 
@@ -76,42 +58,82 @@ type ServeOptions struct {
 	Env       []string `cli:"env,#add environment variables for wasm app in key=value format"`
 	TLSCert   string   `cli:"tls-cert,#set path to a tls cert (pem file)"`
 	TLSKey    string   `cli:"tls-key,#set path to the key to the tls-cert (pem file)"`
+
+	// bindgen options
+
+	ES         string `cli:"es,def=5,comp=5,comp=6,#set ES language when transpiling typescript"`
+	ModuleName string `cli:"module-name,def=bindings,#set module name for generated bindings"`
+
+	// build options
+
+	Debug    bool   `cli:"debug,#debug the wasm build process"`
+	BuildDir string `cli:"build-dir,def=.pcz/build,#set directory to store intermediate build outputs"`
+	NoCache  bool   `cli:"no-cache,#build without cache"`
+	Trimpath bool   `cli:"trimpath,#remove all file system paths from the resulting executable"`
+
+	Defs        []string           `cli:"X|define,#link-time string value definition of the form importpath.name=value"`
+	EntrySymbol string             `cli:"entry,def=rt0,#set entry symbol name"`
+	Platform    toolchain.Platform `cli:"p|platform,def=js/wasm,#\"os/arch\" pair"`
+	Tags        []string           `cli:"t|tag,#add build tags"`
+
+	LDFlags  []string `cli:"L|ldflag,#add flags to go tool link"`
+	GCFlags  []string `cli:"G|gcflag,#add flags to go tool compile (not including gccgo)"`
+	ASMFlags []string `cli:"A|asmflag,#add flags to go tool asm"`
 }
 
-func runServe(copts *cli.CmdOptions, route cli.Route, posArgs, dashArgs []string) (err error) {
-	opts := route.Target().Extra.(*cli.CmdHelp).Extra.(*ServeOptions)
+func runServe(opts *cli.CmdOptions, route cli.Route, posArgs, dashArgs []string) (err error) {
+	flags := &serveFlags
 
-	if len(opts.Bindings) == 0 {
-		if len(opts.WASM) != 0 {
-			return fmt.Errorf("A custom bindings file (js) is required for a custom wasm blob, as pcz cannot figure out how to generate bindings for the custom wasm blob")
+	if len(flags.Bindings) == 0 {
+		if len(flags.WASM) != 0 {
+			return fmt.Errorf(
+				"Please add `--bindings <path>` for `--wasm %q`: "+
+					"pcz cannot generate bindings for custom wasm blob",
+				flags.WASM,
+			)
 		}
 
 		if len(posArgs) != 1 {
-			return fmt.Errorf("expecting exactly one main package as positional arg, got %d", len(posArgs))
+			return fmt.Errorf(
+				"Please set exactly one package dir as positional arg, got %d", len(posArgs),
+			)
 		}
 	}
 
-	cacheDir, err := filepath.Abs(opts.CacheDir)
+	cacheDir, err := filepath.Abs(flags.CacheDir)
 	if err != nil {
 		panic(err)
 	}
 
 	var dw *internal.DepWatcher
-	if len(opts.WASM) == 0 {
-		x := js.BindgenCmd().Extra.(*js.BindgenFlags).BuildOpts
-		x.Platform = opts.Platform
-		x.BuildDir = opts.BuildDir
-		x.EntrySymbol = opts.EntrySymbol
-		x.Tags = opts.Tags
-		x.Defs = opts.Defs
-		x.ASMFlags = opts.ASMFlags
-		x.GCFlags = opts.GCFlags
-		x.LDFlags = opts.LDFlags
-		x.Debug = opts.Debug
-		x.NoCache = opts.NoCache
-		x.Trimpath = opts.Trimpath
-
-		tc := toolchain.NewToolchain(&x)
+	if len(flags.WASM) == 0 {
+		tc := toolchain.NewToolchain(&toolchain.Options{
+			Context: &build.Context{
+				GOARCH:        "wasm",
+				GOOS:          "js",
+				GOROOT:        toolchain.Context.GOROOT,
+				GOPATH:        toolchain.Context.GOPATH,
+				Dir:           toolchain.Context.Dir,
+				CgoEnabled:    toolchain.Context.CgoEnabled,
+				UseAllFiles:   toolchain.Context.UseAllFiles,
+				Compiler:      toolchain.Context.Compiler,
+				BuildTags:     toolchain.Context.BuildTags,
+				ToolTags:      toolchain.Context.ToolTags,
+				ReleaseTags:   toolchain.Context.ReleaseTags,
+				InstallSuffix: toolchain.Context.InstallSuffix,
+			},
+			Debug:       flags.Debug,
+			BuildDir:    flags.BuildDir,
+			NoCache:     flags.NoCache,
+			Trimpath:    flags.Trimpath,
+			Defs:        flags.Defs,
+			EntrySymbol: flags.EntrySymbol,
+			Platform:    flags.Platform,
+			Tags:        flags.Tags,
+			LDFlags:     flags.LDFlags,
+			GCFlags:     flags.GCFlags,
+			ASMFlags:    flags.ASMFlags,
+		})
 
 		pkgs, err := tc.List(posArgs[0])
 		if err != nil {
@@ -124,14 +146,14 @@ func runServe(copts *cli.CmdOptions, route cli.Route, posArgs, dashArgs []string
 	stopSig := make(chan struct{})
 	updateCh := make(chan resourceUpdate, 1)
 	ctx := &serveContext{
-		stderr: copts.PickStderr(os.Stderr),
+		stderr: opts.PickStderr(os.Stderr),
 		stop:   stopSig,
 		update: updateCh,
 	}
 
 	l, err := net.ListenTCP("tcp", &net.TCPAddr{
 		IP:   net.IPv6loopback,
-		Port: int(opts.Port),
+		Port: int(flags.Port),
 		Zone: "",
 	})
 	if err != nil {
@@ -146,23 +168,23 @@ func runServe(copts *cli.CmdOptions, route cli.Route, posArgs, dashArgs []string
 
 	tdCh := make(chan *TemplateData, 1)
 
-	go ctx.routineHTML(opts.HTML, tdCh, cacheDir)
-	go ctx.routineWASM(opts.WASM, dw, cacheDir, js.BindgenOptions{
-		Mode:          "umd",
-		ES:            opts.ES,
-		ModuleName:    opts.ModuleName,
+	go ctx.routineHTML(flags.HTML, tdCh, cacheDir)
+	go ctx.routineWASM(flags.WASM, dw, cacheDir, js.BindgenSpec{
+		ModuleSystem:  "umd",
+		ES:            flags.ES,
+		ModuleName:    flags.ModuleName,
 		CustomWrapper: "", // no customization
 	})
-	if len(opts.Bindings) != 0 {
-		go ctx.routineCustomBindings(opts.Bindings)
+	if len(flags.Bindings) != 0 {
+		go ctx.routineCustomBindings(flags.Bindings)
 	}
 
 	tdCh <- &TemplateData{
-		OS:         opts.Platform.OS(),
-		ModuleName: opts.ModuleName,
-		ManualRun:  opts.ManualRun,
+		OS:         flags.Platform.OS(),
+		ModuleName: flags.ModuleName,
+		ManualRun:  flags.ManualRun,
 		Args:       dashArgs,
-		Environ:    opts.Env,
+		Environ:    flags.Env,
 	}
 
 	res := &serveResouces{}
@@ -170,7 +192,7 @@ func runServe(copts *cli.CmdOptions, route cli.Route, posArgs, dashArgs []string
 	go func() {
 		for upd := range updateCh {
 			res.Update(upd)
-			ctx.Stderr("%s updated\n", upd.Kind)
+			ctx.Stderr("[%s] updated\n", upd.Kind)
 		}
 	}()
 
@@ -198,7 +220,7 @@ func runServe(copts *cli.CmdOptions, route cli.Route, posArgs, dashArgs []string
 		}),
 	}
 
-	tls := len(opts.TLSCert) != 0
+	tls := len(flags.TLSCert) != 0
 	schema := "http"
 	if tls {
 		schema = "https"
@@ -207,7 +229,7 @@ func runServe(copts *cli.CmdOptions, route cli.Route, posArgs, dashArgs []string
 	ctx.Stderr("serving at %s://%s\n", schema, l.Addr().String())
 
 	if tls {
-		err = srv.ServeTLS(l, opts.TLSCert, opts.TLSKey)
+		err = srv.ServeTLS(l, flags.TLSCert, flags.TLSKey)
 	} else {
 		err = srv.Serve(l)
 	}

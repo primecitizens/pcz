@@ -21,7 +21,7 @@ type Options struct {
 	EnableASan bool   // `cli:"asan,#enable address san interface"`
 	EnableRace bool   // `cli:"race,#enable race detector"`
 	NoCache    bool   `cli:"no-cache,#build without cache"`
-	Trimpath   bool   `cli:"trimpath,#remove all file system paths from the resulting executable"`
+	Trimpath   bool   `cli:"trimpath,#remove all filesystem paths from the resulting executable"`
 
 	Defs        []string `cli:"X|define,#link-time string value definition of the form importpath.name=value"`
 	EntrySymbol string   `cli:"entry,def=rt0,#set entry symbol name"`

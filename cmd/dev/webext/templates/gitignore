@@ -1,0 +1,14 @@
+# temporary build dir
+.pcz
+
+# wasm related files
+bindings.js
+*.wasm
+
+# embedding of wasm for synchronous loading
+embed.js
+
+# packed output
+*.zip
+*.crx
+*.xpi

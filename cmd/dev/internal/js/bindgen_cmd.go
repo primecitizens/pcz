@@ -8,8 +8,6 @@ import (
 	"go/build"
 	"io"
 	"os"
-	"path/filepath"
-	"strings"
 	"unsafe"
 
 	"github.com/evanw/esbuild/pkg/api"
@@ -47,9 +45,9 @@ var (
 			EntrySymbol: "rt0",
 			Platform:    "js/wasm",
 		},
-		OutputFile:     "",
+		Output:         "",
 		CustomTemplate: "",
-		Mode:           "umd",
+		ModuleSystem:   "umd",
 		ES:             "5",
 		ModuleName:     "bindings",
 		Platform:       "js/wasm",
@@ -67,15 +65,20 @@ var (
 type BindgenFlags struct {
 	BuildOpts toolchain.Options
 
-	WASM           string             `cli:"wasm,#path to the wasm blob"`
-	OutputFile     string             `cli:"o|output,#set file path to write the generated output, if not set, write generated bindings to stdout"`
-	Mode           string             `cli:"m|mode,def=raw,comp=raw,comp=cjs,comp=amd,comp=umd,#set target module system to transpile typescript"`
-	Minify         bool               `cli:"minify,#write minified code and source map along with the bindgen output file"`
-	Platform       toolchain.Platform `cli:"p|platform,def=js/wasm,#set os/arch pair"`
-	Tags           []string           `cli:"t|tag,#go build tags"`
-	CustomTemplate string             `cli:"T|template,#set path to a custom bindgen template file"`
-	ES             string             `cli:"es,def=5,comp=3,comp=5,comp=6,#set ES language when transpiling typescript"`
-	ModuleName     string             `cli:"n|name,def=bindings,#set module name for generated bindings"`
+	WASM string `cli:"wasm,#path to the wasm blob, required to select module import for bindings"`
+
+	Output string `cli:"o|output,#set file path to write the generated output, if not set, write generated bindings to stdout"`
+
+	ES             string `cli:"es,def=5,comp=5,comp=6,#set ES language when transpiling typescript"`
+	ModuleName     string `cli:"module-name,def=bindings,#set module name for generated bindings"`
+	ModuleSystem   string `cli:"module-system,def=raw,comp=raw,comp=cjs,comp=amd,comp=umd,#set target module system when transpiling typescript, use \"raw\" to write raw typescript"`
+	Minify         bool   `cli:"minify,#write minified code and source map along with the bindgen output file"`
+	CustomTemplate string `cli:"T|template,#set path to a custom bindgen template file"`
+
+	// build options
+
+	Platform toolchain.Platform `cli:"p|platform,def=js/wasm,#set os/arch pair used when building the wasm"`
+	Tags     []string           `cli:"t|tag,#set go build tags used when building the wasm"`
 }
 
 func runBindgen(opts *cli.CmdOptions, route cli.Route, posArgs, dashArgs []string) (err error) {
@@ -84,8 +87,8 @@ func runBindgen(opts *cli.CmdOptions, route cli.Route, posArgs, dashArgs []strin
 		panic(fmt.Errorf("expecting exactly one positional arg for main package (got %d)", len(posArgs)))
 	}
 
-	spec := BindgenOptions{
-		Mode:          flags.Mode,
+	spec := BindgenSpec{
+		ModuleSystem:  flags.ModuleSystem,
 		ES:            flags.ES,
 		ModuleName:    flags.ModuleName,
 		CustomWrapper: "",  // see below
@@ -124,7 +127,7 @@ func runBindgen(opts *cli.CmdOptions, route cli.Route, posArgs, dashArgs []strin
 		panic(err)
 	}
 
-	outputFile := flags.OutputFile
+	outputFile := flags.Output
 	err = fsutils.WriteToFileOrStdout(opts, outputFile, func(w io.Writer) error {
 		_, err := w.Write(unsafe.Slice(unsafe.StringData(code), len(code)))
 		return err
@@ -135,14 +138,14 @@ func runBindgen(opts *cli.CmdOptions, route cli.Route, posArgs, dashArgs []strin
 
 	if flags.Minify {
 		var discardSourceMap bool
-		switch spec.Mode {
+		switch spec.ModuleSystem {
 		case "raw", "":
 			discardSourceMap = true
 			if len(spec.ModuleName) == 0 {
 				spec.ModuleName = "bindings" // ensure there is a module name
 			}
 
-			spec.Mode = "umd"
+			spec.ModuleSystem = "umd"
 			code, err = transpileTS(code, spec)
 			if err != nil {
 				panic(err)
@@ -160,11 +163,18 @@ func runBindgen(opts *cli.CmdOptions, route cli.Route, posArgs, dashArgs []strin
 
 		var minifiedFile, sourceMapFile string
 		if len(outputFile) > 0 {
-			name := filepath.Base(outputFile)
-			i := strings.LastIndexByte(name, '.')
-			if i >= 0 {
-				outputFile = outputFile[:len(outputFile)-len(name)+i]
-			}
+			// TODO: currently we produce file path for minified js by
+			//       appending ".min.js" to the output file path directly
+			//       for clear documentation purpose.
+			//
+			//       we should decide whether to add flags for minified output or
+			//       derive the minified file path using following code.
+
+			// name := filepath.Base(outputFile)
+			// i := strings.LastIndexByte(name, '.')
+			// if i >= 0 {
+			// 	outputFile = outputFile[:len(outputFile)-len(name)+i]
+			// }
 
 			minifiedFile = outputFile + ".min.js"
 			sourceMapFile = minifiedFile + ".map"

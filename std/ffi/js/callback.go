@@ -124,13 +124,8 @@ func (ctx *CallbackContext) ReturnString(s string) bool {
 	)
 }
 
-// handleCallback called from wasm_export_run.
-//
-// NOTE: When inserting code after `callDispatcher` and `DONE`
-// also update the LR update code pointing to this function
-// inside callDispatcher (asm implementation).
-func handleCallback(ref bindings.Ref) {
-	const validOffsets = true &&
+func init() {
+	const offsetsOK = true &&
 		unsafe.Offsetof(CallbackContext{}.dispFnPC) == 0 &&
 		unsafe.Offsetof(CallbackContext{}.handler) == 4 &&
 		unsafe.Offsetof(CallbackContext{}.targetPC) == 8 &&
@@ -139,10 +134,17 @@ func handleCallback(ref bindings.Ref) {
 		unsafe.Offsetof(CallbackContext{}.nargs) == 20 &&
 		unsafe.Offsetof(CallbackContext{}.args) == 24
 
-	if !validOffsets {
-		assert.Throw("unexpected", "invalid", "callback", "context", "field", "offsets")
+	if !offsetsOK {
+		assert.Throw("invalid", "field", "offsets")
 	}
+}
 
+// handleCallback called from wasm_export_run.
+//
+// NOTE: When inserting code after `callDispatcher` and `DONE`
+// also update the LR update code pointing to this function
+// inside callDispatcher (asm implementation).
+func handleCallback(ref bindings.Ref) {
 	var cb CallbackContext
 
 	// defensive, to ensure js side sets nargs.

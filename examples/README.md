@@ -7,8 +7,9 @@ All examples assume the current working dir is at root of the `pcz` repository.
 
 ## Basic Examples
 
-- [hello](./00-basic-hello/)
+- [Hello](./00-basic-hello)
 
 ## Platform Specific Examples
 
-- [web](./10-plat-web/)
+- [Web](./11-plat-web)
+- [WebExtension](./11-plat-webext)

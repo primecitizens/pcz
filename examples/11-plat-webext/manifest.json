@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Example Go WebExtension",
+  "description": "Simple WebExtension in Go built with pcz",
+  "homepage_url": "https://github.com/primecitizens/pcz/tree/master/examples/11-plat-webext",
+  "version": "0.1.0",
+  "permissions": ["tabs", "bookmarks", "contextMenus"],
+  "content_security_policy": {
+    "extension_pages": "default-src 'self' 'wasm-unsafe-eval'"
+  },
+  "background": {
+    "service_worker": "service_worker.js"
+  },
+  "action": {
+    "default_title": "List Bookmarks",
+    "default_popup": "popup.html"
+  }
+}

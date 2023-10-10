@@ -6,6 +6,7 @@ package js
 import (
 	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/core/math"
+	"github.com/primecitizens/pcz/std/core/num"
 	"github.com/primecitizens/pcz/std/ffi/js/array"
 	"github.com/primecitizens/pcz/std/ffi/js/bindings"
 )
@@ -332,11 +333,11 @@ func NewTypedArray[T elem](sz int) TypedArray[T] {
 		assert.Throw("array", "size", "too", "large")
 	}
 
-	elemSz, signed, float := checkType[T]()
+	elemSz, signed, float := num.CheckType[T]()
 	return TypedArray[T]{
 		ref: array.New(
 			SizeU(sz),
-			elemSz,
+			SizeU(elemSz),
 			bindings.Ref(Bool(signed)),
 			bindings.Ref(Bool(float)),
 		),
@@ -371,12 +372,12 @@ func (a TypedArray[T]) Free() {
 }
 
 func (a TypedArray[T]) FromArrayBuffer(take bool, buf ArrayBuffer) TypedArray[T] {
-	elemSz, signed, float := checkType[T]()
+	elemSz, signed, float := num.CheckType[T]()
 	return TypedArray[T]{
 		ref: array.FromBuffer(
 			bindings.Ref(Bool(take)),
 			buf.ref,
-			elemSz,
+			SizeU(elemSz),
 			bindings.Ref(Bool(signed)),
 			bindings.Ref(Bool(float)),
 		),
@@ -384,12 +385,12 @@ func (a TypedArray[T]) FromArrayBuffer(take bool, buf ArrayBuffer) TypedArray[T]
 }
 
 func (a TypedArray[T]) FromSharedArrayBuffer(take bool, buf SharedArrayBuffer) TypedArray[T] {
-	elemSz, signed, float := checkType[T]()
+	elemSz, signed, float := num.CheckType[T]()
 	return TypedArray[T]{
 		ref: array.FromBuffer(
 			bindings.Ref(Bool(take)),
 			buf.ref,
-			elemSz,
+			SizeU(elemSz),
 			bindings.Ref(Bool(signed)),
 			bindings.Ref(Bool(float)),
 		),
@@ -430,10 +431,10 @@ func (a TypedArray[T]) SliceFrom(start int) TypedArray[T] {
 
 func (a TypedArray[T]) Nth(i int) (T, bool) {
 	var out T
-	elemSz, signed, float := checkType[T]()
+	elemSz, signed, float := num.CheckType[T]()
 	if bindings.Ref(True) == array.Nth(
 		a.ref,
-		elemSz,
+		SizeU(elemSz),
 		bindings.Ref(Bool(signed)),
 		bindings.Ref(Bool(float)),
 		SizeU(i),
@@ -446,10 +447,10 @@ func (a TypedArray[T]) Nth(i int) (T, bool) {
 }
 
 func (a TypedArray[T]) SetNth(i int, val T) bool {
-	elemSz, signed, float := checkType[T]()
+	elemSz, signed, float := num.CheckType[T]()
 	return bindings.Ref(True) == array.SetNth(
 		a.ref,
-		elemSz,
+		SizeU(elemSz),
 		bindings.Ref(Bool(signed)),
 		bindings.Ref(Bool(float)),
 		SizeU(i),
@@ -459,12 +460,12 @@ func (a TypedArray[T]) SetNth(i int, val T) bool {
 }
 
 func (a TypedArray[T]) Fill(start int, elems ...T) int {
-	elemSz, signed, float := checkType[T]()
+	elemSz, signed, float := num.CheckType[T]()
 	return int(
 		array.Append(
 			a.ref,
 			bindings.Ref(False), // take (nop for typed array)
-			elemSz,
+			SizeU(elemSz),
 			bindings.Ref(Bool(signed)),
 			bindings.Ref(Bool(float)),
 			SizeU(start),
@@ -488,11 +489,11 @@ func (a TypedArray[T]) Set(other TypedArray[T]) TypedArray[T] {
 }
 
 func (a TypedArray[T]) Copy(start int, outBuf []T) int {
-	elemSz, signed, float := checkType[T]()
+	elemSz, signed, float := num.CheckType[T]()
 	return int(
 		array.Copy(
 			a.ref,
-			elemSz,
+			SizeU(elemSz),
 			bindings.Ref(Bool(signed)),
 			bindings.Ref(Bool(float)),
 			SizeU(start),

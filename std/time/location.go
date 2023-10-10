@@ -3,9 +3,5 @@
 
 package time
 
-type Time struct {
-	Sec  int64
-	NSec int32
-
-	Loc *Location
+type Location struct {
 }

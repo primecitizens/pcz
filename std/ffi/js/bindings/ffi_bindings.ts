@@ -79,11 +79,99 @@ importModule("ffi/js", (A: Application): Record<string, Function> => {
     "decodeUTF8": (ptr: number, len: number): heap.Ref<string> => {
       return A.H.push(A.load.String(ptr, len));
     },
-    "appendUTF8": (s: heap.Ref<string>, ptr: number, len: number): heap.Ref<string> => {
-      return A.H.replace(s, A.H.get<string>(s) + A.load.String(ptr, len));
+    "appendUTF8": (s: heap.Ref<string>, strArr: number, count: number): heap.Ref<string> => {
+      if (count === 0) {
+        return s;
+      }
+
+      const orig = A.H.get<string>(s);
+      if (count > 1) {
+        count++;
+        const buf = new Array<string>(count);
+        buf[0] = orig;
+        for (let i = 1; i < count; i++) {
+          const ptr = A.load.Uint64(strArr);
+          const len = A.load.Uint64(strArr + 8);
+          strArr += 16;
+          buf[i] = A.load.String(ptr, len);
+        }
+
+        return A.H.replace(s, buf.join(""));
+      } else {
+        return A.H.replace(s, orig + A.load.String(A.load.Uint64(strArr), A.load.Uint64(strArr + 8)));
+      }
     },
-    "prependUTF8": (s: heap.Ref<string>, ptr: number, len: number): heap.Ref<string> => {
-      return A.H.replace(s, A.load.String(ptr, len) + A.H.get<string>(s));
+    "appendString": (
+      s: heap.Ref<string>,
+      take_: heap.Ref<boolean>,
+      strArr: number,
+      count: number
+    ): heap.Ref<string> => {
+      if (count === 0) {
+        return s;
+      }
+
+      const take = take_ === A.H.TRUE;
+      const orig = A.H.get<string>(s);
+      if (count > 1) {
+        count += 1;
+        const buf = new Array<string>(count);
+        buf[0] = orig;
+        for (let i = 1; i < count; i++) {
+          buf[i] = A.load.Ref<string>(strArr, "", take);
+          strArr += 4;
+        }
+
+        return A.H.replace(s, buf.join(""));
+      } else {
+        return A.H.replace(s, A.load.Ref<string>(strArr, "", take) + orig);
+      }
+    },
+    "prependUTF8": (s: heap.Ref<string>, strArr: number, count: number): heap.Ref<string> => {
+      if (count === 0) {
+        return s;
+      }
+
+      const orig = A.H.get<string>(s);
+      if (count > 1) {
+        const buf = new Array<string>(count + 1);
+        buf[count] = orig;
+        for (let i = 0; i < count; i++) {
+          const ptr = A.load.Uint64(strArr);
+          const len = A.load.Uint64(strArr + 8);
+          strArr += 16;
+          buf[i] = A.load.String(ptr, len);
+        }
+
+        return A.H.replace(s, buf.join(""));
+      } else {
+        return A.H.replace(s, A.load.String(A.load.Uint64(strArr), A.load.Uint64(strArr + 8)) + orig);
+      }
+    },
+    "prependString": (
+      s: heap.Ref<string>,
+      take_: heap.Ref<boolean>,
+      strArr: number,
+      count: number
+    ): heap.Ref<string> => {
+      if (count === 0) {
+        return s;
+      }
+
+      const take = take_ === A.H.TRUE;
+      const orig = A.H.get<string>(s);
+      if (count > 1) {
+        const buf = new Array<string>(count + 1);
+        buf[count] = orig;
+        for (let i = 0; i < count; i++) {
+          buf[i] = A.load.Ref<string>(strArr, "", take);
+          strArr += 4;
+        }
+
+        return A.H.replace(s, buf.join(""));
+      } else {
+        return A.H.replace(s, A.load.Ref<string>(strArr, "", take) + orig);
+      }
     },
     "equalsUTF8": (s: heap.Ref<string>, ptr: number, len: number): heap.Ref<boolean> => {
       return A.load.String(ptr, len) === A.H.get<string>(s) ? A.H.TRUE : A.H.FALSE;

@@ -187,16 +187,48 @@ export interface AppOptions {
 }
 
 export class Application {
-  public async loadStream(src: Promise<Response>): Promise<WebAssembly.WebAssemblyInstantiatedSource> {
-    let init = WebAssembly.instantiateStreaming;
-    if (!init) {
-      init = async (resp: Response | PromiseLike<Response>, importObject: any) => {
+  // init instantiates the wasm asynchronously.
+  //
+  // @param src is a Promise<Response>, normally returned by a fetch() call.
+  public async init(src: Promise<Response>): Promise<WebAssembly.WebAssemblyInstantiatedSource> {
+    let fn = WebAssembly.instantiateStreaming;
+    if (!fn) {
+      fn = async (resp: Response | PromiseLike<Response>, importObject: any) => {
         const source = await (await resp).arrayBuffer();
         return await WebAssembly.instantiate(source, importObject);
       };
     }
 
-    return await init(src, this.importObject);
+    return await fn(src, this.importObject);
+  }
+
+  // initSync instantiates the wasm blob synchronously.
+  //
+  // @param src is the wasm blob, whose type should be one of:
+  //   - BufferSource
+  //   - base64 encoded string
+  //   - data url string (with content base64 encoded)
+  public initSync(src: BufferSource | string): WebAssembly.WebAssemblyInstantiatedSource {
+    if (typeof src === "string") {
+      if (src.startsWith("data:")) {
+        // data url format is like `data:application/wasm,<base64 encoded string>`
+        src = src.substring(src.indexOf(","));
+      }
+
+      src = atob(src);
+      const buf = new Uint8Array(src.length);
+      for (let i = 0; i < buf.length; i++) {
+        buf[i] = src.charCodeAt(i);
+      }
+
+      src = buf.buffer;
+    }
+
+    const mod = new WebAssembly.Module(src);
+    return {
+      instance: new WebAssembly.Instance(mod, this.importObject),
+      module: mod,
+    };
   }
 
   private _runid: number = 0;
@@ -247,7 +279,7 @@ export class Application {
   //   return this._wasm.inst.exports.mem as WebAssembly.Memory;
   // }
 
-  public async run(inst: WebAssembly.Instance): Promise<number> {
+  public run(inst: WebAssembly.Instance): Promise<number> {
     if (!this._exited) {
       throw new Error("Concurrent run() is not supported, create multiple Applications instead.");
     }
@@ -256,9 +288,13 @@ export class Application {
     this._exited = false;
     this._exitPromise = new Promise((resolve) => {
       this._exitResolveFn = resolve;
-      // this._resolveExitPromise = () => {
-      //   resolve(this._exitcode);
-      // };
+    }).then((code: number): number => {
+      this.H.reset();
+      for (let i = 0; i < this.importedModules.length; i++) {
+        this.importedModules[i][1]?.["_onexit"]?.(code);
+      }
+
+      return code;
     });
 
     this._wasm = {
@@ -280,13 +316,7 @@ export class Application {
       this.resolveExitPromise();
     }
 
-    const exitCode = await this._exitPromise;
-
-    this.H.reset();
-    for (let i = 0; i < this.importedModules.length; i++) {
-      this.importedModules[i][1]?.["_onexit"]?.(exitCode);
-    }
-    return exitCode;
+    return this._exitPromise;
   }
 
   private view: DataView;
@@ -361,11 +391,11 @@ export class Application {
       return this.UTF8dec.decode(this.view.buffer.slice(pByte, pByte + len));
     },
 
-    Ref: (pU32: Pointer, def?: any, take?: boolean): any => {
+    Ref: <T = any>(pU32: Pointer, def?: T, take?: boolean): T => {
       const ref = this.view.getUint32(pU32 >>> 0, true);
       if (ref === UNDEFINED) return def;
 
-      return take ? this.H.take<any>(ref) : this.H.get<any>(ref);
+      return take ? this.H.take<T>(ref) : this.H.get<T>(ref);
     },
     Enum: (pU32: Pointer, enums: string[]): string | undefined => {
       const x = this.view.getUint32(pU32 >>> 0, true);
@@ -458,7 +488,7 @@ export class Application {
       this.view.setFloat64(pF64 >>> 0, val, true);
     },
 
-    Ref: (pU32: Pointer, val: any): void => {
+    Ref: <T = any>(pU32: Pointer, val: T): void => {
       this.view.setUint32(pU32 >>> 0, this.H.push(val), true);
     },
     Enum: (pU32: Pointer, index: number): void => {
